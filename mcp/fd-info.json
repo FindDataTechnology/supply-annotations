@@ -1,0 +1,204 @@
+{
+ "version": 1,
+ "server": "fd-info",
+ "annotation": {
+  "human": {
+   "zh": {
+    "name": "信息流索引",
+    "summary": "公告、政务与互动平台的信息流索引：按时间取新、条目详情、全文检索与证据定位。",
+    "whenToUse": "盯某类信息的最新动态、或要定位原文出处时。"
+   },
+   "en": {
+    "name": "Info stream index",
+    "summary": "An index of announcements, government updates, and investor-interaction feeds: fetch new items, read details, search, and locate evidence.",
+    "whenToUse": "To watch for new items in a category or trace a claim back to its source."
+   },
+   "ja": {
+    "name": "情報ストリーム索引",
+    "summary": "公告・行政情報・投資家向け対話のフィードを索引化し、新着取得、詳細閲覧、全文検索、根拠の特定を提供します。",
+    "whenToUse": "特定カテゴリの新着を監視するとき、または記述の出所を特定するとき。"
+   },
+   "es": {
+    "name": "Índice de flujo informativo",
+    "summary": "Índice de anuncios, novedades oficiales e interacciones con inversores: novedades, detalle, búsqueda y localización de evidencia.",
+    "whenToUse": "Para vigilar novedades de una categoría o rastrear una afirmación hasta su fuente."
+   },
+   "fr": {
+    "name": "Index de flux d'information",
+    "summary": "Index des annonces, actualités officielles et échanges avec les investisseurs : nouveautés, détail, recherche et localisation de preuve.",
+    "whenToUse": "Pour surveiller les nouveautés d'une catégorie ou retrouver la source d'une affirmation."
+   }
+  },
+  "canonical": {
+   "brief": "Info-stream MCP: list_since/get_item/search_info/locate_evidence/stream_health over announcement, government, and interaction feeds."
+  },
+  "tools": {
+   "get_body": {
+    "human": {
+     "zh": {
+      "name": "取条目正文",
+      "summary": "按 doc_id 取回条目全文，只读；正文缺失时返回结构化错误而不是空字符串。"
+     },
+     "en": {
+      "name": "Get item body",
+      "summary": "Returns an item's full text by doc_id as a read-only lookup; a missing body yields a structured error rather than an empty string."
+     },
+     "ja": {
+      "name": "本文を取得",
+      "summary": "doc_id で項目の全文を取得します（読み取り専用）。本文が無い場合は空文字ではなく構造化されたエラーを返します。"
+     },
+     "es": {
+      "name": "Obtener el cuerpo del ítem",
+      "summary": "Devuelve el texto completo de un ítem por doc_id en modo solo lectura; si falta el cuerpo informa un error estructurado en vez de una cadena vacía."
+     },
+     "fr": {
+      "name": "Obtenir le corps de l'élément",
+      "summary": "Renvoie le texte intégral d'un élément par doc_id en lecture seule ; si le corps manque, une erreur structurée est renvoyée plutôt qu'une chaîne vide."
+     }
+    },
+    "canonical": {
+     "brief": "Returns an item's full text by doc_id for service-to-service use; a missing body is reported as a structured error, never as an empty string."
+    }
+   },
+   "get_item": {
+    "human": {
+     "zh": {
+      "name": "取条目详情",
+      "summary": "取条目详情，返回 doc_id、正文状态与原文链接。"
+     },
+     "en": {
+      "name": "Get item detail",
+      "summary": "Returns one item's detail: doc_id, body-text status, and the link to the original source."
+     },
+     "ja": {
+      "name": "項目の詳細取得",
+      "summary": "情報項目の詳細を返します。doc_id、本文の状態、原典へのリンクを含みます。"
+     },
+     "es": {
+      "name": "Ver detalle del elemento",
+      "summary": "Devuelve el detalle de un elemento: doc_id, estado del texto completo y enlace a la fuente original."
+     },
+     "fr": {
+      "name": "Obtenir le détail",
+      "summary": "Renvoie le détail d'un élément : doc_id, état du texte intégral et lien vers la source d'origine."
+     }
+    },
+    "canonical": {
+     "brief": "Returns one item's detail: doc_id, body-text status, and the source URL."
+    }
+   },
+   "list_since": {
+    "human": {
+     "zh": {
+      "name": "按时间列条目",
+      "summary": "按发布时间倒序列出信息条目；把上一页返回的 next_cursor 作为游标继续翻页。"
+     },
+     "en": {
+      "name": "List items by time",
+      "summary": "Lists info items newest first by publish time; pass the next_cursor from the previous page as the cursor to continue."
+     },
+     "ja": {
+      "name": "項目を時系列で一覧",
+      "summary": "公開時刻の新しい順に情報項目を一覧します。前のページが返す next_cursor をカーソルに指定して続きを取得します。"
+     },
+     "es": {
+      "name": "Listar elementos por fecha",
+      "summary": "Lista los elementos del flujo del más reciente al más antiguo por fecha de publicación; usa el next_cursor de la página anterior como cursor para seguir."
+     },
+     "fr": {
+      "name": "Lister par date",
+      "summary": "Liste les éléments du flux du plus récent au plus ancien par date de publication ; le next_cursor de la page précédente sert de curseur pour continuer."
+     }
+    },
+    "canonical": {
+     "brief": "Lists info items newest first by publish time; the next_cursor of the previous page is the cursor for the next call."
+    }
+   },
+   "locate_evidence": {
+    "human": {
+     "zh": {
+      "name": "定位正文片段",
+      "summary": "按正文区间取逐字片段；正文缺失或区间越界时返回结构化错误。"
+     },
+     "en": {
+      "name": "Locate body span",
+      "summary": "Returns a verbatim excerpt for a body-text range; missing body text or an out-of-range span gives a structured error."
+     },
+     "ja": {
+      "name": "本文箇所を特定",
+      "summary": "本文の範囲を指定して逐語の抜粋を返します。本文がない場合や範囲外のときは構造化されたエラーを返します。"
+     },
+     "es": {
+      "name": "Ubicar pasaje del texto",
+      "summary": "Devuelve un fragmento literal de un rango del texto completo; si falta el texto o el rango se sale, devuelve un error estructurado."
+     },
+     "fr": {
+      "name": "Localiser le passage",
+      "summary": "Renvoie un extrait mot pour mot d'une plage du texte intégral ; texte absent ou plage hors bornes donnent une erreur structurée."
+     }
+    },
+    "canonical": {
+     "brief": "Returns a verbatim excerpt for a body-text range; missing body text or an out-of-range span returns a structured error."
+    }
+   },
+   "search_info": {
+    "human": {
+     "zh": {
+      "name": "检索信息条目",
+      "summary": "检索信息条目；返回的 mode 字段说明本次走语义检索还是索引检索。"
+     },
+     "en": {
+      "name": "Search info items",
+      "summary": "Searches info items; the returned mode field says whether semantic or index retrieval was used."
+     },
+     "ja": {
+      "name": "情報項目を検索",
+      "summary": "情報項目を検索します。返却される mode フィールドで、意味検索か索引検索かの別が分かります。"
+     },
+     "es": {
+      "name": "Buscar elementos del flujo",
+      "summary": "Busca elementos del flujo; el campo mode devuelto indica si se usó recuperación semántica o por índice."
+     },
+     "fr": {
+      "name": "Chercher dans le flux",
+      "summary": "Recherche des éléments du flux ; le champ mode renvoyé indique une recherche sémantique ou par index."
+     }
+    },
+    "canonical": {
+     "brief": "Searches info items; the returned mode field states whether semantic or index retrieval was used."
+    }
+   },
+   "stream_health": {
+    "human": {
+     "zh": {
+      "name": "查来源水位",
+      "summary": "返回各来源的水位、最近成功时间、入库延迟 p95 与失败计数。"
+     },
+     "en": {
+      "name": "Check source health",
+      "summary": "Returns per-source watermark, last success time, ingestion-latency p95, and failure counts."
+     },
+     "ja": {
+      "name": "供給元の状態確認",
+      "summary": "供給元ごとのウォーターマーク、最終成功時刻、取り込み遅延の p95、失敗件数を返します。"
+     },
+     "es": {
+      "name": "Ver estado de fuentes",
+      "summary": "Devuelve por fuente el punto de avance, la última hora de éxito, el p95 de latencia de ingesta y el conteo de fallos."
+     },
+     "fr": {
+      "name": "Vérifier l'état des sources",
+      "summary": "Renvoie par source le point d'avancement, la dernière heure de succès, le p95 de latence d'ingestion et le nombre d'échecs."
+     }
+    },
+    "canonical": {
+     "brief": "Returns per-source watermark, last success time, ingestion-latency p95, and failure counts."
+    }
+   }
+  },
+  "provenance": {
+   "source": "finddata-supply-annotations",
+   "updatedAt": "2026-11-02"
+  }
+ }
+}

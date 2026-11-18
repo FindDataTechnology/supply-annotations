@@ -1,0 +1,625 @@
+{
+  "tools": {
+    "alerts_list_series": {
+      "human": {
+        "zh": {
+          "name": "列出监控序列",
+          "summary": "从观测表与 scraw 表中取「数据源、函数名、指标」的去重组合，每条返回行数与最新日期，用于圈定告警范围。"
+        },
+        "en": {
+          "name": "List alert series",
+          "summary": "Lists distinct source, function and indicator combinations from observation and scraw tables, each with a row count and latest date, for scoping alerts."
+        },
+        "ja": {
+          "name": "監視系列を一覧",
+          "summary": "観測テーブルと scraw テーブルからデータソース・関数名・指標の重複なしの組み合わせを取り、行数と最新日付を付けて返す。監視対象の絞り込み用。"
+        },
+        "es": {
+          "name": "Listar series de alerta",
+          "summary": "Enumera combinaciones únicas de fuente, función e indicador de las tablas de observación y scraw, con recuento de filas y fecha más reciente, para acotar alertas."
+        },
+        "fr": {
+          "name": "Lister les séries d'alerte",
+          "summary": "Liste les combinaisons uniques source, fonction et indicateur des tables d'observation et scraw, avec nombre de lignes et date la plus récente, pour cadrer les alertes."
+        }
+      },
+      "canonical": {
+        "brief": "Distinct (source, function_name, indicator) tuples from observations + scraw_* tables with row count and latest date; alert-scoped discovery, not a SQL browser."
+      }
+    },
+    "alerts_get_series_latest": {
+      "human": {
+        "zh": {
+          "name": "读取序列最新值",
+          "summary": "按日期列倒序返回某条序列最新的 limit 行。"
+        },
+        "en": {
+          "name": "Read latest rows",
+          "summary": "Returns the latest limit rows of one series, ordered by the date column descending."
+        },
+        "ja": {
+          "name": "系列の最新値を取得",
+          "summary": "指定した系列の最新 limit 行を日付列の降順で返す。"
+        },
+        "es": {
+          "name": "Leer últimas filas",
+          "summary": "Devuelve las últimas limit filas de una serie, ordenadas por la columna de fecha de forma descendente."
+        },
+        "fr": {
+          "name": "Lire les dernières lignes",
+          "summary": "Renvoie les dernières limit lignes d'une série, triées par la colonne de date en ordre décroissant."
+        }
+      },
+      "canonical": {
+        "brief": "Latest `limit` rows of one series ordered by date_column desc."
+      }
+    },
+    "alerts_create_alert_rule": {
+      "human": {
+        "zh": {
+          "name": "创建告警规则",
+          "summary": "在数据库序列上创建触发规则，条件用不经过 eval 的安全 DSL 表达，如 latest > 70 或 pct_change(5) > 0.05，并指定通知通道。"
+        },
+        "en": {
+          "name": "Create alert rule",
+          "summary": "Creates a trigger rule over a database series; conditions use a safe DSL without eval, such as latest > 70 or pct_change(5) > 0.05, and channels are chosen by name."
+        },
+        "ja": {
+          "name": "アラートルールを作成",
+          "summary": "データベース系列に対する発火ルールを作成する。条件は eval を使わない安全な DSL（latest > 70、pct_change(5) > 0.05 など）で書き、通知チャネルを名前で指定する。"
+        },
+        "es": {
+          "name": "Crear regla de alerta",
+          "summary": "Crea una regla de disparo sobre una serie de base de datos; la condición usa un DSL seguro sin eval, como latest > 70 o pct_change(5) > 0.05, y los canales se indican por nombre."
+        },
+        "fr": {
+          "name": "Créer une règle d'alerte",
+          "summary": "Crée une règle de déclenchement sur une série en base ; la condition s'écrit dans un DSL sûr sans eval, comme latest > 70 ou pct_change(5) > 0.05, et les canaux sont désignés par leur nom."
+        }
+      },
+      "canonical": {
+        "brief": "Create a trigger rule over a DB series using a safe DSL (no eval) with channel names or per-channel overrides."
+      }
+    },
+    "alerts_list_alert_rules": {
+      "human": {
+        "zh": {
+          "name": "列出告警规则",
+          "summary": "返回全部告警规则。"
+        },
+        "en": {
+          "name": "List alert rules",
+          "summary": "Returns all alert rules."
+        },
+        "ja": {
+          "name": "アラートルールを一覧",
+          "summary": "すべてのアラートルールを返す。"
+        },
+        "es": {
+          "name": "Listar reglas de alerta",
+          "summary": "Devuelve todas las reglas de alerta."
+        },
+        "fr": {
+          "name": "Lister les règles d'alerte",
+          "summary": "Renvoie toutes les règles d'alerte."
+        }
+      },
+      "canonical": {
+        "brief": "Return all alert rules."
+      }
+    },
+    "alerts_get_alert_rule": {
+      "human": {
+        "zh": {
+          "name": "按名称读规则",
+          "summary": "按名称返回单条告警规则。"
+        },
+        "en": {
+          "name": "Get alert rule",
+          "summary": "Returns one alert rule by name."
+        },
+        "ja": {
+          "name": "アラートルールを取得",
+          "summary": "名前を指定して単一のアラートルールを返す。"
+        },
+        "es": {
+          "name": "Obtener regla de alerta",
+          "summary": "Devuelve una regla de alerta por su nombre."
+        },
+        "fr": {
+          "name": "Obtenir une règle d'alerte",
+          "summary": "Renvoie une règle d'alerte par son nom."
+        }
+      },
+      "canonical": {
+        "brief": "Return one alert rule by name."
+      }
+    },
+    "alerts_update_alert_rule": {
+      "human": {
+        "zh": {
+          "name": "更新告警规则",
+          "summary": "更新规则字段，只改动传入的字段；名称不可重命名。"
+        },
+        "en": {
+          "name": "Update alert rule",
+          "summary": "Updates a rule's fields; only the provided fields change and the name cannot be renamed."
+        },
+        "ja": {
+          "name": "アラートルールを更新",
+          "summary": "ルールの項目を更新する。渡した項目だけが変わり、名前は変更できない。"
+        },
+        "es": {
+          "name": "Actualizar regla de alerta",
+          "summary": "Actualiza los campos de una regla; solo cambian los campos enviados y el nombre no se puede cambiar."
+        },
+        "fr": {
+          "name": "Mettre à jour une règle",
+          "summary": "Met à jour les champs d'une règle ; seuls les champs fournis changent et le nom ne peut pas être renommé."
+        }
+      },
+      "canonical": {
+        "brief": "Update a rule's fields; only provided fields change, and the name cannot be renamed."
+      }
+    },
+    "alerts_delete_alert_rule": {
+      "human": {
+        "zh": {
+          "name": "删除告警规则",
+          "summary": "删除一条规则，其 alert_events 记录经外键级联一并删除。"
+        },
+        "en": {
+          "name": "Delete alert rule",
+          "summary": "Deletes a rule; its alert_events rows are removed by foreign-key cascade."
+        },
+        "ja": {
+          "name": "アラートルールを削除",
+          "summary": "ルールを削除する。その alert_events 行は外部キーの連鎖で削除される。"
+        },
+        "es": {
+          "name": "Eliminar regla de alerta",
+          "summary": "Elimina una regla; sus filas de alert_events se borran por cascada de clave externa."
+        },
+        "fr": {
+          "name": "Supprimer une règle",
+          "summary": "Supprime une règle ; ses lignes alert_events sont supprimées par cascade de clé étrangère."
+        }
+      },
+      "canonical": {
+        "brief": "Delete a rule; its alert_events rows are removed via FK cascade."
+      }
+    },
+    "alerts_list_channels": {
+      "human": {
+        "zh": {
+          "name": "列出通知通道",
+          "summary": "列出 7 个通知通道各自的名称、是否已配置与缺失的键名；不返回任何凭证值。"
+        },
+        "en": {
+          "name": "List alert channels",
+          "summary": "Lists the seven channels with name, configured flag and missing keys; never returns credential values."
+        },
+        "ja": {
+          "name": "通知チャネルを一覧",
+          "summary": "7 つの通知チャネルについて、名前・設定済みかどうか・不足しているキー名を返す。認証情報の値は返さない。"
+        },
+        "es": {
+          "name": "Listar canales de alerta",
+          "summary": "Enumera los siete canales con nombre, si están configurados y las claves faltantes; nunca devuelve valores de credenciales."
+        },
+        "fr": {
+          "name": "Lister les canaux d'alerte",
+          "summary": "Liste les sept canaux avec leur nom, s'ils sont configurés et les clés manquantes ; ne renvoie jamais les valeurs des identifiants."
+        }
+      },
+      "canonical": {
+        "brief": "{name, configured, missing_keys} for each of the 7 channels; credential values are never returned."
+      }
+    },
+    "alerts_run_alert_rule": {
+      "human": {
+        "zh": {
+          "name": "立即试跑规则",
+          "summary": "立即评估一条规则并在命中时派发，遵循 fire_mode 与冷却时间，用于按需测试规则。"
+        },
+        "en": {
+          "name": "Run alert rule now",
+          "summary": "Evaluates one rule immediately and dispatches if it fires, respecting fire_mode and cooldown; used to test a rule on demand."
+        },
+        "ja": {
+          "name": "ルールを即時実行",
+          "summary": "1 つのルールをその場で評価し、発火したら通知する。fire_mode とクールダウンに従い、必要時のテストに使う。"
+        },
+        "es": {
+          "name": "Ejecutar regla ahora",
+          "summary": "Evalúa una regla al instante y envía aviso si se dispara, respetando fire_mode y el tiempo de espera; sirve para probar una regla."
+        },
+        "fr": {
+          "name": "Exécuter une règle maintenant",
+          "summary": "Évalue une règle immédiatement et la déclenche si elle se déclenche, en respectant fire_mode et le délai d'attente ; sert à tester une règle."
+        }
+      },
+      "canonical": {
+        "brief": "Ad-hoc evaluation of one rule with dispatch if it fires, respecting fire_mode and cooldown."
+      }
+    },
+    "alerts_list_events": {
+      "human": {
+        "zh": {
+          "name": "列出告警事件",
+          "summary": "返回最近的 alert_events，可按单条规则过滤，最新在前。"
+        },
+        "en": {
+          "name": "List alert events",
+          "summary": "Returns recent alert_events, optionally for one rule, newest first."
+        },
+        "ja": {
+          "name": "アラートイベントを一覧",
+          "summary": "直近の alert_events を返す。1 つのルールで絞り込むこともでき、新しい順に並ぶ。"
+        },
+        "es": {
+          "name": "Listar eventos de alerta",
+          "summary": "Devuelve los alert_events recientes, opcionalmente de una regla, del más nuevo al más antiguo."
+        },
+        "fr": {
+          "name": "Lister les événements d'alerte",
+          "summary": "Renvoie les alert_events récents, éventuellement pour une règle, du plus récent au plus ancien."
+        }
+      },
+      "canonical": {
+        "brief": "Recent alert_events, optionally filtered to one rule, newest first."
+      }
+    },
+    "cron_create_schedule": {
+      "human": {
+        "zh": {
+          "name": "创建定时调度",
+          "summary": "用 cron 表达式与任务创建一个新的调度。"
+        },
+        "en": {
+          "name": "Create schedule",
+          "summary": "Creates a new schedule from a cron expression and a task."
+        },
+        "ja": {
+          "name": "スケジュールを作成",
+          "summary": "cron 式とタスクを指定して新しいスケジュールを作成する。"
+        },
+        "es": {
+          "name": "Crear programación",
+          "summary": "Crea una programación nueva a partir de una expresión cron y una tarea."
+        },
+        "fr": {
+          "name": "Créer une planification",
+          "summary": "Crée une planification à partir d'une expression cron et d'une tâche."
+        }
+      },
+      "canonical": {
+        "brief": "Create a new schedule with a cron expression and a task."
+      }
+    },
+    "cron_list_schedules": {
+      "human": {
+        "zh": {
+          "name": "列出全部调度",
+          "summary": "返回全部调度。"
+        },
+        "en": {
+          "name": "List schedules",
+          "summary": "Lists all schedules."
+        },
+        "ja": {
+          "name": "スケジュールを一覧",
+          "summary": "すべてのスケジュールを一覧する。"
+        },
+        "es": {
+          "name": "Listar programaciones",
+          "summary": "Enumera todas las programaciones."
+        },
+        "fr": {
+          "name": "Lister les planifications",
+          "summary": "Liste toutes les planifications."
+        }
+      },
+      "canonical": {
+        "brief": "List all schedules."
+      }
+    },
+    "cron_get_schedule": {
+      "human": {
+        "zh": {
+          "name": "读取调度详情",
+          "summary": "返回单个调度的详细信息。"
+        },
+        "en": {
+          "name": "Get schedule",
+          "summary": "Returns details for a single schedule."
+        },
+        "ja": {
+          "name": "スケジュールを取得",
+          "summary": "単一のスケジュールの詳細を返す。"
+        },
+        "es": {
+          "name": "Obtener programación",
+          "summary": "Devuelve los detalles de una programación."
+        },
+        "fr": {
+          "name": "Obtenir une planification",
+          "summary": "Renvoie les détails d'une planification."
+        }
+      },
+      "canonical": {
+        "brief": "Get details for a single schedule."
+      }
+    },
+    "cron_delete_schedule": {
+      "human": {
+        "zh": {
+          "name": "删除定时调度",
+          "summary": "永久删除一个调度。"
+        },
+        "en": {
+          "name": "Delete schedule",
+          "summary": "Permanently deletes a schedule."
+        },
+        "ja": {
+          "name": "スケジュールを削除",
+          "summary": "スケジュールを完全に削除する。"
+        },
+        "es": {
+          "name": "Eliminar programación",
+          "summary": "Elimina una programación de forma permanente."
+        },
+        "fr": {
+          "name": "Supprimer une planification",
+          "summary": "Supprime définitivement une planification."
+        }
+      },
+      "canonical": {
+        "brief": "Delete a schedule permanently."
+      }
+    },
+    "cron_pause_schedule": {
+      "human": {
+        "zh": {
+          "name": "暂停定时调度",
+          "summary": "暂停一个调度，禁用但不删除。"
+        },
+        "en": {
+          "name": "Pause schedule",
+          "summary": "Pauses a schedule, disabling it without deleting."
+        },
+        "ja": {
+          "name": "スケジュールを一時停止",
+          "summary": "スケジュールを一時停止する。無効化するが削除はしない。"
+        },
+        "es": {
+          "name": "Pausar programación",
+          "summary": "Pausa una programación: la desactiva sin eliminarla."
+        },
+        "fr": {
+          "name": "Mettre en pause",
+          "summary": "Met une planification en pause : elle est désactivée sans être supprimée."
+        }
+      },
+      "canonical": {
+        "brief": "Pause a schedule without deleting it."
+      }
+    },
+    "cron_resume_schedule": {
+      "human": {
+        "zh": {
+          "name": "恢复定时调度",
+          "summary": "恢复一个已暂停的调度。"
+        },
+        "en": {
+          "name": "Resume schedule",
+          "summary": "Resumes a paused schedule."
+        },
+        "ja": {
+          "name": "スケジュールを再開",
+          "summary": "一時停止中のスケジュールを再開する。"
+        },
+        "es": {
+          "name": "Reanudar programación",
+          "summary": "Reanuda una programación en pausa."
+        },
+        "fr": {
+          "name": "Reprendre une planification",
+          "summary": "Reprend une planification en pause."
+        }
+      },
+      "canonical": {
+        "brief": "Resume a paused schedule."
+      }
+    },
+    "cron_run_now": {
+      "human": {
+        "zh": {
+          "name": "立即执行一次",
+          "summary": "立即执行一个已调度的任务，仅此一次。"
+        },
+        "en": {
+          "name": "Run schedule now",
+          "summary": "Executes a scheduled task immediately, as a one-shot run."
+        },
+        "ja": {
+          "name": "今すぐ 1 回実行",
+          "summary": "スケジュール済みのタスクをその場で 1 回だけ実行する。"
+        },
+        "es": {
+          "name": "Ejecutar ahora",
+          "summary": "Ejecuta de inmediato una tarea programada, una sola vez."
+        },
+        "fr": {
+          "name": "Exécuter maintenant",
+          "summary": "Exécute immédiatement une tâche planifiée, une seule fois."
+        }
+      },
+      "canonical": {
+        "brief": "Execute a scheduled task immediately, one-shot."
+      }
+    },
+    "cron_list_executions": {
+      "human": {
+        "zh": {
+          "name": "列出执行历史",
+          "summary": "列出执行历史，可按 schedule_id 过滤。"
+        },
+        "en": {
+          "name": "List executions",
+          "summary": "Lists execution history, optionally filtered by schedule_id."
+        },
+        "ja": {
+          "name": "実行履歴を一覧",
+          "summary": "実行履歴を一覧する。schedule_id で絞り込める。"
+        },
+        "es": {
+          "name": "Listar ejecuciones",
+          "summary": "Enumera el historial de ejecuciones, filtrable por schedule_id."
+        },
+        "fr": {
+          "name": "Lister les exécutions",
+          "summary": "Liste l'historique des exécutions, filtrable par schedule_id."
+        }
+      },
+      "canonical": {
+        "brief": "List execution history, optionally filtered by schedule_id."
+      }
+    },
+    "cron_list_tasks": {
+      "human": {
+        "zh": {
+          "name": "列出任务类型",
+          "summary": "列出注册表中可用的任务类型。"
+        },
+        "en": {
+          "name": "List task types",
+          "summary": "Lists the task types available in the registry."
+        },
+        "ja": {
+          "name": "タスク種別を一覧",
+          "summary": "レジストリで利用できるタスク種別を一覧する。"
+        },
+        "es": {
+          "name": "Listar tipos de tarea",
+          "summary": "Enumera los tipos de tarea disponibles en el registro."
+        },
+        "fr": {
+          "name": "Lister les types de tâche",
+          "summary": "Liste les types de tâche disponibles dans le registre."
+        }
+      },
+      "canonical": {
+        "brief": "List available task types in the registry."
+      }
+    },
+    "cron_create_task": {
+      "human": {
+        "zh": {
+          "name": "注册数据库任务",
+          "summary": "在数据库中注册一个新任务，command 为 shell 命令或脚本路径。"
+        },
+        "en": {
+          "name": "Register DB task",
+          "summary": "Registers a new task in the database; the command is a shell command or a script path."
+        },
+        "ja": {
+          "name": "DB タスクを登録",
+          "summary": "データベースに新しいタスクを登録する。command はシェルコマンドまたはスクリプトのパス。"
+        },
+        "es": {
+          "name": "Registrar tarea en BD",
+          "summary": "Registra una tarea nueva en la base de datos; el comando es una orden de shell o una ruta de script."
+        },
+        "fr": {
+          "name": "Enregistrer une tâche",
+          "summary": "Enregistre une tâche dans la base ; la commande est une commande shell ou un chemin de script."
+        }
+      },
+      "canonical": {
+        "brief": "Register a new task in the database whose command is a shell command or script path."
+      }
+    },
+    "cron_delete_task": {
+      "human": {
+        "zh": {
+          "name": "删除数据库任务",
+          "summary": "按名称从数据库删除一个任务。"
+        },
+        "en": {
+          "name": "Delete DB task",
+          "summary": "Deletes a task from the database by name."
+        },
+        "ja": {
+          "name": "DB タスクを削除",
+          "summary": "名前を指定してデータベースからタスクを削除する。"
+        },
+        "es": {
+          "name": "Eliminar tarea de BD",
+          "summary": "Elimina una tarea de la base de datos por su nombre."
+        },
+        "fr": {
+          "name": "Supprimer une tâche",
+          "summary": "Supprime une tâche de la base par son nom."
+        }
+      },
+      "canonical": {
+        "brief": "Delete a task from the database by name."
+      }
+    },
+    "cron_list_db_tasks": {
+      "human": {
+        "zh": {
+          "name": "列出数据库任务",
+          "summary": "列出数据库中保存的全部任务，含无需改代码即可新增的用户自定义任务。"
+        },
+        "en": {
+          "name": "List DB tasks",
+          "summary": "Lists every task stored in the database, including user-defined ones that need no code changes."
+        },
+        "ja": {
+          "name": "DB タスクを一覧",
+          "summary": "データベースに保存された全タスクを一覧する。コード変更なしで追加したユーザー定義タスクも含む。"
+        },
+        "es": {
+          "name": "Listar tareas de BD",
+          "summary": "Enumera todas las tareas guardadas en la base de datos, incluidas las definidas por el usuario sin cambios de código."
+        },
+        "fr": {
+          "name": "Lister les tâches en base",
+          "summary": "Liste toutes les tâches stockées dans la base, y compris celles définies par l'utilisateur sans modification de code."
+        }
+      },
+      "canonical": {
+        "brief": "List all tasks stored in the database, including user-defined ones needing no code changes."
+      }
+    },
+    "cron_update_task": {
+      "human": {
+        "zh": {
+          "name": "更新数据库任务",
+          "summary": "更新数据库任务的 command、描述或超时，仅改动传入的字段。"
+        },
+        "en": {
+          "name": "Update DB task",
+          "summary": "Updates a DB task's command, description or timeout; only the provided fields change."
+        },
+        "ja": {
+          "name": "DB タスクを更新",
+          "summary": "DB タスクの command・説明・タイムアウトを更新する。渡した項目だけが変わる。"
+        },
+        "es": {
+          "name": "Actualizar tarea de BD",
+          "summary": "Actualiza el comando, la descripción o el tiempo límite de una tarea de BD; solo cambian los campos enviados."
+        },
+        "fr": {
+          "name": "Mettre à jour une tâche",
+          "summary": "Met à jour la commande, la description ou le délai d'une tâche en base ; seuls les champs fournis changent."
+        }
+      },
+      "canonical": {
+        "brief": "Update a DB task's command, description or timeout; only provided fields change."
+      }
+    }
+  }
+}

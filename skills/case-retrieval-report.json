@@ -1,0 +1,32 @@
+{
+  "skill": "case-retrieval-report",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "类案检索报告",
+        "summary": "类案检索与裁判规则报告：检索裁判文书库与指导案例库，多组关键词换搜，输出含真实案号、法院、裁判日期与出处信息的检索报告。"
+      },
+      "en": {
+        "name": "Comparative case search report",
+        "summary": "Searches like cases and reports adjudication rules: multi-keyword sweeps over the judgment and guiding-case databases, returning real case numbers, courts, dates and provenance."
+      },
+      "ja": {
+        "name": "類案検索レポート",
+        "summary": "類案検索と裁判規則レポート：判決文データベースと指導性案例データベースを複数キーワードで横断検索し、実際の事件番号・裁判所・判決日・出所情報を出力する。"
+      },
+      "es": {
+        "name": "Informe de búsqueda de casos análogos",
+        "summary": "Busca casos análogos e informa reglas jurisprudenciales: búsquedas por palabras clave en bases de sentencias y casos guía, con números reales, tribunales, fechas y procedencia."
+      },
+      "fr": {
+        "name": "Rapport de recherche d'affaires similaires",
+        "summary": "Recherche les affaires similaires en rapport de règles jurisprudentielles : multi-mots-clés sur les bases de jugements et d'affaires de référence, avec numéros réels, juridictions, dates, provenance."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "bankruptcy-filing-acceptance",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "破产申请受理",
+        "summary": "覆盖破产申请全流程：申请书起草、附件准备、提交跟踪，以及法院受理后的初步工作。"
+      },
+      "en": {
+        "name": "Bankruptcy application and acceptance",
+        "summary": "Handles the full bankruptcy petition process: drafting the application, preparing attachments, tracking submission, and initial work after court acceptance."
+      },
+      "ja": {
+        "name": "破産申立て受理",
+        "summary": "破産申立ての全工程を扱う：申立書の起草、添付資料の準備、提出の追跡、および法院受理後の初期業務。"
+      },
+      "es": {
+        "name": "Solicitud y admisión concursal",
+        "summary": "Gestiona el proceso completo de solicitud concursal: redacción del escrito, preparación de anexos, seguimiento de la presentación y primeras labores tras la admisión judicial."
+      },
+      "fr": {
+        "name": "Requête et acceptation de faillite",
+        "summary": "Gère le processus complet de la demande de faillite : rédaction de la requête, préparation des pièces, suivi du dépôt et premiers travaux après l'acceptation par le tribunal."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

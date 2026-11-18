@@ -1,0 +1,27 @@
+{
+  "server_name": "edu-catalog",
+  "description": "启材线（教育）目录查询/订阅 MCP：跨论文/播客/课程检索、条目详情（卡层明示未取正文）、许可层概况、订阅盯梢（写面只有订阅两工具，只碰订阅表）。空结果与通道故障严格区分（reason 枚举）。",
+  "tags": [],
+  "tools": [
+    {
+      "name": "edu_item_detail",
+      "description": "单条资源详情：卡层字段与标记状态（撤回 withdrawn / 合并 merged 时带 redirect_to），明示未取正文。"
+    },
+    {
+      "name": "edu_overview",
+      "description": "各许可层计数与逐通道 latest as_of，用于判断源是否滞步。"
+    },
+    {
+      "name": "edu_search",
+      "description": "按订阅 kind 映射过滤检索条目（topic→subject、creator→creator、source→platform），单次取前若干条；空结果与通道故障以 reason 区分。"
+    },
+    {
+      "name": "edu_subscribe",
+      "description": "新增订阅记录（写面之一，只碰订阅表）；范围与参数由订阅 kind 决定。"
+    },
+    {
+      "name": "edu_unsubscribe",
+      "description": "移除订阅记录（另一处写面，同样只碰订阅表）；此后该订阅不再被检索。"
+    }
+  ]
+}

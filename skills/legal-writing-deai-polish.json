@@ -1,0 +1,32 @@
+{
+  "skill": "legal-writing-deai-polish",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "法律文稿去AI腔",
+        "summary": "检测并去除文章中的 AI 化表述模式，对法律写作做润色与文本优化，消除机器腔，使行文更自然。"
+      },
+      "en": {
+        "name": "Legal writing AI-tone polish",
+        "summary": "Detects and removes AI-style phrasing patterns in articles, polishing legal writing and optimizing text to strip mechanical tone."
+      },
+      "ja": {
+        "name": "法律文章のAI表現除去",
+        "summary": "文章中の AI 的な表現パターンを検出して除去し、法務文章の推敲・テキスト最適化を行い、機械っぽい語調を除く。"
+      },
+      "es": {
+        "name": "Pulido anti-IA de textos jurídicos",
+        "summary": "Detecta y elimina patrones de redacción con sabor a IA, pule la escritura jurídica y optimiza el texto para quitar el tono mecánico."
+      },
+      "fr": {
+        "name": "Lissage anti-IA de textes juridiques",
+        "summary": "Détecte et supprime les tournures typiques de l'IA, polit l'écriture juridique et optimise le texte pour ôter le ton mécanique."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

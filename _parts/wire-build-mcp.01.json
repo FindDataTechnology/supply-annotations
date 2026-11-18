@@ -1,0 +1,409 @@
+{
+ "tools": {
+  "wire_artifact_archive": {
+   "human": {
+    "zh": {
+     "name": "归档产物",
+     "summary": "归档指定产物，返回归档结果。"
+    },
+    "en": {
+     "name": "Archive artifact",
+     "summary": "Archives an artifact and returns the result."
+    },
+    "ja": {
+     "name": "成果物のアーカイブ",
+     "summary": "指定した成果物をアーカイブし、結果を返します。"
+    },
+    "es": {
+     "name": "Archivar artefacto",
+     "summary": "Archiva un artefacto y devuelve el resultado."
+    },
+    "fr": {
+     "name": "Archiver un artefact",
+     "summary": "Archive un artefact et renvoie le résultat."
+    }
+   },
+   "canonical": {
+    "brief": "Archives an artifact and returns the result."
+   }
+  },
+  "wire_artifact_form_create": {
+   "human": {
+    "zh": {
+     "name": "创建表单",
+     "summary": "创建一个录入表单产物，默认落草稿。"
+    },
+    "en": {
+     "name": "Create form",
+     "summary": "Creates a data-entry form artifact, saved as a draft by default."
+    },
+    "ja": {
+     "name": "フォームの作成",
+     "summary": "入力フォーム成果物を作成し、既定では下書きとして保存します。"
+    },
+    "es": {
+     "name": "Crear formulario",
+     "summary": "Crea un artefacto de formulario de entrada y lo guarda como borrador por defecto."
+    },
+    "fr": {
+     "name": "Créer un formulaire",
+     "summary": "Crée un artefact de formulaire de saisie, enregistré en brouillon par défaut."
+    }
+   },
+   "canonical": {
+    "brief": "Creates a data-entry form artifact, saved as a draft by default."
+   }
+  },
+  "wire_artifact_get": {
+   "human": {
+    "zh": {
+     "name": "读取产物",
+     "summary": "按标识读取单个产物及其版本信息。"
+    },
+    "en": {
+     "name": "Get artifact",
+     "summary": "Reads one artifact and its version information by identifier."
+    },
+    "ja": {
+     "name": "成果物の取得",
+     "summary": "識別子で単一の成果物とそのバージョン情報を読み取ります。"
+    },
+    "es": {
+     "name": "Obtener artefacto",
+     "summary": "Lee un artefacto y su información de versión por identificador."
+    },
+    "fr": {
+     "name": "Obtenir un artefact",
+     "summary": "Lit un artefact et ses informations de version par identifiant."
+    }
+   },
+   "canonical": {
+    "brief": "Reads one artifact and its version information by identifier."
+   }
+  },
+  "wire_artifact_list": {
+   "human": {
+    "zh": {
+     "name": "列出产物",
+     "summary": "列出产物，返回产物清单。"
+    },
+    "en": {
+     "name": "List artifacts",
+     "summary": "Lists artifacts and returns the artifact list."
+    },
+    "ja": {
+     "name": "成果物の一覧",
+     "summary": "成果物を一覧し、成果物のリストを返します。"
+    },
+    "es": {
+     "name": "Listar artefactos",
+     "summary": "Enumera los artefactos y devuelve la lista."
+    },
+    "fr": {
+     "name": "Lister les artefacts",
+     "summary": "Énumère les artefacts et renvoie la liste."
+    }
+   },
+   "canonical": {
+    "brief": "Lists artifacts and returns the artifact list."
+   }
+  },
+  "wire_artifact_publish": {
+   "human": {
+    "zh": {
+     "name": "发布产物",
+     "summary": "显式发布指定产物，返回发布结果。"
+    },
+    "en": {
+     "name": "Publish artifact",
+     "summary": "Explicitly publishes an artifact and returns the result."
+    },
+    "ja": {
+     "name": "成果物の公開",
+     "summary": "指定した成果物を明示的に公開し、結果を返します。"
+    },
+    "es": {
+     "name": "Publicar artefacto",
+     "summary": "Publica explícitamente un artefacto y devuelve el resultado."
+    },
+    "fr": {
+     "name": "Publier un artefact",
+     "summary": "Publie explicitement un artefact et renvoie le résultat."
+    }
+   },
+   "canonical": {
+    "brief": "Explicitly publishes an artifact and returns the result."
+   }
+  },
+  "wire_artifact_record_view_create": {
+   "human": {
+    "zh": {
+     "name": "创建记录视图",
+     "summary": "创建一个单记录扫码页产物，默认落草稿。"
+    },
+    "en": {
+     "name": "Create record view",
+     "summary": "Creates a single-record scan page artifact, saved as a draft by default."
+    },
+    "ja": {
+     "name": "レコードビューの作成",
+     "summary": "単一レコードのスキャンページ成果物を作成し、既定では下書きとして保存します。"
+    },
+    "es": {
+     "name": "Crear vista de registro",
+     "summary": "Crea un artefacto de página de escaneo de un solo registro y lo guarda como borrador por defecto."
+    },
+    "fr": {
+     "name": "Créer une vue d'enregistrement",
+     "summary": "Crée un artefact de page de scan à enregistrement unique, enregistré en brouillon par défaut."
+    }
+   },
+   "canonical": {
+    "brief": "Creates a single-record scan page artifact, saved as a draft by default."
+   }
+  },
+  "wire_artifact_restore": {
+   "human": {
+    "zh": {
+     "name": "恢复产物",
+     "summary": "将指定产物恢复为可用状态，返回恢复结果。"
+    },
+    "en": {
+     "name": "Restore artifact",
+     "summary": "Restores an artifact to a usable state and returns the result."
+    },
+    "ja": {
+     "name": "成果物の復元",
+     "summary": "指定した成果物を使用可能な状態に戻し、結果を返します。"
+    },
+    "es": {
+     "name": "Restaurar artefacto",
+     "summary": "Restaura un artefacto a un estado utilizable y devuelve el resultado."
+    },
+    "fr": {
+     "name": "Restaurer un artefact",
+     "summary": "Rétablit un artefact dans un état utilisable et renvoie le résultat."
+    }
+   },
+   "canonical": {
+    "brief": "Restores an artifact to a usable state and returns the result."
+   }
+  },
+  "wire_artifact_update": {
+   "human": {
+    "zh": {
+     "name": "更新产物",
+     "summary": "更新产物的定义或内容，返回更新后的产物。"
+    },
+    "en": {
+     "name": "Update artifact",
+     "summary": "Updates an artifact's definition or content and returns the updated artifact."
+    },
+    "ja": {
+     "name": "成果物の更新",
+     "summary": "成果物の定義または内容を更新し、更新後の成果物を返します。"
+    },
+    "es": {
+     "name": "Actualizar artefacto",
+     "summary": "Actualiza la definición o el contenido de un artefacto y devuelve el artefacto actualizado."
+    },
+    "fr": {
+     "name": "Mettre à jour un artefact",
+     "summary": "Met à jour la définition ou le contenu d'un artefact et renvoie l'artefact mis à jour."
+    }
+   },
+   "canonical": {
+    "brief": "Updates an artifact's definition or content; returns the updated artifact."
+   }
+  },
+  "wire_dataset_correct": {
+   "human": {
+    "zh": {
+     "name": "更正数据行",
+     "summary": "对数据集中的记录行提交更正，返回更正结果。"
+    },
+    "en": {
+     "name": "Correct dataset row",
+     "summary": "Submits a correction to a dataset row and returns the correction result."
+    },
+    "ja": {
+     "name": "データ行の訂正",
+     "summary": "データセットの行に訂正を送信し、訂正結果を返します。"
+    },
+    "es": {
+     "name": "Corregir fila de datos",
+     "summary": "Envía una corrección a una fila del conjunto de datos y devuelve el resultado."
+    },
+    "fr": {
+     "name": "Corriger une ligne",
+     "summary": "Soumet une correction sur une ligne du jeu de données et renvoie le résultat."
+    }
+   },
+   "canonical": {
+    "brief": "Submits a correction to a dataset row and returns the correction result."
+   }
+  },
+  "wire_dataset_correction_revert": {
+   "human": {
+    "zh": {
+     "name": "撤销更正",
+     "summary": "撤销一次数据行更正，恢复到更正前的值。"
+    },
+    "en": {
+     "name": "Revert correction",
+     "summary": "Reverts one dataset row correction to the prior values."
+    },
+    "ja": {
+     "name": "訂正の取り消し",
+     "summary": "データ行の訂正を 1 件取り消し、訂正前の値に戻します。"
+    },
+    "es": {
+     "name": "Revertir corrección",
+     "summary": "Revierte una corrección de fila y restaura los valores anteriores."
+    },
+    "fr": {
+     "name": "Annuler une correction",
+     "summary": "Annule une correction de ligne et rétablit les valeurs précédentes."
+    }
+   },
+   "canonical": {
+    "brief": "Reverts one dataset row correction to the prior values."
+   }
+  },
+  "wire_dataset_corrections_list": {
+   "human": {
+    "zh": {
+     "name": "列出更正记录",
+     "summary": "列出数据集的更正记录。"
+    },
+    "en": {
+     "name": "List corrections",
+     "summary": "Lists dataset correction records."
+    },
+    "ja": {
+     "name": "訂正記録の一覧",
+     "summary": "データセットの訂正記録を一覧します。"
+    },
+    "es": {
+     "name": "Listar correcciones",
+     "summary": "Enumera los registros de corrección del conjunto de datos."
+    },
+    "fr": {
+     "name": "Lister les corrections",
+     "summary": "Énumère les enregistrements de correction du jeu de données."
+    }
+   },
+   "canonical": {
+    "brief": "Lists dataset correction records."
+   }
+  },
+  "wire_dataset_create": {
+   "human": {
+    "zh": {
+     "name": "新建数据集",
+     "summary": "按列定义新建数据集，返回创建结果。"
+    },
+    "en": {
+     "name": "Create dataset",
+     "summary": "Creates a dataset from a column definition and returns the creation result."
+    },
+    "ja": {
+     "name": "データセットの作成",
+     "summary": "列定義からデータセットを作成し、作成結果を返します。"
+    },
+    "es": {
+     "name": "Crear conjunto de datos",
+     "summary": "Crea un conjunto de datos a partir de una definición de columnas y devuelve el resultado."
+    },
+    "fr": {
+     "name": "Créer un jeu de données",
+     "summary": "Crée un jeu de données à partir d'une définition de colonnes et renvoie le résultat."
+    }
+   },
+   "canonical": {
+    "brief": "Creates a dataset from a column definition and returns the creation result."
+   }
+  },
+  "wire_dataset_export": {
+   "human": {
+    "zh": {
+     "name": "导出数据集",
+     "summary": "导出数据集内容，返回导出结果。"
+    },
+    "en": {
+     "name": "Export dataset",
+     "summary": "Exports dataset content and returns the export result."
+    },
+    "ja": {
+     "name": "データセットのエクスポート",
+     "summary": "データセットの内容をエクスポートし、結果を返します。"
+    },
+    "es": {
+     "name": "Exportar conjunto de datos",
+     "summary": "Exporta el contenido del conjunto de datos y devuelve el resultado."
+    },
+    "fr": {
+     "name": "Exporter un jeu de données",
+     "summary": "Exporte le contenu du jeu de données et renvoie le résultat."
+    }
+   },
+   "canonical": {
+    "brief": "Exports dataset content and returns the export result."
+   }
+  },
+  "wire_dataset_rows_read": {
+   "human": {
+    "zh": {
+     "name": "读取数据行",
+     "summary": "读取数据集的行数据，返回行内容。"
+    },
+    "en": {
+     "name": "Read dataset rows",
+     "summary": "Reads dataset rows and returns their content."
+    },
+    "ja": {
+     "name": "データ行の読み取り",
+     "summary": "データセットの行を読み取り、内容を返します。"
+    },
+    "es": {
+     "name": "Leer filas del conjunto",
+     "summary": "Lee las filas del conjunto de datos y devuelve su contenido."
+    },
+    "fr": {
+     "name": "Lire les lignes du jeu",
+     "summary": "Lit les lignes du jeu de données et renvoie leur contenu."
+    }
+   },
+   "canonical": {
+    "brief": "Reads dataset rows and returns their content."
+   }
+  },
+  "wire_dataset_schema": {
+   "human": {
+    "zh": {
+     "name": "读取数据集结构",
+     "summary": "返回数据集的列定义与结构信息。"
+    },
+    "en": {
+     "name": "Read dataset schema",
+     "summary": "Returns a dataset's column definitions and schema information."
+    },
+    "ja": {
+     "name": "データセット構造の取得",
+     "summary": "データセットの列定義と構造情報を返します。"
+    },
+    "es": {
+     "name": "Leer esquema del conjunto",
+     "summary": "Devuelve las definiciones de columnas y el esquema del conjunto de datos."
+    },
+    "fr": {
+     "name": "Lire le schéma du jeu",
+     "summary": "Renvoie les définitions de colonnes et le schéma du jeu de données."
+    }
+   },
+   "canonical": {
+    "brief": "Returns a dataset's column definitions and schema information."
+   }
+  }
+ }
+}

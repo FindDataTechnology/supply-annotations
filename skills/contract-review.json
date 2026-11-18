@@ -1,0 +1,32 @@
+{
+  "skill": "contract-review",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "中文合同审查",
+        "summary": "按风险维度系统审查商事合同条款，输出结构化审查报告与可直接使用的修改条款。"
+      },
+      "en": {
+        "name": "Chinese contract review",
+        "summary": "Systematically reviews commercial contract clauses along risk dimensions and returns a structured report plus ready-to-use replacement clauses."
+      },
+      "ja": {
+        "name": "中国語契約審査",
+        "summary": "リスク観点から商事契約の条項を体系的に審査し、構造化レポートとそのまま使える修正条項を出力する。"
+      },
+      "es": {
+        "name": "Revisión de contratos en chino",
+        "summary": "Revisa por dimensiones de riesgo las cláusulas de contratos mercantiles y entrega un informe estructurado con cláusulas sustitutivas listas para usar."
+      },
+      "fr": {
+        "name": "Revue de contrats en chinois",
+        "summary": "Examine les clauses des contrats commerciaux selon des axes de risque et livre un rapport structuré avec des clauses de remplacement prêtes à l'emploi."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "pdf-organizer",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "法律PDF整理",
+        "summary": "整理法律 PDF：检测文字层，生成页面索引、整理草稿与下游交接文件，按内容拆分、合并或规范重命名 OCR 双层扫描件；可做旋转与倾斜校正，不做 OCR 或压缩。"
+      },
+      "en": {
+        "name": "Legal PDF organizer",
+        "summary": "Organizes legal PDFs: detects the text layer, builds page indexes and handoff drafts, splits, merges or renames OCR dual-layer scans; rotation and skew correction only, no OCR or compression."
+      },
+      "ja": {
+        "name": "法律PDF整理",
+        "summary": "法律PDFを整理します。文字レイヤーを検出し、ページ索引・整理草稿・引き継ぎファイルを作成し、OCR済み二層スキャンを内容に応じて分割・結合・改名。回転と傾き補正に対応し、OCRと圧縮は行いません。"
+      },
+      "es": {
+        "name": "Organizador de PDF jurídicos",
+        "summary": "Organiza PDF jurídicos: detecta la capa de texto, crea índices de páginas y borradores, divide, combina o renombra escaneos OCR de doble capa; corrige rotación e inclinación, sin OCR ni compresión."
+      },
+      "fr": {
+        "name": "Organiseur de PDF juridiques",
+        "summary": "Organise les PDF juridiques : détecte la couche de texte, génère index de pages et brouillons, découpe, fusionne ou renomme les scans OCR bicouche ; redressement et inclinaison, ni OCR ni compression."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

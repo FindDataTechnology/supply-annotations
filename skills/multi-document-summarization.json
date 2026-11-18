@@ -1,0 +1,32 @@
+{
+  "skill": "multi-document-summarization",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "多文档摘要",
+        "summary": "对多份相关文档综合分析：提取共同观点、识别冲突并生成统一概览，可梳理类案要旨、条款异同、规范演变、事实脉络与研究共识。"
+      },
+      "en": {
+        "name": "Multi-document summary",
+        "summary": "Synthesizes multiple related documents: extracts shared views, identifies conflicts and produces a unified overview across judgments, contracts, statutes, evidence and papers."
+      },
+      "ja": {
+        "name": "複数文書要約",
+        "summary": "複数の関連文書を総合分析し、共通の見解を抽出し、対立点を識別し、統一した概要を生成する。判決・契約・法規・証拠・論文の整理に使える。"
+      },
+      "es": {
+        "name": "Resumen de múltiples documentos",
+        "summary": "Analiza en conjunto varios documentos relacionados: extrae coincidencias, identifica conflictos y genera una visión unificada de sentencias, contratos, normas, pruebas y artículos."
+      },
+      "fr": {
+        "name": "Résumé de documents multiples",
+        "summary": "Analyse ensemble plusieurs documents liés : dégage les points communs, identifie les contradictions et produit une vue unifiée sur jugements, contrats, normes, preuves et articles."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "legal-concept-map",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "法律概念图谱",
+        "summary": "法律概念结构化图解:以条级引用解析锚定条文,以五源语料补权威解读,拆解构成要件与例外,输出要件—例外—关联条文的结构化图解。"
+      },
+      "en": {
+        "name": "Legal concept structured diagram",
+        "summary": "Structured diagram of a legal concept: anchors articles via citation-level parsing, adds authoritative commentary from the five-source corpus, and lays out elements, exceptions and related articles."
+      },
+      "ja": {
+        "name": "法律概念図解",
+        "summary": "法律概念の構造化図解：条レベル引用解析で条文を確定し、五源語料で権威ある解説を補い、構成要件と例外を分解し、要件―例外―関連条文の図解を出力する。"
+      },
+      "es": {
+        "name": "Diagrama estructurado de conceptos jurídicos",
+        "summary": "Diagrama estructurado de un concepto jurídico: ancla artículos mediante citas por artículo, añade doctrina autorizada de las cinco fuentes y presenta requisitos, excepciones y artículos relacionados."
+      },
+      "fr": {
+        "name": "Schéma structuré des concepts juridiques",
+        "summary": "Schéma structuré d’un concept juridique : ancre les articles via les citations, ajoute les commentaires autorisés des cinq sources, présente éléments, exceptions et articles liés."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

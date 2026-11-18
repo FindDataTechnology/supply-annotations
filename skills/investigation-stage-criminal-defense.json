@@ -1,0 +1,32 @@
+{
+  "skill": "investigation-stage-criminal-defense",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "刑事侦查阶段辩护",
+        "summary": "刑事侦查阶段辩护工作规范,涵盖律师会见全流程、案件法律分析与量刑预判、批捕时间节点管理、法律文书生成与执业风险防范。"
+      },
+      "en": {
+        "name": "Criminal defense at investigation stage",
+        "summary": "Defense work standard for the criminal investigation stage: meetings, case analysis and sentencing prediction, arrest-approval timing, document drafting and practice-risk control."
+      },
+      "ja": {
+        "name": "捜査段階刑事弁護",
+        "summary": "刑事事件捜査段階の弁護実務規範：接見の全流程、案件の法的分析と量刑予測、逮捕承認時期の管理、法律文書作成、業務リスク防止を網羅する。"
+      },
+      "es": {
+        "name": "Defensa penal en fase de instrucción",
+        "summary": "Estándar de defensa en la fase de instrucción: entrevistas, análisis del caso y predicción de la pena, plazos de detención, redacción de documentos y control de riesgos profesionales."
+      },
+      "fr": {
+        "name": "Défense pénale en phase d’enquête",
+        "summary": "Norme de défense en phase d’enquête : entretiens, analyse du dossier, prévision de la peine, suivi des délais de détention, rédaction d’actes et maîtrise des risques professionnels."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

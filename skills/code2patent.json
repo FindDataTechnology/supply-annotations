@@ -1,0 +1,32 @@
+{
+  "skill": "code2patent",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "代码转专利",
+        "summary": "从已开发代码项目提取技术实现证据，生成算法/软件类说明书式技术交底书，并按「权利要求布局卡 → 发明专利初稿」两步法产出接近可申报版的中国发明专利起草材料。"
+      },
+      "en": {
+        "name": "Code to patent",
+        "summary": "Extracts implementation evidence from code projects, drafts technical disclosures for algorithm/software inventions, then moves from claims layout cards to near-filing Chinese patent drafts."
+      },
+      "ja": {
+        "name": "コードから特許へ",
+        "summary": "開発済みコードから実装証拠を抽出し、アルゴリズム／ソフトウェア向けの技術開示資料を作成、続いてクレーム配置カードから出願水準に近い中国特許草案へと進める。"
+      },
+      "es": {
+        "name": "De código a patente",
+        "summary": "Extrae evidencia de implementación del código, redacta divulgaciones técnicas para algoritmos/software y avanza de tarjetas de reivindicaciones a borradores de patente casi listos."
+      },
+      "fr": {
+        "name": "Du code au brevet",
+        "summary": "Extrait des preuves d'implémentation du code, rédige des divulgations techniques pour algorithmes et logiciels, puis va des cartes de revendications aux brouillons de brevet chinois près du dépôt."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

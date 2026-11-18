@@ -1,0 +1,32 @@
+{
+  "skill": "conflict-resolution",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "冲突协调",
+        "summary": "法律推理中协调法条竞合、证据矛盾、争点优先级排序与法源冲突，确定审理或分析顺序与适用方案；属法律推理的核心枢纽能力。"
+      },
+      "en": {
+        "name": "Conflict resolution",
+        "summary": "Coordinates statute concurrence, contradictory evidence, issue prioritization and conflicts among legal sources, fixing analysis order and the applicable rule; a core hub of legal reasoning."
+      },
+      "ja": {
+        "name": "競合調整",
+        "summary": "法律推論において法条の競合、証拠の矛盾、争点の優先順位、法源の衝突を調整し、審理・分析の順序と適用方針を確定する中核的な能力。"
+      },
+      "es": {
+        "name": "Resolución de conflictos",
+        "summary": "Coordina la concurrencia de normas, la contradicción de pruebas, la prioridad de cuestiones y el conflicto de fuentes en el razonamiento jurídico; capacidad nuclear del análisis legal."
+      },
+      "fr": {
+        "name": "Résolution de conflits",
+        "summary": "Coordonne la concurrence de normes, la contradiction des preuves, la priorité des questions et le conflit de sources dans le raisonnement juridique ; capacité centrale de l'analyse."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

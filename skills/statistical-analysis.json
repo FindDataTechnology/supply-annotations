@@ -1,0 +1,32 @@
+{
+  "skill": "statistical-analysis",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "统计分析",
+        "summary": "面向研究数据的引导式统计分析：协助选择检验方法、检查前提假设、计算效应量、做功效分析与贝叶斯备选方案，并按 APA 格式输出报告。"
+      },
+      "en": {
+        "name": "Statistical analysis",
+        "summary": "Guided statistical analysis for research data: test selection, assumption checking, effect sizes, power analysis, Bayesian alternatives and APA-formatted reporting."
+      },
+      "ja": {
+        "name": "統計分析",
+        "summary": "研究データ向けの引導付き統計分析：検定の選択、前提検証、効果量、検定力分析、ベイズ的代替案を扱い、APA形式で報告する。"
+      },
+      "es": {
+        "name": "Análisis estadístico",
+        "summary": "Análisis estadístico guiado de datos de investigación: selección de la prueba, comprobación de supuestos, tamaños del efecto, análisis de potencia, alternativas bayesianas e informe en formato APA."
+      },
+      "fr": {
+        "name": "Analyse statistique",
+        "summary": "Analyse statistique guidée de données de recherche : choix du test, vérification des hypothèses, tailles d’effet, analyse de puissance, alternatives bayésiennes et rapport au format APA."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

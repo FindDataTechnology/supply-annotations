@@ -1,0 +1,32 @@
+{
+  "skill": "market-flash-briefing",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "市场快讯速览",
+        "summary": "把财经新闻、公告或评论收敛成一页速览:三行结论、五个要点、一处存疑,按固定版式输出。"
+      },
+      "en": {
+        "name": "Market flash briefing",
+        "summary": "Condenses a stretch of financial news, announcements or commentary into a one-page flash brief: three-line conclusion, five key points, one open doubt, in a fixed layout."
+      },
+      "ja": {
+        "name": "市況フラッシュ速報",
+        "summary": "経済ニュース、発表や評論を一ページの速報に凝縮:結論3行、要点5つ、疑義1点、固定レイアウトで出力。"
+      },
+      "es": {
+        "name": "Informativo exprés del mercado",
+        "summary": "Condensa noticias, anuncios o comentarios financieros en un boletín de una página: tres líneas de conclusión, cinco puntos y una duda, con formato fijo."
+      },
+      "fr": {
+        "name": "Bulletin flash du marché",
+        "summary": "Condense actualités, annonces ou commentaires financiers en une page : trois lignes de conclusion, cinq points et un doute, dans une mise en page fixe."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

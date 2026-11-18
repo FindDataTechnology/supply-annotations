@@ -1,0 +1,31 @@
+{
+  "tools": {
+    "crossborder_merchant_status": {
+      "human": {
+        "zh": {
+          "name": "跨境商家授权状态",
+          "summary": "查询某跨境电商平台连接器的商家授权状态；未授权返回结构化「不可得（未授权）」，绝不报错或静默空值。"
+        },
+        "en": {
+          "name": "Cross-border merchant status",
+          "summary": "Report merchant-authorization status for a platform connector; unauthorized returns a structured 'unavailable (unauthorized)' response, never an error or an empty list."
+        },
+        "ja": {
+          "name": "越境EC 出店許可状態",
+          "summary": "越境EC プラットフォームコネクタの出品者許可状態を照会。未許可は構造化された「不可（未許可）」を返し、エラーや空値を返さない。"
+        },
+        "es": {
+          "name": "Estado de comerciante transfronterizo",
+          "summary": "Informa el estado de autorización del comerciante para un conector de plataforma; no autorizado devuelve una respuesta estructurada 'no disponible (no autorizado)', nunca un error o lista vacía."
+        },
+        "fr": {
+          "name": "Statut marchand transfrontalier",
+          "summary": "Renseigne le statut d'autorisation marchand d'un connecteur de plateforme ; non autorisé renvoie une réponse structurée « indisponible (non autorisé) », jamais une erreur ou une liste vide."
+        }
+      },
+      "canonical": {
+        "brief": "查询跨境电商平台连接器的商家授权闸状态；未授权时返回结构化「不可得（未授权）」而非报错或空列表，授权后返回 granted scopes。仅读平台官方 API、不逆向。"
+      }
+    }
+  }
+}

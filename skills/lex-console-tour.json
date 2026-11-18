@@ -1,0 +1,32 @@
+{
+  "skill": "lex-console-tour",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "识律控制台导览",
+        "summary": "识律控制台五个页面的导览与路由表:每页负责什么、用户问题应去哪一页、何时发起页面跳转意图。"
+      },
+      "en": {
+        "name": "Lex console tour",
+        "summary": "Guided tour of the five pages of the Lex console with a routing table: what each page covers, where a user question belongs, when to raise a page-navigation intent."
+      },
+      "ja": {
+        "name": "Lexコンソール案内",
+        "summary": "Lexコンソール5ページの案内とルーティング表:各ページの担当、質問の行き先、ページ遷移インテントの発動時機を説明。"
+      },
+      "es": {
+        "name": "Guía de la consola Lex",
+        "summary": "Recorrido por las cinco páginas de la consola Lex con tabla de enrutamiento: qué gestiona cada página, adónde dirigir cada pregunta y cuándo emitir una intención de navegación."
+      },
+      "fr": {
+        "name": "Visite guidée de la console Lex",
+        "summary": "Présentation des cinq pages de la console Lex avec table de routage: ce que gère chaque page, où orienter chaque question et quand émettre une intention de navigation."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

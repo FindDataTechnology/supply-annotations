@@ -1,0 +1,32 @@
+{
+  "skill": "stock-correlation",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "股票相关性分析",
+        "summary": "分析股票之间的相关性，找出关联公司与交易配对，回答关于相关股票、同板块同行或两只及以上股票走势联动的问题。"
+      },
+      "en": {
+        "name": "Stock correlation analysis",
+        "summary": "Analyzes stock correlations to surface related companies and trading pairs, answering questions about correlated stocks, sector peers or how two or more stocks move together."
+      },
+      "ja": {
+        "name": "株式相関分析",
+        "summary": "株式間の相関を分析して関連企業や取引ペアを抽出し、相関銘柄・同セクターの同業・複数銘柄の連動に関する質問に答える。"
+      },
+      "es": {
+        "name": "Análisis de correlación de acciones",
+        "summary": "Analiza correlaciones entre acciones para hallar empresas relacionadas y pares de negociación: valores correlacionados, comparables del sector o cómo se mueven juntas dos o más acciones."
+      },
+      "fr": {
+        "name": "Analyse de corrélation d’actions",
+        "summary": "Analyse les corrélations entre actions pour repérer sociétés liées et paires de négociation : titres corrélés, pairs du secteur ou dynamique conjointe de deux titres et plus."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

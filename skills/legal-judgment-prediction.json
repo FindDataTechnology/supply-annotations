@@ -1,0 +1,32 @@
+{
+  "skill": "legal-judgment-prediction",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "裁判结果预测",
+        "summary": "根据案件事实描述，综合调用八个原子能力，预测罪名、适用法条、刑期及量刑情节，输出结构化预测报告及置信度评估。"
+      },
+      "en": {
+        "name": "Judgment outcome prediction",
+        "summary": "Predicts charges, applicable statutes, sentence length and sentencing factors from case facts via eight atomic capabilities, returning a structured prediction report with confidence ratings."
+      },
+      "ja": {
+        "name": "裁判結果予測",
+        "summary": "事実関係の説明に基づき、八つのアトミック技能を総合して罪名・適用法条・刑期・量刑情状を予測し、信頼度付きの構造化予測レポートを出力する。"
+      },
+      "es": {
+        "name": "Previsión del resultado judicial",
+        "summary": "Combina ocho capacidades atómicas para prever, a partir de los hechos, el delito, las normas aplicables, la pena y las circunstancias punitivas, con informe estructurado y grado de confianza."
+      },
+      "fr": {
+        "name": "Prévision du résultat judiciaire",
+        "summary": "Combine huit capacités atomiques pour prévoir, à partir des faits, la qualification, les normes applicables, la peine et ses circonstances, avec rapport structuré et indice de confiance."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

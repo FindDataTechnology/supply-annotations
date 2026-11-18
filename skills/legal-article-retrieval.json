@@ -1,0 +1,32 @@
+{
+  "skill": "legal-article-retrieval",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "法律检索报告",
+        "summary": "生成标准化法律检索报告,适用于案例检索、法条检索、类案分析:预测裁判结果、复核法律依据有效性、确认请求与抗辩依据、分析司法实践倾向,支持诉讼方案、庭审准备与合规审查。"
+      },
+      "en": {
+        "name": "Standardized legal search report",
+        "summary": "Standard legal research reports for case, statute and similar-case search: outcome prediction, validity of legal bases, judicial trends; supports litigation planning, trial prep and compliance review."
+      },
+      "ja": {
+        "name": "法律検索報告",
+        "summary": "判例検索・法令検索・類似事件分析向けの標準化された法律検索報告を生成。裁判結果の予測、法的根拠の有効性確認、請求・抗弁の根拠審査、司法実務傾向の分析に対応し、訴訟準備やコンプライアンス審査を支援。"
+      },
+      "es": {
+        "name": "Informe estandarizado de búsqueda jurídica",
+        "summary": "Informes estándar de investigación jurídica: casos, normas y supuestos análogos, predicción de fallos, validez de fundamentos, tendencias jurisprudenciales; estrategia procesal, vista y cumplimiento."
+      },
+      "fr": {
+        "name": "Rapport de recherche juridique normalisé",
+        "summary": "Rapports normalisés de recherche juridique : affaires, articles et cas similaires, prévision des décisions, validité des fondements, tendances jurisprudentielles ; stratégie, audience et conformité."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "facade-manifest-template",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "分身骨架模板",
+        "summary": "分身 manifest 骨架:可直填的完整结构,含分身配置块与语料、接待的最小示例。"
+      },
+      "en": {
+        "name": "Avatar skeleton form",
+        "summary": "Fillable avatar manifest skeleton: a complete structure with the avatar configuration block plus minimal corpus and reception examples."
+      },
+      "ja": {
+        "name": "分身骨格テンプレート",
+        "summary": "分身マニフェストの記入可能な骨格:分身設定ブロックとコーパス・応対の最小例を含む完全な構造。"
+      },
+      "es": {
+        "name": "Esqueleto de avatar",
+        "summary": "Esqueleto de manifiesto del avatar, listo para rellenar: estructura completa con bloque de configuración del avatar y ejemplos mínimos de corpus y atención."
+      },
+      "fr": {
+        "name": "Squelette d'avatar",
+        "summary": "Squelette de manifeste d'avatar prêt à remplir : structure complète avec bloc de configuration de l'avatar et exemples minimaux de corpus et d'accueil."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

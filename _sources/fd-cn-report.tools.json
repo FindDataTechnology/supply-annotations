@@ -1,0 +1,183 @@
+{
+  "server_name": "fd-cn-report",
+  "description": "A股/港股/B股年报抽取与指标",
+  "tags": [],
+  "tools": [
+    {
+      "name": "ai_extract",
+      "description": "Run LLM structured extraction over report section text."
+    },
+    {
+      "name": "audit_rule_gaps",
+      "description": "Audit rule gaps from existing out/ bundles and write a stable JSON report."
+    },
+    {
+      "name": "clear_cache",
+      "description": "Evict cached annual reports."
+    },
+    {
+      "name": "delete_index",
+      "description": "Drop the cnreport-{year} Elasticsearch index and its metadata row."
+    },
+    {
+      "name": "extract_indicators",
+      "description": "Extract many indicators for one company/year in a single pass.\n\nFetches the annual-report PDF once, groups report-rules by section (one LLM\ncall per section), dispatches Python extractors individually, and computes\nderived ratios locally. Caches the bundle to disk so repeat calls are free."
+    },
+    {
+      "name": "extract_indicators_by_position",
+      "description": "Extract the indicators named in a position CSV for one company/year.\n\nDefault CSV is `docs/indicators_position.csv` (override with `csv_path`).\nReads the CSV's indicator column, routes report/akshare/computed indicators\nthrough the batch engine (one PDF fetch, batched LLM, python extractors,\ncomputed ratios, bundle cache), and lists realtime/external indicators\n(PE-TTM, PB, 市值, …) in `skipped` — they are not in the report PDF."
+    },
+    {
+      "name": "extract_section",
+      "description": "Extract one section's body text by selector."
+    },
+    {
+      "name": "get_bse_company",
+      "description": "Resolve a BSE-listed company by 6-digit ticker (bse.cn)."
+    },
+    {
+      "name": "get_bse_section",
+      "description": "Extract a named section from a BSE company's annual-report PDF.\n\nThe filing may be served from BSE or CNINFO (fallback); the result carries\n``source``. Returns: {stock_code, year, section, pdf_url, source,\noutline_entry, text, char_count} or {error}."
+    },
+    {
+      "name": "get_company",
+      "description": "Resolve a CN-A-share company by 6-digit ticker or Chinese/English name fragment."
+    },
+    {
+      "name": "get_csrc_ipo_review",
+      "description": "Query CSRC IPO (首发) application review status for a company."
+    },
+    {
+      "name": "get_csrc_merger_review",
+      "description": "Query CSRC 并购重组 (M&A) review status for a company.\n\nReturns: {company, source, fields} or {company, source, error}."
+    },
+    {
+      "name": "get_filing",
+      "description": "Fetch one CNINFO announcement's metadata + PDF URL by id."
+    },
+    {
+      "name": "get_financial_statements",
+      "description": "Extract the three major financial statements (三大报表) as text.\n\nResolves the company's filing PDF for ``(ticker, year, form)`` via the\nreport cache (no re-download on repeat), parses the table of contents,\nand returns each statement's body text:\n\n  - ``statements.income_statement`` (利润表)       — prefers 合并利润表\n  - ``statements.balance_sheet`` (资产负债表)       — prefers 合并资产负债表\n  - ``statements.cashflow`` (现金流量表)            — prefers 合并现金流量表\n\nReturns section **text only** — never PDF bytes. Statements not located\nin the TOC are listed in ``missing`` (with the full ``available`` title\nlist so the caller can fall back to ``get_section`` with a custom selector)."
+    },
+    {
+      "name": "get_financials",
+      "description": "Return structured income/balance/cashflow statements for a CN-A-share company."
+    },
+    {
+      "name": "get_hk_company",
+      "description": "Resolve a HK stock company by 5-digit ticker or name fragment."
+    },
+    {
+      "name": "get_hk_financials",
+      "description": "Return structured financial statements for a HK stock company."
+    },
+    {
+      "name": "get_hk_section",
+      "description": "Extract a named section from a HK stock annual report PDF."
+    },
+    {
+      "name": "get_indicator",
+      "description": "Resolve one named financial indicator for a company + period.\n\nRoutes per the rule's `source_type`: akshare line items, annual-report PDF\nsection (LLM or registered Python extractor), or locally-computed ratio."
+    },
+    {
+      "name": "get_ministry_stat",
+      "description": "Fetch a ministry's statistics page and parse its HTML tables."
+    },
+    {
+      "name": "get_nbs_stat",
+      "description": "Query an NBS (国家统计局) macro statistic by indicator code."
+    },
+    {
+      "name": "get_section",
+      "description": "Resolve a company's filing PDF and extract one named section.\n\nConvenience wrapper: (ticker, year, section, form) → CNINFO lookup\n→ PDF URL → existing outline-extraction pipeline."
+    },
+    {
+      "name": "get_special_report",
+      "description": "Retrieve a special-type report for a CN-A-share company by CNINFO category."
+    },
+    {
+      "name": "get_sse_company",
+      "description": "Resolve a SSE-listed company by 6-digit ticker (sse.com.cn)."
+    },
+    {
+      "name": "get_sse_interaction",
+      "description": "Fetch 上证e互动 investor Q&A for a SSE-listed company (sns.sseinfo.com)."
+    },
+    {
+      "name": "get_sse_section",
+      "description": "Extract a named section from a SSE company's annual-report PDF."
+    },
+    {
+      "name": "get_szse_company",
+      "description": "Resolve a SZSE-listed company by 6-digit ticker (szse.cn)."
+    },
+    {
+      "name": "get_szse_interaction",
+      "description": "Fetch 互动易 investor Q&A for a SZSE-listed company (irm.cninfo.com.cn).\n\nReturns: {stock_code, source, questions: [...]} or {error}."
+    },
+    {
+      "name": "get_szse_section",
+      "description": "Extract a named section from a SZSE company's annual-report PDF."
+    },
+    {
+      "name": "index_records",
+      "description": "Bulk-index extracted records into cnreport-{year}."
+    },
+    {
+      "name": "list_bse_filings",
+      "description": "List a BSE-listed company's disclosures (BSE-native, CNINFO fallback).\n\nEach row carries ``source: \"bse\" | \"cninfo\"``. Returns: {filings, count} or {error}."
+    },
+    {
+      "name": "list_cache",
+      "description": "List cached annual reports.\n\nEach entry carries the parsed provenance (``stock_code`` / ``year`` /\n``form`` / ``announcement_id`` for convenience-tool fetches, or\n``kind: \"url\"`` for raw ``extract_section``/``list_outline`` URL fetches),\n``cached_at`` (file mtime, ISO-8601 UTC), and ``size`` (sum of its\n``.pdf`` + ``.txt`` + ``.outline.json``)."
+    },
+    {
+      "name": "list_csrc_enforcement",
+      "description": "List CSRC administrative-penalty / enforcement actions (csrc.gov.cn).\n\nReturns: {filings, count} or {error}."
+    },
+    {
+      "name": "list_csrc_filings",
+      "description": "List CSRC regulatory announcements/notices (csrc.gov.cn)."
+    },
+    {
+      "name": "list_filings",
+      "description": "List a CN-A-share company's CNINFO disclosures."
+    },
+    {
+      "name": "list_hk_filings",
+      "description": "List a HK stock company's filings/announcements."
+    },
+    {
+      "name": "list_indicators",
+      "description": "Browse the banking-indicator rule set (data-driven by indicator_rules.json)."
+    },
+    {
+      "name": "list_ministries",
+      "description": "List the supported ministry statistics sources.\n\nReturns: {ministries: [{id, label, en, transport, base}], count} or {error}."
+    },
+    {
+      "name": "list_outline",
+      "description": "Fetch a Chinese annual report and return its 目录 outline."
+    },
+    {
+      "name": "list_report_types",
+      "description": "Browse the CNINFO disclosure category catalog."
+    },
+    {
+      "name": "list_sse_filings",
+      "description": "List a SSE-listed company's disclosures directly from sse.com.cn."
+    },
+    {
+      "name": "list_szse_filings",
+      "description": "List a SZSE-listed company's disclosures directly from szse.cn.\n\nReturns: {filings, count} or {error}."
+    },
+    {
+      "name": "open_industry_rules_dashboard",
+      "description": "Start the industry rules web dashboard with filtering and search.\n\nOpens a web UI at http://localhost:<port> showing all 21,698 LLM rules\nacross 31 申万 L1 industries. Filter by industry, module, keyword; sort\nby any column; paginated view."
+    },
+    {
+      "name": "search_reports",
+      "description": "Full-text + filtered search over cnreport indices with highlights."
+    }
+  ]
+}

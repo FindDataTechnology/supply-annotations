@@ -1,0 +1,32 @@
+{
+  "skill": "mb-signal-catering",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "餐饮行业信号包",
+        "summary": "餐饮行业信号包(谦面·生意体检姊妹件):食材成本趋势取自大商所期货,商圈活跃度以电影票房作代理,堂食外卖切换以气象数据作代理,可选同业密度;每个信号标注代理性质,工商类带批次年份并注明历史格局非实时,无注销口径不计算关店量。"
+      },
+      "en": {
+        "name": "Food service signal pack",
+        "summary": "Food-service signal pack (Facet): ingredient costs via Dalian futures, district activity and dine-in/takeout as flagged proxies, optional peer density; registration data historical; no closures."
+      },
+      "ja": {
+        "name": "外食業界シグナルパック",
+        "summary": "外食業界シグナルパック(Facet健診姉妹版):食材コストは大連商品交易所先物、繁華街活性は興行収入、店内・テイクアウト切替は気象の代理指標。各信号に代理注記、企業登記データはバッチ年と歴史格局注記付き、閉店数は算出しない。"
+      },
+      "es": {
+        "name": "Paquete de señales de hostelería",
+        "summary": "Señales de hostelería (Facet): ingredientes vía futuros de Dalian, actividad de zona y salón/llevar como señales indirectas, densidad opcional; datos marcados históricos; sin conteo de cierres."
+      },
+      "fr": {
+        "name": "Pack de signaux de la restauration",
+        "summary": "Signaux restauration (Facet): coûts matières via futures de Dalian, vitalité de zone et sur place/à emporter en indicateurs indirects, densité optionnelle; données datées; pas de fermetures."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

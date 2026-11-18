@@ -1,0 +1,31 @@
+{
+ "tools": {
+  "get_body": {
+   "human": {
+    "zh": {
+     "name": "取条目正文",
+     "summary": "按 doc_id 取回条目全文，只读；正文缺失时返回结构化错误而不是空字符串。"
+    },
+    "en": {
+     "name": "Get item body",
+     "summary": "Returns an item's full text by doc_id as a read-only lookup; a missing body yields a structured error rather than an empty string."
+    },
+    "ja": {
+     "name": "本文を取得",
+     "summary": "doc_id で項目の全文を取得します（読み取り専用）。本文が無い場合は空文字ではなく構造化されたエラーを返します。"
+    },
+    "es": {
+     "name": "Obtener el cuerpo del ítem",
+     "summary": "Devuelve el texto completo de un ítem por doc_id en modo solo lectura; si falta el cuerpo informa un error estructurado en vez de una cadena vacía."
+    },
+    "fr": {
+     "name": "Obtenir le corps de l'élément",
+     "summary": "Renvoie le texte intégral d'un élément par doc_id en lecture seule ; si le corps manque, une erreur structurée est renvoyée plutôt qu'une chaîne vide."
+    }
+   },
+   "canonical": {
+    "brief": "Returns an item's full text by doc_id for service-to-service use; a missing body is reported as a structured error, never as an empty string."
+   }
+  }
+ }
+}

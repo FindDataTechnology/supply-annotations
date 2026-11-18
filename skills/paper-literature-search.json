@@ -1,0 +1,32 @@
+{
+  "skill": "paper-literature-search",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "论文文献检索",
+        "summary": "论文文献检索（文本引擎·论文包入口技能）：从研究方向定位到文献梳理，基于 fd-text-core 引擎论文语料与外部开放检索（arXiv、OpenAlex、S2）实时获取。"
+      },
+      "en": {
+        "name": "Paper literature search",
+        "summary": "Paper literature search (entry skill): runs from direction framing to literature mapping, with live data from the fd-text-core paper corpus and open sources (arXiv, OpenAlex, S2)."
+      },
+      "ja": {
+        "name": "論文文献検索",
+        "summary": "論文文献検索（テキストエンジン・論文パッケージ入口スキル）：研究テーマの位置付けから文献整理までを駆動し、fd-text-core の論文コーパスと外部オープン検索（arXiv、OpenAlex、S2）からリアルタイム取得。"
+      },
+      "es": {
+        "name": "Búsqueda de literatura académica",
+        "summary": "Búsqueda de literatura académica (entrada): delimita el tema y mapea la literatura; obtiene datos en vivo del corpus de artículos de fd-text-core y fuentes abiertas (arXiv, OpenAlex, S2)."
+      },
+      "fr": {
+        "name": "Recherche de littérature académique",
+        "summary": "Recherche de littérature académique (entrée) : délimite le thème et cartographie la littérature ; corpus d'articles de fd-text-core et sources ouvertes (arXiv, OpenAlex, S2) en direct."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

@@ -1,0 +1,625 @@
+{
+  "tools": {
+    "composite_list": {
+      "human": {
+        "zh": {
+          "name": "列出复合服务",
+          "summary": "列出全部已定义的复合服务，含名称与描述。"
+        },
+        "en": {
+          "name": "List composites",
+          "summary": "Lists all defined composites with their name and description."
+        },
+        "ja": {
+          "name": "複合を一覧",
+          "summary": "定義済みの複合をすべて一覧する。名前と説明を含む。"
+        },
+        "es": {
+          "name": "Listar compuestos",
+          "summary": "Enumera todos los compuestos definidos con su nombre y descripción."
+        },
+        "fr": {
+          "name": "Lister les composés",
+          "summary": "Liste tous les composés définis avec leur nom et leur description."
+        }
+      },
+      "canonical": {
+        "brief": "List all defined composites (name + description)."
+      }
+    },
+    "composite_create": {
+      "human": {
+        "zh": {
+          "name": "创建复合服务",
+          "summary": "创建一个新的复合服务；名称已存在时报错。"
+        },
+        "en": {
+          "name": "Create composite",
+          "summary": "Creates a new composite and raises an error if the name already exists."
+        },
+        "ja": {
+          "name": "複合を作成",
+          "summary": "新しい複合を作成する。名前が既に存在する場合はエラーになる。"
+        },
+        "es": {
+          "name": "Crear compuesto",
+          "summary": "Crea un compuesto nuevo y devuelve error si el nombre ya existe."
+        },
+        "fr": {
+          "name": "Créer un composé",
+          "summary": "Crée un composé et renvoie une erreur si le nom existe déjà."
+        }
+      },
+      "canonical": {
+        "brief": "Create a new composite; raises if the name already exists."
+      }
+    },
+    "composite_list_upstreams": {
+      "human": {
+        "zh": {
+          "name": "列出上游服务",
+          "summary": "列出某个复合服务已定义的上游。"
+        },
+        "en": {
+          "name": "List upstreams",
+          "summary": "Lists the upstreams defined for a composite."
+        },
+        "ja": {
+          "name": "上流を一覧",
+          "summary": "複合に定義された上流を一覧する。"
+        },
+        "es": {
+          "name": "Listar servicios origen",
+          "summary": "Enumera los servicios origen definidos para un compuesto."
+        },
+        "fr": {
+          "name": "Lister les sources amont",
+          "summary": "Liste les sources amont définies pour un composé."
+        }
+      },
+      "canonical": {
+        "brief": "List the upstreams defined for a composite."
+      }
+    },
+    "composite_add_upstream": {
+      "human": {
+        "zh": {
+          "name": "添加上游服务",
+          "summary": "为复合服务添加一个上游 MCP 服务：stdio 方式给出 command、args、cwd（env 可选），http 方式给出 url。"
+        },
+        "en": {
+          "name": "Add upstream",
+          "summary": "Adds an upstream MCP server to a composite: stdio takes command, args and cwd (env optional), http takes url."
+        },
+        "ja": {
+          "name": "上流を追加",
+          "summary": "複合に上流 MCP サーバーを追加する。stdio は command・args・cwd（env は任意）、http は url を指定する。"
+        },
+        "es": {
+          "name": "Añadir servicio origen",
+          "summary": "Añade un servidor MCP de origen a un compuesto: stdio recibe command, args y cwd (env opcional), http recibe url."
+        },
+        "fr": {
+          "name": "Ajouter une source amont",
+          "summary": "Ajoute un serveur MCP amont à un composé : stdio prend command, args et cwd (env facultatif), http prend url."
+        }
+      },
+      "canonical": {
+        "brief": "Add an upstream MCP server to a composite: stdio via command/args/cwd, http via url."
+      }
+    },
+    "composite_remove_upstream": {
+      "human": {
+        "zh": {
+          "name": "移除上游服务",
+          "summary": "从复合服务移除一个上游及其已选工具。"
+        },
+        "en": {
+          "name": "Remove upstream",
+          "summary": "Removes an upstream and its selected tools from a composite."
+        },
+        "ja": {
+          "name": "上流を削除",
+          "summary": "複合から上流とその選択済みツールを削除する。"
+        },
+        "es": {
+          "name": "Quitar servicio origen",
+          "summary": "Quita un servicio origen y sus herramientas seleccionadas de un compuesto."
+        },
+        "fr": {
+          "name": "Retirer une source amont",
+          "summary": "Retire une source amont et ses outils sélectionnés d'un composé."
+        }
+      },
+      "canonical": {
+        "brief": "Remove an upstream and its selected tools from a composite."
+      }
+    },
+    "composite_list_available_tools": {
+      "human": {
+        "zh": {
+          "name": "列出上游可用工具",
+          "summary": "实时列出某个上游当前暴露的工具，可按条件过滤。"
+        },
+        "en": {
+          "name": "List upstream tools",
+          "summary": "Lists the tools an upstream currently exposes, read live, optionally filtered."
+        },
+        "ja": {
+          "name": "上流のツールを一覧",
+          "summary": "上流が現在公開しているツールをリアルタイムで一覧する。条件で絞り込める。"
+        },
+        "es": {
+          "name": "Listar herramientas disponibles",
+          "summary": "Enumera en vivo las herramientas que un servicio origen expone ahora, con filtro opcional."
+        },
+        "fr": {
+          "name": "Lister les outils disponibles",
+          "summary": "Liste en direct les outils qu'une source amont expose actuellement, avec filtre facultatif."
+        }
+      },
+      "canonical": {
+        "brief": "List the tools an upstream currently exposes (live), optionally filtered."
+      }
+    },
+    "composite_add_tool": {
+      "human": {
+        "zh": {
+          "name": "选择代理工具",
+          "summary": "选择要由复合服务代理暴露的上游工具，下次启动时以「上游键_工具名」提供。"
+        },
+        "en": {
+          "name": "Select proxied tool",
+          "summary": "Selects an upstream tool to be exposed by the composite; it is served as upstream_key_tool_name on next start."
+        },
+        "ja": {
+          "name": "代理ツールを選択",
+          "summary": "複合が代理公開する上流ツールを選択する。次回起動時に upstream_key_tool_name として提供される。"
+        },
+        "es": {
+          "name": "Seleccionar herramienta",
+          "summary": "Selecciona una herramienta de origen para que el compuesto la exponga; se sirve como upstream_key_tool_name en el siguiente arranque."
+        },
+        "fr": {
+          "name": "Sélectionner un outil",
+          "summary": "Sélectionne un outil amont que le composé expose ; il est servi sous upstream_key_tool_name au prochain démarrage."
+        }
+      },
+      "canonical": {
+        "brief": "Select an upstream tool to be proxied by the composite, served as upstream_key_tool_name on next start."
+      }
+    },
+    "composite_remove_tool": {
+      "human": {
+        "zh": {
+          "name": "移除代理工具",
+          "summary": "从复合服务移除一个已选工具。"
+        },
+        "en": {
+          "name": "Remove proxied tool",
+          "summary": "Removes a selected tool from a composite."
+        },
+        "ja": {
+          "name": "代理ツールを削除",
+          "summary": "複合から選択済みツールを削除する。"
+        },
+        "es": {
+          "name": "Quitar herramienta",
+          "summary": "Quita una herramienta seleccionada de un compuesto."
+        },
+        "fr": {
+          "name": "Retirer un outil",
+          "summary": "Retire un outil sélectionné d'un composé."
+        }
+      },
+      "canonical": {
+        "brief": "Remove a selected tool from a composite."
+      }
+    },
+    "composite_list_tools": {
+      "human": {
+        "zh": {
+          "name": "列出已选工具",
+          "summary": "列出某个复合服务当前已选的工具。"
+        },
+        "en": {
+          "name": "List selected tools",
+          "summary": "Lists the tools currently selected for a composite."
+        },
+        "ja": {
+          "name": "選択ツールを一覧",
+          "summary": "複合で現在選択されているツールを一覧する。"
+        },
+        "es": {
+          "name": "Listar herramientas elegidas",
+          "summary": "Enumera las herramientas seleccionadas actualmente para un compuesto."
+        },
+        "fr": {
+          "name": "Lister les outils choisis",
+          "summary": "Liste les outils actuellement sélectionnés pour un composé."
+        }
+      },
+      "canonical": {
+        "brief": "List the tools currently selected for a composite."
+      }
+    },
+    "composite_add_chained_tool": {
+      "human": {
+        "zh": {
+          "name": "定义链式工具",
+          "summary": "定义链式工具：上游调用的线性流水线，每步含 upstream、tool、input，input 可引用 $prev 或 $step[N]，仅线性无分支。"
+        },
+        "en": {
+          "name": "Define chained tool",
+          "summary": "Defines a chained tool as a linear pipeline of upstream calls; each step has upstream, tool and input, where input may reference $prev or $step[N], with no branching."
+        },
+        "ja": {
+          "name": "連鎖ツールを定義",
+          "summary": "連鎖ツールを定義する。上流呼び出しの線形パイプラインで、各ステップは upstream・tool・input を持ち、input は $prev や $step[N] を参照できる。分岐はない。"
+        },
+        "es": {
+          "name": "Definir herramienta encadenada",
+          "summary": "Define una herramienta encadenada como canalización lineal de llamadas al origen; cada paso tiene upstream, tool e input, y input puede referir $prev o $step[N], sin ramificaciones."
+        },
+        "fr": {
+          "name": "Définir un outil en chaîne",
+          "summary": "Définit un outil en chaîne comme pipeline linéaire d'appels amont ; chaque étape a upstream, tool et input, et input peut référencer $prev ou $step[N], sans branchement."
+        }
+      },
+      "canonical": {
+        "brief": "Define a chained tool as a linear pipeline of upstream calls; step inputs may reference $prev or $step[N]; no branching."
+      }
+    },
+    "composite_remove_chained_tool": {
+      "human": {
+        "zh": {
+          "name": "移除链式工具",
+          "summary": "从复合服务移除一个链式工具。"
+        },
+        "en": {
+          "name": "Remove chained tool",
+          "summary": "Removes a chained tool from a composite."
+        },
+        "ja": {
+          "name": "連鎖ツールを削除",
+          "summary": "複合から連鎖ツールを削除する。"
+        },
+        "es": {
+          "name": "Quitar herramienta encadenada",
+          "summary": "Quita una herramienta encadenada de un compuesto."
+        },
+        "fr": {
+          "name": "Retirer un outil en chaîne",
+          "summary": "Retire un outil en chaîne d'un composé."
+        }
+      },
+      "canonical": {
+        "brief": "Remove a chained tool from a composite."
+      }
+    },
+    "composite_list_chained_tools": {
+      "human": {
+        "zh": {
+          "name": "列出链式工具",
+          "summary": "列出某个复合服务已定义的链式工具。"
+        },
+        "en": {
+          "name": "List chained tools",
+          "summary": "Lists the chained tools defined for a composite."
+        },
+        "ja": {
+          "name": "連鎖ツールを一覧",
+          "summary": "複合に定義された連鎖ツールを一覧する。"
+        },
+        "es": {
+          "name": "Listar herramientas encadenadas",
+          "summary": "Enumera las herramientas encadenadas definidas para un compuesto."
+        },
+        "fr": {
+          "name": "Lister les outils en chaîne",
+          "summary": "Liste les outils en chaîne définis pour un composé."
+        }
+      },
+      "canonical": {
+        "brief": "List the chained tools defined for a composite."
+      }
+    },
+    "composite_create_manifest": {
+      "human": {
+        "zh": {
+          "name": "创建复合清单",
+          "summary": "一次调用创建复合服务的完整定义：复合服务、上游、工具、工作流与提示词。"
+        },
+        "en": {
+          "name": "Create manifest",
+          "summary": "Creates a composite definition in one call: composite, upstreams, tools, workflows and prompt."
+        },
+        "ja": {
+          "name": "複合マニフェストを作成",
+          "summary": "1 回の呼び出しで複合の定義を作成する。複合・上流・ツール・ワークフロー・プロンプトを含む。"
+        },
+        "es": {
+          "name": "Crear manifiesto",
+          "summary": "Crea la definición de un compuesto en una sola llamada: compuesto, orígenes, herramientas, flujos y prompt."
+        },
+        "fr": {
+          "name": "Créer un manifeste",
+          "summary": "Crée la définition d'un composé en un seul appel : composé, amonts, outils, flux de travail et prompt."
+        }
+      },
+      "canonical": {
+        "brief": "Create a composite definition in one call: composite + upstreams + tools + workflows + prompt."
+      }
+    },
+    "composite_update_manifest": {
+      "human": {
+        "zh": {
+          "name": "更新复合清单",
+          "summary": "部分更新复合服务的定义，仅改动传入字段；传入上游或工具时整体替换原有集合。"
+        },
+        "en": {
+          "name": "Update manifest",
+          "summary": "Partially updates a composite definition; only provided fields change, and given upstreams or tools replace the existing sets wholesale."
+        },
+        "ja": {
+          "name": "複合マニフェストを更新",
+          "summary": "複合の定義を部分的に更新する。渡した項目だけが変わり、上流やツールを渡した場合は既存の集合を丸ごと置き換える。"
+        },
+        "es": {
+          "name": "Actualizar manifiesto",
+          "summary": "Actualiza parcialmente la definición de un compuesto; solo cambian los campos enviados y los orígenes o herramientas enviados sustituyen el conjunto completo."
+        },
+        "fr": {
+          "name": "Mettre à jour un manifeste",
+          "summary": "Met à jour partiellement la définition d'un composé ; seuls les champs fournis changent, et les amonts ou outils fournis remplacent l'ensemble existant."
+        }
+      },
+      "canonical": {
+        "brief": "Partially update a composite definition; provided upstreams/tools replace the existing sets wholesale."
+      }
+    },
+    "composite_delete_manifest": {
+      "human": {
+        "zh": {
+          "name": "删除复合清单",
+          "summary": "删除复合服务的定义，并级联删除其上游、工具与链。"
+        },
+        "en": {
+          "name": "Delete manifest",
+          "summary": "Deletes a composite definition and cascades to its upstreams, tools and chains."
+        },
+        "ja": {
+          "name": "複合マニフェストを削除",
+          "summary": "複合の定義を削除し、その上流・ツール・連鎖も連鎖削除する。"
+        },
+        "es": {
+          "name": "Eliminar manifiesto",
+          "summary": "Elimina la definición de un compuesto y, en cascada, sus orígenes, herramientas y cadenas."
+        },
+        "fr": {
+          "name": "Supprimer un manifeste",
+          "summary": "Supprime la définition d'un composé, avec suppression en cascade de ses amonts, outils et chaînes."
+        }
+      },
+      "canonical": {
+        "brief": "Delete a composite definition, cascading to its upstreams, tools and chains."
+      }
+    },
+    "composite_list_manifests": {
+      "human": {
+        "zh": {
+          "name": "列出复合清单",
+          "summary": "以定义形式列出全部复合服务，含名称、上游、工具、工作流与提示词。"
+        },
+        "en": {
+          "name": "List manifests",
+          "summary": "Lists all composites as definitions with name, upstreams, tools, workflows and prompt."
+        },
+        "ja": {
+          "name": "複合マニフェストを一覧",
+          "summary": "すべての複合を定義形式で一覧する。名前・上流・ツール・ワークフロー・プロンプトを含む。"
+        },
+        "es": {
+          "name": "Listar manifiestos",
+          "summary": "Enumera todos los compuestos como definiciones con nombre, orígenes, herramientas, flujos y prompt."
+        },
+        "fr": {
+          "name": "Lister les manifestes",
+          "summary": "Liste tous les composés sous forme de définitions avec nom, amonts, outils, flux de travail et prompt."
+        }
+      },
+      "canonical": {
+        "brief": "List all composites as definitions (name, upstreams, tools, workflows, prompt)."
+      }
+    },
+    "daas_list_sources": {
+      "human": {
+        "zh": {
+          "name": "列出数据源",
+          "summary": "列出已配置的 DAAS 数据源及其函数数量，含安装状态。"
+        },
+        "en": {
+          "name": "List data sources",
+          "summary": "Lists configured DAAS sources with their function counts and whether each is installed."
+        },
+        "ja": {
+          "name": "データソースを一覧",
+          "summary": "設定済みの DAAS データソースを、関数数とインストール状態とともに一覧する。"
+        },
+        "es": {
+          "name": "Listar fuentes",
+          "summary": "Enumera las fuentes DAAS configuradas con su número de funciones y si están instaladas."
+        },
+        "fr": {
+          "name": "Lister les sources",
+          "summary": "Liste les sources DAAS configurées avec le nombre de fonctions et leur état d'installation."
+        }
+      },
+      "canonical": {
+        "brief": "List configured DAAS sources with install status and available function counts."
+      }
+    },
+    "daas_search_functions": {
+      "human": {
+        "zh": {
+          "name": "检索数据函数",
+          "summary": "跨全部数据源按名称、分类或描述检索 DAAS 函数。"
+        },
+        "en": {
+          "name": "Search functions",
+          "summary": "Searches DAAS functions by name, category or description across all sources."
+        },
+        "ja": {
+          "name": "関数を検索",
+          "summary": "すべてのデータソースを対象に、名前・分類・説明で DAAS 関数を検索する。"
+        },
+        "es": {
+          "name": "Buscar funciones",
+          "summary": "Busca funciones DAAS por nombre, categoría o descripción en todas las fuentes."
+        },
+        "fr": {
+          "name": "Rechercher des fonctions",
+          "summary": "Recherche des fonctions DAAS par nom, catégorie ou description dans toutes les sources."
+        }
+      },
+      "canonical": {
+        "brief": "Search DAAS functions by name, category or description across all sources."
+      }
+    },
+    "daas_get_function_detail": {
+      "human": {
+        "zh": {
+          "name": "读取函数详情",
+          "summary": "返回 DAAS 函数的完整详情：参数、输出列与描述。"
+        },
+        "en": {
+          "name": "Get function detail",
+          "summary": "Returns a DAAS function's full detail, including parameters, output columns and description."
+        },
+        "ja": {
+          "name": "関数の詳細を取得",
+          "summary": "DAAS 関数の完全な詳細を返す。引数・出力列・説明を含む。"
+        },
+        "es": {
+          "name": "Obtener detalle de función",
+          "summary": "Devuelve el detalle completo de una función DAAS, con parámetros, columnas de salida y descripción."
+        },
+        "fr": {
+          "name": "Obtenir le détail d'une fonction",
+          "summary": "Renvoie le détail complet d'une fonction DAAS, avec paramètres, colonnes de sortie et description."
+        }
+      },
+      "canonical": {
+        "brief": "Full detail for a DAAS function: parameters, output columns, description."
+      }
+    },
+    "daas_list_categories": {
+      "human": {
+        "zh": {
+          "name": "列出函数分类",
+          "summary": "列出全部 DAAS 函数分类及计数，可按数据源过滤。"
+        },
+        "en": {
+          "name": "List categories",
+          "summary": "Lists all DAAS function categories with counts, optionally filtered by source."
+        },
+        "ja": {
+          "name": "関数カテゴリを一覧",
+          "summary": "DAAS 関数の全カテゴリを件数付きで一覧する。データソースで絞り込める。"
+        },
+        "es": {
+          "name": "Listar categorías",
+          "summary": "Enumera todas las categorías de funciones DAAS con recuentos, filtrable por fuente."
+        },
+        "fr": {
+          "name": "Lister les catégories",
+          "summary": "Liste toutes les catégories de fonctions DAAS avec leurs compteurs, filtrable par source."
+        }
+      },
+      "canonical": {
+        "brief": "List all DAAS function categories with counts, optionally filtered by source."
+      }
+    },
+    "daas_fetch_data": {
+      "human": {
+        "zh": {
+          "name": "执行取数函数",
+          "summary": "执行一个 DAAS 数据函数并以 JSON 返回结果，按函数名前缀路由到对应的数据源适配器。"
+        },
+        "en": {
+          "name": "Fetch data",
+          "summary": "Executes a DAAS data function and returns the result as JSON, routing to the matching source adapter by function name prefix."
+        },
+        "ja": {
+          "name": "データを取得",
+          "summary": "DAAS データ関数を実行して結果を JSON で返す。関数名の接頭辞で対応するデータソースのアダプタに振り分ける。"
+        },
+        "es": {
+          "name": "Obtener datos",
+          "summary": "Ejecuta una función de datos DAAS y devuelve el resultado en JSON, dirigiendo al adaptador de fuente según el prefijo del nombre."
+        },
+        "fr": {
+          "name": "Récupérer des données",
+          "summary": "Exécute une fonction de données DAAS et renvoie le résultat en JSON, en routant vers l'adaptateur de source selon le préfixe du nom."
+        }
+      },
+      "canonical": {
+        "brief": "Execute a DAAS data function and return JSON results, routed to the source adapter by function name prefix."
+      }
+    },
+    "daas_create_datasource": {
+      "human": {
+        "zh": {
+          "name": "创建数据源",
+          "summary": "创建一个新的受管数据源。"
+        },
+        "en": {
+          "name": "Create data source",
+          "summary": "Creates a new managed data source."
+        },
+        "ja": {
+          "name": "データソースを作成",
+          "summary": "新しい管理対象データソースを作成する。"
+        },
+        "es": {
+          "name": "Crear fuente",
+          "summary": "Crea una fuente de datos gestionada."
+        },
+        "fr": {
+          "name": "Créer une source",
+          "summary": "Crée une source de données gérée."
+        }
+      },
+      "canonical": {
+        "brief": "Create a new managed datasource."
+      }
+    },
+    "daas_update_datasource": {
+      "human": {
+        "zh": {
+          "name": "更新数据源",
+          "summary": "按名称或 id 更新数据源的可变字段；可清除分类、设置默认分或把分值重置为空，仅改动传入字段。"
+        },
+        "en": {
+          "name": "Update data source",
+          "summary": "Updates a data source's mutable fields by name or id; can clear the category, set the default score or reset it to null, changing only provided fields."
+        },
+        "ja": {
+          "name": "データソースを更新",
+          "summary": "名前または id でデータソースの可変項目を更新する。分類の解除、既定スコアの設定、スコアの空リセットができ、渡した項目だけが変わる。"
+        },
+        "es": {
+          "name": "Actualizar fuente",
+          "summary": "Actualiza los campos mutables de una fuente por nombre o id; permite borrar la categoría, fijar la puntuación por defecto o dejarla vacía, cambiando solo lo enviado."
+        },
+        "fr": {
+          "name": "Mettre à jour une source",
+          "summary": "Met à jour les champs modifiables d'une source par nom ou id ; permet d'effacer la catégorie, de fixer le score par défaut ou de le remettre à vide, en ne changeant que les champs fournis."
+        }
+      },
+      "canonical": {
+        "brief": "Update a datasource's mutable fields by name or id, with clear_category and score/clear_score options; only supplied fields change."
+      }
+    }
+  }
+}

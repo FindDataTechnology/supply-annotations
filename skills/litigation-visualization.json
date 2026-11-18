@@ -1,0 +1,32 @@
+{
+  "skill": "litigation-visualization",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "诉讼可视化",
+        "summary": "基于Mermaid语法生成诉讼图表:法律关系图、时间轴、争点树、要件分析图、攻防对抗图、证据链图谱,并输出法官版与律师版Word报告,与总控事项记录和复盘台账衔接。"
+      },
+      "en": {
+        "name": "Litigation visualization",
+        "summary": "Generates Mermaid-based litigation charts: legal relationships, timelines, issue trees, element analyses, attack-defense grids and evidence chains, plus Word reports for judge and lawyer views."
+      },
+      "ja": {
+        "name": "訴訟可視化",
+        "summary": "Mermaid構文で訴訟図表を生成:法律関係図、タイムライン、争点ツリー、要件分析図、攻防対抗図、証拠チェーン。裁判官版と弁護士版のWordレポートも出力。"
+      },
+      "es": {
+        "name": "Visualización de litigios",
+        "summary": "Crea gráficos Mermaid de litigio: relaciones jurídicas, cronologías, árboles de cuestiones, análisis de requisitos, contraste de argumentos y cadenas de prueba; informes Word para juez y abogado."
+      },
+      "fr": {
+        "name": "Visualisation des contentieux",
+        "summary": "Produit des graphiques Mermaid de contentieux : relations juridiques, chronologies, arbres de questions, analyse des éléments, arguments croisés et chaînes de preuves; rapports Word juge/avocat."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

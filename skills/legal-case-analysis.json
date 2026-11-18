@@ -1,0 +1,32 @@
+{
+  "skill": "legal-case-analysis",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "案件法律分析",
+        "summary": "法律任务的前置分析引擎:基于案件材料、咨询材料、合同与证据资料或检索结果,进行法律分析、案件研判、风险评估、诉讼策略、刑事案件审查起诉分析、非诉风险判断与客户说明报告;不要求每次都出正式报告。"
+      },
+      "en": {
+        "name": "Pre-analysis engine for legal cases",
+        "summary": "Pre-analysis engine: builds analysis, risk assessment, litigation strategy or criminal review from case, consultation, contract, evidence or search material; no formal report every time."
+      },
+      "ja": {
+        "name": "案件法的分析エンジン",
+        "summary": "法的業務の前段分析エンジン：事件資料、相談資料、契約・証拠資料や検索結果に基づき、法的分析、事件研判、リスク評価、訴訟戦略、刑事の起訴審査分析、非訴リスク判断、顧客向け説明を行う。毎回正式報告を作る必要はない。"
+      },
+      "es": {
+        "name": "Motor de análisis de casos jurídicos",
+        "summary": "Motor de análisis previo: a partir de expediente, consulta, contrato, prueba o búsquedas, produce análisis jurídico, riesgos, estrategia procesal, revisión penal e informes para cliente."
+      },
+      "fr": {
+        "name": "Moteur d’analyse d’affaires juridiques",
+        "summary": "Moteur d’analyse amont des dossiers juridiques : à partir de pièces, consultation, contrat, preuves ou recherches : analyse juridique, risques, stratégie procédurale, revue pénale, notes clients."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

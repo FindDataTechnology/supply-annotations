@@ -1,0 +1,32 @@
+{
+  "skill": "labor-dispute-evidence-system",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "劳动争议证据体系",
+        "summary": "劳动争议证据管理:举证责任倒置规则、按12类争议自动生成证据收集清单、证据效力三级评估、特殊保护自动检测、规章制度合法性三要件审查,输出举证分配表、证据清单与证据缺口表。"
+      },
+      "en": {
+        "name": "Labor dispute evidence management system",
+        "summary": "Evidence management for labor disputes: burden shifting, checklists for 12 dispute types, three-tier probative grading, special-protection detection, rule-legality review, allocation and gap tables."
+      },
+      "ja": {
+        "name": "労働紛争証拠体系",
+        "summary": "労働紛争の証拠管理：立証責任転換ルール、12類型別の証拠収集リスト自動生成、証拠力三段階評価、特殊保護自動検出、就業規則合法性三要件審査、立証配分表と証拠ギャップ表を出力。"
+      },
+      "es": {
+        "name": "Sistema de pruebas en conflictos laborales",
+        "summary": "Gestión de pruebas laborales: carga probatoria invertida, listas para 12 tipos de conflicto, eficacia en tres niveles, protección especial, legalidad del reglamento; tablas de carga y vacíos."
+      },
+      "fr": {
+        "name": "Système de preuves en litiges du travail",
+        "summary": "Gestion des preuves en litige social : charge probatoire renversée, listes pour 12 types, force probante à trois niveaux, protections spéciales, contrôle du règlement ; tableaux de charge et d’écarts."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

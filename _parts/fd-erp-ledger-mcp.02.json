@@ -1,0 +1,58 @@
+{
+ "tools": {
+  "bill_period_snapshot": {
+   "human": {
+    "zh": {
+     "name": "日终快照计费",
+     "summary": "按期间用日终库存快照算存储费；同期重跑返回首次结果并标重复，覆盖缺失时整批拒绝，不产生部分批次。"
+    },
+    "en": {
+     "name": "Bill period on closing snapshots",
+     "summary": "Charges storage fees for a period from end-of-day inventory snapshots; a rerun returns the first result flagged duplicate, and incomplete coverage rejects the whole batch."
+    },
+    "ja": {
+     "name": "日次スナップショット課金",
+     "summary": "期末在庫スナップショットから期間の保管料を算出します。同一期間の再実行は初回結果を重複として返し、対象の欠落はバッチ全体を拒否します。"
+    },
+    "es": {
+     "name": "Facturar por instantáneas de cierre",
+     "summary": "Calcula la tarifa de almacenamiento del periodo con instantáneas de inventario de cierre; repetir el periodo devuelve el primer resultado como duplicado y una cobertura incompleta rechaza el lote."
+    },
+    "fr": {
+     "name": "Facturer sur instantanés de clôture",
+     "summary": "Calcule les frais de stockage d'une période depuis les instantanés de fin de journée ; relancer la même période renvoie le premier résultat comme doublon, une couverture incomplète refuse le lot."
+    }
+   },
+   "canonical": {
+    "brief": "Computes storage fees for a period from end-of-day inventory snapshots, idempotent per period (duplicate=true on rerun) and rejecting the whole batch when coverage is incomplete; fees still pass the confirm_proposal gate."
+   }
+  },
+  "list_credit_reservations": {
+   "human": {
+    "zh": {
+     "name": "列出信用占用",
+     "summary": "只读列出信用占用明细与派生状态（占用中、已过期、已释放）；不释放占用、不动状态，孤儿判定由能看到订单的一侧做。"
+    },
+    "en": {
+     "name": "List credit reservations",
+     "summary": "Lists credit reservation details with derived states (reserved, expired, released) as read-only facts; it releases nothing, and orphan detection stays with the order-aware side."
+    },
+    "ja": {
+     "name": "与信の引当を一覧",
+     "summary": "与信引当の明細と派生状態（確保中・期限切れ・解放済み）を読み取り専用で一覧します。解放も状態変更も行わず、孤立判定は注文が見える側が担います。"
+    },
+    "es": {
+     "name": "Listar reservas de crédito",
+     "summary": "Lista el detalle de reservas y sus estados derivados (reservada, vencida, liberada) en solo lectura; no libera ni cambia nada y la detección de huérfanas queda del lado que ve los pedidos."
+    },
+    "fr": {
+     "name": "Lister les réserves de crédit",
+     "summary": "Liste le détail des réserves et leurs états dérivés (réservée, expirée, libérée) en lecture seule ; elle ne libère ni ne change rien, l'orphelin revient au côté qui voit les commandes."
+    }
+   },
+   "canonical": {
+    "brief": "Lists credit reservation details with derived state reserved/expired/released as read-only facts; it never releases or mutates, and orphan detection belongs to the order-aware side."
+   }
+  }
+ }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "regional-economy-compare",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "区域经济比对",
+        "summary": "对中国城市与省份做多维指标横向排名、分位定位、增长结构分解与相似城市聚类，覆盖经济实力、产业结构、财政与居民收入；数据走柏讯城市面板与统计年鉴。"
+      },
+      "en": {
+        "name": "Regional economy comparison",
+        "summary": "Ranks Chinese cities and provinces on multi-indicator panels: percentiles, growth-structure decomposition and similar-city clustering; data from the Wire city panel and statistical yearbooks."
+      },
+      "ja": {
+        "name": "地域経済比較",
+        "summary": "中国の都市・省を多次指標で横断的に扱い、ランキング・分位ポジショニング・成長構造分解・類似都市クラスタリングを行う。経済力・産業構成・財政と住民収入をカバーし、データはWire都市パネルと統計年鑑。"
+      },
+      "es": {
+        "name": "Comparación de economías regionales",
+        "summary": "Compara ciudades y provincias chinas: ranquin multidimensional, percentiles, descomposición del crecimiento y agrupación de similares; datos del panel urbano Wire y los anuarios."
+      },
+      "fr": {
+        "name": "Comparaison d'économies régionales",
+        "summary": "Compare villes et provinces chinoises : classements multi-indicateurs, quantiles, décomposition de la croissance, groupement de villes semblables ; panel urbain Wire et annuaires."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

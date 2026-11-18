@@ -1,0 +1,32 @@
+{
+  "skill": "industry-chain-analysis",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "产业链分析",
+        "summary": "行业景气与产业链传导分析:定位景气周期位置,梳理上下游投入产出与成本价格传导,用上市公司财务面板实证行业判断,刻画规模、增速、集中度与进入壁垒;走柏讯服务端数据,不涉及价格与市值。"
+      },
+      "en": {
+        "name": "Industry chain analysis",
+        "summary": "Locates the sector cycle position, maps upstream-downstream input-output and cost-price pass-through, and tests sector views against listed-company financial panels; Wire data, no price or market-cap."
+      },
+      "ja": {
+        "name": "産業チェーン分析",
+        "summary": "業況と産業チェーン伝導の分析:景気循環上の位置判定、上下流の投入産出とコスト・価格伝導整理、上場企業財務パネルで実証、規模・成長率・集中度・参入障壁を描写。Wire データ利用。"
+      },
+      "es": {
+        "name": "Análisis de cadena industrial",
+        "summary": "Sitúa el sector en su ciclo, traza el flujo y la transmisión de costes de la cadena, y contrasta tesis sectoriales con paneles de cotizadas; datos Wire, sin precios ni capitalización."
+      },
+      "fr": {
+        "name": "Analyse de chaîne industrielle",
+        "summary": "Situe le secteur dans son cycle, retrace flux amont-aval et répercussion des coûts, confronte les thèses sectorielles aux panels financiers des cotées ; données Wire, hors prix et capitalisation."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

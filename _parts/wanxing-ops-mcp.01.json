@@ -1,0 +1,84 @@
+{
+  "tools": {
+    "wanxing_agent_card": {
+      "human": {
+        "zh": {"name": "读取智能体卡片", "summary": "读取万星公开目录中指定智能体的 AgentCard，返回该智能体的描述信息；具体字段以服务端返回为准。"},
+        "en": {"name": "Read agent card", "summary": "Reads the AgentCard of a given agent in the Wanxing public catalog and returns its description; exact fields follow the server response."},
+        "ja": {"name": "エージェントカードを取得", "summary": "万星の公開目録にある指定エージェントの AgentCard を読み取り、その説明を返します。具体的な項目はサーバーの返却に従います。"},
+        "es": {"name": "Leer tarjeta de agente", "summary": "Lee la AgentCard de un agente del catálogo público Wanxing y devuelve su descripción; los campos exactos dependen de la respuesta del servidor."},
+        "fr": {"name": "Lire la carte d'agent", "summary": "Lit l'AgentCard d'un agent du catalogue public Wanxing et renvoie sa description ; les champs exacts dépendent de la réponse du serveur."}
+      },
+      "canonical": {"brief": "Reads the AgentCard of an agent in the Wanxing public catalog and returns its description, with exact fields per the server response."}
+    },
+    "wanxing_agent_pause": {
+      "human": {
+        "zh": {"name": "暂停智能体", "summary": "暂停指定智能体并返回暂停回执；回执不代表最终执行结果，具体行为以服务端返回为准。"},
+        "en": {"name": "Pause agent", "summary": "Pauses a given agent and returns a receipt; the receipt is not the final execution result, and exact behaviour follows the server response."},
+        "ja": {"name": "エージェントを一時停止", "summary": "指定エージェントを一時停止し、受領証を返します。受領証は最終的な実行結果ではありません。具体的な動作はサーバーの返却に従います。"},
+        "es": {"name": "Pausar agente", "summary": "Pausa un agente y devuelve un acuse; el acuse no es el resultado final de ejecución y el comportamiento exacto depende de la respuesta del servidor."},
+        "fr": {"name": "Mettre en pause", "summary": "Met un agent en pause et renvoie un accusé ; cet accusé n'est pas le résultat final d'exécution et le comportement exact dépend de la réponse du serveur."}
+      },
+      "canonical": {"brief": "Pauses an agent and returns a receipt; the receipt is not the final execution result, with exact behaviour per the server response."}
+    },
+    "wanxing_agent_resume": {
+      "human": {
+        "zh": {"name": "恢复智能体", "summary": "恢复指定智能体并返回恢复回执；回执不代表最终执行结果，具体行为以服务端返回为准。"},
+        "en": {"name": "Resume agent", "summary": "Resumes a given agent and returns a receipt; the receipt is not the final execution result, and exact behaviour follows the server response."},
+        "ja": {"name": "エージェントを再開", "summary": "指定エージェントを再開し、受領証を返します。受領証は最終的な実行結果ではありません。具体的な動作はサーバーの返却に従います。"},
+        "es": {"name": "Reanudar agente", "summary": "Reanuda un agente y devuelve un acuse; el acuse no es el resultado final de ejecución y el comportamiento exacto depende de la respuesta del servidor."},
+        "fr": {"name": "Reprendre un agent", "summary": "Relance un agent et renvoie un accusé ; cet accusé n'est pas le résultat final d'exécution et le comportement exact dépend de la réponse du serveur."}
+      },
+      "canonical": {"brief": "Resumes an agent and returns a receipt; the receipt is not the final execution result, with exact behaviour per the server response."}
+    },
+    "wanxing_agent_turn": {
+      "human": {
+        "zh": {"name": "发起智能体回合", "summary": "向指定智能体发起一次 A2A 回合，按调用方密钥计费，返回回合回执而非最终结果。"},
+        "en": {"name": "Start agent turn", "summary": "Starts one A2A turn with a given agent, billed to the caller key, and returns a turn receipt rather than the final result."},
+        "ja": {"name": "エージェントのターンを開始", "summary": "指定エージェントとの A2A ターンを 1 回開始し、呼び出し元キーで課金して、最終結果ではなくターンの受領証を返します。"},
+        "es": {"name": "Iniciar turno del agente", "summary": "Inicia un turno A2A con un agente, facturado a la clave del llamador, y devuelve un acuse del turno en lugar del resultado final."},
+        "fr": {"name": "Démarrer un tour d'agent", "summary": "Démarre un tour A2A avec un agent, facturé à la clé de l'appelant, et renvoie un accusé du tour plutôt que le résultat final."}
+      },
+      "canonical": {"brief": "Starts one A2A turn with an agent, billed to the caller key, returning a turn receipt rather than the final result."}
+    },
+    "wanxing_agents_browse": {
+      "human": {
+        "zh": {"name": "浏览智能体目录", "summary": "浏览万星公开目录中的智能体条目，返回条目清单；具体字段以服务端返回为准。"},
+        "en": {"name": "Browse agents", "summary": "Browses agent entries in the Wanxing public catalog and returns the entry list; exact fields follow the server response."},
+        "ja": {"name": "エージェント目録を閲覧", "summary": "万星の公開目録にあるエージェント項目を閲覧し、項目一覧を返します。具体的な項目はサーバーの返却に従います。"},
+        "es": {"name": "Explorar agentes", "summary": "Explora las entradas de agentes del catálogo público Wanxing y devuelve la lista; los campos exactos dependen de la respuesta del servidor."},
+        "fr": {"name": "Parcourir les agents", "summary": "Parcourt les entrées d'agents du catalogue public Wanxing et renvoie la liste ; les champs exacts dépendent de la réponse du serveur."}
+      },
+      "canonical": {"brief": "Browses agent entries in the Wanxing public catalog and returns the entry list, with exact fields per the server response."}
+    },
+    "wanxing_callers_add": {
+      "human": {
+        "zh": {"name": "添加调用方", "summary": "将调用方加入部署者允许清单，属写操作，返回添加回执；具体行为以服务端返回为准。"},
+        "en": {"name": "Add caller", "summary": "Adds a caller to the deployer allowlist; a write operation that returns a receipt, with exact behaviour per the server response."},
+        "ja": {"name": "呼び出し元を追加", "summary": "呼び出し元を配備者の許可リストへ追加します。書き込み操作であり、追加の受領証を返します。具体的な動作はサーバーの返却に従います。"},
+        "es": {"name": "Añadir llamador", "summary": "Añade un llamador a la lista de permitidos del desplegador; operación de escritura que devuelve un acuse, con comportamiento exacto según la respuesta del servidor."},
+        "fr": {"name": "Ajouter un appelant", "summary": "Ajoute un appelant à la liste d'autorisation du déployeur ; opération d'écriture qui renvoie un accusé, le comportement exact dépendant de la réponse du serveur."}
+      },
+      "canonical": {"brief": "Adds a caller to the deployer allowlist; a write operation that returns a receipt, with exact behaviour per the server response."}
+    },
+    "wanxing_callers_list": {
+      "human": {
+        "zh": {"name": "列出调用方", "summary": "列出部署者允许清单中的调用方，返回调用方清单；具体字段以服务端返回为准。"},
+        "en": {"name": "List callers", "summary": "Lists the callers on the deployer allowlist and returns the caller list; exact fields follow the server response."},
+        "ja": {"name": "呼び出し元を一覧", "summary": "配備者の許可リストにある呼び出し元を一覧し、呼び出し元の一覧を返します。具体的な項目はサーバーの返却に従います。"},
+        "es": {"name": "Listar llamadores", "summary": "Enumera los llamadores de la lista de permitidos del desplegador y devuelve la lista; los campos exactos dependen de la respuesta del servidor."},
+        "fr": {"name": "Lister les appelants", "summary": "Énumère les appelants de la liste d'autorisation du déployeur et renvoie la liste ; les champs exacts dépendent de la réponse du serveur."}
+      },
+      "canonical": {"brief": "Lists the callers on the deployer allowlist and returns the caller list, with exact fields per the server response."}
+    },
+    "wanxing_callers_remove": {
+      "human": {
+        "zh": {"name": "移除调用方", "summary": "将调用方从部署者允许清单移除，属写操作，返回移除回执；具体行为以服务端返回为准。"},
+        "en": {"name": "Remove caller", "summary": "Removes a caller from the deployer allowlist; a write operation that returns a receipt, with exact behaviour per the server response."},
+        "ja": {"name": "呼び出し元を削除", "summary": "呼び出し元を配備者の許可リストから削除します。書き込み操作であり、削除の受領証を返します。具体的な動作はサーバーの返却に従います。"},
+        "es": {"name": "Eliminar llamador", "summary": "Elimina un llamador de la lista de permitidos del desplegador; operación de escritura que devuelve un acuse, con comportamiento exacto según la respuesta del servidor."},
+        "fr": {"name": "Retirer un appelant", "summary": "Retire un appelant de la liste d'autorisation du déployeur ; opération d'écriture qui renvoie un accusé, le comportement exact dépendant de la réponse du serveur."}
+      },
+      "canonical": {"brief": "Removes a caller from the deployer allowlist; a write operation that returns a receipt, with exact behaviour per the server response."}
+    }
+  }
+}

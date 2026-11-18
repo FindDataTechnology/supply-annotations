@@ -1,0 +1,32 @@
+{
+  "skill": "format-conversion-elementized",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "要素式格式转换",
+        "summary": "将起诉状、答辩状等传统法律文书转换为法院推广的要素式示范文本:识别案由并匹配官方示范文本,逐要素从原文提取填充并标注来源,原文事实保真;案由不可识别或示范文本未收录时如实说明。"
+      },
+      "en": {
+        "name": "Element-based document conversion",
+        "summary": "Converts traditional pleadings into courts' elementized model forms: matches the SPC template, extracts and fills each element with source labels, keeps facts verbatim, reports gaps honestly."
+      },
+      "ja": {
+        "name": "要素式書式変換",
+        "summary": "起訴状・答弁書などの伝統的法律文書を法院推奨の要素式見本文書へ変換:訴訟原因を識別し公式見本に照合、要素ごとに原文から抽出し出所を注記、事実は不改変。テンプレ欠落時は正直に説明。"
+      },
+      "es": {
+        "name": "Conversión a formularios por elementos",
+        "summary": "Convierte escritos procesales tradicionales al formato judicial por elementos: identifica la causa, ajusta al modelo del Tribunal Supremo, rellena cada elemento citando su origen sin alterar hechos."
+      },
+      "fr": {
+        "name": "Conversion en formulaires par éléments",
+        "summary": "Convertit les écrits traditionnels (assignations, mémoires en défense) au format par éléments : motif identifié, modèle de la Cour suprême, remplissage par élément avec origine, faits inchangés."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

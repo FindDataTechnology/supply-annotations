@@ -1,0 +1,1230 @@
+{
+ "version": 1,
+ "server": "fd-cn-report",
+ "annotation": {
+  "human": {
+   "zh": {
+    "name": "上市公司报告",
+    "summary": "中国上市公司定期报告与公告的检索、正文读取与结构化字段提取。",
+    "whenToUse": "查某公司年报、公告原文或其中财务字段时。"
+   },
+   "en": {
+    "name": "Listed-company reports",
+    "summary": "Search, read, and extract structured fields from Chinese listed-company periodic reports and announcements.",
+    "whenToUse": "For annual reports, announcement text, or specific financial fields."
+   },
+   "ja": {
+    "name": "上場企業レポート",
+    "summary": "中国上場企業の定期報告書・公告を検索し、本文の読み取りと構造化項目の抽出を行います。",
+    "whenToUse": "年次報告書や公告の本文、特定の財務項目を確認するとき。"
+   },
+   "es": {
+    "name": "Informes de sociedades cotizadas",
+    "summary": "Búsqueda, lectura y extracción de campos estructurados de informes periódicos y anuncios de sociedades cotizadas chinas.",
+    "whenToUse": "Para informes anuales, texto de anuncios o campos financieros concretos."
+   },
+   "fr": {
+    "name": "Rapports de sociétés cotées",
+    "summary": "Recherche, lecture et extraction de champs structurés dans les rapports périodiques et annonces de sociétés cotées chinoises.",
+    "whenToUse": "Pour un rapport annuel, le texte d'une annonce ou un champ financier précis."
+   }
+  },
+  "canonical": {
+   "brief": "Chinese listed-company report MCP: search, fetch body text, and extract structured financial fields from periodic reports and announcements."
+  },
+  "tools": {
+   "ai_extract": {
+    "human": {
+     "zh": {
+      "name": "调用大模型抽取",
+      "summary": "对研报章节文本调用大模型做结构化抽取。"
+     },
+     "en": {
+      "name": "Run LLM extraction",
+      "summary": "Run LLM-based structured extraction over report section text."
+     },
+     "ja": {
+      "name": "LLMで構造化抽出する",
+      "summary": "レポートセクションの本文にLLMによる構造化抽出を実行する。"
+     },
+     "es": {
+      "name": "Extraer con LLM",
+      "summary": "Ejecuta una extracción estructurada con LLM sobre el texto de una sección del informe."
+     },
+     "fr": {
+      "name": "Extraire via LLM",
+      "summary": "Lance une extraction structurée par LLM sur le texte d'une section du rapport."
+     }
+    },
+    "canonical": {
+     "brief": "对研报章节文本运行大模型结构化抽取。"
+    }
+   },
+   "audit_rule_gaps": {
+    "human": {
+     "zh": {
+      "name": "核查规则缺口",
+      "summary": "基于已有 out/ 产物核查规则缺口并写出稳定的 JSON 报告。"
+     },
+     "en": {
+      "name": "Audit rule gaps",
+      "summary": "Audit rule gaps from existing out/ bundles and write a stable JSON report."
+     },
+     "ja": {
+      "name": "ルール欠落を監査",
+      "summary": "既存の out/ 成果物からルールの欠落を監査し、安定したJSONレポートを書き出す。"
+     },
+     "es": {
+      "name": "Auditar brechas",
+      "summary": "Audita las brechas de reglas desde los paquetes en out/ y escribe un informe JSON estable."
+     },
+     "fr": {
+      "name": "Auditer les lacunes",
+      "summary": "Audite les lacunes de règles depuis les lots dans out/ et écrit un rapport JSON stable."
+     }
+    },
+    "canonical": {
+     "brief": "基于已有 out/ 产物核查规则缺口，并写出结构稳定的 JSON 报告（写文件）。"
+    }
+   },
+   "clear_cache": {
+    "human": {
+     "zh": {
+      "name": "清理年报缓存",
+      "summary": "移除已缓存的年报文件。"
+     },
+     "en": {
+      "name": "Clear report cache",
+      "summary": "Evict cached annual reports."
+     },
+     "ja": {
+      "name": "年報キャッシュを削除",
+      "summary": "キャッシュ済みの年報を削除する。"
+     },
+     "es": {
+      "name": "Limpiar caché",
+      "summary": "Elimina los informes anuales en caché."
+     },
+     "fr": {
+      "name": "Vider le cache",
+      "summary": "Supprime les rapports annuels en cache."
+     }
+    },
+    "canonical": {
+     "brief": "清除已缓存的年报文件（写操作）。"
+    }
+   },
+   "delete_index": {
+    "human": {
+     "zh": {
+      "name": "删除年度索引",
+      "summary": "删除 cnreport-{year} 索引及其对应的元数据记录。"
+     },
+     "en": {
+      "name": "Delete yearly index",
+      "summary": "Drop the cnreport-{year} index and its metadata row."
+     },
+     "ja": {
+      "name": "年次インデックスを削除",
+      "summary": "cnreport-{year}インデックスとそのメタデータ行を削除する。"
+     },
+     "es": {
+      "name": "Eliminar índice anual",
+      "summary": "Elimina el índice cnreport-{year} y su fila de metadatos."
+     },
+     "fr": {
+      "name": "Supprimer l'index annuel",
+      "summary": "Supprime l'index cnreport-{year} et sa ligne de métadonnées."
+     }
+    },
+    "canonical": {
+     "brief": "删除 cnreport-{year} 索引及其元数据记录（写操作）。"
+    }
+   },
+   "extract_indicators": {
+    "human": {
+     "zh": {
+      "name": "批量抽取指标",
+      "summary": "对同一公司同一年度一次抽取多个指标，并将结果包留存为缓存。"
+     },
+     "en": {
+      "name": "Batch extract indicators",
+      "summary": "Extract many indicators for one company and year in a single pass and cache the bundle."
+     },
+     "ja": {
+      "name": "指標を一括抽出",
+      "summary": "同一企業・同一年度の複数指標を1回で抽出し、結果バンドルをキャッシュする。"
+     },
+     "es": {
+      "name": "Extraer indicadores en lote",
+      "summary": "Extrae varios indicadores de una empresa y año en una sola pasada y guarda el paquete en caché."
+     },
+     "fr": {
+      "name": "Extraire des indicateurs",
+      "summary": "Extrait plusieurs indicateurs d'une société et d'une année en une passe et met le lot en cache."
+     }
+    },
+    "canonical": {
+     "brief": "对同一公司同一年度一次性抽取多个指标，并把结果包缓存到磁盘。"
+    }
+   },
+   "extract_indicators_by_position": {
+    "human": {
+     "zh": {
+      "name": "按清单抽取指标",
+      "summary": "读取指标清单 CSV 的指标列，对同一公司年度批量抽取，并列出实时类跳过项。"
+     },
+     "en": {
+      "name": "Extract by CSV list",
+      "summary": "Read the indicator column of a position CSV and batch-extract those indicators for one company and year, listing skipped realtime items."
+     },
+     "ja": {
+      "name": "CSVリストで抽出",
+      "summary": "position CSV の指標列を読み、同一企業・年度の指標を一括抽出し、スキップしたリアルタイム指標を一覧する。"
+     },
+     "es": {
+      "name": "Extraer por CSV",
+      "summary": "Lee la columna de indicadores de un CSV y extrae en lote esos indicadores para una empresa y año, listando los de tiempo real omitidos."
+     },
+     "fr": {
+      "name": "Extraire via CSV",
+      "summary": "Lit la colonne d'indicateurs d'un CSV et extrait en lot ces indicateurs pour une société et une année, en listant les indicateurs temps réel ignorés."
+     }
+    },
+    "canonical": {
+     "brief": "读取指标清单 CSV 的指标列，对同一公司年度批量抽取，并列出被跳过的实时或外部指标。"
+    }
+   },
+   "extract_section": {
+    "human": {
+     "zh": {
+      "name": "提取章节正文",
+      "summary": "按选择器提取某一章节的正文文本。"
+     },
+     "en": {
+      "name": "Extract section body",
+      "summary": "Extract the body text of one section by selector."
+     },
+     "ja": {
+      "name": "セクション本文を抽出",
+      "summary": "セレクターで指定した1セクションの本文テキストを抽出する。"
+     },
+     "es": {
+      "name": "Extraer texto de sección",
+      "summary": "Extrae el texto completo de una sección según el selector."
+     },
+     "fr": {
+      "name": "Extraire le texte de section",
+      "summary": "Extrait le texte intégral d'une section selon le sélecteur."
+     }
+    },
+    "canonical": {
+     "brief": "按选择器提取单个章节的正文文本。"
+    }
+   },
+   "get_bse_company": {
+    "human": {
+     "zh": {
+      "name": "查询北交所公司",
+      "summary": "用 6 位代码在北交所网站定位上市公司。"
+     },
+     "en": {
+      "name": "Resolve BSE company",
+      "summary": "Resolve a BSE-listed company by 6-digit ticker on bse.cn."
+     },
+     "ja": {
+      "name": "北京企業を特定",
+      "summary": "6桁コードで bse.cn 上の北京証券取引所上場企業を特定する。"
+     },
+     "es": {
+      "name": "Identificar empresa BSE",
+      "summary": "Identifica una empresa cotizada en la Bolsa de Pekín por código de 6 dígitos en bse.cn."
+     },
+     "fr": {
+      "name": "Identifier société BSE",
+      "summary": "Identifie une société cotée à la Bourse de Pékin par code à 6 chiffres sur bse.cn."
+     }
+    },
+    "canonical": {
+     "brief": "用 6 位代码在北交所（bse.cn）定位上市公司。"
+    }
+   },
+   "get_bse_section": {
+    "human": {
+     "zh": {
+      "name": "提取北交所章节",
+      "summary": "从北交所公司年报 PDF 提取指定章节，并在结果中标注数据来源。"
+     },
+     "en": {
+      "name": "Extract BSE section",
+      "summary": "Extract a named section from a BSE company's annual-report PDF and label the source in the result."
+     },
+     "ja": {
+      "name": "北京企業の章を抽出",
+      "summary": "北京証券取引所上場企業の年次報告書PDFから指定セクションを抽出し、結果に取得元を明示する。"
+     },
+     "es": {
+      "name": "Extraer sección BSE",
+      "summary": "Extrae una sección del PDF del informe anual de una empresa de Pekín e indica la fuente en el resultado."
+     },
+     "fr": {
+      "name": "Extraire section BSE",
+      "summary": "Extrait une section du PDF du rapport annuel d'une société de Pékin et indique la source dans le résultat."
+     }
+    },
+    "canonical": {
+     "brief": "从北交所公司年报 PDF 中提取指定章节，结果中标明数据来源（北交所或巨潮）。"
+    }
+   },
+   "get_company": {
+    "human": {
+     "zh": {
+      "name": "查询A股公司",
+      "summary": "用 6 位代码或中英文名称片段定位一家 A 股公司。"
+     },
+     "en": {
+      "name": "Resolve A-share company",
+      "summary": "Resolve a CN-A-share company by 6-digit ticker or Chinese/English name fragment."
+     },
+     "ja": {
+      "name": "A株企業を特定",
+      "summary": "6桁コードまたは中国語・英語の名称断片からA株企業を特定する。"
+     },
+     "es": {
+      "name": "Identificar empresa A",
+      "summary": "Identifica una empresa de acciones A china por código de 6 dígitos o fragmento de nombre."
+     },
+     "fr": {
+      "name": "Identifier société A",
+      "summary": "Identifie une société chinoise de type A par code à 6 chiffres ou fragment de nom."
+     }
+    },
+    "canonical": {
+     "brief": "按 6 位代码或中英文名称片段解析一家 A 股公司。"
+    }
+   },
+   "get_csrc_ipo_review": {
+    "human": {
+     "zh": {
+      "name": "查询首发审核",
+      "summary": "查询某公司的证监会首发（IPO）申请审核状态。"
+     },
+     "en": {
+      "name": "Check IPO review",
+      "summary": "Query CSRC IPO application review status for a company."
+     },
+     "ja": {
+      "name": "新規上場審査を照会",
+      "summary": "ある企業の証監会における新規公開（IPO）申請の審査状況を照会する。"
+     },
+     "es": {
+      "name": "Consultar revisión IPO",
+      "summary": "Consulta el estado de revisión de la solicitud de IPO de una empresa ante la CSRC."
+     },
+     "fr": {
+      "name": "Vérifier l'examen IPO",
+      "summary": "Interroge le statut d'examen de la demande d'IPO d'une société auprès de la CSRC."
+     }
+    },
+    "canonical": {
+     "brief": "查询某公司的证监会首发（IPO）申请审核状态。"
+    }
+   },
+   "get_csrc_merger_review": {
+    "human": {
+     "zh": {
+      "name": "查询并购审核",
+      "summary": "查询某公司的证监会并购重组审核状态。"
+     },
+     "en": {
+      "name": "Check M&A review",
+      "summary": "Query CSRC M&A review status for a company."
+     },
+     "ja": {
+      "name": "買収審査を照会",
+      "summary": "ある企業の証監会における合併・再編（M&A）審査状況を照会する。"
+     },
+     "es": {
+      "name": "Consultar revisión M&A",
+      "summary": "Consulta el estado de revisión de fusiones y reestructuraciones de una empresa ante la CSRC."
+     },
+     "fr": {
+      "name": "Vérifier l'examen M&A",
+      "summary": "Interroge le statut d'examen des fusions-acquisitions d'une société auprès de la CSRC."
+     }
+    },
+    "canonical": {
+     "brief": "查询某公司的证监会并购重组审核状态。"
+    }
+   },
+   "get_filing": {
+    "human": {
+     "zh": {
+      "name": "获取公告详情",
+      "summary": "按编号取回一条巨潮公告的元数据与 PDF 地址。"
+     },
+     "en": {
+      "name": "Get filing details",
+      "summary": "Fetch one CNINFO announcement's metadata and PDF URL by id."
+     },
+     "ja": {
+      "name": "公告詳細を取得",
+      "summary": "巨潮資訊の公告1件について、IDからメタデータとPDF URLを取得する。"
+     },
+     "es": {
+      "name": "Obtener detalle de anuncio",
+      "summary": "Obtiene por id los metadatos y la URL del PDF de un anuncio CNINFO."
+     },
+     "fr": {
+      "name": "Obtenir le détail",
+      "summary": "Récupère par id les métadonnées et l'URL PDF d'une annonce CNINFO."
+     }
+    },
+    "canonical": {
+     "brief": "按 id 取回一条巨潮公告的元数据与 PDF 地址。"
+    }
+   },
+   "get_financial_statements": {
+    "human": {
+     "zh": {
+      "name": "提取三大报表",
+      "summary": "解析年报目录，返回利润表、资产负债表与现金流量表的正文文本，未定位的报表列入缺失清单。"
+     },
+     "en": {
+      "name": "Extract three statements",
+      "summary": "Parse the report outline and return income, balance and cashflow statement body text; unlocated statements are listed as missing."
+     },
+     "ja": {
+      "name": "三表本文を抽出",
+      "summary": "年報の目次を解析し、損益計算書・貸借対照表・キャッシュフロー計算書の本文を返す。見つからない表は欠損として一覧する。"
+     },
+     "es": {
+      "name": "Extraer tres estados",
+      "summary": "Analiza el índice y devuelve el texto de los estados de resultados, balance y flujo; los no ubicados se listan como faltantes."
+     },
+     "fr": {
+      "name": "Extraire les trois états",
+      "summary": "Analyse le sommaire et renvoie le texte des états de résultat, bilan et trésorerie ; les états introuvables sont listés comme manquants."
+     }
+    },
+    "canonical": {
+     "brief": "解析年报目录并返回三大报表正文文本，只返回文本、不含 PDF 字节；未定位的报表列入缺失清单。"
+    }
+   },
+   "get_financials": {
+    "human": {
+     "zh": {
+      "name": "获取结构化财报",
+      "summary": "返回 A 股公司的结构化利润表、资产负债表与现金流量表。"
+     },
+     "en": {
+      "name": "Get structured financials",
+      "summary": "Return structured income, balance and cashflow statements for a CN-A-share company."
+     },
+     "ja": {
+      "name": "構造化財務諸表を取得",
+      "summary": "A株企業の損益計算書・貸借対照表・キャッシュフロー計算書を構造化して返す。"
+     },
+     "es": {
+      "name": "Obtener estados financieros",
+      "summary": "Devuelve los estados de resultados, balance y flujo de efectivo estructurados de una empresa A."
+     },
+     "fr": {
+      "name": "Obtenir états financiers",
+      "summary": "Renvoie les états de résultat, bilan et trésorerie structurés d'une société de type A."
+     }
+    },
+    "canonical": {
+     "brief": "返回 A 股公司的结构化利润表、资产负债表与现金流量表数据。"
+    }
+   },
+   "get_hk_company": {
+    "human": {
+     "zh": {
+      "name": "查询港股公司",
+      "summary": "用 5 位代码或名称片段定位一家港股公司。"
+     },
+     "en": {
+      "name": "Resolve HK company",
+      "summary": "Resolve a HK stock company by 5-digit ticker or name fragment."
+     },
+     "ja": {
+      "name": "香港株企業を特定",
+      "summary": "5桁コードまたは名称断片から香港上場企業を特定する。"
+     },
+     "es": {
+      "name": "Identificar empresa HK",
+      "summary": "Identifica una empresa de Hong Kong por código de 5 dígitos o fragmento de nombre."
+     },
+     "fr": {
+      "name": "Identifier société HK",
+      "summary": "Identifie une société de Hong Kong par code à 5 chiffres ou fragment de nom."
+     }
+    },
+    "canonical": {
+     "brief": "按 5 位代码或名称片段解析一家港股公司。"
+    }
+   },
+   "get_hk_financials": {
+    "human": {
+     "zh": {
+      "name": "获取港股财报",
+      "summary": "返回港股公司的结构化财务报表。"
+     },
+     "en": {
+      "name": "Get HK financials",
+      "summary": "Return structured financial statements for a HK stock company."
+     },
+     "ja": {
+      "name": "香港株の財務を取得",
+      "summary": "香港上場企業の財務諸表を構造化して返す。"
+     },
+     "es": {
+      "name": "Obtener finanzas HK",
+      "summary": "Devuelve los estados financieros estructurados de una empresa de Hong Kong."
+     },
+     "fr": {
+      "name": "Obtenir états financiers HK",
+      "summary": "Renvoie les états financiers structurés d'une société de Hong Kong."
+     }
+    },
+    "canonical": {
+     "brief": "返回港股公司的结构化财务报表。"
+    }
+   },
+   "get_hk_section": {
+    "human": {
+     "zh": {
+      "name": "提取港股章节",
+      "summary": "从港股年报 PDF 中提取指定名称的章节。"
+     },
+     "en": {
+      "name": "Extract HK section",
+      "summary": "Extract a named section from a HK stock annual report PDF."
+     },
+     "ja": {
+      "name": "香港株の章を抽出",
+      "summary": "香港株の年次報告書PDFから、指定名称のセクションを抽出する。"
+     },
+     "es": {
+      "name": "Extraer sección HK",
+      "summary": "Extrae una sección con nombre de un PDF de informe anual de Hong Kong."
+     },
+     "fr": {
+      "name": "Extraire section HK",
+      "summary": "Extrait une section nommée d'un PDF de rapport annuel de Hong Kong."
+     }
+    },
+    "canonical": {
+     "brief": "从港股年报 PDF 中提取指定名称的章节。"
+    }
+   },
+   "get_indicator": {
+    "human": {
+     "zh": {
+      "name": "查询单个指标",
+      "summary": "按规则来源类型路由，取某公司某期间的一个财务指标值。"
+     },
+     "en": {
+      "name": "Get one indicator",
+      "summary": "Resolve one financial indicator for a company and period, routed by the rule's source type."
+     },
+     "ja": {
+      "name": "指標を1件取得",
+      "summary": "ルールの source_type に従って経路を選び、企業・期間を指定して財務指標を1件取得する。"
+     },
+     "es": {
+      "name": "Obtener un indicador",
+      "summary": "Obtiene un indicador financiero de una empresa y periodo, según el tipo de fuente de la regla."
+     },
+     "fr": {
+      "name": "Obtenir un indicateur",
+      "summary": "Obtient un indicateur financier pour une société et une période, selon le type de source de la règle."
+     }
+    },
+    "canonical": {
+     "brief": "按规则的来源类型路由，取某公司某期间的一个财务指标值。"
+    }
+   },
+   "get_ministry_stat": {
+    "human": {
+     "zh": {
+      "name": "获取部委统计",
+      "summary": "抓取某部委的统计页面并解析其中的 HTML 表格。"
+     },
+     "en": {
+      "name": "Get ministry statistics",
+      "summary": "Fetch a ministry's statistics page and parse its HTML tables."
+     },
+     "ja": {
+      "name": "省庁統計を取得",
+      "summary": "ある省庁の統計ページを取得し、そのHTML表を解析する。"
+     },
+     "es": {
+      "name": "Obtener estadísticas",
+      "summary": "Descarga la página de estadísticas de un ministerio y analiza sus tablas HTML."
+     },
+     "fr": {
+      "name": "Obtenir statistiques",
+      "summary": "Récupère la page de statistiques d'un ministère et analyse ses tableaux HTML."
+     }
+    },
+    "canonical": {
+     "brief": "抓取某部委的统计页面并解析其中的 HTML 表格。"
+    }
+   },
+   "get_nbs_stat": {
+    "human": {
+     "zh": {
+      "name": "查询统计局数据",
+      "summary": "按指标代码查询国家统计局的宏观统计数据。"
+     },
+     "en": {
+      "name": "Query NBS statistics",
+      "summary": "Query a macro statistic from the National Bureau of Statistics by indicator code."
+     },
+     "ja": {
+      "name": "国家統計局を照会",
+      "summary": "指標コードで国家統計局（NBS）のマクロ統計を照会する。"
+     },
+     "es": {
+      "name": "Consultar estadísticas NBS",
+      "summary": "Consulta una estadística macro del Buró Nacional de Estadísticas por código de indicador."
+     },
+     "fr": {
+      "name": "Interroger l'NBS",
+      "summary": "Interroge une statistique macro du Bureau national de la statistique par code d'indicateur."
+     }
+    },
+    "canonical": {
+     "brief": "按指标代码查询国家统计局（NBS）的宏观统计数据。"
+    }
+   },
+   "get_section": {
+    "human": {
+     "zh": {
+      "name": "按名提取章节",
+      "summary": "由代码、年份、章节与表单定位巨潮 PDF，并提取指定章节。"
+     },
+     "en": {
+      "name": "Extract named section",
+      "summary": "Resolve the filing PDF by ticker, year, section and form, then extract that section."
+     },
+     "ja": {
+      "name": "名称指定で抽出",
+      "summary": "コード・年度・セクション・様式から巨潮資訊のPDFを特定し、指定セクションを抽出する。"
+     },
+     "es": {
+      "name": "Extraer sección nombrada",
+      "summary": "Localiza el PDF por código, año, sección y formulario, y extrae esa sección."
+     },
+     "fr": {
+      "name": "Extraire une section",
+      "summary": "Localise le PDF par code, année, section et formulaire, puis extrait cette section."
+     }
+    },
+    "canonical": {
+     "brief": "由代码、年份、章节与表单定位巨潮 PDF，并提取指定章节。"
+    }
+   },
+   "get_special_report": {
+    "human": {
+     "zh": {
+      "name": "获取专项报告",
+      "summary": "按巨潮类别检索某 A 股公司的专项类型报告。"
+     },
+     "en": {
+      "name": "Get special report",
+      "summary": "Retrieve a special-type report for a CN-A-share company by CNINFO category."
+     },
+     "ja": {
+      "name": "特別報告を取得",
+      "summary": "巨潮資訊のカテゴリを指定し、A株企業の特別類型レポートを取得する。"
+     },
+     "es": {
+      "name": "Obtener informe especial",
+      "summary": "Recupera un informe de tipo especial de una empresa A según la categoría CNINFO."
+     },
+     "fr": {
+      "name": "Obtenir un rapport spécial",
+      "summary": "Récupère un rapport de type spécial d'une société de type A selon la catégorie CNINFO."
+     }
+    },
+    "canonical": {
+     "brief": "按巨潮类别取回 A 股公司的专项类型报告。"
+    }
+   },
+   "get_sse_company": {
+    "human": {
+     "zh": {
+      "name": "查询沪市公司",
+      "summary": "用 6 位代码在上交所网站定位上市公司。"
+     },
+     "en": {
+      "name": "Resolve SSE company",
+      "summary": "Resolve a SSE-listed company by 6-digit ticker on sse.com.cn."
+     },
+     "ja": {
+      "name": "上海企業を特定",
+      "summary": "6桁コードで sse.com.cn 上の上海証券取引所上場企業を特定する。"
+     },
+     "es": {
+      "name": "Identificar empresa SSE",
+      "summary": "Identifica una empresa cotizada en la Bolsa de Shanghái por código de 6 dígitos en sse.com.cn."
+     },
+     "fr": {
+      "name": "Identifier société SSE",
+      "summary": "Identifie une société cotée à la Bourse de Shanghai par code à 6 chiffres sur sse.com.cn."
+     }
+    },
+    "canonical": {
+     "brief": "用 6 位代码在上交所（sse.com.cn）定位上市公司。"
+    }
+   },
+   "get_sse_interaction": {
+    "human": {
+     "zh": {
+      "name": "获取上证互动问答",
+      "summary": "抓取某沪市公司在上证 e 互动的投资者问答。"
+     },
+     "en": {
+      "name": "Get SSE investor Q&A",
+      "summary": "Fetch 上证e互动 investor Q&A for a SSE-listed company from sns.sseinfo.com."
+     },
+     "ja": {
+      "name": "上海のQ&Aを取得",
+      "summary": "sns.sseinfo.com の「上证e互动」から、上海上場企業の投資家Q&Aを取得する。"
+     },
+     "es": {
+      "name": "Obtener preguntas 上证e互动",
+      "summary": "Obtiene las preguntas de inversores en 上证e互动 para una empresa de Shanghái desde sns.sseinfo.com."
+     },
+     "fr": {
+      "name": "Q&R investisseurs SSE",
+      "summary": "Récupère les questions d'investisseurs sur 上证e互动 pour une société de Shanghai depuis sns.sseinfo.com."
+     }
+    },
+    "canonical": {
+     "brief": "抓取某沪市公司在上证 e 互动（sns.sseinfo.com）的投资者问答。"
+    }
+   },
+   "get_sse_section": {
+    "human": {
+     "zh": {
+      "name": "提取沪市章节",
+      "summary": "从沪市公司年报 PDF 中提取指定名称的章节。"
+     },
+     "en": {
+      "name": "Extract SSE section",
+      "summary": "Extract a named section from a SSE company's annual-report PDF."
+     },
+     "ja": {
+      "name": "上海企業の章を抽出",
+      "summary": "上海上場企業の年次報告書PDFから指定名称のセクションを抽出する。"
+     },
+     "es": {
+      "name": "Extraer sección SSE",
+      "summary": "Extrae una sección con nombre del PDF del informe anual de una empresa de Shanghái."
+     },
+     "fr": {
+      "name": "Extraire section SSE",
+      "summary": "Extrait une section nommée du PDF du rapport annuel d'une société de Shanghai."
+     }
+    },
+    "canonical": {
+     "brief": "从沪市公司年报 PDF 中提取指定名称的章节。"
+    }
+   },
+   "get_szse_company": {
+    "human": {
+     "zh": {
+      "name": "查询深市公司",
+      "summary": "用 6 位代码在深交所网站定位上市公司。"
+     },
+     "en": {
+      "name": "Resolve SZSE company",
+      "summary": "Resolve a SZSE-listed company by 6-digit ticker on szse.cn."
+     },
+     "ja": {
+      "name": "深セン企業を特定",
+      "summary": "6桁コードで szse.cn 上の深セン証券取引所上場企業を特定する。"
+     },
+     "es": {
+      "name": "Identificar empresa SZSE",
+      "summary": "Identifica una empresa cotizada en la Bolsa de Shenzhen por código de 6 dígitos en szse.cn."
+     },
+     "fr": {
+      "name": "Identifier société SZSE",
+      "summary": "Identifie une société cotée à la Bourse de Shenzhen par code à 6 chiffres sur szse.cn."
+     }
+    },
+    "canonical": {
+     "brief": "用 6 位代码在深交所（szse.cn）定位上市公司。"
+    }
+   },
+   "get_szse_interaction": {
+    "human": {
+     "zh": {
+      "name": "获取互动易问答",
+      "summary": "抓取某深市公司在互动易平台的投资者问答。"
+     },
+     "en": {
+      "name": "Get investor Q&A",
+      "summary": "Fetch 互动易 investor Q&A for a SZSE-listed company from irm.cninfo.com.cn."
+     },
+     "ja": {
+      "name": "互動易のQ&Aを取得",
+      "summary": "irm.cninfo.com.cn の「互动易」から、深セン上場企業の投資家Q&Aを取得する。"
+     },
+     "es": {
+      "name": "Obtener preguntas 互动易",
+      "summary": "Obtiene las preguntas de inversores en 互动易 para una empresa de Shenzhen desde irm.cninfo.com.cn."
+     },
+     "fr": {
+      "name": "Q&R de 互动易",
+      "summary": "Récupère les questions d'investisseurs sur 互动易 pour une société de Shenzhen depuis irm.cninfo.com.cn."
+     }
+    },
+    "canonical": {
+     "brief": "抓取某深市公司在互动易（irm.cninfo.com.cn）平台的投资者问答。"
+    }
+   },
+   "get_szse_section": {
+    "human": {
+     "zh": {
+      "name": "提取深市章节",
+      "summary": "从深市公司年报 PDF 提取指定章节，返回文本与字符数。"
+     },
+     "en": {
+      "name": "Extract SZSE section",
+      "summary": "Extract a named section from a SZSE company's annual-report PDF and return its text and character count."
+     },
+     "ja": {
+      "name": "深セン企業の章を抽出",
+      "summary": "深セン上場企業の年次報告書PDFから指定セクションを抽出し、本文と文字数を返す。"
+     },
+     "es": {
+      "name": "Extraer sección SZSE",
+      "summary": "Extrae una sección del PDF del informe anual de una empresa de Shenzhen y devuelve su texto y número de caracteres."
+     },
+     "fr": {
+      "name": "Extraire section SZSE",
+      "summary": "Extrait une section du PDF du rapport annuel d'une société de Shenzhen et renvoie le texte et le nombre de caractères."
+     }
+    },
+    "canonical": {
+     "brief": "从深市公司年报 PDF 中提取指定章节，返回该章节文本与字符数。"
+    }
+   },
+   "index_records": {
+    "human": {
+     "zh": {
+      "name": "批量写入索引",
+      "summary": "将已抽取的记录批量写入按年份命名的 cnreport 索引。"
+     },
+     "en": {
+      "name": "Bulk index records",
+      "summary": "Bulk-index extracted records into the cnreport-{year} index."
+     },
+     "ja": {
+      "name": "レコードを一括登録",
+      "summary": "抽出済みレコードを年次別のcnreport-{year}インデックスに一括登録する。"
+     },
+     "es": {
+      "name": "Indexar registros en lote",
+      "summary": "Indexa en lote los registros extraídos en el índice cnreport-{year}."
+     },
+     "fr": {
+      "name": "Indexer les enregistrements",
+      "summary": "Indexe en lot les enregistrements extraits dans l'index cnreport-{year}."
+     }
+    },
+    "canonical": {
+     "brief": "把已抽取记录批量写入 cnreport-{year} 索引。"
+    }
+   },
+   "list_bse_filings": {
+    "human": {
+     "zh": {
+      "name": "列出北交所公告",
+      "summary": "列出北交所公司披露文件，每行标注数据来源是北交所还是巨潮。"
+     },
+     "en": {
+      "name": "List BSE filings",
+      "summary": "List a BSE-listed company's disclosures, each row labelled as BSE-native or CNINFO fallback."
+     },
+     "ja": {
+      "name": "北京の開示を一覧",
+      "summary": "北京証券取引所上場企業の開示資料を一覧し、各行に北京取引所か巨潮資訊かを示す。"
+     },
+     "es": {
+      "name": "Listar anuncios BSE",
+      "summary": "Lista las divulgaciones de una empresa de Pekín, indicando en cada fila si proviene de BSE o de CNINFO."
+     },
+     "fr": {
+      "name": "Lister publications BSE",
+      "summary": "Liste les publications d'une société de Pékin, chaque ligne indiquant la source BSE ou CNINFO."
+     }
+    },
+    "canonical": {
+     "brief": "列出北交所公司披露文件，优先北交所源并以巨潮兜底，每行标注来源。"
+    }
+   },
+   "list_cache": {
+    "human": {
+     "zh": {
+      "name": "列出年报缓存",
+      "summary": "列出已缓存年报及其来源信息、缓存时间与占用大小。"
+     },
+     "en": {
+      "name": "List report cache",
+      "summary": "List cached annual reports with provenance, cache time and size."
+     },
+     "ja": {
+      "name": "キャッシュを一覧",
+      "summary": "キャッシュ済み年報を、出所情報・キャッシュ時刻・サイズとともに一覧する。"
+     },
+     "es": {
+      "name": "Listar caché",
+      "summary": "Lista los informes anuales en caché con su procedencia, hora de caché y tamaño."
+     },
+     "fr": {
+      "name": "Lister le cache",
+      "summary": "Liste les rapports annuels en cache avec provenance, date de mise en cache et taille."
+     }
+    },
+    "canonical": {
+     "brief": "列出已缓存年报条目及其来源信息、缓存时间与文件大小。"
+    }
+   },
+   "list_csrc_enforcement": {
+    "human": {
+     "zh": {
+      "name": "列出处罚决定",
+      "summary": "列出证监会的行政处罚与执法信息。"
+     },
+     "en": {
+      "name": "List enforcement actions",
+      "summary": "List CSRC administrative-penalty and enforcement actions from csrc.gov.cn."
+     },
+     "ja": {
+      "name": "処分情報を一覧",
+      "summary": "証監会の行政処分・執行情報を csrc.gov.cn から一覧する。"
+     },
+     "es": {
+      "name": "Listar sanciones",
+      "summary": "Lista las sanciones administrativas y acciones de ejecución de la CSRC desde csrc.gov.cn."
+     },
+     "fr": {
+      "name": "Lister les sanctions",
+      "summary": "Liste les sanctions administratives et mesures d'exécution de la CSRC depuis csrc.gov.cn."
+     }
+    },
+    "canonical": {
+     "brief": "列出证监会（csrc.gov.cn）的行政处罚与执法信息。"
+    }
+   },
+   "list_csrc_filings": {
+    "human": {
+     "zh": {
+      "name": "列出证监会公告",
+      "summary": "列出中国证监会公开的监管公告与通知。"
+     },
+     "en": {
+      "name": "List CSRC notices",
+      "summary": "List CSRC regulatory announcements and notices from csrc.gov.cn."
+     },
+     "ja": {
+      "name": "証監会公告を一覧",
+      "summary": "中国証券監督管理委員会（csrc.gov.cn）の規制公告・通知を一覧する。"
+     },
+     "es": {
+      "name": "Listar avisos CSRC",
+      "summary": "Lista los anuncios y avisos regulatorios de la CSRC desde csrc.gov.cn."
+     },
+     "fr": {
+      "name": "Lister avis CSRC",
+      "summary": "Liste les annonces et avis réglementaires de la CSRC depuis csrc.gov.cn."
+     }
+    },
+    "canonical": {
+     "brief": "列出中国证监会（csrc.gov.cn）的监管公告与通知。"
+    }
+   },
+   "list_filings": {
+    "human": {
+     "zh": {
+      "name": "列出公司公告",
+      "summary": "列出某 A 股公司在巨潮资讯的披露文件。"
+     },
+     "en": {
+      "name": "List company filings",
+      "summary": "List a CN-A-share company's CNINFO disclosures."
+     },
+     "ja": {
+      "name": "開示資料を一覧",
+      "summary": "A株企業の巨潮資訊（CNINFO）における開示資料を一覧する。"
+     },
+     "es": {
+      "name": "Listar divulgaciones",
+      "summary": "Lista las divulgaciones en CNINFO de una empresa de acciones A."
+     },
+     "fr": {
+      "name": "Lister les publications",
+      "summary": "Liste les publications CNINFO d'une société de type A."
+     }
+    },
+    "canonical": {
+     "brief": "列出 A 股公司在巨潮资讯（CNINFO）的披露文件。"
+    }
+   },
+   "list_hk_filings": {
+    "human": {
+     "zh": {
+      "name": "列出港股公告",
+      "summary": "列出某港股公司的披露与公告。"
+     },
+     "en": {
+      "name": "List HK filings",
+      "summary": "List a HK stock company's filings and announcements."
+     },
+     "ja": {
+      "name": "香港株の開示を一覧",
+      "summary": "香港上場企業の開示資料・公告を一覧する。"
+     },
+     "es": {
+      "name": "Listar anuncios HK",
+      "summary": "Lista las publicaciones y anuncios de una empresa de Hong Kong."
+     },
+     "fr": {
+      "name": "Lister publications HK",
+      "summary": "Liste les publications et annonces d'une société de Hong Kong."
+     }
+    },
+    "canonical": {
+     "brief": "列出港股公司的披露与公告。"
+    }
+   },
+   "list_indicators": {
+    "human": {
+     "zh": {
+      "name": "浏览指标规则",
+      "summary": "浏览由 indicator_rules.json 驱动的银行指标规则集合。"
+     },
+     "en": {
+      "name": "Browse indicator rules",
+      "summary": "Browse the banking-indicator rule set driven by indicator_rules.json."
+     },
+     "ja": {
+      "name": "指標ルールを閲覧",
+      "summary": "indicator_rules.json に基づく銀行指標ルール群を閲覧する。"
+     },
+     "es": {
+      "name": "Explorar reglas",
+      "summary": "Explora el conjunto de reglas de indicadores bancarios definido en indicator_rules.json."
+     },
+     "fr": {
+      "name": "Parcourir les règles",
+      "summary": "Parcourt le jeu de règles d'indicateurs bancaires défini dans indicator_rules.json."
+     }
+    },
+    "canonical": {
+     "brief": "浏览由 indicator_rules.json 驱动的银行指标规则集合。"
+    }
+   },
+   "list_ministries": {
+    "human": {
+     "zh": {
+      "name": "列出部委数据源",
+      "summary": "列出已支持的部委统计数据来源及其标识与接入方式。"
+     },
+     "en": {
+      "name": "List ministry sources",
+      "summary": "List the supported ministry statistics sources with their id, label and transport."
+     },
+     "ja": {
+      "name": "省庁データ源を一覧",
+      "summary": "対応している省庁統計のデータソースを、ID・名称・接続方式とともに一覧する。"
+     },
+     "es": {
+      "name": "Listar fuentes ministeriales",
+      "summary": "Lista las fuentes de estadísticas ministeriales admitidas con su id, etiqueta y transporte."
+     },
+     "fr": {
+      "name": "Lister sources ministérielles",
+      "summary": "Liste les sources de statistiques ministérielles prises en charge avec leur id, libellé et transport."
+     }
+    },
+    "canonical": {
+     "brief": "列出已支持的部委统计数据来源及其标识、中英文名称与接入方式。"
+    }
+   },
+   "list_outline": {
+    "human": {
+     "zh": {
+      "name": "读取年报目录",
+      "summary": "抓取一份中文年报并返回其目录大纲。"
+     },
+     "en": {
+      "name": "Read report outline",
+      "summary": "Fetch a Chinese annual report and return its table-of-contents outline."
+     },
+     "ja": {
+      "name": "年報の目次を取得",
+      "summary": "中国企業の年次報告書を取得し、その目次構成を返す。"
+     },
+     "es": {
+      "name": "Leer índice del informe",
+      "summary": "Descarga un informe anual chino y devuelve el esquema de su índice."
+     },
+     "fr": {
+      "name": "Lire le sommaire",
+      "summary": "Récupère un rapport annuel chinois et renvoie la structure de son sommaire."
+     }
+    },
+    "canonical": {
+     "brief": "抓取一份中文年报，返回其目录（outline）结构。"
+    }
+   },
+   "list_report_types": {
+    "human": {
+     "zh": {
+      "name": "浏览公告分类",
+      "summary": "浏览巨潮资讯的披露类别目录。"
+     },
+     "en": {
+      "name": "Browse disclosure types",
+      "summary": "Browse the CNINFO disclosure category catalog."
+     },
+     "ja": {
+      "name": "開示区分を一覧",
+      "summary": "巨潮資訊の開示カテゴリ目録を閲覧する。"
+     },
+     "es": {
+      "name": "Explorar categorías",
+      "summary": "Explora el catálogo de categorías de divulgación de CNINFO."
+     },
+     "fr": {
+      "name": "Parcourir les catégories",
+      "summary": "Parcourt le catalogue des catégories de publication de CNINFO."
+     }
+    },
+    "canonical": {
+     "brief": "浏览巨潮资讯（CNINFO）的披露类别目录。"
+    }
+   },
+   "list_sse_filings": {
+    "human": {
+     "zh": {
+      "name": "列出沪市公告",
+      "summary": "直接从 sse.com.cn 列出沪市公司的披露文件。"
+     },
+     "en": {
+      "name": "List SSE filings",
+      "summary": "List a SSE-listed company's disclosures directly from sse.com.cn."
+     },
+     "ja": {
+      "name": "上海の開示を一覧",
+      "summary": "sse.com.cn から直接、上海上場企業の開示資料を一覧する。"
+     },
+     "es": {
+      "name": "Listar anuncios SSE",
+      "summary": "Lista directamente desde sse.com.cn las divulgaciones de una empresa de Shanghái."
+     },
+     "fr": {
+      "name": "Lister publications SSE",
+      "summary": "Liste directement depuis sse.com.cn les publications d'une société de Shanghai."
+     }
+    },
+    "canonical": {
+     "brief": "直接从 sse.com.cn 列出沪市公司的披露文件。"
+    }
+   },
+   "list_szse_filings": {
+    "human": {
+     "zh": {
+      "name": "列出深市公告",
+      "summary": "直接从 szse.cn 列出深市公司的披露文件。"
+     },
+     "en": {
+      "name": "List SZSE filings",
+      "summary": "List a SZSE-listed company's disclosures directly from szse.cn."
+     },
+     "ja": {
+      "name": "深センの開示を一覧",
+      "summary": "szse.cn から直接、深セン上場企業の開示資料を一覧する。"
+     },
+     "es": {
+      "name": "Listar anuncios SZSE",
+      "summary": "Lista directamente desde szse.cn las divulgaciones de una empresa de Shenzhen."
+     },
+     "fr": {
+      "name": "Lister publications SZSE",
+      "summary": "Liste directement depuis szse.cn les publications d'une société de Shenzhen."
+     }
+    },
+    "canonical": {
+     "brief": "直接从 szse.cn 列出深市公司的披露文件。"
+    }
+   },
+   "open_industry_rules_dashboard": {
+    "human": {
+     "zh": {
+      "name": "打开规则看板",
+      "summary": "启动行业规则网页看板，支持按行业、模块与关键词筛选，并可按列排序与分页。"
+     },
+     "en": {
+      "name": "Open rules dashboard",
+      "summary": "Start the industry rules web dashboard with industry, module and keyword filtering, column sorting and pagination."
+     },
+     "ja": {
+      "name": "ルール画面を起動",
+      "summary": "業界ルールのWebダッシュボードを起動し、業界・モジュール・キーワードでの絞り込み、列の並べ替え、ページ送りを提供する。"
+     },
+     "es": {
+      "name": "Abrir panel de reglas",
+      "summary": "Inicia el panel web de reglas del sector con filtros por sector, módulo y palabra clave, ordenación por columna y paginación."
+     },
+     "fr": {
+      "name": "Ouvrir le tableau de bord",
+      "summary": "Lance le tableau de bord web des règles sectorielles avec filtres par secteur, module et mot-clé, tri des colonnes et pagination."
+     }
+    },
+    "canonical": {
+     "brief": "启动行业规则网页看板，支持按行业、模块与关键词筛选，并可按列排序与分页。"
+    }
+   },
+   "search_reports": {
+    "human": {
+     "zh": {
+      "name": "检索研报",
+      "summary": "在 cnreport 索引上做全文与条件筛选检索，返回高亮结果。"
+     },
+     "en": {
+      "name": "Search reports",
+      "summary": "Full-text and filtered search over the cnreport indices, returning highlights."
+     },
+     "ja": {
+      "name": "レポートを検索",
+      "summary": "cnreportインデックスに対して全文検索と条件絞り込みを行い、ハイライト付きで返す。"
+     },
+     "es": {
+      "name": "Buscar informes",
+      "summary": "Búsqueda de texto completo con filtros sobre los índices cnreport, con resaltados."
+     },
+     "fr": {
+      "name": "Rechercher des rapports",
+      "summary": "Recherche plein texte avec filtres dans les index cnreport, avec surlignage."
+     }
+    },
+    "canonical": {
+     "brief": "在 cnreport 索引上做全文加条件筛选检索，返回带高亮的结果。"
+    }
+   }
+  },
+  "provenance": {
+   "source": "finddata-supply-annotations",
+   "updatedAt": "2026-11-02"
+  }
+ }
+}

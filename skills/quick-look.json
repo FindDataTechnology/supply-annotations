@@ -1,0 +1,32 @@
+{
+  "skill": "quick-look",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "快速预览",
+        "summary": "上游仅注记「速览占位」，无功能说明；按名称推断为快速预览类技能，具体行为以服务端返回为准。"
+      },
+      "en": {
+        "name": "Quick look",
+        "summary": "Upstream carries only a placeholder note; inferred from the name as a quick-preview skill, actual behavior subject to the server response."
+      },
+      "ja": {
+        "name": "クイックプレビュー",
+        "summary": "上流には「速覧プレースホルダー」の注記のみ。名称からクイックプレビュー系の技能と推定され、実際の動作はサーバーの応答による。"
+      },
+      "es": {
+        "name": "Vistazo rápido",
+        "summary": "La fuente solo marca un marcador de posición; inferida del nombre como habilidad de vista previa rápida, el comportamiento real depende de la respuesta del servidor."
+      },
+      "fr": {
+        "name": "Aperçu rapide",
+        "summary": "La source ne porte qu'un marqueur de position ; déduite du nom comme compétence d'aperçu rapide, le comportement réel dépend de la réponse du serveur."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

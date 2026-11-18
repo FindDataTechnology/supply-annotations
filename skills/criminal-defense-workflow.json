@@ -1,0 +1,32 @@
+{
+  "skill": "criminal-defense-workflow",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "刑事辩护全流程",
+        "summary": "刑事辩护全流程：分析罪名构成与量刑、梳理证据与程序瑕疵、准备辩护意见与庭审发问提纲；走裁判文书库、指导案例库与法规库检索，逐条溯源。"
+      },
+      "en": {
+        "name": "Criminal defense workflow",
+        "summary": "Full criminal defense: charge and sentencing analysis, evidence and procedural-defect review, defense opinions and trial questioning outlines, sourced via judgment, case and statute databases."
+      },
+      "ja": {
+        "name": "刑事弁護ワークフロー",
+        "summary": "刑事弁護の全工程：罪名構成と量刑の分析、証拠・手続の瑕疵整理、弁護意見と法廷質問案の準備。裁判文書・指導例・法規データベースを検索し、項目ごとに典拠を明示する。"
+      },
+      "es": {
+        "name": "Flujo de trabajo de defensa penal",
+        "summary": "Flujo de defensa penal: tipos y penas, pruebas y vicios procesales, alegatos y guiones de interrogatorio, con fuentes en bases de sentencias, casos guía y normas."
+      },
+      "fr": {
+        "name": "Flux de travail de défense pénale",
+        "summary": "Flux de défense pénale : infractions et peines, preuves et vices de procédure, mémoires et plans d'interrogatoire, sourcés dans les bases de jugements et normes."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

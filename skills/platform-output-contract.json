@@ -1,0 +1,32 @@
+{
+  "skill": "platform-output-contract",
+  "origin": "yizuo-file",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "平台产物契约",
+        "summary": "平台产物纪律：图表一律用 echarts 围栏输出 JSON option——所有岗位输出必须遵守的契约技能。"
+      },
+      "en": {
+        "name": "Platform output contract",
+        "summary": "Platform output discipline: charts are always emitted as ECharts fenced JSON options — a contract skill every role must follow."
+      },
+      "ja": {
+        "name": "プラットフォーム出力契約",
+        "summary": "成果物の出力規律：チャートは常に ECharts のフェンス付き JSON option で出力——全ロールが従うべき契約スキル。"
+      },
+      "es": {
+        "name": "Contrato de salida de plataforma",
+        "summary": "Disciplina de salida de la plataforma: los gráficos se emiten siempre como opciones JSON ECharts cercadas — un contrato que todo rol debe seguir."
+      },
+      "fr": {
+        "name": "Contrat de sortie de plateforme",
+        "summary": "Discipline de sortie de la plateforme : les graphiques sont toujours émis en options JSON ECharts balisées — un contrat que chaque rôle doit respecter."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

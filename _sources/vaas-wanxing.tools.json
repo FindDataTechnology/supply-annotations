@@ -1,0 +1,80 @@
+{
+  "server_name": "vaas-wanxing",
+  "description": "VAAS generation plane (Wanxing pilot): voice/image/video/cover generation, asset store, registry discovery. Multi-tenant; assets owner-scoped; publish plane excluded.",
+  "tags": [
+    "vaas",
+    "generation",
+    "wanxing",
+    "multimodal"
+  ],
+  "tools": [
+    {
+      "name": "assets_get",
+      "description": "Get full asset details (lineage, variants, distribution); own assets only in hosted mode.\n\nIn hosted mode the response carries a fresh signed download_url so remote\ntenants can pull the artifact without a generation call.\n\n资产树查询：kind=\"common\" 列 downloads/common 与 remotion public 的公共\n资产（brand assets）；kind=\"logo\" 只列 logo/icon 类。给定 kind 时忽略\nid/slug，走文件系统扫描（不分 owner）。"
+    },
+    {
+      "name": "assets_list",
+      "description": "List asset summaries with optional filters (own assets only in hosted mode)."
+    },
+    {
+      "name": "assets_stats",
+      "description": "Aggregate stats by asset type/stage and platform (own assets in hosted mode)."
+    },
+    {
+      "name": "generate_image",
+      "description": "Generate images from a text prompt (registry method: seedream).\n\nreference_image (img2img) is not on this surface: no lane has an E2E-\nproven path, so the parameter was removed instead of advertised."
+    },
+    {
+      "name": "generate_video_submit",
+      "description": "Submit an async video job; returns a job id in seconds.\n\nPoll video_job_status until succeeded/failed. Client timeouts may safely\nretry this call's sibling status tool — never resubmit."
+    },
+    {
+      "name": "generate_voice",
+      "description": "Generate speech from text using TTS (registry method: tts).\n\nPass idempotency_key to make the call replay-safe: a second call with the\nsame key returns the existing asset (idempotent_replay=True) instead of\nre-generating and re-billing."
+    },
+    {
+      "name": "models_voices",
+      "description": "List available generation models and voices per provider (truth table).\n\nRead before choosing a voice/model: shows capabilities (speed/captions\nsupport), current status, and pricing notes per lane. The manifest at\ngenerators/voices_manifest.json is the source of truth for this tool.\nEach provider block also carries its lane health\n(health/reason_class/last_verified, from lane_health.json)."
+    },
+    {
+      "name": "reference_clips_check",
+      "description": "Review reference clips for every active voice; regenerate missing/recycled.\n\nRun after upstream/model changes to produce a per-voice diff report."
+    },
+    {
+      "name": "registry_describe_generator",
+      "description": "Describe a specific generation method."
+    },
+    {
+      "name": "registry_list_generators",
+      "description": "List available generation methods, optionally filtered by asset type."
+    },
+    {
+      "name": "render_document",
+      "description": "Render a document: format ∈ {pdf, longimage}，或两者的列表.\n\nsource 为 md 或 html 文本/路径；template 未指定用 \"default\"。format 接受\n字符串或列表（W3 内核已支持多格式，每份产物独立落账）；非法值报错不变。"
+    },
+    {
+      "name": "render_still",
+      "description": "Render one still image; kind = cover | chart | graphic.\n\ncover  — 品牌封面静帧（2026-11-09 起走 chromium 单帧，见 skills/cover.py；\n         原 Remotion 路径已随 W6.5 退役）\n         spec: {title, subtitle?, tags?, orientation?, size?, template?}\nchart  — 图表静帧（tools/still_chart.py::render_chart，本波占位）\ngraphic— 通用图形静帧（tools/still_graphic.py::render_graphic，本波占位）"
+    },
+    {
+      "name": "render_video",
+      "description": "Render a video: storyboard 模式（确定性逐帧）或 type 模式（HTML 场景管线）。\n\nTwo mutually exclusive modes:\n  1. storyboard={size, scenes:[...]} — 确定性渲染，场景 kind ∈\n     html_intro/html_outro/kenburns/html_full，逐帧由 window.seek(t)\n     重放，同一 storyboard → 同一字节流；计划级重放键 scoped_asset_slug。\n  2. type=\"news-flash|carousel|listicle|...\" + script（口播稿文本或路径）\n     + inputs（类型输入 dict，见 types/<id>/type.json）— typed_scenes\n     builder 产出 seek 契约场景后走与 storyboard 模式同一实现路径；\n     type.json 须声明 \"renderer\": \"html\"，未注册 builder 报错列可用清单。\n     voice_path 给定时按段字符数加权对齐（不发起 TTS），否则逐段 TTS。\n     slug 缺省按计划哈希派生（type+script+inputs+voice_path+bgm 全折入），\n     同输入重放免费。\n\nbgm（W4.2，两模式同参数语义）: {asset_id|path, volume?, fade_out?} —\n视频合成后混流背景音乐；BGM 短于视频自动循环补长，长于视频在视频时长处\n收尾；volume 默认 0.2，fade_out 默认 true（afade 出）。asset_id 引用\nassets 账本 type=bgm 资产（本人资产或全局种子曲库）。\n\n同时提交 storyboard 与 type 是明确错误；输入文件缺失时报错会列出\n具体缺失清单（kenburns images / voice_path / bgm path）。inputs 里含\n待补图（提示词）且未 confirm_images 时返回 pending_images 清单，不渲染\n不产产物。"
+    },
+    {
+      "name": "templates_get",
+      "description": "Get one template's detail / input contract.\n\nvideo → types/<id>/type.json 原文（inputs 契约 + pipeline + composition）；\ncover/doc → 注册表条目 + 契约说明。"
+    },
+    {
+      "name": "templates_list",
+      "description": "List presentation templates by domain: video | cover | doc.\n\nvideo 版式即 render_video(type=...) 的类型清单；cover 为 CoverBrand 静帧；\ndoc 为 render_document 的版式（default 内置）。domain=None 列全部三域。"
+    },
+    {
+      "name": "video_job_status",
+      "description": "Poll one async video job by id (running/succeeded/failed/expired).\n\nOn success the returned payload carries asset_id and a signed download_url.\n\nTenant scoping enforced here (generation-jobs: cross-tenant invisible):\nhosted callers only ever see their own jobs; local stdio resolves to the\nservice owner and sees the whole table as before."
+    },
+    {
+      "name": "voiceover_assemble",
+      "description": "Assemble a long voiceover from a script plan (vaas-pipeline W2).\n\nsegments: ordered [{text, window_s?}]. Per-segment TTS with bounded retries;\nover-window segments get edit suggestions (never tempo-hacked). Deterministic\nplan slug; same plan + idempotency_key replays without re-billing.\n\nbgm（W4.3）: {asset_id|path, volume?, fade_out?} — 成片后混入背景音乐，\n语义与 render_video 的 bgm 一致：BGM 短于成片自动循环补长，长于成片在\n成片时长处收尾（-t covered_s 纪律）；volume 默认 0.2，fade_out 默认 true。\n未显式给 slug 时，bgm 签名折入确定性 slug（同计划不同 BGM 不串重放键）。"
+    }
+  ]
+}

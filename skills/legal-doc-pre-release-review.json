@@ -1,0 +1,32 @@
+{
+  "skill": "legal-doc-pre-release-review",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "文书发布前审查",
+        "summary": "在业务技能生成正文或要素式字段后、导出本地 Word 前，审查草稿文件、复查与法规校验摘要、来源边界和用户确认记录，判定能否进入正式 DOCX 导出；发现问题则闭环推进整改、确认或材料补读。"
+      },
+      "en": {
+        "name": "Pre-release document review",
+        "summary": "Reviews drafts, check summaries, source boundaries and user confirmations before legal documents are exported to local Word, and decides whether the formal DOCX export may proceed."
+      },
+      "ja": {
+        "name": "文書公開前審査",
+        "summary": "本文や要素フィールドの生成後、ローカル Word 書き出し前に、ドラフト、再検査要約、出所境界、ユーザー確認記録を審査し、正式な DOCX 書き出しの可否を判定。問題は是正・確認までクローズドループで処理する。"
+      },
+      "es": {
+        "name": "Revisión previa a la publicación del documento",
+        "summary": "Revisa borradores, resúmenes de verificación, límites de fuentes y confirmaciones antes de exportar el documento jurídico a Word local, y decide si procede la exportación DOCX formal."
+      },
+      "fr": {
+        "name": "Revue préalable à la publication du document",
+        "summary": "Examine brouillons, comptes rendus de contrôle, limites des sources et confirmations avant l'export du document juridique en Word local, et décide si l'exportation DOCX formelle est possible."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

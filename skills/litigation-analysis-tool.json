@@ -1,0 +1,32 @@
+{
+  "skill": "litigation-analysis-tool",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "诉讼批量分析",
+        "summary": "支持文件夹批量处理的判决书深度分析,生成上诉或再审的决策支持。"
+      },
+      "en": {
+        "name": "Litigation batch analysis tool",
+        "summary": "Deep judgment analysis with folder-level batch processing, producing decision support for appeal or retrial."
+      },
+      "ja": {
+        "name": "訴訟一括分析ツール",
+        "summary": "フォルダ一括処理に対応した判決文の詳細分析で、上訴・再審の意思決定支援を生成する。"
+      },
+      "es": {
+        "name": "Herramienta de análisis de litigios por lotes",
+        "summary": "Análisis profundo de sentencias con procesamiento de carpetas por lotes; apoyo a la decisión de apelación o rejuicio."
+      },
+      "fr": {
+        "name": "Outil d'analyse contentieuse par lots",
+        "summary": "Analyse approfondie de jugements avec traitement par lots de dossiers ; aide à la décision pour appel ou révision."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

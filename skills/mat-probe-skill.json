@@ -1,0 +1,32 @@
+{
+  "skill": "mat-probe-skill",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "物化探针",
+        "summary": "物化探针技能;上游未展开功能范围,具体行为以实际返回为准。"
+      },
+      "en": {
+        "name": "Materialization probe",
+        "summary": "Materialization probe skill; the upstream gives no further scope, actual behaviour follows the service's returns."
+      },
+      "ja": {
+        "name": "実体化プローブ",
+        "summary": "実体化プローブのスキル。上流に範囲の記述がなく、挙動は実際の返却結果に従う。"
+      },
+      "es": {
+        "name": "Sonda de materialización",
+        "summary": "Habilidad de sonda de materialización; el alcance no se detalla aguas arriba: el comportamiento sigue lo realmente devuelto."
+      },
+      "fr": {
+        "name": "Sonde de matérialisation",
+        "summary": "Compétence de sonde de matérialisation ; portée non détaillée en amont, le comportement suit les retours réels."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

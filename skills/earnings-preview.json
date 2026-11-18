@@ -1,0 +1,32 @@
+{
+  "skill": "earnings-preview",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "财报前瞻简报",
+        "summary": "用 Yahoo Finance 数据为任意股票生成财报前瞻简报：即将披露的财报、分析师预期与公司近况概览。"
+      },
+      "en": {
+        "name": "Pre-earnings briefing",
+        "summary": "Generates a pre-earnings briefing for any stock from Yahoo Finance data: the upcoming earnings report, what analysts expect and a company review."
+      },
+      "ja": {
+        "name": "決算事前ブリーフィング",
+        "summary": "Yahoo Finance のデータで任意銘柄の決算事前ブリーフィングを作成：次回決算、アナリスト予想、企業状況の概観。"
+      },
+      "es": {
+        "name": "Informe previo a resultados",
+        "summary": "Genera un informe previo a la publicación de resultados de cualquier acción con datos de Yahoo Finance: próxima publicación, expectativas de analistas y panorama de la empresa."
+      },
+      "fr": {
+        "name": "Note avant publication de résultats",
+        "summary": "Prépare une note avant publication pour tout titre via Yahoo Finance : prochain communiqué, attentes des analystes et panorama de l'entreprise."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

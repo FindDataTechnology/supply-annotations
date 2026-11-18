@@ -1,0 +1,32 @@
+{
+  "skill": "spider-heal-protocol",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "爬虫工单协议",
+        "summary": "定义爬虫自愈体系的对外工单协议（SUBMIT/STATUS/QUEUE）与 inbox 状态文件规范，并规定去重与单写者规则。"
+      },
+      "en": {
+        "name": "Crawler ticket protocol",
+        "summary": "Defines the external ticket protocol (SUBMIT/STATUS/QUEUE) of the crawler self-heal system, the inbox state-file convention, and the de-duplication and single-writer rules."
+      },
+      "ja": {
+        "name": "スパイダーチケットプロトコル",
+        "summary": "クローラー自己修復体系の対外チケットプロトコル（SUBMIT/STATUS/QUEUE）、inbox状態ファイル、重複排除と単一書き込み者の規則を定める。"
+      },
+      "es": {
+        "name": "Protocolo de tickets de rastreo",
+        "summary": "Define el protocolo externo de tickets (SUBMIT/STATUS/QUEUE) del sistema de auto-reparación de rastreadores, los archivos de estado inbox y las reglas de deduplicación y de escritor único."
+      },
+      "fr": {
+        "name": "Protocole de tickets des robots",
+        "summary": "Définit le protocole externe de tickets (SUBMIT/STATUS/QUEUE) du système d’auto-réparation de robots, la convention des fichiers d’état inbox et les règles de dédoublonnage et d’écrivain unique."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

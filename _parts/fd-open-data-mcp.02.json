@@ -1,0 +1,244 @@
+{
+  "tools": {
+    "update_entity": {
+      "human": {
+        "zh": {"name": "更新实体信息", "summary": "更新本体库中实体的元数据，用于初次注册后的维护；返回更新后的实体。"},
+        "en": {"name": "Update entity", "summary": "Update an entity's metadata in the ontology database after initial registration; returns the updated entity."},
+        "ja": {"name": "エンティティ更新", "summary": "オントロジーDB内のエンティティのメタデータを更新します。初回登録後の保守に使います。更新後のエンティティを返します。"},
+        "es": {"name": "Actualizar entidad", "summary": "Actualiza los metadatos de una entidad en la base de ontología tras el registro inicial; devuelve la entidad actualizada."},
+        "fr": {"name": "Mettre à jour entité", "summary": "Met à jour les métadonnées d'une entité dans la base d'ontologie après l'enregistrement initial ; renvoie l'entité mise à jour."}
+      },
+      "canonical": {"brief": "Admin update of entity metadata in the ontology database after initial registration; returns the updated entity."}
+    },
+    "update_concept": {
+      "human": {
+        "zh": {"name": "更新概念信息", "summary": "更新概念的名称与核验状态；返回更新后的概念。"},
+        "en": {"name": "Update concept", "summary": "Update concept metadata such as name and verification status; returns the updated concept."},
+        "ja": {"name": "概念更新", "summary": "概念の名称や検証状態などのメタデータを更新します。更新後の概念を返します。"},
+        "es": {"name": "Actualizar concepto", "summary": "Actualiza los metadatos del concepto, como nombre y estado de verificación; devuelve el concepto actualizado."},
+        "fr": {"name": "Mettre à jour concept", "summary": "Met à jour les métadonnées d'un concept, nom et état de vérification ; renvoie le concept mis à jour."}
+      },
+      "canonical": {"brief": "Update concept metadata such as name and verification status; returns the updated concept."}
+    },
+    "update_binding": {
+      "human": {
+        "zh": {"name": "更新绑定状态", "summary": "更新概念绑定的置信度、来源与复核状态；返回更新后的绑定。"},
+        "en": {"name": "Update binding", "summary": "Update a concept binding's confidence, provenance and review status; returns the updated binding."},
+        "ja": {"name": "バインディング更新", "summary": "概念バインディングの信頼度、出所、レビュー状態を更新します。更新後のバインディングを返します。"},
+        "es": {"name": "Actualizar vínculo", "summary": "Actualiza la confianza, la procedencia y el estado de revisión de un vínculo de concepto; devuelve el vínculo actualizado."},
+        "fr": {"name": "Mettre à jour liaison", "summary": "Met à jour la confiance, la provenance et l'état de revue d'une liaison de concept ; renvoie la liaison mise à jour."}
+      },
+      "canonical": {"brief": "Update a concept binding's confidence, provenance and review status; returns the updated binding."}
+    },
+    "consume_concepts": {
+      "human": {
+        "zh": {"name": "导入概念词表", "summary": "从协议词表导入概念族与变量，作为概念种子；返回导入结果。"},
+        "en": {"name": "Seed concepts", "summary": "Seed concept families and variables from the protocol vocabulary; returns the import result."},
+        "ja": {"name": "概念語彙の投入", "summary": "プロトコル語彙から概念ファミリーと変数を投入します。取込結果を返します。"},
+        "es": {"name": "Sembrar conceptos", "summary": "Siembra familias de conceptos y variables desde el vocabulario del protocolo; devuelve el resultado."},
+        "fr": {"name": "Amorcer les concepts", "summary": "Amorce les familles de concepts et les variables à partir du vocabulaire du protocole ; renvoie le résultat."}
+      },
+      "canonical": {"brief": "Seed concept families and variables from the protocol vocabulary."}
+    },
+    "propose_bindings": {
+      "human": {
+        "zh": {"name": "生成绑定建议", "summary": "为数据列提议到概念的绑定，低于阈值的建议暂缓；返回建议列表。"},
+        "en": {"name": "Propose bindings", "summary": "Propose column-to-concept bindings, withholding those below the threshold; returns the proposals."},
+        "ja": {"name": "バインディング提案", "summary": "列から概念へのバインディングを提案し、しきい値未満は保留します。提案一覧を返します。"},
+        "es": {"name": "Proponer vínculos", "summary": "Propone vínculos de columna a concepto y retiene los que quedan bajo el umbral; devuelve las propuestas."},
+        "fr": {"name": "Proposer liaisons", "summary": "Propose des liaisons colonne vers concept et retient celles sous le seuil ; renvoie les propositions."}
+      },
+      "canonical": {"brief": "Propose column-to-concept bindings, withholding proposals below the threshold for later review."}
+    },
+    "list_concepts": {
+      "human": {
+        "zh": {"name": "列出概念", "summary": "分页列出概念（变量）及其所属概念族，可按条件过滤；返回概念条目。"},
+        "en": {"name": "List concepts", "summary": "List concepts (variables) with their concept family in pages, optionally filtered; returns the concept rows."},
+        "ja": {"name": "概念一覧", "summary": "概念（変数）を概念ファミリーとともにページ単位で一覧し、絞り込みもできます。概念の行を返します。"},
+        "es": {"name": "Listar conceptos", "summary": "Lista conceptos (variables) con su familia conceptual por páginas, con filtro opcional; devuelve las filas."},
+        "fr": {"name": "Lister les concepts", "summary": "Liste les concepts (variables) avec leur famille, par pages, avec filtre facultatif ; renvoie les lignes."}
+      },
+      "canonical": {"brief": "Paginated list of concepts (variables) with their concept family, ordered by entity type, code and id."}
+    },
+    "list_concept_families": {
+      "human": {
+        "zh": {"name": "列出概念族", "summary": "分页列出概念族（人工整理的语义词表）及变量数量；返回概念族条目。"},
+        "en": {"name": "List concept families", "summary": "List concept families (the curated semantic vocabulary) with variable counts in pages; returns the family rows."},
+        "ja": {"name": "概念ファミリー一覧", "summary": "概念ファミリー（整備済みの意味語彙）と変数件数をページ単位で一覧します。ファミリーの行を返します。"},
+        "es": {"name": "Listar familias", "summary": "Lista las familias de conceptos (el vocabulario semántico curado) con el número de variables; devuelve las filas."},
+        "fr": {"name": "Lister les familles", "summary": "Liste les familles de concepts (le vocabulaire sémantique curé) avec le nombre de variables ; renvoie les lignes."}
+      },
+      "canonical": {"brief": "Paginated list of concept families with variable counts, ordered by family code."}
+    },
+    "list_registry_entries": {
+      "human": {
+        "zh": {"name": "枚举注册条目", "summary": "分页枚举统一指标注册表的全部条目与核验标记；未核验条目仍不进入目录读取，返回条目列表。"},
+        "en": {"name": "List registry entries", "summary": "Enumerate the whole unified indicator registry with each verified flag in pages; unverified entries stay out of catalog reads; returns the rows."},
+        "ja": {"name": "登録エントリ列挙", "summary": "統合指標レジストリの全エントリと検証フラグをページ単位で列挙します。未検証エントリはカタログ読み取りには入りません。"},
+        "es": {"name": "Listar entradas", "summary": "Enumera todo el catálogo unificado de indicadores con su marca de verificación por páginas; las no verificadas no entran en las lecturas del catálogo."},
+        "fr": {"name": "Lister entrées du registre", "summary": "Énumère tout le registre unifié d'indicateurs avec sa marque de vérification, par pages ; les entrées non vérifiées restent hors des lectures du catalogue."}
+      },
+      "canonical": {"brief": "Paginate the whole unified indicator registry with each entry's verified flag; unverified entries stay out of catalog reads."}
+    },
+    "record_concept_mapping": {
+      "human": {
+        "zh": {"name": "记录概念映射", "summary": "登记一条变量到外部词表术语的映射；返回映射记录。"},
+        "en": {"name": "Record concept mapping", "summary": "Assert that a variable maps to an external vocabulary term; returns the mapping record."},
+        "ja": {"name": "概念マッピング記録", "summary": "変数が外部語彙の用語に対応することを記録します。マッピングを返します。"},
+        "es": {"name": "Registrar mapeo", "summary": "Declara que una variable corresponde a un término de vocabulario externo; devuelve el mapeo."},
+        "fr": {"name": "Enregistrer mapping", "summary": "Déclare qu'une variable correspond à un terme de vocabulaire externe ; renvoie le mapping."}
+      },
+      "canonical": {"brief": "Assert that a variable maps to an external vocabulary term; returns the mapping record."}
+    },
+    "list_concept_mappings": {
+      "human": {
+        "zh": {"name": "列出概念映射", "summary": "按变量正向或按外部术语反向列出概念映射；返回映射条目。"},
+        "en": {"name": "List concept mappings", "summary": "List concept mappings forward by variable or in reverse by external term; returns the mapping rows."},
+        "ja": {"name": "概念マッピング一覧", "summary": "変数による順方向、または外部用語による逆方向で概念マッピングを一覧します。マッピングの行を返します。"},
+        "es": {"name": "Listar mapeos", "summary": "Lista los mapeos por variable en sentido directo o por término externo en sentido inverso; devuelve las filas."},
+        "fr": {"name": "Lister les mappings", "summary": "Liste les mappings par variable dans le sens direct ou par terme externe dans le sens inverse ; renvoie les lignes."}
+      },
+      "canonical": {"brief": "List concept mappings forward by variable or in reverse by external term."}
+    },
+    "import_crosswalks": {
+      "human": {
+        "zh": {"name": "导入对照表", "summary": "将随附的对照表文件（crosswalks/*.yaml）作为映射导入；返回导入结果。"},
+        "en": {"name": "Import crosswalks", "summary": "Ingest the shipped crosswalk registry (crosswalks/*.yaml) as mappings; returns the import result."},
+        "ja": {"name": "クロスウォーク取込", "summary": "同梱のクロスウォーク登録表（crosswalks/*.yaml）をマッピングとして取り込みます。取込結果を返します。"},
+        "es": {"name": "Importar tablas cruzadas", "summary": "Ingiere el registro de tablas cruzadas incluido (crosswalks/*.yaml) como mapeos; devuelve el resultado."},
+        "fr": {"name": "Importer correspondances", "summary": "Intègre le registre de correspondances fourni (crosswalks/*.yaml) comme mappings ; renvoie le résultat."}
+      },
+      "canonical": {"brief": "Ingest the shipped crosswalk registry (crosswalks/*.yaml) as concept mappings."}
+    },
+    "list_bindings": {
+      "human": {
+        "zh": {"name": "列出概念绑定", "summary": "列出数据列到概念的绑定，可按概念编码过滤；返回绑定列表。"},
+        "en": {"name": "List bindings", "summary": "List column-to-concept bindings, optionally filtered by concept code; returns the binding rows."},
+        "ja": {"name": "バインディング一覧", "summary": "列から概念へのバインディングを一覧し、概念コードで絞り込めます。バインディングを返します。"},
+        "es": {"name": "Listar vínculos", "summary": "Lista los vínculos de columna a concepto, con filtro opcional por código de concepto; devuelve las filas."},
+        "fr": {"name": "Lister les liaisons", "summary": "Liste les liaisons colonne vers concept, avec filtre facultatif par code de concept ; renvoie les lignes."}
+      },
+      "canonical": {"brief": "List column-to-concept bindings, optionally filtered by concept code."}
+    },
+    "review_bindings": {
+      "human": {
+        "zh": {"name": "查看待审绑定", "summary": "返回低于阈值的绑定复核队列；返回待审条目。"},
+        "en": {"name": "List review queue", "summary": "Return the below-threshold binding review queue; returns the items awaiting review."},
+        "ja": {"name": "レビュー待ち一覧", "summary": "しきい値未満のバインディングのレビュー待ちキューを返します。"},
+        "es": {"name": "Ver cola de revisión", "summary": "Devuelve la cola de revisión de vínculos bajo el umbral; devuelve los elementos pendientes."},
+        "fr": {"name": "Voir file de revue", "summary": "Renvoie la file de revue des liaisons sous le seuil ; renvoie les éléments en attente."}
+      },
+      "canonical": {"brief": "Return the below-threshold binding review queue used by propose-and-confirm."}
+    },
+    "confirm_binding": {
+      "human": {
+        "zh": {"name": "确认绑定", "summary": "确认复核队列中的绑定，并将来源标记为人工；返回确认后的绑定。"},
+        "en": {"name": "Confirm binding", "summary": "Confirm a binding in the review queue and set its provenance to manual; returns the confirmed binding."},
+        "ja": {"name": "バインディング承認", "summary": "レビュー待ちのバインディングを承認し、出所を手動に設定します。承認後のバインディングを返します。"},
+        "es": {"name": "Confirmar vínculo", "summary": "Confirma un vínculo de la cola de revisión y marca su procedencia como manual; devuelve el vínculo confirmado."},
+        "fr": {"name": "Confirmer liaison", "summary": "Confirme une liaison de la file de revue et marque sa provenance comme manuelle ; renvoie la liaison confirmée."}
+      },
+      "canonical": {"brief": "Confirm a binding in the review queue and set its provenance to manual."}
+    },
+    "seed_entity_identifiers": {
+      "human": {
+        "zh": {"name": "预置标识映射", "summary": "写入股票（akshare、yfinance）与国家（worldbank）的实体标识映射；返回写入结果。"},
+        "en": {"name": "Seed entity identifiers", "summary": "Seed identifier mappings for stocks (akshare, yfinance) and countries (worldbank); returns the result."},
+        "ja": {"name": "識別子マッピング投入", "summary": "株式（akshare、yfinance）と国（worldbank）の識別子マッピングを投入します。結果を返します。"},
+        "es": {"name": "Sembrar identificadores", "summary": "Siembra los mapeos de identificadores de acciones (akshare, yfinance) y países (worldbank); devuelve el resultado."},
+        "fr": {"name": "Amorcer identifiants", "summary": "Amorce les mappings d'identifiants pour les actions (akshare, yfinance) et les pays (worldbank) ; renvoie le résultat."}
+      },
+      "canonical": {"brief": "Seed identifier mappings for stocks (akshare, yfinance) and countries (worldbank)."}
+    },
+    "resolve_entity": {
+      "human": {
+        "zh": {"name": "解析实体标识", "summary": "在实体与各数据源标识之间双向解析，可用 wikidata 或 datacommons 反查实体；返回标识或实体。"},
+        "en": {"name": "Resolve entity", "summary": "Resolve an entity to a per-source identifier or reverse it, using wikidata or datacommons as anchors; returns the identifier or match."},
+        "ja": {"name": "エンティティ解決", "summary": "エンティティと各データソース識別子を双方向に解決します。wikidata や datacommons を手掛かりに逆引きもできます。"},
+        "es": {"name": "Resolver entidad", "summary": "Resuelve una entidad a un identificador por fuente o a la inversa, con wikidata o datacommons como ancla; devuelve el identificador o la coincidencia."},
+        "fr": {"name": "Résoudre entité", "summary": "Résout une entité vers un identifiant par source ou l'inverse, avec wikidata ou datacommons comme ancrage ; renvoie l'identifiant ou la correspondance."}
+      },
+      "canonical": {"brief": "Resolve entity to per-source identifier in either direction, with wikidata and datacommons as reverse anchors."}
+    },
+    "add_entity_identifier": {
+      "human": {
+        "zh": {"name": "写入实体标识", "summary": "按数据源新增或更新实体标识；返回写入结果。"},
+        "en": {"name": "Add entity identifier", "summary": "Upsert a per-source entity identifier; returns the write result."},
+        "ja": {"name": "識別子の追加", "summary": "データソース別のエンティティ識別子を追加または更新します。書き込み結果を返します。"},
+        "es": {"name": "Añadir identificador", "summary": "Añade o actualiza un identificador de entidad por fuente; devuelve el resultado."},
+        "fr": {"name": "Ajouter identifiant", "summary": "Ajoute ou met à jour un identifiant d'entité par source ; renvoie le résultat."}
+      },
+      "canonical": {"brief": "Upsert a per-source entity identifier."}
+    },
+    "list_entities": {
+      "human": {
+        "zh": {"name": "列出实体", "summary": "按类型列出实体；返回该类型的实体条目。"},
+        "en": {"name": "List entities", "summary": "List entities of a specific type; returns the entity rows."},
+        "ja": {"name": "エンティティ一覧", "summary": "指定した型のエンティティを一覧します。その型のエンティティを返します。"},
+        "es": {"name": "Listar entidades", "summary": "Lista las entidades de un tipo concreto; devuelve las filas de ese tipo."},
+        "fr": {"name": "Lister les entités", "summary": "Liste les entités d'un type donné ; renvoie les lignes de ce type."}
+      },
+      "canonical": {"brief": "List entities of a specific type."}
+    },
+    "get_entity": {
+      "human": {
+        "zh": {"name": "精确查询实体", "summary": "按类型与编码精确查询单个实体（如 AAPL、CN），已知编码时使用；返回实体记录。"},
+        "en": {"name": "Get entity by code", "summary": "Look up one entity by exact type and code (ticker AAPL, country CN) when the code is known; returns the entity record."},
+        "ja": {"name": "エンティティ取得", "summary": "型とコードの完全一致でエンティティを1件取得します（AAPL、CN など）。コードが既知の場合に使います。"},
+        "es": {"name": "Obtener entidad", "summary": "Busca una entidad por tipo y código exactos (AAPL, CN) cuando el código ya se conoce; devuelve el registro."},
+        "fr": {"name": "Obtenir entité", "summary": "Récupère une entité par type et code exacts (AAPL, CN) lorsque le code est connu ; renvoie l'enregistrement."}
+      },
+      "canonical": {"brief": "Look up one entity by exact type and code; use when the code is already known."}
+    },
+    "add_entity": {
+      "human": {
+        "zh": {"name": "新增实体", "summary": "向实体注册表新增一个实体；返回创建结果。"},
+        "en": {"name": "Add entity", "summary": "Add a new entity to the registry; returns the creation result."},
+        "ja": {"name": "エンティティ追加", "summary": "レジストリに新しいエンティティを追加します。作成結果を返します。"},
+        "es": {"name": "Añadir entidad", "summary": "Añade una entidad nueva al catálogo de entidades; devuelve el resultado de la creación."},
+        "fr": {"name": "Ajouter entité", "summary": "Ajoute une nouvelle entité au registre ; renvoie le résultat de la création."}
+      },
+      "canonical": {"brief": "Add a new entity to the registry."}
+    },
+    "list_relationships": {
+      "human": {
+        "zh": {"name": "列出实体关系", "summary": "列出指定实体的关系；返回关系条目。"},
+        "en": {"name": "List relationships", "summary": "List the relationships of an entity; returns the relationship rows."},
+        "ja": {"name": "関係一覧", "summary": "指定したエンティティの関係を一覧します。関係の行を返します。"},
+        "es": {"name": "Listar relaciones", "summary": "Lista las relaciones de una entidad; devuelve las filas de relaciones."},
+        "fr": {"name": "Lister relations", "summary": "Liste les relations d'une entité ; renvoie les lignes de relations."}
+      },
+      "canonical": {"brief": "List the relationships of an entity."}
+    },
+    "add_relationship": {
+      "human": {
+        "zh": {"name": "新增实体关系", "summary": "在两个实体之间新增一条关系；返回创建结果。"},
+        "en": {"name": "Add relationship", "summary": "Add a relationship between two entities; returns the creation result."},
+        "ja": {"name": "関係追加", "summary": "2つのエンティティ間に新しい関係を追加します。作成結果を返します。"},
+        "es": {"name": "Añadir relación", "summary": "Añade una relación entre dos entidades; devuelve el resultado de la creación."},
+        "fr": {"name": "Ajouter relation", "summary": "Ajoute une relation entre deux entités ; renvoie le résultat de la création."}
+      },
+      "canonical": {"brief": "Add a relationship between two entities."}
+    },
+    "graph_search": {
+      "human": {
+        "zh": {"name": "图谱关系检索", "summary": "基于 NetworkX 执行实体关系的图查询；返回匹配的实体与关系。"},
+        "en": {"name": "Graph relationship search", "summary": "Run graph-based entity relationship queries with NetworkX; returns the matching entities and relationships."},
+        "ja": {"name": "グラフ関係検索", "summary": "NetworkX を使ったエンティティ関係のグラフ検索を実行します。一致するエンティティと関係を返します。"},
+        "es": {"name": "Búsqueda en grafo", "summary": "Ejecuta consultas de relaciones entre entidades con NetworkX; devuelve las entidades y relaciones coincidentes."},
+        "fr": {"name": "Recherche en graphe", "summary": "Exécute des requêtes de relations entre entités avec NetworkX ; renvoie les entités et relations correspondantes."}
+      },
+      "canonical": {"brief": "Run graph-based entity relationship queries with NetworkX."}
+    },
+    "semantic_search": {
+      "human": {
+        "zh": {"name": "概念语义检索", "summary": "用向量嵌入按语义检索概念，结果按相似度排序并标出缓存命中；返回匹配概念与分数。"},
+        "en": {"name": "Semantic concept search", "summary": "Search concepts semantically with vector embeddings, ordered by similarity with a cache-hit flag; returns matching concepts and scores."},
+        "ja": {"name": "概念セマンティック検索", "summary": "ベクトル埋め込みで概念を意味検索し、類似度順に並べ、キャッシュ命中も示します。一致する概念とスコアを返します。"},
+        "es": {"name": "Búsqueda semántica", "summary": "Busca conceptos semánticamente con incrustaciones vectoriales, ordena por similitud y marca aciertos de caché; devuelve conceptos y puntuaciones."},
+        "fr": {"name": "Recherche sémantique", "summary": "Recherche les concepts par sens avec des plongements vectoriels, triés par similarité et avec indicateur de cache ; renvoie concepts et scores."}
+      },
+      "canonical": {"brief": "Semantic concept search over vector embeddings returning matching concepts with scores and a cache-hit flag."}
+    }
+  }
+}

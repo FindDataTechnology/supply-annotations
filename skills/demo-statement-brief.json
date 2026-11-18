@@ -1,0 +1,32 @@
+{
+  "skill": "demo-statement-brief",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "示例财报口径提示",
+        "summary": "给出一段简短的财报口径提示示例。"
+      },
+      "en": {
+        "name": "Demo earnings statement brief",
+        "summary": "Provides a short sample brief on earnings statement conventions."
+      },
+      "ja": {
+        "name": "サンプル決算口径提示",
+        "summary": "決算基準に関する短いサンプル提示を一つ与える。"
+      },
+      "es": {
+        "name": "Ejemplo de nota sobre resultados",
+        "summary": "Proporciona un breve ejemplo de nota sobre el criterio de presentación de resultados."
+      },
+      "fr": {
+        "name": "Exemple de note sur les résultats",
+        "summary": "Fournit un court exemple de note sur le périmètre de présentation des résultats."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

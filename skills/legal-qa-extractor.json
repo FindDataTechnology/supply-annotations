@@ -1,0 +1,32 @@
+{
+  "skill": "legal-qa-extractor",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "法律问答提取",
+        "summary": "从律师与客户沟通记录中提取有价值的法律问答对，生成结构化知识库内容，并对客户信息做严格脱敏处理。"
+      },
+      "en": {
+        "name": "Legal Q&A extraction",
+        "summary": "Extracts valuable legal Q&A pairs from lawyer-client communication records into structured knowledge-base entries, with strict redaction of client information."
+      },
+      "ja": {
+        "name": "法律問答抽出",
+        "summary": "弁護士と依頼者のコミュニケーション記録から価値ある法律問答ペアを抽出し、構造化ナレッジベース項目を生成する。依頼者情報は厳格に匿名化する。"
+      },
+      "es": {
+        "name": "Extracción de preguntas y respuestas legales",
+        "summary": "Extrae pares de preguntas y respuestas legales de las comunicaciones abogado-cliente y genera entradas estructuradas para bases de conocimiento, con anonimización estricta del cliente."
+      },
+      "fr": {
+        "name": "Extraction de questions-réponses juridiques",
+        "summary": "Extrait les paires question-réponse utiles des échanges avocat-client et génère des entrées structurées pour base de connaissances, avec anonymisation stricte du client."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

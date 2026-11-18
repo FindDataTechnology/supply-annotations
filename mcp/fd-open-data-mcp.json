@@ -1,0 +1,2391 @@
+{
+ "version": 1,
+ "server": "fd-open-data-mcp",
+ "annotation": {
+  "human": {
+   "zh": {
+    "name": "开放数据接入",
+    "summary": "接入统计年鉴与开放数据集，按指标、地区、年份读取序列与明细。",
+    "whenToUse": "查统计口径的年度或地区数据、需要序列对比时。"
+   },
+   "en": {
+    "name": "Open data access",
+    "summary": "Statistical yearbooks and open datasets, read as series or detailed rows by indicator, region, and year.",
+    "whenToUse": "For annual or regional statistics and series comparisons."
+   },
+   "ja": {
+    "name": "オープンデータ接続",
+    "summary": "統計年鑑と公開データセットを指標・地域・年で系列または明細として読み出します。",
+    "whenToUse": "年次・地域別の統計や系列比較が必要なとき。"
+   },
+   "es": {
+    "name": "Acceso a datos abiertos",
+    "summary": "Anuarios estadísticos y conjuntos abiertos, leídos como series o filas por indicador, región y año.",
+    "whenToUse": "Para estadísticas anuales o regionales y comparaciones de series."
+   },
+   "fr": {
+    "name": "Accès aux données ouvertes",
+    "summary": "Annuaires statistiques et jeux de données ouverts, lus en séries ou en lignes par indicateur, région et année.",
+    "whenToUse": "Pour des statistiques annuelles ou régionales et des comparaisons de séries."
+   }
+  },
+  "canonical": {
+   "brief": "Open-data MCP: yearbook and open dataset access by indicator/region/year; returns series or detailed rows with source metadata."
+  },
+  "tools": {
+   "add_entity": {
+    "human": {
+     "zh": {
+      "name": "新增实体",
+      "summary": "向实体注册表新增一个实体；返回创建结果。"
+     },
+     "en": {
+      "name": "Add entity",
+      "summary": "Add a new entity to the registry; returns the creation result."
+     },
+     "ja": {
+      "name": "エンティティ追加",
+      "summary": "レジストリに新しいエンティティを追加します。作成結果を返します。"
+     },
+     "es": {
+      "name": "Añadir entidad",
+      "summary": "Añade una entidad nueva al catálogo de entidades; devuelve el resultado de la creación."
+     },
+     "fr": {
+      "name": "Ajouter entité",
+      "summary": "Ajoute une nouvelle entité au registre ; renvoie le résultat de la création."
+     }
+    },
+    "canonical": {
+     "brief": "Add a new entity to the registry."
+    }
+   },
+   "add_entity_identifier": {
+    "human": {
+     "zh": {
+      "name": "写入实体标识",
+      "summary": "按数据源新增或更新实体标识；返回写入结果。"
+     },
+     "en": {
+      "name": "Add entity identifier",
+      "summary": "Upsert a per-source entity identifier; returns the write result."
+     },
+     "ja": {
+      "name": "識別子の追加",
+      "summary": "データソース別のエンティティ識別子を追加または更新します。書き込み結果を返します。"
+     },
+     "es": {
+      "name": "Añadir identificador",
+      "summary": "Añade o actualiza un identificador de entidad por fuente; devuelve el resultado."
+     },
+     "fr": {
+      "name": "Ajouter identifiant",
+      "summary": "Ajoute ou met à jour un identifiant d'entité par source ; renvoie le résultat."
+     }
+    },
+    "canonical": {
+     "brief": "Upsert a per-source entity identifier."
+    }
+   },
+   "add_relationship": {
+    "human": {
+     "zh": {
+      "name": "新增实体关系",
+      "summary": "在两个实体之间新增一条关系；返回创建结果。"
+     },
+     "en": {
+      "name": "Add relationship",
+      "summary": "Add a relationship between two entities; returns the creation result."
+     },
+     "ja": {
+      "name": "関係追加",
+      "summary": "2つのエンティティ間に新しい関係を追加します。作成結果を返します。"
+     },
+     "es": {
+      "name": "Añadir relación",
+      "summary": "Añade una relación entre dos entidades; devuelve el resultado de la creación."
+     },
+     "fr": {
+      "name": "Ajouter relation",
+      "summary": "Ajoute une relation entre deux entités ; renvoie le résultat de la création."
+     }
+    },
+    "canonical": {
+     "brief": "Add a relationship between two entities."
+    }
+   },
+   "ai_search": {
+    "human": {
+     "zh": {
+      "name": "智能检索",
+      "summary": "面向模糊与自然语言发现的默认检索入口，覆盖概念、实体与缓存值，返回匹配结果。"
+     },
+     "en": {
+      "name": "Smart search",
+      "summary": "Default entry for fuzzy and natural-language discovery, covering concepts, entities, and cached values; returns the matches."
+     },
+     "ja": {
+      "name": "スマート検索",
+      "summary": "曖昧な表現や自然言語での発見に向けた既定の検索入口で、概念・実体・キャッシュ値を対象に一致結果を返します。"
+     },
+     "es": {
+      "name": "Búsqueda inteligente",
+      "summary": "Entrada de búsqueda predeterminada para descubrimiento difuso y en lenguaje natural sobre conceptos, entidades y valores en caché; devuelve las coincidencias."
+     },
+     "fr": {
+      "name": "Recherche intelligente",
+      "summary": "Point d'entrée de recherche par défaut pour la découverte floue ou en langage naturel sur les concepts, entités et valeurs en cache ; renvoie les correspondances."
+     }
+    },
+    "canonical": {
+     "brief": "Default search entry for fuzzy or natural-language discovery across concepts, entities, and cached values."
+    }
+   },
+   "auth_events": {
+    "human": {
+     "zh": {
+      "name": "查看身份事件",
+      "summary": "按时间倒序返回登录、探测与租用的身份事件流，附来源与账号别名；只读。"
+     },
+     "en": {
+      "name": "Show identity events",
+      "summary": "Return the identity event stream of logins, probes and leases newest to oldest, with source and account alias; read-only."
+     },
+     "ja": {
+      "name": "IDイベント表示",
+      "summary": "ログイン、検査、貸出のIDイベントを新しい順に返し、ソースとアカウント別名を添えます。読み取り専用です。"
+     },
+     "es": {
+      "name": "Ver eventos de identidad",
+      "summary": "Devuelve el flujo de eventos de acceso, sondeo y préstamo de identidades, del más reciente al más antiguo, con fuente y alias; solo lectura."
+     },
+     "fr": {
+      "name": "Voir événements d'identité",
+      "summary": "Renvoie le flux d'événements de connexion, de sonde et de prêt d'identités, du plus récent au plus ancien, avec source et alias ; lecture seule."
+     }
+    },
+    "canonical": {
+     "brief": "Identity event stream of login, probe and lease events newest to oldest, with source and account alias attached."
+    }
+   },
+   "auth_launch_login": {
+    "human": {
+     "zh": {
+      "name": "启动登录台",
+      "summary": "为身份分配出口代理并启动登录台，由操作员在面板内完成登录；返回登录台状态。"
+     },
+     "en": {
+      "name": "Launch login station",
+      "summary": "Assign an egress proxy and launch a login station where the operator completes the login in the panel; returns the station status."
+     },
+     "ja": {
+      "name": "ログイン端末起動",
+      "summary": "IDに出口プロキシを割り当ててログイン端末を起動し、操作者がパネル内でログインを完了します。端末の状態を返します。"
+     },
+     "es": {
+      "name": "Iniciar estación de acceso",
+      "summary": "Asigna un proxy de salida e inicia una estación de acceso donde el operador completa el acceso en el panel; devuelve el estado."
+     },
+     "fr": {
+      "name": "Lancer poste de connexion",
+      "summary": "Attribue un proxy de sortie et lance un poste de connexion où l'opérateur termine la connexion dans le panneau ; renvoie l'état."
+     }
+    },
+    "canonical": {
+     "brief": "Launch a login station with an egress proxy so the operator completes the login inside the panel's embedded view."
+    }
+   },
+   "auth_request_login": {
+    "human": {
+     "zh": {
+      "name": "登记待登录身份",
+      "summary": "将身份登记或重置为需登录并写入备注事件，不执行实际登录；返回身份状态。"
+     },
+     "en": {
+      "name": "Queue identity login",
+      "summary": "Register or reset an identity as login-required and write a note event, without performing the login; returns the identity status."
+     },
+     "ja": {
+      "name": "ログイン待ち登録",
+      "summary": "IDをログイン必須として登録または再設定し、注記イベントを書き込みます。実際のログインは行いません。"
+     },
+     "es": {
+      "name": "Registrar acceso",
+      "summary": "Registra o restablece una identidad como requiere acceso y escribe un evento de nota, sin ejecutar el acceso; devuelve el estado."
+     },
+     "fr": {
+      "name": "Inscrire connexion requise",
+      "summary": "Enregistre ou réinitialise une identité comme connexion requise et écrit un événement de note, sans exécuter la connexion ; renvoie l'état."
+     }
+    },
+    "canonical": {
+     "brief": "Register or reset an identity as login_required and write a note event; the login itself happens on the login site."
+    }
+   },
+   "auth_status": {
+    "human": {
+     "zh": {
+      "name": "查看账号池状态",
+      "summary": "汇总各来源的登录身份数量、状态分布与租用数，指定来源时附明细；只读。"
+     },
+     "en": {
+      "name": "Show identity pool",
+      "summary": "Summarize login identities per source with counts, status distribution and leases, plus detail rows for a named source; read-only."
+     },
+     "ja": {
+      "name": "認証プール状態",
+      "summary": "ソースごとにログインIDの件数、状態分布、貸出数を集計し、指定ソースは明細も返します。読み取り専用です。"
+     },
+     "es": {
+      "name": "Ver pool de identidades",
+      "summary": "Resume las identidades de acceso por fuente con recuentos, distribución de estados y préstamos, con detalle para una fuente; solo lectura."
+     },
+     "fr": {
+      "name": "Voir pool d'identités",
+      "summary": "Résume les identités de connexion par source avec nombres, répartition des états et prêts, avec le détail pour une source ; lecture seule."
+     }
+    },
+    "canonical": {
+     "brief": "Identity-pool overview per source: identity counts, five-state distribution and leases; optional detail rows for one source."
+    }
+   },
+   "confirm_binding": {
+    "human": {
+     "zh": {
+      "name": "确认绑定",
+      "summary": "确认复核队列中的绑定，并将来源标记为人工；返回确认后的绑定。"
+     },
+     "en": {
+      "name": "Confirm binding",
+      "summary": "Confirm a binding in the review queue and set its provenance to manual; returns the confirmed binding."
+     },
+     "ja": {
+      "name": "バインディング承認",
+      "summary": "レビュー待ちのバインディングを承認し、出所を手動に設定します。承認後のバインディングを返します。"
+     },
+     "es": {
+      "name": "Confirmar vínculo",
+      "summary": "Confirma un vínculo de la cola de revisión y marca su procedencia como manual; devuelve el vínculo confirmado."
+     },
+     "fr": {
+      "name": "Confirmer liaison",
+      "summary": "Confirme une liaison de la file de revue et marque sa provenance comme manuelle ; renvoie la liaison confirmée."
+     }
+    },
+    "canonical": {
+     "brief": "Confirm a binding in the review queue and set its provenance to manual."
+    }
+   },
+   "consume_concepts": {
+    "human": {
+     "zh": {
+      "name": "导入概念词表",
+      "summary": "从协议词表导入概念族与变量，作为概念种子；返回导入结果。"
+     },
+     "en": {
+      "name": "Seed concepts",
+      "summary": "Seed concept families and variables from the protocol vocabulary; returns the import result."
+     },
+     "ja": {
+      "name": "概念語彙の投入",
+      "summary": "プロトコル語彙から概念ファミリーと変数を投入します。取込結果を返します。"
+     },
+     "es": {
+      "name": "Sembrar conceptos",
+      "summary": "Siembra familias de conceptos y variables desde el vocabulario del protocolo; devuelve el resultado."
+     },
+     "fr": {
+      "name": "Amorcer les concepts",
+      "summary": "Amorce les familles de concepts et les variables à partir du vocabulaire du protocole ; renvoie le résultat."
+     }
+    },
+    "canonical": {
+     "brief": "Seed concept families and variables from the protocol vocabulary."
+    }
+   },
+   "coverage_report": {
+    "human": {
+     "zh": {
+      "name": "查看覆盖缺口",
+      "summary": "返回抓取覆盖缺口清单，列出未覆盖或过期的概念；只读。"
+     },
+     "en": {
+      "name": "Show coverage gaps",
+      "summary": "Return the crawl-coverage gap inventory, listing uncovered or stale concepts; read-only."
+     },
+     "ja": {
+      "name": "カバレッジ欠損表示",
+      "summary": "クロールカバレッジの欠損一覧を返し、未カバーまたは古い概念を示します。読み取り専用です。"
+     },
+     "es": {
+      "name": "Ver brechas de cobertura",
+      "summary": "Devuelve el inventario de brechas de cobertura, con los conceptos sin cobertura u obsoletos; solo lectura."
+     },
+     "fr": {
+      "name": "Voir lacunes de couverture",
+      "summary": "Renvoie l'inventaire des lacunes de couverture, avec les concepts non couverts ou périmés ; lecture seule."
+     }
+    },
+    "canonical": {
+     "brief": "Read-only crawl-coverage gap inventory listing uncovered or stale concepts."
+    }
+   },
+   "crawl_status": {
+    "human": {
+     "zh": {
+      "name": "查看抓取状态",
+      "summary": "返回抓取状态的结构化快照，按数据源展示正在抓取与待抓取内容；只读。"
+     },
+     "en": {
+      "name": "Show crawl status",
+      "summary": "Return a structured snapshot of crawl state, per datasource, showing what is being crawled and what is queued; read-only."
+     },
+     "ja": {
+      "name": "クロール状態表示",
+      "summary": "クロール状態の構造化スナップショットを返し、データソースごとに実行中と待機中の内容を示します。読み取り専用です。"
+     },
+     "es": {
+      "name": "Ver estado de rastreo",
+      "summary": "Devuelve una instantánea estructurada del estado de rastreo por fuente, con lo que se rastrea y lo que está en cola; solo lectura."
+     },
+     "fr": {
+      "name": "Voir état du crawl",
+      "summary": "Renvoie un instantané structuré de l'état du crawl par source, avec ce qui est en cours et ce qui est en file ; lecture seule."
+     }
+    },
+    "canonical": {
+     "brief": "Structured, datasource-centric snapshot of crawl state showing what is being crawled and what is queued; read-only."
+    }
+   },
+   "crossborder_merchant_status": {
+    "human": {
+     "zh": {
+      "name": "跨境商家授权状态",
+      "summary": "查询某跨境电商平台连接器的商家授权状态；未授权返回结构化「不可得（未授权）」，绝不报错或静默空值。"
+     },
+     "en": {
+      "name": "Cross-border merchant status",
+      "summary": "Report merchant-authorization status for a platform connector; unauthorized returns a structured 'unavailable (unauthorized)' response, never an error or an empty list."
+     },
+     "ja": {
+      "name": "越境EC 出店許可状態",
+      "summary": "越境EC プラットフォームコネクタの出品者許可状態を照会。未許可は構造化された「不可（未許可）」を返し、エラーや空値を返さない。"
+     },
+     "es": {
+      "name": "Estado de comerciante transfronterizo",
+      "summary": "Informa el estado de autorización del comerciante para un conector de plataforma; no autorizado devuelve una respuesta estructurada 'no disponible (no autorizado)', nunca un error o lista vacía."
+     },
+     "fr": {
+      "name": "Statut marchand transfrontalier",
+      "summary": "Renseigne le statut d'autorisation marchand d'un connecteur de plateforme ; non autorisé renvoie une réponse structurée « indisponible (non autorisé) », jamais une erreur ou une liste vide."
+     }
+    },
+    "canonical": {
+     "brief": "查询跨境电商平台连接器的商家授权闸状态；未授权时返回结构化「不可得（未授权）」而非报错或空列表，授权后返回 granted scopes。仅读平台官方 API、不逆向。"
+    }
+   },
+   "data_stats": {
+    "human": {
+     "zh": {
+      "name": "查看数据覆盖",
+      "summary": "汇总观测覆盖度或按概念给出明细，含概念数、已覆盖数、存储行数与缺口；返回统计结果。"
+     },
+     "en": {
+      "name": "Show data coverage",
+      "summary": "Summarize observation coverage or detail it per concept, including concept counts, covered and gap counts and stored rows; returns the summary."
+     },
+     "ja": {
+      "name": "データカバレッジ表示",
+      "summary": "観測カバレッジを集計し、または概念ごとに示します。概念数、カバー済み数、格納行数、欠損を返します。"
+     },
+     "es": {
+      "name": "Ver cobertura de datos",
+      "summary": "Resume la cobertura de observaciones o la detalla por concepto, con recuentos de conceptos, cobertura, filas almacenadas y faltantes; devuelve el resumen."
+     },
+     "fr": {
+      "name": "Voir couverture des données",
+      "summary": "Résume la couverture des observations ou la détaille par concept, avec nombres de concepts, couverture, lignes stockées et manquants ; renvoie le résumé."
+     }
+    },
+    "canonical": {
+     "brief": "Aggregate observation coverage or per-concept detail: concept counts, covered and gap counts, stored rows and per-entity-type rollup."
+    }
+   },
+   "enumerate_wbgapi_indicators": {
+    "human": {
+     "zh": {
+      "name": "枚举世行指标",
+      "summary": "将全部 WDI 指标枚举为列、概念与绑定，重复执行结果一致。"
+     },
+     "en": {
+      "name": "Enumerate WDI indicators",
+      "summary": "Enumerates all WDI indicators into columns, concepts, and bindings; repeat runs are idempotent."
+     },
+     "ja": {
+      "name": "WDI 指標の列挙",
+      "summary": "すべての WDI 指標を列・概念・バインドへ列挙します。再実行しても結果は同じです。"
+     },
+     "es": {
+      "name": "Enumerar indicadores WDI",
+      "summary": "Enumera todos los indicadores WDI en columnas, conceptos y vínculos; repetir la ejecución no altera el resultado."
+     },
+     "fr": {
+      "name": "Énumérer les indicateurs WDI",
+      "summary": "Énumère tous les indicateurs WDI en colonnes, concepts et liaisons ; une réexécution donne le même résultat."
+     }
+    },
+    "canonical": {
+     "brief": "Enumerates all WDI indicators into columns, concepts, and bindings; idempotent."
+    }
+   },
+   "fetch": {
+    "human": {
+     "zh": {
+      "name": "强制抓取数据",
+      "summary": "对单个概念、实体与日期强制抓取，绕过缓存时效，返回该次抓取结果。"
+     },
+     "en": {
+      "name": "Force fetch",
+      "summary": "Forces a fetch for one concept, entity, and date, bypassing cache freshness, and returns that fetch result."
+     },
+     "ja": {
+      "name": "強制取得",
+      "summary": "単一の概念・実体・日付についてキャッシュの鮮度を無視して取得し、その取得結果を返します。"
+     },
+     "es": {
+      "name": "Forzar obtención",
+      "summary": "Fuerza una obtención para un concepto, entidad y fecha, omitiendo la vigencia de la caché, y devuelve el resultado."
+     },
+     "fr": {
+      "name": "Forcer la récupération",
+      "summary": "Force une récupération pour un concept, une entité et une date en ignorant la fraîcheur du cache, et renvoie le résultat."
+     }
+    },
+    "canonical": {
+     "brief": "Forces a fetch for one concept, entity, and date, bypassing cache freshness."
+    }
+   },
+   "flower_company_financials": {
+    "human": {
+     "zh": {
+      "name": "花卉公司财务",
+      "summary": "读取宇宙内公司的营业收入、营业利润、净利润序列并标注币种；分部收入、未纳入抓取的公司与日股 EDINET 凭据逐项给出不可得原因，不以 0 顶替。"
+     },
+     "en": {
+      "name": "Flower company financials",
+      "summary": "Reads consolidated revenue, operating profit and net income for universe companies with the currency stated; segment revenue and unfinished lanes return an explicit reason, not a number."
+     },
+     "ja": {
+      "name": "花卉企業財務",
+      "summary": "ユニバース内企業の売上高・営業利益・純利益を、通貨を明示して読み出します。セグメント収益や未実装のレーンは数値ではなく明示的な理由を返します。"
+     },
+     "es": {
+      "name": "Finanzas de empresas florales",
+      "summary": "Lee ingresos, beneficio operativo y beneficio neto consolidados de las empresas del universo indicando la moneda; los segmentos devuelven un motivo explícito, no una cifra."
+     },
+     "fr": {
+      "name": "Finances des entreprises florales",
+      "summary": "Lit le chiffre d'affaires, le résultat opérationnel et le résultat net consolidés des sociétés de l'univers avec la devise ; les segments renvoient un motif explicite, pas un chiffre."
+     }
+    },
+    "canonical": {
+     "brief": "Read-only: consolidated revenue/operating profit/net income with region-derived currency; flower revenue share null when undisclosed; segment revenue unavailable (SEC dimensions stripped); a company not yet crawled and JP EDINET each return a reason, never 0."
+    }
+   },
+   "flower_planted_area": {
+    "human": {
+     "zh": {
+      "name": "花卉种植面积",
+      "summary": "按国家与品类读取 AIPH 种植面积（公顷）横截面；每行自带参考年（2005–2024 混合），不计算增长率，其贸易章与 Eurostat 重复故不采用。"
+     },
+     "en": {
+      "name": "Planted area",
+      "summary": "Reads AIPH planted area in hectares by country and product as a cross-section; every row carries its own reference year (2005–2024 mixed) and no growth rate is computed."
+     },
+     "ja": {
+      "name": "作付面積",
+      "summary": "国・品目別のAIPH作付面積（ヘクタール）をクロスセクションとして読み出します。各行が独自の基準年（2005–2024混在）を持ち、成長率は算出しません。"
+     },
+     "es": {
+      "name": "Superficie plantada",
+      "summary": "Lee la superficie plantada de AIPH en hectáreas por país y producto como corte transversal; cada fila lleva su propio año de referencia (2005–2024 mezclados) y no se calcula crecimiento."
+     },
+     "fr": {
+      "name": "Surfaces plantées",
+      "summary": "Lit les surfaces plantées AIPH en hectares par pays et produit en coupe transversale ; chaque ligne porte son année de référence (2005–2024 mêlées) et aucun taux de croissance n'est calculé."
+     }
+    },
+    "canonical": {
+     "brief": "Read-only: AIPH planted area (ha) by country and product as a cross-section; each row keeps its own ref_year (2005–2024 mixed), no growth rates; AIPH carries area only — its trade chapter duplicates Eurostat and is not used."
+    }
+   },
+   "flower_price_series": {
+    "human": {
+     "zh": {
+      "name": "斗南花卉价格序列",
+      "summary": "按品类读取斗南花市日度均价、高价、低价三个独立口径；单位随品类（元/枝或元/把），上游报告仅约两个月，缺失日期只报告不插值。"
+     },
+     "en": {
+      "name": "Dounan flower prices",
+      "summary": "Reads one Dounan item's daily average, high and low prices as three independent published calibers; unit follows the item (CNY per stem or bunch), missing days reported, never filled."
+     },
+     "ja": {
+      "name": "斗南花卉価格系列",
+      "summary": "斗南市場の日次平均・高値・安値価格を3つの独立した算出基準として読み出します。単位は品目ごと（元/枝または元/束）で、欠損日は報告のみで補間しません。"
+     },
+     "es": {
+      "name": "Precios de Dounan",
+      "summary": "Lee los precios diarios medio, máximo y mínimo de un artículo de Dounan como tres criterios independientes; la unidad depende del artículo (CNY por tallo o manojo) y los días faltantes se informan."
+     },
+     "fr": {
+      "name": "Prix de Dounan",
+      "summary": "Lit les prix quotidiens moyen, haut et bas d'un article de Dounan comme trois critères indépendants ; l'unité suit l'article (CNY par tige ou botte) et les jours manquants sont signalés."
+     }
+    },
+    "canonical": {
+     "brief": "Read-only: one Dounan item's daily avg/high/low as three separate published calibers; unit comes from the item entity (CNY per stem or bunch); the upstream report spans only about two months by design; missing days reported, never filled."
+    }
+   },
+   "flower_trade": {
+    "human": {
+     "zh": {
+      "name": "花卉贸易链",
+      "summary": "按三个海关税号（060311 玫瑰鲜切花、060319 其他鲜切花、060120 鳞茎球根）读取年度进出口；三档永不合并，出口与进口各自独立，该车道尚未排期，缺行带原因。"
+     },
+     "en": {
+      "name": "Flower trade lanes",
+      "summary": "Reads annual trade for three HS6 tiers — 060311 fresh roses, 060319 other fresh cut flowers, 060120 bulbs — never merged; outbound and inbound flows stay separate."
+     },
+     "ja": {
+      "name": "花卉貿易レーン",
+      "summary": "3つのHS6分類（060311 生のバラ、060319 その他の切り花、060120 球根類）の年次貿易を読み出します。区分は統合せず、輸出と輸入も別フローです。"
+     },
+     "es": {
+      "name": "Comercio floral",
+      "summary": "Lee el comercio anual de tres códigos HS6 — 060311 rosas frescas, 060319 otras flores cortadas frescas, 060120 bulbos — sin fusionarlos; las salidas y las entradas son flujos separados."
+     },
+     "fr": {
+      "name": "Commerce floral",
+      "summary": "Lit le commerce annuel de trois codes SH6 — 060311 roses fraîches, 060319 autres fleurs coupées fraîches, 060120 bulbes — jamais fusionnés ; les flux sortants et entrants restent distincts."
+     }
+    },
+    "canonical": {
+     "brief": "Read-only: annual HS6 trade for 060311/060319/060120, never merged; outbound and inbound flows reported separately (FOB vs CIF); the trade lane is not yet scheduled, so absent rows carry that reason."
+    }
+   },
+   "flower_universe": {
+    "human": {
+     "zh": {
+      "name": "花卉宇宙总览",
+      "summary": "读取花卉双层宇宙的在册情况与各车道可用性：7 家上市公司（纯花卉/邻接两档）、23 个斗南品类、8 个 AIPH 种植面积国家；取不到的车道逐条给出原因。"
+     },
+     "en": {
+      "name": "Flower universe",
+      "summary": "Lists the flower universe and per-lane availability: 7 listed companies in pure-flower and adjacency tiers, 23 Dounan commodity items, 8 countries in the AIPH planted-area chapter."
+     },
+     "ja": {
+      "name": "花卉ユニバース一覧",
+      "summary": "花卉ユニバースの登録内容とレーン別の可用性を返します。上場企業7社（純花卉・隣接の2層）、斗南の品目23件、AIPH作付面積の8か国。"
+     },
+     "es": {
+      "name": "Universo floral",
+      "summary": "Lista el universo floral y la disponibilidad por carril: 7 empresas cotizadas en niveles floral puro y adyacente, 23 artículos de Dounan y 8 países de AIPH."
+     },
+     "fr": {
+      "name": "Univers floral",
+      "summary": "Liste l'univers floral et la disponibilité par voie : 7 sociétés cotées (fleur pure et adjacence), 23 articles de Dounan et 8 pays du chapitre AIPH."
+     }
+    },
+    "canonical": {
+     "brief": "Read-only: flower universe — 7 listed companies, 23 Dounan items, 8 AIPH countries; every lane returns a count or an explicit reason (KIFA never held; HK/EU no listed flower target; trade chapter unscheduled; Dounan ~2-month window; AIPH years mixed)."
+    }
+   },
+   "generate_refresh_schedules": {
+    "human": {
+     "zh": {
+      "name": "生成刷新计划",
+      "summary": "按指标的更新频率生成 cron 刷新计划，返回生成结果。"
+     },
+     "en": {
+      "name": "Generate refresh schedules",
+      "summary": "Generates cron refresh schedules from indicator update frequency and returns the result."
+     },
+     "ja": {
+      "name": "更新スケジュールの生成",
+      "summary": "指標の更新頻度から cron の更新スケジュールを生成し、結果を返します。"
+     },
+     "es": {
+      "name": "Generar planes de actualización",
+      "summary": "Genera planes cron de actualización a partir de la frecuencia de los indicadores y devuelve el resultado."
+     },
+     "fr": {
+      "name": "Générer des plans de rafraîchissement",
+      "summary": "Génère des plans cron de rafraîchissement d'après la fréquence des indicateurs et renvoie le résultat."
+     }
+    },
+    "canonical": {
+     "brief": "Generates cron refresh schedules from indicator update frequency."
+    }
+   },
+   "get_entity": {
+    "human": {
+     "zh": {
+      "name": "精确查询实体",
+      "summary": "按类型与编码精确查询单个实体（如 AAPL、CN），已知编码时使用；返回实体记录。"
+     },
+     "en": {
+      "name": "Get entity by code",
+      "summary": "Look up one entity by exact type and code (ticker AAPL, country CN) when the code is known; returns the entity record."
+     },
+     "ja": {
+      "name": "エンティティ取得",
+      "summary": "型とコードの完全一致でエンティティを1件取得します（AAPL、CN など）。コードが既知の場合に使います。"
+     },
+     "es": {
+      "name": "Obtener entidad",
+      "summary": "Busca una entidad por tipo y código exactos (AAPL, CN) cuando el código ya se conoce; devuelve el registro."
+     },
+     "fr": {
+      "name": "Obtenir entité",
+      "summary": "Récupère une entité par type et code exacts (AAPL, CN) lorsque le code est connu ; renvoie l'enregistrement."
+     }
+    },
+    "canonical": {
+     "brief": "Look up one entity by exact type and code; use when the code is already known."
+    }
+   },
+   "graph_search": {
+    "human": {
+     "zh": {
+      "name": "图谱关系检索",
+      "summary": "基于 NetworkX 执行实体关系的图查询；返回匹配的实体与关系。"
+     },
+     "en": {
+      "name": "Graph relationship search",
+      "summary": "Run graph-based entity relationship queries with NetworkX; returns the matching entities and relationships."
+     },
+     "ja": {
+      "name": "グラフ関係検索",
+      "summary": "NetworkX を使ったエンティティ関係のグラフ検索を実行します。一致するエンティティと関係を返します。"
+     },
+     "es": {
+      "name": "Búsqueda en grafo",
+      "summary": "Ejecuta consultas de relaciones entre entidades con NetworkX; devuelve las entidades y relaciones coincidentes."
+     },
+     "fr": {
+      "name": "Recherche en graphe",
+      "summary": "Exécute des requêtes de relations entre entités avec NetworkX ; renvoie les entités et relations correspondantes."
+     }
+    },
+    "canonical": {
+     "brief": "Run graph-based entity relationship queries with NetworkX."
+    }
+   },
+   "import_catalog": {
+    "human": {
+     "zh": {
+      "name": "导入指标目录",
+      "summary": "将一个或全部 fd-* 提供方注册表导入指标目录；返回导入结果。"
+     },
+     "en": {
+      "name": "Import catalog",
+      "summary": "Import one named or all fd-* provider registries into the catalog; returns the import result."
+     },
+     "ja": {
+      "name": "カタログ取込",
+      "summary": "1つまたは全 fd-* プロバイダ登録表をカタログに取り込みます。取込結果を返します。"
+     },
+     "es": {
+      "name": "Importar catálogo",
+      "summary": "Importa uno o todos los catálogos de proveedores fd-* al catálogo; devuelve el resultado."
+     },
+     "fr": {
+      "name": "Importer catalogue",
+      "summary": "Importe un ou tous les registres de fournisseurs fd-* dans le catalogue ; renvoie le résultat."
+     }
+    },
+    "canonical": {
+     "brief": "Import one named or all fd-* provider registries into the catalog."
+    }
+   },
+   "import_crosswalks": {
+    "human": {
+     "zh": {
+      "name": "导入对照表",
+      "summary": "将随附的对照表文件（crosswalks/*.yaml）作为映射导入；返回导入结果。"
+     },
+     "en": {
+      "name": "Import crosswalks",
+      "summary": "Ingest the shipped crosswalk registry (crosswalks/*.yaml) as mappings; returns the import result."
+     },
+     "ja": {
+      "name": "クロスウォーク取込",
+      "summary": "同梱のクロスウォーク登録表（crosswalks/*.yaml）をマッピングとして取り込みます。取込結果を返します。"
+     },
+     "es": {
+      "name": "Importar tablas cruzadas",
+      "summary": "Ingiere el registro de tablas cruzadas incluido (crosswalks/*.yaml) como mapeos; devuelve el resultado."
+     },
+     "fr": {
+      "name": "Importer correspondances",
+      "summary": "Intègre le registre de correspondances fourni (crosswalks/*.yaml) comme mappings ; renvoie le résultat."
+     }
+    },
+    "canonical": {
+     "brief": "Ingest the shipped crosswalk registry (crosswalks/*.yaml) as concept mappings."
+    }
+   },
+   "list_bindings": {
+    "human": {
+     "zh": {
+      "name": "列出概念绑定",
+      "summary": "列出数据列到概念的绑定，可按概念编码过滤；返回绑定列表。"
+     },
+     "en": {
+      "name": "List bindings",
+      "summary": "List column-to-concept bindings, optionally filtered by concept code; returns the binding rows."
+     },
+     "ja": {
+      "name": "バインディング一覧",
+      "summary": "列から概念へのバインディングを一覧し、概念コードで絞り込めます。バインディングを返します。"
+     },
+     "es": {
+      "name": "Listar vínculos",
+      "summary": "Lista los vínculos de columna a concepto, con filtro opcional por código de concepto; devuelve las filas."
+     },
+     "fr": {
+      "name": "Lister les liaisons",
+      "summary": "Liste les liaisons colonne vers concept, avec filtre facultatif par code de concept ; renvoie les lignes."
+     }
+    },
+    "canonical": {
+     "brief": "List column-to-concept bindings, optionally filtered by concept code."
+    }
+   },
+   "list_cnreport_rules": {
+    "human": {
+     "zh": {
+      "name": "列出抽取规则",
+      "summary": "浏览 cn-report 的抽取规则，区分模型规则与脚本规则。"
+     },
+     "en": {
+      "name": "List extraction rules",
+      "summary": "Browses cn-report extraction rules, covering model rules and script rules."
+     },
+     "ja": {
+      "name": "抽出ルールの一覧",
+      "summary": "cn-report の抽出ルールを、モデル用とスクリプト用に分けて一覧します。"
+     },
+     "es": {
+      "name": "Listar reglas de extracción",
+      "summary": "Examina las reglas de extracción de cn-report, incluidas las de modelo y las de script."
+     },
+     "fr": {
+      "name": "Lister les règles d'extraction",
+      "summary": "Parcourt les règles d'extraction de cn-report, notamment les règles de modèle et de script."
+     }
+    },
+    "canonical": {
+     "brief": "Browses cn-report extraction rules, covering model rules and script rules."
+    }
+   },
+   "list_concept_families": {
+    "human": {
+     "zh": {
+      "name": "列出概念族",
+      "summary": "分页列出概念族（人工整理的语义词表）及变量数量；返回概念族条目。"
+     },
+     "en": {
+      "name": "List concept families",
+      "summary": "List concept families (the curated semantic vocabulary) with variable counts in pages; returns the family rows."
+     },
+     "ja": {
+      "name": "概念ファミリー一覧",
+      "summary": "概念ファミリー（整備済みの意味語彙）と変数件数をページ単位で一覧します。ファミリーの行を返します。"
+     },
+     "es": {
+      "name": "Listar familias",
+      "summary": "Lista las familias de conceptos (el vocabulario semántico curado) con el número de variables; devuelve las filas."
+     },
+     "fr": {
+      "name": "Lister les familles",
+      "summary": "Liste les familles de concepts (le vocabulaire sémantique curé) avec le nombre de variables ; renvoie les lignes."
+     }
+    },
+    "canonical": {
+     "brief": "Paginated list of concept families with variable counts, ordered by family code."
+    }
+   },
+   "list_concept_mappings": {
+    "human": {
+     "zh": {
+      "name": "列出概念映射",
+      "summary": "按变量正向或按外部术语反向列出概念映射；返回映射条目。"
+     },
+     "en": {
+      "name": "List concept mappings",
+      "summary": "List concept mappings forward by variable or in reverse by external term; returns the mapping rows."
+     },
+     "ja": {
+      "name": "概念マッピング一覧",
+      "summary": "変数による順方向、または外部用語による逆方向で概念マッピングを一覧します。マッピングの行を返します。"
+     },
+     "es": {
+      "name": "Listar mapeos",
+      "summary": "Lista los mapeos por variable en sentido directo o por término externo en sentido inverso; devuelve las filas."
+     },
+     "fr": {
+      "name": "Lister les mappings",
+      "summary": "Liste les mappings par variable dans le sens direct ou par terme externe dans le sens inverse ; renvoie les lignes."
+     }
+    },
+    "canonical": {
+     "brief": "List concept mappings forward by variable or in reverse by external term."
+    }
+   },
+   "list_concepts": {
+    "human": {
+     "zh": {
+      "name": "列出概念",
+      "summary": "分页列出概念（变量）及其所属概念族，可按条件过滤；返回概念条目。"
+     },
+     "en": {
+      "name": "List concepts",
+      "summary": "List concepts (variables) with their concept family in pages, optionally filtered; returns the concept rows."
+     },
+     "ja": {
+      "name": "概念一覧",
+      "summary": "概念（変数）を概念ファミリーとともにページ単位で一覧し、絞り込みもできます。概念の行を返します。"
+     },
+     "es": {
+      "name": "Listar conceptos",
+      "summary": "Lista conceptos (variables) con su familia conceptual por páginas, con filtro opcional; devuelve las filas."
+     },
+     "fr": {
+      "name": "Lister les concepts",
+      "summary": "Liste les concepts (variables) avec leur famille, par pages, avec filtre facultatif ; renvoie les lignes."
+     }
+    },
+    "canonical": {
+     "brief": "Paginated list of concepts (variables) with their concept family, ordered by entity type, code and id."
+    }
+   },
+   "list_entities": {
+    "human": {
+     "zh": {
+      "name": "列出实体",
+      "summary": "按类型列出实体；返回该类型的实体条目。"
+     },
+     "en": {
+      "name": "List entities",
+      "summary": "List entities of a specific type; returns the entity rows."
+     },
+     "ja": {
+      "name": "エンティティ一覧",
+      "summary": "指定した型のエンティティを一覧します。その型のエンティティを返します。"
+     },
+     "es": {
+      "name": "Listar entidades",
+      "summary": "Lista las entidades de un tipo concreto; devuelve las filas de ese tipo."
+     },
+     "fr": {
+      "name": "Lister les entités",
+      "summary": "Liste les entités d'un type donné ; renvoie les lignes de ce type."
+     }
+    },
+    "canonical": {
+     "brief": "List entities of a specific type."
+    }
+   },
+   "list_registry_entries": {
+    "human": {
+     "zh": {
+      "name": "枚举注册条目",
+      "summary": "分页枚举统一指标注册表的全部条目与核验标记；未核验条目仍不进入目录读取，返回条目列表。"
+     },
+     "en": {
+      "name": "List registry entries",
+      "summary": "Enumerate the whole unified indicator registry with each verified flag in pages; unverified entries stay out of catalog reads; returns the rows."
+     },
+     "ja": {
+      "name": "登録エントリ列挙",
+      "summary": "統合指標レジストリの全エントリと検証フラグをページ単位で列挙します。未検証エントリはカタログ読み取りには入りません。"
+     },
+     "es": {
+      "name": "Listar entradas",
+      "summary": "Enumera todo el catálogo unificado de indicadores con su marca de verificación por páginas; las no verificadas no entran en las lecturas del catálogo."
+     },
+     "fr": {
+      "name": "Lister entrées du registre",
+      "summary": "Énumère tout le registre unifié d'indicateurs avec sa marque de vérification, par pages ; les entrées non vérifiées restent hors des lectures du catalogue."
+     }
+    },
+    "canonical": {
+     "brief": "Paginate the whole unified indicator registry with each entry's verified flag; unverified entries stay out of catalog reads."
+    }
+   },
+   "list_relationships": {
+    "human": {
+     "zh": {
+      "name": "列出实体关系",
+      "summary": "列出指定实体的关系；返回关系条目。"
+     },
+     "en": {
+      "name": "List relationships",
+      "summary": "List the relationships of an entity; returns the relationship rows."
+     },
+     "ja": {
+      "name": "関係一覧",
+      "summary": "指定したエンティティの関係を一覧します。関係の行を返します。"
+     },
+     "es": {
+      "name": "Listar relaciones",
+      "summary": "Lista las relaciones de una entidad; devuelve las filas de relaciones."
+     },
+     "fr": {
+      "name": "Lister relations",
+      "summary": "Liste les relations d'une entité ; renvoie les lignes de relations."
+     }
+    },
+    "canonical": {
+     "brief": "List the relationships of an entity."
+    }
+   },
+   "list_schedules": {
+    "human": {
+     "zh": {
+      "name": "列出刷新计划",
+      "summary": "列出全部刷新计划。"
+     },
+     "en": {
+      "name": "List refresh schedules",
+      "summary": "Lists all refresh schedules."
+     },
+     "ja": {
+      "name": "更新スケジュールの一覧",
+      "summary": "すべての更新スケジュールを一覧します。"
+     },
+     "es": {
+      "name": "Listar planes de actualización",
+      "summary": "Enumera todos los planes de actualización."
+     },
+     "fr": {
+      "name": "Lister les plans de rafraîchissement",
+      "summary": "Énumère tous les plans de rafraîchissement."
+     }
+    },
+    "canonical": {
+     "brief": "Lists all refresh schedules."
+    }
+   },
+   "plan_crawl": {
+    "human": {
+     "zh": {
+      "name": "规划概念抓取",
+      "summary": "把概念、实体范围与日期区间编译为带排名与故障转移的抓取计划，不执行抓取。"
+     },
+     "en": {
+      "name": "Plan concept crawl",
+      "summary": "Compiles concepts, entity scope, and dates into a ranked, failover-aware crawl plan without fetching."
+     },
+     "ja": {
+      "name": "概念クロールの計画",
+      "summary": "概念・実体範囲・日付区間を、順位付けとフェイルオーバーを備えたクロール計画にまとめます。取得は行いません。"
+     },
+     "es": {
+      "name": "Planificar rastreo de conceptos",
+      "summary": "Compila conceptos, ámbito de entidades y fechas en un plan de rastreo ordenado con conmutación por error, sin obtener datos."
+     },
+     "fr": {
+      "name": "Planifier un crawl de concepts",
+      "summary": "Compile les concepts, le périmètre d'entités et les dates en un plan de crawl ordonné avec bascule, sans récupération."
+     }
+    },
+    "canonical": {
+     "brief": "Compiles concepts, entity scope, and dates into a ranked, failover-aware crawl plan; does not fetch."
+    }
+   },
+   "platform_cancel_pending": {
+    "human": {
+     "zh": {
+      "name": "取消待处理任务",
+      "summary": "取消待处理的平台运行记录，仅待处理或已认领的记录可取消；返回处理结果。"
+     },
+     "en": {
+      "name": "Cancel pending run",
+      "summary": "Cancel a pending platform run; rows still pending or claimed can be cancelled; returns the outcome."
+     },
+     "ja": {
+      "name": "保留中タスク取消",
+      "summary": "保留中のプラットフォーム実行を取り消します。保留中または引受済みの記録のみ取消可能です。結果を返します。"
+     },
+     "es": {
+      "name": "Cancelar pendiente",
+      "summary": "Cancela una ejecución pendiente; se pueden cancelar los registros aún pendientes o reclamados; devuelve el resultado."
+     },
+     "fr": {
+      "name": "Annuler exécution en attente",
+      "summary": "Annule une exécution en attente ; les lignes encore en attente ou réclamées sont annulables ; renvoie le résultat."
+     }
+    },
+    "canonical": {
+     "brief": "Cancel a pending platform run; rows still pending or claimed can be cancelled; returns the outcome."
+    }
+   },
+   "platform_cancel_run": {
+    "human": {
+     "zh": {
+      "name": "取消运行中任务",
+      "summary": "请求取消运行中的平台任务，设置取消标记并在下一检查点终止；返回处理结果。"
+     },
+     "en": {
+      "name": "Cancel running run",
+      "summary": "Request cancellation of a running platform run by setting the cancel flag, stopping it at the next checkpoint; returns the outcome."
+     },
+     "ja": {
+      "name": "実行中タスク取消",
+      "summary": "実行中のプラットフォーム実行の取消を要求し、取消フラグを立てて次のチェックポイントで停止します。結果を返します。"
+     },
+     "es": {
+      "name": "Cancelar ejecución activa",
+      "summary": "Solicita cancelar una ejecución activa marcando el indicador y deteniéndola en el siguiente punto de control; devuelve el resultado."
+     },
+     "fr": {
+      "name": "Annuler exécution en cours",
+      "summary": "Demande l'annulation d'une exécution en cours via un indicateur, arrêtée au prochain point de contrôle ; renvoie le résultat."
+     }
+    },
+    "canonical": {
+     "brief": "Request cancellation of a running platform run; the runner terminates as cancelled at its next checkpoint."
+    }
+   },
+   "platform_runs": {
+    "human": {
+     "zh": {
+      "name": "查看平台运行",
+      "summary": "按时间倒序列出平台运行历史，含待处理运行的触发来源；返回运行记录。"
+     },
+     "en": {
+      "name": "List platform runs",
+      "summary": "List platform run history newest to oldest, with the trigger origin of pending runs; returns the run records."
+     },
+     "ja": {
+      "name": "基盤実行履歴",
+      "summary": "プラットフォームの実行履歴を新しい順に返し、保留中実行の起動元も示します。"
+     },
+     "es": {
+      "name": "Ver ejecuciones",
+      "summary": "Lista el historial de ejecuciones de la plataforma de más reciente a más antigua, con el origen de las pendientes."
+     },
+     "fr": {
+      "name": "Voir exécutions plateforme",
+      "summary": "Liste l'historique des exécutions de la plateforme, du plus récent au plus ancien, avec l'origine des exécutions en attente."
+     }
+    },
+    "canonical": {
+     "brief": "List platform run history newest to oldest across member sites, with pending-run trigger lineage."
+    }
+   },
+   "platform_sources": {
+    "human": {
+     "zh": {
+      "name": "查看来源健康",
+      "summary": "列出抓取平台来源清单及健康状态与停滞提示；只读，返回来源条目。"
+     },
+     "en": {
+      "name": "List source health",
+      "summary": "List crawl-platform sources with health and stall hints; read-only, returns the source entries."
+     },
+     "ja": {
+      "name": "ソース稼働状況",
+      "summary": "クロール基盤のソース一覧を稼働状態と停滞の手がかり付きで返します。読み取り専用です。"
+     },
+     "es": {
+      "name": "Ver estado de fuentes",
+      "summary": "Lista las fuentes de la plataforma de rastreo con su estado y avisos de estancamiento; solo lectura."
+     },
+     "fr": {
+      "name": "Voir santé des sources",
+      "summary": "Liste les sources de la plateforme de crawl avec leur état et des indices de blocage ; lecture seule."
+     }
+    },
+    "canonical": {
+     "brief": "List crawl-platform sources with schedule, enabled flag, latest run status and stall hints; read-only."
+    }
+   },
+   "platform_trigger": {
+    "human": {
+     "zh": {
+      "name": "触发平台运行",
+      "summary": "为指定来源立即触发平台运行，校验来源已注册且启用并执行单次运行检查；返回触发状态。"
+     },
+     "en": {
+      "name": "Trigger platform run",
+      "summary": "Trigger an immediate platform run for a source, checking that it is registered and enabled and applying single-flight; returns the trigger status."
+     },
+     "ja": {
+      "name": "基盤実行を起動",
+      "summary": "指定ソースのプラットフォーム実行を即時起動します。登録済みかつ有効であることを検査し、単一実行を適用します。起動状態を返します。"
+     },
+     "es": {
+      "name": "Lanzar ejecución",
+      "summary": "Lanza una ejecución inmediata para una fuente, verificando que esté registrada y activa y aplicando ejecución única; devuelve el estado."
+     },
+     "fr": {
+      "name": "Déclencher exécution",
+      "summary": "Déclenche une exécution immédiate pour une source, en vérifiant qu'elle est enregistrée et active et en appliquant l'exécution unique ; renvoie l'état."
+     }
+    },
+    "canonical": {
+     "brief": "Trigger an immediate platform run for a registered, enabled source, applying single-flight; returns the trigger status."
+    }
+   },
+   "policy_create": {
+    "human": {
+     "zh": {
+      "name": "新建抓取策略",
+      "summary": "新建一条抓取策略，保存概念范围与调度配置；返回创建后的策略记录。"
+     },
+     "en": {
+      "name": "Create crawl policy",
+      "summary": "Create a crawl policy with its concept scope and schedule; returns the created policy record."
+     },
+     "ja": {
+      "name": "クロールポリシー作成",
+      "summary": "概念範囲とスケジュールを指定してクロールポリシーを作成し、作成されたポリシーを返します。"
+     },
+     "es": {
+      "name": "Crear política de rastreo",
+      "summary": "Crea una política de rastreo con su alcance de conceptos y su calendario; devuelve la política creada."
+     },
+     "fr": {
+      "name": "Créer politique de crawl",
+      "summary": "Crée une politique de crawl avec son périmètre de concepts et son calendrier ; renvoie la politique créée."
+     }
+    },
+    "canonical": {
+     "brief": "Create a crawl policy from the given concept scope and schedule and return the created policy record."
+    }
+   },
+   "policy_delete": {
+    "human": {
+     "zh": {
+      "name": "删除抓取策略",
+      "summary": "删除抓取策略并级联删除其全部运行记录；返回删除结果。"
+     },
+     "en": {
+      "name": "Delete crawl policy",
+      "summary": "Delete a crawl policy and cascade-delete all its runs; returns the deletion outcome."
+     },
+     "ja": {
+      "name": "クロールポリシー削除",
+      "summary": "クロールポリシーを削除し、その実行記録もすべて連鎖削除します。削除結果を返します。"
+     },
+     "es": {
+      "name": "Eliminar política",
+      "summary": "Elimina una política de rastreo y borra en cascada todas sus ejecuciones; devuelve el resultado."
+     },
+     "fr": {
+      "name": "Supprimer politique",
+      "summary": "Supprime une politique de crawl et toutes ses exécutions en cascade ; renvoie le résultat."
+     }
+    },
+    "canonical": {
+     "brief": "Delete a crawl policy and cascade-delete all its runs; returns the deletion outcome."
+    }
+   },
+   "policy_disable": {
+    "human": {
+     "zh": {
+      "name": "停用抓取策略",
+      "summary": "停用指定抓取策略以暂停调度执行；返回策略状态。"
+     },
+     "en": {
+      "name": "Disable crawl policy",
+      "summary": "Disable a crawl policy to pause its scheduled runs; returns the policy status."
+     },
+     "ja": {
+      "name": "クロールポリシー無効化",
+      "summary": "指定したクロールポリシーを無効にし、スケジュール実行を停止します。ポリシーの状態を返します。"
+     },
+     "es": {
+      "name": "Desactivar política",
+      "summary": "Desactiva una política de rastreo para pausar su ejecución programada; devuelve el estado de la política."
+     },
+     "fr": {
+      "name": "Désactiver politique",
+      "summary": "Désactive une politique de crawl pour suspendre son exécution planifiée ; renvoie l'état de la politique."
+     }
+    },
+    "canonical": {
+     "brief": "Disable a crawl policy to pause its scheduled runs; returns the policy status."
+    }
+   },
+   "policy_enable": {
+    "human": {
+     "zh": {
+      "name": "启用抓取策略",
+      "summary": "启用指定抓取策略以恢复调度执行；返回策略状态。"
+     },
+     "en": {
+      "name": "Enable crawl policy",
+      "summary": "Enable a crawl policy so its schedule runs again; returns the policy status."
+     },
+     "ja": {
+      "name": "クロールポリシー有効化",
+      "summary": "指定したクロールポリシーを有効にし、スケジュール実行を再開します。ポリシーの状態を返します。"
+     },
+     "es": {
+      "name": "Activar política",
+      "summary": "Activa una política de rastreo para reanudar su ejecución programada; devuelve el estado de la política."
+     },
+     "fr": {
+      "name": "Activer politique",
+      "summary": "Active une politique de crawl pour reprendre son exécution planifiée ; renvoie l'état de la politique."
+     }
+    },
+    "canonical": {
+     "brief": "Enable a crawl policy so its schedule runs again; returns the policy status."
+    }
+   },
+   "policy_estimate": {
+    "human": {
+     "zh": {
+      "name": "估算抓取次数",
+      "summary": "估算策略载荷的抓取次数，并列出不可路由与未映射项；返回估算值。"
+     },
+     "en": {
+      "name": "Estimate fetch count",
+      "summary": "Estimate the fetch count for a policy payload and list unroutable and unmapped items; returns the estimate."
+     },
+     "ja": {
+      "name": "取得件数見積",
+      "summary": "ポリシーの取得件数を見積もり、経路未確定と未マッピングの項目を挙げます。見積もり値を返します。"
+     },
+     "es": {
+      "name": "Estimar lecturas",
+      "summary": "Estima el número de lecturas de una política y enumera los elementos sin ruta y sin mapeo; devuelve la estimación."
+     },
+     "fr": {
+      "name": "Estimer les lectures",
+      "summary": "Estime le nombre de lectures d'une politique et liste les éléments sans route et non mappés ; renvoie l'estimation."
+     }
+    },
+    "canonical": {
+     "brief": "Estimate the fetch count for a policy payload and report unroutable and unmapped items."
+    }
+   },
+   "policy_get": {
+    "human": {
+     "zh": {
+      "name": "读取策略详情",
+      "summary": "按 ID 读取单条抓取策略的配置；返回该策略记录。"
+     },
+     "en": {
+      "name": "Get crawl policy",
+      "summary": "Get one crawl policy by ID; returns that policy record."
+     },
+     "ja": {
+      "name": "クロールポリシー取得",
+      "summary": "ID を指定してクロールポリシーを1件取得し、そのポリシーを返します。"
+     },
+     "es": {
+      "name": "Obtener política",
+      "summary": "Obtiene una política de rastreo por su ID; devuelve el registro de esa política."
+     },
+     "fr": {
+      "name": "Obtenir politique",
+      "summary": "Récupère une politique de crawl par son ID ; renvoie l'enregistrement de cette politique."
+     }
+    },
+    "canonical": {
+     "brief": "Get one crawl policy by ID; returns that policy record."
+    }
+   },
+   "policy_list": {
+    "human": {
+     "zh": {
+      "name": "列出抓取策略",
+      "summary": "列出抓取策略，可按启用状态过滤；返回策略列表。"
+     },
+     "en": {
+      "name": "List crawl policies",
+      "summary": "List crawl policies with an optional enabled-status filter; returns the policy list."
+     },
+     "ja": {
+      "name": "クロールポリシー一覧",
+      "summary": "クロールポリシーを一覧し、有効状態で絞り込めます。ポリシーの一覧を返します。"
+     },
+     "es": {
+      "name": "Listar políticas",
+      "summary": "Lista las políticas de rastreo con filtro opcional por estado de activación; devuelve la lista de políticas."
+     },
+     "fr": {
+      "name": "Lister politiques de crawl",
+      "summary": "Liste les politiques de crawl avec un filtre facultatif sur l'état d'activation ; renvoie la liste des politiques."
+     }
+    },
+    "canonical": {
+     "brief": "List crawl policies, optionally filtered by enabled status; returns the policy list."
+    }
+   },
+   "policy_runs": {
+    "human": {
+     "zh": {
+      "name": "列出策略运行",
+      "summary": "列出策略运行记录，可按策略 ID 与状态过滤；返回运行历史。"
+     },
+     "en": {
+      "name": "List policy runs",
+      "summary": "List policy runs, optionally filtered by policy ID and status; returns the run history."
+     },
+     "ja": {
+      "name": "ポリシー実行一覧",
+      "summary": "ポリシーの実行記録を一覧し、ポリシー ID と状態で絞り込めます。実行履歴を返します。"
+     },
+     "es": {
+      "name": "Listar ejecuciones",
+      "summary": "Lista las ejecuciones de políticas con filtros opcionales por ID y estado; devuelve el historial."
+     },
+     "fr": {
+      "name": "Lister exécutions",
+      "summary": "Liste les exécutions de politiques avec filtres facultatifs par ID et état ; renvoie l'historique."
+     }
+    },
+    "canonical": {
+     "brief": "List policy runs, optionally filtered by policy ID and status; returns the run history."
+    }
+   },
+   "policy_trigger_now": {
+    "human": {
+     "zh": {
+      "name": "立即触发抓取",
+      "summary": "立即触发该策略的抓取，绕过 cron 调度，仍执行单次运行与规模上限校验；返回触发结果。"
+     },
+     "en": {
+      "name": "Trigger crawl now",
+      "summary": "Trigger this policy's crawl now, bypassing cron while still enforcing single-flight and the plan-size guardrail; returns the trigger result."
+     },
+     "ja": {
+      "name": "クロール即時実行",
+      "summary": "cron を迂回してこのポリシーのクロールを即時実行します。単一実行と規模上限の検査は適用されます。実行結果を返します。"
+     },
+     "es": {
+      "name": "Ejecutar rastreo ahora",
+      "summary": "Ejecuta ahora el rastreo de esta política omitiendo cron, pero mantiene la ejecución única y el límite de tamaño; devuelve el resultado."
+     },
+     "fr": {
+      "name": "Lancer crawl maintenant",
+      "summary": "Lance maintenant le crawl de cette politique en contournant cron, tout en appliquant l'exécution unique et le plafond de taille ; renvoie le résultat."
+     }
+    },
+    "canonical": {
+     "brief": "Trigger the policy's crawl immediately, bypassing cron while still enforcing single-flight and the plan-size guardrail."
+    }
+   },
+   "policy_update": {
+    "human": {
+     "zh": {
+      "name": "更新抓取策略",
+      "summary": "更新抓取策略，未传入的字段保持不变；返回更新后的策略。"
+     },
+     "en": {
+      "name": "Update crawl policy",
+      "summary": "Update a crawl policy, leaving fields that are not provided unchanged; returns the updated policy."
+     },
+     "ja": {
+      "name": "クロールポリシー更新",
+      "summary": "クロールポリシーを更新し、指定していない項目は変更しません。更新後のポリシーを返します。"
+     },
+     "es": {
+      "name": "Actualizar política",
+      "summary": "Actualiza una política de rastreo y deja sin cambios los campos no enviados; devuelve la política actualizada."
+     },
+     "fr": {
+      "name": "Mettre à jour politique",
+      "summary": "Met à jour une politique de crawl sans modifier les champs non fournis ; renvoie la politique mise à jour."
+     }
+    },
+    "canonical": {
+     "brief": "Update a crawl policy; fields not provided stay unchanged; returns the updated policy."
+    }
+   },
+   "propose_bindings": {
+    "human": {
+     "zh": {
+      "name": "生成绑定建议",
+      "summary": "为数据列提议到概念的绑定，低于阈值的建议暂缓；返回建议列表。"
+     },
+     "en": {
+      "name": "Propose bindings",
+      "summary": "Propose column-to-concept bindings, withholding those below the threshold; returns the proposals."
+     },
+     "ja": {
+      "name": "バインディング提案",
+      "summary": "列から概念へのバインディングを提案し、しきい値未満は保留します。提案一覧を返します。"
+     },
+     "es": {
+      "name": "Proponer vínculos",
+      "summary": "Propone vínculos de columna a concepto y retiene los que quedan bajo el umbral; devuelve las propuestas."
+     },
+     "fr": {
+      "name": "Proposer liaisons",
+      "summary": "Propose des liaisons colonne vers concept et retient celles sous le seuil ; renvoie les propositions."
+     }
+    },
+    "canonical": {
+     "brief": "Propose column-to-concept bindings, withholding proposals below the threshold for later review."
+    }
+   },
+   "rank_sources": {
+    "human": {
+     "zh": {
+      "name": "排列候选数据源",
+      "summary": "为指定概念排列候选数据源，返回带综合评分的排序结果。"
+     },
+     "en": {
+      "name": "Rank candidate sources",
+      "summary": "Ranks candidate sources for a concept and returns an ordered list with composite scores."
+     },
+     "ja": {
+      "name": "候補データソースの順位付け",
+      "summary": "指定した概念の候補データソースを順位付けし、総合スコア付きの並びを返します。"
+     },
+     "es": {
+      "name": "Ordenar fuentes candidatas",
+      "summary": "Ordena las fuentes candidatas de un concepto y devuelve una lista con puntuaciones compuestas."
+     },
+     "fr": {
+      "name": "Classer les sources candidates",
+      "summary": "Classe les sources candidates d'un concept et renvoie une liste avec des scores composites."
+     }
+    },
+    "canonical": {
+     "brief": "Ranks candidate sources for a concept; returns an ordered list with composite scores."
+    }
+   },
+   "re_embed_concept": {
+    "human": {
+     "zh": {
+      "name": "重建概念向量",
+      "summary": "为单个概念重新生成向量嵌入，返回该概念的嵌入更新结果。"
+     },
+     "en": {
+      "name": "Re-embed concept",
+      "summary": "Regenerates the vector embedding of one concept and returns the updated embedding result."
+     },
+     "ja": {
+      "name": "概念の再埋め込み",
+      "summary": "単一概念のベクトル埋め込みを再生成し、埋め込みの更新結果を返します。"
+     },
+     "es": {
+      "name": "Regenerar vector de concepto",
+      "summary": "Regenera el vector de un solo concepto y devuelve el resultado de la actualización del vector."
+     },
+     "fr": {
+      "name": "Recalculer le vecteur d'un concept",
+      "summary": "Régénère le plongement vectoriel d'un seul concept et renvoie le résultat de la mise à jour."
+     }
+    },
+    "canonical": {
+     "brief": "Regenerates the vector embedding for one concept; returns the updated embedding."
+    }
+   },
+   "read": {
+    "human": {
+     "zh": {
+      "name": "读取概念数据",
+      "summary": "按实体与日期读取概念数据，走缓存与按排名调度，返回各日期的数据行。"
+     },
+     "en": {
+      "name": "Read concept rows",
+      "summary": "Reads a concept for an entity over dates through cache and ranked dispatch, returning rows per date."
+     },
+     "ja": {
+      "name": "概念データの読み取り",
+      "summary": "実体と日付を指定して概念データを読み取り、キャッシュと順位付きディスパッチを経て日付ごとの行を返します。"
+     },
+     "es": {
+      "name": "Leer filas de concepto",
+      "summary": "Lee un concepto para una entidad en varias fechas mediante caché y despacho ordenado, y devuelve filas por fecha."
+     },
+     "fr": {
+      "name": "Lire les lignes d'un concept",
+      "summary": "Lit un concept pour une entité sur des dates via cache et répartition ordonnée, et renvoie les lignes par date."
+     }
+    },
+    "canonical": {
+     "brief": "Reads a concept for an entity over dates via cache and ranked dispatch; returns rows per date."
+    }
+   },
+   "read_series": {
+    "human": {
+     "zh": {
+      "name": "读取序列",
+      "summary": "读取单个概念在实体上按日期区间的序列，仅用已存缓存，返回按日期排序的数据点。"
+     },
+     "en": {
+      "name": "Read series",
+      "summary": "Reads a concept-entity series over a date window from stored cache and returns points ordered by date."
+     },
+     "ja": {
+      "name": "系列の読み取り",
+      "summary": "単一の概念と実体について日付区間の系列を保存済みキャッシュから読み取り、日付順の点を返します。"
+     },
+     "es": {
+      "name": "Leer serie",
+      "summary": "Lee una serie de concepto y entidad en una ventana de fechas desde la caché y devuelve puntos ordenados por fecha."
+     },
+     "fr": {
+      "name": "Lire une série",
+      "summary": "Lit une série concept-entité sur une fenêtre de dates depuis le cache et renvoie les points triés par date."
+     }
+    },
+    "canonical": {
+     "brief": "Reads a concept-entity series over a date window from cache alone; returns date-ordered points."
+    }
+   },
+   "record_concept_mapping": {
+    "human": {
+     "zh": {
+      "name": "记录概念映射",
+      "summary": "登记一条变量到外部词表术语的映射；返回映射记录。"
+     },
+     "en": {
+      "name": "Record concept mapping",
+      "summary": "Assert that a variable maps to an external vocabulary term; returns the mapping record."
+     },
+     "ja": {
+      "name": "概念マッピング記録",
+      "summary": "変数が外部語彙の用語に対応することを記録します。マッピングを返します。"
+     },
+     "es": {
+      "name": "Registrar mapeo",
+      "summary": "Declara que una variable corresponde a un término de vocabulario externo; devuelve el mapeo."
+     },
+     "fr": {
+      "name": "Enregistrer mapping",
+      "summary": "Déclare qu'une variable correspond à un terme de vocabulaire externe ; renvoie le mapping."
+     }
+    },
+    "canonical": {
+     "brief": "Assert that a variable maps to an external vocabulary term; returns the mapping record."
+    }
+   },
+   "register_datasource": {
+    "human": {
+     "zh": {
+      "name": "注册数据源",
+      "summary": "将数据源清单注册到本体库；返回注册结果。"
+     },
+     "en": {
+      "name": "Register datasource",
+      "summary": "Register a datasource manifest into the ontology database; returns the registration result."
+     },
+     "ja": {
+      "name": "データソース登録",
+      "summary": "データソース定義をオントロジーDBに登録します。登録結果を返します。"
+     },
+     "es": {
+      "name": "Registrar fuente",
+      "summary": "Registra un manifiesto de fuente en la base de ontología; devuelve el resultado."
+     },
+     "fr": {
+      "name": "Enregistrer source",
+      "summary": "Enregistre un manifeste de source dans la base d'ontologie ; renvoie le résultat."
+     }
+    },
+    "canonical": {
+     "brief": "Register a datasource manifest into the ontology database."
+    }
+   },
+   "register_discovered": {
+    "human": {
+     "zh": {
+      "name": "注册发现清单",
+      "summary": "从入口点与 datasources 目录自动发现并注册数据源清单。"
+     },
+     "en": {
+      "name": "Register discovered manifests",
+      "summary": "Auto-discovers and registers data-source manifests from entry points and a datasources directory."
+     },
+     "ja": {
+      "name": "検出したマニフェストの登録",
+      "summary": "エントリポイントと datasources ディレクトリからデータソースのマニフェストを自動検出して登録します。"
+     },
+     "es": {
+      "name": "Registrar manifiestos detectados",
+      "summary": "Detecta y registra automáticamente manifiestos de fuentes de datos desde puntos de entrada y un directorio datasources."
+     },
+     "fr": {
+      "name": "Enregistrer les manifestes détectés",
+      "summary": "Détecte et enregistre automatiquement les manifestes de sources de données des points d'entrée et d'un répertoire datasources."
+     }
+    },
+    "canonical": {
+     "brief": "Auto-discovers and registers data-source manifests from entry points and a datasources directory."
+    }
+   },
+   "resolve_entity": {
+    "human": {
+     "zh": {
+      "name": "解析实体标识",
+      "summary": "在实体与各数据源标识之间双向解析，可用 wikidata 或 datacommons 反查实体；返回标识或实体。"
+     },
+     "en": {
+      "name": "Resolve entity",
+      "summary": "Resolve an entity to a per-source identifier or reverse it, using wikidata or datacommons as anchors; returns the identifier or match."
+     },
+     "ja": {
+      "name": "エンティティ解決",
+      "summary": "エンティティと各データソース識別子を双方向に解決します。wikidata や datacommons を手掛かりに逆引きもできます。"
+     },
+     "es": {
+      "name": "Resolver entidad",
+      "summary": "Resuelve una entidad a un identificador por fuente o a la inversa, con wikidata o datacommons como ancla; devuelve el identificador o la coincidencia."
+     },
+     "fr": {
+      "name": "Résoudre entité",
+      "summary": "Résout une entité vers un identifiant par source ou l'inverse, avec wikidata ou datacommons comme ancrage ; renvoie l'identifiant ou la correspondance."
+     }
+    },
+    "canonical": {
+     "brief": "Resolve entity to per-source identifier in either direction, with wikidata and datacommons as reverse anchors."
+    }
+   },
+   "restaurant_company_events": {
+    "human": {
+     "zh": {
+      "name": "餐饮公司披露事件",
+      "summary": "按实体读取餐饮公司的披露事件，港股取自披露易、美股取自 SEC EDGAR，每条带来源、披露日期与公告链接。"
+     },
+     "en": {
+      "name": "Restaurant company events",
+      "summary": "Read a restaurant company's disclosure events from HKEX or SEC EDGAR, each with source, disclosure date and document link."
+     },
+     "ja": {
+      "name": "飲食企業の開示イベント",
+      "summary": "飲食企業の開示イベントを実体別に読み取り、HKEX または SEC EDGAR を出所とし、各件に来源・開示日・文書リンクを付けます。"
+     },
+     "es": {
+      "name": "Eventos de empresas de restauración",
+      "summary": "Lee los eventos de divulgación de una empresa de restauración desde HKEX o SEC EDGAR, cada uno con fuente, fecha de divulgación y enlace al documento."
+     },
+     "fr": {
+      "name": "Événements des entreprises de restauration",
+      "summary": "Lit les événements de publication d'une entreprise de restauration depuis HKEX ou SEC EDGAR, chacun avec source, date de publication et lien vers le document."
+     }
+    },
+    "canonical": {
+     "brief": "Reads a restaurant company's HKEX/SEC disclosure events with source_used, disclosure date and doc_url; markets without an event lane return explicit reasons."
+    }
+   },
+   "restaurant_company_financials": {
+    "human": {
+     "zh": {
+      "name": "餐饮公司季度财务",
+      "summary": "按实体读取餐饮公司的季度营收、营业利润与净利观测，每点带来源与口径日期；不可得市场返回显式原因。"
+     },
+     "en": {
+      "name": "Restaurant company financials",
+      "summary": "Read quarterly revenue, operating profit and net income for a restaurant company, each point with source and as-of date; unavailable markets return explicit reasons."
+     },
+     "ja": {
+      "name": "飲食企業の四半期財務",
+      "summary": "飲食企業の四半期売上高・営業利益・純利益を実体別に読み取り、各点に来源と基準日を付けます。不可得の市場は明示的な理由を示します。"
+     },
+     "es": {
+      "name": "Finanzas trimestrales de restaurantes",
+      "summary": "Lee ingresos, beneficio operativo y beneficio neto trimestrales de una empresa de restauración, con fuente y fecha de referencia en cada punto; los mercados no disponibles dan motivos explícitos."
+     },
+     "fr": {
+      "name": "Finances trimestrielles de restauration",
+      "summary": "Lit le chiffre d'affaires, le résultat opérationnel et le résultat net trimestriels, avec source et date de référence par point ; les marchés indisponibles donnent des motifs explicites."
+     }
+    },
+    "canonical": {
+     "brief": "Reads quarterly revenue/operating profit/net income with source_used and as_of; HK, JP, TW and short-window cases return explicit unavailable reasons."
+    }
+   },
+   "restaurant_sampling_notices": {
+    "human": {
+     "zh": {
+      "name": "抽检通告事件",
+      "summary": "按类别读取市场监管总局食品安全抽检通告的单条事件，返回日期、链接与餐饮相关标记；不返回聚合时序。"
+     },
+     "en": {
+      "name": "SAMR sampling notices",
+      "summary": "Read individual SAMR food-inspection notices by category, with date, link and restaurant-related flag; no aggregate series is returned."
+     },
+     "ja": {
+      "name": "抽出検査通告",
+      "summary": "カテゴリ別に市場監督管理総局の食品安全抽出検査通告を一件ずつ読み取り、日付・リンク・飲食関連フラグを示します。集計系列は示しません。"
+     },
+     "es": {
+      "name": "Avisos de muestreo SAMR",
+      "summary": "Lee avisos individuales de inspección alimentaria de SAMR por categoría, con fecha, enlace e indicador de relación con restauración; no devuelve series agregadas."
+     },
+     "fr": {
+      "name": "Avis de prélèvement SAMR",
+      "summary": "Lit les avis individuels d'inspection alimentaire de la SAMR par catégorie, avec date, lien et indicateur de lien avec la restauration ; aucune série agrégée n'est renvoyée."
+     }
+    },
+    "canonical": {
+     "brief": "Reads individual SAMR inspection notices by category with date, URL and restaurant flag; never an aggregate series."
+    }
+   },
+   "restaurant_series": {
+    "human": {
+     "zh": {
+      "name": "餐饮宏观与成本序列",
+      "summary": "按概念码读取餐饮宏观与成本链序列（含美国 CPI 外食与在家就餐对照对），返回来源、口径日期与口径注记。"
+     },
+     "en": {
+      "name": "Restaurant macro series",
+      "summary": "Read a restaurant macro or cost-chain series by concept code, including the US CPI away-from-home vs at-home pair, with source, as-of date and caveats."
+     },
+     "ja": {
+      "name": "飲食マクロ系列",
+      "summary": "概念コードで飲食マクロ・コスト系列を読み取り、米国 CPI の外食と家庭内食の対照を含め、来源・基準日・注記を示します。"
+     },
+     "es": {
+      "name": "Series macro de restauración",
+      "summary": "Lee una serie macro o de costes por código de concepto, incluido el par CPI estadounidense fuera y dentro del hogar, con fuente, fecha de referencia y notas."
+     },
+     "fr": {
+      "name": "Séries macro de restauration",
+      "summary": "Lit une série macro ou de coûts par code de concept, y compris la paire IPC américaine hors domicile et à domicile, avec source, date de référence et notes."
+     }
+    },
+    "canonical": {
+     "brief": "Reads a curated restaurant macro/cost series with source_used, as_of and caveats; the US CPI comparison pair is included."
+    }
+   },
+   "restaurant_universe": {
+    "human": {
+     "zh": {
+      "name": "餐饮公司宇宙",
+      "summary": "列出已注册的餐饮上市公司宇宙，按地区与细分筛选，并逐条标注各数据车道的可得或不可得状态。"
+     },
+     "en": {
+      "name": "Restaurant universe",
+      "summary": "List the registered listed-restaurant universe filtered by region and segment, with each data lane marked as available or explicitly unavailable."
+     },
+     "ja": {
+      "name": "飲食企業ユニバース",
+      "summary": "登録済みの飲食上場企業ユニバースを地域・セグメントで絞り込み、各データレーンの可用性または明示的な不可得を示します。"
+     },
+     "es": {
+      "name": "Universo de restaurantes",
+      "summary": "Enumera el universo registrado de restaurantes cotizados filtrado por región y segmento, con cada carril de datos marcado como disponible o no disponible de forma explícita."
+     },
+     "fr": {
+      "name": "Univers de la restauration",
+      "summary": "Liste l'univers enregistré des restaurants cotés filtré par région et segment, chaque voie de données étant marquée disponible ou explicitement indisponible."
+     }
+    },
+    "canonical": {
+     "brief": "Lists the 35-company listed-restaurant universe with region, segment, ticker, lanes and per-lane availability or explicit unavailable reasons."
+    }
+   },
+   "review_bindings": {
+    "human": {
+     "zh": {
+      "name": "查看待审绑定",
+      "summary": "返回低于阈值的绑定复核队列；返回待审条目。"
+     },
+     "en": {
+      "name": "List review queue",
+      "summary": "Return the below-threshold binding review queue; returns the items awaiting review."
+     },
+     "ja": {
+      "name": "レビュー待ち一覧",
+      "summary": "しきい値未満のバインディングのレビュー待ちキューを返します。"
+     },
+     "es": {
+      "name": "Ver cola de revisión",
+      "summary": "Devuelve la cola de revisión de vínculos bajo el umbral; devuelve los elementos pendientes."
+     },
+     "fr": {
+      "name": "Voir file de revue",
+      "summary": "Renvoie la file de revue des liaisons sous le seuil ; renvoie les éléments en attente."
+     }
+    },
+    "canonical": {
+     "brief": "Return the below-threshold binding review queue used by propose-and-confirm."
+    }
+   },
+   "run_schedule": {
+    "human": {
+     "zh": {
+      "name": "立即运行刷新计划",
+      "summary": "立即执行一个刷新计划，按排名与故障转移调度并记录执行结果。"
+     },
+     "en": {
+      "name": "Run refresh schedule",
+      "summary": "Runs one refresh schedule now with ranked failover dispatch and records the execution."
+     },
+     "ja": {
+      "name": "更新スケジュールの即時実行",
+      "summary": "更新スケジュールを直ちに実行し、順位付けとフェイルオーバーで振り分けて実行記録を残します。"
+     },
+     "es": {
+      "name": "Ejecutar plan de actualización",
+      "summary": "Ejecuta ahora un plan de actualización con despacho ordenado y conmutación por error, y registra la ejecución."
+     },
+     "fr": {
+      "name": "Exécuter un plan de rafraîchissement",
+      "summary": "Exécute maintenant un plan de rafraîchissement avec répartition ordonnée et bascule, et enregistre l'exécution."
+     }
+    },
+    "canonical": {
+     "brief": "Runs one refresh schedule now with ranked failover dispatch and records the execution."
+    }
+   },
+   "scope_bind_caller": {
+    "human": {
+     "zh": {
+      "name": "绑定默认范围",
+      "summary": "为调用方绑定默认检索范围，返回绑定结果；显式传入的范围仍然优先。"
+     },
+     "en": {
+      "name": "Bind caller default scope",
+      "summary": "Binds a default retrieval scope to a caller and returns the binding; an explicit scope still takes precedence."
+     },
+     "ja": {
+      "name": "既定スコープのバインド",
+      "summary": "呼び出し元に既定の検索スコープをバインドして結果を返します。明示指定したスコープが優先されます。"
+     },
+     "es": {
+      "name": "Vincular ámbito predeterminado",
+      "summary": "Vincula un ámbito de búsqueda predeterminado a un llamador y devuelve el vínculo; un ámbito explícito sigue teniendo prioridad."
+     },
+     "fr": {
+      "name": "Lier le périmètre par défaut",
+      "summary": "Lie un périmètre de recherche par défaut à un appelant et renvoie la liaison ; un périmètre explicite reste prioritaire."
+     }
+    },
+    "canonical": {
+     "brief": "Binds a default retrieval scope to a caller; explicit scope arguments still take precedence."
+    }
+   },
+   "scope_create": {
+    "human": {
+     "zh": {
+      "name": "新建检索范围",
+      "summary": "新建具名检索范围并按供给目录校验允许清单，返回匹配到的指标数量。"
+     },
+     "en": {
+      "name": "Create retrieval scope",
+      "summary": "Creates a named retrieval scope, validates its allow-lists against the registry, and returns the number of matched indicators."
+     },
+     "ja": {
+      "name": "検索スコープの作成",
+      "summary": "名前付き検索スコープを作成し、許可リストをレジストリで検証して、一致した指標の数を返します。"
+     },
+     "es": {
+      "name": "Crear ámbito de búsqueda",
+      "summary": "Crea un ámbito de búsqueda con nombre, valida sus listas permitidas contra el catálogo y devuelve el número de indicadores coincidentes."
+     },
+     "fr": {
+      "name": "Créer un périmètre de recherche",
+      "summary": "Crée un périmètre de recherche nommé, valide ses listes autorisées dans le registre et renvoie le nombre d'indicateurs correspondants."
+     }
+    },
+    "canonical": {
+     "brief": "Creates a named retrieval scope, validates allow-lists against the registry, and returns the matched indicator count."
+    }
+   },
+   "scope_delete": {
+    "human": {
+     "zh": {
+      "name": "删除检索范围",
+      "summary": "删除指定检索范围及其调用方默认绑定，统计数据保留。"
+     },
+     "en": {
+      "name": "Delete retrieval scope",
+      "summary": "Deletes a scope and its caller default bindings; statistics are kept."
+     },
+     "ja": {
+      "name": "検索スコープの削除",
+      "summary": "指定した検索スコープとその呼び出し元の既定バインドを削除します。統計は残ります。"
+     },
+     "es": {
+      "name": "Eliminar ámbito de búsqueda",
+      "summary": "Elimina un ámbito y sus vínculos predeterminados de llamadores; las estadísticas se conservan."
+     },
+     "fr": {
+      "name": "Supprimer un périmètre de recherche",
+      "summary": "Supprime un périmètre et ses liaisons par défaut d'appelants ; les statistiques sont conservées."
+     }
+    },
+    "canonical": {
+     "brief": "Deletes a scope and its caller default bindings; hit statistics are kept."
+    }
+   },
+   "scope_list": {
+    "human": {
+     "zh": {
+      "name": "列出检索范围",
+      "summary": "列出全部检索范围及其允许清单规则。"
+     },
+     "en": {
+      "name": "List retrieval scopes",
+      "summary": "Lists every retrieval scope with its allow-list rules."
+     },
+     "ja": {
+      "name": "検索スコープの一覧",
+      "summary": "すべての検索スコープと許可リストのルールを一覧します。"
+     },
+     "es": {
+      "name": "Listar ámbitos de búsqueda",
+      "summary": "Enumera todos los ámbitos de búsqueda con sus reglas de listas permitidas."
+     },
+     "fr": {
+      "name": "Lister les périmètres de recherche",
+      "summary": "Énumère tous les périmètres de recherche avec leurs règles de listes autorisées."
+     }
+    },
+    "canonical": {
+     "brief": "Lists every retrieval scope with its allow-list rules."
+    }
+   },
+   "scope_list_bindings": {
+    "human": {
+     "zh": {
+      "name": "列出范围绑定",
+      "summary": "列出调用方的默认范围绑定，可按单个调用方筛选。"
+     },
+     "en": {
+      "name": "List scope bindings",
+      "summary": "Lists caller default-scope bindings, optionally for one caller."
+     },
+     "ja": {
+      "name": "スコープのバインド一覧",
+      "summary": "呼び出し元の既定スコープのバインドを一覧します。単一の呼び出し元に絞り込めます。"
+     },
+     "es": {
+      "name": "Listar vínculos de ámbito",
+      "summary": "Enumera los vínculos de ámbito predeterminado de los llamadores, opcionalmente de uno solo."
+     },
+     "fr": {
+      "name": "Lister les liaisons de périmètre",
+      "summary": "Énumère les liaisons de périmètre par défaut des appelants, éventuellement pour un seul."
+     }
+    },
+    "canonical": {
+     "brief": "Lists caller default-scope bindings, optionally filtered to one caller."
+    }
+   },
+   "scope_stats": {
+    "human": {
+     "zh": {
+      "name": "范围命中统计",
+      "summary": "返回单个检索范围按日统计的调用次数与结果返回数，按日期倒序。"
+     },
+     "en": {
+      "name": "Scope hit statistics",
+      "summary": "Returns per-day call and returned-result counts for one scope, most recent first."
+     },
+     "ja": {
+      "name": "スコープのヒット統計",
+      "summary": "単一の検索スコープについて、日ごとの呼び出し回数と返却結果数を新しい順に返します。"
+     },
+     "es": {
+      "name": "Estadísticas de aciertos",
+      "summary": "Devuelve por día los recuentos de llamadas y resultados devueltos de un ámbito, del más reciente al más antiguo."
+     },
+     "fr": {
+      "name": "Statistiques de périmètre",
+      "summary": "Renvoie par jour les nombres d'appels et de résultats renvoyés pour un périmètre, du plus récent au plus ancien."
+     }
+    },
+    "canonical": {
+     "brief": "Returns per-day call and returned-result counts for one scope, newest first."
+    }
+   },
+   "scope_unbind_caller": {
+    "human": {
+     "zh": {
+      "name": "解绑默认范围",
+      "summary": "解除调用方的默认检索范围绑定。"
+     },
+     "en": {
+      "name": "Unbind caller default scope",
+      "summary": "Removes a caller's default retrieval scope binding."
+     },
+     "ja": {
+      "name": "既定スコープのバインド解除",
+      "summary": "呼び出し元の既定検索スコープのバインドを解除します。"
+     },
+     "es": {
+      "name": "Desvincular ámbito predeterminado",
+      "summary": "Quita el vínculo del ámbito de búsqueda predeterminado de un llamador."
+     },
+     "fr": {
+      "name": "Délier le périmètre par défaut",
+      "summary": "Retire la liaison du périmètre de recherche par défaut d'un appelant."
+     }
+    },
+    "canonical": {
+     "brief": "Removes a caller's default retrieval scope binding."
+    }
+   },
+   "scope_update": {
+    "human": {
+     "zh": {
+      "name": "更新检索范围",
+      "summary": "更新检索范围的规则或说明，校验与新建一致，返回更新结果。"
+     },
+     "en": {
+      "name": "Update retrieval scope",
+      "summary": "Updates a scope's rules or description with the same validation as create, and returns the updated scope."
+     },
+     "ja": {
+      "name": "検索スコープの更新",
+      "summary": "検索スコープのルールまたは説明を、作成時と同じ検証で更新し、更新後のスコープを返します。"
+     },
+     "es": {
+      "name": "Actualizar ámbito de búsqueda",
+      "summary": "Actualiza las reglas o la descripción de un ámbito con la misma validación que al crearlo y devuelve el ámbito actualizado."
+     },
+     "fr": {
+      "name": "Mettre à jour un périmètre",
+      "summary": "Met à jour les règles ou la description d'un périmètre avec la même validation qu'à la création et renvoie le périmètre mis à jour."
+     }
+    },
+    "canonical": {
+     "brief": "Updates a scope's rules or description with create-time validation; returns the updated scope."
+    }
+   },
+   "seed_entity_identifiers": {
+    "human": {
+     "zh": {
+      "name": "预置标识映射",
+      "summary": "写入股票（akshare、yfinance）与国家（worldbank）的实体标识映射；返回写入结果。"
+     },
+     "en": {
+      "name": "Seed entity identifiers",
+      "summary": "Seed identifier mappings for stocks (akshare, yfinance) and countries (worldbank); returns the result."
+     },
+     "ja": {
+      "name": "識別子マッピング投入",
+      "summary": "株式（akshare、yfinance）と国（worldbank）の識別子マッピングを投入します。結果を返します。"
+     },
+     "es": {
+      "name": "Sembrar identificadores",
+      "summary": "Siembra los mapeos de identificadores de acciones (akshare, yfinance) y países (worldbank); devuelve el resultado."
+     },
+     "fr": {
+      "name": "Amorcer identifiants",
+      "summary": "Amorce les mappings d'identifiants pour les actions (akshare, yfinance) et les pays (worldbank) ; renvoie le résultat."
+     }
+    },
+    "canonical": {
+     "brief": "Seed identifier mappings for stocks (akshare, yfinance) and countries (worldbank)."
+    }
+   },
+   "semantic_search": {
+    "human": {
+     "zh": {
+      "name": "概念语义检索",
+      "summary": "用向量嵌入按语义检索概念，结果按相似度排序并标出缓存命中；返回匹配概念与分数。"
+     },
+     "en": {
+      "name": "Semantic concept search",
+      "summary": "Search concepts semantically with vector embeddings, ordered by similarity with a cache-hit flag; returns matching concepts and scores."
+     },
+     "ja": {
+      "name": "概念セマンティック検索",
+      "summary": "ベクトル埋め込みで概念を意味検索し、類似度順に並べ、キャッシュ命中も示します。一致する概念とスコアを返します。"
+     },
+     "es": {
+      "name": "Búsqueda semántica",
+      "summary": "Busca conceptos semánticamente con incrustaciones vectoriales, ordena por similitud y marca aciertos de caché; devuelve conceptos y puntuaciones."
+     },
+     "fr": {
+      "name": "Recherche sémantique",
+      "summary": "Recherche les concepts par sens avec des plongements vectoriels, triés par similarité et avec indicateur de cache ; renvoie concepts et scores."
+     }
+    },
+    "canonical": {
+     "brief": "Semantic concept search over vector embeddings returning matching concepts with scores and a cache-hit flag."
+    }
+   },
+   "semantic_search_entities": {
+    "human": {
+     "zh": {
+      "name": "语义检索实体",
+      "summary": "用向量嵌入按语义检索实体，返回匹配的实体。"
+     },
+     "en": {
+      "name": "Semantic entity search",
+      "summary": "Searches entities semantically with vector embeddings and returns the matching entities."
+     },
+     "ja": {
+      "name": "実体の意味検索",
+      "summary": "ベクトル埋め込みで実体を意味的に検索し、一致した実体を返します。"
+     },
+     "es": {
+      "name": "Búsqueda semántica de entidades",
+      "summary": "Busca entidades de forma semántica con incrustaciones vectoriales y devuelve las entidades coincidentes."
+     },
+     "fr": {
+      "name": "Recherche sémantique d'entités",
+      "summary": "Recherche des entités de façon sémantique par plongements vectoriels et renvoie les entités correspondantes."
+     }
+    },
+    "canonical": {
+     "brief": "Semantic search over entities using vector embeddings; returns matching entities."
+    }
+   },
+   "semantic_search_unified": {
+    "human": {
+     "zh": {
+      "name": "统一语义检索",
+      "summary": "在实体与概念上做统一语义检索，返回两类的匹配结果。"
+     },
+     "en": {
+      "name": "Unified semantic search",
+      "summary": "Runs one semantic search across entities and concepts and returns matches from both."
+     },
+     "ja": {
+      "name": "統合意味検索",
+      "summary": "実体と概念をまとめて意味検索し、両方の一致結果を返します。"
+     },
+     "es": {
+      "name": "Búsqueda semántica unificada",
+      "summary": "Realiza una búsqueda semántica sobre entidades y conceptos y devuelve coincidencias de ambos."
+     },
+     "fr": {
+      "name": "Recherche sémantique unifiée",
+      "summary": "Effectue une recherche sémantique sur les entités et les concepts et renvoie les correspondances des deux."
+     }
+    },
+    "canonical": {
+     "brief": "Unified semantic search across entities and concepts; returns matches from both."
+    }
+   },
+   "update_binding": {
+    "human": {
+     "zh": {
+      "name": "更新绑定状态",
+      "summary": "更新概念绑定的置信度、来源与复核状态；返回更新后的绑定。"
+     },
+     "en": {
+      "name": "Update binding",
+      "summary": "Update a concept binding's confidence, provenance and review status; returns the updated binding."
+     },
+     "ja": {
+      "name": "バインディング更新",
+      "summary": "概念バインディングの信頼度、出所、レビュー状態を更新します。更新後のバインディングを返します。"
+     },
+     "es": {
+      "name": "Actualizar vínculo",
+      "summary": "Actualiza la confianza, la procedencia y el estado de revisión de un vínculo de concepto; devuelve el vínculo actualizado."
+     },
+     "fr": {
+      "name": "Mettre à jour liaison",
+      "summary": "Met à jour la confiance, la provenance et l'état de revue d'une liaison de concept ; renvoie la liaison mise à jour."
+     }
+    },
+    "canonical": {
+     "brief": "Update a concept binding's confidence, provenance and review status; returns the updated binding."
+    }
+   },
+   "update_concept": {
+    "human": {
+     "zh": {
+      "name": "更新概念信息",
+      "summary": "更新概念的名称与核验状态；返回更新后的概念。"
+     },
+     "en": {
+      "name": "Update concept",
+      "summary": "Update concept metadata such as name and verification status; returns the updated concept."
+     },
+     "ja": {
+      "name": "概念更新",
+      "summary": "概念の名称や検証状態などのメタデータを更新します。更新後の概念を返します。"
+     },
+     "es": {
+      "name": "Actualizar concepto",
+      "summary": "Actualiza los metadatos del concepto, como nombre y estado de verificación; devuelve el concepto actualizado."
+     },
+     "fr": {
+      "name": "Mettre à jour concept",
+      "summary": "Met à jour les métadonnées d'un concept, nom et état de vérification ; renvoie le concept mis à jour."
+     }
+    },
+    "canonical": {
+     "brief": "Update concept metadata such as name and verification status; returns the updated concept."
+    }
+   },
+   "update_entity": {
+    "human": {
+     "zh": {
+      "name": "更新实体信息",
+      "summary": "更新本体库中实体的元数据，用于初次注册后的维护；返回更新后的实体。"
+     },
+     "en": {
+      "name": "Update entity",
+      "summary": "Update an entity's metadata in the ontology database after initial registration; returns the updated entity."
+     },
+     "ja": {
+      "name": "エンティティ更新",
+      "summary": "オントロジーDB内のエンティティのメタデータを更新します。初回登録後の保守に使います。更新後のエンティティを返します。"
+     },
+     "es": {
+      "name": "Actualizar entidad",
+      "summary": "Actualiza los metadatos de una entidad en la base de ontología tras el registro inicial; devuelve la entidad actualizada."
+     },
+     "fr": {
+      "name": "Mettre à jour entité",
+      "summary": "Met à jour les métadonnées d'une entité dans la base d'ontologie après l'enregistrement initial ; renvoie l'entité mise à jour."
+     }
+    },
+    "canonical": {
+     "brief": "Admin update of entity metadata in the ontology database after initial registration; returns the updated entity."
+    }
+   },
+   "hotel_universe": {
+    "human": {
+     "zh": {
+      "name": "酒店监控宇宙",
+      "summary": "列出 33 家酒店公司的地区、业态、票符与数据车道；无车道市场（欧股）与载体受限市场（台股快照、日股月次）逐家标注不可得原因。"
+     },
+     "en": {
+      "name": "Hotel watch universe",
+      "summary": "List 33 hotel companies with region, segment, ticker and lanes; no-lane markets carry an explicit unavailability reason."
+     },
+     "ja": {
+      "name": "ホテル監視ユニバース",
+      "summary": "ホテル企業 33 社の地域・業態・銘柄・データ経路を一覧し、経路のない市場は入手不可の理由を明示します。"
+     },
+     "es": {
+      "name": "Universo de hoteles",
+      "summary": "Lista las 33 compañías hoteleras con región, segmento, ticker y canales; los mercados sin canal declaran el motivo de no disponibilidad."
+     },
+     "fr": {
+      "name": "Univers de l'hôtellerie",
+      "summary": "Liste les 33 sociétés hôtelières avec région, segment, ticker et canaux ; les marchés sans canal déclarent explicitement le motif d'indisponibilité."
+     }
+    },
+    "canonical": {
+     "brief": "Hotel watch universe: 33 companies with region/segment/ticker/lanes; no-lane and limited-carrier markets declared unavailable."
+    }
+   },
+   "hotel_series": {
+    "human": {
+     "zh": {
+      "name": "酒店指标序列",
+      "summary": "按概念码读取一条酒店序列（星级饭店季度、国内出游、欧盟住宿）；每点带来源与口径，序列携带 as-of、期数与口径声明。"
+     },
+     "en": {
+      "name": "Hotel indicator series",
+      "summary": "Read one hotel series with source, caliber and as-of per point; empty concepts return an explicit unavailability block."
+     },
+     "ja": {
+      "name": "ホテル指標系列",
+      "summary": "コンセプトコードでホテル系列を 1 本読み出します（星級ホテル四半期・国内旅行・EU 宿泊）。各点に出所と口径、全体に as-of と期数が付きます。"
+     },
+     "es": {
+      "name": "Series de indicadores hoteleros",
+      "summary": "Lee una serie hotelera por código de concepto (hoteles por estrellas trimestral, viajes nacionales, alojamiento UE); cada punto lleva fuente y calibre, y el resultado lleva as-of y número de periodos."
+     },
+     "fr": {
+      "name": "Séries d'indicateurs hôteliers",
+      "summary": "Lit une série hôtelière par code de concept (hôtels classés trimestriel, voyages domestiques, hébergement UE) ; chaque point porte sa source et son calibre, avec l'as-of et le nombre de périodes."
+     }
+    },
+    "canonical": {
+     "brief": "Read one hotel series (star-rated quarterly, domestic travel, EU accommodation) with source_used, caliber and as-of per point."
+    }
+   },
+   "hotel_kpi": {
+    "human": {
+     "zh": {
+      "name": "酒店经营 KPI",
+      "summary": "读取一家公司的 RevPAR / 平均房价 / 出租率读数，逐点带来源、粒度与 as-of；无车道市场与无载体公司返回显式不可得，不借同业数值。"
+     },
+     "en": {
+      "name": "Hotel operating KPIs",
+      "summary": "Read one company's RevPAR/ADR/occupancy with source, granularity and as-of per point; no peer substitution."
+     },
+     "ja": {
+      "name": "ホテル営業 KPI",
+      "summary": "1 社の RevPAR・ADR・稼働率を、各点の出所・粒度・as-of 付きで読み出します。経路のない市場は他社値で代替せず、入手不可を明示します。"
+     },
+     "es": {
+      "name": "KPI operativos hoteleros",
+      "summary": "Lee RevPAR / ADR / ocupación de una compañía con fuente, granularidad y as-of por punto; los mercados sin canal devuelven indisponibilidad explícita, sin usar cifras de pares."
+     },
+     "fr": {
+      "name": "KPI d'exploitation hôtelière",
+      "summary": "Lit le RevPAR / ADR / taux d'occupation d'une société avec source, granularité et as-of par point ; les marchés sans canal renvoient une indisponibilité explicite, jamais les chiffres d'un pair."
+     }
+    },
+    "canonical": {
+     "brief": "Read one company's RevPAR/ADR/occupancy with caliber and as-of; no-lane markets and carrier-less companies return explicit unavailability."
+    }
+   },
+   "hotel_company_events": {
+    "human": {
+     "zh": {
+      "name": "酒店公司披露事件",
+      "summary": "读取一家公司的公告事件面（港交所标题事件 / SEC 申报）；只报公告元数据，不从正文反推营收或利润。"
+     },
+     "en": {
+      "name": "Hotel company disclosure events",
+      "summary": "Read one company's HKEX/SEC announcement metadata; never infers revenue or profit from announcement bodies."
+     },
+     "ja": {
+      "name": "ホテル企業の開示イベント",
+      "summary": "1 社の公告イベント面（HKEX タイトル・SEC 提出）を読み出します。メタデータのみで、本文から売上や利益を推定しません。"
+     },
+     "es": {
+      "name": "Eventos de divulgación de hoteleras",
+      "summary": "Lee el plano de eventos de una compañía (títulos de HKEX / presentaciones SEC); solo metadatos, sin inferir ingresos o beneficios del texto."
+     },
+     "fr": {
+      "name": "Événements de publication hôteliers",
+      "summary": "Lit le plan d'événements d'une société (titres HKEX / dépôts SEC) ; uniquement des métadonnées, sans déduire chiffre d'affaires ni résultat du texte."
+     }
+    },
+    "canonical": {
+     "brief": "Read one company's HKEX/SEC announcement event face; metadata only, no revenue or profit inferred from bodies."
+    }
+   },
+   "hotel_benchmark": {
+    "human": {
+     "zh": {
+      "name": "酒店行业基准",
+      "summary": "行业基准对比的基准侧：恒返回不可得，因为 STR / CoStar 为付费数据且未接入；不以同业均值或 0 替代。"
+     },
+     "en": {
+      "name": "Hotel industry benchmark",
+      "summary": "Benchmark side is always unavailable: STR/CoStar are paid and unconnected; never substituted with peers or zero."
+     },
+     "ja": {
+      "name": "ホテル業界ベンチマーク",
+      "summary": "業界比較のベンチマーク側は常に入手不可です（STR / CoStar は有料で未接続）。同業平均や 0 で代替しません。"
+     },
+     "es": {
+      "name": "Referencia del sector hotelero",
+      "summary": "El lado de referencia de una comparación sectorial siempre está indisponible (STR / CoStar son de pago y no están conectados); nunca se sustituye por una media de pares ni por cero."
+     },
+     "fr": {
+      "name": "Référence sectorielle hôtelière",
+      "summary": "Le côté référence d'une comparaison sectorielle est toujours indisponible (STR / CoStar payants, non connectés) ; jamais remplacé par une moyenne de pairs ni par zéro."
+     }
+    },
+    "canonical": {
+     "brief": "Industry benchmark side is always unavailable: STR/CoStar are paid and not connected; never a peer average or zero."
+    }
+   }
+  },
+  "provenance": {
+   "source": "finddata-supply-annotations",
+   "updatedAt": "2026-11-02"
+  }
+ }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "equity-research-peers",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "个股投研同业",
+        "summary": "个股投研的同业与竞争层：为 A 股/港股公司挑可比公司、按规模带与增速带做对照、做可比性说明与倍数对照表。候选池用 GTA 公司面板按规模与增速筛选（通道 A），价格类输入与倍数只走本地 DAAS（通道 B）；同业之间的可比性差异必须逐项标注，不得抹平。"
+      },
+      "en": {
+        "name": "Equity research peers",
+        "summary": "Picks comparables, benchmarks size and growth, writes comparability notes and multiple tables; pool via the GTA panel (A), prices and multiples only via DAAS (B); gaps flagged item by item."
+      },
+      "ja": {
+        "name": "個別株投資調査：同業比較",
+        "summary": "個別株投資調査の同業・競争層：比較可能企業の選定、規模帯と成長率帯の対照、比較可能性説明と倍数表の作成。候補プールはGTAパネルで規模・成長により絞り込み（チャネルA）、価格入力と倍数はローカルDAASのみ（チャネルB）。比較可能性の差は項目ごとに明記しぼかさない。"
+      },
+      "es": {
+        "name": "Investigación bursátil: pares",
+        "summary": "Selecciona comparables, contrasta tamaño y crecimiento, con notas de comparabilidad y tablas de múltiplos; pool por el panel GTA (A), precios y múltiplos solo por DAAS (B); diferencias caso a caso."
+      },
+      "fr": {
+        "name": "Recherche actions : comparables",
+        "summary": "Sélectionne les comparables, compare taille et croissance, avec notes de comparabilité et tableaux de multiples ; univers via le panneau GTA (A), prix et multiples seulement via DAAS (B)."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

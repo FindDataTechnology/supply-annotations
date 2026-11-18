@@ -1,0 +1,204 @@
+{
+ "version": 1,
+ "server": "facet-ops-mcp",
+ "annotation": {
+  "human": {
+   "zh": {
+    "name": "谦面网关操作",
+    "summary": "谦面网关的运营面：目录浏览、智能体名片、技能与服务的检索与检查。",
+    "whenToUse": "在壹座或谦面里盘点供给目录、核对服务状态时。"
+   },
+   "en": {
+    "name": "Facet gateway operations",
+    "summary": "Operations view of the Facet gateway: catalogue browsing, agent cards, and skill/service lookup and checks.",
+    "whenToUse": "For auditing the supply catalogue or checking service status in Facet or the platform."
+   },
+   "ja": {
+    "name": "フェイスゲートウェイ操作",
+    "summary": "フェイスの運用面：カタログ閲覧、エージェントカード、スキルとサービスの検索・確認を行います。",
+    "whenToUse": "供給カタログの棚卸しやサービス状態の確認をするとき。"
+   },
+   "es": {
+    "name": "Operaciones de la pasarela Facet",
+    "summary": "Vista operativa de la pasarela Facet: navegación del catálogo, fichas de agentes y consulta de habilidades y servicios.",
+    "whenToUse": "Para auditar el catálogo de suministro o comprobar el estado de un servicio."
+   },
+   "fr": {
+    "name": "Opérations de la passerelle Facet",
+    "summary": "Vue d'exploitation de la passerelle Facet : navigation du catalogue, fiches d'agents, recherche et contrôle des compétences et services.",
+    "whenToUse": "Pour auditer le catalogue d'offre ou vérifier l'état d'un service."
+   }
+  },
+  "canonical": {
+   "brief": "Facet gateway ops MCP: catalogue browse, agent cards, skill/service lookup and health checks; user-delegated bearer."
+  },
+  "tools": {
+   "facet_agent_duplicate_check": {
+    "human": {
+     "zh": {
+      "name": "登记前查重",
+      "summary": "登记前检查供给目录条目是否重复，返回提示性结论；接口恒返回成功状态，结论仅供参考。"
+     },
+     "en": {
+      "name": "Check for duplicates",
+      "summary": "Checks whether a registry entry duplicates an existing one before registration and returns an advisory finding; the call always reports success, so treat the finding as a hint."
+     },
+     "ja": {
+      "name": "登録前の重複確認",
+      "summary": "登録前にレジストリ項目の重複を確認し、参考情報としての判定を返します。呼び出しは常に成功を報告するため、判定は参考程度に扱います。"
+     },
+     "es": {
+      "name": "Comprobar duplicados",
+      "summary": "Comprueba si una entrada del catálogo duplica otra antes del registro y devuelve un hallazgo orientativo; la llamada siempre informa éxito, así que tómelo como indicio."
+     },
+     "fr": {
+      "name": "Vérifier les doublons",
+      "summary": "Vérifie si une entrée du registre en duplique une autre avant enregistrement et renvoie un constat indicatif ; l'appel signale toujours un succès, à traiter comme un indice."
+     }
+    },
+    "canonical": {
+     "brief": "Checks a registry entry for duplicates before registration and returns an advisory finding; the call always reports success, so the finding is a hint."
+    }
+   },
+   "facet_agent_publish": {
+    "human": {
+     "zh": {
+      "name": "登记智能体卡片",
+      "summary": "在供给目录登记新的 AgentCard，属写操作，返回登记结果。"
+     },
+     "en": {
+      "name": "Register agent card",
+      "summary": "Registers a new AgentCard in the registry; a write operation that returns the registration result."
+     },
+     "ja": {
+      "name": "エージェントカードを登録",
+      "summary": "レジストリに新しい AgentCard を登録します。書き込み操作であり、登録結果を返します。"
+     },
+     "es": {
+      "name": "Registrar tarjeta de agente",
+      "summary": "Registra una nueva AgentCard en el catálogo; es una operación de escritura que devuelve el resultado del registro."
+     },
+     "fr": {
+      "name": "Enregistrer une carte d'agent",
+      "summary": "Enregistre une nouvelle AgentCard dans le registre ; opération d'écriture qui renvoie le résultat de l'enregistrement."
+     }
+    },
+    "canonical": {
+     "brief": "Registers a new AgentCard in the registry; a write operation that returns the registration result."
+    }
+   },
+   "facet_agent_read": {
+    "human": {
+     "zh": {
+      "name": "读取条目详情",
+      "summary": "读取供给目录中单个条目的详情，返回该条目的完整信息。"
+     },
+     "en": {
+      "name": "Read entry details",
+      "summary": "Reads the details of one registry entry and returns its full information."
+     },
+     "ja": {
+      "name": "項目詳細を取得",
+      "summary": "レジストリの単一項目の詳細を読み取り、その完全な情報を返します。"
+     },
+     "es": {
+      "name": "Leer detalles de la entrada",
+      "summary": "Lee los detalles de una entrada del catálogo y devuelve su información completa."
+     },
+     "fr": {
+      "name": "Lire les détails d'une entrée",
+      "summary": "Lit les détails d'une entrée du registre et renvoie ses informations complètes."
+     }
+    },
+    "canonical": {
+     "brief": "Reads one registry entry's details and returns its full information."
+    }
+   },
+   "facet_agent_toggle": {
+    "human": {
+     "zh": {
+      "name": "启用或停用条目",
+      "summary": "启用或停用供给目录中的条目，属写操作，返回状态变更结果。"
+     },
+     "en": {
+      "name": "Enable or disable entry",
+      "summary": "Enables or disables a registry entry; a write operation that returns the resulting state."
+     },
+     "ja": {
+      "name": "項目を有効化または停止",
+      "summary": "レジストリの項目を有効化または停止します。書き込み操作であり、変更後の状態を返します。"
+     },
+     "es": {
+      "name": "Activar o desactivar entrada",
+      "summary": "Activa o desactiva una entrada del catálogo; operación de escritura que devuelve el estado resultante."
+     },
+     "fr": {
+      "name": "Activer ou désactiver une entrée",
+      "summary": "Active ou désactive une entrée du registre ; opération d'écriture qui renvoie l'état obtenu."
+     }
+    },
+    "canonical": {
+     "brief": "Enables or disables a registry entry; a write operation that returns the resulting state."
+    }
+   },
+   "facet_agent_update": {
+    "human": {
+     "zh": {
+      "name": "更新智能体卡片",
+      "summary": "更新供给目录中已有 AgentCard 的内容，属写操作，返回更新结果。"
+     },
+     "en": {
+      "name": "Update agent card",
+      "summary": "Updates the content of an existing AgentCard in the registry; a write operation that returns the update result."
+     },
+     "ja": {
+      "name": "エージェントカードを更新",
+      "summary": "レジストリにある既存 AgentCard の内容を更新します。書き込み操作であり、更新結果を返します。"
+     },
+     "es": {
+      "name": "Actualizar tarjeta de agente",
+      "summary": "Actualiza el contenido de una AgentCard existente en el catálogo; es una operación de escritura que devuelve el resultado."
+     },
+     "fr": {
+      "name": "Mettre à jour la carte d'agent",
+      "summary": "Met à jour le contenu d'une AgentCard existante dans le registre ; opération d'écriture qui renvoie le résultat."
+     }
+    },
+    "canonical": {
+     "brief": "Updates an existing registry AgentCard; a write operation that returns the update result."
+    }
+   },
+   "facet_catalog_browse": {
+    "human": {
+     "zh": {
+      "name": "浏览供给目录",
+      "summary": "分页浏览网关的供给目录（AgentCard），支持查询，返回条目清单。"
+     },
+     "en": {
+      "name": "Browse registry",
+      "summary": "Pages through the gateway registry of AgentCards with query support and returns the entry list."
+     },
+     "ja": {
+      "name": "レジストリを閲覧",
+      "summary": "ゲートウェイの AgentCard レジストリをページ単位で閲覧し、検索に対応して項目一覧を返します。"
+     },
+     "es": {
+      "name": "Explorar catálogo",
+      "summary": "Recorre por páginas el catálogo de AgentCard de la pasarela con consultas y devuelve la lista de entradas."
+     },
+     "fr": {
+      "name": "Parcourir le registre",
+      "summary": "Parcourt par pages le registre d'AgentCards de la passerelle avec prise en charge des requêtes et renvoie la liste des entrées."
+     }
+    },
+    "canonical": {
+     "brief": "Pages through the gateway registry of AgentCards with query support and returns the entry list."
+    }
+   }
+  },
+  "provenance": {
+   "source": "finddata-supply-annotations",
+   "updatedAt": "2026-11-02"
+  }
+ }
+}

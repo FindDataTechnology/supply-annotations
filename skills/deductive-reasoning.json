@@ -1,0 +1,32 @@
+{
+  "skill": "deductive-reasoning",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "法律演绎推理",
+        "summary": "基于形式逻辑执行严密的法律演绎推理，把非结构化的法律规范与案件事实转化为有效、可检验、可复现的前提—事实—结论（P-F-C）演绎论证链条。"
+      },
+      "en": {
+        "name": "Legal deductive reasoning",
+        "summary": "Applies formal logic to rigorous legal reasoning, turning unstructured legal norms and case facts into valid, testable, reproducible premise–fact–conclusion (P-F-C) deductive chains."
+      },
+      "ja": {
+        "name": "法律の演繹的推論",
+        "summary": "形式論理に基づく厳密な法的演繹推論：非構造の法律規範と事件事実を、有効・検証可能・再現可能な前提–事実–結論（P-F-C）の演繹連鎖に変換する。"
+      },
+      "es": {
+        "name": "Razonamiento deductivo jurídico",
+        "summary": "Aplica lógica formal al razonamiento jurídico riguroso y convierte normas y hechos desestructurados en cadenas deductivas premisa–hecho–conclusión (P-F-C) válidas, contrastables y reproducibles."
+      },
+      "fr": {
+        "name": "Raisonnement déductif juridique",
+        "summary": "Applique la logique formelle au raisonnement juridique : transforme normes et faits non structurés en chaînes déductives prémisses–faits–conclusion (P-F-C) valides, vérifiables et reproductibles."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "mb-business-checkup",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "生意体检",
+        "summary": "谦面个体户与微型企业的生意体检内核入口：四段式问诊建档→单店算账→行业信号对照→行动清单；金额与比率一律经计算器产出并附公式与基数来源，未装行业信号包时如实标注且不中断。"
+      },
+      "en": {
+        "name": "Business checkup",
+        "summary": "Facet checkup (solo/micro): four-stage intake → per-store accounting → industry signals → action list; amounts and ratios come via calculator with formulas and sources; missing signal packs flagged."
+      },
+      "ja": {
+        "name": "ビジネス診断",
+        "summary": "Facetの個人事業主・小規模事業者向けビジネス診断の入口：4段階の問診・記録→単店の収支計算→業界シグナル照合→アクションリスト。金額と比率は計算ツールで算出し、計算式と基数ソースを添付。シグナルパック未導入時は明記して中断しません。"
+      },
+      "es": {
+        "name": "Chequeo de negocio",
+        "summary": "Chequeo de negocio de Facet: anamnesis en 4 fases → cuentas por local → señales sectoriales → acciones; importes y ratios: calculadora con fórmulas y fuentes; paquete de señales faltante indicado."
+      },
+      "fr": {
+        "name": "Diagnostic d'entreprise",
+        "summary": "Diagnostic Facet : anamnèse en 4 phases → comptes par boutique → signaux sectoriels → liste d'actions ; montants et ratios via calculatrice, avec formules et sources ; paquet manquant signalé."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

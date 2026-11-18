@@ -1,0 +1,32 @@
+{
+  "skill": "case-retrieval",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "案例检索",
+        "summary": "查找与当前法律问题相关的类似案例、相关判决与裁判规则，支撑法律论点引用、案件预判、文书引用与司法实践趋势分析，返回类案与裁判规则。"
+      },
+      "en": {
+        "name": "Case search",
+        "summary": "Finds similar cases, related judgments and adjudication rules for the current legal issue, supporting citations, case assessment and judicial trend analysis; returns matching cases and rules."
+      },
+      "ja": {
+        "name": "判例検索",
+        "summary": "現在の法律問題に関連する類似判例・関連判決・裁判ルールを検索し、論点の引用、事件の見通し、司法実務の趨勢分析を支援する。一致する判例とルールを返す。"
+      },
+      "es": {
+        "name": "Búsqueda de casos",
+        "summary": "Busca casos similares, sentencias y reglas de adjudicación para la cuestión jurídica actual; apoya citas, valoración y tendencias judiciales; devuelve casos y reglas coincidentes."
+      },
+      "fr": {
+        "name": "Recherche d'affaires",
+        "summary": "Recherche des affaires similaires, jugements liés et règles de jugement ; appui aux citations, à l'évaluation et aux tendances jurisprudentielles ; renvoie les cas et règles correspondants."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

@@ -1,0 +1,806 @@
+{
+ "version": 1,
+ "note": "server 级注释（23 条）；工具级由 _parts 合并。provenance 统一为 finddata-supply-annotations。",
+ "entries": {
+  "fd-daas-mcp": {
+   "human": {
+    "zh": {
+     "name": "数据即服务",
+     "summary": "综合数据供给面：指标、年鉴、法规、裁判文书、企业信息等读写工具，统一经一个入口调用。",
+     "whenToUse": "需要一个入口同时访问多类数据面，或不确定该用哪个专用服务时。"
+    },
+    "en": {
+     "name": "Data as a Service",
+     "summary": "A single entry to indicators, yearbooks, statutes, judgments, and company data, with read and write tools.",
+     "whenToUse": "When you need several data domains through one endpoint, or are unsure which specialised server fits."
+    },
+    "ja": {
+     "name": "データ・アズ・ア・サービス",
+     "summary": "指標・年鑑・法令・判決文・企業情報などを一つの入口から扱う総合データ供給面です。",
+     "whenToUse": "複数のデータ領域を一つの接続先で扱いたいとき、または専用サービスを選びかねているとき。"
+    },
+    "es": {
+     "name": "Datos como servicio",
+     "summary": "Un único punto de acceso a indicadores, anuarios, normativa, sentencias y datos de empresas, con herramientas de lectura y escritura.",
+     "whenToUse": "Cuando necesitas varios dominios de datos desde un solo extremo o no sabes qué servidor especializado usar."
+    },
+    "fr": {
+     "name": "Données en tant que service",
+     "summary": "Un point d'accès unique aux indicateurs, annuaires, textes légaux, jugements et données d'entreprises, en lecture et en écriture.",
+     "whenToUse": "Lorsqu'il faut plusieurs domaines de données via un seul point d'accès, ou que le serveur spécialisé n'est pas évident."
+    }
+   },
+   "canonical": {
+    "brief": "Umbrella data-supply MCP: indicators, yearbooks, statutes, judgments, company and city data; mixed read/write tools behind one registry name."
+   }
+  },
+  "fd-open-data-mcp": {
+   "human": {
+    "zh": {
+     "name": "开放数据接入",
+     "summary": "接入统计年鉴与开放数据集，按指标、地区、年份读取序列与明细。",
+     "whenToUse": "查统计口径的年度或地区数据、需要序列对比时。"
+    },
+    "en": {
+     "name": "Open data access",
+     "summary": "Statistical yearbooks and open datasets, read as series or detailed rows by indicator, region, and year.",
+     "whenToUse": "For annual or regional statistics and series comparisons."
+    },
+    "ja": {
+     "name": "オープンデータ接続",
+     "summary": "統計年鑑と公開データセットを指標・地域・年で系列または明細として読み出します。",
+     "whenToUse": "年次・地域別の統計や系列比較が必要なとき。"
+    },
+    "es": {
+     "name": "Acceso a datos abiertos",
+     "summary": "Anuarios estadísticos y conjuntos abiertos, leídos como series o filas por indicador, región y año.",
+     "whenToUse": "Para estadísticas anuales o regionales y comparaciones de series."
+    },
+    "fr": {
+     "name": "Accès aux données ouvertes",
+     "summary": "Annuaires statistiques et jeux de données ouverts, lus en séries ou en lignes par indicateur, région et année.",
+     "whenToUse": "Pour des statistiques annuelles ou régionales et des comparaisons de séries."
+    }
+   },
+   "canonical": {
+    "brief": "Open-data MCP: yearbook and open dataset access by indicator/region/year; returns series or detailed rows with source metadata."
+   }
+  },
+  "law-bench": {
+   "human": {
+    "zh": {
+     "name": "合同与法规工作台",
+     "summary": "合同装配、条款读取与评审、法条引用与验证，另含内部评测与语料治理工具。",
+     "whenToUse": "做合同评审、条款核对或法条引用验证时。"
+    },
+    "en": {
+     "name": "Contract & statute workbench",
+     "summary": "Contract assembly, clause reading and review, statutory citation checks, plus internal evaluation and corpus tools.",
+     "whenToUse": "For contract review, clause checks, or verifying statutory citations."
+    },
+    "ja": {
+     "name": "契約・法令ワークベンチ",
+     "summary": "契約の組み立て、条項の読み取りとレビュー、法令引用の検証に加え、内部評価とコーパス管理のツールを提供します。",
+     "whenToUse": "契約レビュー、条項確認、法令引用の検証を行うとき。"
+    },
+    "es": {
+     "name": "Banco de trabajo contractual y normativo",
+     "summary": "Montaje de contratos, lectura y revisión de cláusulas, verificación de citas normativas y herramientas internas de evaluación y corpus.",
+     "whenToUse": "Para revisar contratos, comprobar cláusulas o verificar citas normativas."
+    },
+    "fr": {
+     "name": "Atelier contrats et textes légaux",
+     "summary": "Assemblage de contrats, lecture et revue de clauses, vérification des citations légales, plus des outils internes d'évaluation et de corpus.",
+     "whenToUse": "Pour réviser un contrat, contrôler une clause ou vérifier une citation légale."
+    }
+   },
+   "canonical": {
+    "brief": "Contract/statute workbench MCP: assembly, clause read/review, statutory citation verification; internal eval and corpus tools are not part of the commercial surface."
+   }
+  },
+  "fd-quant": {
+   "human": {
+    "zh": {
+     "name": "量化计算",
+     "summary": "确定性计算面：技术指标、组合统计、财务比率、估值、市场状态与因子统计，附决策账本。",
+     "whenToUse": "需要可复核的数值计算或把投资决策记账时。"
+    },
+    "en": {
+     "name": "Quantitative compute",
+     "summary": "Deterministic calculations: technical indicators, portfolio statistics, financial ratios, valuation, regime and factor statistics, with a decision ledger.",
+     "whenToUse": "When you need reproducible numbers or a ledger for investment decisions."
+    },
+    "ja": {
+     "name": "クオンツ計算",
+     "summary": "テクニカル指標、ポートフォリオ統計、財務比率、バリュエーション、市況判定、ファクター統計を決定論的に計算し、意思決定台帳も提供します。",
+     "whenToUse": "再現可能な数値計算や投資判断の記録が必要なとき。"
+    },
+    "es": {
+     "name": "Cálculo cuantitativo",
+     "summary": "Cálculos deterministas: indicadores técnicos, estadísticas de cartera, ratios financieros, valoración, régimen y factores, con registro de decisiones.",
+     "whenToUse": "Cuando necesitas cifras reproducibles o registrar decisiones de inversión."
+    },
+    "fr": {
+     "name": "Calcul quantitatif",
+     "summary": "Calculs déterministes : indicateurs techniques, statistiques de portefeuille, ratios financiers, valorisation, régime de marché et facteurs, avec registre de décisions.",
+     "whenToUse": "Pour des chiffres reproductibles ou consigner des décisions d'investissement."
+    }
+   },
+   "canonical": {
+    "brief": "Deterministic quant compute MCP: technical indicators, portfolio stats, fundamental ratios, valuation, regime detection, factor stats, decision ledger; no market data fetching."
+   }
+  },
+  "fd-cn-report": {
+   "human": {
+    "zh": {
+     "name": "上市公司报告",
+     "summary": "中国上市公司定期报告与公告的检索、正文读取与结构化字段提取。",
+     "whenToUse": "查某公司年报、公告原文或其中财务字段时。"
+    },
+    "en": {
+     "name": "Listed-company reports",
+     "summary": "Search, read, and extract structured fields from Chinese listed-company periodic reports and announcements.",
+     "whenToUse": "For annual reports, announcement text, or specific financial fields."
+    },
+    "ja": {
+     "name": "上場企業レポート",
+     "summary": "中国上場企業の定期報告書・公告を検索し、本文の読み取りと構造化項目の抽出を行います。",
+     "whenToUse": "年次報告書や公告の本文、特定の財務項目を確認するとき。"
+    },
+    "es": {
+     "name": "Informes de sociedades cotizadas",
+     "summary": "Búsqueda, lectura y extracción de campos estructurados de informes periódicos y anuncios de sociedades cotizadas chinas.",
+     "whenToUse": "Para informes anuales, texto de anuncios o campos financieros concretos."
+    },
+    "fr": {
+     "name": "Rapports de sociétés cotées",
+     "summary": "Recherche, lecture et extraction de champs structurés dans les rapports périodiques et annonces de sociétés cotées chinoises.",
+     "whenToUse": "Pour un rapport annuel, le texte d'une annonce ou un champ financier précis."
+    }
+   },
+   "canonical": {
+    "brief": "Chinese listed-company report MCP: search, fetch body text, and extract structured financial fields from periodic reports and announcements."
+   }
+  },
+  "fd-find-data-business-mcp": {
+   "human": {
+    "zh": {
+     "name": "商业数据检索",
+     "summary": "面向业务场景的检索面：法规、年报、裁判文书、城市与全球贸易数据，按主题取数与引用。",
+     "whenToUse": "做尽调、合规核对或城市与贸易数据查询时。"
+    },
+    "en": {
+     "name": "Business data search",
+     "summary": "Business-oriented retrieval across statutes, annual reports, judgments, city and global-trade data, with citations.",
+     "whenToUse": "For due diligence, compliance checks, or city and trade data."
+    },
+    "ja": {
+     "name": "ビジネスデータ検索",
+     "summary": "法令・年報・判決文・都市データ・国際貿易データを横断し、引用付きで取得する業務向け検索面です。",
+     "whenToUse": "デューデリジェンス、コンプライアンス確認、都市・貿易データの照会時。"
+    },
+    "es": {
+     "name": "Búsqueda de datos de negocio",
+     "summary": "Búsqueda orientada a negocio en normativa, informes anuales, sentencias, datos de ciudades y comercio global, con citas.",
+     "whenToUse": "Para diligencia debida, control de cumplimiento o datos de ciudades y comercio."
+    },
+    "fr": {
+     "name": "Recherche de données d'affaires",
+     "summary": "Recherche métier dans les textes légaux, rapports annuels, jugements, données urbaines et commerce mondial, avec citations.",
+     "whenToUse": "Pour une due diligence, un contrôle de conformité ou des données urbaines et commerciales."
+    }
+   },
+   "canonical": {
+    "brief": "Business retrieval MCP: statutes, annual reports, judgments, city and global-trade data with citations; grouped by domain, read-only."
+   }
+  },
+  "vaas-wanxing": {
+   "human": {
+    "zh": {
+     "name": "萬星生成",
+     "summary": "语音、图像、视频与封面的生成任务提交与状态查询，附资产库与模型音色目录。",
+     "whenToUse": "需要生成配音、配图、短视频或封面并取回产物时。"
+    },
+    "en": {
+     "name": "Wanxing generation",
+     "summary": "Submit and track voice, image, video, and cover generation jobs, with an asset store and model/voice catalogue.",
+     "whenToUse": "When you need narration, stills, short video, or covers and want the produced assets back."
+    },
+    "ja": {
+     "name": "萬星ジェネレーション",
+     "summary": "音声・画像・動画・カバーの生成ジョブを投入し、状態を確認。資産ストアとモデル・音声の一覧も提供します。",
+     "whenToUse": "ナレーション、画像、短尺動画、カバーを生成して成果物を受け取りたいとき。"
+    },
+    "es": {
+     "name": "Generación Wanxing",
+     "summary": "Envío y seguimiento de trabajos de voz, imagen, vídeo y portada, con almacén de activos y catálogo de modelos y voces.",
+     "whenToUse": "Cuando necesitas narración, imágenes, vídeo corto o portadas y quieres recuperar los activos."
+    },
+    "fr": {
+     "name": "Génération Wanxing",
+     "summary": "Soumission et suivi de tâches voix, image, vidéo et couverture, avec un magasin d'actifs et un catalogue de modèles et de voix.",
+     "whenToUse": "Pour produire une narration, des visuels, une vidéo courte ou une couverture et récupérer les actifs."
+    }
+   },
+   "canonical": {
+    "brief": "Wanxing generation MCP: submit/poll voice, image, video, cover jobs; asset store and model/voice listing. Jobs are asynchronous."
+   }
+  },
+  "fd-text-core": {
+   "human": {
+    "zh": {
+     "name": "文本引擎",
+     "summary": "论文、剧本、政务与新闻四类语料的检索与读取，另含时序知识图谱查询。",
+     "whenToUse": "做文献综述、剧本研究或政策文本检索时。"
+    },
+    "en": {
+     "name": "Text engine",
+     "summary": "Retrieval and reading across papers, screenplays, government documents, and news, plus temporal knowledge-graph queries.",
+     "whenToUse": "For literature review, screenplay research, or policy text retrieval."
+    },
+    "ja": {
+     "name": "テキストエンジン",
+     "summary": "論文・脚本・行政文書・ニュースの四領域を横断して検索・読解し、時系列ナレッジグラフの照会も行います。",
+     "whenToUse": "文献レビュー、脚本研究、政策文書の検索を行うとき。"
+    },
+    "es": {
+     "name": "Motor de texto",
+     "summary": "Búsqueda y lectura en artículos, guiones, documentos oficiales y noticias, más consultas a un grafo de conocimiento temporal.",
+     "whenToUse": "Para revisión bibliográfica, investigación de guiones o recuperación de textos de política."
+    },
+    "fr": {
+     "name": "Moteur de texte",
+     "summary": "Recherche et lecture dans les articles, scénarios, documents officiels et actualités, avec requêtes sur un graphe de connaissances temporel.",
+     "whenToUse": "Pour une revue de littérature, une étude de scénario ou une recherche de textes publics."
+    }
+   },
+   "canonical": {
+    "brief": "Text engine MCP: retrieval/read over papers, screenplays, government documents, news corpora; temporal KG queries."
+   }
+  },
+  "wire-ops-mcp": {
+   "human": {
+    "zh": {
+     "name": "柏讯客户操作",
+     "summary": "柏讯客户面的读取操作：数据浏览与查询、需求单查看、市场订阅查看，以及内容供给的三项检索。",
+     "whenToUse": "在柏讯里查数据、看需求单进度或浏览订阅内容时。"
+    },
+    "en": {
+     "name": "BaiXun customer operations",
+     "summary": "Read-side operations for BaiXun customers: data browsing and queries, request lookup, subscription listing, plus three content-supply lookups.",
+     "whenToUse": "When checking data, request progress, or subscribed content inside BaiXun."
+    },
+    "ja": {
+     "name": "柏訊カスタマー操作",
+     "summary": "柏訊の顧客向け読み取り操作：データ閲覧・照会、依頼の確認、購読一覧、コンテンツ供給の検索三项です。",
+     "whenToUse": "柏訊でデータ確認、依頼の進捗、購読コンテンツの閲覧をするとき。"
+    },
+    "es": {
+     "name": "Operaciones de cliente BaiXun",
+     "summary": "Operaciones de lectura para clientes BaiXun: navegación y consultas de datos, solicitudes, suscripciones y tres búsquedas de contenido.",
+     "whenToUse": "Para consultar datos, el estado de una solicitud o el contenido suscrito en BaiXun."
+    },
+    "fr": {
+     "name": "Opérations client BaiXun",
+     "summary": "Opérations de lecture pour les clients BaiXun : navigation et requêtes de données, demandes, abonnements et trois recherches de contenu.",
+     "whenToUse": "Pour consulter des données, l'avancement d'une demande ou le contenu souscrit dans BaiXun."
+    }
+   },
+   "canonical": {
+    "brief": "BaiXun customer read MCP: dataset browse/query/aggregate/row read, request list/get, market browse/subscribe/unsubscribe, content browse/search/claim-resolve."
+   }
+  },
+  "wire-build-mcp": {
+   "human": {
+    "zh": {
+     "name": "柏讯建造与治理",
+     "summary": "柏讯的写入面：建数据集、建表单与记录视图、产物状态迁移、行更正与导出，全部落草稿。",
+     "whenToUse": "需要新建数据集或表单、发布产物、更正数据行时。"
+    },
+    "en": {
+     "name": "BaiXun build & governance",
+     "summary": "Write-side for BaiXun: create datasets, forms and record views, move artifacts through states, correct rows, and export — all starting as drafts.",
+     "whenToUse": "When creating a dataset or form, publishing an artifact, or correcting rows."
+    },
+    "ja": {
+     "name": "柏訊ビルドとガバナンス",
+     "summary": "柏訊の書き込み面：データセット・フォーム・レコードビューの作成、成果物の状態遷移、行の訂正とエクスポート。すべて下書きから始まります。",
+     "whenToUse": "データセットやフォームの作成、成果物の公開、行の訂正を行うとき。"
+    },
+    "es": {
+     "name": "Construcción y gobierno BaiXun",
+     "summary": "Lado de escritura en BaiXun: crear conjuntos de datos, formularios y vistas, cambiar estados de artefactos, corregir filas y exportar, siempre desde borrador.",
+     "whenToUse": "Al crear un conjunto o formulario, publicar un artefacto o corregir filas."
+    },
+    "fr": {
+     "name": "Construction et gouvernance BaiXun",
+     "summary": "Côté écriture de BaiXun : créer jeux de données, formulaires et vues, faire évoluer les artefacts, corriger des lignes et exporter, toujours à partir d'un brouillon.",
+     "whenToUse": "Pour créer un jeu de données ou un formulaire, publier un artefact ou corriger des lignes."
+    }
+   },
+   "canonical": {
+    "brief": "BaiXun write/governance MCP: dataset_create, form/record-view create+update, publish/archive/restore, rows_read, correct, corrections_list, revert, export. Draft-first."
+   }
+  },
+  "fd-paper-trading": {
+   "human": {
+    "zh": {
+     "name": "模拟交易",
+     "summary": "纸面交易的账户、下单与持仓，配行情读取与策略回放，不涉及真实资金。",
+     "whenToUse": "验证交易策略或演练下单流程而不动真钱时。"
+    },
+    "en": {
+     "name": "Paper trading",
+     "summary": "Accounts, orders, and positions on paper, with market reads and strategy replay; no real money involved.",
+     "whenToUse": "To validate a strategy or rehearse order flow without real funds."
+    },
+    "ja": {
+     "name": "ペーパートレード",
+     "summary": "紙上での口座・注文・建玉に加え、市況の読み取りと戦略の再生を提供します。実際の資金は使いません。",
+     "whenToUse": "実資金を使わずに戦略を検証したり発注手順を練習するとき。"
+    },
+    "es": {
+     "name": "Trading simulado",
+     "summary": "Cuentas, órdenes y posiciones en papel, con lectura de mercado y repetición de estrategias; sin dinero real.",
+     "whenToUse": "Para validar una estrategia o ensayar el flujo de órdenes sin fondos reales."
+    },
+    "fr": {
+     "name": "Trading fictif",
+     "summary": "Comptes, ordres et positions sur papier, avec lecture de marché et rejeu de stratégies ; sans argent réel.",
+     "whenToUse": "Pour valider une stratégie ou répéter le passage d'ordres sans fonds réels."
+    }
+   },
+   "canonical": {
+    "brief": "Paper-trading MCP: accounts/orders/positions plus market reads and strategy replay; per-user auth, no real money."
+   }
+  },
+  "fd-sentiment": {
+   "human": {
+    "zh": {
+     "name": "文档情绪打分",
+     "summary": "对公告与新闻等文本做情绪强度与方向打分，支持批量任务与金标评测。",
+     "whenToUse": "需要把一批文本的情绪量化成可比较的分数时。"
+    },
+    "en": {
+     "name": "Document sentiment scoring",
+     "summary": "Score tone strength and direction in announcements and news, with batch jobs and gold-standard evaluation.",
+     "whenToUse": "When a batch of texts must become comparable sentiment scores."
+    },
+    "ja": {
+     "name": "文書センチメント採点",
+     "summary": "公告やニュースの文章について、感情の強さと方向を採点します。バッチ処理と正解データによる評価に対応します。",
+     "whenToUse": "大量の文章を比較可能な感情スコアに変換したいとき。"
+    },
+    "es": {
+     "name": "Puntuación de sentimiento",
+     "summary": "Puntúa intensidad y dirección del tono en anuncios y noticias, con trabajos por lotes y evaluación con patrón oro.",
+     "whenToUse": "Cuando un lote de textos debe convertirse en puntuaciones comparables."
+    },
+    "fr": {
+     "name": "Notation de sentiment",
+     "summary": "Note l'intensité et l'orientation du tonus dans les annonces et actualités, avec traitements par lots et évaluation sur corpus de référence.",
+     "whenToUse": "Lorsqu'un lot de textes doit devenir des scores comparables."
+    }
+   },
+   "canonical": {
+    "brief": "Sentiment scoring MCP: score direction/strength on announcement and news text; batch jobs, task status, retry, gold-set evaluation."
+   }
+  },
+  "fd-legal-search-mcp": {
+   "human": {
+    "zh": {
+     "name": "法律检索",
+     "summary": "法规、案例与指导案例的检索与读取，附文书库检索入口。",
+     "whenToUse": "找法条、找类案或查裁判观点时。"
+    },
+    "en": {
+     "name": "Legal search",
+     "summary": "Search and read statutes, cases, and guiding cases, with an entry to the judgment corpus.",
+     "whenToUse": "When locating a statute, similar cases, or a judicial view."
+    },
+    "ja": {
+     "name": "法令検索",
+     "summary": "法令・判例・指導性案例の検索と読解に加え、判決文コーパスへの入口を提供します。",
+     "whenToUse": "条文、類似判例、裁判所の判断を探すとき。"
+    },
+    "es": {
+     "name": "Búsqueda jurídica",
+     "summary": "Búsqueda y lectura de normativa, casos y casos guía, con acceso al corpus de sentencias.",
+     "whenToUse": "Para localizar una norma, casos similares o un criterio judicial."
+    },
+    "fr": {
+     "name": "Recherche juridique",
+     "summary": "Recherche et lecture de textes légaux, d'affaires et d'affaires de référence, avec accès au corpus de jugements.",
+     "whenToUse": "Pour trouver un texte, des affaires similaires ou une position judiciaire."
+    }
+   },
+   "canonical": {
+    "brief": "Legal search MCP: statutes, cases, guiding cases retrieval/read plus judgment corpus search and read."
+   }
+  },
+  "lex-ops-mcp": {
+   "human": {
+    "zh": {
+     "name": "识律账户与凭据",
+     "summary": "识律线的账户自查、用量与账单查询、配额，以及访问凭据的签发与吊销。",
+     "whenToUse": "查自己用了多少、还剩多少，或需要签发/吊销访问凭据时。"
+    },
+    "en": {
+     "name": "Lex account & credentials",
+     "summary": "Account self-check, usage and billing lookup, quota, and issuing or revoking access credentials for the Lex line.",
+     "whenToUse": "To check usage and remaining quota, or to mint or revoke an access credential."
+    },
+    "ja": {
+     "name": "識律アカウントと資格情報",
+     "summary": "識律ラインのアカウント確認、利用量と請求の照会、クォータ、およびアクセス資格情報の発行・失効を行います。",
+     "whenToUse": "利用量や残量の確認、アクセス資格情報の発行・失効が必要なとき。"
+    },
+    "es": {
+     "name": "Cuenta y credenciales Lex",
+     "summary": "Autoconsulta de cuenta, uso y facturación, cuota, y emisión o revocación de credenciales de acceso de la línea Lex.",
+     "whenToUse": "Para revisar uso y cuota restante, o emitir y revocar una credencial."
+    },
+    "fr": {
+     "name": "Compte et identifiants Lex",
+     "summary": "Auto-contrôle du compte, consultation de l'usage et de la facturation, quota, et émission ou révocation d'identifiants d'accès pour la ligne Lex.",
+     "whenToUse": "Pour vérifier l'usage et le quota restant, ou émettre et révoquer un identifiant."
+    }
+   },
+   "canonical": {
+    "brief": "Lex ops MCP: surface overview, account/usage/billing/quota reads, credential list/mint/revoke. Credential tools are internal-only, not part of the commercial surface."
+   }
+  },
+  "wanxing-ops-mcp": {
+   "human": {
+    "zh": {
+     "name": "萬星智能体操作",
+     "summary": "萬星智能体目录的浏览与名片读取，调用方管理、启停，以及发起一次对话回合。",
+     "whenToUse": "管理萬星上的智能体、查看谁能调用，或直接发起一次回合时。"
+    },
+    "en": {
+     "name": "Wanxing agent operations",
+     "summary": "Browse the Wanxing agent catalogue and read agent cards, manage callers, pause or resume agents, and start one dialogue turn.",
+     "whenToUse": "To manage Wanxing agents, see who may call them, or run a turn."
+    },
+    "ja": {
+     "name": "萬星エージェント操作",
+     "summary": "萬星のエージェント目録の閲覧とカード取得、呼び出し元の管理、停止・再開、1 回の対話ターンの実行を行います。",
+     "whenToUse": "萬星のエージェント管理、呼び出し権限の確認、ターンの実行を行うとき。"
+    },
+    "es": {
+     "name": "Operaciones de agentes Wanxing",
+     "summary": "Navegar el catálogo de agentes Wanxing y leer sus fichas, gestionar llamantes, pausar o reanudar agentes e iniciar un turno de diálogo.",
+     "whenToUse": "Para gestionar agentes de Wanxing, ver quién puede llamarlos o ejecutar un turno."
+    },
+    "fr": {
+     "name": "Opérations d'agents Wanxing",
+     "summary": "Parcourir le catalogue d'agents Wanxing et lire leurs fiches, gérer les appelants, suspendre ou reprendre un agent et lancer un tour de dialogue.",
+     "whenToUse": "Pour gérer des agents Wanxing, voir qui peut les appeler ou lancer un tour."
+    }
+   },
+   "canonical": {
+    "brief": "Wanxing ops MCP: agent catalogue browse/card, callers list/add/remove, pause/resume, and one dialogue turn. Dual credentials: platform token for management, caller key for turns."
+   }
+  },
+  "facet-ops-mcp": {
+   "human": {
+    "zh": {
+     "name": "谦面网关操作",
+     "summary": "谦面网关的运营面：目录浏览、智能体名片、技能与服务的检索与检查。",
+     "whenToUse": "在壹座或谦面里盘点供给目录、核对服务状态时。"
+    },
+    "en": {
+     "name": "Facet gateway operations",
+     "summary": "Operations view of the Facet gateway: catalogue browsing, agent cards, and skill/service lookup and checks.",
+     "whenToUse": "For auditing the supply catalogue or checking service status in Facet or the platform."
+    },
+    "ja": {
+     "name": "フェイスゲートウェイ操作",
+     "summary": "フェイスの運用面：カタログ閲覧、エージェントカード、スキルとサービスの検索・確認を行います。",
+     "whenToUse": "供給カタログの棚卸しやサービス状態の確認をするとき。"
+    },
+    "es": {
+     "name": "Operaciones de la pasarela Facet",
+     "summary": "Vista operativa de la pasarela Facet: navegación del catálogo, fichas de agentes y consulta de habilidades y servicios.",
+     "whenToUse": "Para auditar el catálogo de suministro o comprobar el estado de un servicio."
+    },
+    "fr": {
+     "name": "Opérations de la passerelle Facet",
+     "summary": "Vue d'exploitation de la passerelle Facet : navigation du catalogue, fiches d'agents, recherche et contrôle des compétences et services.",
+     "whenToUse": "Pour auditer le catalogue d'offre ou vérifier l'état d'un service."
+    }
+   },
+   "canonical": {
+    "brief": "Facet gateway ops MCP: catalogue browse, agent cards, skill/service lookup and health checks; user-delegated bearer."
+   }
+  },
+  "facet-market-mcp": {
+   "human": {
+    "zh": {
+     "name": "谦面市场",
+     "summary": "谦面 pack 市场的浏览、版本读取、发布、可见性调整与策展。",
+     "whenToUse": "要发布或管理一个 pack、或查它的版本与可见性时。"
+    },
+    "en": {
+     "name": "Facet market",
+     "summary": "Browse the Facet pack market, read versions, publish, change visibility, and curate.",
+     "whenToUse": "To publish or manage a pack, or check its versions and visibility."
+    },
+    "ja": {
+     "name": "フェイスマーケット",
+     "summary": "フェイスのパック市場を閲覧し、バージョン取得、公開、可視性の変更、キュレーションを行います。",
+     "whenToUse": "パックの公開・管理、バージョンや可視性の確認をするとき。"
+    },
+    "es": {
+     "name": "Mercado Facet",
+     "summary": "Navegar el mercado de packs Facet, leer versiones, publicar, cambiar visibilidad y curar.",
+     "whenToUse": "Para publicar o gestionar un pack, o revisar sus versiones y visibilidad."
+    },
+    "fr": {
+     "name": "Marché Facet",
+     "summary": "Parcourir le marché de packs Facet, lire les versions, publier, modifier la visibilité et curater.",
+     "whenToUse": "Pour publier ou gérer un pack, ou vérifier ses versions et sa visibilité."
+    }
+   },
+   "canonical": {
+    "brief": "Facet market MCP: pack browse/read/versions/publish/visibility/curation. Publish gate compares declared tools against the registry commercial list."
+   }
+  },
+  "fd-info": {
+   "human": {
+    "zh": {
+     "name": "信息流索引",
+     "summary": "公告、政务与互动平台的信息流索引：按时间取新、条目详情、全文检索与证据定位。",
+     "whenToUse": "盯某类信息的最新动态、或要定位原文出处时。"
+    },
+    "en": {
+     "name": "Info stream index",
+     "summary": "An index of announcements, government updates, and investor-interaction feeds: fetch new items, read details, search, and locate evidence.",
+     "whenToUse": "To watch for new items in a category or trace a claim back to its source."
+    },
+    "ja": {
+     "name": "情報ストリーム索引",
+     "summary": "公告・行政情報・投資家向け対話のフィードを索引化し、新着取得、詳細閲覧、全文検索、根拠の特定を提供します。",
+     "whenToUse": "特定カテゴリの新着を監視するとき、または記述の出所を特定するとき。"
+    },
+    "es": {
+     "name": "Índice de flujo informativo",
+     "summary": "Índice de anuncios, novedades oficiales e interacciones con inversores: novedades, detalle, búsqueda y localización de evidencia.",
+     "whenToUse": "Para vigilar novedades de una categoría o rastrear una afirmación hasta su fuente."
+    },
+    "fr": {
+     "name": "Index de flux d'information",
+     "summary": "Index des annonces, actualités officielles et échanges avec les investisseurs : nouveautés, détail, recherche et localisation de preuve.",
+     "whenToUse": "Pour surveiller les nouveautés d'une catégorie ou retrouver la source d'une affirmation."
+    }
+   },
+   "canonical": {
+    "brief": "Info-stream MCP: list_since/get_item/search_info/locate_evidence/stream_health over announcement, government, and interaction feeds."
+   }
+  },
+  "fd-zhengxin-reference": {
+   "human": {
+    "zh": {
+     "name": "政心参照系",
+     "summary": "政治学参照数据：国家治理指数的时序、意识形态与立场编码、关系查询与概念词条。",
+     "whenToUse": "做跨国治理比较、政党立场对照或概念溯源时。"
+    },
+    "en": {
+     "name": "Zhengxin reference",
+     "summary": "Political-science reference data: governance-index time series, ideology and position coding, relation queries, and concept entries.",
+     "whenToUse": "For cross-country governance comparison, party-position contrast, or concept provenance."
+    },
+    "ja": {
+     "name": "政心リファレンス",
+     "summary": "政治学の参照データ：ガバナンス指数の時系列、イデオロギーと立場の符号化、関係照会、概念項目を提供します。",
+     "whenToUse": "国家間のガバナンス比較、政党立場の対照、概念の由来確認を行うとき。"
+    },
+    "es": {
+     "name": "Referencia Zhengxin",
+     "summary": "Datos de referencia de ciencia política: series de índices de gobernanza, codificación de ideología y posición, consultas de relación y entradas conceptuales.",
+     "whenToUse": "Para comparar gobernanza entre países, contrastar posiciones de partidos o rastrear un concepto."
+    },
+    "fr": {
+     "name": "Référentiel Zhengxin",
+     "summary": "Données de référence en science politique : séries d'indices de gouvernance, codage des idéologies et positions, requêtes de relations et notices de concepts.",
+     "whenToUse": "Pour comparer la gouvernance entre pays, contraster des positions de partis ou retracer un concept."
+    }
+   },
+   "canonical": {
+    "brief": "Political-science reference MCP: governance-index time series (V-Dem), ideology/position coding (Wikidata/MARPOR), relation queries, concept lookup, source status."
+   }
+  },
+  "infra-telemetry": {
+   "human": {
+    "zh": {
+     "name": "基础设施遥测",
+     "summary": "只读遥测：GitOps 漂移、工作负载健康、服务存活、爬取汇总与成本，每项结果带数据时点。",
+     "whenToUse": "排障、核对部署状态或看成本分布时。"
+    },
+    "en": {
+     "name": "Infrastructure telemetry",
+     "summary": "Read-only telemetry: GitOps drift, workload health, service liveness, crawl summary, and cost, each with an as-of timestamp.",
+     "whenToUse": "For troubleshooting, checking deployment state, or reviewing cost breakdowns."
+    },
+    "ja": {
+     "name": "インフラテレメトリ",
+     "summary": "読み取り専用のテレメトリ：GitOps のドリフト、ワークロードの健全性、サービス稼働、クロール集計、コストを各時点付きで提供します。",
+     "whenToUse": "障害対応、デプロイ状態の確認、コスト内訳の確認をするとき。"
+    },
+    "es": {
+     "name": "Telemetría de infraestructura",
+     "summary": "Telemetría de solo lectura: deriva de GitOps, salud de cargas, disponibilidad de servicios, resumen de rastreo y coste, con marca temporal.",
+     "whenToUse": "Para diagnosticar, comprobar el estado del despliegue o revisar costes."
+    },
+    "fr": {
+     "name": "Télémétrie d'infrastructure",
+     "summary": "Télémétrie en lecture seule : dérive GitOps, santé des charges, disponibilité des services, résumé de collecte et coûts, avec horodatage.",
+     "whenToUse": "Pour diagnostiquer, vérifier l'état du déploiement ou analyser les coûts."
+    }
+   },
+   "canonical": {
+    "brief": "Read-only infra telemetry MCP: gitops drift, workload health, service liveness, crawl summary, cost. Every response carries as-of and per-channel status; no write surface."
+   }
+  },
+  "fd-health-config": {
+   "human": {
+    "zh": {
+     "name": "健康巡检配置",
+     "summary": "读取中央库健康巡检的总闸与限流配置，只读。",
+     "whenToUse": "核对巡检是否开启、限流阈值是多少时。"
+    },
+    "en": {
+     "name": "Health config",
+     "summary": "Read the central health-check master switch and rate-limit configuration; read-only.",
+     "whenToUse": "To confirm whether checks are enabled and what the rate limits are."
+    },
+    "ja": {
+     "name": "ヘルス設定",
+     "summary": "中央のヘルスチェックの主スイッチとレート制限設定を読み取ります。読み取り専用です。",
+     "whenToUse": "チェックの有効性やレート制限の値を確認するとき。"
+    },
+    "es": {
+     "name": "Configuración de salud",
+     "summary": "Lectura del interruptor principal de comprobaciones y de los límites de tasa; solo lectura.",
+     "whenToUse": "Para confirmar si las comprobaciones están activas y cuáles son los límites."
+    },
+    "fr": {
+     "name": "Configuration de santé",
+     "summary": "Lecture de l'interrupteur principal des contrôles de santé et des limites de débit ; lecture seule.",
+     "whenToUse": "Pour vérifier si les contrôles sont actifs et quelles sont les limites."
+    }
+   },
+   "canonical": {
+    "brief": "Read-only health/rate-limit configuration MCP: one tool returning the central health-check master switch and rate-limit settings."
+   }
+  },
+  "eco-mcp-fetch": {
+   "human": {
+    "zh": {
+     "name": "网页抓取（托管版）",
+     "summary": "托管在平台上的网页抓取：取回指定网址内容并转成可读文本。",
+     "whenToUse": "不想在本机装进程、直接把网页内容拉回来时。"
+    },
+    "en": {
+     "name": "Web fetch (hosted)",
+     "summary": "Hosted web fetch: retrieve a URL's content and convert it to readable text.",
+     "whenToUse": "When you want page content without installing anything locally."
+    },
+    "ja": {
+     "name": "ウェブ取得（ホスト版）",
+     "summary": "プラットフォーム上でホストされるウェブ取得：指定 URL の内容を取得し、読みやすいテキストに変換します。",
+     "whenToUse": "ローカルに何も入れずにページ内容を取得したいとき。"
+    },
+    "es": {
+     "name": "Captura web (alojada)",
+     "summary": "Captura web alojada: obtiene el contenido de una URL y lo convierte en texto legible.",
+     "whenToUse": "Cuando quieres el contenido de una página sin instalar nada localmente."
+    },
+    "fr": {
+     "name": "Capture web (hébergée)",
+     "summary": "Capture web hébergée : récupère le contenu d'une URL et le convertit en texte lisible.",
+     "whenToUse": "Pour obtenir le contenu d'une page sans rien installer localement."
+    }
+   },
+   "canonical": {
+    "brief": "Hosted web-fetch MCP (official reference implementation): fetch a URL and return readable text. Hosted variant; the bundled npx entry is the local variant."
+   }
+  },
+  "eco-mcp-time": {
+   "human": {
+    "zh": {
+     "name": "时间与时区（托管版）",
+     "summary": "托管在平台上的时间服务：取当前时间、做时区换算。",
+     "whenToUse": "不想在本机装进程、只需要算时间和时区时。"
+    },
+    "en": {
+     "name": "Time & timezone (hosted)",
+     "summary": "Hosted time service: current time and timezone conversion.",
+     "whenToUse": "When you only need time and timezone maths, with nothing installed locally."
+    },
+    "ja": {
+     "name": "時刻とタイムゾーン（ホスト版）",
+     "summary": "プラットフォーム上でホストされる時刻サービス：現在時刻の取得とタイムゾーン変換を行います。",
+     "whenToUse": "ローカルに何も入れず、時刻とタイムゾーンの計算だけが必要なとき。"
+    },
+    "es": {
+     "name": "Hora y zona horaria (alojada)",
+     "summary": "Servicio de hora alojado: hora actual y conversión de zonas horarias.",
+     "whenToUse": "Cuando solo necesitas cálculos de hora y zona, sin instalar nada."
+    },
+    "fr": {
+     "name": "Heure et fuseau (hébergé)",
+     "summary": "Service d'heure hébergé : heure courante et conversion de fuseaux horaires.",
+     "whenToUse": "Pour des calculs d'heure et de fuseau uniquement, sans installation locale."
+    }
+   },
+   "canonical": {
+    "brief": "Hosted time MCP (official reference implementation): current time and timezone conversion. Hosted variant; the bundled npx entry is the local variant."
+   }
+  },
+  "fd-erp-ledger-mcp": {
+   "human": {
+    "zh": {
+     "name": "ERP 账本内核",
+     "summary": "复式记账 MCP 内核：写路径只出 proposal，确认门才入账；借贷必平由数据库约束强制，余额由分录重算；对账为只读滩头，产出四类差异清单。",
+     "whenToUse": "需要把外部经营事实落成可复核的复式分录、查询余额，或对两源流水做只读对账时。"
+    },
+    "en": {
+     "name": "ERP Ledger Kernel",
+     "summary": "Double-entry ledger MCP: input creates proposals, a confirm gate posts balanced lines; balances recomputed from entries; reconciliation is read-only over two streams with a four-class diff list.",
+     "whenToUse": "When you need auditable double-entry records, balance queries, or read-only reconciliation of two source streams."
+    },
+    "ja": {
+     "name": "ERP 帳簿カーネル",
+     "summary": "複式簿記 MCP カーネル。入力は提案のみ、確認ゲートが貸借均衡の仕訳を計上。残高は仕訳から再計算し、照合は二源流水の読み取り専用の突合です。",
+     "whenToUse": "外部の取引事実を監査可能な複式仕訳として扱い、残高を照会、あるいは二源流水を読み取り専用で突合したいとき。"
+    },
+    "es": {
+     "name": "Núcleo contable ERP",
+     "summary": "Kernel MCP de partida doble: propuestas, confirmación de asientos equilibrados, saldos recalculados de asientos; conciliación en solo lectura de dos flujos con diferencias de cuatro clases.",
+     "whenToUse": "Cuando necesitas asientos de partida doble auditables, consultar saldos o conciliar dos flujos en solo lectura."
+    },
+    "fr": {
+     "name": "Noyau de comptabilité ERP",
+     "summary": "Noyau MCP de partie double : entrée par propositions, confirmation des écritures équilibrées, soldes recalculés des écritures ; rapprochement en lecture seule de deux flux, écarts de quatre classes.",
+     "whenToUse": "Quand il faut des écritures de partie double auditables, consulter des soldes ou rapprocher deux flux en lecture seule."
+    }
+   },
+   "canonical": {
+    "brief": "Double-entry ledger MCP: proposal-only input; a confirm gate posts balanced lines (DB-enforced); balances recomputed from entries; read-only two-source reconciliation with a four-class diff list; sourced FX, tenant isolation, BYOK via env. No direct posting, funds execution or invoicing."
+   }
+  },
+  "edu-catalog": {
+   "human": {
+    "zh": {
+     "name": "教育目录",
+     "summary": "启材线教育目录的查询与订阅：跨论文、播客、课程检索，条目详情与许可层概况，以及订阅盯梢；空结果与通道故障严格区分。",
+     "whenToUse": "需要盘点教育目录增量、核对各通道源健康，或调整订阅盯梢范围时。"
+    },
+    "en": {
+     "name": "Education catalog",
+     "summary": "Search and subscribe across the education catalog: papers, podcasts and courses, plus item detail, licence-layer overview and subscription watch; empty results differ from channel failures.",
+     "whenToUse": "When auditing catalog increments, checking per-channel source health, or changing what the watch subscription covers."
+    },
+    "ja": {
+     "name": "教育カタログ",
+     "summary": "教育カタログの検索と購読：論文・ポッドキャスト・講座を横断検索し、項目詳細・ライセンス層の概況・購読の見張りを提供します。空結果と経路障害は厳密に区別します。",
+     "whenToUse": "カタログの増分を棚卸しするとき、経路ごとの情報源の健全性を確認するとき、購読の見張り範囲を変えるとき。"
+    },
+    "es": {
+     "name": "Catálogo educativo",
+     "summary": "Consulta y suscripción del catálogo educativo: búsqueda en artículos, pódcast y cursos, detalle, panorama de licencias y vigilancia de suscripciones; vacío y fallo de canal se distinguen.",
+     "whenToUse": "Al auditar incrementos del catálogo, revisar la salud de cada canal o cambiar el alcance de la suscripción."
+    },
+    "fr": {
+     "name": "Catalogue éducatif",
+     "summary": "Consultation et abonnement du catalogue éducatif : recherche sur articles, podcasts et cours, détail, panorama des licences et veille des abonnements ; vide et panne se distinguent.",
+     "whenToUse": "Pour auditer les incréments du catalogue, vérifier la santé de chaque canal ou modifier la portée d'un abonnement."
+    }
+   },
+   "canonical": {
+    "brief": "Education catalogue MCP: cross-source search over papers, podcasts and courses, item detail, licence-layer overview and subscription watch; only the two subscription tools write, and empty results are reported distinctly from channel failures."
+   }
+  }
+ }
+}

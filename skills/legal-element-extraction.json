@@ -1,0 +1,32 @@
+{
+  "skill": "legal-element-extraction",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "法律要素提取",
+        "summary": "从案件描述、当事人陈述、聊天记录、媒体报道等非结构化文本中提取具法律意义的事实，区分客观事实、主观判断与法律评价，把事实对应到特定法律关系的构成要件，并可整理案件时间轴。"
+      },
+      "en": {
+        "name": "Legal element extraction",
+        "summary": "Extracts legally meaningful facts from narratives, statements, chats or reports; separates objective facts, subjective judgment and legal evaluation; maps them to the elements of a legal relationship."
+      },
+      "ja": {
+        "name": "法律要素の抽出",
+        "summary": "案件説明・当事者陳述・チャット・報道などの非構造化テキストから法的意義のある事実を抽出し、客観的事実・主観的判断・法的評価を分け、法律関係の構成要件に割り当てる。"
+      },
+      "es": {
+        "name": "Extracción de elementos jurídicos",
+        "summary": "Extrae hechos jurídicamente relevantes de narraciones, declaraciones o prensa, distingue hecho objetivo, juicio subjetivo y valoración jurídica, y los asigna a los elementos de la relación jurídica."
+      },
+      "fr": {
+        "name": "Extraction d'éléments juridiques",
+        "summary": "Extrait les faits juridiquement pertinents de récits, déclarations ou articles, distingue fait objectif, jugement subjectif et qualification, et les rattache aux éléments de la relation juridique."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

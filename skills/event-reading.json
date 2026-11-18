@@ -1,0 +1,32 @@
+{
+  "skill": "event-reading",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "事件解读",
+        "summary": "柏讯事件驱动的事件解读：读公告正文（get_filing），抽取金额、比例、期限、主体、生效条件五类要素，把结论分成正文要素直接支撑（明确）与需看条件两栏，每条结论引用原文并给出公告标识。硬约束：未读正文不下结论，标题与分类只是检索入口；不做涨跌预测，不给买卖建议。"
+      },
+      "en": {
+        "name": "Event reading",
+        "summary": "Reads filing text (get_filing): extracts amount, ratio, term, parties and conditions, splits conclusions into text-supported vs conditional with source quotes; no reading, no conclusion; no advice."
+      },
+      "ja": {
+        "name": "イベント解説",
+        "summary": "公告本文（get_filing）を読み、金額・比率・期限・主体・発効条件の五要素を抽出し、結論を「本文が直接支える（明確）」と「条件要看」の二欄に分ける。各結論は原文引用と公告ID付き。本文を読まないと結論なし。騰落予測・売買助言はしない。"
+      },
+      "es": {
+        "name": "Interpretación de eventos",
+        "summary": "Lee el anuncio (get_filing): extrae importe, proporción, plazo, partes y condiciones; conclusiones textuales o condicionales con cita e ID; sin lectura no hay conclusión; sin predicciones ni consejos."
+      },
+      "fr": {
+        "name": "Lecture commentée d'événements",
+        "summary": "Lit l'annonce (get_filing) : montant, proportion, durée, parties, conditions d'effet ; conclusions textuelles ou conditionnelles avec citation et ID ; sans lecture, pas de conclusion ; sans conseils."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "macro-cycle-analysis",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "宏观周期分析",
+        "summary": "宏观周期与景气分析:判断周期位置(复苏/过热/滞胀/衰退),六域景气扫描(增长、通胀、货币信用、财政、外贸、地产消费),领先-同步-滞后指标分层与拐点识别,梳理宏观变量到业务问题的传导链,做省际补充与国际对比;走柏讯服务端宏观数据,不含收益率曲线与互换分析。"
+      },
+      "en": {
+        "name": "Macro cycle analysis",
+        "summary": "Places the cycle (recovery, overheating, stagflation, recession), scans six domains, tiers leading/lagging indicators, spots turns, maps transmission chains; Wire macro data, no curves/swaps."
+      },
+      "ja": {
+        "name": "マクロ景気循環分析",
+        "summary": "景気循環の位置判断(回復・過熱・スタグフレーション・後退)、六領域の景況スキャン、先行・同期・遅行指標の階層化、転換点識別、伝導連鎖の整理、省際・国際比較。Wireマクロデータを使用し、利回り曲線・スワップ分析は含まない。"
+      },
+      "es": {
+        "name": "Análisis de ciclos macro",
+        "summary": "Sitúa el ciclo (recuperación, recalentamiento, estanflación, recesión), escanea seis dominios, estratifica indicadores, detecta giros y cadenas de transmisión con datos Wire; sin tipos ni swaps."
+      },
+      "fr": {
+        "name": "Analyse des cycles macroéconomiques",
+        "summary": "Situe le cycle (reprise, surchauffe, stagflation, récession), balaie six domaines, stratifie les indicateurs, retrace les chaînes de transmission via Wire ; hors courbe des taux et swaps."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

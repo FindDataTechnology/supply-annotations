@@ -1,0 +1,517 @@
+{
+ "tools": {
+  "submit_proposal": {
+   "human": {
+    "zh": {
+     "name": "提交拟入账事件",
+     "summary": "提交一条拟入账事件（proposal），仅入 proposals 表、不直接改变账本；同 stable_id 重复提交返回首次结果。"
+    },
+    "en": {
+     "name": "Submit proposal",
+     "summary": "Creates a proposals row only, never posting to the journal; a repeat with the same stable_id returns the original result."
+    },
+    "ja": {
+     "name": "提案を提出",
+     "summary": "proposals 行のみを作成し、仕訳には計上しません。同一 stable_id の再提出は初回の結果を返します。"
+    },
+    "es": {
+     "name": "Enviar propuesta",
+     "summary": "Crea solo una fila de proposals, sin asentar en el diario; repetir con el mismo stable_id devuelve el primer resultado."
+    },
+    "fr": {
+     "name": "Soumettre une proposition",
+     "summary": "Crée uniquement une ligne de proposals, sans enregistrer d'écriture ; un même stable_id renvoie le premier résultat."
+    }
+   },
+   "canonical": {
+    "brief": "submit_proposal: WRITE — inserts one proposals row keyed by stable_id (unique index), never posts journal lines; a duplicate stable_id returns the original result. Idempotent by stable_id; no bypass of the confirm gate."
+   }
+  },
+  "list_proposals": {
+   "human": {
+    "zh": {
+     "name": "查询提案列表",
+     "summary": "分页查询本租户的 proposal 列表及状态（待确认/已确认/已拒绝）。"
+    },
+    "en": {
+     "name": "List proposals",
+     "summary": "Paged read of the tenant's proposals and their status (pending, confirmed, rejected)."
+    },
+    "ja": {
+     "name": "提案一覧を照会",
+     "summary": "自テナントの proposal 一覧と状態（未確認・確認済み・拒否）をページングで照会します。"
+    },
+    "es": {
+     "name": "Listar propuestas",
+     "summary": "Lectura paginada de las propuestas del inquilino y su estado (pendiente, confirmada, rechazada)."
+    },
+    "fr": {
+     "name": "Lister les propositions",
+     "summary": "Lecture paginée des propositions du locataire et de leur état (en attente, confirmée, refusée)."
+    }
+   },
+   "canonical": {
+    "brief": "list_proposals: READ — paged list of the tenant's proposals with status (pending / confirmed / rejected), tenant-isolated; each response carries a rows_returned stamp."
+   }
+  },
+  "confirm_proposal": {
+   "human": {
+    "zh": {
+     "name": "确认入账",
+     "summary": "确认门——确认后按复式分录入账；借贷必平由数据库约束强制，不平则整笔拒绝。"
+    },
+    "en": {
+     "name": "Confirm proposal",
+     "summary": "The confirm gate: posts balanced double-sided journal lines; a database constraint enforces debit-credit balance and rejects the whole entry when unbalanced."
+    },
+    "ja": {
+     "name": "提案を確認して計上",
+     "summary": "確認ゲート。確認後に複式仕訳を計上し、貸借均衡はデータベース制約が強制し、不均衡なら全体を拒否します。"
+    },
+    "es": {
+     "name": "Confirmar propuesta",
+     "summary": "Puerta de confirmación: asienta líneas de diario por partida doble equilibradas; la restricción de base de datos exige el balance y rechaza el asiento completo si no cuadra."
+    },
+    "fr": {
+     "name": "Confirmer la proposition",
+     "summary": "Porte de confirmation : enregistre des écritures équilibrées en partie double ; la contrainte de base de données impose l'équilibre et rejette l'écriture entière sinon."
+    }
+   },
+   "canonical": {
+    "brief": "confirm_proposal: WRITE — the posting gate. On confirm it posts balanced double-sided journal entries (DB trigger enforces balance, append-only); an unbalanced entry is rejected wholesale. No other path posts to the journal."
+   }
+  },
+  "reject_proposal": {
+   "human": {
+    "zh": {
+     "name": "拒绝提案",
+     "summary": "拒绝 proposal，留审计痕迹且不入账。"
+    },
+    "en": {
+     "name": "Reject proposal",
+     "summary": "Rejects a proposal with an audit trail; no journal lines are posted and the ledger state is unchanged."
+    },
+    "ja": {
+     "name": "提案を拒否",
+     "summary": "proposal を拒否し、監査痕跡を残して仕訳には計上しません。"
+    },
+    "es": {
+     "name": "Rechazar propuesta",
+     "summary": "Rechaza una propuesta con huella de auditoría; no asienta líneas en el diario."
+    },
+    "fr": {
+     "name": "Rejeter la proposition",
+     "summary": "Rejette une proposition avec une trace d'audit ; aucune écriture n'est enregistrée."
+    }
+   },
+   "canonical": {
+    "brief": "reject_proposal: WRITE — rejects a proposal and records an audit trail; no journal posting, ledger state unchanged. Rejected proposals stay queryable via list_proposals."
+   }
+  },
+  "query_balance": {
+   "human": {
+    "zh": {
+     "name": "查询余额",
+     "summary": "按科目/币种查询余额；余额由全部分录确定性重算，不设独立余额字段。"
+    },
+    "en": {
+     "name": "Query balance",
+     "summary": "Returns balances per account and currency, recomputed from journal entries; no stored balance column."
+    },
+    "ja": {
+     "name": "残高を照会",
+     "summary": "科目・通貨別の残高を照会。残高は全仕訳から決定的に再計算され、独立した残高列はありません。"
+    },
+    "es": {
+     "name": "Consultar saldo",
+     "summary": "Devuelve saldos por cuenta y moneda, recalculados desde los asientos; sin columna de saldo almacenada."
+    },
+    "fr": {
+     "name": "Consulter le solde",
+     "summary": "Renvoie les soldes par compte et devise, recalculés depuis les écritures ; aucune colonne de solde stockée."
+    }
+   },
+   "canonical": {
+    "brief": "query_balance: READ — balances by account and currency, deterministically recomputed from journal_entries (no stored balance field); tenant-isolated; rows_returned stamp included."
+   }
+  },
+  "query_entries": {
+   "human": {
+    "zh": {
+     "name": "查询已入账分录",
+     "summary": "分页查询已入账分录（含原币/折算、出处、来源引用、时间戳、冲正关联）。"
+    },
+    "en": {
+     "name": "Query journal lines",
+     "summary": "Paged read of posted journal lines with original and converted amounts, FX provenance, source references, timestamps and reversal links."
+    },
+    "ja": {
+     "name": "仕訳を照会",
+     "summary": "計上済み仕訳をページングで照会（原貨・換算、出所、参照、タイムスタンプ、沖正関連を含みます）。"
+    },
+    "es": {
+     "name": "Consultar asientos",
+     "summary": "Lectura paginada de asientos contabilizados (importe original y convertido, procedencia del FX, referencias, marcas de tiempo y vínculos de reversión)."
+    },
+    "fr": {
+     "name": "Consulter les écritures",
+     "summary": "Lecture paginée des écritures comptabilisées (montant original et converti, provenance du FX, références, horodatages et liens de contre-écriture)."
+    }
+   },
+   "canonical": {
+    "brief": "query_entries: READ — paged posted journal lines carrying original currency, converted base-currency amount with FX rate / as_of / source, provenance, timestamps and reversal links; rows_returned stamp included."
+   }
+  },
+  "run_reconciliation": {
+   "human": {
+    "zh": {
+     "name": "运行两源对账",
+     "summary": "运行两源流水对账（只读滩头），立即返回 task_id；对外部系统保持只读、不作数据改动。"
+    },
+    "en": {
+     "name": "Run reconciliation",
+     "summary": "Aligns two source streams in a read-only pass, returns a task_id immediately; no changes to external systems."
+    },
+    "ja": {
+     "name": "二源を突合",
+     "summary": "二源流水を読み取り専用で突合し、ただちに task_id を返します。外部システムは読み取り専用です。"
+    },
+    "es": {
+     "name": "Ejecutar conciliación",
+     "summary": "Alinea dos flujos en modo de solo lectura y devuelve un task_id al instante; sin cambios en sistemas externos."
+    },
+    "fr": {
+     "name": "Lancer le rapprochement",
+     "summary": "Aligne deux flux en lecture seule et renvoie un task_id immédiatement ; sans changement sur les systèmes externes."
+    }
+   },
+   "canonical": {
+    "brief": "run_reconciliation: LONG-RUNNING read-only pass over two source streams; returns task_id immediately, zero changes to external systems; status and progress queryable via get_recon_report."
+   }
+  },
+  "get_recon_report": {
+   "human": {
+    "zh": {
+     "name": "查询对账报告",
+     "summary": "按 task_id 查询对账任务状态、进度与差异清单（四类差异，双侧原始引用）。"
+    },
+    "en": {
+     "name": "Get reconciliation report",
+     "summary": "Returns reconciliation status, progress and the four-class diff list (missing, extra, amount mismatch, status mismatch) with both-side source references, by task_id."
+    },
+    "ja": {
+     "name": "照合レポートを照会",
+     "summary": "task_id で照合タスクの状態・進捗・差異一覧（四類の差異、両側の原始参照）を照会します。"
+    },
+    "es": {
+     "name": "Obtener informe de conciliación",
+     "summary": "Devuelve por task_id el estado, el progreso y la lista de diferencias de cuatro clases (faltante, sobrante, importe, estado) con referencias de ambos lados."
+    },
+    "fr": {
+     "name": "Obtenir le rapport de rapprochement",
+     "summary": "Renvoie par task_id l'état, la progression et la liste d'écarts de quatre classes (manquant, excédent, montant, état) avec les références des deux côtés."
+    }
+   },
+   "canonical": {
+    "brief": "get_recon_report: READ — status, progress and result plus the four-class diff list (missing / extra / amount mismatch / status mismatch), each item with both-side source references; by task_id, rows_returned stamp included."
+   }
+  },
+  "submit_billing_rule": {
+   "human": {
+    "zh": {
+     "name": "提交计费规则",
+     "summary": "提交计费规则新版本（待审批），费率须带出处；与既有规则重叠冲突或覆盖缺失会被检测拦截。"
+    },
+    "en": {
+     "name": "Submit billing rule",
+     "summary": "Creates a new billing rule version pending approval; rates must carry a source, conflicts and coverage gaps are detected."
+    },
+    "ja": {
+     "name": "計費ルールを提出",
+     "summary": "承認待ちの計費ルール新版を作成します。料率には出所が必須で、重複や漏れは検出されます。"
+    },
+    "es": {
+     "name": "Enviar regla de facturación",
+     "summary": "Crea una nueva versión de regla de facturación pendiente de aprobación; las tarifas deben indicar su fuente."
+    },
+    "fr": {
+     "name": "Soumettre une règle de facturation",
+     "summary": "Crée une nouvelle version de règle en attente d'approbation ; les tarifs doivent indiquer leur source."
+    }
+   },
+   "canonical": {
+    "brief": "submit_billing_rule: WRITE (confirmation lane) — creates a new billing rule version (pending_approval) with rate_source mandatory; overlap/conflict and coverage-gap detection blocks activation."
+   }
+  },
+  "approve_billing_rule": {
+   "human": {
+    "zh": {
+     "name": "审批计费规则",
+     "summary": "确认门：把待审批的计费规则版本激活生效；冲突未处置则拒绝上线。"
+    },
+    "en": {
+     "name": "Approve billing rule",
+     "summary": "Confirm gate: activates a pending billing rule version; blocked until conflicts are resolved."
+    },
+    "ja": {
+     "name": "計費ルールを承認",
+     "summary": "確認ゲート：承認待ちの計費ルール版を有効化します。未解決の競合は拒否します。"
+    },
+    "es": {
+     "name": "Aprobar regla de facturación",
+     "summary": "Puerta de confirmación: activa la versión pendiente; bloqueada si hay conflictos."
+    },
+    "fr": {
+     "name": "Approuver une règle de facturation",
+     "summary": "Porte de confirmation : active la version en attente ; bloquée en cas de conflit."
+    }
+   },
+   "canonical": {
+    "brief": "approve_billing_rule: WRITE (confirm gate) — activates a pending billing rule version; refused while conflicts or coverage gaps remain unresolved."
+   }
+  },
+  "list_billing_rules": {
+   "human": {
+    "zh": {
+     "name": "查询计费规则",
+     "summary": "分页查询计费规则版本与状态（待审批/生效/退役）。"
+    },
+    "en": {
+     "name": "List billing rules",
+     "summary": "Paginated list of billing rule versions and statuses."
+    },
+    "ja": {
+     "name": "計費ルール一覧",
+     "summary": "計費ルールの版と状態をページング照会します。"
+    },
+    "es": {
+     "name": "Listar reglas de facturación",
+     "summary": "Lista paginada de versiones y estados de reglas."
+    },
+    "fr": {
+     "name": "Lister les règles de facturation",
+     "summary": "Liste paginée des versions et statuts de règles."
+    }
+   },
+   "canonical": {
+    "brief": "list_billing_rules: READ — paginated billing rule versions with status (pending_approval/active/retired) and effective windows."
+   }
+  },
+  "bill_event": {
+   "human": {
+    "zh": {
+     "name": "业务事件计费",
+     "summary": "业务事件实时计费生成费用明细：锁定规则版本与基础数据快照，同 stable_id 重推幂等不重不漏，无出处费率拒绝。"
+    },
+    "en": {
+     "name": "Bill an event",
+     "summary": "Prices a business event in real time against the active rule snapshot; idempotent by stable_id, unsourced rates rejected."
+    },
+    "ja": {
+     "name": "業務イベントの計費",
+     "summary": "業務イベントを即時計費します。stable_id 冪等、出所のない料率は拒否。"
+    },
+    "es": {
+     "name": "Facturar un evento",
+     "summary": "Factura un evento en tiempo real; idempotente por stable_id, tarifas sin fuente rechazadas."
+    },
+    "fr": {
+     "name": "Facturer un événement",
+     "summary": "Facture un événement en temps réel ; idempotent par stable_id, tarifs sans source refusés."
+    }
+   },
+   "canonical": {
+    "brief": "bill_event: WRITE (billing) — prices a business event against the active rule snapshot (rule version + base data locked); idempotent by stable_id, unsourced rates refused; never posts journal lines directly."
+   }
+  },
+  "list_fees": {
+   "human": {
+    "zh": {
+     "name": "查询费用明细",
+     "summary": "分页查询已生成的费用明细（含状态与红冲关联）。"
+    },
+    "en": {
+     "name": "List fees",
+     "summary": "Paginated fee details with status and reversal links."
+    },
+    "ja": {
+     "name": "費用明細一覧",
+     "summary": "生成済みの費用明細をページング照会します。"
+    },
+    "es": {
+     "name": "Listar detalles de cobro",
+     "summary": "Lista paginada de detalles de cobro con enlaces de reversión."
+    },
+    "fr": {
+     "name": "Lister les frais",
+     "summary": "Détails de frais paginés avec liens de contrepassation."
+    }
+   },
+   "canonical": {
+    "brief": "list_fees: READ — paginated fee details with status (normal/reversed) and reversal links."
+   }
+  },
+  "get_fee_detail": {
+   "human": {
+    "zh": {
+     "name": "费用四层溯源",
+     "summary": "查询单条费用明细：费用项→业务单据→作业事件→计费规则版本四层穿透溯源，含红冲关联。"
+    },
+    "en": {
+     "name": "Fee detail traceability",
+     "summary": "Single fee detail with four-level traceability (fee item → document → event → rule version) and reversal links."
+    },
+    "ja": {
+     "name": "費用トレーサビリティ",
+     "summary": "費用項目→伝票→イベント→ルール版の四層トレースと赤冲関連を返します。"
+    },
+    "es": {
+     "name": "Trazabilidad de cobro",
+     "summary": "Detalle con trazabilidad de cuatro niveles y reversiones."
+    },
+    "fr": {
+     "name": "Traçabilité des frais",
+     "summary": "Détail avec traçabilité à quatre niveaux et contrepassations."
+    }
+   },
+   "canonical": {
+    "brief": "get_fee_detail: READ — one fee detail with four-level traceability (fee item, document, event, rule version) plus reversal links."
+   }
+  },
+  "reverse_fee": {
+   "human": {
+    "zh": {
+     "name": "费用红冲",
+     "summary": "对已生成费用做红冲：生成反向明细并关联原明细，原明细不可改不可删（append-only）。"
+    },
+    "en": {
+     "name": "Reverse a fee",
+     "summary": "Reverses a generated fee with a linked reversal row; the original row is immutable (append-only)."
+    },
+    "ja": {
+     "name": "費用を赤冲",
+     "summary": "生成済み費用を赤冲します。原明細は変更不可（append-only）。"
+    },
+    "es": {
+     "name": "Revertir un cobro",
+     "summary": "Revierte un cobro con fila vinculada; la original es inmutable."
+    },
+    "fr": {
+     "name": "Contrepasser des frais",
+     "summary": "Contrepassation liée ; la ligne d'origine est immuable."
+    }
+   },
+   "canonical": {
+    "brief": "reverse_fee: WRITE (confirmation lane) — creates a linked reversal fee row; the original row stays immutable (append-only); journal correction goes through the confirm gate."
+   }
+  },
+  "simulate_billing": {
+   "human": {
+    "zh": {
+     "name": "计费试算",
+     "summary": "规则上线前按历史事件集模拟试算并对比新旧规则费用差异。"
+    },
+    "en": {
+     "name": "Simulate billing",
+     "summary": "Replays historical events under a draft rule to compare fee differences before go-live."
+    },
+    "ja": {
+     "name": "計費シミュレーション",
+     "summary": "稼働前に過去イベントで試算し、新旧ルールの差異を比較します。"
+    },
+    "es": {
+     "name": "Simular facturación",
+     "summary": "Repite eventos históricos para comparar diferencias antes de activar."
+    },
+    "fr": {
+     "name": "Simuler la facturation",
+     "summary": "Rejoue des événements historiques pour comparer avant mise en ligne."
+    }
+   },
+   "canonical": {
+    "brief": "simulate_billing: READ (dry-run) — replays a historical event set under a draft rule config and reports fee differences versus the active rule."
+   }
+  },
+  "reserve_credit": {
+   "human": {
+    "zh": {
+     "name": "占用信用额度",
+     "summary": "订单确认时占用客户信用额度：同 stable_id 幂等；额度不足拒绝并给明细解释。占用为备忘口径，不写复式分录。"
+    },
+    "en": {
+     "name": "Reserve credit",
+     "summary": "Reserves the customer's credit line on order confirmation; idempotent, insufficient credit is rejected with a breakdown. Memo-track only, no journal lines."
+    },
+    "ja": {
+     "name": "信用枠を予約",
+     "summary": "注文確認時に顧客の与信枠を予約します。冪等、不足時は明細付きで拒否。"
+    },
+    "es": {
+     "name": "Reservar crédito",
+     "summary": "Reserva la línea de crédito del cliente; idempotente, rechazo con desglose."
+    },
+    "fr": {
+     "name": "Réserver le crédit",
+     "summary": "Réserve la ligne de crédit du client ; idempotent, refus avec détail."
+    }
+   },
+   "canonical": {
+    "brief": "reserve_credit: WRITE — reserves customer credit by stable_id (idempotent); refuses with CREDIT_EXCEEDED and a breakdown when insufficient; memo-tracking only, never journal lines."
+   }
+  },
+  "release_credit": {
+   "human": {
+    "zh": {
+     "name": "释放信用额度",
+     "summary": "取消/回款后释放已占用的信用额度，回冲可追溯。"
+    },
+    "en": {
+     "name": "Release credit",
+     "summary": "Releases a previously reserved credit amount after cancellation or payment; fully traceable."
+    },
+    "ja": {
+     "name": "信用枠を解放",
+     "summary": "取消・入金後に予約済みの与信枠を解放します。"
+    },
+    "es": {
+     "name": "Liberar crédito",
+     "summary": "Libera el crédito reservado tras cancelación o pago."
+    },
+    "fr": {
+     "name": "Libérer le crédit",
+     "summary": "Libère le crédit réservé après annulation ou paiement."
+    }
+   },
+   "canonical": {
+    "brief": "release_credit: WRITE — releases a reserved credit amount by stable_id after cancellation or settlement; fully traceable."
+   }
+  },
+  "query_credit": {
+   "human": {
+    "zh": {
+     "name": "查询信用额度",
+     "summary": "客户信用口径查询：额度上限、应收余额（账本重算）、已占用、可用额度。"
+    },
+    "en": {
+     "name": "Query credit",
+     "summary": "Customer credit position: limit, AR balance (recomputed from the journal), reserved, and available."
+    },
+    "ja": {
+     "name": "与信照会",
+     "summary": "限度額・売掛残高（仕訳再計算）・予約済み・利用可能を照会します。"
+    },
+    "es": {
+     "name": "Consultar crédito",
+     "summary": "Posición crediticia: límite, saldo AR, reservado y disponible."
+    },
+    "fr": {
+     "name": "Consulter le crédit",
+     "summary": "Position crédit : limite, solde AR, réservé et disponible."
+    }
+   },
+   "canonical": {
+    "brief": "query_credit: READ — customer credit position: limit, AR balance recomputed from journal entries, reserved, available."
+   }
+  }
+ }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "structured-element-extraction",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "结构化要素提取",
+        "summary": "对法律问题、案件事实、条文或法律关系进行系统性分析前，先将其分解为结构化要素清单，作为法律推理、法律适用、法律建议等下游任务之前的前置质量关卡。"
+      },
+      "en": {
+        "name": "Legal element extraction",
+        "summary": "Decomposes a legal question, case facts, statute or legal relation into a structured element checklist before analysis, serving as the quality gate in front of reasoning, application or advice tasks."
+      },
+      "ja": {
+        "name": "構造化要素抽出",
+        "summary": "法的分析の前に、法律問題・事件事実・条文・法律関係を構造化された要素リストへ分解し、法律推論・適用・助言など下流工程の前の品質ゲートとする。"
+      },
+      "es": {
+        "name": "Extracción de elementos jurídicos",
+        "summary": "Descompone una cuestión, hechos, norma o relación legal en una lista estructurada de elementos, como control previo al razonamiento, la aplicación o el asesoramiento."
+      },
+      "fr": {
+        "name": "Extraction d'éléments juridiques",
+        "summary": "Décompose une question juridique, des faits, un texte ou une relation légale en une liste structurée d'éléments, passage qualité avant le raisonnement, l'application ou le conseil."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

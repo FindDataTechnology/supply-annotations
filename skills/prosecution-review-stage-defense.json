@@ -1,0 +1,32 @@
+{
+  "skill": "prosecution-review-stage-defense",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "审查起诉辩护",
+        "summary": "审查起诉阶段辩护律师工作职责全规范：指导行使阅卷、会见、调查取证、证据核实、意见表达、非法证据排除申请、控告申诉七类核心权利，并覆盖法律文书生成、量刑预判与检察机关沟通策略等全流程工作规范。"
+      },
+      "en": {
+        "name": "Defense at prosecution review stage",
+        "summary": "Defense duties at prosecution review: the seven rights (file, visits, investigation, verification, opinions, exclusion, complaints), drafting, sentencing forecasts, prosecutor dialogue."
+      },
+      "ja": {
+        "name": "起訴審査段階弁護",
+        "summary": "起訴審査段階における弁護人の職務を網羅する専門モジュール：記録閲読・接見・調査による証拠収集・証拠確認・意見表明・違法証拠排除申立て・告訴申立ての七類型の権利行使を指導し、法律文书作成・量刑予測・検察機関との折衝戦略などの全流程規範も扱う。"
+      },
+      "es": {
+        "name": "Defensa en la fase de revisión de acusación",
+        "summary": "Defensa en la revisión de acusación: siete derechos (expediente, entrevistas, investigación, verificación, alegaciones, exclusión, quejas), escritos, previsión de pena y diálogo fiscal."
+      },
+      "fr": {
+        "name": "Défense au stade du contrôle des poursuites",
+        "summary": "Au contrôle des poursuites : sept prérogatives (dossier, entretiens, enquête, vérification, observations, exclusion, plaintes), actes, prévision de peine et dialogue avec le parquet."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

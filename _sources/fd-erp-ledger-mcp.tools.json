@@ -1,0 +1,91 @@
+{
+  "server_name": "fd-erp-ledger-mcp",
+  "description": "ERP 台账/对账/计费/信用",
+  "tags": [],
+  "tools": [
+    {
+      "name": "approve_billing_rule",
+      "description": "人工确认计费规则上线（不接受程序自审自批）。\n\n同收费维度冲突未处置（区间相交无显式优先级 / 生效期空洞）→ 拒绝上线。"
+    },
+    {
+      "name": "bill_event",
+      "description": "按 active 规则对事件计费（event 须含 stable_id/kind/occurred_at/measures/refs）。\n\n同 stable_id 重推返回首次结果；费用行锁定规则版本+基础数据快照可重算；\n分录走 billing-engine 机器车道 proposal（1300/4000/费用类白名单），\n落账仍须经 confirm_proposal 确认门。"
+    },
+    {
+      "name": "bill_period_snapshot",
+      "description": "日终快照计费（存储费 = 日终库存快照 × 费率），按期间触发、幂等可重跑。\n\nsnapshots 每项：{fee_item, as_of, measures, [refs]}；同 period 重跑返回首次\n结果（duplicate=true），不产生重复费用。覆盖缺失（登记在用项无 active 规则、\n或请求含未登记收费项）整批拒绝，不生成部分批次。费用落 fee_details + 一条\nbilling-engine 机器车道 proposal，落账仍须经 confirm_proposal 确认门。\n外部排程（CronJob）用 `fd-erp-ledger-mcp bill-period` 打点，等价入口。"
+    },
+    {
+      "name": "confirm_proposal",
+      "description": "确认门——确认后按复式分录落账；借贷必平由数据库约束强制，不平则整笔拒绝。"
+    },
+    {
+      "name": "get_fee_detail",
+      "description": "费用详情 + 四层溯源链（费用项→业务单据→作业事件→计费规则版本）+ 快照重算。"
+    },
+    {
+      "name": "get_recon_report",
+      "description": "按 task_id 查询对账任务状态、进度与差异清单（四类差异，双侧原始引用）。"
+    },
+    {
+      "name": "list_billing_rules",
+      "description": "分页查询计费规则（draft/pending_approval/active/retired，含版本与 config）。"
+    },
+    {
+      "name": "list_credit_reservations",
+      "description": "列出信用占用明细（只读，含派生状态 reserved/expired/released）。\n\n内核不知道订单，因此本工具只给\"占用是什么样\"；\"是否孤儿\"由能同时看到\n订单的一侧（模板层）判定。本工具不释放任何占用、不修改任何状态。"
+    },
+    {
+      "name": "list_fees",
+      "description": "分页查询费用明细（append-only；红冲行为 status='reversed' + reversal_of）。"
+    },
+    {
+      "name": "list_proposals",
+      "description": "分页查询本租户的 proposal 列表及状态（待确认/已确认/已拒绝）。"
+    },
+    {
+      "name": "query_balance",
+      "description": "按科目/币种查询余额；余额由分录确定性重算，无直写余额字段。"
+    },
+    {
+      "name": "query_credit",
+      "description": "查询客户额度位：limit / ar_balance（1300 分录重算）/ reserved / available。"
+    },
+    {
+      "name": "query_entries",
+      "description": "分页查询已落账分录（含原币/折算、出处、来源引用、时间戳、冲正关联）。"
+    },
+    {
+      "name": "reject_proposal",
+      "description": "拒绝 proposal，留审计痕迹且不落账。"
+    },
+    {
+      "name": "release_credit",
+      "description": "释放信用占用（reserved → released，幂等）；可用额度随之恢复。\n\n`released_by` / `reason` 落库，用于回答\"谁释放的、凭什么\"。"
+    },
+    {
+      "name": "reserve_credit",
+      "description": "占用客户信用额度；额度不足拒绝（CREDIT_EXCEEDED 含额度明细）。\n\n同 stable_id 幂等返回首次结果；占用为备忘性质，不写复式分录。\n`expires_at`（ISO 时间）必填：占用没有失效时点就无法被识别为孤儿。"
+    },
+    {
+      "name": "reverse_fee",
+      "description": "红冲费用：生成反向明细行（reversal_of 关联，原行保持原样，append-only）。\n\n原费用分录已落账时同时组冲正 proposal（走既有确认车道）。"
+    },
+    {
+      "name": "run_reconciliation",
+      "description": "运行两源流水对账（只读滩头），立即返回 task_id；对外部系统零写入。"
+    },
+    {
+      "name": "simulate_billing",
+      "description": "按指定历史事件集试算新旧规则费用差异（零写入；费率出处纪律同正式规则）。"
+    },
+    {
+      "name": "submit_billing_rule",
+      "description": "提交计费规则新版本（收费项/计价单位/阶梯/封顶/最低消费/生效期）。\n\nconfig.rate_source 必填（无出处费率拒绝）；同 rule_key 版本递增；\n提交后为 pending_approval，须经 approve_billing_rule 人工确认才上线。"
+    },
+    {
+      "name": "submit_proposal",
+      "description": "提交拟落账事件（proposal），不直接改变账本状态；同 stable_id 重复提交返回首次结果。"
+    }
+  ]
+}

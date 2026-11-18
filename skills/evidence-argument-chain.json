@@ -1,0 +1,32 @@
+{
+  "skill": "evidence-argument-chain",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "证据论证链",
+        "summary": "把案件中多项证据与法律论证主张系统性对应挂钩：为起诉状、答辩状、代理词构建证据—主张关系，庭前整理证据目录并明确各项证明目的，回应对方反驳后重组证据链，按争议焦点把证据分组归类，评估现有证据能否支撑全部主张并识别链中薄弱环节与缺口。"
+      },
+      "en": {
+        "name": "Evidence-argument chain",
+        "summary": "Maps case evidence to legal claims for pleadings and defenses, organizes the evidence inventory and proof purposes pre-trial, rebuilds the chain after rebuttals and flags weak links and gaps."
+      },
+      "ja": {
+        "name": "証拠主張チェーン",
+        "summary": "案件の複数証拠と法律上の主張を体系的に対応付ける：訴状・答弁書・代理人意見書の証拠—主張関係の構築、庭前証拠目録と証明目的の整理、反駁後のチェーン再編成、争点別の証拠グループ化、現証拠で全主張を支えられるかの評価と弱点・欠口の識別。"
+      },
+      "es": {
+        "name": "Cadena de pruebas y argumentos",
+        "summary": "Une pruebas y alegaciones para demandas y contestaciones, ordena el inventario probatorio antes del juicio, rearma la cadena tras réplicas y detecta eslabones débiles y vacíos."
+      },
+      "fr": {
+        "name": "Chaîne de preuves et d'arguments",
+        "summary": "Lie preuves et prétentions pour les écritures, ordonne l'inventaire probatoire avant l'audience, réarme la chaîne après les réponses adverses et repère maillons faibles et manques."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

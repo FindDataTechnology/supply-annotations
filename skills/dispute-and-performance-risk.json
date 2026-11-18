@@ -1,0 +1,32 @@
+{
+  "skill": "dispute-and-performance-risk",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "争议与履约风险",
+        "summary": "评估合同文本、交易安排、商业协议或法律关系描述中可能产生的法律纠纷与违约风险：指出条款潜在风险、判断履约障碍、评估履约偏差是否构成违约、对条款做风险评级并识别争议焦点。"
+      },
+      "en": {
+        "name": "Dispute and performance risk",
+        "summary": "Assesses dispute and breach risk in contracts, deals or commercial agreements: flags clause risks, judges performance obstacles and deviations, rates clauses and spots likely dispute foci."
+      },
+      "ja": {
+        "name": "紛争と履行リスク",
+        "summary": "契約書・取引スキーム・商業協定・法律関係の記述に潜む紛争と債務不履行リスクを評価：条項リスクの指摘、履行障害の判断、履行偏差の違約該当性、条項の危険度評価と争点の特定。"
+      },
+      "es": {
+        "name": "Riesgo de controversia e incumplimiento",
+        "summary": "Evalúa riesgo de disputa e incumplimiento en contratos, operaciones o acuerdos: señala riesgos de cláusulas, juzga obstáculos y desviaciones de ejecución y puntúa el riesgo."
+      },
+      "fr": {
+        "name": "Risque de litige et d'inexécution",
+        "summary": "Évalue litige et inexécution dans contrats, montages ou accords commerciaux : clauses à risque, obstacles d'exécution, notation des risques et points de conflit probables."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

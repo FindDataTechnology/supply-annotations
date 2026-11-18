@@ -1,0 +1,32 @@
+{
+  "skill": "financial-statement-analysis",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "财报分析",
+        "summary": "上市公司财报分析:三表联动、比率分析与财务粉饰红旗识别,输出买方视角研究报告。"
+      },
+      "en": {
+        "name": "Earnings analysis",
+        "summary": "Analyzes listed-company earnings: three-statement linkage, ratio analysis and red-flag detection of financial window-dressing, returning a buy-side research report."
+      },
+      "ja": {
+        "name": "決算分析",
+        "summary": "上場企業の決算分析:三表連動、比率分析、財務粉飾のレッドフラグ検出し、バイサイド視点のレポートを出力する。"
+      },
+      "es": {
+        "name": "Análisis de resultados",
+        "summary": "Analiza resultados de cotizadas: enlace de tres estados, análisis de ratios y detección de señales de maquillaje financiero; devuelve un informe en perspectiva compradora."
+      },
+      "fr": {
+        "name": "Analyse des résultats",
+        "summary": "Analyse les résultats des sociétés cotées : liaison des trois états, analyse de ratios et détection de signaux de maquillage comptable ; renvoie un rapport de perspective acheteur."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

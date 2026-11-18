@@ -1,0 +1,652 @@
+{
+  "tools": {
+    "policy_create": {
+      "human": {
+        "zh": {
+          "name": "新建抓取策略",
+          "summary": "新建一条抓取策略，保存概念范围与调度配置；返回创建后的策略记录。"
+        },
+        "en": {
+          "name": "Create crawl policy",
+          "summary": "Create a crawl policy with its concept scope and schedule; returns the created policy record."
+        },
+        "ja": {
+          "name": "クロールポリシー作成",
+          "summary": "概念範囲とスケジュールを指定してクロールポリシーを作成し、作成されたポリシーを返します。"
+        },
+        "es": {
+          "name": "Crear política de rastreo",
+          "summary": "Crea una política de rastreo con su alcance de conceptos y su calendario; devuelve la política creada."
+        },
+        "fr": {
+          "name": "Créer politique de crawl",
+          "summary": "Crée une politique de crawl avec son périmètre de concepts et son calendrier ; renvoie la politique créée."
+        }
+      },
+      "canonical": {
+        "brief": "Create a crawl policy from the given concept scope and schedule and return the created policy record."
+      }
+    },
+    "policy_list": {
+      "human": {
+        "zh": {
+          "name": "列出抓取策略",
+          "summary": "列出抓取策略，可按启用状态过滤；返回策略列表。"
+        },
+        "en": {
+          "name": "List crawl policies",
+          "summary": "List crawl policies with an optional enabled-status filter; returns the policy list."
+        },
+        "ja": {
+          "name": "クロールポリシー一覧",
+          "summary": "クロールポリシーを一覧し、有効状態で絞り込めます。ポリシーの一覧を返します。"
+        },
+        "es": {
+          "name": "Listar políticas",
+          "summary": "Lista las políticas de rastreo con filtro opcional por estado de activación; devuelve la lista de políticas."
+        },
+        "fr": {
+          "name": "Lister politiques de crawl",
+          "summary": "Liste les politiques de crawl avec un filtre facultatif sur l'état d'activation ; renvoie la liste des politiques."
+        }
+      },
+      "canonical": {
+        "brief": "List crawl policies, optionally filtered by enabled status; returns the policy list."
+      }
+    },
+    "policy_get": {
+      "human": {
+        "zh": {
+          "name": "读取策略详情",
+          "summary": "按 ID 读取单条抓取策略的配置；返回该策略记录。"
+        },
+        "en": {
+          "name": "Get crawl policy",
+          "summary": "Get one crawl policy by ID; returns that policy record."
+        },
+        "ja": {
+          "name": "クロールポリシー取得",
+          "summary": "ID を指定してクロールポリシーを1件取得し、そのポリシーを返します。"
+        },
+        "es": {
+          "name": "Obtener política",
+          "summary": "Obtiene una política de rastreo por su ID; devuelve el registro de esa política."
+        },
+        "fr": {
+          "name": "Obtenir politique",
+          "summary": "Récupère une politique de crawl par son ID ; renvoie l'enregistrement de cette politique."
+        }
+      },
+      "canonical": {
+        "brief": "Get one crawl policy by ID; returns that policy record."
+      }
+    },
+    "policy_update": {
+      "human": {
+        "zh": {
+          "name": "更新抓取策略",
+          "summary": "更新抓取策略，未传入的字段保持不变；返回更新后的策略。"
+        },
+        "en": {
+          "name": "Update crawl policy",
+          "summary": "Update a crawl policy, leaving fields that are not provided unchanged; returns the updated policy."
+        },
+        "ja": {
+          "name": "クロールポリシー更新",
+          "summary": "クロールポリシーを更新し、指定していない項目は変更しません。更新後のポリシーを返します。"
+        },
+        "es": {
+          "name": "Actualizar política",
+          "summary": "Actualiza una política de rastreo y deja sin cambios los campos no enviados; devuelve la política actualizada."
+        },
+        "fr": {
+          "name": "Mettre à jour politique",
+          "summary": "Met à jour une politique de crawl sans modifier les champs non fournis ; renvoie la politique mise à jour."
+        }
+      },
+      "canonical": {
+        "brief": "Update a crawl policy; fields not provided stay unchanged; returns the updated policy."
+      }
+    },
+    "policy_enable": {
+      "human": {
+        "zh": {
+          "name": "启用抓取策略",
+          "summary": "启用指定抓取策略以恢复调度执行；返回策略状态。"
+        },
+        "en": {
+          "name": "Enable crawl policy",
+          "summary": "Enable a crawl policy so its schedule runs again; returns the policy status."
+        },
+        "ja": {
+          "name": "クロールポリシー有効化",
+          "summary": "指定したクロールポリシーを有効にし、スケジュール実行を再開します。ポリシーの状態を返します。"
+        },
+        "es": {
+          "name": "Activar política",
+          "summary": "Activa una política de rastreo para reanudar su ejecución programada; devuelve el estado de la política."
+        },
+        "fr": {
+          "name": "Activer politique",
+          "summary": "Active une politique de crawl pour reprendre son exécution planifiée ; renvoie l'état de la politique."
+        }
+      },
+      "canonical": {
+        "brief": "Enable a crawl policy so its schedule runs again; returns the policy status."
+      }
+    },
+    "policy_disable": {
+      "human": {
+        "zh": {
+          "name": "停用抓取策略",
+          "summary": "停用指定抓取策略以暂停调度执行；返回策略状态。"
+        },
+        "en": {
+          "name": "Disable crawl policy",
+          "summary": "Disable a crawl policy to pause its scheduled runs; returns the policy status."
+        },
+        "ja": {
+          "name": "クロールポリシー無効化",
+          "summary": "指定したクロールポリシーを無効にし、スケジュール実行を停止します。ポリシーの状態を返します。"
+        },
+        "es": {
+          "name": "Desactivar política",
+          "summary": "Desactiva una política de rastreo para pausar su ejecución programada; devuelve el estado de la política."
+        },
+        "fr": {
+          "name": "Désactiver politique",
+          "summary": "Désactive une politique de crawl pour suspendre son exécution planifiée ; renvoie l'état de la politique."
+        }
+      },
+      "canonical": {
+        "brief": "Disable a crawl policy to pause its scheduled runs; returns the policy status."
+      }
+    },
+    "policy_delete": {
+      "human": {
+        "zh": {
+          "name": "删除抓取策略",
+          "summary": "删除抓取策略并级联删除其全部运行记录；返回删除结果。"
+        },
+        "en": {
+          "name": "Delete crawl policy",
+          "summary": "Delete a crawl policy and cascade-delete all its runs; returns the deletion outcome."
+        },
+        "ja": {
+          "name": "クロールポリシー削除",
+          "summary": "クロールポリシーを削除し、その実行記録もすべて連鎖削除します。削除結果を返します。"
+        },
+        "es": {
+          "name": "Eliminar política",
+          "summary": "Elimina una política de rastreo y borra en cascada todas sus ejecuciones; devuelve el resultado."
+        },
+        "fr": {
+          "name": "Supprimer politique",
+          "summary": "Supprime une politique de crawl et toutes ses exécutions en cascade ; renvoie le résultat."
+        }
+      },
+      "canonical": {
+        "brief": "Delete a crawl policy and cascade-delete all its runs; returns the deletion outcome."
+      }
+    },
+    "policy_trigger_now": {
+      "human": {
+        "zh": {
+          "name": "立即触发抓取",
+          "summary": "立即触发该策略的抓取，绕过 cron 调度，仍执行单次运行与规模上限校验；返回触发结果。"
+        },
+        "en": {
+          "name": "Trigger crawl now",
+          "summary": "Trigger this policy's crawl now, bypassing cron while still enforcing single-flight and the plan-size guardrail; returns the trigger result."
+        },
+        "ja": {
+          "name": "クロール即時実行",
+          "summary": "cron を迂回してこのポリシーのクロールを即時実行します。単一実行と規模上限の検査は適用されます。実行結果を返します。"
+        },
+        "es": {
+          "name": "Ejecutar rastreo ahora",
+          "summary": "Ejecuta ahora el rastreo de esta política omitiendo cron, pero mantiene la ejecución única y el límite de tamaño; devuelve el resultado."
+        },
+        "fr": {
+          "name": "Lancer crawl maintenant",
+          "summary": "Lance maintenant le crawl de cette politique en contournant cron, tout en appliquant l'exécution unique et le plafond de taille ; renvoie le résultat."
+        }
+      },
+      "canonical": {
+        "brief": "Trigger the policy's crawl immediately, bypassing cron while still enforcing single-flight and the plan-size guardrail."
+      }
+    },
+    "policy_runs": {
+      "human": {
+        "zh": {
+          "name": "列出策略运行",
+          "summary": "列出策略运行记录，可按策略 ID 与状态过滤；返回运行历史。"
+        },
+        "en": {
+          "name": "List policy runs",
+          "summary": "List policy runs, optionally filtered by policy ID and status; returns the run history."
+        },
+        "ja": {
+          "name": "ポリシー実行一覧",
+          "summary": "ポリシーの実行記録を一覧し、ポリシー ID と状態で絞り込めます。実行履歴を返します。"
+        },
+        "es": {
+          "name": "Listar ejecuciones",
+          "summary": "Lista las ejecuciones de políticas con filtros opcionales por ID y estado; devuelve el historial."
+        },
+        "fr": {
+          "name": "Lister exécutions",
+          "summary": "Liste les exécutions de politiques avec filtres facultatifs par ID et état ; renvoie l'historique."
+        }
+      },
+      "canonical": {
+        "brief": "List policy runs, optionally filtered by policy ID and status; returns the run history."
+      }
+    },
+    "policy_estimate": {
+      "human": {
+        "zh": {
+          "name": "估算抓取次数",
+          "summary": "估算策略载荷的抓取次数，并列出不可路由与未映射项；返回估算值。"
+        },
+        "en": {
+          "name": "Estimate fetch count",
+          "summary": "Estimate the fetch count for a policy payload and list unroutable and unmapped items; returns the estimate."
+        },
+        "ja": {
+          "name": "取得件数見積",
+          "summary": "ポリシーの取得件数を見積もり、経路未確定と未マッピングの項目を挙げます。見積もり値を返します。"
+        },
+        "es": {
+          "name": "Estimar lecturas",
+          "summary": "Estima el número de lecturas de una política y enumera los elementos sin ruta y sin mapeo; devuelve la estimación."
+        },
+        "fr": {
+          "name": "Estimer les lectures",
+          "summary": "Estime le nombre de lectures d'une politique et liste les éléments sans route et non mappés ; renvoie l'estimation."
+        }
+      },
+      "canonical": {
+        "brief": "Estimate the fetch count for a policy payload and report unroutable and unmapped items."
+      }
+    },
+    "data_stats": {
+      "human": {
+        "zh": {
+          "name": "查看数据覆盖",
+          "summary": "汇总观测覆盖度或按概念给出明细，含概念数、已覆盖数、存储行数与缺口；返回统计结果。"
+        },
+        "en": {
+          "name": "Show data coverage",
+          "summary": "Summarize observation coverage or detail it per concept, including concept counts, covered and gap counts and stored rows; returns the summary."
+        },
+        "ja": {
+          "name": "データカバレッジ表示",
+          "summary": "観測カバレッジを集計し、または概念ごとに示します。概念数、カバー済み数、格納行数、欠損を返します。"
+        },
+        "es": {
+          "name": "Ver cobertura de datos",
+          "summary": "Resume la cobertura de observaciones o la detalla por concepto, con recuentos de conceptos, cobertura, filas almacenadas y faltantes; devuelve el resumen."
+        },
+        "fr": {
+          "name": "Voir couverture des données",
+          "summary": "Résume la couverture des observations ou la détaille par concept, avec nombres de concepts, couverture, lignes stockées et manquants ; renvoie le résumé."
+        }
+      },
+      "canonical": {
+        "brief": "Aggregate observation coverage or per-concept detail: concept counts, covered and gap counts, stored rows and per-entity-type rollup."
+      }
+    },
+    "platform_sources": {
+      "human": {
+        "zh": {
+          "name": "查看来源健康",
+          "summary": "列出抓取平台来源清单及健康状态与停滞提示；只读，返回来源条目。"
+        },
+        "en": {
+          "name": "List source health",
+          "summary": "List crawl-platform sources with health and stall hints; read-only, returns the source entries."
+        },
+        "ja": {
+          "name": "ソース稼働状況",
+          "summary": "クロール基盤のソース一覧を稼働状態と停滞の手がかり付きで返します。読み取り専用です。"
+        },
+        "es": {
+          "name": "Ver estado de fuentes",
+          "summary": "Lista las fuentes de la plataforma de rastreo con su estado y avisos de estancamiento; solo lectura."
+        },
+        "fr": {
+          "name": "Voir santé des sources",
+          "summary": "Liste les sources de la plateforme de crawl avec leur état et des indices de blocage ; lecture seule."
+        }
+      },
+      "canonical": {
+        "brief": "List crawl-platform sources with schedule, enabled flag, latest run status and stall hints; read-only."
+      }
+    },
+    "platform_runs": {
+      "human": {
+        "zh": {
+          "name": "查看平台运行",
+          "summary": "按时间倒序列出平台运行历史，含待处理运行的触发来源；返回运行记录。"
+        },
+        "en": {
+          "name": "List platform runs",
+          "summary": "List platform run history newest to oldest, with the trigger origin of pending runs; returns the run records."
+        },
+        "ja": {
+          "name": "基盤実行履歴",
+          "summary": "プラットフォームの実行履歴を新しい順に返し、保留中実行の起動元も示します。"
+        },
+        "es": {
+          "name": "Ver ejecuciones",
+          "summary": "Lista el historial de ejecuciones de la plataforma de más reciente a más antigua, con el origen de las pendientes."
+        },
+        "fr": {
+          "name": "Voir exécutions plateforme",
+          "summary": "Liste l'historique des exécutions de la plateforme, du plus récent au plus ancien, avec l'origine des exécutions en attente."
+        }
+      },
+      "canonical": {
+        "brief": "List platform run history newest to oldest across member sites, with pending-run trigger lineage."
+      }
+    },
+    "platform_trigger": {
+      "human": {
+        "zh": {
+          "name": "触发平台运行",
+          "summary": "为指定来源立即触发平台运行，校验来源已注册且启用并执行单次运行检查；返回触发状态。"
+        },
+        "en": {
+          "name": "Trigger platform run",
+          "summary": "Trigger an immediate platform run for a source, checking that it is registered and enabled and applying single-flight; returns the trigger status."
+        },
+        "ja": {
+          "name": "基盤実行を起動",
+          "summary": "指定ソースのプラットフォーム実行を即時起動します。登録済みかつ有効であることを検査し、単一実行を適用します。起動状態を返します。"
+        },
+        "es": {
+          "name": "Lanzar ejecución",
+          "summary": "Lanza una ejecución inmediata para una fuente, verificando que esté registrada y activa y aplicando ejecución única; devuelve el estado."
+        },
+        "fr": {
+          "name": "Déclencher exécution",
+          "summary": "Déclenche une exécution immédiate pour une source, en vérifiant qu'elle est enregistrée et active et en appliquant l'exécution unique ; renvoie l'état."
+        }
+      },
+      "canonical": {
+        "brief": "Trigger an immediate platform run for a registered, enabled source, applying single-flight; returns the trigger status."
+      }
+    },
+    "platform_cancel_run": {
+      "human": {
+        "zh": {
+          "name": "取消运行中任务",
+          "summary": "请求取消运行中的平台任务，设置取消标记并在下一检查点终止；返回处理结果。"
+        },
+        "en": {
+          "name": "Cancel running run",
+          "summary": "Request cancellation of a running platform run by setting the cancel flag, stopping it at the next checkpoint; returns the outcome."
+        },
+        "ja": {
+          "name": "実行中タスク取消",
+          "summary": "実行中のプラットフォーム実行の取消を要求し、取消フラグを立てて次のチェックポイントで停止します。結果を返します。"
+        },
+        "es": {
+          "name": "Cancelar ejecución activa",
+          "summary": "Solicita cancelar una ejecución activa marcando el indicador y deteniéndola en el siguiente punto de control; devuelve el resultado."
+        },
+        "fr": {
+          "name": "Annuler exécution en cours",
+          "summary": "Demande l'annulation d'une exécution en cours via un indicateur, arrêtée au prochain point de contrôle ; renvoie le résultat."
+        }
+      },
+      "canonical": {
+        "brief": "Request cancellation of a running platform run; the runner terminates as cancelled at its next checkpoint."
+      }
+    },
+    "platform_cancel_pending": {
+      "human": {
+        "zh": {
+          "name": "取消待处理任务",
+          "summary": "取消待处理的平台运行记录，仅待处理或已认领的记录可取消；返回处理结果。"
+        },
+        "en": {
+          "name": "Cancel pending run",
+          "summary": "Cancel a pending platform run; rows still pending or claimed can be cancelled; returns the outcome."
+        },
+        "ja": {
+          "name": "保留中タスク取消",
+          "summary": "保留中のプラットフォーム実行を取り消します。保留中または引受済みの記録のみ取消可能です。結果を返します。"
+        },
+        "es": {
+          "name": "Cancelar pendiente",
+          "summary": "Cancela una ejecución pendiente; se pueden cancelar los registros aún pendientes o reclamados; devuelve el resultado."
+        },
+        "fr": {
+          "name": "Annuler exécution en attente",
+          "summary": "Annule une exécution en attente ; les lignes encore en attente ou réclamées sont annulables ; renvoie le résultat."
+        }
+      },
+      "canonical": {
+        "brief": "Cancel a pending platform run; rows still pending or claimed can be cancelled; returns the outcome."
+      }
+    },
+    "crawl_status": {
+      "human": {
+        "zh": {
+          "name": "查看抓取状态",
+          "summary": "返回抓取状态的结构化快照，按数据源展示正在抓取与待抓取内容；只读。"
+        },
+        "en": {
+          "name": "Show crawl status",
+          "summary": "Return a structured snapshot of crawl state, per datasource, showing what is being crawled and what is queued; read-only."
+        },
+        "ja": {
+          "name": "クロール状態表示",
+          "summary": "クロール状態の構造化スナップショットを返し、データソースごとに実行中と待機中の内容を示します。読み取り専用です。"
+        },
+        "es": {
+          "name": "Ver estado de rastreo",
+          "summary": "Devuelve una instantánea estructurada del estado de rastreo por fuente, con lo que se rastrea y lo que está en cola; solo lectura."
+        },
+        "fr": {
+          "name": "Voir état du crawl",
+          "summary": "Renvoie un instantané structuré de l'état du crawl par source, avec ce qui est en cours et ce qui est en file ; lecture seule."
+        }
+      },
+      "canonical": {
+        "brief": "Structured, datasource-centric snapshot of crawl state showing what is being crawled and what is queued; read-only."
+      }
+    },
+    "coverage_report": {
+      "human": {
+        "zh": {
+          "name": "查看覆盖缺口",
+          "summary": "返回抓取覆盖缺口清单，列出未覆盖或过期的概念；只读。"
+        },
+        "en": {
+          "name": "Show coverage gaps",
+          "summary": "Return the crawl-coverage gap inventory, listing uncovered or stale concepts; read-only."
+        },
+        "ja": {
+          "name": "カバレッジ欠損表示",
+          "summary": "クロールカバレッジの欠損一覧を返し、未カバーまたは古い概念を示します。読み取り専用です。"
+        },
+        "es": {
+          "name": "Ver brechas de cobertura",
+          "summary": "Devuelve el inventario de brechas de cobertura, con los conceptos sin cobertura u obsoletos; solo lectura."
+        },
+        "fr": {
+          "name": "Voir lacunes de couverture",
+          "summary": "Renvoie l'inventaire des lacunes de couverture, avec les concepts non couverts ou périmés ; lecture seule."
+        }
+      },
+      "canonical": {
+        "brief": "Read-only crawl-coverage gap inventory listing uncovered or stale concepts."
+      }
+    },
+    "auth_status": {
+      "human": {
+        "zh": {
+          "name": "查看账号池状态",
+          "summary": "汇总各来源的登录身份数量、状态分布与租用数，指定来源时附明细；只读。"
+        },
+        "en": {
+          "name": "Show identity pool",
+          "summary": "Summarize login identities per source with counts, status distribution and leases, plus detail rows for a named source; read-only."
+        },
+        "ja": {
+          "name": "認証プール状態",
+          "summary": "ソースごとにログインIDの件数、状態分布、貸出数を集計し、指定ソースは明細も返します。読み取り専用です。"
+        },
+        "es": {
+          "name": "Ver pool de identidades",
+          "summary": "Resume las identidades de acceso por fuente con recuentos, distribución de estados y préstamos, con detalle para una fuente; solo lectura."
+        },
+        "fr": {
+          "name": "Voir pool d'identités",
+          "summary": "Résume les identités de connexion par source avec nombres, répartition des états et prêts, avec le détail pour une source ; lecture seule."
+        }
+      },
+      "canonical": {
+        "brief": "Identity-pool overview per source: identity counts, five-state distribution and leases; optional detail rows for one source."
+      }
+    },
+    "auth_events": {
+      "human": {
+        "zh": {
+          "name": "查看身份事件",
+          "summary": "按时间倒序返回登录、探测与租用的身份事件流，附来源与账号别名；只读。"
+        },
+        "en": {
+          "name": "Show identity events",
+          "summary": "Return the identity event stream of logins, probes and leases newest to oldest, with source and account alias; read-only."
+        },
+        "ja": {
+          "name": "IDイベント表示",
+          "summary": "ログイン、検査、貸出のIDイベントを新しい順に返し、ソースとアカウント別名を添えます。読み取り専用です。"
+        },
+        "es": {
+          "name": "Ver eventos de identidad",
+          "summary": "Devuelve el flujo de eventos de acceso, sondeo y préstamo de identidades, del más reciente al más antiguo, con fuente y alias; solo lectura."
+        },
+        "fr": {
+          "name": "Voir événements d'identité",
+          "summary": "Renvoie le flux d'événements de connexion, de sonde et de prêt d'identités, du plus récent au plus ancien, avec source et alias ; lecture seule."
+        }
+      },
+      "canonical": {
+        "brief": "Identity event stream of login, probe and lease events newest to oldest, with source and account alias attached."
+      }
+    },
+    "auth_request_login": {
+      "human": {
+        "zh": {
+          "name": "登记待登录身份",
+          "summary": "将身份登记或重置为需登录并写入备注事件，不执行实际登录；返回身份状态。"
+        },
+        "en": {
+          "name": "Queue identity login",
+          "summary": "Register or reset an identity as login-required and write a note event, without performing the login; returns the identity status."
+        },
+        "ja": {
+          "name": "ログイン待ち登録",
+          "summary": "IDをログイン必須として登録または再設定し、注記イベントを書き込みます。実際のログインは行いません。"
+        },
+        "es": {
+          "name": "Registrar acceso",
+          "summary": "Registra o restablece una identidad como requiere acceso y escribe un evento de nota, sin ejecutar el acceso; devuelve el estado."
+        },
+        "fr": {
+          "name": "Inscrire connexion requise",
+          "summary": "Enregistre ou réinitialise une identité comme connexion requise et écrit un événement de note, sans exécuter la connexion ; renvoie l'état."
+        }
+      },
+      "canonical": {
+        "brief": "Register or reset an identity as login_required and write a note event; the login itself happens on the login site."
+      }
+    },
+    "auth_launch_login": {
+      "human": {
+        "zh": {
+          "name": "启动登录台",
+          "summary": "为身份分配出口代理并启动登录台，由操作员在面板内完成登录；返回登录台状态。"
+        },
+        "en": {
+          "name": "Launch login station",
+          "summary": "Assign an egress proxy and launch a login station where the operator completes the login in the panel; returns the station status."
+        },
+        "ja": {
+          "name": "ログイン端末起動",
+          "summary": "IDに出口プロキシを割り当ててログイン端末を起動し、操作者がパネル内でログインを完了します。端末の状態を返します。"
+        },
+        "es": {
+          "name": "Iniciar estación de acceso",
+          "summary": "Asigna un proxy de salida e inicia una estación de acceso donde el operador completa el acceso en el panel; devuelve el estado."
+        },
+        "fr": {
+          "name": "Lancer poste de connexion",
+          "summary": "Attribue un proxy de sortie et lance un poste de connexion où l'opérateur termine la connexion dans le panneau ; renvoie l'état."
+        }
+      },
+      "canonical": {
+        "brief": "Launch a login station with an egress proxy so the operator completes the login inside the panel's embedded view."
+      }
+    },
+    "import_catalog": {
+      "human": {
+        "zh": {
+          "name": "导入指标目录",
+          "summary": "将一个或全部 fd-* 提供方注册表导入指标目录；返回导入结果。"
+        },
+        "en": {
+          "name": "Import catalog",
+          "summary": "Import one named or all fd-* provider registries into the catalog; returns the import result."
+        },
+        "ja": {
+          "name": "カタログ取込",
+          "summary": "1つまたは全 fd-* プロバイダ登録表をカタログに取り込みます。取込結果を返します。"
+        },
+        "es": {
+          "name": "Importar catálogo",
+          "summary": "Importa uno o todos los catálogos de proveedores fd-* al catálogo; devuelve el resultado."
+        },
+        "fr": {
+          "name": "Importer catalogue",
+          "summary": "Importe un ou tous les registres de fournisseurs fd-* dans le catalogue ; renvoie le résultat."
+        }
+      },
+      "canonical": {
+        "brief": "Import one named or all fd-* provider registries into the catalog."
+      }
+    },
+    "register_datasource": {
+      "human": {
+        "zh": {
+          "name": "注册数据源",
+          "summary": "将数据源清单注册到本体库；返回注册结果。"
+        },
+        "en": {
+          "name": "Register datasource",
+          "summary": "Register a datasource manifest into the ontology database; returns the registration result."
+        },
+        "ja": {
+          "name": "データソース登録",
+          "summary": "データソース定義をオントロジーDBに登録します。登録結果を返します。"
+        },
+        "es": {
+          "name": "Registrar fuente",
+          "summary": "Registra un manifiesto de fuente en la base de ontología; devuelve el resultado."
+        },
+        "fr": {
+          "name": "Enregistrer source",
+          "summary": "Enregistre un manifeste de source dans la base d'ontologie ; renvoie le résultat."
+        }
+      },
+      "canonical": {
+        "brief": "Register a datasource manifest into the ontology database."
+      }
+    }
+  }
+}

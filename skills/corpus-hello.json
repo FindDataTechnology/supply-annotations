@@ -1,0 +1,32 @@
+{
+  "skill": "corpus-hello",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "演示语料库",
+        "summary": "演示语料：提供占位说明。"
+      },
+      "en": {
+        "name": "Demo corpus",
+        "summary": "Demo corpus providing placeholder notes."
+      },
+      "ja": {
+        "name": "デモコーパス",
+        "summary": "デモ用コーパス：プレースホルダーの説明を提供する。"
+      },
+      "es": {
+        "name": "Corpus de demostración",
+        "summary": "Corpus de demostración que ofrece notas de marcador de posición."
+      },
+      "fr": {
+        "name": "Corpus de démonstration",
+        "summary": "Corpus de démonstration fournissant des notes de remplissage."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

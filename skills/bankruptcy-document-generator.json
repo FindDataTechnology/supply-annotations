@@ -1,0 +1,32 @@
+{
+  "skill": "bankruptcy-document-generator",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "破产文书生成器",
+        "summary": "按《破产程序法律文书样式》的165份模板（法院106份、管理人59份）按需生成破产程序文书，作为各破产技能统一调用的文书生成出口。"
+      },
+      "en": {
+        "name": "Bankruptcy document generator",
+        "summary": "Generates bankruptcy procedure documents on demand from 165 official templates (106 court, 59 administrator), the shared document generator called by other bankruptcy skills."
+      },
+      "ja": {
+        "name": "破産文書ジェネレーター",
+        "summary": "「破産手続文書様式」の165テンプレート（裁判所106・管財人59）に基づき破産文書を必要に応じて生成し、他の破産スキルが共通で利用する。"
+      },
+      "es": {
+        "name": "Generador de documentos concursales",
+        "summary": "Genera documentos del proceso concursal a partir de 165 plantillas oficiales (106 judiciales y 59 del administrador) y actúa como generador común de las demás habilidades concursales."
+      },
+      "fr": {
+        "name": "Générateur de documents de faillite",
+        "summary": "Génère à la demande les documents de la procédure de faillite d'après 165 modèles officiels (106 judiciaires, 59 de l'administrateur), générateur commun des autres compétences concursales."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "legal-concept-comprehension",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "法律概念理解",
+        "summary": "回应用户对法律概念的解释、辨析与拆解需求:比较两个概念的异同、判断给定事实是否构成某概念、分解构成要件并分析其法律效果。"
+      },
+      "en": {
+        "name": "Legal concept clarification",
+        "summary": "Explains, distinguishes and unpacks legal concepts on request: compares two concepts, tests whether given facts satisfy one, breaks a concept into constituent elements and analyzes its legal effects."
+      },
+      "ja": {
+        "name": "法律概念理解",
+        "summary": "法律概念の説明・弁別・分解に応じる：二つの概念の異同比較、与えた事実が概念を構成するかの判断、構成要件の分解と法的効果の分析。"
+      },
+      "es": {
+        "name": "Aclaración de conceptos jurídicos",
+        "summary": "Explica, distingue y desglosa conceptos jurídicos a petición: compara dos nociones, examina si unos hechos dados los cumplen, descompone los elementos constitutivos y analiza sus efectos jurídicos."
+      },
+      "fr": {
+        "name": "Clarification des concepts juridiques",
+        "summary": "Explique, distingue et détaille les concepts juridiques : comparaison de deux notions, examen des faits au regard d’un concept, décomposition des éléments et analyse des effets juridiques."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

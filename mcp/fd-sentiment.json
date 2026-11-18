@@ -1,0 +1,312 @@
+{
+ "version": 1,
+ "server": "fd-sentiment",
+ "annotation": {
+  "human": {
+   "zh": {
+    "name": "文档情绪打分",
+    "summary": "对公告与新闻等文本做情绪强度与方向打分，支持批量任务与金标评测。",
+    "whenToUse": "需要把一批文本的情绪量化成可比较的分数时。"
+   },
+   "en": {
+    "name": "Document sentiment scoring",
+    "summary": "Score tone strength and direction in announcements and news, with batch jobs and gold-standard evaluation.",
+    "whenToUse": "When a batch of texts must become comparable sentiment scores."
+   },
+   "ja": {
+    "name": "文書センチメント採点",
+    "summary": "公告やニュースの文章について、感情の強さと方向を採点します。バッチ処理と正解データによる評価に対応します。",
+    "whenToUse": "大量の文章を比較可能な感情スコアに変換したいとき。"
+   },
+   "es": {
+    "name": "Puntuación de sentimiento",
+    "summary": "Puntúa intensidad y dirección del tono en anuncios y noticias, con trabajos por lotes y evaluación con patrón oro.",
+    "whenToUse": "Cuando un lote de textos debe convertirse en puntuaciones comparables."
+   },
+   "fr": {
+    "name": "Notation de sentiment",
+    "summary": "Note l'intensité et l'orientation du tonus dans les annonces et actualités, avec traitements par lots et évaluation sur corpus de référence.",
+    "whenToUse": "Lorsqu'un lot de textes doit devenir des scores comparables."
+   }
+  },
+  "canonical": {
+   "brief": "Sentiment scoring MCP: score direction/strength on announcement and news text; batch jobs, task status, retry, gold-set evaluation."
+  },
+  "tools": {
+   "aggregate_scores": {
+    "human": {
+     "zh": {
+      "name": "聚合区间分数",
+      "summary": "统计区间内各档位计数、平均分与平均置信度，并给覆盖度；这是分布统计而非情绪指数。"
+     },
+     "en": {
+      "name": "Aggregate scores by interval",
+      "summary": "Aggregates band counts, mean score and mean confidence over an interval with coverage; a distribution summary, not a sentiment index."
+     },
+     "ja": {
+      "name": "期間ごとにスコアを集計",
+      "summary": "期間内の帯別件数・平均スコア・平均信頼度を集計し、カバレッジを示します。分布の集計であり感情指数ではありません。"
+     },
+     "es": {
+      "name": "Agregar puntuaciones por intervalo",
+      "summary": "Agrega recuentos por banda, puntuación media y confianza media en un intervalo con cobertura; es un resumen de distribución, no un índice de sentimiento."
+     },
+     "fr": {
+      "name": "Agréger les scores par intervalle",
+      "summary": "Agrège les effectifs par bande, le score moyen et la confiance moyenne sur un intervalle avec couverture ; c'est un résumé de distribution, pas un indice de sentiment."
+     }
+    },
+    "canonical": {
+     "brief": "Interval aggregation over stored scores in since to until: per-band counts, mean score and confidence, coverage when universe_total is given; explicitly not a sentiment index and free of market data."
+    }
+   },
+   "compare_evaluations": {
+    "human": {
+     "zh": {
+      "name": "对比评测结果",
+      "summary": "并列多个评测轮次的版本、样本数与命中率，含校准结论与并发设置。"
+     },
+     "en": {
+      "name": "Compare evaluation runs",
+      "summary": "Compares evaluation runs side by side on version, model, sample count, hit rate and calibration verdict, including the concurrency used."
+     },
+     "ja": {
+      "name": "評価結果を比較",
+      "summary": "複数の評価実行を版・モデル・標本数・命中率・較正判定で並べて比較し、使用した並列度も示します。"
+     },
+     "es": {
+      "name": "Comparar evaluaciones",
+      "summary": "Compara ejecuciones de evaluación por versión, modelo, muestras, tasa de acierto y veredicto de calibración, incluida la concurrencia usada."
+     },
+     "fr": {
+      "name": "Comparer les évaluations",
+      "summary": "Compare côte à côte les exécutions d'évaluation par version, modèle, nombre d'échantillons, taux de réussite et verdict de calibrage, concurrence incluse."
+     }
+    },
+    "canonical": {
+     "brief": "Side-by-side comparison of evaluation runs: prompt_version, model, set_version, samples, hit_rate and calibration_ok; runs with zero samples are listed rather than hidden. Read-only."
+    }
+   },
+   "current_prompt_version": {
+    "human": {
+     "zh": {
+      "name": "查当前打分配置",
+      "summary": "报告当前 prompt 版本、工件摘要、可用版本与模型温度，并自检声明版本与实际所用是否一致。"
+     },
+     "en": {
+      "name": "Show scoring configuration",
+      "summary": "Reports the current prompt version, artifact digest, available versions and model temperature, with a declared versus actual consistency check."
+     },
+     "ja": {
+      "name": "採点設定を確認",
+      "summary": "現在のプロンプト版・成果物ダイジェスト・利用可能版・モデル温度を返し、申告版と実使用版の一致を自己検査します。"
+     },
+     "es": {
+      "name": "Ver configuración de puntuación",
+      "summary": "Informa la versión actual del prompt, el resumen del artefacto, las versiones disponibles y la temperatura del modelo, con una comprobación declarado frente a real."
+     },
+     "fr": {
+      "name": "Voir la configuration de notation",
+      "summary": "Indique la version actuelle du prompt, l'empreinte de l'artefact, les versions disponibles et la température du modèle, avec un contrôle déclaré contre réel."
+     }
+    },
+    "canonical": {
+     "brief": "Returns prompt_version, artifact digest, available versions, model and temperature; declared_matches_actual flags when the reported version differs from the one the scoring entries use. Produces no scores."
+    }
+   },
+   "get_score": {
+    "human": {
+     "zh": {
+      "name": "取已存分数",
+      "summary": "按文档标识取已落库的最近一条分数，可按版本过滤；无记录返回未找到标记。"
+     },
+     "en": {
+      "name": "Fetch a stored score",
+      "summary": "Fetches the latest stored score for a document id, optionally filtered by prompt version; no record returns found false."
+     },
+     "ja": {
+      "name": "保存済みスコアを取得",
+      "summary": "文書 ID の保存済み最新スコアを取得し、プロンプト版で絞り込めます。記録がなければ found が false で返ります。"
+     },
+     "es": {
+      "name": "Obtener puntuación guardada",
+      "summary": "Obtiene la puntuación guardada más reciente de un documento, filtrable por versión del prompt; sin registro devuelve found en false."
+     },
+     "fr": {
+      "name": "Récupérer un score enregistré",
+      "summary": "Récupère le score enregistré le plus récent d'un document, filtrable par version du prompt ; sans enregistrement, found vaut false."
+     }
+    },
+    "canonical": {
+     "brief": "Reads the stored score for a doc_id with an optional prompt_version filter and no model call; the record carries evidence_spans and as_of. Returns found false when absent."
+    }
+   },
+   "get_task_status": {
+    "human": {
+     "zh": {
+      "name": "查询任务进度",
+      "summary": "查批量任务的进度与逐条结果，被重启打断的任务标为 interrupted，未提交的标识才报未找到。"
+     },
+     "en": {
+      "name": "Check task progress",
+      "summary": "Reports a batch task's progress and per-item results; a task cut short by a restart is interrupted, and an unknown id is not_found."
+     },
+     "ja": {
+      "name": "タスク進捗を確認",
+      "summary": "一括タスクの進捗と各件の結果を返します。再起動で中断されたタスクは interrupted、未登録の ID は not_found です。"
+     },
+     "es": {
+      "name": "Consultar avance de tarea",
+      "summary": "Informa el avance de una tarea por lotes y el resultado de cada elemento; una tarea cortada por un reinicio queda interrupted y un id desconocido es not_found."
+     },
+     "fr": {
+      "name": "Suivre l'avancement d'une tâche",
+      "summary": "Rapporte l'avancement d'une tâche par lots et le résultat de chaque élément ; une tâche interrompue par un redémarrage est interrupted et un id inconnu est not_found."
+     }
+    },
+    "canonical": {
+     "brief": "Returns status (queued, running, completed, failed, interrupted), progress, counts of pending/ok/failed and per-item results filterable by item_status; progress is recomputed from item states."
+    }
+   },
+   "list_scores": {
+    "human": {
+     "zh": {
+      "name": "列出分数记录",
+      "summary": "按文档、版本或时间区间列出已存分数，不同版本并存不覆盖，只读不调模型。"
+     },
+     "en": {
+      "name": "List score records",
+      "summary": "Lists stored scores filtered by document, version or date range; versions coexist without overwriting, and no model is called."
+     },
+     "ja": {
+      "name": "スコア記録を一覧",
+      "summary": "文書・版・期間で絞って保存済みスコアを一覧します。版ごとに併存して上書きされず、モデルは呼びません。"
+     },
+     "es": {
+      "name": "Listar puntuaciones",
+      "summary": "Lista las puntuaciones guardadas filtrando por documento, versión o rango de fechas; las versiones coexisten sin sobrescribirse y no se llama al modelo."
+     },
+     "fr": {
+      "name": "Lister les scores",
+      "summary": "Liste les scores enregistrés filtrés par document, version ou plage de dates ; les versions coexistent sans écrasement et le modèle n'est pas appelé."
+     }
+    },
+    "canonical": {
+     "brief": "Lists stored score records with doc_id, prompt_version, since and until filters; returns count and items, each carrying as_of and evidence_spans. Read-only, no model call."
+    }
+   },
+   "retry_failed": {
+    "human": {
+     "zh": {
+      "name": "重跑失败条目",
+      "summary": "只重跑任务中失败或待处理的条目，已成功的跳过，需重传这些条目的原文。"
+     },
+     "en": {
+      "name": "Retry failed items",
+      "summary": "Re-runs only the task's failed or pending items, skipping ones already ok; the caller must resupply those texts."
+     },
+     "ja": {
+      "name": "失敗項目を再実行",
+      "summary": "タスク内の failed または pending の項目だけを再実行し、成功済みは飛ばします。対象項目の本文は再送が必要です。"
+     },
+     "es": {
+      "name": "Reintentar elementos fallidos",
+      "summary": "Reintenta solo los elementos failed o pending de una tarea y omite los ya correctos; hay que reenviar el texto de esos elementos."
+     },
+     "fr": {
+      "name": "Relancer les éléments en échec",
+      "summary": "Relance uniquement les éléments failed ou pending d'une tâche et ignore ceux déjà réussis ; le texte de ces éléments doit être renvoyé."
+     }
+    },
+    "canonical": {
+     "brief": "Re-runs only items whose task status is failed or pending; documents already ok are skipped and counted in skipped_already_ok. Returns task_id, retried, skipped_already_ok and results."
+    }
+   },
+   "run_evaluation": {
+    "human": {
+     "zh": {
+      "name": "跑金标评测",
+      "summary": "在金标集上跑评测，返回命中率与按置信度分桶的准确率，并标注校准是否成立。"
+     },
+     "en": {
+      "name": "Run gold-set evaluation",
+      "summary": "Runs the gold-set evaluation and returns hit rate plus accuracy per confidence bucket, flagging whether calibration holds."
+     },
+     "ja": {
+      "name": "正解データで評価を実行",
+      "summary": "正解データで評価を実行し、命中率と信頼度別の正解率を返し、較正が成立するかを示します。"
+     },
+     "es": {
+      "name": "Ejecutar evaluación de referencia",
+      "summary": "Ejecuta la evaluación sobre el conjunto de referencia y devuelve la tasa de acierto y la precisión por tramo de confianza, indicando si la calibración se cumple."
+     },
+     "fr": {
+      "name": "Lancer l'évaluation de référence",
+      "summary": "Exécute l'évaluation sur le corpus de référence et renvoie le taux de réussite et la précision par tranche de confiance, en signalant si le calibrage tient."
+     }
+    },
+    "canonical": {
+     "brief": "Gold-set evaluation: hit rate and accuracy per confidence bucket, with calibration failure flagged when a high-confidence bucket underperforms. Persisted with run_id, prompt_version and set_version."
+    }
+   },
+   "score_batch": {
+    "human": {
+     "zh": {
+      "name": "批量文档打分",
+      "summary": "批量提交文档打分，逐条给出 ok、skipped 或 failed 及原因，并返回任务标识供查进度。"
+     },
+     "en": {
+      "name": "Score documents in batch",
+      "summary": "Scores documents in batch, marking each ok, skipped or failed with a reason, and returns a task id for progress checks."
+     },
+     "ja": {
+      "name": "文書を一括採点",
+      "summary": "文書をまとめて採点し、各件を ok・skipped・failed と理由付きで示し、進捗確認用のタスク ID を返します。"
+     },
+     "es": {
+      "name": "Puntuar documentos por lotes",
+      "summary": "Puntúa documentos por lotes, marcando cada uno como ok, skipped o failed con su motivo, y devuelve un id de tarea para consultar el avance."
+     },
+     "fr": {
+      "name": "Noter des documents par lots",
+      "summary": "Note des documents par lots, en marquant chacun ok, skipped ou failed avec un motif, et renvoie un identifiant de tâche pour suivre l'avancement."
+     }
+    },
+    "canonical": {
+     "brief": "Batch scoring over a docs list: one failure does not stop the run, skip_existing skips same-key documents. Returns total, ok, skipped, failed, per-item results, prompt_version, model and task_id."
+    }
+   },
+   "score_document": {
+    "human": {
+     "zh": {
+      "name": "给单篇文档打分",
+      "summary": "对单篇正文打情绪分，返回分数、档位、置信度与原文证据片段；无证据即拒绝返回分数。"
+     },
+     "en": {
+      "name": "Score one document",
+      "summary": "Scores one document's tone and returns score, band, confidence and verbatim evidence spans; text without evidence is rejected instead of scored."
+     },
+     "ja": {
+      "name": "文書1件を採点",
+      "summary": "1件の本文の感情を採点し、スコア・帯・信頼度・原文の根拠箇所を返します。根拠がない本文は採点せず拒否します。"
+     },
+     "es": {
+      "name": "Puntuar un documento",
+      "summary": "Puntúa el tono de un documento y devuelve puntuación, banda, confianza y fragmentos de evidencia literales; sin evidencia se rechaza en lugar de puntuar."
+     },
+     "fr": {
+      "name": "Noter un document",
+      "summary": "Note le tonus d'un document et renvoie score, bande, confiance et extraits de preuve littéraux ; un texte sans preuve est refusé plutôt que noté."
+     }
+    },
+    "canonical": {
+     "brief": "Scores one document into a SentimentScore (score, band, confidence, evidence_spans, model, prompt_version, as_of). evidence_spans must be non-empty with verbatim quotes; idempotent on doc_id, content_hash, prompt_version and model."
+    }
+   }
+  },
+  "provenance": {
+   "source": "finddata-supply-annotations",
+   "updatedAt": "2026-11-02"
+  }
+ }
+}

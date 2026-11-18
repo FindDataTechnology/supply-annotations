@@ -1,0 +1,34 @@
+{
+ "tools": {
+  "wire_self_action_list": {
+   "human": {
+    "zh": {"name": "列自理动作台账", "summary": "列本企业自理动作提议台账：动作名、状态、档位与影响面摘要，按创建时间倒序；可用动作以在册名为准，本面不提供审批与执行。"},
+    "en": {"name": "List self-action proposals", "summary": "Lists this enterprise's self-action proposals with action name, state, tier and impact summary, newest first; the registry defines the available actions and this face offers no approve or execute."},
+    "ja": {"name": "セルフアクション台帳", "summary": "自社のセルフアクション提案を新しい順に一覧します（動作名・状態・段階・影響概要）。利用可能な動作は登録名が基準で、本面は承認も実行も提供しません。"},
+    "es": {"name": "Listar propuestas de acción", "summary": "Lista las propuestas de acción propia con nombre, estado, nivel e impacto, de la más reciente a la más antigua; las acciones las define el registro y aquí no hay aprobación ni ejecución."},
+    "fr": {"name": "Lister les propositions d'action", "summary": "Liste les propositions d'action de l'entreprise avec nom, état, palier et résumé d'impact, de la plus récente à la plus ancienne ; le registre définit les actions, cette face n'approuve ni n'exécute."}
+   },
+   "canonical": {"brief": "Lists the enterprise's self-action proposals (action id, state pending_confirm/executed/rejected/failed, tier, impact) newest-first; the available action set comes from the registry and no approve/execute exists on this face."}
+  },
+  "wire_self_action_propose": {
+   "human": {
+    "zh": {"name": "提议自理动作", "summary": "提交一条自理动作提议并即时返回待确认标识，不等待人工确认；未注册或预检失败一律 4xx 回原文，确认与执行在柏讯控制台完成。"},
+    "en": {"name": "Propose a self-action", "summary": "Submits a self-action proposal and returns a pending id without waiting for confirmation; unregistered actions or failed preflight return 4xx verbatim, and confirmation stays in the console."},
+    "ja": {"name": "セルフアクションを提案", "summary": "提案を一件送信し、人の確認を待たずに保留識別子を即時返します。未登録や事前検査の失敗は 4xx を原文のまま返し、確認と実行はコンソール側で行います。"},
+    "es": {"name": "Proponer una acción propia", "summary": "Envía una propuesta y devuelve un identificador pendiente sin esperar confirmación humana; acciones no registradas o preflight fallido devuelven 4xx tal cual."},
+    "fr": {"name": "Proposer une action propre", "summary": "Soumet une proposition et renvoie aussitôt un identifiant en attente sans attendre de confirmation humaine ; action non enregistrée ou préflight en échec renvoie un 4xx tel quel."}
+   },
+   "canonical": {"brief": "Submits a self-action proposal and returns proposal_id, tier and impact without waiting for confirmation; the console remains the sole place where a human approves and executes."}
+  },
+  "wire_self_action_status": {
+   "human": {
+    "zh": {"name": "查自理动作状态", "summary": "查单条提议的台账行：已执行带回结果摘要，失败带回错误原文；不推送、不轮询建徽标，下轮巡检读即可。"},
+    "en": {"name": "Get self-action status", "summary": "Returns one proposal's ledger row; executed carries a result summary and failed carries the original error; nothing is pushed and the next inspection simply reads it."},
+    "ja": {"name": "セルフアクション状態", "summary": "提案一件の台帳行を返します。実行済みは結果概要、失敗はエラー原文を含みます。プッシュもポーリングも行わず、次回巡回で読む想定です。"},
+    "es": {"name": "Ver el estado de la acción", "summary": "Devuelve la fila del registro de una propuesta; ejecutada lleva resumen del resultado y fallida el error original; no hay push ni sondeo, la siguiente inspección lo lee."},
+    "fr": {"name": "État de l'action propre", "summary": "Renvoie la ligne du registre d'une proposition ; exécutée porte un résumé du résultat, échouée l'erreur d'origine ; ni push ni sondage, l'inspection suivante le lit."}
+   },
+   "canonical": {"brief": "Returns one proposal's ledger row by proposal_id, with a result summary when executed and the original error when failed; this face neither pushes nor polls."}
+  }
+ }
+}

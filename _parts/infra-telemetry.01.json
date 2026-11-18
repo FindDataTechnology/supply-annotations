@@ -1,0 +1,139 @@
+{
+  "tools": {
+    "crawl_summary": {
+      "human": {
+        "zh": {
+          "name": "查看爬取汇总",
+          "summary": "按名称推断为爬取情况汇总，只读并带数据时点与逐通道状态；具体字段以服务端返回为准。"
+        },
+        "en": {
+          "name": "View crawl summary",
+          "summary": "By name, a summary of crawl activity, read-only with an as-of timestamp and per-channel status; exact fields follow the server response."
+        },
+        "ja": {
+          "name": "クロール集計を見る",
+          "summary": "名称から判断するとクロール状況の集計です。読み取り専用で時点とチャネル別状態を伴い、詳細な項目はサーバーの応答に従います。"
+        },
+        "es": {
+          "name": "Ver resumen de rastreo",
+          "summary": "Por su nombre, un resumen de la actividad de rastreo, de solo lectura con marca temporal y estado por canal; los campos exactos dependen del servidor."
+        },
+        "fr": {
+          "name": "Voir le résumé de collecte",
+          "summary": "D'après son nom, un résumé de l'activité de collecte, en lecture seule avec horodatage et état par canal ; les champs exacts dépendent du serveur."
+        }
+      },
+      "canonical": {
+        "brief": "Read-only crawl summary. The upstream description was empty, so only the name and the server-level contract (as-of plus per-channel status, no write surface) are asserted; fields follow the response."
+      }
+    },
+    "fleet_cost": {
+      "human": {
+        "zh": {
+          "name": "查看集群成本",
+          "summary": "按名称推断为集群成本读数，只读并带数据时点与逐通道状态；具体字段以服务端返回为准。"
+        },
+        "en": {
+          "name": "View cluster cost",
+          "summary": "By name, a cost reading for the cluster, read-only with an as-of timestamp and per-channel status; exact fields follow the server response."
+        },
+        "ja": {
+          "name": "クラスタのコストを見る",
+          "summary": "名称から判断するとクラスタのコスト値です。読み取り専用で時点とチャネル別状態を伴い、詳細な項目はサーバーの応答に従います。"
+        },
+        "es": {
+          "name": "Ver coste del clúster",
+          "summary": "Por su nombre, un dato de coste del clúster, de solo lectura con marca temporal y estado por canal; los campos exactos dependen del servidor."
+        },
+        "fr": {
+          "name": "Voir le coût du cluster",
+          "summary": "D'après son nom, une mesure de coût du cluster, en lecture seule avec horodatage et état par canal ; les champs exacts dépendent du serveur."
+        }
+      },
+      "canonical": {
+        "brief": "Read-only cost readout for the cluster. The upstream description was empty, so only the name and the server-level contract (as-of plus per-channel status) are asserted; fields follow the response."
+      }
+    },
+    "gitops_sync": {
+      "human": {
+        "zh": {
+          "name": "核对部署漂移",
+          "summary": "按名称推断为 GitOps 同步与漂移读数，只读并带数据时点；具体字段以服务端返回为准。"
+        },
+        "en": {
+          "name": "Check GitOps drift",
+          "summary": "By name, a GitOps sync and drift readout, read-only with an as-of timestamp; exact fields follow the server response."
+        },
+        "ja": {
+          "name": "GitOps のドリフトを確認",
+          "summary": "名称から判断すると GitOps の同期とドリフトの値です。読み取り専用で時点を伴い、詳細な項目はサーバーの応答に従います。"
+        },
+        "es": {
+          "name": "Comprobar deriva GitOps",
+          "summary": "Por su nombre, una lectura de sincronización y deriva de GitOps, de solo lectura con marca temporal; los campos exactos dependen del servidor."
+        },
+        "fr": {
+          "name": "Vérifier la dérive GitOps",
+          "summary": "D'après son nom, une lecture de synchronisation et de dérive GitOps, en lecture seule avec horodatage ; les champs exacts dépendent du serveur."
+        }
+      },
+      "canonical": {
+        "brief": "Read-only GitOps sync and drift readout. The upstream description was empty, so only the name and the server-level contract (as-of plus per-channel status) are asserted; fields follow the response."
+      }
+    },
+    "services_liveness": {
+      "human": {
+        "zh": {
+          "name": "查看服务存活",
+          "summary": "按名称推断为服务存活检查结果，只读并带数据时点与逐通道状态；具体字段以服务端返回为准。"
+        },
+        "en": {
+          "name": "View service liveness",
+          "summary": "By name, liveness results for services, read-only with an as-of timestamp and per-channel status; exact fields follow the server response."
+        },
+        "ja": {
+          "name": "サービスの稼働を見る",
+          "summary": "名称から判断するとサービスの稼働確認結果です。読み取り専用で時点とチャネル別状態を伴い、詳細な項目はサーバーの応答に従います。"
+        },
+        "es": {
+          "name": "Ver disponibilidad de servicios",
+          "summary": "Por su nombre, resultados de disponibilidad de servicios, de solo lectura con marca temporal y estado por canal; los campos exactos dependen del servidor."
+        },
+        "fr": {
+          "name": "Voir la disponibilité des services",
+          "summary": "D'après son nom, des résultats de disponibilité des services, en lecture seule avec horodatage et état par canal ; les champs exacts dépendent du serveur."
+        }
+      },
+      "canonical": {
+        "brief": "Read-only service liveness readout. The upstream description was empty, so only the name and the server-level contract (as-of plus per-channel status) are asserted; fields follow the response."
+      }
+    },
+    "workloads_health": {
+      "human": {
+        "zh": {
+          "name": "查看工作负载健康",
+          "summary": "按名称推断为工作负载健康读数，只读并带数据时点与逐通道状态；具体字段以服务端返回为准。"
+        },
+        "en": {
+          "name": "View workload health",
+          "summary": "By name, a workload health readout, read-only with an as-of timestamp and per-channel status; exact fields follow the server response."
+        },
+        "ja": {
+          "name": "ワークロードの健全性を見る",
+          "summary": "名称から判断するとワークロードの健全性の値です。読み取り専用で時点とチャネル別状態を伴い、詳細な項目はサーバーの応答に従います。"
+        },
+        "es": {
+          "name": "Ver salud de las cargas",
+          "summary": "Por su nombre, una lectura de salud de cargas de trabajo, de solo lectura con marca temporal y estado por canal; los campos exactos dependen del servidor."
+        },
+        "fr": {
+          "name": "Voir la santé des charges",
+          "summary": "D'après son nom, une lecture de santé des charges de travail, en lecture seule avec horodatage et état par canal ; les champs exacts dépendent du serveur."
+        }
+      },
+      "canonical": {
+        "brief": "Read-only workload health readout. The upstream description was empty, so only the name and the server-level contract (as-of plus per-channel status) are asserted; fields follow the response."
+      }
+    }
+  }
+}

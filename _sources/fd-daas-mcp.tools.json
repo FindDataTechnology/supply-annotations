@@ -1,0 +1,651 @@
+{
+  "server_name": "fd-daas-mcp",
+  "description": "数据即服务",
+  "tags": [],
+  "tools": [
+    {
+      "name": "alerts_create_alert_rule",
+      "description": "Create a trigger rule over a DB series.\n\n`condition` is a safe DSL (no eval): `latest > 70`, `crosses_above(70)`,\n`pct_change(5) > 0.05`, `latest > 70 and prev <= 70`, etc. `channels` is a\nlist of names ([\"telegram\",\"slack\"]) or a {name: override} object. All\nchannel credentials live in root .env under ALERTS_*."
+    },
+    {
+      "name": "alerts_delete_alert_rule",
+      "description": "Delete a rule. Its alert_events rows are removed via FK CASCADE."
+    },
+    {
+      "name": "alerts_get_alert_rule",
+      "description": "Return one rule by name."
+    },
+    {
+      "name": "alerts_get_series_latest",
+      "description": "Return the latest `limit` rows of a series ordered by date_column desc."
+    },
+    {
+      "name": "alerts_list_alert_rules",
+      "description": "Return all alert rules."
+    },
+    {
+      "name": "alerts_list_channels",
+      "description": "Return {name, configured, missing_keys} for each of the 7 channels\n(telegram, discord, slack, twitter, dingtalk, feishu, wecowork).\n\nNever returns credential values — only the names of missing keys."
+    },
+    {
+      "name": "alerts_list_events",
+      "description": "Recent alert_events (optionally for one rule), newest first."
+    },
+    {
+      "name": "alerts_list_series",
+      "description": "Distinct (source, function_name, indicator) from observations + scraw_* tables,\neach with a row count + latest date. Alert-scoped discovery (not a SQL browser)."
+    },
+    {
+      "name": "alerts_run_alert_rule",
+      "description": "Ad-hoc: evaluate one rule now and dispatch if it fires.\n\nRespects fire_mode + cooldown like the cron path. Use to test a rule on demand."
+    },
+    {
+      "name": "alerts_update_alert_rule",
+      "description": "Update a rule's fields. Only provided fields change. The name cannot be renamed."
+    },
+    {
+      "name": "composite_add_chained_tool",
+      "description": "Define a chained tool: a linear pipeline of upstream tool calls.\n\nEach step is {\"upstream\": <key>, \"tool\": <name>, \"input\": {param: value}}.\nInput values may be literals or references: \"$prev.<path>\" (prior step's\nresult) or \"$step[N].<path>\" (any prior step's result). Linear only — no\nbranching/conditionals."
+    },
+    {
+      "name": "composite_add_tool",
+      "description": "Select an upstream tool to be exposed (proxied) by the composite.\n\nThe tool is served as <upstream_key>_<tool_name> on next start.\n(alias is accepted but unused in v1.)"
+    },
+    {
+      "name": "composite_add_upstream",
+      "description": "Add an upstream MCP server to a composite.\n\nFor stdio: provide command, args, cwd (env optional).\nFor http: provide url."
+    },
+    {
+      "name": "composite_create",
+      "description": "Create a new composite. Raises if the name already exists."
+    },
+    {
+      "name": "composite_create_manifest",
+      "description": "Create a composite manifest: composite + upstreams + tools + workflows + prompt in one call."
+    },
+    {
+      "name": "composite_delete_manifest",
+      "description": "Delete a composite manifest (cascades upstreams/tools/chains)."
+    },
+    {
+      "name": "composite_list",
+      "description": "List all defined composites (name + description)."
+    },
+    {
+      "name": "composite_list_available_tools",
+      "description": "List the tools an upstream currently exposes (live), optionally filtered."
+    },
+    {
+      "name": "composite_list_chained_tools",
+      "description": "List the chained tools defined for a composite."
+    },
+    {
+      "name": "composite_list_manifests",
+      "description": "List all composites as manifests (name, upstreams, tools, workflows, prompt)."
+    },
+    {
+      "name": "composite_list_tools",
+      "description": "List the tools currently selected for a composite."
+    },
+    {
+      "name": "composite_list_upstreams",
+      "description": "List the upstreams defined for a composite."
+    },
+    {
+      "name": "composite_remove_chained_tool",
+      "description": "Remove a chained tool from a composite."
+    },
+    {
+      "name": "composite_remove_tool",
+      "description": "Remove a selected tool from a composite."
+    },
+    {
+      "name": "composite_remove_upstream",
+      "description": "Remove an upstream (and its selected tools) from a composite."
+    },
+    {
+      "name": "composite_update_manifest",
+      "description": "Partially update a composite manifest. Only provided fields change.\n\nupstreams/tools (when given) REPLACE the existing sets wholesale."
+    },
+    {
+      "name": "cron_create_schedule",
+      "description": "Create a new schedule with a cron expression and task."
+    },
+    {
+      "name": "cron_create_task",
+      "description": "Register a new task in the database. The command is a shell command or script path.\n\nExample: create_task(name=\"fetch_mofcom\", command=\"python3 scripts/fetch_mofcom_news.py --json\")"
+    },
+    {
+      "name": "cron_delete_schedule",
+      "description": "Delete a schedule permanently."
+    },
+    {
+      "name": "cron_delete_task",
+      "description": "Delete a task from the database by name."
+    },
+    {
+      "name": "cron_get_schedule",
+      "description": "Get details for a single schedule."
+    },
+    {
+      "name": "cron_list_db_tasks",
+      "description": "List all tasks stored in the database (user-defined, no code changes needed)."
+    },
+    {
+      "name": "cron_list_executions",
+      "description": "List execution history, optionally filtered by schedule_id."
+    },
+    {
+      "name": "cron_list_schedules",
+      "description": "List all schedules."
+    },
+    {
+      "name": "cron_list_tasks",
+      "description": "List available task types in the registry."
+    },
+    {
+      "name": "cron_pause_schedule",
+      "description": "Pause a schedule (disable without deleting)."
+    },
+    {
+      "name": "cron_resume_schedule",
+      "description": "Resume a paused schedule."
+    },
+    {
+      "name": "cron_run_now",
+      "description": "Execute a scheduled task immediately (one-shot)."
+    },
+    {
+      "name": "cron_update_task",
+      "description": "Update an existing DB task's command, description, or timeout. Only provided fields are updated."
+    },
+    {
+      "name": "daas_add_entity_to_collection",
+      "description": "Add an entity to a collection. Resolves the entity by `entity_id`, or\nby `(entity_type, code)`. Records an `add_in` event in\n`entity_collection_changes` (source='manual'). No-op (no event recorded)\nif the entity is already a member."
+    },
+    {
+      "name": "daas_add_form",
+      "description": "Add a form (e.g. '10-K', '8-K') to a datasource."
+    },
+    {
+      "name": "daas_add_indicator_to_collection",
+      "description": "Add an indicator to a collection. Resolves the indicator by `name`."
+    },
+    {
+      "name": "daas_add_pipeline_item",
+      "description": "Validate + store an item. If enabled and backfill, run history backfill\nthen register the cron-mcp schedule. Returns {item, backfill, cron}."
+    },
+    {
+      "name": "daas_add_section",
+      "description": "Add a section to a form, carrying an extraction instruction."
+    },
+    {
+      "name": "daas_add_to_collection",
+      "description": "Add a datasource (or a specific datasource-section) to a collection.\n\nOmit section_name to add the whole datasource; supply section_name to\nadd only that section. Optional score sets a per-collection score override\non the new item (NULL = inherit the datasource's default score)."
+    },
+    {
+      "name": "daas_calculate_indicator",
+      "description": "Ad-hoc: compute an indicator over a source table without persisting.\n\nValidates table/columns/op/params, reads the series, computes, and returns\n{indicator, dates, values, count}. Writes nothing (no rule, no observations)."
+    },
+    {
+      "name": "daas_create_category",
+      "description": "Create a category, optionally under a parent (building the tree)."
+    },
+    {
+      "name": "daas_create_collection",
+      "description": "Create a named datasource collection."
+    },
+    {
+      "name": "daas_create_datasource",
+      "description": "Create a new managed datasource."
+    },
+    {
+      "name": "daas_create_entity_collection",
+      "description": "Create a named entity collection (watchlist / portfolio)."
+    },
+    {
+      "name": "daas_create_indicator",
+      "description": "Create an indicator rule bound to a datasource + source table."
+    },
+    {
+      "name": "daas_create_indicator_collection",
+      "description": "Create a named indicator collection (a reusable bundle of indicators)."
+    },
+    {
+      "name": "daas_create_pipeline_collection",
+      "description": "Create a named pipeline collection."
+    },
+    {
+      "name": "daas_create_rule",
+      "description": "Create a rule."
+    },
+    {
+      "name": "daas_delete_category",
+      "description": "Delete a category. Rejected if it has child categories. Datasources\nassigned to it are orphaned to root level (category_id set to null)."
+    },
+    {
+      "name": "daas_delete_collection",
+      "description": "Delete a collection. Cascades to its `datasource_collection_items`\nrows (datasources themselves are untouched)."
+    },
+    {
+      "name": "daas_delete_datasource",
+      "description": "Delete a datasource and cascade-delete its forms, sections, and\ncollection-item references. Identify by name or id."
+    },
+    {
+      "name": "daas_delete_entity_collection",
+      "description": "Delete a collection and cascade to its items + changes."
+    },
+    {
+      "name": "daas_delete_indicator",
+      "description": "Delete an indicator rule. observations rows it produced are NOT removed\n(soft reference) — they remain identifiable via their `metadata.rule_name`."
+    },
+    {
+      "name": "daas_delete_indicator_collection",
+      "description": "Delete a collection and cascade to its items + changes."
+    },
+    {
+      "name": "daas_delete_pipeline_collection",
+      "description": "Unwire cron for every item, then delete the collection (FK CASCADE removes items)."
+    },
+    {
+      "name": "daas_delete_rule",
+      "description": "Delete a rule. Referencing collections' rule_id is set to NULL; the\nrule's process_results rows are removed."
+    },
+    {
+      "name": "daas_disable_pipeline_item",
+      "description": "Delete the cron schedule (keep the task row); set enabled=0."
+    },
+    {
+      "name": "daas_enable_pipeline_item",
+      "description": "Backfill + register cron for a disabled item; set enabled=1."
+    },
+    {
+      "name": "daas_extract_file",
+      "description": "Read a local .txt/.md/.pdf and extract structured records."
+    },
+    {
+      "name": "daas_extract_image",
+      "description": "Extract structured records from an image via a vision-capable model.\n\n`image` accepts a local file path, an http(s):// URL, or raw base64."
+    },
+    {
+      "name": "daas_extract_text",
+      "description": "Extract structured records from (possibly long) text.\n\nLong text is chunked (no truncation): per-chunk extraction then a merge pass."
+    },
+    {
+      "name": "daas_fetch_data",
+      "description": "Execute a DAAS data function and return results as JSON.\n\nRoutes to the correct source adapter based on function name prefix."
+    },
+    {
+      "name": "daas_get_category_tree",
+      "description": "Return the category tree (or a subtree from root_id) as a nested\nstructure, each node annotated with datasource_count."
+    },
+    {
+      "name": "daas_get_entity",
+      "description": "Get full detail for one entity, including aliases and metadata.\n\nPer D5/3.5 the entity master is fd-open-data-mcp. Resolve by natural\nkey (entity_type, code) when given (gateway-first, local fallback);\notherwise fall back to entity_id (local)."
+    },
+    {
+      "name": "daas_get_entity_collection",
+      "description": "Get one collection with its current member entities (ordered)."
+    },
+    {
+      "name": "daas_get_entity_coverage",
+      "description": "For each datasource linked to the entity, return the identifier to\nuse, the available sections (routing instructions = how to get the\ndata, with an identifier-prefilled variant), and the column count/list\naggregated from daas_function_columns. Sources without registered\nfunctions get a column_hint naming the sibling MCP + tool.\n\nPer D5/3.5 entity resolution proxies through fd-open-data-mcp. Accept\na natural key (entity_type, code) as an alternative to entity_id.\n\nThis answers: \"I have company X — which datasources cover it, how many\ncolumns can I get, and how do I fetch it?\""
+    },
+    {
+      "name": "daas_get_function_detail",
+      "description": "Get full details for a DAAS function — parameters, output columns, description."
+    },
+    {
+      "name": "daas_get_indicator",
+      "description": "Return one indicator rule by name (with `score` + `effective_default_score`)."
+    },
+    {
+      "name": "daas_get_indicator_collection",
+      "description": "Get one collection with its current items (ordered, each with the\nresolved effective score + raw item/indicator/datasource scores)."
+    },
+    {
+      "name": "daas_get_pipeline_collection",
+      "description": "One pipeline collection with all its items."
+    },
+    {
+      "name": "daas_get_rule",
+      "description": "Return one rule by name."
+    },
+    {
+      "name": "daas_link_entity_datasource",
+      "description": "Link an entity to a daas datasource, recording the identifier to use\ninside that datasource (e.g. for AAPL → yfinance: 'AAPL'). Upserts on\n(entity_id, source_name)."
+    },
+    {
+      "name": "daas_list_categories",
+      "description": "List all DAAS function categories with counts, optionally filtered by source."
+    },
+    {
+      "name": "daas_list_collection_items",
+      "description": "List a collection's items, each resolved to source name and (if set)\nsection name + instruction."
+    },
+    {
+      "name": "daas_list_collections",
+      "description": "List every datasource collection with its item count."
+    },
+    {
+      "name": "daas_list_entities",
+      "description": "List entities filtered by type / exchange / country, paginated."
+    },
+    {
+      "name": "daas_list_entity_collection_changes",
+      "description": "Query the add-in / remove-out audit log (`entity_collection_changes`),\nnewest first, each enriched with collection name + entity code/name."
+    },
+    {
+      "name": "daas_list_entity_collection_items",
+      "description": "List the current members of a collection, ordered by sort_order, each\nenriched with full entity detail (code, name, ticker, exchange, ...)."
+    },
+    {
+      "name": "daas_list_entity_collections",
+      "description": "List every entity collection with its item count."
+    },
+    {
+      "name": "daas_list_forms",
+      "description": "List all forms of a datasource, each with nested sections\n(including instruction)."
+    },
+    {
+      "name": "daas_list_indicator_collection_changes",
+      "description": "Query the add-in / remove-out audit log (`indicator_collection_changes`),\nnewest first. Each row is enriched with the collection name."
+    },
+    {
+      "name": "daas_list_indicator_collection_items",
+      "description": "List the items of a collection, ordered by sort_order, each with the\nresolved effective score + raw item/indicator/datasource scores."
+    },
+    {
+      "name": "daas_list_indicator_collections",
+      "description": "List every indicator collection with its item count."
+    },
+    {
+      "name": "daas_list_indicator_ops",
+      "description": "Return the fixed math-op catalog with each op's required params."
+    },
+    {
+      "name": "daas_list_indicators",
+      "description": "Return all indicator rules (each with `score` + `effective_default_score`)."
+    },
+    {
+      "name": "daas_list_models",
+      "description": "Return configured models with a `vision` flag each. API keys are never returned."
+    },
+    {
+      "name": "daas_list_pipeline_collections",
+      "description": "Every pipeline collection with its item count."
+    },
+    {
+      "name": "daas_list_pipeline_items",
+      "description": "List items, optionally filtered to one collection."
+    },
+    {
+      "name": "daas_list_rules",
+      "description": "List all rules, optionally filtered by rule_type."
+    },
+    {
+      "name": "daas_list_source_tables",
+      "description": "Return scraped source-data tables (name LIKE 'scraw_%') with row counts + columns."
+    },
+    {
+      "name": "daas_list_sources",
+      "description": "List all configured DAAS data sources with function counts.\n\nReturns sources like akshare, worldbank, ckan, cnstats\nwith install status and available function counts."
+    },
+    {
+      "name": "daas_move_category",
+      "description": "Re-parent a category. Rejects moves that would create a cycle\n(into own descendant) or self-parenting. Pass parent_id=null to make\nit a root."
+    },
+    {
+      "name": "daas_remove_entity_from_collection",
+      "description": "Remove an entity from a collection. Records a `remove_out` event in\n`entity_collection_changes` (source='manual'). No-op (no event recorded)\nif the entity is not a member."
+    },
+    {
+      "name": "daas_remove_from_collection",
+      "description": "Remove an item from a collection by (collection, source, optional\nsection). Omit section_name to remove the whole-datasource item."
+    },
+    {
+      "name": "daas_remove_indicator_from_collection",
+      "description": "Remove an indicator from a collection. Records a `remove_out` event in\nthe audit log. No-op (`not_member`) if the indicator is not in the collection."
+    },
+    {
+      "name": "daas_remove_pipeline_item",
+      "description": "Unwire cron then delete the item row. scraw_<table> is left intact."
+    },
+    {
+      "name": "daas_rename_collection",
+      "description": "Rename a collection. The new name must be unique. Items are preserved\n(they reference by collection_id)."
+    },
+    {
+      "name": "daas_reorder_collection_items",
+      "description": "Rewrite the sort_order of items in `collection_name` to match the\ngiven list. `ordered_item_ids` MUST include every existing item id in\nthe collection exactly once — partial reorders are rejected."
+    },
+    {
+      "name": "daas_reorder_entity_collection_items",
+      "description": "Rewrite member sort_order to match the given ordered list of\n`entity_collection_items.id`. Must contain exactly the current item ids."
+    },
+    {
+      "name": "daas_reorder_indicator_collection_items",
+      "description": "Rewrite item sort_order to match the given ordered list of\n`indicator_collection_items.id`. Must contain exactly the current item\nids of this collection — partial reorders are rejected."
+    },
+    {
+      "name": "daas_run_indicator",
+      "description": "Full-recompute the indicator over its source table → observations.\n\nReads the whole source table, computes the op, and upserts every\n(date, value) into the daas `observations` table keyed on\n(source=datasource, function_name, indicator=indicator_name, date).\nIdempotent on re-run via the observations unique constraint."
+    },
+    {
+      "name": "daas_run_rule",
+      "description": "Evaluate + persist. For `target='rows'` (llm): incremental extraction\ninto process_results + advance last_rowid. For member targets: returns the\nderived set (membership is applied by daas_sync_*_collection, not here)."
+    },
+    {
+      "name": "daas_search_datasources",
+      "description": "Search/filter datasources across levels — category (with optional\nsubtree), source, form, and section — every filter optional, plus a\nfree-text query across source label/description, form label, and\nsection name/instruction."
+    },
+    {
+      "name": "daas_search_entities",
+      "description": "Search entities (stocks + countries) by name, ticker, code, or alias."
+    },
+    {
+      "name": "daas_search_functions",
+      "description": "Search DAAS functions by name, category, or description across all sources."
+    },
+    {
+      "name": "daas_set_collection_item_score",
+      "description": "Set or clear the per-collection score override on an existing collection\nitem, identified by (collection_name, source_name, optional section_name).\n\nPass score=<float> to set the override; pass score=null (omit) to clear it\nso the item falls back to the datasource's default score. Returns the\nupdated item with its resolved effective score, the raw item_score override,\nand the source_default_score."
+    },
+    {
+      "name": "daas_set_indicator_collection_item_score",
+      "description": "Set or clear the per-collection score override on an existing item,\nidentified by (collection_name, indicator_name).\n\n`score` = a float sets the override; `score = null` clears it (the item\nthen inherits the indicator's default `indicator_rules.score`, which\nitself inherits the datasource default when NULL). Returns the updated\nitem dict with the resolved effective score."
+    },
+    {
+      "name": "daas_set_indicator_score",
+      "description": "Set the indicator's default `score` (float), or clear it (None → inherit\nthe datasource's `sources.score`). Returns the updated indicator dict with\n`effective_default_score`."
+    },
+    {
+      "name": "daas_sync_entity_collection",
+      "description": "Re-derive the member set for a rule-based collection by applying its\n`rule_json` to the `entities` table, diff vs current members, apply\nadd_in for new matches and remove_out for non-matches (source='cron'),\nand record every transition. Returns `{added, removed, unchanged}`.\nA manual collection (rule_json=NULL) is a no-op."
+    },
+    {
+      "name": "daas_sync_indicator_collection",
+      "description": "Re-derive the member set for a rule-based indicator collection by\nevaluating its rule (target='indicator_names') via the RuleEngine, diff vs\ncurrent members, apply add_in/remove_out (source='cron'), and record every\ntransition. Returns `{added, removed, unchanged}`. A manual collection\n(rule_id NULL) is a no-op."
+    },
+    {
+      "name": "daas_sync_pipeline_cron",
+      "description": "Re-apply cron wiring for all enabled items; remove schedules for disabled ones."
+    },
+    {
+      "name": "daas_test_rule",
+      "description": "Dry-run: evaluate the rule WITHOUT persisting. For member targets\n(entity_ids/indicator_names) returns the derived set. For `target='rows'`\n(llm), extracts from a single source row (no process_results write) as a\nsample."
+    },
+    {
+      "name": "daas_unlink_entity_datasource",
+      "description": "Delete the link between an entity and a datasource."
+    },
+    {
+      "name": "daas_update_collection",
+      "description": "Partially update a collection's name and/or description.\n\nAt least one of `new_name` / `description` must be provided; omitted\nfields are left unchanged. When `new_name` differs from the current\nname it must be unique. Raises if the collection is not found."
+    },
+    {
+      "name": "daas_update_datasource",
+      "description": "Update mutable fields of a datasource, identified by name or id.\n\nPass clear_category=true to unset the category (move to root level).\nPass score=<float> to set the default score; pass clear_score=true to reset\nthe score back to NULL (unset). Only supplied fields are changed."
+    },
+    {
+      "name": "daas_update_entity_collection",
+      "description": "Partially update an entity collection's name and/or description and/or\nrule. At least one field must be provided. `clear_rule=True` resets the\nrule to NULL (manual collection)."
+    },
+    {
+      "name": "daas_update_indicator",
+      "description": "Update an indicator rule's fields. Only provided fields change. The\nrule name cannot be renamed. Pass `params` to replace the op params.\n\n`score`: a float sets the indicator's default score. `clear_score=True`\nclears it back to NULL (inherit the datasource's `sources.score`).\nMirrors `update_datasource(score=…, clear_score=True)`."
+    },
+    {
+      "name": "daas_update_indicator_collection",
+      "description": "Partially update an indicator collection's name, description, and/or\nrule. At least one field must be provided. `clear_rule=True` resets\n`rule_id` to NULL (manual collection)."
+    },
+    {
+      "name": "daas_update_pipeline_item",
+      "description": "Update mutable fields. cron/timezone change re-syncs the schedule.\nenabled toggle runs enable/disable. arguments_json change does NOT backfill."
+    },
+    {
+      "name": "daas_update_rule",
+      "description": "Partially update a rule. At least one field must be provided. The rule\nname cannot be renamed."
+    },
+    {
+      "name": "dashboard_delete",
+      "description": "Delete a dashboard row by slug and regenerate index.html + daas.md. The\nHTML file itself is NOT removed (only the registry row). Returns\n`{\"deleted\": slug}` or `{\"error\": ...}`."
+    },
+    {
+      "name": "dashboard_get",
+      "description": "Get one dashboard's full metadata by slug: name, intro, source_tables,\nentity_coverage, time_range, refresh_cadence, chart_config, file_path,\nfile_url. Returns `{\"error\": \"dashboard '<slug>' not found\"}` if absent."
+    },
+    {
+      "name": "dashboard_get_executions",
+      "description": "Get cron execution history from a database."
+    },
+    {
+      "name": "dashboard_get_stats",
+      "description": "Get aggregated statistics across all MCP databases."
+    },
+    {
+      "name": "dashboard_list",
+      "description": "List every registered dashboard (name + slug + intro + file_url), oldest\nfirst. Returns a JSON array."
+    },
+    {
+      "name": "dashboard_list_databases",
+      "description": "List all known SQLite databases in the MCP directory with table counts."
+    },
+    {
+      "name": "dashboard_list_datasources",
+      "description": "List managed datasources from daas.db (schema managed by mcp/models/models.py)."
+    },
+    {
+      "name": "dashboard_query_table",
+      "description": "Run a read-only query against a database table. Returns rows as JSON."
+    },
+    {
+      "name": "dashboard_register",
+      "description": "Register or update (upsert by slug) a standalone HTML dashboard in the\n`dashboards` table. After writing the row, regenerates index.html + daas.md\nfrom the DB. `source_tables`/`entity_coverage`/`time_range`/`chart_config`\naccept a JSON string or a list/dict. Returns the stored row (with `action`\n= inserted|updated) or `{\"error\": ...}`."
+    },
+    {
+      "name": "dashboard_search",
+      "description": "Case-insensitive keyword search over each dashboard's name + intro +\nrefresh_cadence + source_tables. Returns matching `{slug, name, intro}`\nentries, or an empty array if none match."
+    },
+    {
+      "name": "dashboard_update",
+      "description": "Patch one or more fields of an existing dashboard (by slug). Only the\nfields you pass are changed; the rest are left as-is. Regenerates index.html\n+ daas.md after the update. Returns the updated row or `{\"error\": ...}`."
+    },
+    {
+      "name": "gateway_add_data_mcp",
+      "description": "Add or update a data-fetch MCP upstream (idempotent upsert by name)."
+    },
+    {
+      "name": "gateway_call_data_mcp",
+      "description": "Call a tool on a data-fetch MCP upstream and return its result.\n\nConnects to the named upstream via the persistent client pool, invokes\nthe named tool with the JSON-deserialized `arguments`, and returns the\nupstream's result. The client stays alive across calls and is only\nrecreated when the upstream config changes."
+    },
+    {
+      "name": "gateway_gateway_health",
+      "description": "Health-probe each enabled gateway upstream and auto-flip transport.\n\nFor each enabled upstream in ``gateway_upstreams``:\n\n- **http** transport: ping the row's ``url``. On failure AND the row\n  carries a stdio ``command``, flip ``transport`` to ``stdio`` (degraded\n  mode — mirrors the client-pool fallback so the next ``get_client()``\n  launches the subprocess). On success, no change.\n- **stdio** transport with a ``url`` set (i.e. it was flipped from http by\n  a prior fallback): ping the ``url``. On success flip ``transport`` back\n  to ``http`` (recovered). On failure, leave as stdio.\n- **stdio**-only (no ``url``): skipped (nothing to probe).\n\nReturns a per-upstream status report. Never raises — network errors are\ncaptured as degraded states so the probe is safe to call from selfcheck."
+    },
+    {
+      "name": "gateway_get_data_mcp",
+      "description": "Get one data-fetch MCP upstream's full launch config."
+    },
+    {
+      "name": "gateway_list_data_mcp_tools",
+      "description": "List the tools exposed by a data-fetch MCP upstream (live).\n\nReuses the persistent client from the connection pool — the client stays\nalive across calls and is only recreated when the upstream config changes.\nReturns each tool's name + description (+ parameters when available)."
+    },
+    {
+      "name": "gateway_list_data_mcps",
+      "description": "List the data-fetch MCP upstreams gateway-mcp can route to.\n\nEach entry is a row from the `gateway_upstreams` table (name, transport,\nenabled, description). Disabled upstreams are hidden unless\n`include_disabled=True`."
+    },
+    {
+      "name": "gateway_remove_data_mcp",
+      "description": "Remove a data-fetch MCP upstream from the registry."
+    },
+    {
+      "name": "research_add_component",
+      "description": "Attach an existing component to a research by name. ``component_type`` ∈\nentity_collection | indicator_collection | dashboard | pipeline | rule |\nscraw_table | indicator. The underlying object is not created - it must\nalready exist (for the named kinds)."
+    },
+    {
+      "name": "research_create",
+      "description": "Create a persisted research bundle. Named collections are attached by\nname; with ``create_missing=True`` missing entity/indicator/pipeline\ncollections are created empty. A ``dashboard_slug`` must already exist\n(the tool does not build dashboard HTML). ``component_refs`` is a JSON\nobject string: ``{\"rules\": [...], \"scraw_tables\": [...], \"indicators\": [...]}``."
+    },
+    {
+      "name": "research_delete",
+      "description": "Delete a research. Removes the on-disk report file. With\n``remove_pipeline=True`` (default) deletes the owned pipeline collection\n+ orphaned cron schedules/tasks. With ``remove_dashboard=True`` (default\nFalse) deletes the referenced dashboard via the sibling tool. Shared\nentity/indicator collections, rules, scraw tables, and observations are\nNEVER deleted."
+    },
+    {
+      "name": "research_generate_report",
+      "description": "Assemble a markdown report from the bundle's live components, persist it\ninto ``report_md`` and write it to ``researches/<name>.md`` (dir from\n``RESEARCH_DIR``, default repo-root ``researches/``). Regeneration\noverwrites both. Returns ``{name, report_path, char_count}``."
+    },
+    {
+      "name": "research_get",
+      "description": "Return a research + resolved bundle (live counts, dashboard url,\npipeline status, dangling-component warnings)."
+    },
+    {
+      "name": "research_list",
+      "description": "List every research (optionally filtered by status) with attached\ncomponent names."
+    },
+    {
+      "name": "research_refresh",
+      "description": "Re-run the research's data pipeline: recompute each indicator in the\nindicator collection (via ``daas_run_indicator``), sync rule-based\ncollections (via ``daas_sync_entity_collection``/``daas_sync_indicator_collection``),\nand report each pipeline item's current status. Returns a per-component\nstatus report; per-item errors are reported, not raised."
+    },
+    {
+      "name": "research_remove_component",
+      "description": "Detach a component from a research. The underlying object is NOT\ndeleted. For named kinds, clears the research column; for auxiliary refs,\nremoves the name from ``component_refs``."
+    },
+    {
+      "name": "research_update",
+      "description": "Partially update a research. ``None`` means leave a field unchanged;\nto detach a named component use ``remove_component``. Any newly-set\ncomponent name is validated to exist. ``component_refs`` (JSON string)\nreplaces the auxiliary refs."
+    },
+    {
+      "name": "workflow_delete",
+      "description": "Delete a workflow. Omit ``version`` to delete every version of ``name``.\nSteps/runs cascade via FK."
+    },
+    {
+      "name": "workflow_get",
+      "description": "Get a workflow by name (latest version by default)."
+    },
+    {
+      "name": "workflow_inspect",
+      "description": "Validate a stored manifest and return its parsed step plan (no execution)."
+    },
+    {
+      "name": "workflow_list",
+      "description": "List every workflow (name, version, description, enabled, step_count)."
+    },
+    {
+      "name": "workflow_register",
+      "description": "Register a new workflow manifest (YAML). Version bumps on name collision\nunless the manifest declares its own ``version``."
+    },
+    {
+      "name": "workflow_resume",
+      "description": "Resume a paused run. ``approved=False`` marks it failed."
+    },
+    {
+      "name": "workflow_run",
+      "description": "Run a workflow manifest. ``params_json`` merges over the manifest's\ndeclared ``params``. Returns run id + status; a paused run carries a\n``resume_token`` for ``resume``."
+    },
+    {
+      "name": "workflow_update",
+      "description": "Patch a workflow. Only provided fields change. ``version`` defaults to\nthe latest version of ``name``."
+    }
+  ]
+}

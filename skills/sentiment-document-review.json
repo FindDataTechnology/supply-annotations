@@ -1,0 +1,32 @@
+{
+  "skill": "sentiment-document-review",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "公告舆情审查",
+        "summary": "柏讯舆情驱动的公告审读：取巨潮面板公告全文，逐篇用舆情工具打分并强制附原文引用，呈现分数、评级带、置信度、片段与定位。多篇给分布而非平均情绪；拒答如实转述，低置信显式标注。不做交易信号，不给情绪指数。"
+      },
+      "en": {
+        "name": "Announcement sentiment review",
+        "summary": "Reviews cninfo filings: each scored with mandatory source citations; shows score, band, confidence, snippet and location. Several filings give a distribution, not an average; no signals, no index."
+      },
+      "ja": {
+        "name": "公告世論審査",
+        "summary": "Wire世論ドリブンの公告審査：巨潮パネルから公告全文を取得し、公告ごとに世論スコアを付ける（原文引用必須）。スコア・バンド・信頼度・引用断片と位置を提示。複数件は分布で示し平均しない。回答拒否はそのまま転記、低信頼度は明示。取引シグナルも世論指数も作らない。"
+      },
+      "es": {
+        "name": "Revisión de opinión pública de comunicados",
+        "summary": "Revisa comunicados de cninfo puntuados por opinión con cita obligatoria: muestra puntuación, banda, confianza y fragmento. Varios dan distribución, no promedio; sin señales de trading ni índice."
+      },
+      "fr": {
+        "name": "Revue d'opinion publique des communiqués",
+        "summary": "Revoit les communiqués cninfo notés par l'opinion publique, citation obligatoire ; score, bande, confiance, extrait et position. Pluriel : distribution, pas moyenne ; sans signal ni indice."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

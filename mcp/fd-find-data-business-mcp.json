@@ -1,0 +1,960 @@
+{
+ "version": 1,
+ "server": "fd-find-data-business-mcp",
+ "annotation": {
+  "human": {
+   "zh": {
+    "name": "商业数据检索",
+    "summary": "面向业务场景的检索面：法规、年报、裁判文书、城市与全球贸易数据，按主题取数与引用。",
+    "whenToUse": "做尽调、合规核对或城市与贸易数据查询时。"
+   },
+   "en": {
+    "name": "Business data search",
+    "summary": "Business-oriented retrieval across statutes, annual reports, judgments, city and global-trade data, with citations.",
+    "whenToUse": "For due diligence, compliance checks, or city and trade data."
+   },
+   "ja": {
+    "name": "ビジネスデータ検索",
+    "summary": "法令・年報・判決文・都市データ・国際貿易データを横断し、引用付きで取得する業務向け検索面です。",
+    "whenToUse": "デューデリジェンス、コンプライアンス確認、都市・貿易データの照会時。"
+   },
+   "es": {
+    "name": "Búsqueda de datos de negocio",
+    "summary": "Búsqueda orientada a negocio en normativa, informes anuales, sentencias, datos de ciudades y comercio global, con citas.",
+    "whenToUse": "Para diligencia debida, control de cumplimiento o datos de ciudades y comercio."
+   },
+   "fr": {
+    "name": "Recherche de données d'affaires",
+    "summary": "Recherche métier dans les textes légaux, rapports annuels, jugements, données urbaines et commerce mondial, avec citations.",
+    "whenToUse": "Pour une due diligence, un contrôle de conformité ou des données urbaines et commerciales."
+   }
+  },
+  "canonical": {
+   "brief": "Business retrieval MCP: statutes, annual reports, judgments, city and global-trade data with citations; grouped by domain, read-only."
+  },
+  "tools": {
+   "ai_search": {
+    "human": {
+     "zh": {
+      "name": "自然语言查找",
+      "summary": "用自然语言同时查找指标与实体，覆盖其它检索工具的重叠范围；每次只调用一次，结果不附来源署名。"
+     },
+     "en": {
+      "name": "Natural-language lookup",
+      "summary": "Discover indicators and entities from a natural-language query, covering the scope of the other search tools; call it once and expect no source attribution in results."
+     },
+     "ja": {
+      "name": "自然文で検索",
+      "summary": "自然文から指標とエンティティをまとめて探す。他の検索ツールと範囲が重なるため1回だけ呼び、結果に情報源の表示は付かない。"
+     },
+     "es": {
+      "name": "Búsqueda en lenguaje natural",
+      "summary": "Descubre indicadores y entidades a partir de una consulta en lenguaje natural, con el alcance de las demás herramientas de búsqueda; se llama una sola vez y no atribuye fuentes."
+     },
+     "fr": {
+      "name": "Recherche en langage naturel",
+      "summary": "Découvre indicateurs et entités à partir d'une requête en langage naturel, avec la portée des autres outils de recherche ; à appeler une seule fois, sans attribution de source."
+     }
+    },
+    "canonical": {
+     "brief": "Discover indicators and entities from one natural-language query; its scope covers the other search tools, so call it once, and results carry no source attribution."
+    }
+   },
+   "city_read": {
+    "human": {
+     "zh": {
+      "name": "读取城市面板值",
+      "summary": "读取一个城市面板变量的城市-年度取值，覆盖 297 个城市、2000 至 2024 年；城市可用代码或中文名，无数据返回空列表。"
+     },
+     "en": {
+      "name": "Read city panel values",
+      "summary": "Read one city-panel variable's city-year values covering 297 cities from 2000 to 2024; cities accept codes or Chinese names, and no data returns an empty list."
+     },
+     "ja": {
+      "name": "城市パネル値を取得",
+      "summary": "城市パネル変数1件の都市・年ごとの値を読む。297 都市・2000〜2024 年を対象とし、都市はコードか中国語名で指定、該当なしは空リスト。"
+     },
+     "es": {
+      "name": "Leer valores del panel de ciudades",
+      "summary": "Lee los valores ciudad-año de una variable del panel de ciudades, 297 ciudades de 2000 a 2024; la ciudad acepta código o nombre chino y sin datos devuelve lista vacía."
+     },
+     "fr": {
+      "name": "Lire les valeurs du panel des villes",
+      "summary": "Lit les valeurs ville-année d'une variable du panel des villes, 297 villes de 2000 à 2024 ; la ville accepte un code ou un nom chinois et l'absence de données renvoie une liste vide."
+     }
+    },
+    "canonical": {
+     "brief": "Read one city-panel variable's city-year values across 297 cities from 2000 to 2024; cities accept codes or Chinese names and empty results stay empty."
+    }
+   },
+   "city_search_variables": {
+    "human": {
+     "zh": {
+      "name": "检索城市变量",
+      "summary": "按中文名称或代码模糊检索中国城市面板变量，返回代码、标签、单位与统一标识等元数据。"
+     },
+     "en": {
+      "name": "Search city variables",
+      "summary": "Fuzzy-search China city-panel variables by Chinese name or code; results carry code, label, unit and unified indicator identity."
+     },
+     "ja": {
+      "name": "城市変数を検索",
+      "summary": "中国の城市パネル変数を中国語名またはコードで曖昧検索する。コード・ラベル・単位・統一指標IDを返す。"
+     },
+     "es": {
+      "name": "Buscar variables de ciudad",
+      "summary": "Busca variables del panel de ciudades de China por nombre chino o código; devuelve código, etiqueta, unidad e identidad unificada."
+     },
+     "fr": {
+      "name": "Chercher des variables de ville",
+      "summary": "Recherche les variables du panel des villes de Chine par nom chinois ou code ; renvoie code, libellé, unité et identité unifiée."
+     }
+    },
+    "canonical": {
+     "brief": "Fuzzy-search China city-panel variables by Chinese name or code; rows carry code, label, unit and the unified indicator identity."
+    }
+   },
+   "daas_get_entity": {
+    "human": {
+     "zh": {
+      "name": "读取实体详情",
+      "summary": "按 id 读取一个 DAAS 实体的详情；实体镜像表尚未就绪，当前返回 domain_unavailable，就绪后未知 id 返回 not_found。"
+     },
+     "en": {
+      "name": "Read entity detail",
+      "summary": "Read one DAAS entity's detail by id; the entity mirror table is pending, so calls return domain_unavailable now, and once provisioned an unknown id returns not_found."
+     },
+     "ja": {
+      "name": "実体詳細を取得",
+      "summary": "id で DAAS 実体1件の詳細を読む。実体ミラーテーブルが未整備のため現状は domain_unavailable を返し、整備後の未知 id は not_found。"
+     },
+     "es": {
+      "name": "Leer detalle de entidad",
+      "summary": "Lee por id el detalle de una entidad DAAS; la tabla espejo está pendiente, así que ahora devuelve domain_unavailable y, ya provisionada, un id desconocido devolverá not_found."
+     },
+     "fr": {
+      "name": "Lire le détail d'une entité",
+      "summary": "Lit par id le détail d'une entité DAAS ; la table miroir est en attente, donc les appels renvoient domain_unavailable, et une fois provisionnée un id inconnu renverra not_found."
+     }
+    },
+    "canonical": {
+     "brief": "Read one DAAS entity's detail by id; the entity mirror table is pending so calls return domain_unavailable, and once provisioned unknown ids return not_found."
+    }
+   },
+   "daas_get_function_detail": {
+    "human": {
+     "zh": {
+      "name": "读取函数详情",
+      "summary": "按 id 读取一个 DAAS 取数函数的完整口径，含请求形状（路径、方法、查询参数、门禁）、输出类型与频率；未知 id 返回 not_found。"
+     },
+     "en": {
+      "name": "Read function detail",
+      "summary": "Read one DAAS fetch function's full caliber by id, adding its request shape (path, method, query parameters, gating), output type and frequency; an unknown id returns not_found."
+     },
+     "ja": {
+      "name": "関数詳細を取得",
+      "summary": "id で DAAS 取得関数1件の完全な口径を読む。要求形状（パス・メソッド・クエリ・ゲート）、出力種別、頻度を含み、未知の id は not_found を返す。"
+     },
+     "es": {
+      "name": "Leer detalle de función",
+      "summary": "Lee por id el criterio completo de una función de extracción DAAS, con su forma de solicitud (ruta, método, parámetros, control), tipo de salida y frecuencia; un id desconocido devuelve not_found."
+     },
+     "fr": {
+      "name": "Lire le détail d'une fonction",
+      "summary": "Lit par id le calibre complet d'une fonction d'extraction DAAS, avec sa forme de requête (chemin, méthode, paramètres, contrôle), le type de sortie et la fréquence ; un id inconnu renvoie not_found."
+     }
+    },
+    "canonical": {
+     "brief": "Read one DAAS fetch function's full caliber by id, adding its request shape (path, method, query parameters, gating), output type and frequency; unknown ids return not_found."
+    }
+   },
+   "daas_get_indicator": {
+    "human": {
+     "zh": {
+      "name": "读取指标规则",
+      "summary": "按 id 读取一个 DAAS 指标规则的完整口径，在列表字段之外补充算子参数，例如滑动窗口长度；未知 id 返回 not_found。"
+     },
+     "en": {
+      "name": "Read indicator rule",
+      "summary": "Read one DAAS indicator rule's complete caliber by id, adding the operator parameters such as a moving-window length on top of the list fields; an unknown id returns not_found."
+     },
+     "ja": {
+      "name": "指標ルールを取得",
+      "summary": "id で DAAS 指標ルール1件の完全な口径を読む。一覧の項目に加え、移動窓の長さなどの演算子パラメータを返す。未知の id は not_found。"
+     },
+     "es": {
+      "name": "Leer regla de indicador",
+      "summary": "Lee por id el criterio completo de una regla de indicador DAAS, añadiendo los parámetros del operador, como la longitud de ventana móvil; un id desconocido devuelve not_found."
+     },
+     "fr": {
+      "name": "Lire une règle d'indicateur",
+      "summary": "Lit par id le calibre complet d'une règle d'indicateur DAAS, en ajoutant les paramètres de l'opérateur comme la longueur de fenêtre glissante ; un id inconnu renvoie not_found."
+     }
+    },
+    "canonical": {
+     "brief": "Read one DAAS indicator rule's full caliber by id, adding operator parameters such as a moving-window length on top of the list fields; unknown ids return not_found."
+    }
+   },
+   "daas_list_indicators": {
+    "human": {
+     "zh": {
+      "name": "列出计算指标",
+      "summary": "列出 DAAS 计算指标规则目录，每行给出数据源函数、来源表与列、算子等口径；支持关键词、数据源与启用状态过滤。"
+     },
+     "en": {
+      "name": "List computed indicators",
+      "summary": "List the DAAS computed-indicator rule catalog; each row gives the datasource function, source table and columns, and operator, filtered by keyword, datasource and enabled state."
+     },
+     "ja": {
+      "name": "計算指標を列挙",
+      "summary": "DAAS 計算指標ルールのカタログを列挙する。各行にデータソース関数・元テーブルと列・演算子などの口径を示し、キーワード・データソース・有効状態で絞れる。"
+     },
+     "es": {
+      "name": "Listar indicadores calculados",
+      "summary": "Enumera el catálogo de reglas de indicadores calculados DAAS; cada fila da la función de origen, tabla y columnas y el operador, con filtros por palabra clave, fuente y estado."
+     },
+     "fr": {
+      "name": "Lister les indicateurs calculés",
+      "summary": "Énumère le catalogue de règles d'indicateurs calculés DAAS ; chaque ligne donne la fonction source, la table et les colonnes, l'opérateur, avec filtres par mot-clé, source et état."
+     }
+    },
+    "canonical": {
+     "brief": "List the DAAS computed-indicator rule catalog; each row gives the datasource function, source table and columns, and operator, with keyword, datasource and enabled-state filters."
+    }
+   },
+   "daas_list_rules": {
+    "human": {
+     "zh": {
+      "name": "列出规则目录",
+      "summary": "列出 DAAS 统一规则目录，每行含名称、规则类型、目标、配置与说明，可按规则类型精确过滤。"
+     },
+     "en": {
+      "name": "List rule catalog",
+      "summary": "List the DAAS unified rule catalog; each row carries name, rule type, target, configuration and description, with an exact rule-type filter."
+     },
+     "ja": {
+      "name": "ルール目録を列挙",
+      "summary": "DAAS の統一ルール目録を列挙する。各行に名称・ルール種別・対象・設定・説明を含み、ルール種別で完全一致の絞り込みができる。"
+     },
+     "es": {
+      "name": "Listar catálogo de reglas",
+      "summary": "Enumera el catálogo unificado de reglas DAAS; cada fila lleva nombre, tipo de regla, objetivo, configuración y descripción, con filtro exacto por tipo."
+     },
+     "fr": {
+      "name": "Lister le catalogue de règles",
+      "summary": "Énumère le catalogue unifié de règles DAAS ; chaque ligne porte nom, type de règle, cible, configuration et description, avec filtre exact par type."
+     }
+    },
+    "canonical": {
+     "brief": "List the DAAS unified rule catalog; each row carries name, rule type, target, configuration and description, with an exact rule-type filter."
+    }
+   },
+   "daas_list_sources": {
+    "human": {
+     "zh": {
+      "name": "列出数据源",
+      "summary": "列出 DAAS 数据源供给目录，支持按关键词与启用状态过滤；返回名称、标签、说明与地址，不暴露数据源配置项。"
+     },
+     "en": {
+      "name": "List data sources",
+      "summary": "List the DAAS data-source supply catalog with keyword and enabled-state filters; rows give name, label, description and URL, while source configuration is never exposed."
+     },
+     "ja": {
+      "name": "データソースを列挙",
+      "summary": "DAAS データソースの供給カタログを列挙し、キーワードと有効状態で絞れる。名称・ラベル・説明・URL を返し、ソース設定は開示しない。"
+     },
+     "es": {
+      "name": "Listar fuentes de datos",
+      "summary": "Enumera el catálogo de fuentes de datos DAAS con filtros por palabra clave y estado habilitado; da nombre, etiqueta, descripción y URL, sin exponer la configuración de la fuente."
+     },
+     "fr": {
+      "name": "Lister les sources de données",
+      "summary": "Énumère le catalogue de sources de données DAAS avec filtres par mot-clé et état activé ; renvoie nom, libellé, description et URL sans exposer la configuration de la source."
+     }
+    },
+    "canonical": {
+     "brief": "List the DAAS data-source supply catalog with keyword and enabled-state filters; rows give name, label, description and URL, and source configuration is never exposed."
+    }
+   },
+   "daas_search_entities": {
+    "human": {
+     "zh": {
+      "name": "检索 DAAS 实体",
+      "summary": "按名称、股票代码或编码检索 DAAS 实体（股票与国家）；实体镜像表尚未就绪，当前每次调用返回 domain_unavailable。"
+     },
+     "en": {
+      "name": "Search DAAS entities",
+      "summary": "Search DAAS entities (stocks and countries) by name, ticker or code; the entity mirror table is not provisioned yet, so every call returns domain_unavailable until it lands."
+     },
+     "ja": {
+      "name": "DAAS 実体を検索",
+      "summary": "DAAS の実体（株式と国）を名称・ティッカー・コードで検索する。実体ミラーテーブルが未整備のため、整備まで毎回 domain_unavailable を返す。"
+     },
+     "es": {
+      "name": "Buscar entidades DAAS",
+      "summary": "Busca entidades DAAS (acciones y países) por nombre, ticker o código; la tabla espejo de entidades aún no está provisionada, así que toda llamada devuelve domain_unavailable."
+     },
+     "fr": {
+      "name": "Chercher des entités DAAS",
+      "summary": "Recherche les entités DAAS (actions et pays) par nom, ticker ou code ; la table miroir des entités n'est pas encore provisionnée, donc chaque appel renvoie domain_unavailable."
+     }
+    },
+    "canonical": {
+     "brief": "Search DAAS entities (stocks and countries) by name, ticker or code; the entity mirror table is not provisioned yet, so calls return domain_unavailable until it lands."
+    }
+   },
+   "daas_search_functions": {
+    "human": {
+     "zh": {
+      "name": "检索取数函数",
+      "summary": "按名称、标签或说明模糊检索 DAAS 取数函数，按精确、前缀、包含排序；可按类别与数据源过滤，请求参数结构只在详情中给出。"
+     },
+     "en": {
+      "name": "Search fetch functions",
+      "summary": "Fuzzy-search DAAS fetch functions by name, label or description ranked exact, prefix, contains; filter by category and source, while the request parameter shape appears only in the detail tool."
+     },
+     "ja": {
+      "name": "取得関数を検索",
+      "summary": "DAAS 取得関数を名称・ラベル・説明で曖昧検索し、完全一致・前方一致・部分一致の順に並べる。カテゴリとソースで絞れ、要求パラメータ形状は詳細ツールのみ。"
+     },
+     "es": {
+      "name": "Buscar funciones de extracción",
+      "summary": "Busca funciones de extracción DAAS por nombre, etiqueta o descripción con orden exacto, prefijo, contiene; filtra por categoría y fuente, y la forma de los parámetros solo aparece en el detalle."
+     },
+     "fr": {
+      "name": "Chercher des fonctions d'extraction",
+      "summary": "Recherche les fonctions d'extraction DAAS par nom, libellé ou description, classées exact, préfixe, contient ; filtres par catégorie et source, la forme des paramètres n'apparaît que dans le détail."
+     }
+    },
+    "canonical": {
+     "brief": "Fuzzy-search DAAS fetch functions by name, label or description, ranked exact then prefix then contains; filter by category and source, with the request shape only in the detail tool."
+    }
+   },
+   "graph_search": {
+    "human": {
+     "zh": {
+      "name": "查询实体关系图",
+      "summary": "在实体关系图上执行遍历与查询，支持广度优先、深度优先、邻居、最短路径、子图、自我图与统计。"
+     },
+     "en": {
+      "name": "Query entity graph",
+      "summary": "Run traversal and queries on the entity-relationship graph: breadth-first, depth-first, neighbors, shortest path, subgraph, ego graph and statistics."
+     },
+     "ja": {
+      "name": "実体グラフを照会",
+      "summary": "実体関係グラフ上で探索と照会を行う。幅優先・深さ優先・隣接・最短経路・部分グラフ・エゴグラフ・統計に対応。"
+     },
+     "es": {
+      "name": "Consultar grafo de entidades",
+      "summary": "Ejecuta recorridos y consultas sobre el grafo de relaciones entre entidades: anchura, profundidad, vecinos, ruta más corta, subgrafo, ego-grafo y estadísticas."
+     },
+     "fr": {
+      "name": "Interroger le graphe d'entités",
+      "summary": "Exécute parcours et requêtes sur le graphe de relations entre entités : largeur, profondeur, voisins, plus court chemin, sous-graphe, ego-graphe et statistiques."
+     }
+    },
+    "canonical": {
+     "brief": "Run traversal and queries on the entity-relationship graph: BFS, DFS, neighbors, shortest path, subgraph, ego graph and statistics."
+    }
+   },
+   "gta_read": {
+    "human": {
+     "zh": {
+      "name": "读取面板变量值",
+      "summary": "读取一个 GTA 面板变量的公司-年度取值，按年份与公司排序；未知变量返回 unknown_variable，空区间返回空列表。"
+     },
+     "en": {
+      "name": "Read panel variable values",
+      "summary": "Read one GTA panel variable's firm-year values ordered by year then firm; an unknown variable returns unknown_variable and an empty range returns an empty list."
+     },
+     "ja": {
+      "name": "パネル変数値を取得",
+      "summary": "GTA パネル変数1件の企業・年ごとの値を年→企業の順で読む。未知の変数は unknown_variable、空の範囲は空リストを返す。"
+     },
+     "es": {
+      "name": "Leer valores de variable de panel",
+      "summary": "Lee los valores empresa-año de una variable de panel GTA ordenados por año y luego empresa; una variable desconocida devuelve unknown_variable y un rango vacío, lista vacía."
+     },
+     "fr": {
+      "name": "Lire les valeurs d'une variable de panel",
+      "summary": "Lit les valeurs entreprise-année d'une variable de panel GTA, triées par année puis entreprise ; une variable inconnue renvoie unknown_variable et une plage vide une liste vide."
+     }
+    },
+    "canonical": {
+     "brief": "Read one GTA panel variable's firm-year values ordered by year then firm; unknown variables return unknown_variable and empty ranges return an empty list."
+    }
+   },
+   "gta_search_variables": {
+    "human": {
+     "zh": {
+      "name": "检索上市公司变量",
+      "summary": "按中文标签或代码模糊检索 GTA 上市公司面板变量，返回代码与标签，不暴露底层存储表与子库信息。"
+     },
+     "en": {
+      "name": "Search listed-company variables",
+      "summary": "Fuzzy-search GTA listed-company panel variables by Chinese label or code; results give code and label without exposing storage tables or sub-libraries."
+     },
+     "ja": {
+      "name": "上場企業変数を検索",
+      "summary": "GTA 上場企業パネル変数を中国語ラベルまたはコードで曖昧検索する。コードとラベルを返し、基盤の保存テーブルやサブライブラリは開示しない。"
+     },
+     "es": {
+      "name": "Buscar variables de cotizadas",
+      "summary": "Busca variables de panel de empresas cotizadas GTA por etiqueta china o código; devuelve código y etiqueta sin exponer tablas ni subbibliotecas de almacenamiento."
+     },
+     "fr": {
+      "name": "Chercher des variables de sociétés cotées",
+      "summary": "Recherche les variables de panel des sociétés cotées GTA par libellé chinois ou code ; renvoie code et libellé sans exposer les tables ni sous-bibliothèques de stockage."
+     }
+    },
+    "canonical": {
+     "brief": "Fuzzy-search GTA listed-company panel variables by Chinese label or code; rows carry code and label, while storage tables and sub-libraries stay hidden."
+    }
+   },
+   "guide_cases_read": {
+    "human": {
+     "zh": {
+      "name": "读取指导案例",
+      "summary": "按 source_id 读取指导案例或通知的元数据、结构化段落与全文，并给出参照状态与撤销参照的通知编号。已弃用，权威实现见 fd-legal-search-mcp。"
+     },
+     "en": {
+      "name": "Read guiding case",
+      "summary": "Read a guiding case or notice by source_id: metadata, published structured sections, full body, and reference status with the notice number that withdrew it. Deprecated: see fd-legal-search-mcp."
+     },
+     "ja": {
+      "name": "指導性案例を取得",
+      "summary": "source_id で指導性案例または通知のメタデータ、公開済みの構造化段落、全文を取得し、参照状態と参照取消の通知番号も返す。非推奨、権威実装は fd-legal-search-mcp。"
+     },
+     "es": {
+      "name": "Leer caso guía",
+      "summary": "Lee un caso guía o aviso por source_id: metadatos, secciones estructuradas publicadas, texto completo y estado de referencia con el número del aviso que lo retiró. Obsoleta: fd-legal-search-mcp."
+     },
+     "fr": {
+      "name": "Lire une affaire de référence",
+      "summary": "Lit une affaire de référence ou un avis par source_id : métadonnées, sections structurées, texte intégral et statut de référence avec le numéro d'avis de retrait. Obsolète : fd-legal-search-mcp."
+     }
+    },
+    "canonical": {
+     "brief": "Read a guiding case or notice by source_id: metadata, structured sections, full body, and reference status with the withdrawing notice number. Deprecated in favor of fd-legal-search-mcp."
+    }
+   },
+   "guide_cases_search": {
+    "human": {
+     "zh": {
+      "name": "检索指导案例",
+      "summary": "按标题模糊检索国家审判机关发布的指导案例与批次通知，可按文档类型与参照状态过滤；每行都带参照状态。"
+     },
+     "en": {
+      "name": "Search guiding cases",
+      "summary": "Fuzzy-search Supreme People's Court guiding cases and batch notices by title, filterable by doc type and reference status; every row carries its reference status."
+     },
+     "ja": {
+      "name": "指導性案例を検索",
+      "summary": "中国の国家審判機関が公表する指導性案例とバッチ通知をタイトルの曖昧検索で探し、文書種別と参照状態で絞れる。各行に参照状態が付く。"
+     },
+     "es": {
+      "name": "Buscar casos guía",
+      "summary": "Busca por título casos guía y avisos por lotes del Tribunal Supremo Popular, filtrable por tipo de documento y estado de referencia; cada fila lleva su estado."
+     },
+     "fr": {
+      "name": "Rechercher des affaires de référence",
+      "summary": "Recherche par titre les affaires de référence et avis par lots de la Cour populaire suprême, filtrable par type de document et statut de référence ; chaque ligne porte son statut."
+     }
+    },
+    "canonical": {
+     "brief": "Fuzzy-search Supreme People's Court guiding cases and batch notices by title, filterable by doc type and reference status; each row carries its status."
+    }
+   },
+   "ia35_company_search": {
+    "human": {
+     "zh": {
+      "name": "检索企业档案",
+      "summary": "按名称前缀或统一社会信用代码精确检索工商企业档案；语料是年度批次静态快照，按代码可查最新批次，按名称只覆盖最新快照年。"
+     },
+     "en": {
+      "name": "Search firm profiles",
+      "summary": "Search business-registry firm profiles by name prefix or exact credit code; the corpus is a static yearly snapshot, so codes reach the latest batch while names cover only the latest year."
+     },
+     "ja": {
+      "name": "企業档案を検索",
+      "summary": "名称の前方一致または統一社会信用コードの完全一致で工商企業の档案を検索する。年次バッチの静的スナップショットで、コードは最新バッチまで、名称は最新スナップショット年のみ対象。"
+     },
+     "es": {
+      "name": "Buscar perfiles de empresas",
+      "summary": "Busca perfiles del registro mercantil por prefijo de nombre o código crediticio exacto; en la instantánea estática por lotes, el código alcanza el lote reciente y el nombre solo ese año."
+     },
+     "fr": {
+      "name": "Rechercher des profils d'entreprises",
+      "summary": "Recherche des profils du registre du commerce par préfixe de nom ou code de crédit ; dans l'instantané statique annuel, le code atteint le dernier lot et le nom seulement l'année de l'instantané."
+     }
+    },
+    "canonical": {
+     "brief": "Search business-registry firm profiles by name prefix or exact credit code; the static yearly-batch snapshot lets codes reach the latest batch while name search covers only the latest snapshot year."
+    }
+   },
+   "ia35_reg_counts_read": {
+    "human": {
+     "zh": {
+      "name": "读取注册数量",
+      "summary": "按年份、地区与行业层级读取新设企业注册数量；表格序列日期会归一为公历年，无法换算的行被丢弃并在说明中披露，空单元不补零。"
+     },
+     "en": {
+      "name": "Read registration counts",
+      "summary": "Read new-firm registration counts by year, region and industry level; serial dates are normalized to calendar years, bad rows are dropped and disclosed, and empty cells stay empty."
+     },
+     "ja": {
+      "name": "登録件数を取得",
+      "summary": "年・地域・業種レベル別に新設企業の登録件数を読む。表計算のシリアル日付は暦年に正規化し、変換不能な行は件数を注記して除外、空セルはゼロ埋めしない。"
+     },
+     "es": {
+      "name": "Leer recuentos de registro",
+      "summary": "Lee recuentos de nuevas empresas por año, región y nivel industrial; las fechas seriales pasan a años naturales, las filas no convertibles se descartan con nota y las celdas vacías no se rellenan."
+     },
+     "fr": {
+      "name": "Lire les nombres d'immatriculations",
+      "summary": "Lit les créations d'entreprises par année, région et secteur ; les dates sérielles passent en années civiles, les lignes non convertibles sont écartées et signalées, les cellules vides restent vides."
+     }
+    },
+    "canonical": {
+     "brief": "Read new-firm registration counts by year, region and industry level; serial dates are normalized to calendar years, unconvertible rows are dropped and disclosed, and empty cells are not zero-filled."
+    }
+   },
+   "indicator_series_read": {
+    "human": {
+     "zh": {
+      "name": "按注册标识读序列",
+      "summary": "按统一注册标识（source_db:native_code）批量读取指标序列，支持 fd_open_data、yearbook_catalog、world_bank 等身份与闭区间起止日期。"
+     },
+     "en": {
+      "name": "Read by registry identity",
+      "summary": "Read one or more indicator series by unified-registry identity (source_db:native_code) such as fd_open_data, yearbook_catalog or world_bank, over an inclusive start/end range."
+     },
+     "ja": {
+      "name": "登録IDで系列取得",
+      "summary": "統一レジストリ識別子（source_db:native_code、例 fd_open_data・yearbook_catalog・world_bank）で指標系列をまとめて読み、開始・終了日は両端を含む。"
+     },
+     "es": {
+      "name": "Leer por identidad registral",
+      "summary": "Lee una o varias series por identidad del registro unificado (source_db:native_code), como fd_open_data, yearbook_catalog o world_bank, con rango de fechas inclusivo."
+     },
+     "fr": {
+      "name": "Lire par identité de registre",
+      "summary": "Lit une ou plusieurs séries par identité du registre unifié (source_db:native_code), par exemple fd_open_data, yearbook_catalog ou world_bank, sur une plage inclusive."
+     }
+    },
+    "canonical": {
+     "brief": "Read one or more indicator series by unified-registry identity (source_db:native_code) across fd_open_data, yearbook_catalog, world_bank and similar sources over an inclusive date range."
+    }
+   },
+   "law_read": {
+    "human": {
+     "zh": {
+      "name": "读取法规全文",
+      "summary": "按 id 读取一部法规的全文与元数据，未知 id 返回 not_found。已弃用，新集成请改用 fd-legal-search-mcp 的同名工具。"
+     },
+     "en": {
+      "name": "Read law text",
+      "summary": "Read one law's full text and metadata by id; an unknown id returns not_found. Deprecated: use the same-named tool in fd-legal-search-mcp."
+     },
+     "ja": {
+      "name": "法令全文を取得",
+      "summary": "id を指定して法令1件の全文とメタデータを取得する。未知の id は not_found を返す。非推奨で、新規は fd-legal-search-mcp の同名ツールを使う。"
+     },
+     "es": {
+      "name": "Leer texto legal",
+      "summary": "Lee el texto completo y los metadatos de una ley por id; un id desconocido devuelve not_found. Obsoleta: use la herramienta homónima de fd-legal-search-mcp."
+     },
+     "fr": {
+      "name": "Lire le texte d'une loi",
+      "summary": "Lit le texte intégral et les métadonnées d'une loi par id ; un id inconnu renvoie not_found. Obsolète : utiliser l'outil homonyme de fd-legal-search-mcp."
+     }
+    },
+    "canonical": {
+     "brief": "Read one law's full text and metadata by id; unknown ids return not_found. Deprecated in favor of the same-named tool in fd-legal-search-mcp."
+    }
+   },
+   "law_search": {
+    "human": {
+     "zh": {
+      "name": "检索法律法规",
+      "summary": "按标题模糊检索中国法律法规，可按类别过滤，只返回元数据；全文用 law_read 获取。已弃用，新集成请改用 fd-legal-search-mcp。"
+     },
+     "en": {
+      "name": "Search laws",
+      "summary": "Fuzzy-search Chinese laws and regulations by title with optional category filter; metadata only, full text via law_read. Deprecated: use fd-legal-search-mcp for new integrations."
+     },
+     "ja": {
+      "name": "法令を検索",
+      "summary": "中国の法令をタイトルの曖昧検索で探し、区分で絞り込める。返るのはメタデータのみで全文は law_read で取得。非推奨で新規は fd-legal-search-mcp を使う。"
+     },
+     "es": {
+      "name": "Buscar leyes",
+      "summary": "Busca por título, de forma difusa, leyes y normas chinas con filtro opcional por categoría; solo metadatos, el texto completo se obtiene con law_read. Obsoleta: use fd-legal-search-mcp."
+     },
+     "fr": {
+      "name": "Rechercher des textes légaux",
+      "summary": "Recherche approximative par titre des lois et règlements chinois, avec filtre facultatif par catégorie ; métadonnées seules, texte intégral via law_read. Obsolète : utiliser fd-legal-search-mcp."
+     }
+    },
+    "canonical": {
+     "brief": "Fuzzy-search Chinese laws and regulations by title with an optional category filter; returns metadata only, full text via law_read. Deprecated in favor of fd-legal-search-mcp."
+    }
+   },
+   "legal_docs_read": {
+    "human": {
+     "zh": {
+      "name": "读取法律文档",
+      "summary": "按 id 读取一份法律文档的全文与元数据；正文未抓取时返回 content_available=false 而非报错。已弃用，新集成请用 fd-legal-search-mcp。"
+     },
+     "en": {
+      "name": "Read legal document",
+      "summary": "Read one legal document's metadata and full text by id; when the body was never fetched it returns content_available=false instead of an error. Deprecated: use fd-legal-search-mcp."
+     },
+     "ja": {
+      "name": "法律文書を取得",
+      "summary": "id を指定して法律文書1件のメタデータと全文を取得する。本文未取得時はエラーではなく content_available=false を返す。非推奨で新規は fd-legal-search-mcp を使う。"
+     },
+     "es": {
+      "name": "Leer documento legal",
+      "summary": "Lee metadatos y texto completo de un documento legal por id; si el cuerpo no se capturó devuelve content_available=false en vez de un error. Obsoleta: use fd-legal-search-mcp."
+     },
+     "fr": {
+      "name": "Lire un document légal",
+      "summary": "Lit les métadonnées et le texte intégral d'un document légal par id ; si le corps n'a pas été capturé, il renvoie content_available=false plutôt qu'une erreur. Obsolète : utiliser fd-legal-search-mcp."
+     }
+    },
+    "canonical": {
+     "brief": "Read one legal document's metadata and body by id; an uncaptured body returns content_available=false rather than an error. Deprecated in favor of fd-legal-search-mcp."
+    }
+   },
+   "legal_docs_search": {
+    "human": {
+     "zh": {
+      "name": "检索法律文档",
+      "summary": "在权威法律文档语料中按标题模糊检索，覆盖部门规章、条约、纪检监察法规、法院案例库与党内法规，可按来源与文档类型过滤。"
+     },
+     "en": {
+      "name": "Search legal documents",
+      "summary": "Fuzzy-search the authoritative legal-documents corpus by title across five sources, including department rules, treaties, supervisory rules, court cases and party rules; filter by source and doc type."
+     },
+     "ja": {
+      "name": "法律文書を検索",
+      "summary": "権威ある法律文書コーパスをタイトルの曖昧検索で探す。部門規章・条約・紀検監察法規・法院案例庫・党内法規の5ソースを対象とし、ソースと文書種別で絞れる。"
+     },
+     "es": {
+      "name": "Buscar documentos legales",
+      "summary": "Busca por título en el corpus autoritativo de documentos legales de cinco fuentes (reglamentos, tratados, normativa disciplinaria, casos judiciales y normas del partido), filtrable por fuente y tipo."
+     },
+     "fr": {
+      "name": "Rechercher des documents légaux",
+      "summary": "Recherche par titre dans le corpus autoritatif de documents légaux de cinq sources (règlements, traités, réglementation disciplinaire, cas judiciaires, règles du parti), filtrable par source et type."
+     }
+    },
+    "canonical": {
+     "brief": "Fuzzy-search the authoritative legal-documents corpus by title across five sources, filterable by source and doc type; metadata only."
+    }
+   },
+   "list_concepts": {
+    "human": {
+     "zh": {
+      "name": "列出指标清单",
+      "summary": "列出 FindData 当前可用的指标，可选按实体类型过滤。"
+     },
+     "en": {
+      "name": "List indicators",
+      "summary": "List the FindData indicators currently available, optionally filtered by entity type."
+     },
+     "ja": {
+      "name": "指標一覧を列挙",
+      "summary": "FindData で利用可能な指標を列挙する。エンティティ種別での絞り込みも可能。"
+     },
+     "es": {
+      "name": "Listar indicadores",
+      "summary": "Enumera los indicadores de FindData disponibles, con filtro opcional por tipo de entidad."
+     },
+     "fr": {
+      "name": "Lister les indicateurs",
+      "summary": "Énumère les indicateurs FindData disponibles, avec filtre facultatif par type d'entité."
+     }
+    },
+    "canonical": {
+     "brief": "List the FindData indicators currently available, optionally filtered by entity type."
+    }
+   },
+   "read": {
+    "human": {
+     "zh": {
+      "name": "读取指标序列",
+      "summary": "按实体与日期列表读取一个 FindData 指标，只返回已采集的缓存观测；从未采集的日期返回不可用，数值不编造。"
+     },
+     "en": {
+      "name": "Read indicator series",
+      "summary": "Read one FindData indicator for an entity over a list of dates from the crawled cache; never-crawled dates return unavailable and no value is fabricated."
+     },
+     "ja": {
+      "name": "指標系列を読む",
+      "summary": "エンティティと日付リストを指定し、FindData 指標を1件クロール済みキャッシュから読む。未収集の日付は利用不可を返し、値を捏造しない。"
+     },
+     "es": {
+      "name": "Leer serie de indicador",
+      "summary": "Lee un indicador de FindData para una entidad sobre una lista de fechas desde la caché rastreada; las fechas no rastreadas devuelven no disponible y no se inventan valores."
+     },
+     "fr": {
+      "name": "Lire la série d'un indicateur",
+      "summary": "Lit un indicateur FindData pour une entité sur une liste de dates depuis le cache collecté ; les dates non collectées renvoient indisponible et aucune valeur n'est inventée."
+     }
+    },
+    "canonical": {
+     "brief": "Read one FindData indicator for an entity over a date list from the crawled cache; uncrawled dates return unavailable and values are never fabricated."
+    }
+   },
+   "read_range": {
+    "human": {
+     "zh": {
+      "name": "批量读取区间",
+      "summary": "按实体与起止日期批量读取多个指标；缓存行直接返回，冷区间同步抓取并记录，无数据的指标返回空列表。"
+     },
+     "en": {
+      "name": "Bulk read date range",
+      "summary": "Bulk-read several indicators for one entity over a date range; cached rows are served directly, cold ranges are fetched synchronously and recorded, and concepts without data return empty lists."
+     },
+     "ja": {
+      "name": "期間を一括取得",
+      "summary": "エンティティと開始・終了日を指定して複数指標を一括で読む。キャッシュ行はそのまま返し、未キャッシュ区間は同期取得して記録し、データの無い指標は空リストを返す。"
+     },
+     "es": {
+      "name": "Leer rango en lote",
+      "summary": "Lee varios indicadores de una entidad en un rango de fechas; las filas en caché se sirven directo, los rangos fríos se obtienen de forma síncrona y los indicadores sin datos devuelven lista vacía."
+     },
+     "fr": {
+      "name": "Lire une plage en lot",
+      "summary": "Lit plusieurs indicateurs d'une entité sur une plage de dates ; le cache est servi directement, les plages froides récupérées en synchrone et les indicateurs sans données renvoient une liste vide."
+     }
+    },
+    "canonical": {
+     "brief": "Bulk-read multiple indicators for one entity over [start, end]; cached rows are served directly, cold ranges are fetched synchronously, and indicators without data return empty lists."
+    }
+   },
+   "registry_coverage": {
+    "human": {
+     "zh": {
+      "name": "查看注册覆盖度",
+      "summary": "按数据源查看指标注册覆盖度，给出已注册、已核验、未核验与源内实际数量及覆盖率，并附普查时点与口径说明。"
+     },
+     "en": {
+      "name": "Check registry coverage",
+      "summary": "Show indicator-registry coverage per source with registered, verified, unverified and in-source counts plus coverage, along with the census date and caliber notes."
+     },
+     "ja": {
+      "name": "レジストリ覆盖面を確認",
+      "summary": "データソース別に指標レジストリのカバレッジを示す。登録済み・検証済み・未検証・ソース内実数とカバー率を返し、調査時点と口径の説明を添える。"
+     },
+     "es": {
+      "name": "Ver cobertura del registro",
+      "summary": "Muestra la cobertura del registro de indicadores por fuente con recuentos registrados, verificados, no verificados y reales en la fuente, más la cobertura, la fecha de censo y las notas de criterio."
+     },
+     "fr": {
+      "name": "Vérifier la couverture du registre",
+      "summary": "Affiche la couverture du registre d'indicateurs par source avec les nombres enregistrés, vérifiés, non vérifiés et réels, et le taux de couverture, la date de recensement et les notes de méthodologie."
+     }
+    },
+    "canonical": {
+     "brief": "Show indicator-registry coverage per source with registered, verified, unverified and in-source counts plus coverage rate, census date and caliber notes."
+    }
+   },
+   "wb_read": {
+    "human": {
+     "zh": {
+      "name": "读取世行序列",
+      "summary": "按国家列表读取世界银行指标的年度序列，国家可用 ISO3 代码或中文名；缺失的国家-年份单元不补值，也不编造。"
+     },
+     "en": {
+      "name": "Read World Bank series",
+      "summary": "Read a World Bank indicator's annual series for a list of countries given as ISO3 codes or Chinese names; missing country-year cells stay absent and are never fabricated."
+     },
+     "ja": {
+      "name": "世銀系列を取得",
+      "summary": "国リストに対する世界銀行指標の年次系列を読む。国は ISO3 コードまたは中国語名で指定でき、欠けた国・年のセルは補完も捏造もしない。"
+     },
+     "es": {
+      "name": "Leer serie del Banco Mundial",
+      "summary": "Lee la serie anual de un indicador del Banco Mundial para una lista de países en código ISO3 o nombre chino; las celdas país-año ausentes no se rellenan ni se inventan."
+     },
+     "fr": {
+      "name": "Lire la série de la Banque mondiale",
+      "summary": "Lit la série annuelle d'un indicateur de la Banque mondiale pour une liste de pays en code ISO3 ou nom chinois ; les cellules pays-année absentes ne sont ni remplies ni inventées."
+     }
+    },
+    "canonical": {
+     "brief": "Read a World Bank indicator's annual series for countries given as ISO3 codes or Chinese names; missing country-year cells stay absent and are never fabricated."
+    }
+   },
+   "wb_search_indicators": {
+    "human": {
+     "zh": {
+      "name": "检索世行指标",
+      "summary": "按名称、主题或代码模糊检索世界银行 WDI 指标，中英文均可；返回代码、名称、主题与单位等元数据。"
+     },
+     "en": {
+      "name": "Search World Bank indicators",
+      "summary": "Fuzzy-search World Bank WDI indicators by name, topic or code in Chinese or English; results carry code, name, topic, unit and registry identity."
+     },
+     "ja": {
+      "name": "世銀指標を検索",
+      "summary": "世界銀行 WDI 指標を名称・トピック・コードで曖昧検索する。中国語・英語に対応し、コード・名称・トピック・単位とレジストリIDを返す。"
+     },
+     "es": {
+      "name": "Buscar indicadores del Banco Mundial",
+      "summary": "Busca indicadores WDI del Banco Mundial por nombre, tema o código en chino o inglés; devuelve código, nombre, tema, unidad e identidad de registro."
+     },
+     "fr": {
+      "name": "Chercher des indicateurs de la Banque mondiale",
+      "summary": "Recherche les indicateurs WDI de la Banque mondiale par nom, thème ou code en chinois ou en anglais ; renvoie code, nom, thème, unité et identité de registre."
+     }
+    },
+    "canonical": {
+     "brief": "Fuzzy-search World Bank WDI indicators by name, topic or code in Chinese or English; rows carry code, names, topic, unit and the unified indicator identity."
+    }
+   },
+   "wenshu_read": {
+    "human": {
+     "zh": {
+      "name": "读取裁判文书",
+      "summary": "按 id 读取一份裁判文书的解码元数据，已采集时附全文；正文缺失时如实返回 content_available=false。已弃用，权威实现见 fd-legal-search-mcp。"
+     },
+     "en": {
+      "name": "Read judgment",
+      "summary": "Read one judgment's decoded metadata by id and, when captured, its full text; missing bodies return content_available=false honestly. Deprecated: see fd-legal-search-mcp."
+     },
+     "ja": {
+      "name": "判決文を取得",
+      "summary": "id を指定して裁判文書1件のデコード済みメタデータを取得し、採取済みなら全文も返す。本文が無い場合は content_available=false を正直に返す。非推奨、権威実装は fd-legal-search-mcp。"
+     },
+     "es": {
+      "name": "Leer sentencia",
+      "summary": "Lee los metadatos decodificados de una sentencia por id y, si se capturó, su texto completo; sin cuerpo devuelve content_available=false de forma veraz. Obsoleta: fd-legal-search-mcp."
+     },
+     "fr": {
+      "name": "Lire un jugement",
+      "summary": "Lit les métadonnées décodées d'un jugement par id et, si capturé, son texte intégral ; sans corps il renvoie content_available=false honnêtement. Obsolète : fd-legal-search-mcp."
+     }
+    },
+    "canonical": {
+     "brief": "Read one judgment's decoded metadata by id plus its full text when captured; missing bodies return content_available=false. Deprecated in favor of fd-legal-search-mcp."
+    }
+   },
+   "wenshu_search": {
+    "human": {
+     "zh": {
+      "name": "检索裁判文书",
+      "summary": "按标题或案号模糊检索中国法院裁判文书；语料是静态快照且有已知缺档，宽泛单字查询请加年份、省份或文档类型过滤。"
+     },
+     "en": {
+      "name": "Search judgments",
+      "summary": "Fuzzy-search Chinese court judgments by title or case number; the corpus is a static snapshot with known gaps, so broad one-character queries need year, province or doc-type filters."
+     },
+     "ja": {
+      "name": "判決文を検索",
+      "summary": "中国の裁判文書をタイトルまたは事件番号で曖昧検索する。コーパスは静的スナップショットで欠落があり、広すぎる1文字検索には年・省・文書種別の絞り込みが要る。"
+     },
+     "es": {
+      "name": "Buscar sentencias",
+      "summary": "Busca sentencias de tribunales chinos por título o número de caso; el corpus es estático y tiene vacíos conocidos, así que las consultas de un carácter necesitan filtros de año, provincia o tipo."
+     },
+     "fr": {
+      "name": "Rechercher des jugements",
+      "summary": "Recherche des jugements chinois par titre ou numéro d'affaire ; le corpus est un instantané statique avec des lacunes connues, donc les requêtes larges exigent des filtres d'année, province ou type."
+     }
+    },
+    "canonical": {
+     "brief": "Fuzzy-search Chinese court judgments by title or case number; the corpus is a static snapshot with known gaps, so broad queries need year, province or doc-type filters."
+    }
+   },
+   "yearbook_read": {
+    "human": {
+     "zh": {
+      "name": "读取年鉴序列",
+      "summary": "读取年鉴指标的年度序列，可按地区、省份与年份区间过滤；同一地区年份有多个版本时取最新版，无数据返回空列表。"
+     },
+     "en": {
+      "name": "Read yearbook series",
+      "summary": "Read an annual yearbook series, optionally filtered by region, province and year range; the latest edition wins for a region-year and no data returns an empty list."
+     },
+     "ja": {
+      "name": "年鑑系列を取得",
+      "summary": "年鑑指標の年次系列を読む。地域・省・年範囲で絞り込み可能。同一地域・年で版が複数ある場合は最新版を採用し、該当なしは空リストを返す。"
+     },
+     "es": {
+      "name": "Leer serie de anuario",
+      "summary": "Lee la serie anual de un indicador de anuario, con filtros opcionales por región, provincia y rango de años; si hay varias ediciones gana la más reciente y sin datos devuelve lista vacía."
+     },
+     "fr": {
+      "name": "Lire la série d'annuaire",
+      "summary": "Lit la série annuelle d'un indicateur d'annuaire, avec filtres facultatifs par région, province et plage d'années ; la dernière édition prime et l'absence de données renvoie une liste vide."
+     }
+    },
+    "canonical": {
+     "brief": "Read a yearbook indicator's annual series with optional region, province and year-range filters; the latest edition wins per region-year and empty results stay empty."
+    }
+   },
+   "yearbook_regions": {
+    "human": {
+     "zh": {
+      "name": "列出年鉴地区",
+      "summary": "列出一个年鉴指标可用的省份与地区组合，并给出省份字典切片，结果按省份与地区排序。"
+     },
+     "en": {
+      "name": "List yearbook regions",
+      "summary": "List the available province and region pairs of one yearbook indicator, plus a slice of the province dictionary, ordered by province and region."
+     },
+     "ja": {
+      "name": "年鑑の地域を列挙",
+      "summary": "ある年鑑指標で利用できる省と地域の組み合わせを、省の辞書スライスとともに列挙する。並びは省・地域の順。"
+     },
+     "es": {
+      "name": "Listar regiones de anuario",
+      "summary": "Enumera las combinaciones provincia-región disponibles de un indicador de anuario, con una porción del diccionario de provincias, ordenadas por provincia y región."
+     },
+     "fr": {
+      "name": "Lister les régions d'annuaire",
+      "summary": "Énumère les couples province-région disponibles d'un indicateur d'annuaire, avec un extrait du dictionnaire des provinces, triés par province puis région."
+     }
+    },
+    "canonical": {
+     "brief": "List the province and region pairs available for one yearbook indicator, plus a slice of the province dictionary, ordered by province and region."
+    }
+   },
+   "yearbook_search_indicators": {
+    "human": {
+     "zh": {
+      "name": "检索年鉴指标",
+      "summary": "按名称模糊检索统计年鉴指标，中英文部分名称均可；返回带注册锚点与统一标识的指标元数据。"
+     },
+     "en": {
+      "name": "Search yearbook indicators",
+      "summary": "Fuzzy-search statistical-yearbook indicators by partial Chinese or English name; results carry registry anchors and unified indicator identities."
+     },
+     "ja": {
+      "name": "年鑑指標を検索",
+      "summary": "統計年鑑の指標を中国語・英語の部分名で曖昧検索する。結果にはレジストリのアンカーと統一指標IDが付く。"
+     },
+     "es": {
+      "name": "Buscar indicadores de anuario",
+      "summary": "Busca por nombre parcial, en chino o inglés, indicadores de anuarios estadísticos; los resultados llevan ancla de registro e identidad unificada."
+     },
+     "fr": {
+      "name": "Chercher des indicateurs d'annuaire",
+      "summary": "Recherche par nom partiel, en chinois ou en anglais, des indicateurs d'annuaires statistiques ; les résultats portent l'ancre de registre et l'identité unifiée."
+     }
+    },
+    "canonical": {
+     "brief": "Fuzzy-search statistical-yearbook indicators by partial Chinese or English name; rows carry the registry anchor and the unified indicator identity."
+    }
+   }
+  },
+  "provenance": {
+   "source": "finddata-supply-annotations",
+   "updatedAt": "2026-11-02"
+  }
+ }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "panel-econometrics",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "面板数据计量分析",
+        "summary": "面板数据计量推断：固定/随机效应与 Hausman 检验、聚类稳健标准误、动态面板、双重差分与平行趋势检验；面板取自柏讯 GTA 上市公司、中国城市与世界银行 WDI 三类源。"
+      },
+      "en": {
+        "name": "Panel econometrics",
+        "summary": "Panel econometrics: fixed/random effects with Hausman tests, clustered standard errors, dynamic panels and DID with parallel-trends checks; sources: Wire GTA firms, Chinese cities, World Bank WDI."
+      },
+      "ja": {
+        "name": "パネル計量分析",
+        "summary": "パネル計量分析：固定効果/変量効果とハウスマン検定、クラスターロバスト標準誤差、動的パネル、DID と平行トレンド検定。パネルは Wire の GTA 上場企業、中国都市、世界銀行 WDI の3種ソース。"
+      },
+      "es": {
+        "name": "Econometría de panel",
+        "summary": "Econometría de panel: efectos fijos/aleatorios con Hausman, errores estándar agrupados, paneles dinámicos y DID con tendencias paralelas; fuentes: GTA de Wire, ciudades chinas, WDI (Banco Mundial)."
+      },
+      "fr": {
+        "name": "Économétrie de panel",
+        "summary": "Économétrie de panel: effets fixes/aléatoires avec Hausman, erreurs clusterisées, panneaux dynamiques et DID à tendances parallèles; sources: GTA de Wire, villes chinoises, WDI (Banque mondiale)."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

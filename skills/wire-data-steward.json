@@ -1,0 +1,32 @@
+{
+  "skill": "wire-data-steward",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "柏讯数据治理",
+        "summary": "柏讯数据治理：读表单收上来的数据、修正或撤销记录、查改错历史、导出 CSV；修正必须带来源标记且不得代填，撤销只置回滚标记、原始行不改写；导出带 truncated 字段须如实转述；工具失败原样转述，不以空列表冒充无数据。"
+      },
+      "en": {
+        "name": "Data stewardship",
+        "summary": "Wire data stewardship: read form data, correct or revert records, export CSV; corrections carry a source mark, reverts only flag, exports state truncation, failures relayed as-is, not as empty lists."
+      },
+      "ja": {
+        "name": "データガバナンス",
+        "summary": "Wire データガバナンス：フォーム収集データの読取、レコード修正・取消、修正履歴照会、CSV エクスポート。修正には出典マーク必須で代入禁止、取消はロールバック印のみで元行は不変、エクスポートの truncated は正直に報告。ツール失敗はありのまま伝え、空リストで誤魔化さない。"
+      },
+      "es": {
+        "name": "Gobernanza de datos",
+        "summary": "Gobernanza de Wire: lee formularios, corrige o revierte registros, exporta CSV; corrección exige fuente, reversión solo marca, truncamiento declarado; fallos trasladados tal cual, sin listas vacías."
+      },
+      "fr": {
+        "name": "Gouvernance des données",
+        "summary": "Gouvernance Wire : lit les formulaires, corrige ou annule des lignes, exporte en CSV ; correction avec source, annulation par marque, troncature déclarée ; échecs tels quels, jamais en listes vides."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

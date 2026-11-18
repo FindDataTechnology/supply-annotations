@@ -1,0 +1,32 @@
+{
+  "skill": "decision-review-portfolio",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "决策复盘持仓体检",
+        "summary": "柏讯持仓体检：查看模拟账户集中度（HHI、前N权重）、期间回撤与行业暴露，核查持仓是否偏离最近一次判定；持仓与账户取自模拟交易服务，缺失数据如实标注，结论为研究参考、不含买卖建议。"
+      },
+      "en": {
+        "name": "Decision review portfolio check",
+        "summary": "Wire paper-account check-up: concentration (HHI, top-N weights), drawdown, sector exposure and drift from the latest verdict; gaps flagged; research reference, not trading advice."
+      },
+      "ja": {
+        "name": "意思決定ふりかえり保有診断",
+        "summary": "Wire の模擬口座保有診断：集中度（HHI・上位Nウェイト）、期間中のドローダウン、業種別エクスポージャを確認し、保有が直近判定から乖離していないか点検。欠損は明示、結論は研究参考で売買助言ではない。"
+      },
+      "es": {
+        "name": "Chequeo de cartera de decisiones",
+        "summary": "Chequeo Wire de la cartera simulada: concentración (HHI, pesos top-N), retroceso, exposición sectorial y desviación del último veredicto; faltantes señalados; referencia, sin consejos."
+      },
+      "fr": {
+        "name": "Contrôle du portefeuille de décisions",
+        "summary": "Bilan Wire du portefeuille papier : concentration (HHI, poids top N), drawdown, exposition sectorielle, écart au dernier verdict ; manques signalés ; repère de recherche."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "screenplay-scene-search",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "剧本场景检索",
+        "summary": "按场景描述定位目标场景并细读整场内容，分析场景功能、调度特征与戏剧张力；数据经 fd-text-core 引擎，走场景预设。"
+      },
+      "en": {
+        "name": "Screenplay scene search",
+        "summary": "Locates a scene from its description and reads the whole scene closely, analyzing scene function, staging traits and dramatic tension; data served by the fd-text-core engine on the scene preset."
+      },
+      "ja": {
+        "name": "脚本シーン検索",
+        "summary": "場面記述から対象シーンを特定し、場面全体を精読する（場面の機能・演出特徴・劇的緊張の分析）。データは fd-text-core エンジン（シーン・プリセット）経由。"
+      },
+      "es": {
+        "name": "Búsqueda de escenas de guion",
+        "summary": "Localiza una escena por su descripción y lee la escena completa: función escénica, puesta en escena y tensión dramática; los datos pasan por el motor fd-text-core con el preajuste de escena."
+      },
+      "fr": {
+        "name": "Recherche de scènes de scénarios",
+        "summary": "Repère une scène d'après sa description et lit la scène entière : fonction, mise en scène et tension dramatique ; données via le moteur fd-text-core sur le préréglage scène."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

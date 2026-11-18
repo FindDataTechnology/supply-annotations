@@ -1,0 +1,32 @@
+{
+  "skill": "litigation-document-drafting",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "诉讼法律文书起草",
+        "summary": "基于六来源体系和请求权基础分析起草诉讼文书：起诉状、答辩状、代理词、质证意见、保全申请书等，按《法律文书汇编》格式标准成稿。"
+      },
+      "en": {
+        "name": "Litigation document drafting",
+        "summary": "Drafts complaints, defenses, attorney statements, cross-examination opinions and preservation applications from the six-source system and claim-basis analysis, following compilation format standards."
+      },
+      "ja": {
+        "name": "訴訟法律文書起草案",
+        "summary": "六来源体系と請求権基礎分析に基づき、訴状・答弁書・弁護人意見書・質証意見・保全申立書などの訴訟文書を起草し、文書集の形式標準に沿って整える。"
+      },
+      "es": {
+        "name": "Redacción de documentos procesales",
+        "summary": "Redacta demandas, contestaciones, alegatos, opiniones de contrainterrogatorio y solicitudes de conservación vía seis fuentes y base de la pretensión, con el formato de la recopilación."
+      },
+      "fr": {
+        "name": "Rédaction de pièces de procédure",
+        "summary": "Rédige conclusions, défenses, observations, avis de contre-interrogatoire et demandes de conservation via le système à six sources et le fondement de la prétention, selon le format de la compilation."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

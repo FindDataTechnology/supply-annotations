@@ -1,0 +1,32 @@
+{
+  "skill": "criminal-plea-and-nonprosecution",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "认罪认罚与不起诉论证",
+        "summary": "审查起诉阶段的认罪认罚与不起诉论证：给出证据态势、利弊权衡、量刑建议预测与协商条款、法定/存疑/酌定三种不起诉路径论证，并做当事人知情告知。"
+      },
+      "en": {
+        "name": "Plea negotiation and non-prosecution argument",
+        "summary": "Prosecution-review stage: argues plea negotiation and non-prosecution — evidence posture, trade-offs, sentencing forecast, negotiation terms, three non-prosecution paths, client notice."
+      },
+      "ja": {
+        "name": "量刑協議と不起訴の論証",
+        "summary": "審査起訴段階での量刑協議と不起訴の論証：証拠態勢、損得比較、量刑建前の予測と協議条件、法定・嫌疑不十分・裁量の三類型の不起訴論拠、当事者への説明。"
+      },
+      "es": {
+        "name": "Conformidad penal y sobreseimiento",
+        "summary": "En la fase de acusación, argumenta conformidad y sobreseimiento: postura probatoria, pros y contras, pronóstico de pena y condiciones de acuerdo, tres vías de sobreseimiento, aviso al cliente."
+      },
+      "fr": {
+        "name": "Plaider-coupable et non-poursuite",
+        "summary": "En phase de contrôle, argumente plaider-coupable et non-poursuite : preuves, risques, prévision de peine, termes de négociation, trois voies de non-poursuite, information du client."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

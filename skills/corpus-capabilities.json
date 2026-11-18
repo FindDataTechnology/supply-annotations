@@ -1,0 +1,32 @@
+{
+  "skill": "corpus-capabilities",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "能力语料库",
+        "summary": "能力语料：介绍谦面在架垂类、萬星服务形态，以及能拿来做什么。"
+      },
+      "en": {
+        "name": "Capabilities corpus",
+        "summary": "Capability corpus: describes Facet's verticals on offer, Wanxing's service forms and what they can be used for."
+      },
+      "ja": {
+        "name": "機能コーパス",
+        "summary": "機能コーパス：Facet の提供中垂直領域、Wanxing のサービス形態、そして何に使えるかを説明する。"
+      },
+      "es": {
+        "name": "Corpus de capacidades",
+        "summary": "Corpus de capacidades: describe los sectores verticales de Facet disponibles, las formas de servicio de Wanxing y sus usos posibles."
+      },
+      "fr": {
+        "name": "Corpus de capacités",
+        "summary": "Corpus de capacités : présente les verticales proposées par Facet, les formes de service de Wanxing et leurs usages possibles."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

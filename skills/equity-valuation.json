@@ -1,0 +1,32 @@
+{
+  "skill": "equity-valuation",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "股票估值",
+        "summary": "股票估值（DCF＋可比公司＋三表联动）：做内在价值或相对估值、算 WACC 与终值、跑敏感性与情景表、给目标价区间、做同业倍数对照并反推市场隐含预期。财务数据走柏讯服务端通道 A，价格与市值走本地 DAAS 通道 B；通道 B 未连接时中止估值，不给目标价。"
+      },
+      "en": {
+        "name": "Equity valuation",
+        "summary": "Intrinsic and relative valuation by DCF, comparables and three-statement link: WACC, terminal value, sensitivity/scenario tables, target ranges, implied expectations; stops if channel B is offline."
+      },
+      "ja": {
+        "name": "株式バリュエーション",
+        "summary": "株式バリュエーション：DCF、比較可能企業、三表連動による内在価値・相対評価。WACCとターミナルバリュー、感応度・シナリオ表、目標株価レンジ、同業倍数と市場織り込み期待の逆算。財務はWireサーバー側チャネルA、価格・時価総額はローカルDAASチャネルB。B未接続なら評価を中止し目標株価を出さない。"
+      },
+      "es": {
+        "name": "Valoración de acciones",
+        "summary": "Valoración por DCF, comparables y tres estados: WACC, valor terminal, sensibilidad y escenarios, rango objetivo, múltiplos y expectativas implícitas; sin canal B de precios, se suspende sin objetivo."
+      },
+      "fr": {
+        "name": "Valorisation d'actions",
+        "summary": "Valorisation DCF, comparables et trois états : WACC, valeur terminale, sensibilité, scénarios, fourchette d'objectif, multiples, anticipations implicites ; sans canal B de cours, arrêt sans objectif."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

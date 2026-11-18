@@ -1,0 +1,193 @@
+{
+  "tools": {
+    "facet_market_pack_browse": {
+      "human": {
+        "zh": {
+          "name": "浏览市场目录",
+          "summary": "浏览谦面市场目录，返回当前有效版本的清单。"
+        },
+        "en": {
+          "name": "Browse market catalog",
+          "summary": "Browses the facet market pack catalog and returns the list of currently active versions."
+        },
+        "ja": {
+          "name": "市場目録を閲覧",
+          "summary": "謙面市場のパック目録を閲覧し、現在有効なバージョンの一覧を返します。"
+        },
+        "es": {
+          "name": "Explorar catálogo",
+          "summary": "Explora el catálogo de paquetes del mercado facet y devuelve la lista de versiones vigentes."
+        },
+        "fr": {
+          "name": "Parcourir le catalogue",
+          "summary": "Parcourt le catalogue de packs du marché facet et renvoie la liste des versions actives."
+        }
+      },
+      "canonical": {
+        "brief": "Browses the facet market pack catalog and returns the list of currently active versions."
+      }
+    },
+    "facet_market_pack_curation": {
+      "human": {
+        "zh": {
+          "name": "更新策展信息",
+          "summary": "写入指定市场包的策展信息，属写操作，返回写入结果。"
+        },
+        "en": {
+          "name": "Set curation info",
+          "summary": "Writes curation information for a given pack; a write operation that returns the write result."
+        },
+        "ja": {
+          "name": "キュレーション情報を更新",
+          "summary": "指定パックのキュレーション情報を書き込みます。書き込み操作であり、書き込み結果を返します。"
+        },
+        "es": {
+          "name": "Actualizar curación",
+          "summary": "Escribe la información de curación de un paquete; es una operación de escritura y devuelve el resultado."
+        },
+        "fr": {
+          "name": "Mettre à jour la curation",
+          "summary": "Écrit les informations de curation d'un pack ; c'est une opération d'écriture qui renvoie le résultat."
+        }
+      },
+      "canonical": {
+        "brief": "Writes curation information for a pack; a write operation that returns the write result."
+      }
+    },
+    "facet_market_pack_publish": {
+      "human": {
+        "zh": {
+          "name": "发布市场包",
+          "summary": "将市场包发布到谦面市场，属写操作，返回发布结果。"
+        },
+        "en": {
+          "name": "Publish pack",
+          "summary": "Publishes a pack to the facet market; a write operation that returns the publish result."
+        },
+        "ja": {
+          "name": "パックを公開",
+          "summary": "パックを謙面市場へ公開します。書き込み操作であり、公開結果を返します。"
+        },
+        "es": {
+          "name": "Publicar paquete",
+          "summary": "Publica un paquete en el mercado facet; es una operación de escritura que devuelve el resultado."
+        },
+        "fr": {
+          "name": "Publier un pack",
+          "summary": "Publie un pack sur le marché facet ; opération d'écriture qui renvoie le résultat."
+        }
+      },
+      "canonical": {
+        "brief": "Publishes a pack to the facet market; a write operation that returns the publish result."
+      }
+    },
+    "facet_market_pack_read": {
+      "human": {
+        "zh": {
+          "name": "读取市场包详情",
+          "summary": "读取指定市场包的详情，返回最新版本清单与作者视角的订阅数。"
+        },
+        "en": {
+          "name": "Read pack details",
+          "summary": "Reads the details of a given pack, returning its latest version list and subscription counts seen by the author."
+        },
+        "ja": {
+          "name": "パック詳細を取得",
+          "summary": "指定パックの詳細を読み取り、最新バージョンの一覧と作者視点の購読数を返します。"
+        },
+        "es": {
+          "name": "Leer detalles del paquete",
+          "summary": "Lee los detalles de un paquete y devuelve la lista de la última versión y los recuentos de suscripción vistos por el autor."
+        },
+        "fr": {
+          "name": "Lire les détails du pack",
+          "summary": "Lit les détails d'un pack et renvoie la liste de la dernière version ainsi que les compteurs d'abonnement vus par l'auteur."
+        }
+      },
+      "canonical": {
+        "brief": "Reads a pack's details, returning its latest version list and subscription counts seen by the author."
+      }
+    },
+    "facet_market_pack_validate": {
+      "human": {
+        "zh": {
+          "name": "发布前预校验",
+          "summary": "发布前对市场包做预校验，属 dry-run，不实际发布，返回校验结果。"
+        },
+        "en": {
+          "name": "Pre-validate pack",
+          "summary": "Runs a pre-publish validation of a pack as a dry run without publishing, and returns the validation result."
+        },
+        "ja": {
+          "name": "パックを事前検証",
+          "summary": "公開前にパックをドライランで事前検証し、公開は行わず検証結果を返します。"
+        },
+        "es": {
+          "name": "Prevalidar paquete",
+          "summary": "Ejecuta una prevalidación del paquete antes de publicar, en modo de prueba sin publicar, y devuelve el resultado."
+        },
+        "fr": {
+          "name": "Prévalider un pack",
+          "summary": "Exécute une prévalidation du pack avant publication, en simulation sans publier, et renvoie le résultat."
+        }
+      },
+      "canonical": {
+        "brief": "Runs a dry-run validation of a pack before publishing; nothing is published and the validation result is returned."
+      }
+    },
+    "facet_market_pack_versions": {
+      "human": {
+        "zh": {
+          "name": "读取版本历史",
+          "summary": "读取指定市场包的版本历史，返回版本清单，可见性判定与详情一致。"
+        },
+        "en": {
+          "name": "Read version history",
+          "summary": "Reads the version history of a given pack and returns the version list, applying the same visibility rule as the details view."
+        },
+        "ja": {
+          "name": "バージョン履歴を取得",
+          "summary": "指定パックのバージョン履歴を読み取り、バージョン一覧を返します。可視性の判定は詳細と同じです。"
+        },
+        "es": {
+          "name": "Leer historial de versiones",
+          "summary": "Lee el historial de versiones de un paquete y devuelve la lista; la visibilidad se evalúa igual que en el detalle."
+        },
+        "fr": {
+          "name": "Lire l'historique des versions",
+          "summary": "Lit l'historique des versions d'un pack et renvoie la liste ; la visibilité est évaluée comme dans le détail."
+        }
+      },
+      "canonical": {
+        "brief": "Reads a pack's version history and returns the version list, applying the same visibility rule as the details view."
+      }
+    },
+    "facet_market_pack_visibility": {
+      "human": {
+        "zh": {
+          "name": "切换可见性",
+          "summary": "切换指定市场包的可见性，属显式写操作，返回切换结果。"
+        },
+        "en": {
+          "name": "Toggle visibility",
+          "summary": "Toggles the visibility of a given pack; an explicit write operation that returns the result."
+        },
+        "ja": {
+          "name": "可視性を切り替え",
+          "summary": "指定パックの可視性を切り替えます。明示的な書き込み操作であり、結果を返します。"
+        },
+        "es": {
+          "name": "Cambiar visibilidad",
+          "summary": "Cambia la visibilidad de un paquete; es una operación de escritura explícita que devuelve el resultado."
+        },
+        "fr": {
+          "name": "Changer la visibilité",
+          "summary": "Change la visibilité d'un pack ; opération d'écriture explicite qui renvoie le résultat."
+        }
+      },
+      "canonical": {
+        "brief": "Toggles a pack's visibility; an explicit write operation that returns the result."
+      }
+    }
+  }
+}

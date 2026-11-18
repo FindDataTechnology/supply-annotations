@@ -1,0 +1,32 @@
+{
+  "skill": "statute-validity-check",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "法条效力核验",
+        "summary": "法条检索与效力核查：召回候选条文后逐条锚定效力状态，输出带效力状态与出处溯源的法条清单；非现行有效版本明确标注不得作现行法。"
+      },
+      "en": {
+        "name": "Statute validity check",
+        "summary": "Statute search and validity check: recalls candidate provisions, anchors each validity status and outputs a list with status and provenance; non-current versions are marked as not applicable law."
+      },
+      "ja": {
+        "name": "法条効力チェック",
+        "summary": "法条検索と効力チェック：候補条文を呼び出して各条の効力状態を突き合わせ、効力状態と出典付きの法条リストを出力。非現行版は現行法として使えないと明示。"
+      },
+      "es": {
+        "name": "Verificación de vigencia de preceptos",
+        "summary": "Búsqueda y verificación de vigencia de preceptos: recuerda candidatos, ancla la vigencia de cada uno y emite una lista con estado y procedencia; las versiones no vigentes se marcan no aplicables."
+      },
+      "fr": {
+        "name": "Contrôle de validité des textes légaux",
+        "summary": "Recherche et contrôle de validité des textes légaux : rappel des candidats, ancrage de la validité, liste avec statut et provenance ; les versions non en vigueur sont marquées non applicables."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

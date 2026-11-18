@@ -1,0 +1,32 @@
+{
+  "skill": "engagement-contract-management",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "委托合同管理",
+        "summary": "协助律师完成委托合同签订与案件归档：签订阶段确认收费方式与授权范围、生成全套委托文书；归档阶段生成诉讼跟踪记录表并更新客户档案。"
+      },
+      "en": {
+        "name": "Engagement contract management",
+        "summary": "Helps lawyers sign engagement contracts and archive cases: confirms fee basis and authority scope, generates the full document set, builds a litigation tracking sheet and updates client records."
+      },
+      "ja": {
+        "name": "委託契約管理",
+        "summary": "弁護士の委託契約締結と案件アーカイブを支援：締結段階で報酬方式と授権範囲を確認し委託文書一式を生成、アーカイブ段階で訴訟追跡記録表を生成し顧客台帳を更新。"
+      },
+      "es": {
+        "name": "Gestión de contratos de encargo",
+        "summary": "Ayuda a firmar contratos de encargo y archivar casos: confirma honorarios y alcance del poder, genera la documentación completa, crea la hoja de seguimiento y actualiza el expediente del cliente."
+      },
+      "fr": {
+        "name": "Gestion des contrats de mission",
+        "summary": "Aide à signer les conventions de mission et à archiver les dossiers : honoraires et étendue du mandat confirmés, documents générés, puis fiche de suivi du litige et mise à jour du dossier client."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

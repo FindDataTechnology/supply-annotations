@@ -1,0 +1,18 @@
+{
+ "server_name": "eco-mcp-time",
+ "description": "[生态] modelcontextprotocol 官方参考实现（MIT）",
+ "tags": [
+  "ecosystem",
+  "official"
+ ],
+ "tools": [
+  {
+   "name": "get_current_time",
+   "description": "Get current time in a specific timezone"
+  },
+  {
+   "name": "convert_time",
+   "description": "Convert time between timezones"
+  }
+ ]
+}

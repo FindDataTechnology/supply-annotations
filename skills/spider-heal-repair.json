@@ -1,0 +1,32 @@
+{
+  "skill": "spider-heal-repair",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "爬虫修复执行",
+        "summary": "爬虫自愈体系的修复执行：浅检出代码、读取工单并分诊、做定向修复、走验证链验证，用 curl 开 PR，并遵守凭据脱敏纪律。"
+      },
+      "en": {
+        "name": "Crawler repair execution",
+        "summary": "Repair arm of the crawler self-heal system: shallow checkout, reads and triages tickets, applies targeted fixes, runs the verification chain, opens a PR via curl under credential-masking discipline."
+      },
+      "ja": {
+        "name": "スパイダー修復実行",
+        "summary": "クローラー自己修復の修復実行：チェックアウトを浅く行い、チケットを読んでトリアージし、的を絞った修正を実施、検証チェーンを通じ、curl でPRを作成し、資格情報マスキングの規律を守る。"
+      },
+      "es": {
+        "name": "Reparación dirigida de rastreadores",
+        "summary": "Reparación dirigida: checkout ligero, triage del ticket, arreglo puntual, cadena de verificación, PR con curl y ocultación de credenciales."
+      },
+      "fr": {
+        "name": "Réparation ciblée de robots",
+        "summary": "Volet réparation : checkout léger, triage du ticket, réparation ciblée, chaîne de vérification, PR par curl, masquage des identifiants."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

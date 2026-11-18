@@ -1,0 +1,32 @@
+{
+  "skill": "shock-detection",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "冲击识别",
+        "summary": "柏讯信息冲击识别：先查来源健康度，再按游标拉取信息流（list_since），按来源三型（公告/部委/互动）与七组冲击类型做初筛，逐条附 item_id、发布时间、正文状态与初筛依据；只做识别与初筛，不读正文下结论、不做窗口统计。"
+      },
+      "en": {
+        "name": "Shock detection",
+        "summary": "Wire shocks: checks source health, cursor pull (list_since), pre-screen by three source types and seven shock groups, with ID, time, text status and basis; screening only, no window stats."
+      },
+      "ja": {
+        "name": "ショック検出",
+        "summary": "Wire情報ショック検出：ソースの健全性を確認後、カーソルで情報流を取得（list_since）し、三類型（公告・省庁・インタラクション）と七つのショック分類で一次スクリーニング。各件にID・時刻・本文状態・根拠を付与。結論出しや窓統計はしない。"
+      },
+      "es": {
+        "name": "Detección de choques",
+        "summary": "Choques Wire: comprueba salud de fuentes, trae el flujo por cursor (list_since) y preselecciona por tres tipos y siete grupos de choque, con ID, hora, estado textual y criterio; solo detección."
+      },
+      "fr": {
+        "name": "Détection de chocs",
+        "summary": "Chocs Wire : santé des sources d’abord, flux tiré par curseur (list_since), présélection par trois types et sept groupes de choc, avec ID, heure, état du texte et motif ; détection seule."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

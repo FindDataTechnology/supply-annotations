@@ -1,0 +1,27 @@
+{
+  "server_name": "infra-telemetry",
+  "description": "基础设施遥测",
+  "tags": [],
+  "tools": [
+    {
+      "name": "crawl_summary",
+      "description": "每爬取源最近成功/连续失败/零产出/失速标记（只读，口径=crawl-run-telemetry）"
+    },
+    {
+      "name": "fleet_cost",
+      "description": "逐 cell 逐集群逐岗位 token 用量与配额消耗汇总（只读；backend=psql|sqlite 由 env 定，SQL 全文=env FD_TELEMETRY_COST_SQL，无岗位归因落 other；sqlite 后端读全部 cell 库并逐行标明 cell，单 cell 库不可读时点名到 summary.cell_errors）"
+    },
+    {
+      "name": "gitops_sync",
+      "description": "ArgoCD GitOps out-of-sync/degraded 逐 app 状态（只读 REST GET，base=env FD_TELEMETRY_ARGOCD_URL，零凭据零端点）"
+    },
+    {
+      "name": "services_liveness",
+      "description": "按 PORTS 台账口径逐服务 TCP 探活（open/timeout/refused/unreachable；只读，零端点，台账 0 行如实标注）"
+    },
+    {
+      "name": "workloads_health",
+      "description": "逐 workload（deployment/pod）非就绪、CrashLoopBackOff、重启风暴、镜像拉取异常、状态未知，逐条点名（只读 kubectl get；仅逻辑名，零凭据零端点）"
+    }
+  ]
+}

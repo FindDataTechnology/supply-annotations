@@ -1,0 +1,32 @@
+{
+  "skill": "dispute-issue-identification",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "争议焦点识别",
+        "summary": "在法律要素提取之后，从法律事实中提取争议焦点，将案件关系转化为法律关系问题：排除无争议事项，围绕当事人争议的事实、证据与法律适用焦点支撑后续分析，经事实调查与证据审查逼近争点本质。"
+      },
+      "en": {
+        "name": "Dispute issue identification",
+        "summary": "After element extraction, isolates the issues in dispute and reframes case relations as legal questions; screens out uncontested matters and centers analysis on facts, evidence and law."
+      },
+      "ja": {
+        "name": "紛争争点の識別",
+        "summary": "法的要素の抽出後、法律事実から争点を抜き出し、事件関係を法律問題へ転換：無争点事項を除外し、当事者が争う事実・証拠・法適用に焦点を当て、事実調査と証拠審査で争点の本質に迫る。"
+      },
+      "es": {
+        "name": "Identificación de puntos en disputa",
+        "summary": "Tras extraer los elementos jurídicos, aísla los puntos en controversia y reformula el caso como cuestión jurídica: descarta lo incontestable y centra el análisis en hechos, prueba y derecho."
+      },
+      "fr": {
+        "name": "Identification des points en litige",
+        "summary": "Après extraction des éléments juridiques, isole les points en litige et convertit le cas en questions de droit : écarte l'incontesté, centre l'analyse sur faits, preuves et droit."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

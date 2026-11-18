@@ -1,0 +1,32 @@
+{
+  "skill": "legal-ocr",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "法律材料文字识别",
+        "summary": "将 PDF、图片、Office 文档或 URL 中的文字识别并转换为 Markdown，检测到法律材料时保守优化术语与文书结构；不做法律事实判断，不补写缺失内容。"
+      },
+      "en": {
+        "name": "Legal document OCR",
+        "summary": "Recognizes text in PDFs, images, Office documents or URLs into Markdown; legal material is conservatively polished for terms and structure, with no legal fact judgment or content invention."
+      },
+      "ja": {
+        "name": "法律文書OCR",
+        "summary": "PDF・画像・Office文書・URLの文字を認識してMarkdownへ変換します。法律材料を検出した場合は用語と文書構造を保守的に整えます。法律的事実判断や内容の補完はしません。"
+      },
+      "es": {
+        "name": "OCR de documentos legales",
+        "summary": "Reconoce texto de PDF, imágenes, documentos Office o URL y lo pasa a Markdown; el material legal se pule con prudencia en términos y estructura, sin juicio de hechos ni contenido inventado."
+      },
+      "fr": {
+        "name": "OCR de documents juridiques",
+        "summary": "Reconnaît le texte de PDF, images, documents Office ou URL en Markdown ; le matériau juridique est affiné avec prudence (termes et structure), sans jugement de faits ni contenu inventé."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

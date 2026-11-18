@@ -1,0 +1,32 @@
+{
+  "skill": "decision-review-reflection",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "决策复盘反思提炼",
+        "summary": "柏讯决策反思提炼：为已结算或已落账的判定写2–4句复盘反思，针对决策本身而非市场走势，区分判断错与运气差，含可执行改进项；反思由账本存储，只注入最终决策者的上下文，不得广播给其他角色，缺失反思不阻塞结算。"
+      },
+      "en": {
+        "name": "Decision review reflection",
+        "summary": "Writes a 2–4 sentence reflection on a settled Wire verdict: about the decision not the market, wrong calls vs bad luck, with concrete fixes; ledger-stored, shown only to the final decision-maker."
+      },
+      "ja": {
+        "name": "意思決定ふりかえり教訓抽出",
+        "summary": "Wire 意思決定の教訓抽出：決済済み・記帳済み判定に2〜4文の振り返りを書き、相場変動でなく判断そのものを目指し、誤判断と不運を区別し改善策を含む。台帳保存で最終判断者の文脈のみに入り、欠損でも決済は止まらない。"
+      },
+      "es": {
+        "name": "Reflexión de revisión de decisiones",
+        "summary": "Reflexión Wire de 2–4 frases sobre un veredicto: trata la decisión, no el mercado; distingue error de juicio y mala suerte; con mejoras accionables; solo visible al decisor final."
+      },
+      "fr": {
+        "name": "Réflexion de revue des décisions",
+        "summary": "Réflexion Wire de 2 à 4 phrases sur un verdict réglé : porte sur la décision, non le marché ; erreur ou malchance ; correctifs exécutables ; injectée au seul décideur final."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

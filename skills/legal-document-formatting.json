@@ -1,0 +1,32 @@
+{
+  "skill": "legal-document-formatting",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "裁判文书起草",
+        "summary": "依据中国人民法院裁判文书制作规范，起草完整的民事判决书或刑事判决书，在起草各段落时自主调用争议焦点识别、法条检索、演绎推理、证据效力评估等原子技能。"
+      },
+      "en": {
+        "name": "Civil and criminal judgment drafting",
+        "summary": "Drafts complete civil or criminal judgments per Chinese court standards, invoking atomic skills such as issue spotting, statute search, deductive reasoning and evidence evaluation section by section."
+      },
+      "ja": {
+        "name": "裁判文書起草案",
+        "summary": "中国の裁判所の文書作成規範に従い、民事判決書・刑事判決書を完全に起案する。各段落の執筆時に争点識別・法条検索・演繹推理・証拠効力評価などのアトミック技能を呼び出す。"
+      },
+      "es": {
+        "name": "Redacción normalizada de sentencias",
+        "summary": "Redacta sentencias civiles o penales según las normas judiciales chinas e invoca habilidades atómicas: detección de controversias, búsqueda de normas, razonamiento deductivo y valoración de pruebas."
+      },
+      "fr": {
+        "name": "Rédaction normalisée de jugements",
+        "summary": "Rédige des jugements civils ou pénaux complets selon les normes judiciaires chinoises, en invoquant par paragraphe des compétences atomiques : litige, recherche de normes, raisonnement et preuve."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

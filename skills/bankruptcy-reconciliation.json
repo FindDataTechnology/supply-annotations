@@ -1,0 +1,32 @@
+{
+  "skill": "bankruptcy-reconciliation",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "破产和解程序",
+        "summary": "提供破产和解程序全流程支持，覆盖和解申请、协议草案编制、债权人会议表决、协议效力确认、执行监督及转清算；依据《企业破产法》第95-99条。"
+      },
+      "en": {
+        "name": "Bankruptcy reconciliation procedure",
+        "summary": "Supports bankruptcy reconciliation: application, drafting, creditor vote, effect confirmation, supervision and conversion to liquidation, per Enterprise Bankruptcy Law arts. 95-99."
+      },
+      "ja": {
+        "name": "破産和解手続き",
+        "summary": "企業破産法95〜99条に基づき、破産和解手続を全工程支援：和解申立て、協定案作成、債権者会議の決議、協定効力の確認、執行監督、清算への移行。"
+      },
+      "es": {
+        "name": "Procedimiento de reconciliación concursal",
+        "summary": "Apoya la reconciliación concursal: solicitud, redacción, voto de acreedores, confirmación de efecto, supervisión y conversión en liquidación, según los arts. 95-99 de la ley concursal."
+      },
+      "fr": {
+        "name": "Procédure de conciliation d'entreprises",
+        "summary": "Accompagne la conciliation d'entreprises : demande, rédaction, vote des créanciers, confirmation d'effet, supervision et bascule en liquidation, art. 95-99 de la loi sur les faillites."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "juvenile-criminal-cases",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "未成年人刑事辩护",
+        "summary": "未成年人刑事案件专项辩护：覆盖社会调查、不逮捕申请、附条件不起诉、犯罪记录封存、不公开审理、法定代理人到场与信息保护等工作。"
+      },
+      "en": {
+        "name": "Juvenile criminal defense",
+        "summary": "Specialized juvenile criminal defense: social investigation, non-arrest applications, conditional non-prosecution, record sealing, closed hearings, guardian presence and information protection."
+      },
+      "ja": {
+        "name": "少年刑事弁護",
+        "summary": "少年刑事事件の専門弁護：社会調査、非逮捕申請、付条件不起訴、犯罪記録の封存、非公開審理、法定代理人の立ち会い、情報保護などを網羅。"
+      },
+      "es": {
+        "name": "Defensa penal de menores",
+        "summary": "Defensa penal de menores: investigación social, no detención, no procesamiento condicional, sellado de antecedentes, vistas no públicas, representante legal y protección de datos."
+      },
+      "fr": {
+        "name": "Défense pénale des mineurs",
+        "summary": "Défense pénale des mineurs : enquête sociale, non-arrestation, non-poursuite conditionnelle, scellage du casier, audiences non publiques, représentant légal et protection des informations."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

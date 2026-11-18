@@ -1,0 +1,32 @@
+{
+  "skill": "equity-research-data",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "个股投研取数",
+        "summary": "个股投研的取数与口径纪律层：为 A 股/港股公司取财务科目、公告披露、行业财务指标与公司面板变量，并交代来源工具、数据期数、币种与单位。财务与披露走柏讯服务端通道 A，价格与市值走本地 DAAS 通道 B，两通道不混用、不互相替代；取不到的数值如实声明缺口，不得填补。"
+      },
+      "en": {
+        "name": "Equity research data",
+        "summary": "Fetches financials, disclosures, industry and panel data via Wire channel A and prices via DAAS channel B, never mixed; states tool, period, currency and unit; gaps declared, never filled."
+      },
+      "ja": {
+        "name": "個別株投資調査：データ取得",
+        "summary": "個別株投資調査のデータ取得・口径規律層。A株/港股の財務科目、公告開示、業界指標、パネル変数を取得し、ツール・データ期間・通貨・単位を明示。財務開示はWireサーバー側チャネルA、価格・時価総額はローカルDAASチャネルBを使い混用しない。取得不可の値は欠口として宣言し埋めない。"
+      },
+      "es": {
+        "name": "Investigación bursátil: datos",
+        "summary": "Obtiene datos financieros, divulgaciones, métricas sectoriales y de panel A/H por los canales A (Wire) y B (DAAS) sin mezclar; indica herramienta, período, moneda y unidad; los vacíos se declaran."
+      },
+      "fr": {
+        "name": "Recherche actions : données",
+        "summary": "Prélève comptes, publications, indicateurs et panneau des sociétés A/H via les canaux A (Wire) et B (DAAS) sans mélange ; outil, période, devise, unité précisés ; lacunes déclarées, jamais comblées."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "comps-analysis",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "可比公司分析",
+        "summary": "以 Excel/电子表格搭建机构级可比公司分析，覆盖经营指标、估值倍数与统计基准对照。"
+      },
+      "en": {
+        "name": "Comparable company analysis",
+        "summary": "Builds institutional-grade comparable-company analyses in spreadsheets: operating metrics, valuation multiples and statistical benchmarking."
+      },
+      "ja": {
+        "name": "比較対象企業分析",
+        "summary": "表計算形式で機関水準の比較対象企業分析を作成する。経営指標、バリュエーション倍数、統計ベースラインの対照をカバーする。"
+      },
+      "es": {
+        "name": "Análisis de empresas comparables",
+        "summary": "Elabora análisis de comparables de nivel institucional en hoja de cálculo: métricas operativas, múltiplos de valoración y referencias estadísticas."
+      },
+      "fr": {
+        "name": "Analyse d'entreprises comparables",
+        "summary": "Construit en tableur des analyses de comparables de niveau institutionnel : indicateurs d'exploitation, multiples de valorisation et repères statistiques."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

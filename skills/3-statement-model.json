@@ -1,0 +1,32 @@
+{
+  "skill": "3-statement-model",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "三表模型填报",
+        "summary": "填写并完善三张报表财务模型模板（利润表、资产负债表、现金流量表），把已有模型框架补全。"
+      },
+      "en": {
+        "name": "Three-statement model completion",
+        "summary": "Completes and fills out three-statement financial model templates covering the income statement, balance sheet and cash flow statement."
+      },
+      "ja": {
+        "name": "三表モデル記入",
+        "summary": "損益計算書・貸借対照表・キャッシュフロー計算書の三表モデル・テンプレートを記入し、既存のひな枠を完成させる。"
+      },
+      "es": {
+        "name": "Cumplimiento del modelo de tres estados",
+        "summary": "Completa y rellena plantillas de modelos financieros de tres estados: cuenta de resultados, balance y estado de flujos de efectivo."
+      },
+      "fr": {
+        "name": "Remplissage du modèle à trois états",
+        "summary": "Complète les modèles financiers à trois états : compte de résultat, bilan et tableau de flux de trésorerie, en remplissant les canevas existants."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

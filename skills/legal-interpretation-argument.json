@@ -1,0 +1,32 @@
+{
+  "skill": "legal-interpretation-argument",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "法律解释论证",
+        "summary": "在法条含义模糊、适用有争议或法条存在表面冲突时，运用文义解释等多种解释方法论证法条应否适用于特定情形，并分析裁判文书中的法律适用。"
+      },
+      "en": {
+        "name": "Legal interpretation argument",
+        "summary": "Builds interpretation arguments when statutory text is ambiguous, contested or in apparent conflict, arguing whether a statute applies to a case and analyzing statutory application in judgments."
+      },
+      "ja": {
+        "name": "法律解釈論証",
+        "summary": "法条の文言が多義で紛争が生じたり他の規定と表面上抵触する場合に、文義解釈などの解釈方法を用いて法条の適用可否を論証し、判決文における法の適用を分析する。"
+      },
+      "es": {
+        "name": "Argumentación de interpretación jurídica",
+        "summary": "Construye argumentos de interpretación cuando el texto legal es ambiguo, discutido o en conflicto aparente, argumentando si aplica a un caso y analizando la aplicación del derecho en las sentencias."
+      },
+      "fr": {
+        "name": "Argumentation d'interprétation juridique",
+        "summary": "Construit des arguments d'interprétation quand le texte légal est ambigu, contesté ou en conflit apparent, argumente son application à un cas et analyse l'application du droit dans les jugements."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

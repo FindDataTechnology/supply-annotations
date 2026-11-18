@@ -1,0 +1,32 @@
+{
+  "skill": "legal-terminology",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "法律术语校验",
+        "summary": "确保合同、诉状、法律意见书、裁判文书、法规释义、备忘录等法律文本中术语准确、无歧义、符合法律文体，覆盖起草选词、术语审查、规范表达转化与中外术语对照。"
+      },
+      "en": {
+        "name": "Legal terminology verification",
+        "summary": "Checks that legal terms in contracts, pleadings, opinions, judgments or memos are precise, unambiguous and proper to legal style, covering term choice, review, register conversion and term mapping."
+      },
+      "ja": {
+        "name": "法律用語チェック",
+        "summary": "契約・訴状・法律意見書・裁判文書・法規解釈・メモ等の法律文書で、用語の正確性・無曖昧性・法律文体適合を確認し、選語・審査・規範化・内外対照を支援する。"
+      },
+      "es": {
+        "name": "Verificación de terminología jurídica",
+        "summary": "Comprueba que la terminología de contratos, escritos, dictámenes, sentencias o notas sea precisa, sin ambigüedad y de estilo jurídico correcto: selección de términos, revisión y equivalencias."
+      },
+      "fr": {
+        "name": "Vérification de la terminologie juridique",
+        "summary": "Vérifie que les termes des contrats, mémoires, avis, jugements ou notes soient précis, non ambigus et de style juridique : choix des termes, révision, reformulation et équivalences."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

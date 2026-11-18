@@ -1,0 +1,32 @@
+{
+  "skill": "mb-signal-retail",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "零售行业信号包",
+        "summary": "零售行业信号包（谦面生意体检姊妹件）：批发价参考、城市基本面、同业密度与快递大盘景气；工商登记数据滞后约三年。"
+      },
+      "en": {
+        "name": "Retail industry signal pack",
+        "summary": "Facet business-checkup companion pack for retail: wholesale price reference, city fundamentals, peer density and express-delivery sentiment; business-registry data lags about 3 years."
+      },
+      "ja": {
+        "name": "小売業向けシグナルパック",
+        "summary": "小売業向けシグナルパック（Facet ビジネス健診の姉妹品）：卸売価格参考、都市ファンダメンタルズ、同業密度、宅配業界の景況感。工商登記データは約3年の遅れ。"
+      },
+      "es": {
+        "name": "Paquete de señales minoristas",
+        "summary": "Paquete de señales minoristas (complemento del chequeo de Facet): precios de mayoristas, fundamentales urbanos, densidad de pares y sentimiento de mensajería; registro con unos 3 años de retraso."
+      },
+      "fr": {
+        "name": "Pack de signaux retail",
+        "summary": "Pack de signaux retail (compagnon du bilan de Facet) : prix de gros de référence, fondamentaux urbains, densité des pairs et sentiment de la livraison ; registre en retard d'environ 3 ans."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

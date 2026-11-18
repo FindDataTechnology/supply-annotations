@@ -1,0 +1,32 @@
+{
+  "skill": "rotation-portfolio",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "轮动组合",
+        "summary": "柏讯自适应轮动的风险预算建仓与风控参数：按排序结果产出 TargetWeights 契约实例（组权重→资产权重）、风险预算依据与风控参数；止损须在策略内表达，引擎不自动执行。"
+      },
+      "en": {
+        "name": "Rotation portfolio",
+        "summary": "Positions by risk budget from rankings: emits a TargetWeights contract (group→asset weights), risk-budget rationale and risk-control parameters; stops are strategy-level, not engine-executed."
+      },
+      "ja": {
+        "name": "ローテーション・ポートフォリオ",
+        "summary": "適応ローテーションのリスク予算による建玉とリスク管理パラメータ：順位結果から TargetWeights 契約インスタンス（グループ加重→資産加重）、リスク予算の根拠、リスク管理パラメータを出力。ストップロスは戦略内で表現し、エンジンは自動実行しません。"
+      },
+      "es": {
+        "name": "Cartera de rotación",
+        "summary": "Presupuesto de riesgo para posiciones según rankings: emite un contrato TargetWeights (grupo→activos), justificación y parámetros de control; stops de estrategia, sin ejecución automática."
+      },
+      "fr": {
+        "name": "Portefeuille de rotation",
+        "summary": "Positions par budget de risque selon les classements : émet un contrat TargetWeights (groupe→actifs), justification et paramètres de contrôle ; stops au niveau stratégie, sans exécution automatique."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

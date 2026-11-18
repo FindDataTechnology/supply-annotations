@@ -1,0 +1,32 @@
+{
+  "skill": "other-legal-retrieval",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "辅助法律检索",
+        "summary": "检索法条、司法解释与典型案例之外的辅助性法律信息：立法背景资料、监管处罚决定、地方指导意见、规章起草说明与政策解读、行业标准、执法检查与实施报告、白皮书、学术通说与域外比较等。"
+      },
+      "en": {
+        "name": "Auxiliary legal retrieval",
+        "summary": "Retrieves auxiliary legal material beyond statutes, interpretations and model cases: legislative history, penalty decisions, local guidance, policy readings, standards and comparative law."
+      },
+      "ja": {
+        "name": "補助法律情報検索",
+        "summary": "法条・司法解释・典型事例以外の補助的な法情報を検索する：立法経過資料、規制当局の処分決定、地方の指導意見、規則の起草案説明と政策解説、業界標準、検査・実施報告、白書、学説の通説、外国法比較など。"
+      },
+      "es": {
+        "name": "Búsqueda jurídica auxiliar",
+        "summary": "Recupera material jurídico de apoyo fuera de leyes, interpretaciones y casos tipo: historia legislativa, sanciones de reguladores, guías locales, normas sectoriales, informes y derecho comparado."
+      },
+      "fr": {
+        "name": "Recherche juridique auxiliaire",
+        "summary": "Récupère du matériel d'appui hors textes, interprétations et cas types : travaux préparatoires, sanctions de régulateurs, directives locales, normes sectorielles, rapports et droit comparé."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

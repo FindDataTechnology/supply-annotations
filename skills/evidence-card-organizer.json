@@ -1,0 +1,32 @@
+{
+  "skill": "evidence-card-organizer",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "证据卡片整理",
+        "summary": "证据卡片提取与立案材料清单整理：从合同、转账记录、聊天记录、票据、送达回证等案件材料中提取证据、编排证据目录、整理材料清单并排查证据关系与矛盾，输出双视图证据卡片库与待补强清单，供起诉状、答辩状起草直接引用。"
+      },
+      "en": {
+        "name": "Evidence card organizer",
+        "summary": "Extracts evidence and inventories from contracts, transfers, chats, invoices and receipts; checks relations and contradictions; outputs a dual-view card library plus to-strengthen list for pleadings."
+      },
+      "ja": {
+        "name": "証拠カード整理",
+        "summary": "契約書・振込記録・チャット・伝票・送達受領証などの資料から証拠を抽出し、証拠目録と資料リストを整え、関係と矛盾を点検。二つのビューの証拠カード庫と補強待ちリストを出力し、訴状・答弁書起草に直接使える。"
+      },
+      "es": {
+        "name": "Organizador de fichas de pruebas",
+        "summary": "Extrae pruebas de contratos, transferencias, chats, facturas y acuses, arma el inventario, revisa contradicciones y entrega fichas en dos vistas y lista de refuerzo para redactar escritos."
+      },
+      "fr": {
+        "name": "Organisateur de fiches de preuves",
+        "summary": "Extrait preuves et inventaire de pièces (contrats, virements, chats, factures, réceptions), contrôle relations et contradictions et livre fiches à deux vues avec liste de renforts pour écritures."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

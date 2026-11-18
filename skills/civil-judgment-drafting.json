@@ -1,0 +1,32 @@
+{
+  "skill": "civil-judgment-drafting",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "民事判决书起草",
+        "summary": "从起诉状、答辩状、庭审纪要、法律分析等案件材料提取要素，生成符合法院文书样式的一审普通程序民事判决书 Word 初稿，并与总控事项记录、复盘台账衔接。"
+      },
+      "en": {
+        "name": "Civil judgment drafting",
+        "summary": "Extracts elements from case materials (complaint, defense, hearing minutes, legal analysis) and produces a first-instance ordinary-procedure civil judgment Word draft in court document style."
+      },
+      "ja": {
+        "name": "民事判決文起草案",
+        "summary": "訴状・答弁書・審議録・法的分析などの案件資料から要素を抽出し、裁判所文書様式に沿った一審普通手続の民事判決文 Word 初稿を生成。案件の現行事項記録と振り返り台帳に連動する。"
+      },
+      "es": {
+        "name": "Redacción de sentencia civil",
+        "summary": "Extrae elementos de los materiales del caso (demanda, contestación, actas de vista, análisis jurídico) y genera un borrador Word de sentencia civil de primera instancia conforme al formato judicial."
+      },
+      "fr": {
+        "name": "Rédaction de jugement civil",
+        "summary": "Extrait les éléments des pièces du dossier (assignation, mémoire en défense, audiences, analyse juridique) et produit un projet de jugement civil de première instance au format Word des tribunaux."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

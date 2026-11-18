@@ -1,0 +1,32 @@
+{
+  "skill": "shock-window",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "信息冲击窗口统计",
+        "summary": "对信息冲击做多窗口历史统计（默认前窗 5 日基准 + 后窗 5/10/20 个交易日）：输出样本量、分位、离散度与反例；全部为描述性历史分布，不是预测。"
+      },
+      "en": {
+        "name": "Shock impact window statistics",
+        "summary": "Multi-window history for information shocks (5-day pre-window baseline, 5/10/20-day post-windows): samples, quantiles, dispersion, counter-examples; descriptive history, not forecasts."
+      },
+      "ja": {
+        "name": "情報ショック影響ウィンドウ統計",
+        "summary": "情報ショックに対する複数ウィンドウの履歴統計（既定で前窓5日基準＋後窓5/10/20取引日）：サンプル数・分位・散布度・反例を出力。すべて記述的な履歴分布であり、予測ではない。"
+      },
+      "es": {
+        "name": "Estadística de ventanas de impacto",
+        "summary": "Estadística multiventana de choques de información (base previa 5 días, post 5/10/20 días): muestras, cuantiles, dispersión y contraejemplos; historia descriptiva, no pronósticos."
+      },
+      "fr": {
+        "name": "Statistique de fenêtres d'impact",
+        "summary": "Statistique multifenêtre des chocs d'information (base avant 5 jours, fenêtres après 5/10/20 jours) : échantillons, quantiles, dispersion, contre-exemples ; historique descriptif, pas une prévision."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

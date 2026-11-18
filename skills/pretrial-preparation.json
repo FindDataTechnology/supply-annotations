@@ -1,0 +1,32 @@
+{
+  "skill": "pretrial-preparation",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "庭前准备",
+        "summary": "基于起诉状、法律分析、诉讼可视化、案例汇编、质证意见等前置文档，自动归纳争议焦点，生成争点导向庭审提纲、质证攻防矩阵、举证策略规划表、开庭陈述与法庭辩论提纲、代理词及诉讼法律服务方案。"
+      },
+      "en": {
+        "name": "Pretrial preparation",
+        "summary": "From complaint, analysis, visuals, case compendium and cross-exam notes: distills issues; drafts hearing outline, proof matrices, opening and argument outlines, brief and litigation plan."
+      },
+      "ja": {
+        "name": "審理前準備",
+        "summary": "訴状・法的分析・訴訟可視化・判例集・質証意見などの前提文書から争点を自動で整理し、争点志向の口頭弁論要旨、証拠調べ攻防マトリクス、立証戦略表、陳述・弁論要旨、代理意見書と訴訟サービス方案を作成する。"
+      },
+      "es": {
+        "name": "Preparación previa al juicio",
+        "summary": "De la demanda, el análisis y los materiales previos: extrae los puntos en disputa y redacta esquema de vista, matrices de contradicción, estrategia probatoria, alegatos y plan del litigio."
+      },
+      "fr": {
+        "name": "Préparation avant audience",
+        "summary": "De l'assignation et des pièces préparatoires : dégage les points de débat, prépare plan d'audience, matrices de contradiction, stratégie probatoire, plaidoiries et projet de prestation."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

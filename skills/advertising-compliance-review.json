@@ -1,0 +1,32 @@
+{
+  "skill": "advertising-compliance-review",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "广告合规审查",
+        "summary": "依据《广告法》《反不正当竞争法》及行业专项法规，审核广告文案与素材是否符合中国广告法及相关规定，识别违法违规风险，支持房地产、食品、医疗、药品、互联网等行业广告专项审核。"
+      },
+      "en": {
+        "name": "Advertising compliance review",
+        "summary": "Checks ad copy and creative against China's Advertising Law, unfair-competition rules and sector regulations, and flags illegal content; covers real-estate, food, medical, drug and internet ads."
+      },
+      "ja": {
+        "name": "広告コンプライアンス審査",
+        "summary": "中国広告法・不正競争防止法・業種別法規に基づき、広告コピーと素材を審査し、違法・違反リスクを識別する。不動産・食品・医療・医薬品・インターネット広告の専門審査にも対応。"
+      },
+      "es": {
+        "name": "Revisión de cumplimiento publicitario",
+        "summary": "Revisa textos y piezas publicitarias según la Ley de Publicidad china, competencia desleal y normas sectoriales, y señala ilegalidades; incluye auditorías por sector."
+      },
+      "fr": {
+        "name": "Revue de conformité publicitaire",
+        "summary": "Examine les textes et supports publicitaires selon la loi chinoise sur la publicité, l'anti-concurrence et les règles sectorielles, et signale les risques d'infraction ; contrôles dédiés par secteur."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

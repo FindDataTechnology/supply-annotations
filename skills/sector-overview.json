@@ -1,0 +1,32 @@
+{
+  "skill": "sector-overview",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "行业板块概览",
+        "summary": "撰写行业与板块全景报告，覆盖市场动态、竞争格局定位、主要参与者和主题趋势。"
+      },
+      "en": {
+        "name": "Sector overview",
+        "summary": "Produces comprehensive industry and sector landscape reports covering market dynamics, competitive positioning, key players and thematic trends."
+      },
+      "ja": {
+        "name": "セクター概況",
+        "summary": "市場動向・競争ポジショニング・主要プレイヤー・テーマトレンドを含む、業界・セクターの全景レポートを作成する。"
+      },
+      "es": {
+        "name": "Panorama sectorial",
+        "summary": "Crea informes completos del panorama de una industria o sector: dinámica de mercado, posición competitiva, actores clave y tendencias temáticas."
+      },
+      "fr": {
+        "name": "Panorama sectoriel",
+        "summary": "Rédige des panoramas complets du secteur : dynamique de marché, positionnement concurrentiel, acteurs clés et tendances thématiques."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

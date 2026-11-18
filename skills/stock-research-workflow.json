@@ -1,0 +1,32 @@
+{
+  "skill": "stock-research-workflow",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "个股研究流程",
+        "summary": "数据-股票包的个股研究全流程入口：行情快照、基本面分析、估值、行业研报交叉核对，最终汇总为研究结论。"
+      },
+      "en": {
+        "name": "Individual stock research workflow",
+        "summary": "Entry workflow of the data-stock pack for single-name research: market snapshot, fundamentals, valuation, cross-checks against industry reports, then a closing research conclusion."
+      },
+      "ja": {
+        "name": "個別銘柄研究ワークフロー",
+        "summary": "データ株式パッケージの個別銘柄研究の全フロー入口：市況スナップショット、ファンダメンタルズ、バリュエーション、業界レポートとのクロスチェックを経て研究結論に至る。"
+      },
+      "es": {
+        "name": "Flujo de investigación de un valor",
+        "summary": "Entrada del paquete de datos bursátiles para investigar un título: cotización instantánea, fundamentales, valoración, cruce con informes sectoriales y conclusión de investigación."
+      },
+      "fr": {
+        "name": "Flux de recherche sur un titre",
+        "summary": "Flux d’entrée du pack de données actions pour étudier un titre individuel : instantané de cours, fondamentaux, valorisation, croisement avec les rapports sectoriels, puis conclusion."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

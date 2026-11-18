@@ -1,0 +1,32 @@
+{
+  "skill": "court-sms",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "法院短信处理",
+        "summary": "收到法院短信（文书送达、立案通知、开庭提醒等）时提取案号、当事人与下载链接，下载文书并归档到对应案件目录；敏感诉讼数据会落盘本地，请确认存放位置私密。"
+      },
+      "en": {
+        "name": "Court SMS processing",
+        "summary": "On a court SMS (document service, filing notice, hearing reminder), extracts case number, parties and links, downloads documents into the matching case directory; sensitive data is stored locally."
+      },
+      "ja": {
+        "name": "裁判所SMS処理",
+        "summary": "裁判所からのSMS（送達、提訴通知、期日リマインダー等）で事件番号・当事者・リンクを抽出し、文書をダウンロードして事件フォルダに整理。機密性の高い訴訟データはローカル保存のため保存先の確認が必要。"
+      },
+      "es": {
+        "name": "Procesamiento de SMS judiciales",
+        "summary": "Ante un SMS del tribunal (notificación, admisión, audiencia), extrae número de caso, partes y enlaces, y descarga documentos al expediente; los datos sensibles se guardan localmente."
+      },
+      "fr": {
+        "name": "Traitement des SMS judiciaires",
+        "summary": "Sur SMS du tribunal (signification, enregistrement, audience), extrait numéro de dossier, parties et liens, puis classe les documents ; données sensibles stockées localement."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

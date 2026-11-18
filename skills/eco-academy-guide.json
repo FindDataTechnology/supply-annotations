@@ -1,0 +1,32 @@
+{
+  "skill": "eco-academy-guide",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "学院课程指南",
+        "summary": "生态技能包：回答「Claude 怎么用」时，推荐对应的学院课程。"
+      },
+      "en": {
+        "name": "Academy course guide",
+        "summary": "Ecosystem skill pack: recommends the matching academy course when asked how to use Claude."
+      },
+      "ja": {
+        "name": "アカデミー講座案内",
+        "summary": "エコシステム系スキル。「Claude の使い方」を問う質問に、対応する講座を勧める。"
+      },
+      "es": {
+        "name": "Guía de cursos de la academia",
+        "summary": "Habilidad del ecosistema: cuando se pregunta cómo usar Claude, recomienda el curso correspondiente."
+      },
+      "fr": {
+        "name": "Guide des cours de l'académie",
+        "summary": "Compétence de l'écosystème : recommande le cours adapté quand on demande comment utiliser Claude."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

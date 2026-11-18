@@ -1,0 +1,32 @@
+{
+  "skill": "systematic-interpretation",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "体系解释",
+        "summary": "针对文义解释后遗留的含义或适用范围争议，依据法律规范在法律体系中的位置、编章节归属、关联规范的含义与体系应有之意，给出更符合体系融贯的解释结论。"
+      },
+      "en": {
+        "name": "Statutory systematic interpretation",
+        "summary": "Resolves meaning-or-scope disputes left by literal reading using the norm's place in the system, its law, book or section, related norms and systemic intent, for a coherent reading."
+      },
+      "ja": {
+        "name": "体系解釈",
+        "summary": "文義解釈の後に残る意味・適用範囲の争いに対し、規範が属する法・編・章・節などの体系上の位置、関連規範の意味、法体系本来の趣旨から、体系整合的な解釈結論を与える。"
+      },
+      "es": {
+        "name": "Interpretación sistemática de normas",
+        "summary": "Resuelve el debate de sentido o alcance dejado por la lectura literal según el lugar de la norma en el sistema, las normas conexas y la intención del conjunto."
+      },
+      "fr": {
+        "name": "Interprétation systématique des normes",
+        "summary": "Tranche le débat de sens ou de portée laissé par la lecture littérale d'après la place de la norme dans le système, les normes liées et l'esprit d'ensemble."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

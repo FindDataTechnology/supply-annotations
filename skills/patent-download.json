@@ -1,0 +1,32 @@
+{
+  "skill": "patent-download",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "专利批量下载",
+        "summary": "专利 PDF 批量下载工具：下载专利全文 PDF、查询专利信息、批量导出专利文件；支持多平台（Google Patents 优先），自动处理申请号与公告号格式。"
+      },
+      "en": {
+        "name": "Batch patent download",
+        "summary": "Bulk patent PDF downloader: fetches full-text PDFs, looks up patent information and exports files; multi-platform with Google Patents first, auto-handling number formats."
+      },
+      "ja": {
+        "name": "特許一括ダウンロード",
+        "summary": "特許PDFの一括ダウンロードツール：特許本文PDFの取得、特許情報検索、ファイルの一括出力に対応。複数プラットフォーム利用で Google Patents を優先し、出願番号と公告番号の形式を自動処理する。"
+      },
+      "es": {
+        "name": "Descarga masiva de patentes",
+        "summary": "Descargador por lotes de PDF de patentes: texto completo, consulta de datos y exportación; multiplataforma con prioridad Google Patents y números tratados automáticamente."
+      },
+      "fr": {
+        "name": "Téléchargement groupé de brevets",
+        "summary": "Téléchargeur de PDF de brevets par lots : texte intégral, recherche d'informations et export ; multi-plateforme avec priorité Google Patents et formats de numéros automatiques."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

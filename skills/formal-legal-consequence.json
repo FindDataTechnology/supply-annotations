@@ -1,0 +1,32 @@
+{
+  "skill": "formal-legal-consequence",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "法律后果推导",
+        "summary": "基于已确认的法律事实、已识别的法律关系与已匹配的法律规范，推导具体法律后果：民事责任类型与范围、损害赔偿金额计算、刑事刑期确定、行政处罚种类与幅度、合同效力状态等。"
+      },
+      "en": {
+        "name": "Legal consequence derivation",
+        "summary": "Derives concrete legal consequences from confirmed facts, legal relations and matched norms: civil liability scope, damages calculation, sentencing, administrative penalties and contract validity."
+      },
+      "ja": {
+        "name": "法的帰結の導出",
+        "summary": "確定した法律事実、認定された法律関係、適用法規範から具体的な法的帰結を導出：民事責任の類型と範囲、損害賠償額の算定、刑期の確定、行政処分の種類と幅、契約の効力状態など。"
+      },
+      "es": {
+        "name": "Derivación de consecuencias jurídicas",
+        "summary": "Deriva consecuencias jurídicas de hechos confirmados, relaciones jurídicas y normas aplicables: responsabilidad civil, cálculo de daños, penas, sanciones administrativas y validez contractual."
+      },
+      "fr": {
+        "name": "Déduction des conséquences juridiques",
+        "summary": "Déduit les conséquences juridiques de faits confirmés, relations juridiques et normes applicables : responsabilité civile, dommages, peines, sanctions administratives et validité contractuelle."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

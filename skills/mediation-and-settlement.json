@@ -1,0 +1,32 @@
+{
+  "skill": "mediation-and-settlement",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "调解与和解",
+        "summary": "提供调解与和解全流程支持：可行性分析、调解方案起草、调解书与和解协议审查、撤诉管理。"
+      },
+      "en": {
+        "name": "Mediation and settlement",
+        "summary": "Supports the full mediation and settlement process: feasibility analysis, drafting settlement plans, reviewing mediation statements and settlement agreements, and withdrawal management."
+      },
+      "ja": {
+        "name": "調停・和解",
+        "summary": "調停と和解の全プロセスを支援する：実現可能性の分析、調停案の起草、調停書・和解協議書の審査、訴え取り下げの管理。"
+      },
+      "es": {
+        "name": "Mediación y acuerdo",
+        "summary": "Asiste todo el proceso de mediación y acuerdo: análisis de viabilidad, redacción del plan de mediación, revisión de actas y acuerdos transaccionales, y gestión del desistimiento."
+      },
+      "fr": {
+        "name": "Médiation et règlement",
+        "summary": "Prend en charge tout le processus de médiation et de règlement amiable : analyse de faisabilité, rédaction du plan, revue du procès-verbal et de la convention, gestion du désistement."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

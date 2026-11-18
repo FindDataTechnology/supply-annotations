@@ -1,0 +1,177 @@
+{
+ "version": 1,
+ "server": "edu-catalog",
+ "annotation": {
+  "human": {
+   "zh": {
+    "name": "教育目录",
+    "summary": "启材线教育目录的查询与订阅：跨论文、播客、课程检索，条目详情与许可层概况，以及订阅盯梢；空结果与通道故障严格区分。",
+    "whenToUse": "需要盘点教育目录增量、核对各通道源健康，或调整订阅盯梢范围时。"
+   },
+   "en": {
+    "name": "Education catalog",
+    "summary": "Search and subscribe across the education catalog: papers, podcasts and courses, plus item detail, licence-layer overview and subscription watch; empty results differ from channel failures.",
+    "whenToUse": "When auditing catalog increments, checking per-channel source health, or changing what the watch subscription covers."
+   },
+   "ja": {
+    "name": "教育カタログ",
+    "summary": "教育カタログの検索と購読：論文・ポッドキャスト・講座を横断検索し、項目詳細・ライセンス層の概況・購読の見張りを提供します。空結果と経路障害は厳密に区別します。",
+    "whenToUse": "カタログの増分を棚卸しするとき、経路ごとの情報源の健全性を確認するとき、購読の見張り範囲を変えるとき。"
+   },
+   "es": {
+    "name": "Catálogo educativo",
+    "summary": "Consulta y suscripción del catálogo educativo: búsqueda en artículos, pódcast y cursos, detalle, panorama de licencias y vigilancia de suscripciones; vacío y fallo de canal se distinguen.",
+    "whenToUse": "Al auditar incrementos del catálogo, revisar la salud de cada canal o cambiar el alcance de la suscripción."
+   },
+   "fr": {
+    "name": "Catalogue éducatif",
+    "summary": "Consultation et abonnement du catalogue éducatif : recherche sur articles, podcasts et cours, détail, panorama des licences et veille des abonnements ; vide et panne se distinguent.",
+    "whenToUse": "Pour auditer les incréments du catalogue, vérifier la santé de chaque canal ou modifier la portée d'un abonnement."
+   }
+  },
+  "canonical": {
+   "brief": "Education catalogue MCP: cross-source search over papers, podcasts and courses, item detail, licence-layer overview and subscription watch; only the two subscription tools write, and empty results are reported distinctly from channel failures."
+  },
+  "tools": {
+   "edu_item_detail": {
+    "human": {
+     "zh": {
+      "name": "条目详情",
+      "summary": "取单条资源的卡层详情与标记状态（撤回、合并时附重定向目标），并明示未取正文；只读。"
+     },
+     "en": {
+      "name": "Item detail",
+      "summary": "Returns one resource's card-level detail with its marked state (withdrawn or merged, with the redirect target) and states explicitly that the full body is not fetched; read-only."
+     },
+     "ja": {
+      "name": "項目詳細",
+      "summary": "1 件の資源のカード層情報とマーク状態（撤回・統合時は転送先付き）を返し、本文を取得していないことを明示します。読み取り専用。"
+     },
+     "es": {
+      "name": "Detalle del ítem",
+      "summary": "Devuelve la ficha de un recurso con su estado (retirado o fusionado, con el destino de redirección) e indica que no se obtiene el texto completo; solo lectura."
+     },
+     "fr": {
+      "name": "Détail d'un élément",
+      "summary": "Renvoie la fiche d'une ressource avec son état (retiré ou fusionné, avec la cible de redirection) en précisant que le texte intégral n'est pas récupéré ; en lecture seule."
+     }
+    },
+    "canonical": {
+     "brief": "Returns one resource's card-level detail including marked_state (withdrawn / merged with redirect_to) and states that the full body is not fetched; read-only."
+    }
+   },
+   "edu_overview": {
+    "human": {
+     "zh": {
+      "name": "目录概况",
+      "summary": "取各许可层计数与逐通道最新 as_of，用于判断源是否滞步；只读。"
+     },
+     "en": {
+      "name": "Catalog overview",
+      "summary": "Returns per-licence-layer counts and each channel's latest as_of, enough to spot a stalling source; read-only."
+     },
+     "ja": {
+      "name": "カタログ概況",
+      "summary": "ライセンス層ごとの件数と経路ごとの最新 as_of を返し、情報源の停滞を判定できます。読み取り専用。"
+     },
+     "es": {
+      "name": "Panorama del catálogo",
+      "summary": "Devuelve recuentos por capa de licencia y el último as_of de cada canal, suficiente para detectar una fuente estancada; solo lectura."
+     },
+     "fr": {
+      "name": "Panorama du catalogue",
+      "summary": "Renvoie les comptes par couche de licence et le dernier as_of de chaque canal, de quoi repérer une source qui stagne ; en lecture seule."
+     }
+    },
+    "canonical": {
+     "brief": "Returns per-licence-layer counts plus each channel's latest as_of, enough to tell whether a source has stalled; read-only."
+    }
+   },
+   "edu_search": {
+    "human": {
+     "zh": {
+      "name": "检索目录",
+      "summary": "按订阅类型映射过滤（主题→学科、作者→作者、来源→平台）检索条目，单次取前若干条；空结果与通道故障以 reason 区分。"
+     },
+     "en": {
+      "name": "Search the catalog",
+      "summary": "Searches items with filters mapped from the subscription kind (topic→subject, creator→creator, source→platform) and caps results per call; empty results differ from channel failures by reason."
+     },
+     "ja": {
+      "name": "カタログ検索",
+      "summary": "購読種別に対応づけた絞り込み（トピック→科目、作成者→作成者、情報源→プラットフォーム）で項目を検索し、1 回あたり先頭数件を返します。空結果と経路障害は reason で区別します。"
+     },
+     "es": {
+      "name": "Buscar en el catálogo",
+      "summary": "Busca ítems con filtros según el tipo de suscripción (tema→asignatura, autor→autor, fuente→plataforma) y limita los resultados por llamada; vacío y fallo de canal se distinguen por reason."
+     },
+     "fr": {
+      "name": "Rechercher dans le catalogue",
+      "summary": "Recherche des éléments filtrés selon le type d'abonnement (thème→matière, auteur→auteur, source→plateforme) et limite les résultats par appel ; vide et panne se distinguent par reason."
+     }
+    },
+    "canonical": {
+     "brief": "Searches catalogue items with filters mapped from the subscription kind and caps results per call; an empty result carries a reason distinct from channel failure."
+    }
+   },
+   "edu_subscribe": {
+    "human": {
+     "zh": {
+      "name": "订阅",
+      "summary": "新增一条订阅记录（两处写面之一，只碰订阅表）；范围与参数由订阅类型决定。"
+     },
+     "en": {
+      "name": "Subscribe",
+      "summary": "Adds one subscription record (one of the two write paths, touching the subscription table alone); scope and parameters follow the subscription kind."
+     },
+     "ja": {
+      "name": "購読",
+      "summary": "購読記録を 1 件追加します（書き込み面は購読の 2 工具のみ、触れるのは購読表だけ）。範囲と引数は購読種別に従います。"
+     },
+     "es": {
+      "name": "Suscribirse",
+      "summary": "Añade un registro de suscripción (una de las dos vías de escritura, solo toca la tabla de suscripciones); el alcance y los parámetros dependen del tipo."
+     },
+     "fr": {
+      "name": "S'abonner",
+      "summary": "Ajoute un enregistrement d'abonnement (l'une des deux voies d'écriture, ne touchant que la table des abonnements) ; portée et paramètres suivent le type d'abonnement."
+     }
+    },
+    "canonical": {
+     "brief": "Adds one subscription record; one of the two write paths in this surface and confined to the subscription table."
+    }
+   },
+   "edu_unsubscribe": {
+    "human": {
+     "zh": {
+      "name": "退订",
+      "summary": "移除一条订阅记录（另一处写面，同样只碰订阅表）；此后该订阅不再被检索。"
+     },
+     "en": {
+      "name": "Unsubscribe",
+      "summary": "Removes one subscription record (the other write path, likewise confined to the subscription table); afterwards that subscription is no longer searched."
+     },
+     "ja": {
+      "name": "購読解除",
+      "summary": "購読記録を 1 件削除します（もう一方の書き込み面で、同じく購読表のみ）。以後その購読は検索対象になりません。"
+     },
+     "es": {
+      "name": "Darse de baja",
+      "summary": "Elimina un registro de suscripción (la otra vía de escritura, también limitada a la tabla de suscripciones); después esa suscripción deja de consultarse."
+     },
+     "fr": {
+      "name": "Se désabonner",
+      "summary": "Supprime un enregistrement d'abonnement (l'autre voie d'écriture, également limitée à la table des abonnements) ; l'abonnement n'est plus interrogé ensuite."
+     }
+    },
+    "canonical": {
+     "brief": "Removes one subscription record; the other write path in this surface, likewise confined to the subscription table."
+    }
+   }
+  },
+  "provenance": {
+   "source": "finddata-supply-annotations",
+   "updatedAt": "2026-11-02"
+  }
+ }
+}

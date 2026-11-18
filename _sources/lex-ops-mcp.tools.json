@@ -1,0 +1,61 @@
+{
+  "server_name": "lex-ops-mcp",
+  "description": "识律线操作 MCP（C4）：线全景导览（self-describing）+账户视图（me/usage/billing/quota）+检索凭据生命周期（list/mint/revoke，owner-only 上游判定）；Logto ID token 原样转发",
+  "tags": [
+    "security-pending"
+  ],
+  "tools": [
+    {
+      "name": "lex_billing",
+      "description": ""
+    },
+    {
+      "name": "lex_credential_mint",
+      "description": ""
+    },
+    {
+      "name": "lex_credential_revoke",
+      "description": ""
+    },
+    {
+      "name": "lex_credentials_list",
+      "description": ""
+    },
+    {
+      "name": "lex_matter_artifact_add",
+      "description": ""
+    },
+    {
+      "name": "lex_matter_artifact_list",
+      "description": ""
+    },
+    {
+      "name": "lex_matter_create",
+      "description": ""
+    },
+    {
+      "name": "lex_matter_list",
+      "description": ""
+    },
+    {
+      "name": "lex_matter_show",
+      "description": ""
+    },
+    {
+      "name": "lex_me",
+      "description": ""
+    },
+    {
+      "name": "lex_quota",
+      "description": ""
+    },
+    {
+      "name": "lex_surface_overview",
+      "description": ""
+    },
+    {
+      "name": "lex_usage",
+      "description": ""
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "legal-abductive-reasoning",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "法律溯因推理",
+        "summary": "在证据不完整、事实模糊时生成并评估最合理的解释性假设,结合密尔五法(求同、求异、求同求异、剩余、共变)进行结构化因果推断。"
+      },
+      "en": {
+        "name": "Abductive legal reasoning",
+        "summary": "Builds and weighs the most plausible hypotheses when evidence is incomplete, applying Mill’s five methods (agreement, difference, residue, concomitant variation) as structured causal inference."
+      },
+      "ja": {
+        "name": "法律アブダクション推理",
+        "summary": "証拠が不完全で事実が曖昧な状況で、最も合理的な説明仮説を生成・評価し、ミルの五法（一致・差異・残差・共変）による構造的因果推論を行う。"
+      },
+      "es": {
+        "name": "Razonamiento abductivo legal",
+        "summary": "Genera y evalúa hipótesis explicativas cuando la prueba es incompleta, aplicando los cinco métodos de Mill (concordancia, diferencia, residuos, variaciones) como inferencia causal estructurada."
+      },
+      "fr": {
+        "name": "Raisonnement abductif juridique",
+        "summary": "Génère et éprouve les hypothèses explicatives quand la preuve est incomplète, appliquant les cinq méthodes de Mill (concordance, différence, résidus, variations) en inférence causale structurée."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

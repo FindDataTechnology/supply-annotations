@@ -1,0 +1,32 @@
+{
+  "skill": "mb-cashflow-terms-calculator",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "现金流账期计算器",
+        "summary": "现金流与账期计算器(谦面·个体户):计算现金流缺口时点与金额、账期占款、最少周转金与季节性缓冲;现金流与盈亏分开呈现,每个数字附公式、基数与来源。"
+      },
+      "en": {
+        "name": "Cash flow and payment terms calculator",
+        "summary": "Cash-flow and payment-terms calculator (Facet, sole traders): cash gap timing and size, funds tied in terms, minimum working capital, seasonal buffer; apart from break-even; sourced figures."
+      },
+      "ja": {
+        "name": "キャッシュフロー・支払条件計算ツール",
+        "summary": "Facet・個人事業向け資金繰り計算:資金ショートの時期と金額、支払条件による資金滞留、必要運転資本、季節緩衝。キャッシュフローと損益は分けて提示し、各数値に数式・基数・出典を付ける。"
+      },
+      "es": {
+        "name": "Calculadora de flujo de caja y plazos",
+        "summary": "Calculadora de caja y plazos (Facet, autónomos): huecos de caja, capital inmovilizado, fondo mínimo de rotación, colchón estacional; aparte del equilibrio; cifras con fórmula y fuente."
+      },
+      "fr": {
+        "name": "Calculateur de trésorerie et délais de paiement",
+        "summary": "Calculateur trésorerie et délais (Facet, indépendants): tensions de caisse, fonds immobilisés, roulement minimal, tampon saisonnier; distinct du seuil de rentabilité; chiffres sourcés."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

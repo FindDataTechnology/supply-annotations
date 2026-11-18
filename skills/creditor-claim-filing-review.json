@@ -1,0 +1,32 @@
+{
+  "skill": "creditor-claim-filing-review",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "债权申报审查",
+        "summary": "破产债权管理全流程：覆盖债权申报、审查与债权表编制，适配管理人、债权人代理、债务人代理三种角色的口径与产出。"
+      },
+      "en": {
+        "name": "Creditor claim filing review",
+        "summary": "Full bankruptcy creditor workflow: claim filing, review and preparation of the claims register, adapted to the administrator, creditor counsel and debtor counsel roles."
+      },
+      "ja": {
+        "name": "債権届出審査",
+        "summary": "破産債権管理の全プロセス：債権届出、審査、債権表作成をカバーし、管財人・債権者代理人・債務人代理人の三役割に適用する。"
+      },
+      "es": {
+        "name": "Revisión de declaraciones de créditos",
+        "summary": "Flujo concursal completo de gestión de créditos: declaración, revisión y elaboración de la lista de créditos, para administrador, abogado de acreedores y de deudor."
+      },
+      "fr": {
+        "name": "Vérification des déclarations de créances",
+        "summary": "Cycle complet de gestion des créances en faillite : production, vérification et établissement du tableau des créances, pour l'administrateur et les conseils des créanciers ou du débiteur."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

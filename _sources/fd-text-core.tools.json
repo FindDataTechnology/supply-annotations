@@ -1,0 +1,99 @@
+{
+  "server_name": "fd-text-core",
+  "description": "文本核心能力",
+  "tags": [],
+  "tools": [
+    {
+      "name": "gov_federated",
+      "description": "gov 垂域：外部开放检索编排（arXiv/OpenAlex/Semantic Scholar，非本地语料）"
+    },
+    {
+      "name": "gov_presets",
+      "description": "gov 垂域：列出可用检索预设"
+    },
+    {
+      "name": "gov_read",
+      "description": "gov 垂域：按 doc_id 偏移读取切块"
+    },
+    {
+      "name": "gov_search",
+      "description": "gov 垂域：结构化 + 语义混合检索（可带 preset 用预设）"
+    },
+    {
+      "name": "gov_semantic_search",
+      "description": "gov 垂域：纯向量语义检索"
+    },
+    {
+      "name": "kg_facts_as_of",
+      "description": "KG 车道：时点过滤查询——只返回 as_of 时刻为真的事实（valid_at<=as_of<invalid_at）"
+    },
+    {
+      "name": "kg_search_facts",
+      "description": "KG 车道：按自然语言查询事实（实体/关系检索），每条带 provenance 与时效标注"
+    },
+    {
+      "name": "kg_walk",
+      "description": "KG 车道：从起始实体多跳游走（扇出受限、超级边抑制），收集沿途事实"
+    },
+    {
+      "name": "news_federated",
+      "description": "news 垂域：外部开放检索编排（arXiv/OpenAlex/Semantic Scholar，非本地语料）"
+    },
+    {
+      "name": "news_presets",
+      "description": "news 垂域：列出可用检索预设"
+    },
+    {
+      "name": "news_read",
+      "description": "news 垂域：按 doc_id 偏移读取切块"
+    },
+    {
+      "name": "news_search",
+      "description": "news 垂域：结构化 + 语义混合检索（可带 preset 用预设）"
+    },
+    {
+      "name": "news_semantic_search",
+      "description": "news 垂域：纯向量语义检索"
+    },
+    {
+      "name": "papers_federated",
+      "description": "papers 垂域：外部开放检索编排（arXiv/OpenAlex/Semantic Scholar，非本地语料）"
+    },
+    {
+      "name": "papers_presets",
+      "description": "papers 垂域：列出可用检索预设"
+    },
+    {
+      "name": "papers_read",
+      "description": "papers 垂域：按 doc_id 偏移读取切块"
+    },
+    {
+      "name": "papers_search",
+      "description": "papers 垂域：结构化 + 语义混合检索（可带 preset 用预设）"
+    },
+    {
+      "name": "papers_semantic_search",
+      "description": "papers 垂域：纯向量语义检索"
+    },
+    {
+      "name": "screenplay_federated",
+      "description": "screenplay 垂域：外部开放检索编排（arXiv/OpenAlex/Semantic Scholar，非本地语料）"
+    },
+    {
+      "name": "screenplay_presets",
+      "description": "screenplay 垂域：列出可用检索预设"
+    },
+    {
+      "name": "screenplay_read",
+      "description": "screenplay 垂域：按 doc_id 偏移读取切块"
+    },
+    {
+      "name": "screenplay_search",
+      "description": "screenplay 垂域：结构化 + 语义混合检索（可带 preset 用预设）"
+    },
+    {
+      "name": "screenplay_semantic_search",
+      "description": "screenplay 垂域：纯向量语义检索"
+    }
+  ]
+}

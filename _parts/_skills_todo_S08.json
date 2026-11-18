@@ -1,0 +1,26 @@
+{
+ "origin": "registry",
+ "names": [
+  "mediation-and-settlement",
+  "mission-execution",
+  "mission-planning",
+  "mission-protocol",
+  "mission-reporting",
+  "multi-document-summarization",
+  "new-case",
+  "normative-meaning-argumentation",
+  "opc-legal-counsel",
+  "other-legal-retrieval",
+  "pa1nrui1-contract-review",
+  "panel-econometrics",
+  "paper-literature-search",
+  "paper-method-tracking",
+  "paper-related-work",
+  "patent-analysis",
+  "patent-download",
+  "pdf-organizer",
+  "personal-injury-calculator",
+  "portfolio-budget",
+  "portfolio-drawdown-review"
+ ]
+}

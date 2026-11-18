@@ -1,0 +1,14 @@
+{
+ "tools": {
+  "wanxing_fleet_board": {
+   "human": {
+    "zh": {"name": "机群看板", "summary": "一屏看机群状态：五态分布、驻留水位、唤醒延迟、退温驱逐、预算熔断、摄取滞后与待结算数；只读。"},
+    "en": {"name": "Fleet board", "summary": "One read-only screen of fleet state: state distribution, residency level, wake latency, eviction, budget kills, ingest lag and pending settlements."},
+    "ja": {"name": "フリートボード", "summary": "機群の状態を一画面で示します。五状態の分布、滞留水位、起床遅延、退避、予算超過停止、取り込み遅延、決済待ち件数。読み取り専用。"},
+    "es": {"name": "Panel de la flota", "summary": "Una pantalla de solo lectura con el estado de la flota: distribución de estados, ocupación, latencia de despertar, desalojo, cortes por presupuesto, retraso de ingesta y liquidaciones pendientes."},
+    "fr": {"name": "Tableau de la flotte", "summary": "Un écran en lecture seule de l'état de la flotte : répartition des états, occupation, latence de réveil, éviction, coupes budgétaires, retard d'ingestion et règlements en attente."}
+   },
+   "canonical": {"brief": "Read-only fleet observation board aggregating state distribution, residency, wake latency, eviction, budget kills, ingest lag and pending settlements from GET /api/fleet/v1/board."}
+  }
+ }
+}

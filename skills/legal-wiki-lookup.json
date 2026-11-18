@@ -1,0 +1,32 @@
+{
+  "skill": "legal-wiki-lookup",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "法律知识库查询",
+        "summary": "按罪名、领域或关键词检索法律 Wiki 知识页，返回知识卡片或全文内容，支持刑事罪名、民事领域与案例知识页的查询及交叉引用跳转。"
+      },
+      "en": {
+        "name": "Legal wiki lookup",
+        "summary": "Searches legal wiki pages by charge, practice area or keyword, returning knowledge cards or full text; supports criminal charges, civil areas and case pages with cross-reference navigation."
+      },
+      "ja": {
+        "name": "法律ウィキ検索",
+        "summary": "罪名・分野・キーワードで法律ウィキの知識ページを検索し、ナレッジカードまたは全文を返す。刑事罪名、民事分野、判例ページの検索と相互参照ジャンプに対応。"
+      },
+      "es": {
+        "name": "Consulta de wiki jurídico",
+        "summary": "Busca páginas del wiki jurídico por delito, ámbito o palabra clave, y devuelve fichas de conocimiento o texto completo; admite delitos, ámbitos civiles y casos con referencias cruzadas."
+      },
+      "fr": {
+        "name": "Consultation du wiki juridique",
+        "summary": "Recherche des pages du wiki juridique par infraction, domaine ou mot-clé, renvoie des fiches ou le texte intégral ; gère infractions, domaines civils et affaires avec renvois croisés."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

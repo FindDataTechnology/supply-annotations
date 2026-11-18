@@ -1,0 +1,32 @@
+{
+  "skill": "yuandian-law-search",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "元典法律检索",
+        "summary": "元典检索感知型法律研究中间层：先做轻量案件研判与查询矩阵，再按向量、关键词与结构化字段调用元典接口检索法规与案例，查找正反类案，生成可追溯检索报告；不替代证据审查、诉讼方案或正式意见。"
+      },
+      "en": {
+        "name": "Yuandian legal research",
+        "summary": "Research layer over Yuandian: case triage and query matrix first, then vector, keyword and structured-field calls to find statutes, like cases for and against in a traceable report."
+      },
+      "ja": {
+        "name": "元典法律検索",
+        "summary": "検索機構認識型の法律研究中間層。まず軽量の案件判断とクエリ行列を作り、ベクトル・キーワード・構造化フィールドで元典 API や MCP を呼び、法規判例を引き当て、正反の類案を探し、追跡可能な検索報告を生成する。"
+      },
+      "es": {
+        "name": "Investigación jurídica Yuandian",
+        "summary": "Capa de investigación sobre Yuandian: triage del caso y matriz de consultas, luego llamadas vectoriales, por palabra clave y campos estructurados con informe trazable de casos a favor y en contra."
+      },
+      "fr": {
+        "name": "Recherche juridique Yuandian",
+        "summary": "Couche de recherche sur Yuandian : tri du dossier et matrice de requêtes, puis appels vectoriels, par mot-clé et champs structurés dans un rapport traçable."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

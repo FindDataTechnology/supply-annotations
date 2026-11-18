@@ -1,0 +1,32 @@
+{
+  "skill": "administrative-value-judgment",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "行政价值判断",
+        "summary": "辅助中国大陆行政机关法律工作人员，根据一段行政案情，按行政法基本原则进行价值判断与利益衡量，并形成倾向性裁量结论。"
+      },
+      "en": {
+        "name": "Administrative value judgment",
+        "summary": "Assists mainland China administrative legal staff: applies administrative-law principles to administrative facts, weighs interests and forms an indicative discretionary conclusion."
+      },
+      "ja": {
+        "name": "行政価値判断",
+        "summary": "中国大陸の行政機関法務担当者を支援し、行政事案の事実に基づき行政法の基本原則による価値判断と利益衡量を行い、方向性のある裁量結論を導く。"
+      },
+      "es": {
+        "name": "Juicio de valor administrativo",
+        "summary": "Asiste al personal jurídico de administraciones de China continental: aplica principios del derecho administrativo, pondera intereses y forma una conclusión orientativa discrecional."
+      },
+      "fr": {
+        "name": "Jugement de valeur administratif",
+        "summary": "Assiste le personnel juridique administratif de Chine continentale : applique les principes du droit administratif, pondère les intérêts et forme une conclusion indicative discrétionnaire."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "first-instance-criminal-defense",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "刑事一审辩护",
+        "summary": "刑事辩护一审阶段技能:覆盖法院审判阶段的委托衔接、补充阅卷、会见、庭前会议、调查取证、非法证据排除、庭审质证辩论、认罪认罚、庭后工作与上诉评估。"
+      },
+      "en": {
+        "name": "First-instance criminal defense",
+        "summary": "First-instance criminal defense: engagement, file review, meetings, pre-trial conferences, investigation, illegal-evidence exclusion, argument, plea admission, post-trial and appeal assessment."
+      },
+      "ja": {
+        "name": "刑事一審弁護",
+        "summary": "刑事弁護の一審段階:受任引継ぎ、記録補充閲読、接見、審前会議、捜査・立証、違法証拠排除、法廷尋問・弁論、認罪認罰、審後業務と上訴評価を扱う。"
+      },
+      "es": {
+        "name": "Defensa penal en primera instancia",
+        "summary": "Defensa penal de primera instancia: encargo, revisión del expediente, visitas, audiencia previa, investigación, exclusión de prueba ilícita, alegatos, aceptación de culpabilidad y apelación."
+      },
+      "fr": {
+        "name": "Défense pénale en première instance",
+        "summary": "Défense pénale de première instance : raccord de mission, examen du dossier, parloir, mise en état, instruction et preuves, exclusion des preuves illégales, plaidoirie, plaider-coupable, appel."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

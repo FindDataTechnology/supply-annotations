@@ -1,0 +1,32 @@
+{
+  "skill": "screenplay-structure-analysis",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "剧本结构分析",
+        "summary": "梳理公版经典戏剧的幕场与折出骨架及情节推进；数据经 fd-text-core 引擎的剧本语料实时检索，走结构预设。"
+      },
+      "en": {
+        "name": "Screenplay structure analysis",
+        "summary": "Maps the act/scene or zhe/chu skeleton and plot progression of public-domain classic drama; live corpus retrieval via the fd-text-core engine on the structure preset."
+      },
+      "ja": {
+        "name": "脚本構造分析",
+        "summary": "パブリックドメインの古典戯曲の幕と場、折と出の骨格、および筋の展開を整理する。データは fd-text-core エンジンの脚本コーパスリアルタイム検索（構造プリセット）経由。"
+      },
+      "es": {
+        "name": "Análisis de estructura de guion",
+        "summary": "Desglosa el esqueleto de actos y escenas o zhe y chu del drama clásico de dominio público y su avance argumental; corpus en vivo vía fd-text-core (preajuste de estructura)."
+      },
+      "fr": {
+        "name": "Analyse de structure de scénarios",
+        "summary": "Cartographie le squelette d'actes et scènes ou de zhe et chu du théâtre classique du domaine public et la progression de l'intrigue ; corpus en direct via fd-text-core (préréglage structure)."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

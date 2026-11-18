@@ -1,0 +1,32 @@
+{
+  "skill": "employer-labor-compliance",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "企业劳动合规",
+        "summary": "公司端劳动用工合规：日常劳动合规问答、员工手册与规章制度及劳动合同更新、工资工时问答、内部劳动政策起草，以及解除、调岗、降薪、处罚、员工投诉或仲裁前的风险预判。"
+      },
+      "en": {
+        "name": "Employer labor compliance",
+        "summary": "Employer labor compliance: routine Q&A, handbook/rule/contract updates, wage/hours advice, internal policy drafting, risk review before dismissal, transfer, pay cut, penalty, complaint or arbitration."
+      },
+      "ja": {
+        "name": "企業労働コンプライアンス",
+        "summary": "企業側の労働コンプライアンス：日常相談、ハンドブック・就業規則・労働契約の更新、賃金と労働時間のQ&A、社内労働政策の起案、および解雇・配置転換・降給・懲戒・苦情・仲裁前のリスク予判。"
+      },
+      "es": {
+        "name": "Cumplimiento laboral de la empresa",
+        "summary": "Cumplimiento laboral de empresa: manuales, reglamentos y contratos al día, salarios y jornada, redacción de políticas internas y riesgo previo a despido, cambio, rebaja, sanción, queja o arbitraje."
+      },
+      "fr": {
+        "name": "Conformité travail de l'entreprise",
+        "summary": "Conformité travail d'entreprise : manuels, règlements, contrats à jour, paie et horaires, politiques internes, risque avant licenciement, mutation, baisse de salaire, sanction, plainte ou arbitrage."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

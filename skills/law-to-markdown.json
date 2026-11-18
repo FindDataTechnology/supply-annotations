@@ -1,0 +1,32 @@
+{
+  "skill": "law-to-markdown",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "法条转标记文本",
+        "summary": "将法条或规范性文件(.txt/.docx/.pdf)转为Markdown;处理PDF或DOCX时先检查mineru-ocr技能是否安装,未安装先引导安装,仅在用户明确同意时才用本地回退方案。"
+      },
+      "en": {
+        "name": "Statute to Markdown conversion",
+        "summary": "Converts statutes and normative files (.txt/.docx/.pdf) to Markdown; for PDF or DOCX it checks the mineru-ocr skill first, guides installation, and falls back locally only with explicit consent."
+      },
+      "ja": {
+        "name": "法条マークダウン変換",
+        "summary": "法律条文案や規範ファイル(.txt/.docx/.pdf)をマークダウンに変換。PDF/DOCXはmineru-ocrスキルの導入を確認し、未導入なら導入を案内、ローカル代替は明示的な同意がある場合のみ。"
+      },
+      "es": {
+        "name": "Conversión de normas a texto marcado",
+        "summary": "Convierte normas y archivos regulatorios (.txt/.docx/.pdf) a texto marcado; para PDF o DOCX comprueba la skill mineru-ocr, guía su instalación y usa el modo local solo con consentimiento expreso."
+      },
+      "fr": {
+        "name": "Conversion des normes en texte balisé",
+        "summary": "Convertit lois et fichiers normatifs (.txt/.docx/.pdf) en texte balisé ; pour PDF ou DOCX, vérifie la compétence mineru-ocr, guide son installation, repli local sur accord explicite."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

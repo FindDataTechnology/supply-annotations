@@ -1,0 +1,32 @@
+{
+  "skill": "contract-review-cn",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "中国法合同审查",
+        "summary": "判定适用中国大陆法后，加载通用原则与劳动、借贷、保密、买卖、SaaS 五张行业审查卡逐条审查，产出双轴风险问题清单与审查备忘录；涉精确法条、阈值、生效日期时经法律数据工具核验。仅覆盖大陆法。"
+      },
+      "en": {
+        "name": "Mainland China law contract review",
+        "summary": "Mainland China law only: general principles plus five industry cards (labor, lending, confidentiality, sales, SaaS); two-axis risk list, review memo and legal-data verification."
+      },
+      "ja": {
+        "name": "中国法契約審査",
+        "summary": "中国大陸法の適用を判定後、汎用原則と労働・金銭消費貸借・秘密保持・売買・SaaS の業界審査カード五枚を読み込み条項別に審査。二軸のリスク問題リストと審査メモを出力し、精密な条文・閾値・施行日は法務データツールで検証する。"
+      },
+      "es": {
+        "name": "Revisión de contratos bajo la ley china",
+        "summary": "Solo derecho de China continental: principios generales y cinco fichas (laboral, préstamo, confidencialidad, compraventa, SaaS); lista de riesgos en dos ejes, memorando y verificación legal."
+      },
+      "fr": {
+        "name": "Revue de contrats de droit chinois",
+        "summary": "Droit de Chine continentale seul : principes généraux et cinq fiches (travail, prêt, confidentialité, vente, SaaS) ; liste de risques à deux axes, mémo de revue et vérification par outils."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

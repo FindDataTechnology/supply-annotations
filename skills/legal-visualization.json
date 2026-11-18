@@ -1,0 +1,32 @@
+{
+  "skill": "legal-visualization",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "法律可视化",
+        "summary": "把案件、合同、合规事项、证据链、诉讼流程与法律关系材料整理成关系图、流程图、时间轴、风险图或路线图，输出 PNG/SVG/PDF/.drawio。"
+      },
+      "en": {
+        "name": "Legal visualization",
+        "summary": "Turns case, contract, compliance, evidence-chain, litigation-flow and legal-relationship material into relationship, process, timeline, risk or roadmap charts, output as PNG/SVG/PDF/.drawio."
+      },
+      "ja": {
+        "name": "法律ビジュアライゼーション",
+        "summary": "案件・契約・コンプライアンス・証拠チェーン・訴訟フロー・法律関係の資料を、関係図・フロー図・タイムライン・リスク図・ロードマップに整理し、PNG/SVG/PDF/.drawio で出力する。"
+      },
+      "es": {
+        "name": "Visualización legal",
+        "summary": "Convierte materiales de casos, contratos, cumplimiento, pruebas, litigio y relaciones jurídicas en diagramas de relaciones, procesos, líneas de tiempo, riesgos y rutas, en PNG/SVG/PDF/.drawio."
+      },
+      "fr": {
+        "name": "Visualisation juridique",
+        "summary": "Convertit dossiers, contrats, conformité, chaînes de preuve, contentieux et relations juridiques en diagrammes de relations, processus, frises, risques et feuilles de route, en PNG/SVG/PDF/.drawio."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "equity-research-modeling",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "个股投研建模",
+        "summary": "个股投研的估值建模与计算层：组织 DCF、DDM、可比倍数、蒙特卡洛与敏感性分析的输入，算基本面比率、跑红旗检测、把多种估值方法合成目标价。全部算术一律调用 fd-quant 确定性计算面（通道 Q），本技能只组织输入、标注来源、原样转述返回；计算面不可用时顶部明示估值部分未完成，绝不自算顶替。财务科目走柏讯服务端通道 A。"
+      },
+      "en": {
+        "name": "Equity research modeling",
+        "summary": "Frames DCF, DDM, multiple, Monte Carlo and sensitivity inputs; arithmetic runs on the fd-quant calculation surface (channel Q); this skill only frames inputs and relays results, never self-computes."
+      },
+      "ja": {
+        "name": "個別株投資調査：モデリング",
+        "summary": "個別株投資調査のバリュエーション建模・計算層：DCF、DDM、比較倍数、モンテカルロ、感応度分析の入力を整理し、ファンダメンタルズ比率、レッドフラグ検知、複数手法の目標株価合成を行う。すべての演算はfd-quant確定性計算面（チャネルQ）に委ね、本スキルは入力整理・出所標記・結果の原文転記のみ行う。財務科目はWireサーバー側チャネルA。"
+      },
+      "es": {
+        "name": "Investigación bursátil: modelado",
+        "summary": "Prepara entradas DCF, DDM, múltiplos, Monte Carlo y sensibilidad; la aritmética corre en la superficie fd-quant (canal Q); solo organiza entradas y retransmite resultados, nunca auto-calcula."
+      },
+      "fr": {
+        "name": "Recherche actions : modélisation",
+        "summary": "Prépare les entrées DCF, DDM, multiples, Monte-Carlo et sensibilité ; les calculs passent par la surface fd-quant (canal Q) ; elle organise les entrées et relaie les résultats, sans calcul propre."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

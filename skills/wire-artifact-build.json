@@ -1,0 +1,32 @@
+{
+  "skill": "wire-artifact-build",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "产物构建",
+        "summary": "柏讯产物构建：用对话建看板、正文文档、数据录入表单、单记录扫码页，也可改产物 spec、发布或归档；所有写入先落草稿，发布必须是第二次显式调用，spec 列名须先用工具核对。"
+      },
+      "en": {
+        "name": "Artifact build",
+        "summary": "Wire artifact build: creates dashboards, documents, data-entry forms and record scan pages, or edits specs, publishes and archives; writes land as drafts, publishing needs a second explicit call."
+      },
+      "ja": {
+        "name": "成果物ビルド",
+        "summary": "会話でダッシュボード・本文ドキュメント・データ入力フォーム・レコードスキャンページを作成し、成果物specの変更・公開・アーカイブも行います。書き込みはすべて下書きとして保存され、公開には独立した2回目の明示的呼び出しが必要。"
+      },
+      "es": {
+        "name": "Creación de artefactos",
+        "summary": "Crea paneles, documentos, formularios y páginas de registro por conversación; edita especificaciones, publica y archiva. Toda escritura queda en borrador; publicar exige una segunda llamada explícita."
+      },
+      "fr": {
+        "name": "Construction d'artefacts",
+        "summary": "Crée par dialogue tableaux de bord, documents, formulaires et pages de scan ; modifie les spécifications, publie, archive. Écriture toujours en brouillon ; publier exige un second appel explicite."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

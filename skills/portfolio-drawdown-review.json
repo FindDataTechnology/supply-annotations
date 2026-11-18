@@ -1,0 +1,32 @@
+{
+  "skill": "portfolio-drawdown-review",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "组合回撤审查",
+        "summary": "组合回撤与波动审查：最大回撤含峰谷日期、年化波动、HHI、前N持仓占比、板块集中度与有效标的数，并附超额收益与跟踪误差基准对比；指标取自量化计算面，不手算、不预测，缺失如实标注。"
+      },
+      "en": {
+        "name": "Portfolio drawdown review",
+        "summary": "Drawdown and volatility check: max drawdown with peak-trough dates, annualized volatility, HHI, top-N weights, sector concentration, plus benchmark excess and tracking error."
+      },
+      "ja": {
+        "name": "ポートフォリオ・ドローダウン審査",
+        "summary": "ポートフォリオのドローダウンとボラティリティ点検：山と谷の日付付き最大下落率、年率ボラティリティ、HHI、上位N銘柄比率、セクター集中度、実効銘柄数、ベンチマーク超過と追跡誤差。指標は計算基盤由来で手算・予測なし、欠損は如実表示。"
+      },
+      "es": {
+        "name": "Revisión de retroceso de cartera",
+        "summary": "Chequeo de retroceso y volatilidad: caída máxima con fechas de pico y valle, volatilidad anualizada, HHI, pesos de los N primeros, concentración sectorial, exceso y error de seguimiento."
+      },
+      "fr": {
+        "name": "Revue de repli de portefeuille",
+        "summary": "Contrôle de repli et volatilité : perte maximale avec dates de crête et creux, volatilité annualisée, HHI, poids des premières lignes, concentration, sur-performance et erreur de suivi."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

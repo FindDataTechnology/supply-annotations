@@ -1,0 +1,32 @@
+{
+  "skill": "factor-exposure",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "因子暴露与分层",
+        "summary": "计算标的的因子暴露，按因子分层比较收益差，给出 IC 数值与样本量；暴露、分层、IC 与秩变换均经 fd-quant 计算面完成，层数、极端值处理与样本门槛须显式声明；不做选股与因子择时。"
+      },
+      "en": {
+        "name": "Factor exposure and stratification",
+        "summary": "Computes factor exposure, stratified return spreads and IC via the fd-quant computation layer; buckets, outlier handling and sample thresholds must be declared; no stock picking or factor timing."
+      },
+      "ja": {
+        "name": "ファクターエクスポージャーと層別",
+        "summary": "fd-quant 計算面でファクターエクスポージャー、層別リターン差、IC とサンプル数を算出。層数・外れ値処理・サンプル閾値は明示が必要。銘柄選定やファクタータイミングは行わない。"
+      },
+      "es": {
+        "name": "Exposición a factores y estratificación",
+        "summary": "Calcula exposición a factores, retornos estratificados e IC vía fd-quant; declarar tramos, atípicos y umbrales de muestra; sin selección de valores ni timing."
+      },
+      "fr": {
+        "name": "Exposition aux facteurs et stratification",
+        "summary": "Calcule exposition aux facteurs, écarts de rendement stratifiés et IC via fd-quant ; déclarer nombre de tranches, valeurs extrêmes et seuils d'échantillon ; sans sélection de titres ni timing."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

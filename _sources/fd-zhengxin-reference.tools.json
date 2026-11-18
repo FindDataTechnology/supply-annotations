@@ -1,0 +1,27 @@
+{
+ "server_name": "fd-zhengxin-reference",
+ "description": "政心参照系 MCP（lex 第四模块）：政体指标时序（V-Dem v2x_* 聚合指数，国家×年，附口径与 provenance）、思潮坐标（Wikidata+MARPOR 立场）、政治概念（SEP 只链不抄+中国线）、思想关系边、六源状态台账。全只读；空结果必带 reason，逐结果溯源。",
+ "tags": [],
+ "tools": [
+  {
+   "name": "concept_lookup",
+   "description": "概念查询：政治概念的定义摘要与引用链接（只链不抄，正文不落库）。\n先查库内（中国线种子概念 + 近现代五思潮索引），再 SEP 实时（缓存 TTL→\n实时搜索→curated 兜底）；融合返回，逐行标注 source（china-seed /\nmodern-index / sep）并附 provenance，sources 分项记录各源状态。空结果\n必带 reason，绝不编造。"
+  },
+  {
+   "name": "ideology_query",
+   "description": "思潮坐标查询：思潮/思想家/政党在政治坐标轴上的位置。Wikidata 坐标锚\n双通道（P1142 意识形态 / P1387 政治倾向，name 为 QID 或 label）+\nMARPOR 立场编码；MARPOR 许可门未过（license_unconfirmed）时该源如实\nnot_ingested 并附 gate_detail，绝不编造。空结果必带 reason。"
+  },
+  {
+   "name": "relation_query",
+   "description": "关系查询：两个思潮/思想家/政党之间的影响/批判/论战边。Wikidata 关系\n边（query_relations，polarity 直通：inheritance/alliance/opposition/\ncritique——critique 档 WD 结构性缺失，由中国线承载）+ 中国线种子边\n（polarity 口径 positive/critical，与 WD 口径不做映射，不编造对应关系）。\nsource/target 可为 QID 或标签（各源精确匹配）。空结果必带 reason。"
+  },
+  {
+   "name": "regime_timeseries",
+   "description": "政体时序查询：国家×年份的政体指标序列（V-Dem v2x_* 聚合指数，直通）。\n附指标口径说明（indicator_notes）与 provenance（回到具体快照）；years 为\n显式年份列表（两元素升序视为闭区间）。country 为 country_text_id（如 USA）\n或官方英文国名。空结果必带 reason（未摄取/未命中均有 hint）。"
+  },
+  {
+   "name": "source_status",
+   "description": "源状态：六源（v-dem/marpor/wikidata/sep/china-seed/modern-index）的\n摄取状态与缺口。未摄取必带 reason（not_ingested / license_unconfirmed），\n未过许可门的源另带 gate_detail（评审待办），curated 层状态读台账（启动\n钩子加载），并附最近一次可得性探测与在用快照版本——让「源挂了」与\n「解析器坏了」可区分。"
+  }
+ ]
+}

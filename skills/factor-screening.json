@@ -1,0 +1,32 @@
+{
+  "skill": "factor-screening",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "因子筛选",
+        "summary": "柏讯因子选股应用:把因子暴露与 IC 结果变成候选股票名单与目标权重,权重或规则显式写出、筛选条件逐条可解释、缺失因子按声明规则处理;产出可直接进入权重模式回测的候选名单。因子打分不是预测。"
+      },
+      "en": {
+        "name": "Factor screening",
+        "summary": "Turns factor exposures and IC results into a candidate universe and target weights, rules explicit, screens explainable, missing factors handled per declared rules; ready for weight-mode backtests."
+      },
+      "ja": {
+        "name": "因子スクリーニング",
+        "summary": "因子露出と IC 結果を候補銘柄プールと目標ウェイトに変換。ウェイト規則を明示し、スクリーニング条件は個別説明可能、欠損因子は宣言ルールで処理。ウェイトモード回測に直結。"
+      },
+      "es": {
+        "name": "Cribado de factores",
+        "summary": "Convierte exposiciones e IC de factores en universo candidato y pesos objetivo, con reglas explícitas, criterios explicables y tratamiento declarado de ausentes; listo para backtests por pesos."
+      },
+      "fr": {
+        "name": "Filtrage de facteurs",
+        "summary": "Transforme expositions et IC en univers candidat et pondérations cibles, règles explicites, critères explicables, facteurs manquants traités selon règles déclarées ; prêt pour backtests pondérés."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

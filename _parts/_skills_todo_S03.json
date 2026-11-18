@@ -1,0 +1,26 @@
+{
+ "origin": "registry",
+ "names": [
+  "eco-canvas-design",
+  "eco-mcp-builder",
+  "eco-skill-creator",
+  "elements-complaint-generator",
+  "employer-labor-compliance",
+  "engagement-contract-management",
+  "equity-research-data",
+  "equity-research-modeling",
+  "equity-research-peers",
+  "equity-research-report",
+  "equity-research-thesis",
+  "equity-valuation",
+  "event-detection",
+  "event-history",
+  "event-reading",
+  "event-watch",
+  "evidence-argument-chain",
+  "evidence-card-organizer",
+  "evidence-collection-management",
+  "evidence-evaluation",
+  "exploratory-data-analysis"
+ ]
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "mission-execution",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "任务执行",
+        "summary": "按步骤串行执行并回写状态，遵守窗口、预算与重试纪律；委派不可用时转为自行执行。"
+      },
+      "en": {
+        "name": "Mission execution",
+        "summary": "Executes steps serially and writes back status, keeping window, budget and retry discipline; falls back to self-execution when delegation is unavailable."
+      },
+      "ja": {
+        "name": "ミッション実行",
+        "summary": "ステップを逐次実行して状態を書き戻し、ウィンドウ・予算・リトライの規律を守る。委譲が使えない場合は自力実行に切り替える。"
+      },
+      "es": {
+        "name": "Ejecución de misiones",
+        "summary": "Ejecuta pasos en serie y escribe el estado de vuelta, con disciplina de ventana, presupuesto y reintentos; pasa a la autoejecución si la delegación no está disponible."
+      },
+      "fr": {
+        "name": "Exécution de mission",
+        "summary": "Exécute les étapes en série et réécrit le statut, avec discipline de fenêtre, budget et réessais ; passe en auto-exécution si la délégation est indisponible."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "paper-method-tracking",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "论文方法追踪",
+        "summary": "追踪论文中的方法与技术：查某个方法在学术文献里的用法、变体与提出者，按方法名驱动检索并梳理发展脉络，数据经 fd-text-core 引擎实时获取。"
+      },
+      "en": {
+        "name": "Paper method tracker",
+        "summary": "Tracks methods and techniques in academic papers: how a method is used, its variants and who proposed it, with method-name-driven search over the fd-text-core engine."
+      },
+      "ja": {
+        "name": "論文メソッドトラッカー",
+        "summary": "論文内の手法・技術を追跡する：ある手法の学術文献での使い方、変種、提唱者を調べ、手法名起点の検索で発展の系譜を整理する。データは fd-text-core エンジンから即時取得。"
+      },
+      "es": {
+        "name": "Seguimiento de métodos académicos",
+        "summary": "Rastrea métodos y técnicas en artículos académicos: cómo se usa un método, sus variantes y quién lo propuso, con búsqueda guiada por nombre vía el motor fd-text-core."
+      },
+      "fr": {
+        "name": "Suivi des méthodes académiques",
+        "summary": "Suit les méthodes et techniques des articles académiques : usage d'une méthode, variantes et auteurs, avec une recherche pilotée par le nom via le moteur fd-text-core."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

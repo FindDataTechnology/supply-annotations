@@ -1,0 +1,32 @@
+{
+  "skill": "case-progress",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "案件进度台账",
+        "summary": "案件 case.yaml 的统一写入引擎：新增与推进任务、登记期限、更新案件阶段、校验与存量迁移；附会话进度加载与写回契约、进度监控对账。看板展示与周研判用 case-dashboard。"
+      },
+      "en": {
+        "name": "Case progress ledger",
+        "summary": "Central writer for a case's case.yaml: advances tasks, registers deadlines, updates stages, validates and migrates data; defines session load/write-back and progress reconciliation."
+      },
+      "ja": {
+        "name": "案件進捗台帳",
+        "summary": "案件 case.yaml の一元書き込みエンジン：タスク追加・推進、期限登録、段階更新、検証と既存データ移行。セッションの進捗読込・書戻契約と進捗照合を提供。表示は case-dashboard を使う。"
+      },
+      "es": {
+        "name": "Registro de progreso de casos",
+        "summary": "Motor central del case.yaml: añade y hace avanzar tareas, registra plazos, actualiza fases, valida y migra datos; define carga/devolución y conciliación de progreso."
+      },
+      "fr": {
+        "name": "Registre de progression des dossiers",
+        "summary": "Moteur central du case.yaml d'un dossier : tâches, délais, phases, validation et migration des données ; contrat de chargement/restitution et rapprochement d'avancement."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "computer-shell",
+  "origin": "yizuo-file",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "Shell 命令执行",
+        "summary": "执行命令与脚本并返回输出——壹座运行环境内的 shell 执行技能。"
+      },
+      "en": {
+        "name": "Shell command execution",
+        "summary": "Runs commands and scripts and returns their output inside the Yizuo runtime."
+      },
+      "ja": {
+        "name": "シェルコマンド実行",
+        "summary": "コマンドやスクリプトを実行し出力を返す——Yizuo 実行環境内のシェル実行スキル。"
+      },
+      "es": {
+        "name": "Ejecución de comandos shell",
+        "summary": "Ejecuta comandos y scripts y devuelve su salida dentro del entorno de Yizuo."
+      },
+      "fr": {
+        "name": "Exécution de commandes shell",
+        "summary": "Exécute des commandes et des scripts et restitue leur sortie dans l'environnement Yizuo."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

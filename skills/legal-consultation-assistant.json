@@ -1,0 +1,32 @@
+{
+  "skill": "legal-consultation-assistant",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "法律咨询助理",
+        "summary": "协助处理微信渠道与线下法律咨询：生成口语化回复建议、智能反问引导与软性销售植入，按需更新复盘台账，支持客户编号识别、咨询入口路由与线下事实补全。"
+      },
+      "en": {
+        "name": "Legal consultation assistant",
+        "summary": "Assists WeChat and in-person legal consultations: colloquial replies, smart follow-up questions, soft sales cues; updates the review ledger on request, recognizes client IDs and routes entries."
+      },
+      "ja": {
+        "name": "法律相談アシスタント",
+        "summary": "WeChat・対面の法律相談を支援：口語的な返信案、的を絞った追加質問、ソフトな販売導線を作成し、必要時に振り返り台帳を更新。顧客番号の識別、相談窓口の振り分け、対面事実の補完にも対応。"
+      },
+      "es": {
+        "name": "Asistente de consulta jurídica",
+        "summary": "Asiste consultas jurídicas por WeChat y presenciales: respuestas coloquiales, contra-preguntas y ventas suaves; actualiza el registro a petición, identifica clientes y enruta entradas."
+      },
+      "fr": {
+        "name": "Assistant de consultation juridique",
+        "summary": "Aide aux consultations juridiques par WeChat et en personne : réponses familières, relances ciblées, vente douce ; met à jour le registre sur demande et aiguille les entrées clients."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

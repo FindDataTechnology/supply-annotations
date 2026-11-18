@@ -1,0 +1,32 @@
+{
+  "skill": "patent-analysis",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "专利分析",
+        "summary": "面向中国发明与实用新型专利的结构化初步分析：拆解或解释权利要求、比较保护范围、侵权与等同比对、稳定性与无效风险、FTO、规避设计与价值评估并出图；不替代正式法律意见。"
+      },
+      "en": {
+        "name": "Patent analysis",
+        "summary": "Structured preliminary analysis of Chinese patents: claim breakdown, scope comparison, infringement and equivalence, invalidation risk, FTO and valuation; not a substitute for formal counsel."
+      },
+      "ja": {
+        "name": "特許分析",
+        "summary": "中国の発明・実用新案特許の構造化予備分析：クレームの分解・解釈、保護範囲の比較、侵害・均等の対比、無効リスク、FTO、回避設計と価値評価。正式な法律意見の代用にはならない。"
+      },
+      "es": {
+        "name": "Análisis de patentes",
+        "summary": "Análisis estructurado de patentes chinas: desglose de reivindicaciones, comparación de alcance, infracción y equivalencia, riesgo de nulidad, FTO y valoración; no sustituye dictamen formal."
+      },
+      "fr": {
+        "name": "Analyse de brevets",
+        "summary": "Analyse structurée de brevets chinois : décomposition des revendications, comparaison de portée, contrefaçon et équivalence, risque de nullité, FTO et valorisation ; ne remplace pas un avis formel."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

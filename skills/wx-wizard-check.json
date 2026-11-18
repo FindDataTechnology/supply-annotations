@@ -1,0 +1,32 @@
+{
+  "skill": "wx-wizard-check",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "向导核验",
+        "summary": "验收用占位技能。按名称推断为向导式核验，具体行为以服务端返回为准。"
+      },
+      "en": {
+        "name": "Wizard check",
+        "summary": "Placeholder skill for acceptance. Inferred from the name as a wizard-style check; actual behavior is subject to the server response."
+      },
+      "ja": {
+        "name": "ウィザードチェック",
+        "summary": "受け入れ用のプレースホルダースキル。名称からウィザード式チェックと推定します。実際の動作はサーバー応答によります。"
+      },
+      "es": {
+        "name": "Verificación de asistente",
+        "summary": "Habilidad de marcador de posición para aceptación. Por el nombre se infiere una verificación tipo asistente; el comportamiento real depende de la respuesta del servidor."
+      },
+      "fr": {
+        "name": "Contrôle d'assistant",
+        "summary": "Compétence d'espace réservé pour la recette. Le nom suggère un contrôle de type assistant ; le comportement réel dépend de la réponse du serveur."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

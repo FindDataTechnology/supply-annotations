@@ -1,0 +1,32 @@
+{
+  "skill": "legalskill-legal-consultation",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "法律咨询",
+        "summary": "面向律师、法务提供法条检索、法规查询、案例研究与司法解释解读,面向公众提供法律咨询、案件分析与维权指导。"
+      },
+      "en": {
+        "name": "Legal consultation",
+        "summary": "Statute search, regulation lookup, case research and judicial-interpretation reading for lawyers; consultation, case analysis and rights-protection guidance for the public."
+      },
+      "ja": {
+        "name": "法律相談",
+        "summary": "弁護士・法務向けに法令検索、判例研究、司法解釈の解説を、一般向けに法律相談・案件分析・権利救済の案内を提供。"
+      },
+      "es": {
+        "name": "Consulta jurídica",
+        "summary": "Búsqueda de normas, estudio de casos e interpretación de judiciales para abogados; consulta, análisis de casos y orientación de derechos para el público."
+      },
+      "fr": {
+        "name": "Consultation juridique",
+        "summary": "Recherche de textes et de jurisprudences pour juristes; consultation, analyse d'affaires et orientation pour la défense des droits du public."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

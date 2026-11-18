@@ -1,0 +1,32 @@
+{
+  "skill": "equity-research-report",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "个股投研报告",
+        "summary": "个股投研报告装配入口：按固定 13 章装配报告，执行六项叙述审计自检，缺数据章保留并写明原因，末尾附 Rating 契约实例。"
+      },
+      "en": {
+        "name": "Equity research report",
+        "summary": "Assembles a fixed 13-chapter equity research report with a six-point narrative audit; keeps data-missing chapters with reasons and ends with a Rating contract instance."
+      },
+      "ja": {
+        "name": "株式リサーチレポート",
+        "summary": "決まった 13 章構成で株式リサーチレポートを組み立てる。六項目のナラティブ監査を実施し、データ不足の章は理由を添えて残し、末尾に Rating 契約インスタンスを添える。"
+      },
+      "es": {
+        "name": "Informe de investigación de acciones",
+        "summary": "Ensambla un informe bursátil de 13 capítulos fijos con auditoría narrativa de seis puntos; conserva los capítulos sin datos con su motivo y cierra con una instancia del contrato de Rating."
+      },
+      "fr": {
+        "name": "Rapport de recherche sur les actions",
+        "summary": "Assemble un rapport de recherche actions en 13 chapitres fixes avec audit narratif en six points ; garde les chapitres sans données avec le motif et se clôt sur un exemple du contrat de Rating."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

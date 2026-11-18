@@ -1,0 +1,32 @@
+{
+  "skill": "preliminary-legal-analysis",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "初步法律分析",
+        "summary": "基于六来源体系、请求权基础与要件审判九步法做系统性法律分析，衔接总控事项记录与复盘台账，生成法律服务建议书 Word 文档。"
+      },
+      "en": {
+        "name": "Preliminary legal analysis",
+        "summary": "Systematic legal analysis via six-source, claim-basis and nine-step element frameworks, linked to matter logs and review ledgers, producing a legal service recommendation Word document."
+      },
+      "ja": {
+        "name": "予備的法律分析",
+        "summary": "六来源体系・請求権基礎・要件審判九ステップの融合フレームワークによる体系的な法律分析。事項記録と復盤台帳に連動し、法律サービス提案書を Word 文書で生成する。"
+      },
+      "es": {
+        "name": "Análisis jurídico preliminar",
+        "summary": "Análisis jurídico sistemático vía seis fuentes, base de la pretensión y los nueve pasos del juicio, vinculado a registros de asuntos, que produce una propuesta de servicios legales en Word."
+      },
+      "fr": {
+        "name": "Analyse juridique préliminaire",
+        "summary": "Analyse juridique systématique via six sources, fondement de la prétention et les neuf étapes du procès, reliée aux registres d'affaires, produisant une proposition de services juridiques en Word."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

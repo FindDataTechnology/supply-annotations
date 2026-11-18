@@ -1,0 +1,32 @@
+{
+  "skill": "doc-studio",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "文档工坊",
+        "summary": "商务文档生成与编辑工坊：产出报告、表格、演示文稿等 Word/Excel/PPT 交付物，符合中式商务版式，生成后自动质检；也可编辑或转换上传的 docx、xlsx、pptx 文件。"
+      },
+      "en": {
+        "name": "Document studio",
+        "summary": "Business document studio: generates and edits Word, Excel and PPT deliverables in Chinese business layout with automatic quality checks; also edits or converts uploaded docx, xlsx and pptx files."
+      },
+      "ja": {
+        "name": "ビジネス文書工房",
+        "summary": "ビジネス文書の生成・編集工房：中国式ビジネス体裁で報告書・表・プレゼン等の Word/Excel/PPT 資料を作り、生成後に自動品質検査。アップロード済み docx/xlsx/pptx の編集・変換にも対応。"
+      },
+      "es": {
+        "name": "Estudio de documentos",
+        "summary": "Estudio de documentos empresariales: genera y edita entregables Word, Excel y PPT con maquetación empresarial china y control de calidad automático; también edita o convierte archivos cargados."
+      },
+      "fr": {
+        "name": "Atelier de documents",
+        "summary": "Atelier de documents professionnels : produit et édite livrables Word, Excel et PPT en mise en page affaires chinoise, avec contrôle qualité automatique ; convertit aussi les fichiers chargés."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

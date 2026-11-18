@@ -1,0 +1,32 @@
+{
+  "skill": "legal-corpus-explorer",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "法律语料五源检索",
+        "summary": "五源法律语料检索与口径对照:按封闭词表逐源检索部门规章、地方规章、条约、纪检监察法规、人民法院案例库案例与党内法规,逐条附来源;不做跨源统计与权威解读占比类结论。"
+      },
+      "en": {
+        "name": "Five-source legal corpus search",
+        "summary": "Searches five legal corpora with provenance per item: rules, treaties, disciplinary regulations, the People’s Court case library, Party rules; compares methodologies, no cross-source stats."
+      },
+      "ja": {
+        "name": "五源法律語料検索",
+        "summary": "五つの法律語料の検索と算出基準の対照：閉じた語彙表に従い部門規則・地方規則・条約・紀検法規・人民法院判例ライブラリ・党内法規を逐源で引き、各項に出典を付す；跨源統計は行わない。"
+      },
+      "es": {
+        "name": "Búsqueda en cinco corpus jurídicos",
+        "summary": "Busca en cinco corpus con procedencia por ítem: reglamentos ministeriales y locales, tratados, normativa disciplinaria, base de casos, normas del Partido; compara criterios, sin estadísticas cruzadas."
+      },
+      "fr": {
+        "name": "Recherche dans cinq corpus juridiques",
+        "summary": "Recherche cinq corpus avec provenance : règlements, traités, normes disciplinaires, base d’affaires populaire, règles du Parti ; compare les critères entre sources, sans statistiques croisées."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

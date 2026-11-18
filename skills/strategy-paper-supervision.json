@@ -1,0 +1,32 @@
+{
+  "skill": "strategy-paper-supervision",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "模拟盘督导",
+        "summary": "柏讯策略工坊的模拟盘督导：解读权重模式纸面实盘为何未下单、权重与目标的偏差、缩量的含义与停止时是否平仓，查看运行事件与权重快照，并区分信号未触发与数据缺口。"
+      },
+      "en": {
+        "name": "Paper run supervision",
+        "summary": "Wire workshop supervision: why no orders, weight deviations, reduced volume, whether stopping closes positions; run events and weight snapshots; tells untriggered signals from data gaps."
+      },
+      "ja": {
+        "name": "ペーパートレード監督",
+        "summary": "Wire ストラテジー工房のペーパートレード監督：ウェイトモードの紙面実行で発注がない理由、目標とのずれ、縮小の意味、停止時の決済有無を解説。実行イベントとウェイトスナップショットを確認し、シグナル未発火とデータ欠落を区別する。"
+      },
+      "es": {
+        "name": "Supervisión del trading simulado",
+        "summary": "Supervisión de Wire para trading simulado: por qué no hay órdenes, desvíos de pesos, volumen reducido, si detener cierra posiciones; eventos e instantáneas; separa señales no activadas de faltantes."
+      },
+      "fr": {
+        "name": "Supervision du trading fictif",
+        "summary": "Supervision Wire du trading fictif : pourquoi aucun ordre, écarts de pondérations, volume réduit, arrêt et clôture ; événements et instantanés ; distingue signal non déclenché et donnée manquante."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

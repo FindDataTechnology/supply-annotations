@@ -1,0 +1,32 @@
+{
+  "skill": "trial-report-generator",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "审理报告生成器",
+        "summary": "从起诉状、答辩状、庭审纪要、法律分析等已有案件材料提取要素，生成法院内部审理报告的 Word 文书初稿，并与总控事项记录和复盘台账衔接。"
+      },
+      "en": {
+        "name": "Hearing report generator",
+        "summary": "Extracts elements from complaint, defense, hearing minutes and legal analysis to draft the court's internal trial report in Word, linked to the matter log and review ledger."
+      },
+      "ja": {
+        "name": "審理報告ジェネレーター",
+        "summary": "訴状・答弁書・審議録・法律分析などの既存的案件資料から要素を抽出し、法院内部の審理報告 Word 文書の初稿を生成し、総控事項記録と復盤台帳に接続する。"
+      },
+      "es": {
+        "name": "Generador de informes de vista",
+        "summary": "Extrae elementos de demanda, contestación, acta y análisis jurídico para redactar el borrador Word del informe interno de vista del tribunal, enlazado al registro de asuntos."
+      },
+      "fr": {
+        "name": "Générateur de rapports d'audience",
+        "summary": "Extrait les éléments de la demande, de la défense, du procès-verbal et de l'analyse pour rédiger le projet Word du rapport d'audience interne, relié au journal d'affaires."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

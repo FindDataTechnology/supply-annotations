@@ -1,0 +1,32 @@
+{
+  "skill": "criminal-trial-examination-outline",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "庭审发问质证提纲",
+        "summary": "庭审发问与举证质证提纲：庭前会议议程应对、非法证据排除申请、公诉人发问预判与应对、辩方对被告人证人鉴定人的发问提纲、辩方举证提纲与逐份质证意见。"
+      },
+      "en": {
+        "name": "Criminal trial examination outline",
+        "summary": "Trial outlines: pre-trial conference responses, evidence exclusion motions, anticipated prosecution questions, defense questioning of accused, witnesses, experts and item-by-item challenges."
+      },
+      "ja": {
+        "name": "刑事公判の質疑アウトライン",
+        "summary": "一審公判の発問・立証アウトライン：事前協議の議題対応、違法収集証拠排除の申立て、検察の質問予測と対応、被告人・証人・鑑定人への質問案、立証案と証拠ごとの反論。"
+      },
+      "es": {
+        "name": "Esquema de interrogatorio en juicio penal",
+        "summary": "Guiones del juicio: respuesta a la conferencia previa, exclusión de prueba ilícita, preguntas anticipadas del fiscal, interrogatorio del acusado y testigos, tachas prueba por prueba."
+      },
+      "fr": {
+        "name": "Plan d'interrogatoire au procès pénal",
+        "summary": "Plans du procès : mise en état, exclusion des preuves illégales, questions anticipées du parquet, interrogatoire de l'accusé et des témoins, contestations pièce par pièce."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

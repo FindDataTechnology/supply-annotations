@@ -1,0 +1,32 @@
+{
+  "skill": "tencent-ima-copilot-legal-consultation",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "法律咨询初步诊断",
+        "summary": "以资深律师分阶段办案思维，结合 RAG 法律知识库检索，为法律纠纷提供初步诊断与行动策略；不用于正式法律意见书或代写文书。"
+      },
+      "en": {
+        "name": "Legal consultation copilot",
+        "summary": "Senior-lawyer staged case-thinking with RAG legal knowledge retrieval gives preliminary diagnosis and action strategies for disputes; not for formal opinions or document drafting."
+      },
+      "ja": {
+        "name": "法律相談コパイロット",
+        "summary": "ベテラン弁護士の段階的な案件思考と RAG 法律ナレッジ検索により、法律紛争の初期診断と行動戦略を提供。正式な法律意見書や文書の代筆には使用しない。"
+      },
+      "es": {
+        "name": "Copiloto de consulta jurídica",
+        "summary": "Razonamiento por etapas de abogado sénior con búsqueda RAG de conocimiento jurídico: diagnóstico preliminar y estrategias de acción para disputas; no para dictámenes formales ni redacción documental."
+      },
+      "fr": {
+        "name": "Copilote de consultation juridique",
+        "summary": "Raisonnement par étapes d'un avocat senior avec recherche RAG juridique : diagnostic préliminaire et stratégies d'action pour les litiges ; ni avis formels ni rédaction de documents."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "case-materials-to-legal-docs",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "案件材料转法律文书",
+        "summary": "将案件材料、咨询记录或沟通内容整理生成为各类法律服务文档，如诉讼方案、咨询报告、非诉方案、建议书与沟通报告。"
+      },
+      "en": {
+        "name": "Case materials to legal documents",
+        "summary": "Turns case materials, consultation records or communication notes into legal documents: litigation plans, consultation reports, non-contentious plans, proposals and communication reports."
+      },
+      "ja": {
+        "name": "案件資料から法律文書",
+        "summary": "案件資料・相談記録・連絡内容を整理し、訴訟方案、相談報告、非訟プラン、提案書、連絡報告などの法律サービス文書を生成する。"
+      },
+      "es": {
+        "name": "Materiales del caso a documentos jurídicos",
+        "summary": "Convierte materiales del caso, registros de consulta o notas de comunicación en documentos jurídicos: planes de litigio, informes, planes no contenciosos y propuestas."
+      },
+      "fr": {
+        "name": "Des pièces du dossier aux documents juridiques",
+        "summary": "Transforme pièces du dossier, comptes rendus ou notes d'échange en documents juridiques : projets de contentieux, rapports de consultation, plans non contentieux, propositions."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

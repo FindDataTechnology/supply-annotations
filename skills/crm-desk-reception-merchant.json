@@ -1,0 +1,32 @@
+{
+  "skill": "crm-desk-reception-merchant",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "商家客服台接待",
+        "summary": "商家自带 Chatwoot 租户的客服接待：发现账号、读取未处理会话、消息与联系人，在对话中生成回复草稿；默认只草不发，发送须经提议动作并等用户批准后由平台执行；工具失败原样上报并按四分类说明原因。"
+      },
+      "en": {
+        "name": "Merchant CRM desk reception",
+        "summary": "CRM desk for a merchant Chatwoot tenant: reads open conversations, messages and contacts, drafts replies; sending needs an approved action proposal; failures reported as-is with causes classified."
+      },
+      "ja": {
+        "name": "出店者向けカスタマー受付",
+        "summary": "店舗自前の Chatwoot テナント向けカスタマー受付：アカウント発見、未対応会話・メッセージ・連絡先の読み取り、会話内での返信案作成。既定は下書きのみで、送信は提案アクションの承認後に実行。ツール失敗はそのまま報告し四分類で説明。"
+      },
+      "es": {
+        "name": "Recepción de mostrador CRM para comercios",
+        "summary": "Mesa del tenant Chatwoot del comercio: lee conversaciones abiertas, mensajes y contactos y prepara borradores; enviar requiere una acción aprobada; fallos informados tal cual y clasificados."
+      },
+      "fr": {
+        "name": "Réception CRM pour commerçants",
+        "summary": "Bureau du tenant Chatwoot du marchand : lit conversations ouvertes, messages et contacts, prépare des brouillons ; l'envoi exige une action approuvée ; échecs rapportés tels quels et classés."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

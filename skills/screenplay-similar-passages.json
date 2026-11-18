@@ -1,0 +1,32 @@
+{
+  "skill": "screenplay-similar-passages",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "剧本相似段落",
+        "summary": "以参考文本检索语义相近的剧本段落，支持跨剧比较与母题溯源；数据经 fd-text-core 引擎，走纯向量通道。"
+      },
+      "en": {
+        "name": "Screenplay similar passages",
+        "summary": "Finds semantically similar screenplay passages for a reference text, enabling cross-play comparison and motif tracing; data flows through the fd-text-core engine on a pure vector channel."
+      },
+      "ja": {
+        "name": "脚本類似箇所検索",
+        "summary": "参考テキストから意味的に類似する脚本の箇所を検索し、作品横断の比較やモチーフの源泉追跡に使う。データは fd-text-core エンジン（純ベクトル経路）。"
+      },
+      "es": {
+        "name": "Búsqueda de pasajes similares de guiones",
+        "summary": "Busca pasajes de guion semánticamente similares a un texto de referencia, para comparar entre obras y rastrear motivos; los datos pasan por el motor fd-text-core en un canal puramente vectorial."
+      },
+      "fr": {
+        "name": "Recherche de passages similaires de scénarios",
+        "summary": "Recherche des passages de scénario sémantiquement similaires à un texte de référence, pour comparer entre œuvres et retracer des motifs ; données via le moteur fd-text-core sur canal vectoriel."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

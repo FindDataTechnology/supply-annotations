@@ -1,0 +1,32 @@
+{
+  "skill": "argument-chain-construction",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "论证链条构建",
+        "summary": "把法律推理结果组织成完整、自洽、有说服力的论证结构，构建从事实到法律再到结论的推理路径，也可组织反驳对方观点的替代论证链。"
+      },
+      "en": {
+        "name": "Argument chain construction",
+        "summary": "Organizes legal reasoning into a complete, coherent, persuasive argument structure, tracing the path from facts through law to conclusion, including alternative chains to rebut the opposing side."
+      },
+      "ja": {
+        "name": "論証連鎖構築",
+        "summary": "法律推理の結果を完全で自己整合的で説得力ある論証構造に整理し、事実から法、結論への道筋を構築する。相手方への反論連鎖の構築にも対応。"
+      },
+      "es": {
+        "name": "Construcción de cadena argumental",
+        "summary": "Organiza el razonamiento jurídico en una estructura argumental completa, coherente y persuasiva, trazando la ruta de los hechos al derecho y la conclusión, incluidas cadenas alternativas para rebatir."
+      },
+      "fr": {
+        "name": "Construction de chaîne argumentative",
+        "summary": "Organise le raisonnement juridique en une structure argumentative complète, cohérente et persuasive, des faits au droit puis à la conclusion, avec chaînes alternatives de réfutation."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

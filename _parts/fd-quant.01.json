@@ -1,0 +1,679 @@
+{
+  "tools": {
+    "compute_sma": {
+      "human": {
+        "zh": {
+          "name": "简单移动平均",
+          "summary": "计算简单移动平均；返回与输入等长的序列，前 window-1 位为缺失，并附参数、预热长度与证据。"
+        },
+        "en": {
+          "name": "Simple moving average",
+          "summary": "Computes the simple moving average; returns an equal-length series with the first window-1 values missing, plus params, warmup, and evidence."
+        },
+        "ja": {
+          "name": "単純移動平均",
+          "summary": "単純移動平均を計算します。入力と同じ長さの系列（先頭 window-1 件は欠損）と、パラメータ・ウォームアップ・根拠を返します。"
+        },
+        "es": {
+          "name": "Media móvil simple",
+          "summary": "Calcula la media móvil simple; devuelve una serie de igual longitud con los primeros window-1 valores faltantes, más parámetros, calentamiento y evidencia."
+        },
+        "fr": {
+          "name": "Moyenne mobile",
+          "summary": "Calcule la moyenne mobile simple ; renvoie une série de même longueur dont les window-1 premières valeurs sont manquantes, plus paramètres, préchauffage et preuve."
+        }
+      },
+      "canonical": {
+        "brief": "Compute simple moving average over dates/values; returns an equal-length series with the first window-1 values null, plus params, warmup, and evidence."
+      }
+    },
+    "compute_ema": {
+      "human": {
+        "zh": {
+          "name": "指数移动平均",
+          "summary": "以窗口内首个简单均值作种子计算指数移动平均；返回等长序列，前 window-1 位为缺失，并附参数、预热与证据。"
+        },
+        "en": {
+          "name": "Exponential moving average",
+          "summary": "Computes the exponential moving average seeded with the first window simple mean; returns an equal-length series with the first window-1 values missing, plus params and evidence."
+        },
+        "ja": {
+          "name": "指数移動平均",
+          "summary": "先頭ウィンドウの単純平均を種にして指数移動平均を計算します。同じ長さの系列（先頭 window-1 件は欠損）とパラメータ・ウォームアップ・根拠を返します。"
+        },
+        "es": {
+          "name": "Media exponencial",
+          "summary": "Calcula la media móvil exponencial sembrada con la media simple inicial; devuelve una serie de igual longitud, con los primeros window-1 valores faltantes, y parámetros."
+        },
+        "fr": {
+          "name": "Moyenne exponentielle",
+          "summary": "Calcule la moyenne mobile exponentielle amorcée par la moyenne simple initiale ; renvoie une série de même longueur, les window-1 premières valeurs manquantes, plus paramètres et preuve."
+        }
+      },
+      "canonical": {
+        "brief": "Compute exponential moving average seeded with the first-window simple mean; returns an equal-length series with the first window-1 values null."
+      }
+    },
+    "compute_rsi": {
+      "human": {
+        "zh": {
+          "name": "计算相对强弱指标",
+          "summary": "用 Wilder 平滑计算相对强弱指标；返回等长序列，前 window 位为缺失，并附参数、预热与证据。"
+        },
+        "en": {
+          "name": "Relative strength index",
+          "summary": "Computes RSI with Wilder smoothing; returns an equal-length series with the first window values missing, plus params, warmup, and evidence."
+        },
+        "ja": {
+          "name": "相対力指数",
+          "summary": "Wilder 平滑で RSI を計算します。同じ長さの系列（先頭 window 件は欠損）とパラメータ・ウォームアップ・根拠を返します。"
+        },
+        "es": {
+          "name": "Índice de fuerza relativa",
+          "summary": "Calcula el RSI con suavizado de Wilder; devuelve una serie de igual longitud con los primeros window valores faltantes, más parámetros, calentamiento y evidencia."
+        },
+        "fr": {
+          "name": "Indice de force relative",
+          "summary": "Calcule le RSI avec lissage de Wilder ; renvoie une série de même longueur, les window premières valeurs manquantes, plus paramètres, préchauffage et preuve."
+        }
+      },
+      "canonical": {
+        "brief": "Compute RSI using Wilder smoothing; returns an equal-length series with the first window values null, plus params, warmup, and evidence."
+      }
+    },
+    "compute_macd": {
+      "human": {
+        "zh": {
+          "name": "计算 MACD 三线",
+          "summary": "计算 DIF、DEA 与柱状三条线；返回三条等长序列，并附参数、逐线预热长度与证据。"
+        },
+        "en": {
+          "name": "Compute MACD lines",
+          "summary": "Computes the MACD DIF, DEA, and histogram lines; returns three equal-length series plus params, per-line warmup, and evidence."
+        },
+        "ja": {
+          "name": "MACD 計算",
+          "summary": "DIF・DEA・ヒストグラムの 3 本を計算します。同じ長さの 3 系列とパラメータ・線ごとのウォームアップ・根拠を返します。"
+        },
+        "es": {
+          "name": "Calcular MACD",
+          "summary": "Calcula las líneas DIF, DEA y el histograma del MACD; devuelve tres series de igual longitud, parámetros, calentamiento por línea y evidencia."
+        },
+        "fr": {
+          "name": "Calculer le MACD",
+          "summary": "Calcule les lignes DIF, DEA et l'histogramme du MACD ; renvoie trois séries de même longueur, paramètres, préchauffage par ligne et preuve."
+        }
+      },
+      "canonical": {
+        "brief": "Compute MACD lines DIF = EMA(fast) - EMA(slow), DEA, and histogram = (DIF - DEA) × scale; returns three equal-length series with per-line warmup."
+      }
+    },
+    "compute_bollinger": {
+      "human": {
+        "zh": {
+          "name": "计算布林带",
+          "summary": "计算布林带三条轨：中轨为移动平均，上下轨加减 num_std 倍总体标准差；返回三条等长序列与参数。"
+        },
+        "en": {
+          "name": "Bollinger bands",
+          "summary": "Computes Bollinger bands: the middle is the moving average, and upper and lower are offset by num_std population standard deviations; returns three equal-length series."
+        },
+        "ja": {
+          "name": "ボリンジャーバンド",
+          "summary": "中軌を移動平均、上下軌を num_std 倍の母標準偏差で計算します。同じ長さの 3 系列とパラメータ・ウォームアップ・根拠を返します。"
+        },
+        "es": {
+          "name": "Bandas de Bollinger",
+          "summary": "Calcula las bandas: la central es la media móvil y las superior e inferior se desplazan num_std desviaciones poblacionales. Devuelve tres series de igual longitud."
+        },
+        "fr": {
+          "name": "Bandes de Bollinger",
+          "summary": "Calcule les bandes : la médiane est la moyenne mobile, les bandes haute et basse sont décalées de num_std écarts-types de population. Renvoie trois séries de même longueur."
+        }
+      },
+      "canonical": {
+        "brief": "Compute Bollinger bands: middle = SMA(window), upper/lower = middle ± num_std × population std (ddof=0); returns three equal-length series."
+      }
+    },
+    "compute_atr": {
+      "human": {
+        "zh": {
+          "name": "平均真实波幅",
+          "summary": "用 Wilder 平滑计算平均真实波幅；返回非负等长序列，前 window 位为缺失，并附参数、预热与证据。"
+        },
+        "en": {
+          "name": "Average true range",
+          "summary": "Computes the average true range with Wilder smoothing; returns a non-negative equal-length series with the first window values missing, plus params and evidence."
+        },
+        "ja": {
+          "name": "平均真の値幅",
+          "summary": "Wilder 平滑で平均真の値幅を計算します。非負の同じ長さの系列（先頭 window 件は欠損）とパラメータ・ウォームアップ・根拠を返します。"
+        },
+        "es": {
+          "name": "Rango real medio",
+          "summary": "Calcula el rango real medio con suavizado de Wilder; devuelve una serie no negativa de igual longitud, con los primeros window valores faltantes y parámetros."
+        },
+        "fr": {
+          "name": "Amplitude réelle",
+          "summary": "Calcule l'amplitude réelle moyenne avec lissage de Wilder ; renvoie une série non négative de même longueur, les window premières valeurs manquantes, plus paramètres et preuve."
+        }
+      },
+      "canonical": {
+        "brief": "Compute Wilder-smoothed average true range from high/low/close; returns a non-negative equal-length series with the first window values null."
+      }
+    },
+    "compute_kdj": {
+      "human": {
+        "zh": {
+          "name": "计算 KDJ 三线",
+          "summary": "按 9、3、3 计算 K、D、J 三条线，K/D 初值取 50；返回三条等长序列，并附参数、预热与证据。"
+        },
+        "en": {
+          "name": "Compute KDJ lines",
+          "summary": "Computes K, D, and J with default periods 9/3/3 and K/D initialized at 50; returns three equal-length series plus params, warmup, and evidence."
+        },
+        "ja": {
+          "name": "KDJ 計算",
+          "summary": "既定の 9・3・3 で K・D・J の 3 本を計算し、K/D の初期値を 50 とします。同じ長さの 3 系列とパラメータ・ウォームアップ・根拠を返します。"
+        },
+        "es": {
+          "name": "Calcular KDJ",
+          "summary": "Calcula las líneas K, D y J con periodos 9/3/3 e inicialización de K/D en 50; devuelve tres series de igual longitud, parámetros, calentamiento y evidencia."
+        },
+        "fr": {
+          "name": "Calculer le KDJ",
+          "summary": "Calcule les lignes K, D et J avec les périodes 9/3/3 et K/D initialisés à 50 ; renvoie trois séries de même longueur, paramètres, préchauffage et preuve."
+        }
+      },
+      "canonical": {
+        "brief": "Compute KDJ (default 9,3,3) with K/D initialized at 50; returns K, D, J as three equal-length series with params, warmup, and evidence."
+      }
+    },
+    "compute_obv": {
+      "human": {
+        "zh": {
+          "name": "计算能量潮",
+          "summary": "按收盘涨跌加减成交量的能量潮，自首日 0 起累加且无预热；返回等长序列，并附参数与证据。"
+        },
+        "en": {
+          "name": "On-balance volume",
+          "summary": "Computes on-balance volume, adding volume on up closes and subtracting on down closes from a 0 start with no warmup; returns the series plus params and evidence."
+        },
+        "ja": {
+          "name": "オンバランス出来高",
+          "summary": "終値の上下に応じ出来高を加減するオンバランス出来高を 0 から積み上げ、ウォームアップなしで計算します。系列とパラメータ・根拠を返します。"
+        },
+        "es": {
+          "name": "Volumen acumulado",
+          "summary": "Calcula el volumen acumulado sumando volumen al alza y restándolo a la baja desde 0, sin calentamiento; devuelve la serie con parámetros y evidencia."
+        },
+        "fr": {
+          "name": "Volume cumulé",
+          "summary": "Calcule le volume cumulé en ajoutant le volume à la hausse et en le retirant à la baisse depuis 0, sans préchauffage ; renvoie la série, les paramètres et la preuve."
+        }
+      },
+      "canonical": {
+        "brief": "Compute on-balance volume: add volume on up closes, subtract on down closes, cumulative from 0 with no warmup."
+      }
+    },
+    "compute_cci": {
+      "human": {
+        "zh": {
+          "name": "顺势指标",
+          "summary": "计算顺势指标，以典型价相对窗口均值的偏离，除以 0.015 倍窗口内偏离幅度均值；返回等长序列，前 window-1 位缺失。"
+        },
+        "en": {
+          "name": "Commodity channel index",
+          "summary": "Computes CCI as typical-price deviation from its moving average divided by 0.015 times mean absolute deviation; returns a series with the first window-1 values missing."
+        },
+        "ja": {
+          "name": "商品チャネル指数",
+          "summary": "典型価格の移動平均からの乖離を 0.015 倍の平均絶対偏差で割って CCI を計算します。先頭 window-1 件が欠損の等長系列を返します。"
+        },
+        "es": {
+          "name": "Índice de canal",
+          "summary": "Calcula el CCI como la desviación del precio típico respecto a su media dividida por 0,015 veces la desviación absoluta media; devuelve una serie de igual longitud."
+        },
+        "fr": {
+          "name": "Indice de canal",
+          "summary": "Calcule le CCI : écart du prix typique à sa moyenne divisé par 0,015 fois l'écart absolu moyen ; renvoie une série de même longueur."
+        }
+      },
+      "canonical": {
+        "brief": "Compute CCI = (TP - SMA(TP)) / (0.015 × mean absolute deviation), TP = (H + L + C) / 3; returns an equal-length series with params and evidence."
+      }
+    },
+    "compute_dmi": {
+      "human": {
+        "zh": {
+          "name": "计算动向指标",
+          "summary": "计算 +DI、-DI 与 ADX 三条线，DM 与 DX 均用 Wilder 平滑；返回三条等长序列与逐线预热长度。"
+        },
+        "en": {
+          "name": "Directional movement",
+          "summary": "Computes plus_di, minus_di, and ADX with Wilder smoothing applied to DM and DX; returns three equal-length series with per-line warmup."
+        },
+        "ja": {
+          "name": "方向性指数",
+          "summary": "DM と DX を Wilder 平滑して +DI・-DI・ADX の 3 系列を計算し、線ごとのウォームアップとともに返します。"
+        },
+        "es": {
+          "name": "Movimiento direccional",
+          "summary": "Calcula plus_di, minus_di y ADX con suavizado de Wilder sobre DM y DX; devuelve tres series de igual longitud con calentamiento por línea."
+        },
+        "fr": {
+          "name": "Mouvement directionnel",
+          "summary": "Calcule plus_di, minus_di et ADX avec lissage de Wilder sur DM et DX ; renvoie trois séries de même longueur et le préchauffage par ligne."
+        }
+      },
+      "canonical": {
+        "brief": "Compute +DI, -DI, and ADX using Wilder smoothing of DM and DX; returns three equal-length series with per-line warmup and evidence."
+      }
+    },
+    "summarize_return": {
+      "human": {
+        "zh": {
+          "name": "汇总收益",
+          "summary": "由权益序列计算全期总收益与年化收益，返回小数口径结果，含收益期数与无法计算时的原因。"
+        },
+        "en": {
+          "name": "Summarize returns",
+          "summary": "Computes total and annualized geometric return from an equity series, returning decimals with interval count and a reason when it cannot compute."
+        },
+        "ja": {
+          "name": "リターン集計",
+          "summary": "資産曲線から全期間の総リターンと年率リターンを計算し、小数値・期間数・算出できない場合の理由を返します。"
+        },
+        "es": {
+          "name": "Resumir rentabilidad",
+          "summary": "Calcula la rentabilidad total y anualizada desde una serie de patrimonio, con decimales, número de intervalos y motivo si no puede calcularse."
+        },
+        "fr": {
+          "name": "Résumer le rendement",
+          "summary": "Calcule le rendement total et annualisé depuis une série de patrimoine, en décimales, avec le nombre d'intervalles et le motif en cas d'échec."
+        }
+      },
+      "canonical": {
+        "brief": "Compute total return = last/first - 1 and annualized return from an equity series; returns decimals with intervals, periods_per_year, and reason."
+      }
+    },
+    "summarize_volatility": {
+      "human": {
+        "zh": {
+          "name": "汇总波动率",
+          "summary": "以简单收益的样本标准差乘年化因子计算年化波动率，返回每期波动率、观测数与年化因子。"
+        },
+        "en": {
+          "name": "Summarize volatility",
+          "summary": "Computes annualized volatility as the sample standard deviation of simple returns times sqrt(periods_per_year), returning per-period volatility and factor."
+        },
+        "ja": {
+          "name": "ボラティリティ集計",
+          "summary": "単純リターンの標本標準偏差に年率化係数を掛けて年率ボラティリティを計算し、期間あたりの値・観測数・係数も返します。"
+        },
+        "es": {
+          "name": "Resumir volatilidad",
+          "summary": "Calcula la volatilidad anualizada como la desviación típica muestral de los retornos por la raíz de los periodos por año; devuelve también la volatilidad por periodo."
+        },
+        "fr": {
+          "name": "Résumer la volatilité",
+          "summary": "Calcule la volatilité annualisée comme l'écart-type d'échantillon des rendements fois la racine des périodes par an ; renvoie aussi la volatilité par période."
+        }
+      },
+      "canonical": {
+        "brief": "Compute annualized volatility = std(simple returns, ddof=1) × sqrt(periods_per_year); returns volatility, per-period value, and observation count."
+      }
+    },
+    "summarize_drawdown": {
+      "human": {
+        "zh": {
+          "name": "汇总回撤",
+          "summary": "计算最大回撤及峰值日、谷底日、修复日与持续天数，并返回逐位不大于 0 的回撤序列。"
+        },
+        "en": {
+          "name": "Summarize drawdown",
+          "summary": "Computes max drawdown with peak, trough, and recovery dates plus duration in days, and returns the full drawdown series where every value is at most 0."
+        },
+        "ja": {
+          "name": "ドローダウン集計",
+          "summary": "最大ドローダウンとピーク日・底日・回復日・日数を計算し、各点が 0 以下のドローダウン系列も返します。"
+        },
+        "es": {
+          "name": "Resumir caída",
+          "summary": "Calcula la caída máxima con fechas de pico, fondo y recuperación más la duración en días, y devuelve la serie de caída con valores no positivos."
+        },
+        "fr": {
+          "name": "Résumer le repli",
+          "summary": "Calcule le repli maximal avec dates de pic, creux et récupération et la durée en jours, et renvoie la série de repli dont chaque valeur est au plus 0."
+        }
+      },
+      "canonical": {
+        "brief": "Compute max drawdown with peak/trough/recovery dates, duration days, and a full drawdown series where every value is ≤ 0."
+      }
+    },
+    "summarize_sharpe": {
+      "human": {
+        "zh": {
+          "name": "汇总夏普比率",
+          "summary": "用每期超额收益均值除以其样本标准差再乘年化因子计算夏普比率，返回均值、超额波动与观测数。"
+        },
+        "en": {
+          "name": "Summarize Sharpe",
+          "summary": "Computes the Sharpe ratio from mean excess return over its sample standard deviation times sqrt(periods_per_year), returning mean excess and volatility."
+        },
+        "ja": {
+          "name": "シャープレシオ集計",
+          "summary": "期間あたり超過リターンの平均を標本標準偏差で割り年率化係数を掛けてシャープレシオを計算し、平均超過と超過ボラティリティも返します。"
+        },
+        "es": {
+          "name": "Resumir Sharpe",
+          "summary": "Calcula el ratio de Sharpe como la media del exceso de retorno entre su desviación muestral por la raíz de periodos; devuelve media y volatilidad del exceso."
+        },
+        "fr": {
+          "name": "Résumer le Sharpe",
+          "summary": "Calcule le ratio de Sharpe : moyenne de l'excès de rendement divisée par son écart-type d'échantillon, fois la racine des périodes ; renvoie aussi ces valeurs."
+        }
+      },
+      "canonical": {
+        "brief": "Compute Sharpe = mean excess return / sample std of excess returns × sqrt(periods_per_year); risk_free is passed as annualized decimals."
+      }
+    },
+    "summarize_sortino": {
+      "human": {
+        "zh": {
+          "name": "汇总索提诺比率",
+          "summary": "计算索提诺比率，分母下的下行偏差取全部期数而非仅低于门槛的期；返回比率、下行偏差与观测数。"
+        },
+        "en": {
+          "name": "Summarize Sortino",
+          "summary": "Computes the Sortino ratio with downside deviation over all periods rather than just the below-target ones; returns ratio, downside deviation, and observations."
+        },
+        "ja": {
+          "name": "ソルティノ集計",
+          "summary": "下方偏差の分母を全期間数としてソルティノレシオを計算します（下回る期間のみではない）。比率・下方偏差・観測数を返します。"
+        },
+        "es": {
+          "name": "Resumir Sortino",
+          "summary": "Calcula el ratio de Sortino con la desviación a la baja sobre todos los periodos, no solo los bajo objetivo; devuelve ratio, desviación y observaciones."
+        },
+        "fr": {
+          "name": "Résumer le Sortino",
+          "summary": "Calcule le ratio de Sortino avec l'écart de baisse sur toutes les périodes, y compris celles au-dessus de l'objectif ; renvoie ratio, écart et observations."
+        }
+      },
+      "canonical": {
+        "brief": "Compute Sortino = mean excess return / downside deviation, with all periods as denominator; target is per-period; returns ratio and downside statistics."
+      }
+    },
+    "summarize_calmar": {
+      "human": {
+        "zh": {
+          "name": "汇总卡玛比率",
+          "summary": "用年化收益除以最大回撤的幅度计算卡玛比率；回撤为零时返回空值并说明原因，不返回无穷值。"
+        },
+        "en": {
+          "name": "Summarize Calmar",
+          "summary": "Computes the Calmar ratio as annualized return divided by the absolute max drawdown; a zero drawdown returns null with a reason instead of infinity."
+        },
+        "ja": {
+          "name": "カルマーレシオ集計",
+          "summary": "年率リターンを最大ドローダウンの絶対値で割ってカルマーレシオを計算します。ドローダウンが 0 なら理由付きで null を返します。"
+        },
+        "es": {
+          "name": "Resumir Calmar",
+          "summary": "Calcula el ratio de Calmar como rentabilidad anualizada entre la caída máxima absoluta; si la caída es cero devuelve nulo con motivo."
+        },
+        "fr": {
+          "name": "Résumer le Calmar",
+          "summary": "Calcule le ratio de Calmar : rendement annualisé divisé par le repli maximal absolu ; un repli nul renvoie null avec un motif."
+        }
+      },
+      "canonical": {
+        "brief": "Compute Calmar = annualized return / |max drawdown|; returns null with a reason instead of infinity when drawdown is zero."
+      }
+    },
+    "summarize_information_ratio": {
+      "human": {
+        "zh": {
+          "name": "汇总信息比",
+          "summary": "用组合减基准的主动收益均值除以主动收益标准差再年化计算信息比，同时返回跟踪误差。"
+        },
+        "en": {
+          "name": "Summarize IR",
+          "summary": "Computes the information ratio from mean active return over its standard deviation, annualized, and returns tracking error alongside."
+        },
+        "ja": {
+          "name": "情報レシオ集計",
+          "summary": "ポートフォリオからベンチマークを引いたアクティブリターンの平均を標準偏差で割って年率化した情報レシオを計算し、トラッキングエラーも返します。"
+        },
+        "es": {
+          "name": "Resumir IR",
+          "summary": "Calcula el ratio de información como la media del retorno activo entre su desviación, anualizado, y devuelve también el error de seguimiento."
+        },
+        "fr": {
+          "name": "Résumer l'IR",
+          "summary": "Calcule le ratio d'information : moyenne du rendement actif sur son écart-type, annualisée, et renvoie aussi l'erreur de suivi."
+        }
+      },
+      "canonical": {
+        "brief": "Compute information ratio = mean active return / std of active returns × sqrt(periods_per_year), plus annualized tracking error."
+      }
+    },
+    "summarize_beta": {
+      "human": {
+        "zh": {
+          "name": "汇总贝塔",
+          "summary": "用组合与基准收益的协方差除以基准方差计算贝塔，返回每期 alpha、相关系数、协方差与观测数。"
+        },
+        "en": {
+          "name": "Summarize beta",
+          "summary": "Computes beta as portfolio-benchmark covariance over benchmark variance, returning per-period alpha, correlation, covariance, and observations."
+        },
+        "ja": {
+          "name": "ベータ集計",
+          "summary": "ポートフォリオとベンチマークの共分散をベンチマークの分散で割ってベータを計算し、期間あたりのアルファ・相関係数・共分散・観測数も返します。"
+        },
+        "es": {
+          "name": "Resumir beta",
+          "summary": "Calcula la beta como la covarianza cartera-benchmark entre la varianza del benchmark; devuelve alfa por periodo, correlación, covarianza y observaciones."
+        },
+        "fr": {
+          "name": "Résumer le bêta",
+          "summary": "Calcule le bêta : covariance portefeuille-benchmark divisée par la variance du benchmark ; renvoie l'alpha par période, la corrélation, la covariance et les observations."
+        }
+      },
+      "canonical": {
+        "brief": "Compute beta = cov(portfolio, benchmark) / var(benchmark), with per-period alpha, correlation, covariance, and benchmark variance."
+      }
+    },
+    "summarize_concentration": {
+      "human": {
+        "zh": {
+          "name": "汇总集中度",
+          "summary": "计算权重集中度：赫芬达尔指数、前 top_n 权重占比与有效持仓数，并返回总敞口与现金权重。"
+        },
+        "en": {
+          "name": "Summarize concentration",
+          "summary": "Computes weight concentration: HHI, top-n weight share, and effective number of holdings, plus gross exposure and cash weight."
+        },
+        "ja": {
+          "name": "集中度集計",
+          "summary": "ウェイトの集中度としてハーフィンダール指数、上位 top_n の比率、実効保有数を計算し、グロスエクスポージャーと現金比率も返します。"
+        },
+        "es": {
+          "name": "Resumir concentración",
+          "summary": "Calcula la concentración de pesos: HHI, cuota de los top_n y número efectivo de posiciones, más exposición bruta y peso de caja."
+        },
+        "fr": {
+          "name": "Résumer concentration",
+          "summary": "Calcule la concentration des poids : indice HHI, part des top_n et nombre effectif de positions, plus exposition brute et poids de liquidités."
+        }
+      },
+      "canonical": {
+        "brief": "Compute HHI = Σw², top-n weight share, and effective N = 1/HHI, plus gross exposure and cash weight for non-negative long weights."
+      }
+    },
+    "summarize_turnover": {
+      "human": {
+        "zh": {
+          "name": "汇总换手率",
+          "summary": "以两期权重变动幅度之和的一半计算换手率，省略上期权重时按全现金基线；返回换手率、基线与持仓数。"
+        },
+        "en": {
+          "name": "Summarize turnover",
+          "summary": "Computes turnover as half the sum of absolute weight differences between periods, using a zero-cash baseline when prior weights are omitted."
+        },
+        "ja": {
+          "name": "回転率集計",
+          "summary": "2 期のウェイト差の絶対和の半分で回転率を計算します。前期ウェイトを省略すると全現金を基準とし、回転率・基準・銘柄数を返します。"
+        },
+        "es": {
+          "name": "Resumir rotación",
+          "summary": "Calcula la rotación como la mitad de la suma de diferencias absolutas de pesos entre periodos, con base de caja cero si se omiten los previos."
+        },
+        "fr": {
+          "name": "Résumer rotation",
+          "summary": "Calcule la rotation comme la moitié de la somme des écarts absolus de poids entre périodes, base liquidités si les poids précédents sont omis."
+        }
+      },
+      "canonical": {
+        "brief": "Compute turnover = 0.5 × Σ|w_t − w_{t−1}|; omitted prior weights use a zero-cash baseline; returns turnover, baseline, and position count."
+      }
+    },
+    "compute_profitability": {
+      "human": {
+        "zh": {
+          "name": "计算盈利比率",
+          "summary": "由财务字段计算毛利率、净利率、ROE、ROA 与含 NOPAT 的 ROIC，返回五个无量纲比率与口径来源。"
+        },
+        "en": {
+          "name": "Compute profitability",
+          "summary": "Computes gross margin, net margin, ROE, ROA, and ROIC with NOPAT from fundamentals, returning five dimensionless ratios and the sources used."
+        },
+        "ja": {
+          "name": "収益性比率",
+          "summary": "財務データから売上総利益率・純利益率・ROE・ROA・NOPAT を用いた ROIC を計算し、5 つの無次元比率と算出基準を返します。"
+        },
+        "es": {
+          "name": "Ratios de rentabilidad",
+          "summary": "Calcula margen bruto, margen neto, ROE, ROA y ROIC con NOPAT desde los fundamentales; devuelve cinco ratios adimensionales y las fuentes usadas."
+        },
+        "fr": {
+          "name": "Ratios de rentabilité",
+          "summary": "Calcule marge brute, marge nette, ROE, ROA et ROIC avec NOPAT depuis les fondamentaux ; renvoie cinq ratios sans dimension et les sources retenues."
+        }
+      },
+      "canonical": {
+        "brief": "Compute gross margin, net margin, ROE, ROA, and ROIC with NOPAT = EBIT × (1 − tax_rate) from a fundamentals dict; returns five ratios."
+      }
+    },
+    "compute_growth": {
+      "human": {
+        "zh": {
+          "name": "计算成长比率",
+          "summary": "用本期与基期的营收和净利计算同比增速，返回两个小数口径比率；基期非正则点名字段拒绝。"
+        },
+        "en": {
+          "name": "Compute growth",
+          "summary": "Computes revenue and net income year-over-year growth from current and prior values, returning two decimal ratios; non-positive prior values are rejected by field name."
+        },
+        "ja": {
+          "name": "成長率",
+          "summary": "当期と前期の売上高・純利益から前年比成長率を計算し、小数の 2 比率を返します。前期値が正でない場合は項目名を挙げて拒否します。"
+        },
+        "es": {
+          "name": "Ratios de crecimiento",
+          "summary": "Calcula el crecimiento interanual de ingresos y beneficio neto con el valor actual y previo, dos ratios decimales; rechaza bases no positivas indicando el campo."
+        },
+        "fr": {
+          "name": "Ratios de croissance",
+          "summary": "Calcule la croissance annuelle du chiffre d'affaires et du résultat net sur deux exercices, deux ratios décimaux ; rejette toute base non positive en nommant le champ."
+        }
+      },
+      "canonical": {
+        "brief": "Compute revenue and net income year-over-year growth as decimals from current and prior values; rejects non-positive or missing prior fields."
+      }
+    },
+    "compute_leverage_and_liquidity": {
+      "human": {
+        "zh": {
+          "name": "计算偿债与流动性比率",
+          "summary": "一次计算流动比率、速动比率、资产负债率与利息保障倍数，返回四个比率；任一字段缺失或分母为零即整体拒绝。"
+        },
+        "en": {
+          "name": "Leverage and liquidity",
+          "summary": "Computes current ratio, quick ratio, debt-to-asset ratio, and interest coverage in one atomic call; a missing field or zero denominator rejects the whole result."
+        },
+        "ja": {
+          "name": "安全性比率",
+          "summary": "流動比率・当座比率・負債比率・インタレストカバレッジを一括で計算します。項目欠損や分母ゼロがあれば全体を拒否します。"
+        },
+        "es": {
+          "name": "Solvencia y liquidez",
+          "summary": "Calcula en una sola llamada los ratios corriente, rápido, deuda sobre activos y cobertura de intereses; un campo faltante o denominador cero rechaza todo."
+        },
+        "fr": {
+          "name": "Solvabilité et liquidité",
+          "summary": "Calcule en un appel groupé les ratios courant, rapide, dette sur actifs et couverture des intérêts ; un champ manquant ou un dénominateur nul rejette tout le résultat."
+        }
+      },
+      "canonical": {
+        "brief": "Compute current ratio, quick ratio, debt-to-asset ratio, and interest coverage as one atomic result; any missing field or zero denominator rejects all four."
+      }
+    },
+    "compute_interest_coverage": {
+      "human": {
+        "zh": {
+          "name": "计算利息保障倍数",
+          "summary": "单独计算 EBIT 除以利息费用的利息保障倍数；缺字段或利息费用为零则点名拒绝，不返回哨兵值。"
+        },
+        "en": {
+          "name": "Interest coverage",
+          "summary": "Computes interest coverage as EBIT divided by interest expense alone; a missing field or zero interest expense is rejected by name with no sentinel value."
+        },
+        "ja": {
+          "name": "インタレストカバレッジ",
+          "summary": "EBIT を支払利息で割ったインタレストカバレッジのみを計算します。項目欠損や利息ゼロは項目名付きで拒否し、代替値を返しません。"
+        },
+        "es": {
+          "name": "Cobertura de intereses",
+          "summary": "Calcula solo la cobertura de intereses como EBIT entre gasto financiero; un campo faltante o interés cero se rechaza indicando el campo, sin valores centinela."
+        },
+        "fr": {
+          "name": "Couverture des intérêts",
+          "summary": "Calcule uniquement la couverture des intérêts : EBIT divisé par charges d'intérêts ; un champ manquant ou des intérêts nuls est rejeté en le nommant."
+        }
+      },
+      "canonical": {
+        "brief": "Compute interest coverage = EBIT / interest expense as a standalone ratio; missing fields or zero interest expense are rejected instead of returning infinity."
+      }
+    },
+    "compute_efficiency": {
+      "human": {
+        "zh": {
+          "name": "计算效率比率",
+          "summary": "计算应收周转、存货周转与总资产周转次数，返回三个比率及所用余额口径：平均、期末或混合。"
+        },
+        "en": {
+          "name": "Compute efficiency",
+          "summary": "Computes receivable, inventory, and total asset turnover, returning the three ratios plus the balance basis used: average, ending, or mixed."
+        },
+        "ja": {
+          "name": "効率性比率",
+          "summary": "売上債権回転率・棚卸資産回転率・総資産回転率を計算し、3 比率と採用した残高基準（平均・期末・混在）を返します。"
+        },
+        "es": {
+          "name": "Ratios de eficiencia",
+          "summary": "Calcula la rotación de cuentas por cobrar, de inventario y de activos totales; devuelve tres ratios y la base de saldo empleada: media, final o mixta."
+        },
+        "fr": {
+          "name": "Ratios d'efficacité",
+          "summary": "Calcule la rotation des créances, des stocks et de l'actif total ; renvoie trois ratios et la base de solde retenue : moyenne, finale ou mixte."
+        }
+      },
+      "canonical": {
+        "brief": "Compute receivable, inventory, and total asset turnover, returning the ratios plus the basis used per ratio: average, ending, or mixed."
+      }
+    }
+  }
+}

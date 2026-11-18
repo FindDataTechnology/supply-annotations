@@ -1,0 +1,32 @@
+{
+  "skill": "client-communication-records",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "客户沟通记录",
+        "summary": "制作民商事诉讼案件沟通记录文档：依《诉讼精细化》手册，采用对话式笔录格式记录与客户首次深度沟通内容，生成 Word 版案件沟通记录。"
+      },
+      "en": {
+        "name": "Client communication records",
+        "summary": "Produces the client communication record for a civil or commercial case: a dialogue-style transcript of the first in-depth client talk, as a Word document per the litigation-precision manual."
+      },
+      "ja": {
+        "name": "顧客コミュニケーション記録",
+        "summary": "民商事訴訟事件のコミュニケーション記録を作成。「訴訟精緻化」ハンドブックに従い、顧客との初回の深度あるやり取りを対話式録取の形式で記録し、Word 形式の案件記録に仕上げる。"
+      },
+      "es": {
+        "name": "Registros de comunicación con clientes",
+        "summary": "Elabora el registro de comunicación de un caso civil o mercantil: transcripción dialogada de la primera conversación a fondo con el cliente, en documento Word según el manual de precisión procesal."
+      },
+      "fr": {
+        "name": "Registres de communication client",
+        "summary": "Rédige le registre de communication d'une affaire civile ou commerciale : transcription dialoguée du premier entretien approfondi, au format Word, selon le manuel de précision procédurale."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "civil-nine-step-workflow",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "民事九步法流程",
+        "summary": "民事案件九步法会话版，融合请求权基础、要件审判九步法与规范说：固定诉请、抗辩分析、要件拆解、类案检索、争点矩阵、举证责任、事实认定、裁判预测与法条案号核验。输出纯文本推演，不写文件、不调脚本。"
+      },
+      "en": {
+        "name": "Civil nine-step workflow",
+        "summary": "Conversational nine-step method for civil cases: claim basis, defenses, element breakdown, issue matrix, burden allocation, fact-finding, outcome prediction, statute/citation checks. Text only."
+      },
+      "ja": {
+        "name": "民事九ステップ・ワークフロー",
+        "summary": "民事事件のセッション型九段階分析法。請求権基礎・抗弁分析・要件分解・争点整理・挙証責任配分・事実認定・結論予測・条文と事件番号の検証を、純テキストの推論として行う。ファイル書込みやスクリプト実行はしない。"
+      },
+      "es": {
+        "name": "Flujo de trabajo civil de nueve pasos",
+        "summary": "Método conversacional de nueve pasos para casos civiles: base de la pretensión, defensas, elementos, matriz de issues, carga probatoria, hechos, pronóstico y verificación de normas. Solo texto."
+      },
+      "fr": {
+        "name": "Flux de travail civil en neuf étapes",
+        "summary": "Méthode en neuf étapes pour affaires civiles : fondement, défenses, éléments, matrice des points litigieux, charge de la preuve, faits, pronostic, vérif des textes. Texte seul."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "mission-reporting",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "任务报告",
+        "summary": "生成终态报告，区分完整交付与部分交付，并遵守机器人通知纪律。"
+      },
+      "en": {
+        "name": "Mission reporting",
+        "summary": "Produces the final-state report, distinguishing complete from partial delivery, and keeps bot-notification discipline."
+      },
+      "ja": {
+        "name": "ミッション報告",
+        "summary": "最終状態のレポートを作り、完全納品と部分納品を区別する。ボット通知の規律を守る。"
+      },
+      "es": {
+        "name": "Informes de misión",
+        "summary": "Elabora el informe final distinguyendo entrega completa de entrega parcial y mantiene la disciplina de avisos automatizados."
+      },
+      "fr": {
+        "name": "Rapports de mission",
+        "summary": "Produit le rapport d'état final en distinguant livraison complète et livraison partielle, et respecte la discipline de notification automatique."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

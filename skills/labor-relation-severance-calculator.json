@@ -1,0 +1,32 @@
+{
+  "skill": "labor-relation-severance-calculator",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "劳动关系离职补偿计算器",
+        "summary": "劳动争议核心分析工具:劳动关系从属性分析、12类争议自动分类、工时制度定性、经济补偿计算引擎(N/N+1/2N判断、月工资基数、三层封顶)、加班费三档计算与双倍工资计算。"
+      },
+      "en": {
+        "name": "Labor relationship and severance calculator",
+        "summary": "Core labor-case analyzer: employment-subordination test, 12 dispute types, working-time regime, severance engine (N/N+1/2N, monthly base, capped), three-tier overtime and double-wage math."
+      },
+      "ja": {
+        "name": "労働関係退職補償計算ツール",
+        "summary": "労働紛争事件の中核分析ツール：労働関係従属性分析、12類型の自動分類、労働時間制度の定性、経済補償計算エンジン（N/N+1/2N判定・月給基数・三層上限）、残業代三段計算、二倍賃金計算。"
+      },
+      "es": {
+        "name": "Calculadora de vínculo laboral e indemnización",
+        "summary": "Analizador de casos laborales: subordinación del vínculo, 12 tipos de conflicto, jornada aplicable, motor de indemnización (N/N+1/2N, base mensual, topes), horas extra por tramos y doble salario."
+      },
+      "fr": {
+        "name": "Calculateur de relation de travail et d’indemnité",
+        "summary": "Analyseur des dossiers sociaux : lien de subordination, 12 types, régime de temps de travail, moteur d’indemnité (N/N+1/2N, base mensuelle, plafonds), heures supp. par paliers, double salaire."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

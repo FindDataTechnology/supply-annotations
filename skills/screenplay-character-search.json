@@ -1,0 +1,32 @@
+{
+  "skill": "screenplay-character-search",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "剧本角色检索",
+        "summary": "剧本角色检索与分析：查询某角色的台词、出场段落与形象特征（台词聚合、语言特征、关系网络）；数据经 fd-text-core 引擎（预设 character）。"
+      },
+      "en": {
+        "name": "Screenplay character search",
+        "summary": "Search and analyze screenplay characters: lines, appearance passages and persona traits (aggregated lines, language features, relationship network); data via fd-text-core engine (character preset)."
+      },
+      "ja": {
+        "name": "脚本キャラクター検索",
+        "summary": "脚本キャラクターの検索と分析：あるキャラクターのセリフ・出場箇所・人物像（セリフ集約、言語特徴、関係ネットワーク）を照会。データは fd-text-core エンジン（プリセット character）。"
+      },
+      "es": {
+        "name": "Búsqueda de personajes de guion",
+        "summary": "Búsqueda y análisis de personajes de guion: líneas, apariciones y rasgos (agregación de líneas, rasgos lingüísticos, red de relaciones); datos del motor fd-text-core (preset de personaje)."
+      },
+      "fr": {
+        "name": "Recherche de personnages de scénario",
+        "summary": "Recherche et analyse de personnages de scénario : répliques, apparitions et traits (agrégation, traits linguistiques, réseau de relations) ; données du moteur fd-text-core (préréglage personnage)."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

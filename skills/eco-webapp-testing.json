@@ -1,0 +1,32 @@
+{
+  "skill": "eco-webapp-testing",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "网页应用测试",
+        "summary": "生态技能包：用 Playwright 驱动本地网页应用，做功能验证与界面排查。"
+      },
+      "en": {
+        "name": "Web application testing",
+        "summary": "Ecosystem skill pack: drives local web apps with Playwright for functional checks and UI debugging."
+      },
+      "ja": {
+        "name": "ウェブアプリテスト",
+        "summary": "エコシステム系スキル。Playwright でローカルのウェブアプリを操作し、機能検証と画面デバッグを行う。"
+      },
+      "es": {
+        "name": "Pruebas de aplicaciones web",
+        "summary": "Habilidad del ecosistema: controla aplicaciones web locales con Playwright para verificar funciones y depurar la interfaz."
+      },
+      "fr": {
+        "name": "Tests d'applications web",
+        "summary": "Compétence de l'écosystème : pilote des applications web locales avec Playwright pour valider les fonctions et déboguer l'interface."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

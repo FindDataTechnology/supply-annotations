@@ -1,0 +1,32 @@
+{
+  "skill": "corporate-fundamental-analysis",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "企业基本面分析",
+        "summary": "柏讯线企业基本面与财务质量分析：三表速览、杜邦分解、现金流质量诊断、财务红旗项排查与同业分位对照；基于 GTA 企业年度面板与中国财报三表及附注，输出带来源与数据期数的可复核结论。只做质量判断，不做估值、不给目标价。"
+      },
+      "en": {
+        "name": "Corporate fundamental analysis",
+        "summary": "A-share fundamental quality check (Wire line): three-statement snapshot, DuPont, cash-flow quality, red-flag scan and peer percentiles via the GTA panel; no valuation or target price."
+      },
+      "ja": {
+        "name": "企業ファンダメンタルズ分析",
+        "summary": "Wire 線の企業ファンダメンタルズと財務質分析：三表概覧、デュポン分解、キャッシュフロー質診断、財務レッドフラグ点検、同業パーセンタイル比較。GTA の企業年度パネルと中国の財務三表・注記に基づき、出典とデータ期付きの検証可能結論を出す。質判断のみで評価・目標株価は示さない。"
+      },
+      "es": {
+        "name": "Análisis fundamental corporativo",
+        "summary": "Calidad fundamental de cotizadas tipo A (línea Wire): panorama de tres estados, DuPont, flujo de caja, alertas y percentiles sectoriales con el panel GTA; sin valoración ni precio objetivo."
+      },
+      "fr": {
+        "name": "Analyse fondamentale d'entreprise",
+        "summary": "Qualité fondamentale des cotées A (ligne Wire) : panorama des trois états, DuPont, flux de trésorerie, alertes et percentiles via le panel GTA ; sans valorisation ni prix cible."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

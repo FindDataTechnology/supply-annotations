@@ -1,0 +1,32 @@
+{
+  "skill": "facade-builder-guide",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "分身采访与生成指南",
+        "summary": "分身采访与生成流程指南：四步采访、素材整理纪律、manifest 组装规则与发布指引。"
+      },
+      "en": {
+        "name": "Avatar interview and generation guide",
+        "summary": "Guide to the avatar interview and generation process: four-step interviews, material curation discipline, manifest assembly rules and publishing guidance."
+      },
+      "ja": {
+        "name": "分身インタビューと生成ガイド",
+        "summary": "分身のインタビューと生成の流れのガイド：四段階インタビュー、素材整理の規律、manifest 組み立てルール、公開の手引き。"
+      },
+      "es": {
+        "name": "Guía de entrevista y generación de avatares",
+        "summary": "Guía del proceso de entrevista y generación de avatares: entrevistas en cuatro pasos, disciplina de organización del material, reglas de ensamblaje del manifest y guía de publicación."
+      },
+      "fr": {
+        "name": "Guide d'entretien et de génération d'avatars",
+        "summary": "Guide du processus d'entretien et de génération des avatars : entretiens en quatre étapes, discipline de tri du matériel, règles d'assemblage du manifest et guide de publication."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

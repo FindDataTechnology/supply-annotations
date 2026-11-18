@@ -1,0 +1,32 @@
+{
+  "skill": "legal-proposal-generator",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "法律方案生成器",
+        "summary": "根据案件材料或沟通记录生成诉讼方案、咨询报告、非诉方案、建议书、沟通报告、结案汇报、案件分析摘要等法律服务文档。"
+      },
+      "en": {
+        "name": "Legal proposal generator",
+        "summary": "Generates legal service documents such as litigation plans, consultation reports, non-contentious proposals and case-closure summaries from case materials or communication records."
+      },
+      "ja": {
+        "name": "法律提案ジェネレーター",
+        "summary": "案件資料や連絡記録から、訴訟方針・相談報告・非訴訟方針・結案報告などの法律サービス文書を生成します。"
+      },
+      "es": {
+        "name": "Generador de propuestas jurídicas",
+        "summary": "Genera documentos de servicios jurídicos (planes de litigio, informes de consulta, propuestas no contenciosas, resúmenes de cierre) a partir de materiales del caso o registros de comunicación."
+      },
+      "fr": {
+        "name": "Générateur de propositions juridiques",
+        "summary": "Génère des documents de services juridiques (plans de contentieux, rapports de consultation, propositions hors contentieux, synthèses de clôture) à partir des dossiers ou des échanges."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

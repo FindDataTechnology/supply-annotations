@@ -1,0 +1,32 @@
+{
+  "skill": "judicial-value-judgment",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "司法价值判断",
+        "summary": "辅助法官在疑难案件中识别法律价值冲突、确定裁量边界、展开价值衡量,形成可用于裁判说理的分析框架;不替代法官作出最终裁判。"
+      },
+      "en": {
+        "name": "Judicial value balancing",
+        "summary": "Helps judges identify value conflicts, set discretion limits and weigh competing values in hard cases, building an auditable framework for judicial reasoning; it does not make the ruling itself."
+      },
+      "ja": {
+        "name": "司法価値判断",
+        "summary": "裁判官が疑難事件で法的価値衝突を識別し、裁量の限界を定め、価値衡量を行い、判決説理に使える分析枠組みを形成することを支援。最終判断は裁判官が行う。"
+      },
+      "es": {
+        "name": "Ponderación de valores judiciales",
+        "summary": "Ayuda al juez a identificar conflictos de valores, fijar límites de discreción y ponderar en casos difíciles, con un marco auditable para la motivación de la sentencia; no decide por él."
+      },
+      "fr": {
+        "name": "Pondération des valeurs judiciaires",
+        "summary": "Aide le juge à cerner les conflits de valeurs, borner son pouvoir discrétionnaire et pondérer les intérêts dans les affaires difficiles, pour une motivation vérifiable ; ne statue pas à sa place."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

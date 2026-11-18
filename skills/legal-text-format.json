@@ -1,0 +1,32 @@
+{
+  "skill": "legal-text-format",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "法律文本排版",
+        "summary": "将法律条文或法律案例转换为规范 Markdown 格式并删除推广冗余信息；只负责格式化与内容清理，不含内容抓取，抓取由其他检索类技能协作完成。"
+      },
+      "en": {
+        "name": "Legal text formatting",
+        "summary": "Formats legal provisions or cases into clean Markdown and strips promotional clutter; handles formatting and cleanup only, content retrieval being delegated to companion fetch skills."
+      },
+      "ja": {
+        "name": "法律テキスト整形",
+        "summary": "法律条文や判例を正規の Markdown に整形し、宣伝情報を削除する。整形と内容クレンジングのみを行い、取得は他の検索技能に委ねる。"
+      },
+      "es": {
+        "name": "Formateo de textos jurídicos",
+        "summary": "Convierte normas y casos jurídicos a Markdown limpio y elimina el relleno promocional; solo formatea y limpia: la obtención del contenido corre a cargo de otras habilidades."
+      },
+      "fr": {
+        "name": "Mise en forme de textes juridiques",
+        "summary": "Convertit dispositions et cas juridiques en Markdown propre et supprime les encarts promotionnels ; formate et nettoie seulement : la récupération relève d'autres compétences."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

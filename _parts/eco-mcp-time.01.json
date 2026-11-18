@@ -1,0 +1,58 @@
+{
+ "tools": {
+  "get_current_time": {
+   "human": {
+    "zh": {
+     "name": "取当前时间",
+     "summary": "按指定时区返回当前时间。"
+    },
+    "en": {
+     "name": "Get current time",
+     "summary": "Returns the current time in the given timezone."
+    },
+    "ja": {
+     "name": "現在時刻を取得",
+     "summary": "指定したタイムゾーンの現在時刻を返します。"
+    },
+    "es": {
+     "name": "Obtener hora actual",
+     "summary": "Devuelve la hora actual en la zona horaria indicada."
+    },
+    "fr": {
+     "name": "Obtenir l'heure actuelle",
+     "summary": "Renvoie l'heure actuelle dans le fuseau horaire indiqué."
+    }
+   },
+   "canonical": {
+    "brief": "Returns the current time in a specified timezone."
+   }
+  },
+  "convert_time": {
+   "human": {
+    "zh": {
+     "name": "换算时区时间",
+     "summary": "把某一时区的时间换算到另一时区。"
+    },
+    "en": {
+     "name": "Convert time zones",
+     "summary": "Converts a time from one timezone to another."
+    },
+    "ja": {
+     "name": "タイムゾーン変換",
+     "summary": "あるタイムゾーンの時刻を別のタイムゾーンに変換します。"
+    },
+    "es": {
+     "name": "Convertir zonas horarias",
+     "summary": "Convierte una hora de una zona horaria a otra."
+    },
+    "fr": {
+     "name": "Convertir les fuseaux",
+     "summary": "Convertit une heure d'un fuseau horaire vers un autre."
+    }
+   },
+   "canonical": {
+    "brief": "Converts a time from one timezone to another."
+   }
+  }
+ }
+}

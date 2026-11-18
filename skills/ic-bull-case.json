@@ -1,0 +1,32 @@
+{
+  "skill": "ic-bull-case",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "投委会多头立论",
+        "summary": "柏讯投委会多头立论(与空头对称):把证据集收敛为买入论证;不取数、不计算、不裁决,数字只引用证据集编号;空头未发言时不得替对手立论。"
+      },
+      "en": {
+        "name": "Bull case argument",
+        "summary": "Bull side of the Wire IC debate, mirror of the bear case: converges evidence into the buy rationale; no fetching, computing or verdicts, figures cite evidence IDs, no arguing for the opponent."
+      },
+      "ja": {
+        "name": "投資委員会強気立論",
+        "summary": "Wire 投資委員会の強気立論(弱気と対称):証拠集を「なぜ買うか」の論証に収束させる。取得・計算・裁定なし、数値は証拠IDのみ参照、相手が未発言の間に代理立論しない。"
+      },
+      "es": {
+        "name": "Argumento alcista del comité",
+        "summary": "Lado alcista del debate del comité de inversión de Wire, simétrico del bajista: construye el caso de compra desde la evidencia; sin datos, cálculos ni sentencias; cifras solo citan IDs de evidencia."
+      },
+      "fr": {
+        "name": "Argument haussier du comité",
+        "summary": "Volet haussier du débat du comité d'investissement Wire, symétrique du baissier : construit le cas d'achat depuis le jeu de preuves ; sans collecte, calcul ni verdict ; chiffres en IDs de preuve."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

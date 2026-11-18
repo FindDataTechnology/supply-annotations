@@ -1,0 +1,32 @@
+{
+  "skill": "shock-watch",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "冲击盯梢",
+        "summary": "柏讯信息冲击盯梢：按来源与冲击类型筛选条目流，输出条目清单、来源计数、期间对比与来源健康度水位；滞后与不可用如实标注「信息可能不完整」；不做预告、不预测影响、不做窗口统计；定时触发属宿主 cron，技能只提供可重复执行的输入定义与输出形态。"
+      },
+      "en": {
+        "name": "Shock stream watch",
+        "summary": "Wire shocks: filters the stream by source and shock type: lists, counts, period comparisons, health levels; delays flagged possibly incomplete; no forecasts or window stats; cron is host-side."
+      },
+      "ja": {
+        "name": "ショックウォッチ",
+        "summary": "Wire情報ショック追跡：ソースとショック類型で情報流を絞り込み、一覧・ソース別件数・期間比較・健全度水位を出力。遅延・停止は「情報が不完全の可能性」と明記。予告・影響予測・窓統計はしない。定時実行は宿主のcron担当。"
+      },
+      "es": {
+        "name": "Vigilancia de choques",
+        "summary": "Choques Wire: filtra el flujo por fuente y tipo de choque: listado, conteos, comparación y salud de fuentes; demoras marcadas como posiblemente incompletas; sin pronósticos; cron del anfitrión."
+      },
+      "fr": {
+        "name": "Veille de chocs",
+        "summary": "Chocs Wire : filtre le flux par source et type : liste, comptes, comparaisons, santé des sources ; retards notés « possiblement incomplets » ; sans prévisions ; cron de l’hôte."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

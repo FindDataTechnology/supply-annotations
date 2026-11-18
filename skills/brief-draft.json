@@ -1,0 +1,32 @@
+{
+  "skill": "brief-draft",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "简报起草",
+        "summary": "按名称推断为起草简报类内容的技能，具体行为以服务端返回为准。"
+      },
+      "en": {
+        "name": "Brief drafting",
+        "summary": "Inferred from the name as a brief-drafting skill; actual behavior is subject to the server response."
+      },
+      "ja": {
+        "name": "ブリーフ起草案",
+        "summary": "名称から推測した起草系の技能であり、実際の動作はサーバーの応答による。"
+      },
+      "es": {
+        "name": "Redacción de informes",
+        "summary": "Inferida del nombre como habilidad de redacción de informes; el comportamiento real depende de la respuesta del servidor."
+      },
+      "fr": {
+        "name": "Rédaction de note",
+        "summary": "Déduite du nom comme compétence de rédaction de notes ; le comportement réel dépend de la réponse du serveur."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

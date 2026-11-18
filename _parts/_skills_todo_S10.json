@@ -1,0 +1,26 @@
+{
+ "origin": "registry",
+ "names": [
+  "sentiment-signal-bridge",
+  "sentiment-trend-watch",
+  "shock-detection",
+  "shock-reading",
+  "shock-watch",
+  "shock-window",
+  "simplified-summary-procedure",
+  "special-criminal-procedures",
+  "spider-heal-generate",
+  "spider-heal-notify",
+  "spider-heal-protocol",
+  "spider-heal-repair",
+  "statistical-analysis",
+  "statistical-inference",
+  "statsmodels",
+  "statute-case-retrieval",
+  "statute-lifecycle-tracker",
+  "statute-validity-check",
+  "stock-analysis",
+  "stock-correlation",
+  "stock-research-workflow"
+ ]
+}

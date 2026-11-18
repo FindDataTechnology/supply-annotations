@@ -1,0 +1,32 @@
+{
+  "skill": "sentiment-trend-watch",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "舆情转向盯梢",
+        "summary": "柏讯舆情驱动的舆情转向追踪：按公告发布日排布分数，给出逐期分布与转向点（附对应文档），强制报告覆盖面与置信度两栏；样本不足时明示不下转向结论，不给情绪指数与交易信号。"
+      },
+      "en": {
+        "name": "Sentiment trend watch",
+        "summary": "Scores by announcement date, per-period distributions, turning points with documents, coverage and confidence columns; few samples means no turning-point conclusion; no sentiment index or signals."
+      },
+      "ja": {
+        "name": "世論転換ウォッチ",
+        "summary": "世論駆動の転換点トラッキング：公告発表日に沿ってスコアを並べ、各期の分布と転換点（対応文書付き）を出し、カバレッジと信頼度の2列を必ず報告。サンプル不足では転換の結論を出さないと明示し、センチメント指数や取引シグナルは出しません。"
+      },
+      "es": {
+        "name": "Vigilancia de tendencia de opinión",
+        "summary": "Puntuaciones por fecha de anuncio, distribuciones por periodo, puntos de giro con documentos, columnas de cobertura y confianza; muestras insuficientes: sin conclusión de giro; sin índice ni señales."
+      },
+      "fr": {
+        "name": "Veille de tendance d'opinion",
+        "summary": "Scores par date d'annonce, distributions par période, points de retournement avec documents, colonnes couverture/confiance ; échantillon insuffisant : pas de conclusion ; sans indice ni signaux."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "spider-heal-generate",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "爬虫生成执行",
+        "summary": "爬虫自愈体系的生成执行（kind=generate）：为 greenfield 新建单元按模板起步接入、实现取数，遵守 golden 样本跨期稳定纪律，health_verify 验证循环不超过 3 轮，并在 gen/<slug> 分支开 PR。"
+      },
+      "en": {
+        "name": "Crawler unit generation",
+        "summary": "Generation run (kind=generate): greenfield unit from templates, fetch implemented, golden-sample cross-period stability, health_verify loop ≤3 rounds, PR from gen/<slug> branch."
+      },
+      "ja": {
+        "name": "スパイダー生成実行",
+        "summary": "クローラー自己修復体系の生成実行（kind=generate）：greenfieldの新ユニットをテンプレから起こして取得処理を実装し、goldenサンプルの期跨ぎ安定規律を守り、health_verifyループ3回以内でgen/<slug>ブランチからPRを作成する。"
+      },
+      "es": {
+        "name": "Generación de unidades rastreadoras",
+        "summary": "Generación (kind=generate): unidad nueva desde plantillas, extracción implementada, muestras golden estables entre períodos, health_verify hasta 3 rondas, PR desde gen/<slug>."
+      },
+      "fr": {
+        "name": "Génération d’unités de robot",
+        "summary": "Génération (kind=generate) : unité neuve par gabarit, collecte implémentée, échantillons golden stables entre périodes, health_verify en 3 passages max, PR depuis gen/<slug>."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

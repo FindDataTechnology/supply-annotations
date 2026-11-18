@@ -1,0 +1,32 @@
+{
+  "skill": "ic-bear-case",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "投委会空头立论",
+        "summary": "投委会辩论三角色之一：构建空头立论，回答“有什么理由不买”、指出多头论证的薄弱处；不取数、不计算、不裁决，数字只能引用证据集 evidence_id，异议须以新证据或适用边界提出。"
+      },
+      "en": {
+        "name": "Investment committee bear case",
+        "summary": "The bear-side role: builds the case for not buying and where the bull case is weak; no data or computation, numbers cite evidence_id only, objections via new evidence or scope limits."
+      },
+      "ja": {
+        "name": "投資委員会ベアケース",
+        "summary": "ディベート三役の一つ：買いを見送る理由とブルケースの弱点を示すベアケースを構築。データ取得も計算も行わず、数値は evidence_id の引用のみ。異論は新規根拠か適用限界で示す。"
+      },
+      "es": {
+        "name": "Caso bajista del comité de inversión",
+        "summary": "El rol bajista del debate: construye el caso para no comprar y dónde flaquea el alcista; sin datos ni cálculos, cifras solo con evidence_id, objeciones vía evidencia nueva o límites de aplicación."
+      },
+      "fr": {
+        "name": "Cas baissier du comité d'investissement",
+        "summary": "Le rôle baissier : construit le cas pour ne pas acheter et où le haussier faiblit ; sans données ni calculs, chiffres via evidence_id uniquement, objections par preuve nouvelle ou limites."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

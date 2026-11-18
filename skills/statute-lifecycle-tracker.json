@@ -1,0 +1,32 @@
+{
+  "skill": "statute-lifecycle-tracker",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "法规效力追踪",
+        "summary": "法规效力生命周期追踪与所在层级查证：逐条核验效力状态（有效、已修改、已废止、尚未生效、未知），核对是否被后续修法改动，可盘点某一领域现行有效法规存量；发布日期与失效日期字段不可用时如实声明，不做趋势推断。"
+      },
+      "en": {
+        "name": "Statute lifecycle tracker",
+        "summary": "Verifies per-item validity (current, amended, repealed, pending, unknown), checks amendments, inventories in-force corpus by field; publish/repeal dates absent; no trend inference."
+      },
+      "ja": {
+        "name": "法令効力トラッカー",
+        "summary": "法令の効力ライフサイクル追跡と階層確認：効力状態（有効・改正済・廃止・未施行・不明）を逐条検証し、後続改正による変更を確認、分野別の現行有効法規を棚卸しする。公布日・失効日フィールドは欠落と明示し、傾向推断はしない。"
+      },
+      "es": {
+        "name": "Seguimiento de vigencia normativa",
+        "summary": "Verifica vigencia (vigente, modificada, derogada, sin efecto, desconocida), reformas posteriores, inventario vigente por área; fechas de publicación/caducidad no disponibles; sin tendencia."
+      },
+      "fr": {
+        "name": "Suivi de validité des textes légaux",
+        "summary": "Valide chaque texte (en vigueur, modifié, abrogé, non applicable, inconnu), contrôle les réformes, inventorie le corpus en vigueur par domaine ; dates d’édition/sortie absentes ; sans tendance."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

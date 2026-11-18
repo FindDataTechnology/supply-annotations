@@ -1,0 +1,32 @@
+{
+  "skill": "eco-slack-gif-creator",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "群聊动图创建",
+        "summary": "生态技能包：制作 Slack 用的动图，内置尺寸与体积约束及校验工具。"
+      },
+      "en": {
+        "name": "Group-chat GIF maker",
+        "summary": "Ecosystem skill pack: builds GIFs for Slack with size and weight constraints and validation tools."
+      },
+      "ja": {
+        "name": "グループチャット用アニメ画像作成",
+        "summary": "エコシステム系スキル。Slack 用の動く画像を作る。サイズと容量の制約と検証ツール付き。"
+      },
+      "es": {
+        "name": "Creador de imágenes animadas para chats",
+        "summary": "Habilidad del ecosistema: crea GIF para Slack con límites de dimensiones y peso, más herramientas de validación."
+      },
+      "fr": {
+        "name": "Créateur d'images animées pour le chat",
+        "summary": "Compétence de l'écosystème : crée des GIF pour Slack avec contraintes de taille et de poids et outils de validation."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

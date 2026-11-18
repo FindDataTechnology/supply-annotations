@@ -1,0 +1,32 @@
+{
+  "skill": "chain-beneficiary",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "产业链受益分析",
+        "summary": "柏讯产业链联动的环节受益分析：把已验证的传导结论转化为可执行候选股票池与目标权重，支持权重模式回测；每个候选回指一条已验证传导结论，未验证环节不作依据，不预测价格与涨跌。"
+      },
+      "en": {
+        "name": "Industry chain beneficiary analysis",
+        "summary": "Wire chain beneficiary analysis: turns verified transmission findings into an executable candidate universe with target weights, backtestable; unverified links unused; no price forecasts."
+      },
+      "ja": {
+        "name": "産業チェーン受益分析",
+        "summary": "Wire産業チェーン連動のセクション受益分析。検証済み伝導結論を実行可能な候補ユニバースと目標ウェイトに変換し、ウェイト方式でバックテスト可能。各候補は検証済み結論に紐付き、未検証段階は根拠にしない。価格・騰落の予測はしない。"
+      },
+      "es": {
+        "name": "Análisis de beneficiarios de la cadena industrial",
+        "summary": "Análisis Wire de eslabones beneficiarios: convierte conclusiones de transmisión verificadas en candidatos ejecutables con pesos objetivo para backtest; ignora eslabones sin verificar; sin pronósticos."
+      },
+      "fr": {
+        "name": "Analyse des bénéficiaires de la chaîne industrielle",
+        "summary": "Analyse Wire des maillons bénéficiaires : convertit les conclusions de transmission vérifiées en candidats pondérés testables en backtest ; maillons non vérifiés écartés ; sans prévision."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

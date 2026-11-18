@@ -1,0 +1,32 @@
+{
+  "skill": "company-valuation",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "公司估值",
+        "summary": "用 DCF、相对估值（同业倍数）与分部加总（SOTP）三种方法估算上市公司内在价值，交叉验证得出隐含股价及相对现价的上行或下行空间。"
+      },
+      "en": {
+        "name": "Company valuation",
+        "summary": "Estimates a public company's intrinsic value with DCF, peer multiples and sum-of-parts (SOTP), then triangulates an implied share price with upside or downside versus the current price."
+      },
+      "ja": {
+        "name": "企業バリュエーション",
+        "summary": "DCF、相対評価（類似企業倍率）、部門加算（SOTP）で上場企業の内在価値を推定し、照合して現在株価に対する上振れ・下振れ込みの理論株価を算出する。"
+      },
+      "es": {
+        "name": "Valoración de empresas",
+        "summary": "Estima el valor intrínseco de una cotizada con DCF, múltiplos de comparables y suma de partes (SOTP), y triangula un precio implícito con recorrido alcista o bajista frente al precio actual."
+      },
+      "fr": {
+        "name": "Valorisation d'entreprise",
+        "summary": "Estime la valeur intrinsèque d'une cotée par DCF, multiples de pairs et somme des parties (SOTP), puis triangule un prix implicite avec un potentiel de hausse ou de baisse par rapport au cours actuel."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "sentiment-signal-bridge",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "舆情信号桥接",
+        "summary": "柏讯舆情驱动的描述性对照：把舆情分数分布的时间位置与价格/持仓的时间位置并排，说清先后与是否同期，并强制标注样本是否足以支持描述性陈述；严禁买卖建议、严禁把舆情称作信号；价格通道或账本不可用时明示降级。"
+      },
+      "en": {
+        "name": "Sentiment signal bridge",
+        "summary": "Wire sentiment: aligns score timing with price/holdings descriptively, states lead-lag or sync, flags sample adequacy; no advice or signal label; degradation stated when feed or ledger is down."
+      },
+      "ja": {
+        "name": "世論信号橋渡し",
+        "summary": "Wire世論駆動の記述的対照：スコア分布の時間位置と価格・保有の時間位置を並べ、先行・同期を明示し、標本の十分性を必ず注記する。売買助言禁止、世論をシグナルと呼ぶことも禁止。価格経路や台帳が利用不可なら降格を明示。"
+      },
+      "es": {
+        "name": "Puente de señales de opinión pública",
+        "summary": "Contraste Wire: tiempos de puntuaciones frente a precio/cartera, con adelanto o sincronía y suficiencia muestral; sin consejos ni etiquetas de señal; aviso si falta flujo o registro."
+      },
+      "fr": {
+        "name": "Pont de signaux d’opinion publique",
+        "summary": "Contraste Wire : aligne temps des scores et cours/détentions, avance ou simultanéité, suffisance d’échantillon ; ni conseil ni étiquette de signal ; absence de flux ou registre annoncée."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

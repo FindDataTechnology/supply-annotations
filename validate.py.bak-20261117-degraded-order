@@ -1,0 +1,558 @@
+#!/usr/bin/env python3
+"""供给注释校验器（只读，不写任何注释文件）。
+
+五道门，任何一道失败即非零退出并点名：
+
+  1. 形状      —— 复用 paas lib/supply-annotations.js 的等价规则
+                  （human.zh 必填、name≤60 / summary≤200 / whenToUse≤160 / brief≤300）
+  2. 键对齐    —— server == 文件名 == registry name；tools 键 ⊆ 上游工具名
+  3. 覆盖      —— tools 键集合 == registry tool_list 名字集合（缺/多都红）
+  4. 五语      —— 每轨必须有 zh/en/ja/es/fr；server 级有 whenToUse
+  5. 禁辞      —— 绝对化表述与禁用别名
+
+工具面取数：默认从生产 registry 只读取（与 scripts/reconcile_mcp_registry.py 同法）；
+离线用 --no-registry 退回 _sources 快照。
+
+用法：
+    python3 supply-annotations/validate.py
+    python3 supply-annotations/validate.py --only fd-quant
+    python3 supply-annotations/validate.py --no-registry
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import re
+import subprocess
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent
+MCP_DIR = ROOT / "mcp"
+SKILLS_DIR = ROOT / "skills"
+SRC_DIR = ROOT / "_sources"
+
+LOCALES = ["zh", "en", "ja", "es", "fr"]
+NAME_MAX, SUMMARY_MAX, WHEN_MAX, BRIEF_MAX = 60, 200, 160, 300
+
+#: skill 域（add-skill-supply-annotations）：两域 origin 与快照锚
+SKILL_ORIGINS = ("registry", "yizuo-file")
+SKILL_ANCHOR_FILES = {
+    "registry": SRC_DIR / "skills.registry.json",
+    "yizuo-file": SRC_DIR / "skills.yizuo-file.json",
+}
+#: 2.4 快照陈旧告警窗口（天）——告警不红
+SNAPSHOT_STALE_DAYS = 14
+
+#: 绝对化表述（与 docs/marketing/audit.py 同款口径的收窄版）
+BANNED_PATTERNS = [
+    "最好", "最强", "唯一", "第一", "绝对", "100%", "零风险", "必赚", "稳赚",
+    "best ", "the only", "number one", "#1", "guaranteed", "risk-free", "zero risk",
+    "最高", "最全", "首创", "独家",
+]
+#: glossary §7 禁用别名（按条目文本整体命中）
+BANNED_ALIASES = ["舰队", "工具集", "数据仓库", "接口文档"]
+
+#: task 2.5 哨兵：readOnlyHint=true 的工具，注释不得断言「写持久状态」。
+#: 动词表保守收窄（只收无争议的状态写入义；「生成/返回/输出」是产出不是写状态；
+#: 「覆盖」单独命中多为「覆盖度/覆盖信息」名词义，只收「覆盖写入」）。
+WRITE_VERBS_ZH = [
+    "写入", "保存", "落盘", "持久化", "删除", "清除", "清空", "抹除", "修改",
+    "发布", "上架", "下架", "订阅", "退订", "停用", "吊销", "撤销", "重试",
+    "回滚", "更正", "登记", "落账", "记账", "下单", "撤单", "铸造",
+    "挂载", "安装", "卸载", "导入", "覆盖写入",
+]
+WRITE_VERBS_EN = [
+    "write", "save", "persist", "delete", "remove", "destroy", "modify",
+    "publish", "subscribe", "unsubscribe", "revoke", "retry", "revert",
+    "mint", "install", "uninstall", "import", "overwrite",
+]
+
+#: 命中前先剥掉的被动/名词语态（「保存済み/已保存/发布时间」描述既有状态或时间属性，
+#: 不是本工具的写动作）；剥完再匹配动词。
+PASSIVE_NOUNS = [
+    "保存済み", "保存された", "已保存", "已存",
+    "发布时间", "发布日期", "publish time", "publish date", "published",
+]
+
+#: 已知误报白名单：(entry, leaf, verb) —— 语义确属产出而非写状态时在此豁免并注因
+WRITE_VERB_EXEMPT: set[tuple[str, str, str]] = set()
+
+#: registry 读面的定位。pod 名**不写死**——写死会在每次滚动后静默失配，
+#: 而失配的回退是 `_sources` 快照，于是「上游缺工具」的红是旧快照的红，
+#: 不是 registry 的红（2026-11-08 实测：pod 名与 context 双双过期，
+#: 校验一直离线跑，酒店五工具被误判为「上游没有」）。
+_KUBECTL_NS = "mcp-registry"
+_KUBECTL_CTX = os.environ.get("FD_KUBECTL_CTX", "cheap-ts")
+_KUBECTL_SELECTOR = "app.kubernetes.io/name=registry"
+
+
+def fail(errors: list[str], msg: str) -> None:
+    errors.append(msg)
+
+
+def check_track(track: dict, entry: str, require_when: bool, errors: list[str]) -> None:
+    if not isinstance(track, dict):
+        fail(errors, f"{entry}: track 不是对象")
+        return
+    for key in track:
+        if key not in ("name", "summary", "whenToUse"):
+            fail(errors, f"{entry}: 未知键 '{key}'（只允许 name/summary/whenToUse）")
+    name, summary = track.get("name"), track.get("summary")
+    if not isinstance(name, str) or not name.strip() or len(name) > NAME_MAX:
+        fail(errors, f"{entry}.name 必须是 1..{NAME_MAX} 字符的字符串")
+    if not isinstance(summary, str) or not summary.strip() or len(summary) > SUMMARY_MAX:
+        fail(errors, f"{entry}.summary 必须是 1..{SUMMARY_MAX} 字符的字符串")
+    when = track.get("whenToUse")
+    if require_when:
+        if not isinstance(when, str) or not when.strip() or len(when) > WHEN_MAX:
+            fail(errors, f"{entry}.whenToUse 必须是 1..{WHEN_MAX} 字符的字符串（server 级必填）")
+    elif when is not None:
+        fail(errors, f"{entry}.whenToUse 工具级不写（server 级才写）")
+
+
+# ── skill 域（add-skill-supply-annotations）──────────────────────────────────
+
+def check_skill_track(track: dict, where: str, errors: list[str]) -> None:
+    """skill 轨：同 MCP 形状，但 whenToUse 可选（skill 级何时用写出来更有意义）。"""
+    if not isinstance(track, dict):
+        fail(errors, f"{where}: track 不是对象")
+        return
+    for key in track:
+        if key not in ("name", "summary", "whenToUse"):
+            fail(errors, f"{where}: 未知键 '{key}'（只允许 name/summary/whenToUse）")
+    name, summary = track.get("name"), track.get("summary")
+    if not isinstance(name, str) or not name.strip() or len(name) > NAME_MAX:
+        fail(errors, f"{where}.name 必须是 1..{NAME_MAX} 字符的字符串")
+    if not isinstance(summary, str) or not summary.strip() or len(summary) > SUMMARY_MAX:
+        fail(errors, f"{where}.summary 必须是 1..{SUMMARY_MAX} 字符的字符串")
+    when = track.get("whenToUse")
+    if when is not None and (not isinstance(when, str) or not when.strip() or len(when) > WHEN_MAX):
+        fail(errors, f"{where}.whenToUse 写了就必须是 1..{WHEN_MAX} 字符的字符串")
+
+
+def skill_anchor_names(origin: str) -> set[str] | None:
+    """域锚：快照里的技能名全集。缺快照文件返回 None（覆盖门退化为告警）。"""
+    p = SKILL_ANCHOR_FILES.get(origin)
+    if not p or not p.exists():
+        return None
+    try:
+        doc = json.loads(p.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return None
+    return {s["name"] for s in doc.get("skills", []) if isinstance(s, dict) and s.get("name")}
+
+
+def snapshot_age_days(origin: str) -> int | None:
+    p = SKILL_ANCHOR_FILES.get(origin)
+    if not p or not p.exists():
+        return None
+    try:
+        doc = json.loads(p.read_text(encoding="utf-8"))
+        gen = doc.get("generatedAt", "")
+        # generatedAt 形如 2026-11-04T...Z
+        import datetime as _dt
+        gen_dt = _dt.datetime.fromisoformat(gen.replace("Z", "+00:00"))
+        return (_dt.datetime.now(_dt.timezone.utc) - gen_dt).days
+    except Exception:
+        return None
+
+
+def validate_skill_entry(name: str, doc: dict, anchor: str | None, errors: list[str]) -> None:
+    """一条 skill 注释文件的形状 + 键对齐校验（覆盖门在域层跑）。"""
+    origin = doc.get("origin")
+    if origin not in SKILL_ORIGINS:
+        fail(errors, f"{name}: origin 缺失或非法（只允许 {'/'.join(SKILL_ORIGINS)}）")
+        return
+    if anchor is not None and name not in anchor:
+        fail(errors, f"{name}: 技能键不在 {origin} 域快照中（多余或拼错）")
+    if doc.get("skill") != name:
+        fail(errors, f"{name}: skill 字段 '{doc.get('skill')}' 与文件名不一致")
+    ann = doc.get("annotation")
+    if not isinstance(ann, dict):
+        fail(errors, f"{name}: 缺 annotation")
+        return
+    human = ann.get("human")
+    if not isinstance(human, dict) or not isinstance(human.get("zh"), dict):
+        fail(errors, f"{name}: annotation.human.zh 主轨必填")
+        return
+    for loc in LOCALES:
+        if loc not in human:
+            fail(errors, f"{name}.human 缺 {loc} 轨")
+        else:
+            check_skill_track(human[loc], f"{name}.human.{loc}", errors)
+            for v in human[loc].values():
+                if isinstance(v, str):
+                    scan_text(v, f"{name}.human.{loc}", errors)
+    for loc in human:
+        if loc not in LOCALES:
+            fail(errors, f"{name}.human 出现未知 locale '{loc}'")
+    canon = ann.get("canonical")
+    if canon is not None:
+        if not isinstance(canon, dict) or not isinstance(canon.get("brief"), str) or not canon["brief"].strip():
+            fail(errors, f"{name}.canonical 写了就必须是 {{brief: 非空字符串}} 对象")
+        elif len(canon["brief"]) > BRIEF_MAX:
+            fail(errors, f"{name}.canonical.brief 超过 {BRIEF_MAX} 字符")
+    prov = ann.get("provenance")
+    if not isinstance(prov, dict) or not str(prov.get("source") or "").strip():
+        fail(errors, f"{name}.provenance.source 必填")
+
+
+def validate_skills_domain(errors: list[str], warnings: list[str]) -> dict:
+    """skill 两域：逐文件校验 + 分域覆盖门 + 快照陈旧告警。返回统计。"""
+    stats = {"files": 0, "by_origin": {"registry": 0, "yizuo-file": 0}}
+    if not SKILLS_DIR.exists():
+        for origin in SKILL_ORIGINS:
+            anchor = skill_anchor_names(origin)
+            if anchor:
+                fail(errors, f"skill 覆盖缺 {len(anchor)} 个技能（{origin} 域无任何注释文件）: {', '.join(sorted(anchor)[:8])}…")
+        return stats
+
+    files = sorted(SKILLS_DIR.glob("*.json"))
+    by_origin: dict[str, set[str]] = {o: set() for o in SKILL_ORIGINS}
+    for p in files:
+        name = p.stem
+        try:
+            doc = json.loads(p.read_text(encoding="utf-8"))
+        except Exception as e:
+            fail(errors, f"{name}: JSON 解析失败: {e}")
+            continue
+        origin = doc.get("origin")
+        if origin in SKILL_ORIGINS:
+            by_origin[origin].add(name)
+            stats["by_origin"][origin] += 1
+        stats["files"] += 1
+        anchor = skill_anchor_names(origin) if origin in SKILL_ORIGINS else None
+        validate_skill_entry(name, doc, anchor, errors)
+        ok = not any(e.startswith(name) for e in errors)
+        print(f"  [skill:{origin or '?'}] {name:40} {'✓' if ok else '✗'}")
+
+    # 分域覆盖门：键集合 == 快照全集（缺/多两侧点名）；缺快照文件时告警不红
+    for origin in SKILL_ORIGINS:
+        anchor = skill_anchor_names(origin)
+        if anchor is None:
+            warnings.append(f"{origin} 域快照缺失（_sources/skills.{origin}.json），覆盖门跳过")
+            continue
+        got = by_origin[origin]
+        missing = sorted(anchor - got)
+        extra = sorted(got - anchor)
+        if missing:
+            fail(errors, f"skill 覆盖缺 {len(missing)} 个技能（{origin} 域）: {', '.join(missing[:8])}{'…' if len(missing) > 8 else ''}")
+        if extra:
+            fail(errors, f"skill 注释多出 {len(extra)} 个技能（{origin} 域）: {', '.join(extra[:8])}{'…' if len(extra) > 8 else ''}")
+        age = snapshot_age_days(origin)
+        if age is not None and age > SNAPSHOT_STALE_DAYS:
+            warnings.append(f"{origin} 域快照已 {age} 天未更新（窗口 {SNAPSHOT_STALE_DAYS} 天）——重取清单快照以保鲜覆盖门")
+    return stats
+
+
+def manifest_hints(entry: str) -> dict[str, dict] | None:
+    """条目对应仓的 tool-surface.json tool_annotations（readOnlyHint 等）。无则 None。"""
+    for cand in (ROOT.parent / entry, ROOT.parent / "facet-ops-mcp"):
+        p = cand / "tool-surface.json"
+        if p.exists():
+            try:
+                doc = json.loads(p.read_text(encoding="utf-8"))
+            except (OSError, ValueError):
+                return None
+            ta = doc.get("tool_annotations")
+            return ta if isinstance(ta, dict) else None
+    return None
+
+
+def check_manifest_consistency(entry: str, tools: dict, errors: list[str]) -> None:
+    """task 2.5：readOnlyHint=true 的工具，其五语 name/summary 与 brief 不得断言写状态。"""
+    hints = manifest_hints(entry)
+    if not hints:
+        return
+    for leaf, ann in tools.items():
+        hint = hints.get(leaf)
+        if not isinstance(hint, dict) or hint.get("readOnlyHint") is not True:
+            continue
+        texts: list[tuple[str, str]] = []  # (字段路径, 文本)
+        for loc in LOCALES:
+            track = (ann.get("human") or {}).get(loc) or {}
+            texts.append((f"human.{loc}.name", str(track.get("name") or "")))
+            texts.append((f"human.{loc}.summary", str(track.get("summary") or "")))
+        brief = str((ann.get("canonical") or {}).get("brief") or "")
+        texts.append(("canonical.brief", brief))
+        for field, raw in texts:
+            text = raw
+            for noun in PASSIVE_NOUNS:
+                text = text.replace(noun, "")
+            for verb in WRITE_VERBS_ZH:
+                if verb in text and (entry, leaf, verb) not in WRITE_VERB_EXEMPT:
+                    fail(errors, f"{entry}.tools['{leaf}'].{field}: 只读工具命中写状态动词 '{verb}': {text[:60]}")
+            low = text.lower()
+            for verb in WRITE_VERBS_EN:
+                if re.search(rf"\b{verb}\b", low) and (entry, leaf, verb) not in WRITE_VERB_EXEMPT:
+                    fail(errors, f"{entry}.tools['{leaf}'].{field}: 只读工具命中写状态动词 '{verb}': {text[:60]}")
+
+
+def scan_text(text: str, where: str, errors: list[str]) -> None:
+    low = text.lower()
+    for pat in BANNED_PATTERNS:
+        if pat.lower() in low:
+            fail(errors, f"{where}: 命中绝对化表述 '{pat}'")
+    for alias in BANNED_ALIASES:
+        if alias in text:
+            fail(errors, f"{where}: 命中禁用别名 '{alias}'（见 glossary §7）")
+
+
+def load_source(entry: str) -> dict:
+    p = SRC_DIR / f"{entry}.tools.json"
+    if not p.exists():
+        return {}
+    return json.loads(p.read_text(encoding="utf-8"))
+
+
+#: 工具面取数的两条腿，顺序即优先级。
+#:
+#: spine 投影是 registry 现在**实际对外服务**的读面（add-supply-store-unification
+#: 2.1 起的 SPINE_REPLICA_MODE=1）；mongo `mcp_servers_default` 是切换前的副本，
+#: 切换后不再完备（2026-11-08 实测：spine 27 条 / mongo 26 条，后加的
+#: /fd-erp-ledger-mcp 只在 spine）。读旧副本会让「上游缺工具」的红指向一个
+#: 已经不再服务请求的库。
+_SPINE_SCRIPT = r"""
+import os, json, urllib.request
+url = os.environ['SPINE_PROJECTION_URL'].rstrip('/') + '/api/supply-store/projection'
+req = urllib.request.Request(url, headers={'Authorization': 'Bearer ' + os.environ['SPINE_PROJECTION_TOKEN']})
+d = json.load(urllib.request.urlopen(req, timeout=30))
+out = {}
+for s in d.get('mcpServers') or []:
+    sid = str(s.get('id') or '').lstrip('/')
+    if not sid:
+        continue
+    out[sid] = [(t.get('name') if isinstance(t, dict) else str(t)) for t in (s.get('tool_list') or [])]
+print(json.dumps({'source': 'spine', 'asOf': d.get('asOf'), 'servers': out}))
+"""
+
+_MONGO_SCRIPT = r"""
+import os, json
+from pymongo import MongoClient
+u=os.environ['DOCUMENTDB_USERNAME']; p=os.environ['DOCUMENTDB_PASSWORD']
+h=os.environ['DOCUMENTDB_HOST']; port=os.environ['DOCUMENTDB_PORT']; dbn=os.environ['DOCUMENTDB_DATABASE']
+c=MongoClient(f'mongodb://{u}:{p}@{h}:{port}/{dbn}?authSource=admin', serverSelectionTimeoutMS=4000)
+db=c[dbn]
+out={}
+for r in db['mcp_servers_default'].find({}, {'_id':1,'tool_list':1}):
+    name=str(r['_id']).lstrip('/')
+    out[name]=[ (t.get('name') if isinstance(t,dict) else str(t)) for t in (r.get('tool_list') or []) ]
+print(json.dumps({'source': 'mongo', 'asOf': None, 'servers': out}))
+"""
+
+#: 最近一次成功取数的来源描述（main 打印它——「静默回退到快照」不再无声）。
+SOURCE_NOTE = ""
+
+
+def _registry_pod() -> str | None:
+    """按 label 现取 Running 的 registry pod。滚动即变，写死必失配。"""
+    try:
+        proc = subprocess.run(
+            ["kubectl", "--context", _KUBECTL_CTX, "-n", _KUBECTL_NS, "get", "pods",
+             "-l", _KUBECTL_SELECTOR, "--field-selector=status.phase=Running",
+             "-o", "jsonpath={.items[0].metadata.name}"],
+            capture_output=True, text=True, timeout=30,
+        )
+        name = proc.stdout.strip()
+        return name or None
+    except Exception:
+        return None
+
+
+def registry_tools(entries: list[str]) -> dict[str, list[str]] | None:
+    """只读拉取生产 registry 的 tool_list 名字集合（spine 投影优先，mongo 副本兜底）。
+
+    两条腿都失败返回 None —— 调用方据此显式退回 `_sources` 快照并**打印**来源，
+    快照的红就标成快照的红，不再冒充 registry 的红。
+    """
+    global SOURCE_NOTE
+    pod = _registry_pod()
+    if not pod:
+        SOURCE_NOTE = f"registry pod 未取到（context={_KUBECTL_CTX} ns={_KUBECTL_NS}）"
+        return None
+    for script, label in ((_SPINE_SCRIPT, "spine 投影"), (_MONGO_SCRIPT, "mongo 副本")):
+        try:
+            proc = subprocess.run(
+                ["kubectl", "--context", _KUBECTL_CTX, "-n", _KUBECTL_NS, "exec", pod,
+                 "--", "/app/.venv/bin/python3", "-c", script],
+                capture_output=True, text=True, timeout=90,
+            )
+            if proc.returncode != 0:
+                continue
+            payload = json.loads(proc.stdout.strip().splitlines()[-1])
+            servers = payload.get("servers") or {}
+            if not servers:
+                continue
+            as_of = payload.get("asOf")
+            SOURCE_NOTE = f"{label}@{pod}" + (f"（asOf {as_of}）" if as_of else "")
+            return servers
+        except Exception:
+            continue
+    SOURCE_NOTE = f"两条读面皆失败（{pod}）"
+    return None
+
+
+def validate_entry(name: str, doc: dict, upstream_names: list[str] | None, errors: list[str]) -> dict:
+    stats = {"tools": 0, "locales": 0}
+    if doc.get("server") != name:
+        fail(errors, f"{name}: server 字段 '{doc.get('server')}' 与文件名不一致")
+    ann = doc.get("annotation")
+    if not isinstance(ann, dict):
+        fail(errors, f"{name}: 缺 annotation")
+        return stats
+    human = ann.get("human")
+    if not isinstance(human, dict) or not isinstance(human.get("zh"), dict):
+        fail(errors, f"{name}: annotation.human.zh 主轨必填")
+        return stats
+    for loc in LOCALES:
+        if loc not in human:
+            fail(errors, f"{name}.human 缺 {loc} 轨")
+        else:
+            check_track(human[loc], f"{name}.human.{loc}", require_when=True, errors=errors)
+            for v in human[loc].values():
+                if isinstance(v, str):
+                    scan_text(v, f"{name}.human.{loc}", errors)
+    for loc in human:
+        if loc not in LOCALES:
+            fail(errors, f"{name}.human 出现未知 locale '{loc}'")
+    canon = ann.get("canonical")
+    if not isinstance(canon, dict) or not isinstance(canon.get("brief"), str):
+        fail(errors, f"{name}.canonical.brief 必填")
+    elif len(canon["brief"]) > BRIEF_MAX:
+        fail(errors, f"{name}.canonical.brief 超过 {BRIEF_MAX} 字符")
+    prov = ann.get("provenance")
+    if not isinstance(prov, dict) or not str(prov.get("source") or "").strip():
+        fail(errors, f"{name}.provenance.source 必填")
+
+    tools = ann.get("tools") or {}
+    if not isinstance(tools, dict):
+        fail(errors, f"{name}.annotation.tools 必须是对象")
+        return stats
+    stats["tools"] = len(tools)
+    for leaf, tola in tools.items():
+        where = f"{name}.tools['{leaf}']"
+        if upstream_names is not None and leaf not in upstream_names:
+            fail(errors, f"{where}: 该工具不在上游 tool_list 中（多余或拼错）")
+        if not isinstance(tola, dict):
+            fail(errors, f"{where}: 不是对象")
+            continue
+        th = tola.get("human")
+        if not isinstance(th, dict):
+            fail(errors, f"{where}.human 缺失")
+            continue
+        for loc in LOCALES:
+            if loc not in th:
+                fail(errors, f"{where}.human 缺 {loc} 轨")
+            else:
+                check_track(th[loc], f"{where}.human.{loc}", require_when=False, errors=errors)
+                for v in th[loc].values():
+                    if isinstance(v, str):
+                        scan_text(v, f"{where}.human.{loc}", errors)
+        tc = tola.get("canonical")
+        if not isinstance(tc, dict) or not isinstance(tc.get("brief"), str):
+            fail(errors, f"{where}.canonical.brief 必填")
+        elif len(tc["brief"]) > BRIEF_MAX:
+            fail(errors, f"{where}.canonical.brief 超过 {BRIEF_MAX} 字符")
+    check_manifest_consistency(name, tools, errors)
+    # 覆盖门
+    if upstream_names is not None:
+        missing = sorted(set(upstream_names) - set(tools))
+        extra = sorted(set(tools) - set(upstream_names))
+        if missing:
+            fail(errors, f"{name}: 覆盖缺 {len(missing)} 个工具: {', '.join(missing[:8])}{'…' if len(missing) > 8 else ''}")
+        if extra:
+            fail(errors, f"{name}: 注释多出 {len(extra)} 个工具: {', '.join(extra[:8])}{'…' if len(extra) > 8 else ''}")
+    stats["locales"] = len([l for l in LOCALES if l in human]) * (1 + len(tools))
+    return stats
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--only", help="只校验某条目")
+    ap.add_argument("--no-registry", action="store_true", help="不查生产 registry，退回 _sources 快照")
+    args = ap.parse_args()
+
+    files = sorted(MCP_DIR.glob("*.json"))
+    if args.only:
+        files = [p for p in files if p.stem == args.only]
+        if not files:
+            print(f"未找到 {args.only}.json", file=sys.stderr)
+            return 2
+    if not files:
+        print("错误：supply-annotations/mcp/ 下没有任何注释文件", file=sys.stderr)
+        return 2
+
+    live = None if args.no_registry else registry_tools([p.stem for p in files])
+    degraded = False
+    if args.no_registry:
+        source_mode = "_sources 快照（--no-registry 显式指定）"
+    elif live is not None:
+        source_mode = f"registry(生产只读)：{SOURCE_NOTE}"
+    else:
+        # 回退也要点名原因：快照的红不是 registry 的红（2026-11-08 教训）。
+        source_mode = f"_sources 快照（registry 不可读：{SOURCE_NOTE or '未知原因'}）"
+        # retire-orphan-platform-state 4.1/4.3：读不到活来源不得仍输出确定结论。
+        # 旧实现回退后照样「全部校验通过」+ exit 0——快照上的绿与 registry 上的绿
+        # 不可区分，红绿都不可信。现在隐式回退 = degraded=true + exit 2（判不出，
+        # 不是通过也不是失败）；显式 --no-registry 是刻意选择，保持 exit 0。
+        degraded = True
+    print(f"工具面来源：{source_mode}")
+    if degraded:
+        print("degraded=true：registry 不可读，本轮基于 _sources 快照——不构成「通过」；"
+              "确要按快照校验请显式 --no-registry", file=sys.stderr)
+
+    errors: list[str] = []
+    total_tools = 0
+    for p in files:
+        name = p.stem
+        try:
+            doc = json.loads(p.read_text(encoding="utf-8"))
+        except Exception as e:
+            fail(errors, f"{name}: JSON 解析失败: {e}")
+            continue
+        if live is not None:
+            upstream = live.get(name)
+            if upstream is None:
+                fail(errors, f"{name}: registry 中无此条目")
+                upstream = None
+        else:
+            src = load_source(name)
+            upstream = [t["name"] for t in src.get("tools", [])] if src else None
+            if upstream is None:
+                fail(errors, f"{name}: 缺 _sources/{name}.tools.json 且未连 registry")
+        stats = validate_entry(name, doc, upstream, errors)
+        total_tools += stats["tools"]
+        print(f"  {name:32} tools={stats['tools']:>4}  ✓" if not any(e.startswith(name) for e in errors) else f"  {name:32} tools={stats['tools']:>4}  ✗")
+
+    print(f"\n条目 {len(files)}，工具 {total_tools}")
+
+    # ── skill 域（add-skill-supply-annotations）─────────────────────────────
+    warnings: list[str] = []
+    sk_stats = validate_skills_domain(errors, warnings)
+    if sk_stats["files"]:
+        print(
+            f"技能 {sk_stats['files']}"
+            f"（registry {sk_stats['by_origin']['registry']} / yizuo-file {sk_stats['by_origin']['yizuo-file']}）"
+        )
+
+    if warnings:
+        print("告警（不红）：", file=sys.stderr)
+        for w in warnings:
+            print(f"  ! {w}", file=sys.stderr)
+    if errors:
+        print(f"失败 {len(errors)} 项：", file=sys.stderr)
+        for e in errors:
+            print(f"  - {e}", file=sys.stderr)
+        return 1
+    if degraded:
+        print("判不出（degraded）：registry 不可读，快照上没有「通过」可言", file=sys.stderr)
+        return 2
+    print("全部校验通过")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

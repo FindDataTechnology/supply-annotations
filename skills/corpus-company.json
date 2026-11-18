@@ -1,0 +1,32 @@
+{
+  "skill": "corpus-company",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "企业语料库",
+        "summary": "企业语料：介绍寻数是谁，以及双星一底座的产品定位与核心概念。"
+      },
+      "en": {
+        "name": "Company corpus",
+        "summary": "Company corpus: who Finddata is, plus the product positioning and core concepts of the two-stars-one-base layout."
+      },
+      "ja": {
+        "name": "企業コーパス",
+        "summary": "企業コーパス：Finddata とは何か、およびツースター・ワンベースの製品ポジショニングと中核概念の紹介。"
+      },
+      "es": {
+        "name": "Corpus de empresa",
+        "summary": "Corpus de empresa: quién es Finddata, el posicionamiento de producto de dos estrellas y una base y sus conceptos clave."
+      },
+      "fr": {
+        "name": "Corpus d'entreprise",
+        "summary": "Corpus d'entreprise : qui est Finddata, le positionnement produit « deux étoiles, une base » et ses concepts clés."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

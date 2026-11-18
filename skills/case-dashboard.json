@@ -1,0 +1,32 @@
+{
+  "skill": "case-dashboard",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "案件看板",
+        "summary": "律师案件本地零依赖看板服务：案件总览、任务三态看板、期限预警、进度写回，并提供周研判分析；不用于案件实体分析、文书起草与法律研究。"
+      },
+      "en": {
+        "name": "Case dashboard",
+        "summary": "Local zero-dependency case board for lawyers: case overview, three-state task board, deadline alerts, progress write-back and weekly analysis; not for entity analysis, drafting or research."
+      },
+      "ja": {
+        "name": "案件ダッシュボード",
+        "summary": "弁護士向けローカル・ゼロ依存の案件ダッシュボード：案件一覧、タスク三状態ボード、期限アラート、進捗書き戻し、週次分析。実体分析・文書起草・法務調査には使わない。"
+      },
+      "es": {
+        "name": "Panel de casos",
+        "summary": "Panel local sin dependencias: vista general de casos, tareas en tres estados, avisos de plazos, escritura de progreso y análisis semanal; no para análisis de fondo, redacción ni investigación."
+      },
+      "fr": {
+        "name": "Tableau de bord des dossiers",
+        "summary": "Tableau local sans dépendances pour avocats : vue d'ensemble, tâches à trois états, alertes de délais, écriture de progression et analyse hebdo ; hors analyse, rédaction, recherche."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

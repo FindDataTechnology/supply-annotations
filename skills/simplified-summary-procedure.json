@@ -1,0 +1,32 @@
+{
+  "skill": "simplified-summary-procedure",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "刑事简易速裁程序",
+        "summary": "刑事辩护一审阶段分支技能：处理简易程序、速裁程序及普通程序简化审理，重点在认罪认罚案件的程序适用审查、量刑协商、庭审简化、权利保障与时间节点管理。"
+      },
+      "en": {
+        "name": "Summary and expedited criminal procedures",
+        "summary": "First-instance defense branch: summary, expedited and simplified ordinary procedures — applicability review, plea bargaining, streamlined hearing, rights and deadlines in plea leniency cases."
+      },
+      "ja": {
+        "name": "刑事簡易・速裁手続",
+        "summary": "刑事弁護・一審段階の分岐スキル：簡易手続・速裁手続・通常手続の簡易審理を扱い、認罪認罰案件の手続適用審査、量刑協議、審理の簡素化、権利擁護、時期管理を重点とする。"
+      },
+      "es": {
+        "name": "Procedimientos penales simplificados y rápidos",
+        "summary": "Rama de defensa penal en primera instancia: procedimientos simplificados, rápidos y abreviados; revisa aplicabilidad, negociación de pena, juicio simplificado, garantías y plazos; conformidad penal."
+      },
+      "fr": {
+        "name": "Procédures pénales simplifiées et accélérées",
+        "summary": "Branche pénale de première instance : procédures simplifiées et accélérées ; applicabilité, négociation de peine, audience allégée, garanties, délais ; acceptation des poursuites."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

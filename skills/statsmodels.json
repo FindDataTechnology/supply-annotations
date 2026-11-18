@@ -1,0 +1,32 @@
+{
+  "skill": "statsmodels",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "统计模型库",
+        "summary": "基于 Python statsmodels 库的建模工作流：按具体模型类（OLS、GLM、混合效应、ARIMA）估计模型，输出详细诊断、残差与推断结果，适合计量经济与时间序列场景。"
+      },
+      "en": {
+        "name": "Statistical models library",
+        "summary": "Statistical model classes in Python via the statsmodels library (OLS, GLM, mixed models, ARIMA) with detailed diagnostics, residuals and inference; suited to econometrics and time-series work."
+      },
+      "ja": {
+        "name": "統計モデルライブラリ",
+        "summary": "Pythonのstatsmodelsライブラリを使うモデリング：OLS・GLM・混合効果・ARIMAなど具体的なモデルクラスで推定し、詳細な診断・残差・推論を出力。計量経済や時系列に向く。"
+      },
+      "es": {
+        "name": "Biblioteca de modelos estadísticos",
+        "summary": "Modelos estadísticos en Python con la librería statsmodels (OLS, GLM, mixtos, ARIMA) con diagnósticos detallados, residuos e inferencia; indicada para econometría y series temporales."
+      },
+      "fr": {
+        "name": "Bibliothèque de modèles statistiques",
+        "summary": "Modèles statistiques en Python via la bibliothèque statsmodels (OLS, GLM, modèles mixtes, ARIMA) avec diagnostics détaillés, résidus et inférence ; adaptée à l’économétrie et aux séries temporelles."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

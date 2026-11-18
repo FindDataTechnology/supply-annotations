@@ -1,0 +1,32 @@
+{
+  "skill": "earnings-recap",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "财报复盘摘要",
+        "summary": "用 Yahoo Finance 数据生成任意股票的财报后复盘：超预期或低于预期的业绩解读、股价反应与财报回顾要点。"
+      },
+      "en": {
+        "name": "Post-earnings recap",
+        "summary": "Generates a post-earnings analysis for any stock from Yahoo Finance data: beat or miss results, the stock reaction and an earnings recap."
+      },
+      "ja": {
+        "name": "決算後ふりかえり",
+        "summary": "Yahoo Finance のデータで任意銘柄の決算後レビューを作成：期待上回り・下回りの分析、株価反応と決算振り返りの要点。"
+      },
+      "es": {
+        "name": "Resumen posterior a resultados",
+        "summary": "Genera con datos de Yahoo Finance un análisis posterior a resultados de cualquier acción: superación o decepción de expectativas, reacción bursátil y repaso de la publicación."
+      },
+      "fr": {
+        "name": "Bilan après publication de résultats",
+        "summary": "Génère via Yahoo Finance une analyse après publication pour tout titre : résultat au-dessus ou sous les attentes, réaction du cours et synthèse des comptes."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

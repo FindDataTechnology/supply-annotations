@@ -1,0 +1,32 @@
+{
+  "skill": "statute-case-retrieval",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "法规案例检索",
+        "summary": "按三层检索法系统性检索法律法规与案例，与前序初步法律分析的请求权路径联动，输出法官版《法律法规及案例汇编》与律师版《法规案例检索报告》双文档，并衔接总控当前事项记录和复盘台账。"
+      },
+      "en": {
+        "name": "Statute and case search",
+        "summary": "Systematic statute/case search via the three-tier method and claim-path analysis; judge-facing compilation plus lawyer-facing search report, wired to matter log and review ledger."
+      },
+      "ja": {
+        "name": "法令判例検索",
+        "summary": "三層検索法による法規・判例の系統的検索。前段の予備分析の請求権パスと連動し、裁判官向け「法規・判例集録」と弁護士向け「検索報告」の二文書を出力し、事項記録と振り返り台帳に接続する。"
+      },
+      "es": {
+        "name": "Búsqueda de normativa y casos",
+        "summary": "Búsqueda sistemática de normativa y casos por el método de tres niveles, ligada a la vía de pretensiones previa; entrega compilación (juez) e informe (abogado), unidos al registro y la revisión."
+      },
+      "fr": {
+        "name": "Recherche de textes légaux et d’affaires",
+        "summary": "Recherche de textes et d’affaires par la méthode à trois niveaux, reliée à la voie de prétentions de l’analyse préalable ; compilation juge, rapport avocat, liés au journal et registre."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

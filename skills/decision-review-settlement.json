@@ -1,0 +1,32 @@
+{
+  "skill": "decision-review-settlement",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "决策复盘到期结算",
+        "summary": "柏讯到期结算复盘：汇总待结算记录、取结算窗序列（价格走本地 DAAS 通道）、触发账本结算，输出判定理由回顾、结算结果与对照评述三段式；持有期未满不强行结算，alpha 为负不等于判断错误。"
+      },
+      "en": {
+        "name": "Decision review settlement",
+        "summary": "Wire settlement review: pulls settlement prices via local DAAS and books pending verdicts; rationale recap, outcome and benchmark; no forced early settlement; negative alpha is not a wrong call."
+      },
+      "ja": {
+        "name": "意思決定ふりかえり満期決済",
+        "summary": "Wire の満期決済ふりかえり：未決済の集計、決済窓の価格取得（ローカル DAAS 経由）、台帳の決済実行、判定理由の回顧・決済結果・ベンチマーク対比の三段出力。期間未満では強制決済せず、アルファのマイナスは誤判断ではない。"
+      },
+      "es": {
+        "name": "Liquidación de revisión de decisiones",
+        "summary": "Liquidación Wire: agrega pendientes, toma precios por DAAS local; razonamiento, resultado y comparación ante la referencia; sin cierre anticipado forzado; una alfa negativa no es error de juicio."
+      },
+      "fr": {
+        "name": "Liquidation de revue des décisions",
+        "summary": "Règlement Wire : agrège les en attente, prix via DAAS local ; raisonnement, résultat, comparaison à la référence ; pas de règlement forcé avant échéance ; un alpha négatif n'est pas une erreur."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "legal-harness-init",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "法律环境初始化",
+        "summary": "初始化并治理 AGENTS.md/CLAUDE.md：区分用户级、项目级与团队级指令，生成最小法律安全基线，并验证权限与保密。"
+      },
+      "en": {
+        "name": "Legal harness initialization",
+        "summary": "Initializes and governs AGENTS.md/CLAUDE.md: separates user, project and team instructions, builds a minimal legal safety baseline and verifies permissions and confidentiality."
+      },
+      "ja": {
+        "name": "法律環境初期化",
+        "summary": "AGENTS.md/CLAUDE.md を初期化・管理し、ユーザー・プロジェクト・チーム各レベルの指示を区別して、最小限の法律安全ベースラインを生成し、権限と機密を検証する。"
+      },
+      "es": {
+        "name": "Inicialización del entorno jurídico",
+        "summary": "Inicializa y gobierna AGENTS.md/CLAUDE.md: separa instrucciones de usuario, proyecto y equipo, genera una base mínima de seguridad jurídica y verifica permisos y confidencialidad."
+      },
+      "fr": {
+        "name": "Initialisation de l'environnement juridique",
+        "summary": "Initialise et gouverne AGENTS.md/CLAUDE.md: sépare les instructions utilisateur, projet et équipe, génère une base minimale de sécurité juridique et vérifie permissions et confidentialité."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

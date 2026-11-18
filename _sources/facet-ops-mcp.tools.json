@@ -1,0 +1,33 @@
+{
+ "server_name": "facet-ops-mcp",
+ "description": "谦面市场操作 MCP（五线 AI 操作面 C1）：目录/详情/发布/更新/上下架/查重，用户委托鉴权",
+ "tags": [
+  "security-pending"
+ ],
+ "tools": [
+  {
+   "name": "facet_catalog_browse",
+   "description": "浏览网关 AgentCard 目录（分页/查询）"
+  },
+  {
+   "name": "facet_agent_read",
+   "description": "读网关条目详情"
+  },
+  {
+   "name": "facet_agent_publish",
+   "description": "登记新 AgentCard（写）"
+  },
+  {
+   "name": "facet_agent_update",
+   "description": "更新已有 AgentCard（写）"
+  },
+  {
+   "name": "facet_agent_toggle",
+   "description": "启用/停用网关条目（写）"
+  },
+  {
+   "name": "facet_agent_duplicate_check",
+   "description": "登记前查重（恒 200 advisory）"
+  }
+ ]
+}

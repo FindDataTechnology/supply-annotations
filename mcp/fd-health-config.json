@@ -1,0 +1,69 @@
+{
+ "version": 1,
+ "server": "fd-health-config",
+ "annotation": {
+  "human": {
+   "zh": {
+    "name": "健康巡检配置",
+    "summary": "读取中央库健康巡检的总闸与限流配置，只读。",
+    "whenToUse": "核对巡检是否开启、限流阈值是多少时。"
+   },
+   "en": {
+    "name": "Health config",
+    "summary": "Read the central health-check master switch and rate-limit configuration; read-only.",
+    "whenToUse": "To confirm whether checks are enabled and what the rate limits are."
+   },
+   "ja": {
+    "name": "ヘルス設定",
+    "summary": "中央のヘルスチェックの主スイッチとレート制限設定を読み取ります。読み取り専用です。",
+    "whenToUse": "チェックの有効性やレート制限の値を確認するとき。"
+   },
+   "es": {
+    "name": "Configuración de salud",
+    "summary": "Lectura del interruptor principal de comprobaciones y de los límites de tasa; solo lectura.",
+    "whenToUse": "Para confirmar si las comprobaciones están activas y cuáles son los límites."
+   },
+   "fr": {
+    "name": "Configuration de santé",
+    "summary": "Lecture de l'interrupteur principal des contrôles de santé et des limites de débit ; lecture seule.",
+    "whenToUse": "Pour vérifier si les contrôles sont actifs et quelles sont les limites."
+   }
+  },
+  "canonical": {
+   "brief": "Read-only health/rate-limit configuration MCP: one tool returning the central health-check master switch and rate-limit settings."
+  },
+  "tools": {
+   "health_config_get": {
+    "human": {
+     "zh": {
+      "name": "读巡检配置",
+      "summary": "读取中央库健康巡检配置的全部键值：总闸、每日工单上限、回看小时数、阈值、排除来源、期望周期覆盖与最近变更时间。"
+     },
+     "en": {
+      "name": "Read health config",
+      "summary": "Reads all keys of the central health-check configuration: master switch, daily ticket cap, lookback hours, thresholds, excluded sources, expected-period overrides, and last change time."
+     },
+     "ja": {
+      "name": "ヘルス設定を読取",
+      "summary": "中央のヘルスチェック設定を全キー読み取ります。主スイッチ、日次チケット上限、遡及時間、しきい値、除外ソース、期待周期の上書き、最終変更時刻を含みます。"
+     },
+     "es": {
+      "name": "Leer configuración de salud",
+      "summary": "Lee la configuración central de comprobaciones: interruptor principal, tope diario de tickets, horas de revisión, umbrales, fuentes excluidas, periodo esperado y última modificación."
+     },
+     "fr": {
+      "name": "Lire la configuration santé",
+      "summary": "Lit la configuration centrale des contrôles : interrupteur principal, plafond quotidien de tickets, heures de rétrospection, seuils, sources exclues, période attendue et dernière modification."
+     }
+    },
+    "canonical": {
+     "brief": "Read-only: returns every key of the central health-check configuration (master switch, daily ticket cap, lookback hours, thresholds, excluded sources, expected-period overrides, updated_at)."
+    }
+   }
+  },
+  "provenance": {
+   "source": "finddata-supply-annotations",
+   "updatedAt": "2026-11-02"
+  }
+ }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "civil-first-instance-litigation",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "民事一审诉讼编排",
+        "summary": "民事一审诉讼与破产案件的专业流程编排：整合25个子技能，民事诉讼14项（法律咨询、沟通记录、初步分析、委托合同、法规案例检索、取证与证据管理、立案、可视化、讨论提纲、文书起草、庭前准备、庭审与庭后、调解和解、结案归档），破产10项（破产分析、申请受理、管理人工作、财产调查、债权申报与审查、债权人会议等）。"
+      },
+      "en": {
+        "name": "Civil first-instance litigation orchestration",
+        "summary": "Orchestrates first-instance civil litigation and bankruptcy via 25 sub-skills: 14 civil stages (from consultation, research and filing to trial, mediation and closing) and 10 bankruptcy steps."
+      },
+      "ja": {
+        "name": "民事一審訴訟編成",
+        "summary": "民事一審訴訟と破産事件の専門プロセス編成。下位スキル25を統合：民事訴訟14項目（法律相談、検索・取証、立件、公判、調停和解、結案まで）と破産10項目（分析、申立受理、管理人業務、債権申告まで）。"
+      },
+      "es": {
+        "name": "Litigación civil de primera instancia orquestada",
+        "summary": "Orquesta el litigio civil de primera instancia y la quiebra con 25 sub-habilidades: 14 etapas civiles (de la consulta al cierre) y 10 pasos concursales (análisis, admisión, administrador, créditos)."
+      },
+      "fr": {
+        "name": "Contentieux civil de première instance orchestré",
+        "summary": "Orchestre le contentieux civil de première instance et la faillite via 25 sous-compétences : 14 étapes civiles (de la consultation à l'archivage) et 10 étapes faillitales."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

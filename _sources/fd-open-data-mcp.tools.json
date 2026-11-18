@@ -1,0 +1,355 @@
+{
+  "server_name": "fd-open-data-mcp",
+  "description": "开放数据面（政策/宏观/行业/餐饮/酒店/花卉等族）",
+  "tags": [],
+  "tools": [
+    {
+      "name": "add_entity",
+      "description": "Add a new entity to the registry."
+    },
+    {
+      "name": "add_entity_identifier",
+      "description": "Upsert a per-source entity identifier."
+    },
+    {
+      "name": "add_relationship",
+      "description": "Add a new relationship between two entities."
+    },
+    {
+      "name": "ai_search",
+      "description": "Default search entry point — call this for fuzzy/natural-language discovery.\nSuperset of semantic_search/semantic_search_entities/semantic_search_unified\n(concepts + entities + cached values); do not call those in parallel with this."
+    },
+    {
+      "name": "auth_events",
+      "description": "Identity event stream (crawl_identity_events), newest first: the\nlogin/probe/lease audit trail with the identity (source + account\nalias) attached. Same projection the Console auth panel renders."
+    },
+    {
+      "name": "auth_launch_login",
+      "description": "Launch a login station for an identity (login-station-console).\n\nRegisters/resets the identity as login_required with an egress proxy\n(auto-assigned, or the operator's explicit ``proxy:<id>``), then\nlaunches the station (a headful-browser Job + the panel-gated noVNC\nobservation channel). The login itself happens inside the station: the\noperator completes slider/captcha in the panel's embedded view at\n``vnc_url`` (RELATIVE — open it through the panel with your own\ncredential; no token is embedded and the station is reachable only\nthrough the panel). Station status then advances\nlaunching -> waiting_operator -> completed; see ``auth_status``."
+    },
+    {
+      "name": "auth_request_login",
+      "description": "Register or reset an identity as login_required (the 需登录队列).\n\nOnly writes ``crawl_identities`` + a ``note`` identity_event — the\nlogin itself happens on the login site (headful, via the observation\nchannel); this tool never executes it. An existing identity is reset\n(status -> login_required, lease cleared); a new one is registered\nwith the given automation level (auto | assisted)."
+    },
+    {
+      "name": "auth_status",
+      "description": "Authenticated-crawling identity-pool overview.\n\nPer source: identity count, the five-state status distribution\n(login_required / active / cooldown / banned / retired) and the\ncurrently-leased count; plus pool-level totals and the in-flight\nlogin-station count (``stations.active`` — launching / waiting for\noperator; login-station-console). With ``source``: also the detail\nrows for that source's identities (account, status, automation, last\nlogin/success, zero-run streak, lease view) — an unknown source\nreturns zero totals and empty rows, not an error. Read-only."
+    },
+    {
+      "name": "confirm_binding",
+      "description": "Confirm a binding in the review queue (provenance -> manual)."
+    },
+    {
+      "name": "consume_concepts",
+      "description": "Seed concept families + variables from the protocol vocabulary."
+    },
+    {
+      "name": "coverage_report",
+      "description": "Crawl-coverage gap inventory (read-only)."
+    },
+    {
+      "name": "crawl_status",
+      "description": "Return a structured snapshot of crawl state (on-demand visibility).\n\nAnswers \"what is the scraw doing / what will it crawl\" without a manual\nDB query. Datasource-centric, matching the daily digest. Read-only."
+    },
+    {
+      "name": "crossborder_merchant_status",
+      "description": "Report merchant-authorization status for a cross-border platform connector.\n\nThe inner-ring data channel (store operations, platform bestsellers,\nafter-sales reviews) is merchant-authorization-gated BY DESIGN: the\nconnector reads platform OFFICIAL APIs only, with the merchant's explicit\nstore authorization; scraping is out of contract (triage discipline:\nnever reverse-engineer). Until a merchant completes authorization the\ntool answers with a structured ``unavailable (unauthorized)`` response —\nnever an error object and never a silent empty list, so agents can report\n「不可得（未授权）」 verbatim.\n\nAuthorized deployments register merchant grants via the\n``FD_CROSSBORDER_MERCHANT_AUTH_JSON`` env ({\"<platform>\": {\"authorized\":\ntrue, \"merchant_id\": \"...\", \"scopes\": [...]}}); the same response shape\nthen flips to ``authorized`` with the granted scopes."
+    },
+    {
+      "name": "data_stats",
+      "description": "Observation coverage: a fast aggregate summary, or per-concept detail.\n\nDefault (no arguments): an aggregate summary — ``total_concepts``\n(catalog size), ``covered_concepts`` (routable and crawled, the same\nfigure ``coverage_report`` reports), ``concepts_with_observations``\n(raw distinct concepts holding rows), ``total_stored_rows``,\n``gap_concepts`` / ``stale_concepts``, and a per-entity-type rollup —\nplus a ``stores`` section from the latest data census (local master\nexact + each shard's catalog-based estimate, chunk count, data\ntime-range end). ``total_stored_rows`` counts stored ROWS: sources\ncoexist per point, so two sources on one point count twice; the\nper-concept listing below counts distinct observation points instead.\n\nThe per-concept listing (point count, latest date, distinct sources,\nmost recent fetch) is returned only when narrowed — pass ``concept_id``\nor ``entity_type`` for a filtered listing, or ``detail=True`` for the\nunfiltered one. That listing sweeps the observations table and is\ndeliberately not the default.\n\nRead-only: census rows are READ, never collected (refresh via the panel\naction or the ``census`` CLI). The same data powers the panel's\n``/panel/data`` page."
+    },
+    {
+      "name": "enumerate_wbgapi_indicators",
+      "description": "Enumerate all WDI indicators into columns + concepts + bindings (idempotent)."
+    },
+    {
+      "name": "fetch",
+      "description": "Force a fetch for one (concept, entity, date), bypassing cache freshness."
+    },
+    {
+      "name": "flower_company_financials",
+      "description": "Read a flower company's quarterly financials and flower revenue share\n(read-only).\n\nStored concepts: ``financials.revenue`` / ``financials.operating_profit``\n/ ``financials.net_income``. The flower revenue share comes from the\nuniverse row: ``flower_revenue_share`` is ``null`` when disclosure was\nnot obtained, and the payload then carries ``share_unavailable_reason``.\n``null`` is never rendered as 0 and never ranked.\n\nSegment figures and consolidated figures are **not** additive; this tool\nreturns consolidated financials only and says so."
+    },
+    {
+      "name": "flower_planted_area",
+      "description": "Read AIPH planted-area cross-sections (read-only, annual, hectares).\n\nEvery row carries its **own** reference year (``ref_year``, extracted\nfrom the observation date) because the yearbook mixes editions inside\none workbook (2005–2024). The payload is therefore a cross-section: no\ngrowth rate is computed, and a per-product year range is reported so a\ncaller cannot mistake it for a time series."
+    },
+    {
+      "name": "flower_price_series",
+      "description": "Read one Dounan commodity item's daily market prices (read-only).\n\nCalibers are three separate published values (``avg`` / ``high`` /\n``low``); the average is *not* derived from high/low. The unit comes\nfrom the item entity (元/枝 or 元/把) because one concept covers both —\naveraging across items is therefore forbidden, and this tool never does\nit.\n\nMissing days are missing: the payload reports ``missing_dates`` inside\nthe item's observed span and never interpolates or zero-fills."
+    },
+    {
+      "name": "flower_trade",
+      "description": "Read flower HS6 trade tiers (read-only, annual, USD).\n\nThree tiers exist and are **never merged** (merging hides the product\nmix): ``060311`` fresh roses, ``060319`` other fresh cut flowers,\n``060120`` bulbs/corms/tubers in growth. ``0602`` live ornamental plants\nis a different structure and is not part of this surface.\n\nExport and import are separate flows on purpose: subtracting one from\nthe other mixes FOB and CIF valuation, so the payload reports each flow\nand never derives a net figure here."
+    },
+    {
+      "name": "flower_universe",
+      "description": "List the registered flower universe with per-lane availability.\n\nRead-only. Returns three groups registered under one universe tag: the\n7 monitored listed companies (``pure-flower`` / ``adjacency`` tiers), the\n23 Kunming Dounan commodity items, and the 8 countries that appear in\nthe AIPH planted-area chapter. Every lane carries either a real row\ncount or an explicit unavailable reason — never a zero-valued\nsubstitute for \"not obtained\"."
+    },
+    {
+      "name": "generate_refresh_schedules",
+      "description": "Generate cron schedules for concepts from their indicator_defs.frequency."
+    },
+    {
+      "name": "get_entity",
+      "description": "Look up one entity by exact type+code (ticker AAPL, country CN).\nUse when the code is known; do not use search tools for this."
+    },
+    {
+      "name": "graph_search",
+      "description": "Perform graph-based entity relationship queries using NetworkX."
+    },
+    {
+      "name": "hotel_benchmark",
+      "description": "Industry benchmark side of a hotel comparison — **always unavailable**.\n\nThis tool exists so callers receive a sentence instead of zeros: the\nonly industry benchmark sources (STR / CoStar) are paid and are not\nwired into this platform. It never returns a peer average as a\nsubstitute, and never returns 0."
+    },
+    {
+      "name": "hotel_company_events",
+      "description": "Read one company's disclosure events (read-only, event plane only).\n\nHKEX title events and SEC EDGAR filing events. No headline numbers are\nextracted from announcement bodies (they are structure-less PDFs), so\nthis tool never invents revenue or profit from a title."
+    },
+    {
+      "name": "hotel_kpi",
+      "description": "Read one company's RevPAR / ADR / occupancy readings (read-only).\n\nReturns every stored point for the company with ``source_used``,\n``granularity``, ``as_of`` and the caliber note. Companies whose market\nhas no lane (EU) or whose carrier is limited return an explicit\n``unavailable`` block naming the reason — never another company's\nnumbers."
+    },
+    {
+      "name": "hotel_series",
+      "description": "Read one hotel series by concept code (read-only).\n\nCovers the star-rated quarterly survey (``hotel.cn.star_rated.*``),\ndomestic tourism demand (``hotel.cn.tourism.*``) and EU accommodation\n(``hotel.eu.*``). Every point carries ``source_used``; the payload\ncarries ``as_of``, the caliber caveats and the period count. A concept\nwith no rows returns an explicit ``unavailable`` block, never an empty\nlist pretending to be a coverage gap."
+    },
+    {
+      "name": "hotel_universe",
+      "description": "List the 33-company hotel universe with per-company lane coverage.\n\nRead-only. Each company carries its region, segment, ticker and the\nlanes that actually feed it; a company whose market has no lane (EU) or\nwhose carrier is limited (TW snapshot-only, JP no lane) carries an\nexplicit ``unavailable`` entry with the reason — never an empty list."
+    },
+    {
+      "name": "import_catalog",
+      "description": "Import one (by name) or all fd-* provider registries into the catalog."
+    },
+    {
+      "name": "import_crosswalks",
+      "description": "Ingest the shipped crosswalk registry (crosswalks/*.yaml) as mappings."
+    },
+    {
+      "name": "list_bindings",
+      "description": "List column->concept bindings (optionally filtered by concept code)."
+    },
+    {
+      "name": "list_cnreport_rules",
+      "description": "Browse cn-report's extraction rules (llm_rules + script_rules)."
+    },
+    {
+      "name": "list_concept_families",
+      "description": "List the concept families (the curated semantic vocabulary) + variable counts.\n\nPaginated with the same ``limit`` (1..1000) / ``offset`` semantics as\n``list_concepts``, ordered by family code."
+    },
+    {
+      "name": "list_concept_mappings",
+      "description": "List concept mappings forward (by Variable) or in reverse (by external term)."
+    },
+    {
+      "name": "list_concepts",
+      "description": "List concepts (Variables) with their concept family; optionally filtered.\n\nPaginated: rows are ordered by (entity_type, code, id) and a page returns at\nmost ``limit`` rows (clamped to 1000). Page with increasing ``offset`` until\na page comes back shorter than ``limit`` — that enumerates the full catalog\neven when one entity type exceeds the per-call cap.\n\nThe catalog also serves verified entries of the unified indicator registry\n(world_bank / gta_panel / china_city_panel / fd_open_data mirror sources).\nRegistry rows are appended after the native rows, ordered by\n(domain, semantic_code); they carry additive ``native_code`` and\n``source_db`` fields, so an entry is findable by either identifier, and a\n``read_via`` hint naming the domain tool that serves its values. Reading\na registry-only indicator: pass its semantic_code (or native_code) as\n``concept_id`` to ``read`` / ``read_series`` — the read routes\ntransparently through the indicator's source-database read channel.\nEntries whose semantic_code duplicates a non-deprecated native concept\ncode are deduped (native row wins); deprecated legacy rows never shadow a\nverified entry."
+    },
+    {
+      "name": "list_entities",
+      "description": "List entities of a specific type."
+    },
+    {
+      "name": "list_registry_entries",
+      "description": "Enumerate the WHOLE unified indicator registry — verified AND not.\n\nThe registration-surface enumeration channel (tiered browsing sync, e.g.\nthe public indicator catalog): every registered entry, each carrying its\nauthoritative ``verified`` flag (true = directly readable caliber,\nfalse = registered/on-demand caliber). This is deliberately PARALLEL to\nthe catalog: ``list_concepts`` / ai_search / read keep their verified\ngate untouched — unverified entries stay out of the catalog, search and\nevery read channel, and this tool does not change that.\n\nPaginated like ``list_concepts``: rows ordered by (source_db, native_code),\n``limit`` clamped to 1..1000; page with increasing ``offset`` until a page\ncomes back shorter than ``limit`` — that enumerates the full registry\n(57k+ entries at ~1000/page)."
+    },
+    {
+      "name": "list_relationships",
+      "description": "List relationships for an entity."
+    },
+    {
+      "name": "list_schedules",
+      "description": "List all refresh schedules."
+    },
+    {
+      "name": "plan_crawl",
+      "description": "Plan a concept crawl -> CrawlPlan artifact (concepts in, methods out).\n\nCompiles desired concepts + entity scope + date range into a ranked, failover-aware\nCrawlPlan. Does not fetch. Unroutable concepts (no confirmed binding) and unmapped\nentities (no per-source identifier) are reported, not silently dropped.\n\nIf ``since_last`` is True, the plan's ``date_range.start`` is derived from the minimum\nper-concept ``max(date)`` already in ``semantic_observations`` (incremental crawl).\nEither ``start`` or ``since_last`` must be provided. If both, ``start`` wins.\n``end`` defaults to today if not provided.\n\n``mode`` is ``per_date`` (one request per concept x entity x date) or ``series``\n(one request per concept x entity against a bulk_history endpoint; the pipeline\nexplodes the returned frame). Series mode refuses concepts bound only to non-bulk\nfunctions."
+    },
+    {
+      "name": "platform_cancel_pending",
+      "description": "Cancel a pending platform run (pending_runs row). CAS: only rows\nstill pending/claimed can be cancelled; terminal rows return an\nexplanation, unknown ids {\"status\": \"not_found\"}."
+    },
+    {
+      "name": "platform_cancel_run",
+      "description": "Request cancellation of a RUNNING platform run (sets the\ncancel_requested flag; the runner terminates as cancelled at its next\ncheckpoint). Terminal runs return an explanation, unknown ids\n{\"status\": \"not_found\"}."
+    },
+    {
+      "name": "platform_runs",
+      "description": "Platform run history from ``crawl_runs`` (all member sites), newest\nfirst, with the pending_runs trigger lineage (requested_by) when the\nrun was started from the control plane."
+    },
+    {
+      "name": "platform_sources",
+      "description": "Crawl-platform source inventory with health and stall hints.\n\nEvery source mirrored into ``crawl_sources`` (content-repo manifests +\nfederation members), each with: site, schedule (null = registered but\nnot lit), enabled, the latest ``crawl_runs`` status/time/rows_written,\nthe active pending-run count, and a ``stalled`` hint (a lit, enabled\nsource with no run record for >7 days). Read-only."
+    },
+    {
+      "name": "platform_trigger",
+      "description": "Trigger an immediate platform run for ``source`` (insert pending_runs).\n\nSame validation and guardrails as the panel's trigger button: the\nsource must be registered in crawl_sources and enabled, and single-\nflight applies (refused while an open run exists). Returns\n{\"status\": \"triggered\", \"pending_id\": ...} or a clear refusal text."
+    },
+    {
+      "name": "policy_create",
+      "description": "Create a crawl policy."
+    },
+    {
+      "name": "policy_delete",
+      "description": "Delete a crawl policy and all its runs (cascade)."
+    },
+    {
+      "name": "policy_disable",
+      "description": "Disable a crawl policy."
+    },
+    {
+      "name": "policy_enable",
+      "description": "Enable a crawl policy."
+    },
+    {
+      "name": "policy_estimate",
+      "description": "Estimate the fetch count for a policy payload (used by the panel editor).\n\nReturns {\"estimate\": int, \"unroutable\": [...], \"unmapped\": [...], \"policy_max_fetches\": int}."
+    },
+    {
+      "name": "policy_get",
+      "description": "Get a single crawl policy by ID."
+    },
+    {
+      "name": "policy_list",
+      "description": "List crawl policies. Optional filter by enabled status."
+    },
+    {
+      "name": "policy_runs",
+      "description": "List policy runs. Optional filters: policy_id, status (running/success/failed)."
+    },
+    {
+      "name": "policy_trigger_now",
+      "description": "Trigger a crawl for the policy immediately.\n\nBypasses the cron schedule but still enforces single-flight (skips if\nan open run exists) and the plan-size guardrail (refuses if estimate\nexceeds POLICY_MAX_FETCHES unless force=true)."
+    },
+    {
+      "name": "policy_update",
+      "description": "Update a crawl policy. Only provided fields are changed."
+    },
+    {
+      "name": "propose_bindings",
+      "description": "Propose column->concept bindings (propose-and-confirm; below-threshold withheld)."
+    },
+    {
+      "name": "rank_sources",
+      "description": "Rank candidate sources for a concept (best-first) with composite scores."
+    },
+    {
+      "name": "re_embed_concept",
+      "description": "Re-embed a single concept."
+    },
+    {
+      "name": "read",
+      "description": "Read a concept for an entity over dates (read-through cache + ranked dispatch).\n\nLocal concepts: concept_id is the numeric id; entity_type/entity_id/dates\nare required; ``source`` pins the read (and any dispatch) to one source;\n``all_sources`` returns every held row per date, best-ranked first, without\ndispatching — for cross-source comparison.\n\nRegistry-only indicators (catalog rows with id=None): pass the\nsemantic_code (or native_code) as ``concept_id`` — the read is routed\ntransparently through the indicator's source-database read channel and\nreturns the same row shape; ``entity`` carries the region/country/city\nname when the channel needs one (world_bank requires it). Provenance\ntravels in ``source_used``.\n\n``scope`` (optional): restrict this call to a named retrieval scope — an\nindicator outside the scope returns an explicit out-of-scope response;\nthe reserved name ``unscoped`` forces the full corpus."
+    },
+    {
+      "name": "read_series",
+      "description": "Read a series for one concept x entity over [start, end].\n\nLocal concepts (numeric ``concept_id``): serves the stored cache only,\nhighest-ranked source per point, ordered by date. It NEVER dispatches\nupstream — an empty window is a coverage fact reported as such, not a\nfailure. Use ``read`` for a point read (cache + live dispatch) or\n``fetch`` to force a refresh of one point.\n\nRegistry-only indicators (semantic_code / native_code as ``concept_id``):\nthe window is routed transparently through the indicator's source\ndatabase read channel (same response shape; ``entity`` carries the\nregion/country/city when the channel needs one). Provenance travels in\neach point's ``source_used``.\n\n``scope`` (optional): restrict this call to a named retrieval scope —\nout-of-scope indicators return an explicit out-of-scope response; the\nreserved name ``unscoped`` forces the full corpus."
+    },
+    {
+      "name": "record_concept_mapping",
+      "description": "Assert that a Variable maps to an external vocabulary term."
+    },
+    {
+      "name": "register_datasource",
+      "description": "Register a datasource manifest into the ontology database."
+    },
+    {
+      "name": "register_discovered",
+      "description": "Auto-discover + register manifests from entry points + a datasources/ dir."
+    },
+    {
+      "name": "resolve_entity",
+      "description": "Resolve an entity <-> per-source identifier, in either direction.\n\nForward (entity -> identifier), the default:\n    resolve_entity(entity_type=\"country\", entity_id=1, source=\"worldbank\")\n    -> {\"identifier\": \"CN\"}   (or null when that source has no mapping)\n\nReverse (external anchor -> entity), pass `identifier` instead of the\nentity: `wikidata` (QID, e.g. Q148) and `datacommons` (DCID, e.g.\ncountry/CHN) are the anchor sources.\n    resolve_entity(source=\"wikidata\", identifier=\"Q148\")\n    -> {\"match\": {\"entity_type\": \"country\", \"code\": \"CN\", ...}}\n    An identifier no entity carries returns {\"match\": null}, not an error."
+    },
+    {
+      "name": "restaurant_company_events",
+      "description": "Read a restaurant company's disclosure events (read-only).\n\nSources currently registered: HKEX 披露易 title events\n(``source_used = hkex-disclosure``, date = ``release_date``) and SEC\nEDGAR company-facts events (``source_used = sec-edgar-facts``, date =\n``filed``). Each event carries ``source_used``, ``disclosure_date``\nand ``doc_url``. Rows are deduplicated by upstream document key.\nCompanies without an event lane return an explicit ``unavailable``\nblock with the region-specific reason, not an empty list alone."
+    },
+    {
+      "name": "restaurant_company_financials",
+      "description": "Read a restaurant company's quarterly financial observations.\n\nConcepts: ``financials.revenue``, ``financials.operating_profit`` and\n``financials.net_income`` (a short name ``revenue`` /\n``operating_profit`` / ``net_income`` is also accepted). Each point\ncarries ``source_used`` (``sec-edgar-facts`` for US names, the\nexisting A-share lane for CN) and ``as_of``. HK headline figures are\nonly in announcement PDFs and are not structured; JP and TW lanes are\nnot connected — those return an explicit ``unavailable`` block per\nconcept with the established reason. SEC names below the 24-period\ngate (BROS; QSR net income; TXRH net income) are reported as\n``期数不足未入库``, never as an empty series."
+    },
+    {
+      "name": "restaurant_sampling_notices",
+      "description": "Read SAMR food-inspection notices (event plane only, read-only).\n\nReturns the individual notices from the SAMR sampling-notice feed\n(``source_used = samr-food-inspection``) with notice date, URL,\nresult category and whether the notice is restaurant-related. This is\nan event plane: no monthly counts or rates are returned here, because\nan aggregate would be a read-time statistic, not an upstream\nobservation series. A category with no rows is reported as an explicit\nno-match note, not as a fake zero series."
+    },
+    {
+      "name": "restaurant_series",
+      "description": "Read one macro / cost-chain series by concept code (read-only).\n\nCovers the curated restaurant series (NBS catering revenue, Census\nfood services, FAO food price index, hog/pork prices, DCE meal and\ncorn, IMF palm oil / sugar, USDA beef and cattle inventory, RPI,\nEurostat catering HICP) plus the US CPI comparison pair\n``price.cpi.us.food_away_from_home`` / ``price.cpi.us.food_at_home``.\nEvery point carries ``source_used`` and ``as_of``. An unknown or\nempty series returns an explicit ``unavailable`` block; it is never an\nempty list pretending to be a coverage gap."
+    },
+    {
+      "name": "restaurant_universe",
+      "description": "List the registered restaurant universe with per-lane availability.\n\nRead-only. Returns the 35 monitored listed restaurant companies with\nregion / segment / ticker / lanes and, for every lane, whether the\nstore holds data or the lane is currently unavailable and why. An\nunavailable lane carries the explicit reason (EDINET key missing, TWSE\nsnapshot-only 月营收 without a profit/event face, headline numbers only in\nHKEX PDFs, SEC periods below the observation gate) — never a zero-valued\nsubstitute."
+    },
+    {
+      "name": "review_bindings",
+      "description": "Return the below-threshold review queue (propose-and-confirm)."
+    },
+    {
+      "name": "run_schedule",
+      "description": "Run one refresh schedule now (ranked-failover dispatch + execution record)."
+    },
+    {
+      "name": "scope_bind_caller",
+      "description": "Bind a caller's default scope (applies when the caller passes no\nexplicit scope; an explicit parameter — or the reserved ``unscoped`` —\nalways wins). ``caller_key`` is opaque: the ``X-FD-Caller`` request\nheader value for HTTP callers, or the FD_MCP_CALLER_KEY env identity for\nintegrations."
+    },
+    {
+      "name": "scope_create",
+      "description": "Create a named retrieval scope.\n\nrules: allow-lists over the registry dimensions —\n``{source_dbs: [...], domains: [...], semantic_codes: [...],\nnative_codes: [...]}`` (every list optional; a scope with no allow-lists\nis rejected). Allow-list values are validated against the live\nregistry_entries/concepts tables: a scope matching nothing known is\nrejected; the number of matched indicators is returned. ``unscoped`` is\nreserved. Scope is a precision/cost tool, not a permission wall."
+    },
+    {
+      "name": "scope_delete",
+      "description": "Delete a scope (its caller default bindings go with it; stats remain)."
+    },
+    {
+      "name": "scope_list",
+      "description": "List every retrieval scope with its allow-list rules."
+    },
+    {
+      "name": "scope_list_bindings",
+      "description": "List caller default-scope bindings (optionally one caller's)."
+    },
+    {
+      "name": "scope_stats",
+      "description": "Per-day hit counters for one scope (calls, results_returned), most\nrecent first — the cost-savings evidence (spec「Scope effectiveness is\nobservable」). An unknown scope is an explicit error naming it."
+    },
+    {
+      "name": "scope_unbind_caller",
+      "description": "Drop a caller's default scope binding."
+    },
+    {
+      "name": "scope_update",
+      "description": "Update a scope's rules and/or description (same validation as create)."
+    },
+    {
+      "name": "seed_entity_identifiers",
+      "description": "Seed akshare/yfinance (stocks) and worldbank (countries) identifier mappings."
+    },
+    {
+      "name": "semantic_search",
+      "description": "Search concepts semantically using vector embeddings.\n\nReturns {cached, count, results}: results are the matching concepts with\nscores, ordered by similarity; cached=true marks a TTL-cache hit. Pass\n``scope`` to constrain retrieval to a named scope (see scope_list); a\nscoped response names the scope that governed it."
+    },
+    {
+      "name": "semantic_search_entities",
+      "description": "Search entities semantically using vector embeddings."
+    },
+    {
+      "name": "semantic_search_unified",
+      "description": "Unified semantic search across both entities and concepts."
+    },
+    {
+      "name": "update_binding",
+      "description": "Update concept binding confidence/provenance/review status."
+    },
+    {
+      "name": "update_concept",
+      "description": "Update concept metadata (name, verification status)."
+    },
+    {
+      "name": "update_entity",
+      "description": "Update or create an entity in the ontology database.\n\nThis is an admin tool for updating entity metadata after initial registration."
+    }
+  ]
+}

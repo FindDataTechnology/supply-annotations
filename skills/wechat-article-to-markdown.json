@@ -1,0 +1,32 @@
+{
+  "skill": "wechat-article-to-markdown",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "法律文本格式化",
+        "summary": "将法律条文或法律案例文本转换为规范的 Markdown 格式，删除推广等冗余信息；只负责格式化与内容清理，内容抓取由协作技能完成。"
+      },
+      "en": {
+        "name": "Legal text formatter",
+        "summary": "Converts legal texts — statutes or case law — into standard Markdown and removes promotional clutter; formats and cleans only, content fetching is left to a partner skill chosen automatically."
+      },
+      "ja": {
+        "name": "法律テキスト整形",
+        "summary": "法律条文や判例テキストを規則正しい Markdown 形式へ変換し、宣伝など冗長情報を除去する。担当は整形と清掃のみで、取得は他のスキルと自動連携する。"
+      },
+      "es": {
+        "name": "Formateador de textos jurídicos",
+        "summary": "Convierte textos legales —artículos o jurisprudencia— a Markdown estándar y elimina ruido promocional; solo formatea y limpia, la obtención del contenido queda en otra habilidad coordinada."
+      },
+      "fr": {
+        "name": "Formateur de textes juridiques",
+        "summary": "Convertit textes juridiques — articles de loi ou jurisprudence — en Markdown standard et supprime le promotionnel ; ne fait que formater, la récupération relève d'une autre compétence."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

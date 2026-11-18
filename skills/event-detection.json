@@ -1,0 +1,32 @@
+{
+  "skill": "event-detection",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "事件识别",
+        "summary": "三路检索（公告列表、分类字典、全文检索）把公告归入六组事件类型（业绩、融资、股权变动、监管、经营、互动），逐条附公告标识、披露日期与归类依据；只做识别与分类，不判利好利空。"
+      },
+      "en": {
+        "name": "Event detection",
+        "summary": "Sorts announcements into six event groups (earnings, financing, equity, regulatory, operations, interaction), each with ID, date and rationale; detection and classification only."
+      },
+      "ja": {
+        "name": "イベント検出",
+        "summary": "公告リスト・分類辞書・全文検索の三路で公告を六類型（決算、資金調達、株式異動、規制、経営、IR）に分類し、各件にID・開示日・根拠を付与。検出と分類のみで良否判断はしない。"
+      },
+      "es": {
+        "name": "Detección de eventos",
+        "summary": "Clasifica anuncios en seis grupos de eventos (resultados, financiación, accionarial, regulatorio, operativo, interacción) con identificador, fecha y fundamento; solo detección y clasificación."
+      },
+      "fr": {
+        "name": "Détection d'événements",
+        "summary": "Classe les annonces en six groupes (résultats, financement, actionnariat, réglementaire, opérationnel, interaction) avec identifiant, date et fondement ; détection et classification uniquement."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

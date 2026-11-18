@@ -1,0 +1,32 @@
+{
+  "skill": "eco-web-artifacts-builder",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "网页产物构建器",
+        "summary": "生态技能包：用 React、Tailwind 与 shadcn 搭建多组件 HTML 产物。"
+      },
+      "en": {
+        "name": "Multi-component HTML artifact maker",
+        "summary": "Ecosystem skill pack: builds multi-component HTML artifacts with React, Tailwind and shadcn."
+      },
+      "ja": {
+        "name": "ウェブ成果物ビルダー",
+        "summary": "エコシステム系スキル。React・Tailwind・shadcn で複数部品からなる HTML 成果物を組み立てる。"
+      },
+      "es": {
+        "name": "Constructor de artefactos HTML multiparte",
+        "summary": "Habilidad del ecosistema: construye artefactos HTML de varios componentes con React, Tailwind y shadcn."
+      },
+      "fr": {
+        "name": "Constructeur d'artefacts HTML multi-composants",
+        "summary": "Compétence de l'écosystème : construit des artefacts HTML à plusieurs composants avec React, Tailwind et shadcn."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

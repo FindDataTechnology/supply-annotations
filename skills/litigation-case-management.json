@@ -1,0 +1,32 @@
+{
+  "skill": "litigation-case-management",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "诉讼案件管理",
+        "summary": "民事、刑事及劳动争议诉讼共用的案件运营管理:案件更新、通知与裁判文书处理、期限台账、时间线、简报、结案检查;建档与法规核验由法律工作总控统一处理。"
+      },
+      "en": {
+        "name": "Litigation case management",
+        "summary": "Case operations for civil, criminal and labor litigation: updates, notices, judgments, deadline ledgers, timelines, briefings, closing checks; intake and statute checks sit with the master workflow."
+      },
+      "ja": {
+        "name": "訴訟案件管理",
+        "summary": "民事・刑事・労働紛争に共通する案件運営:更新、通知と判決文、期限台帳、タイムライン、簡報、結案チェック。起案・資料再確認・法令検証は総合管理が担当。"
+      },
+      "es": {
+        "name": "Gestión de casos de litigio",
+        "summary": "Operación común de litigios civiles, penales y laborales: avisos, sentencias, plazos, cronologías y cierre; la apertura de expediente y la verificación normativa van al flujo maestro."
+      },
+      "fr": {
+        "name": "Gestion des affaires contentieuses",
+        "summary": "Gestion commune des affaires civiles, pénales et du travail : avis, jugements, délais, chronologies et archivage ; ouverture de dossier et vérification des textes relèvent du flux pilote."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

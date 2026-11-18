@@ -1,0 +1,32 @@
+{
+  "skill": "case-intake-and-engagement",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "刑事接案与委托",
+        "summary": "协助律师承接刑事案件：初次接待、案件评估、风险告知、委托手续办理与信息采集，生成标准化委托文书并建立案件档案。"
+      },
+      "en": {
+        "name": "Criminal case intake and engagement",
+        "summary": "Helps a lawyer take on criminal cases: first interview, case assessment, risk notice, engagement formalities and information intake, producing standard engagement documents and a case file."
+      },
+      "ja": {
+        "name": "刑事事件の受任手続",
+        "summary": "刑事事件の受任を支援：初回面談、事件評価、リスク告知、受任手続、情報収集を行い、標準化された受任書類を生成して事件記録を構築する。"
+      },
+      "es": {
+        "name": "Admisión y encargo de casos penales",
+        "summary": "Asiste la admisión de casos penales: primera entrevista, evaluación, aviso de riesgos, formalidades de encargo y recogida de información; genera documentos estandarizados y el expediente."
+      },
+      "fr": {
+        "name": "Prise en charge et mandat pénal",
+        "summary": "Assiste la prise en charge d'affaires pénales : premier entretien, évaluation du dossier, note de risques, formalités de mandat et collecte d'informations ; produit les actes types et le dossier."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

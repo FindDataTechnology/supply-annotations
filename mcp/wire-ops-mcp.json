@@ -1,0 +1,717 @@
+{
+ "version": 1,
+ "server": "wire-ops-mcp",
+ "annotation": {
+  "human": {
+   "zh": {
+    "name": "柏讯客户操作",
+    "summary": "柏讯客户面的读取操作：数据浏览与查询、需求单查看、市场订阅查看，以及内容供给的三项检索。",
+    "whenToUse": "在柏讯里查数据、看需求单进度或浏览订阅内容时。"
+   },
+   "en": {
+    "name": "BaiXun customer operations",
+    "summary": "Read-side operations for BaiXun customers: data browsing and queries, request lookup, subscription listing, plus three content-supply lookups.",
+    "whenToUse": "When checking data, request progress, or subscribed content inside BaiXun."
+   },
+   "ja": {
+    "name": "柏訊カスタマー操作",
+    "summary": "柏訊の顧客向け読み取り操作：データ閲覧・照会、依頼の確認、購読一覧、コンテンツ供給の検索三项です。",
+    "whenToUse": "柏訊でデータ確認、依頼の進捗、購読コンテンツの閲覧をするとき。"
+   },
+   "es": {
+    "name": "Operaciones de cliente BaiXun",
+    "summary": "Operaciones de lectura para clientes BaiXun: navegación y consultas de datos, solicitudes, suscripciones y tres búsquedas de contenido.",
+    "whenToUse": "Para consultar datos, el estado de una solicitud o el contenido suscrito en BaiXun."
+   },
+   "fr": {
+    "name": "Opérations client BaiXun",
+    "summary": "Opérations de lecture pour les clients BaiXun : navigation et requêtes de données, demandes, abonnements et trois recherches de contenu.",
+    "whenToUse": "Pour consulter des données, l'avancement d'une demande ou le contenu souscrit dans BaiXun."
+   }
+  },
+  "canonical": {
+   "brief": "BaiXun customer read MCP: dataset browse/query/aggregate/row read, request list/get, market browse/subscribe/unsubscribe, content browse/search/claim-resolve."
+  },
+  "tools": {
+   "wire_action_list": {
+    "human": {
+     "zh": {
+      "name": "列出域动作类型",
+      "summary": "列出本企业已启用的域动作类型，返回挂载实体、风险档与表单字段结构，供构造提议。"
+     },
+     "en": {
+      "name": "List domain actions",
+      "summary": "Lists the domain action types enabled for the enterprise, returning the bound entity, risk tier and form field schema for building proposals."
+     },
+     "ja": {
+      "name": "ドメイン動作を一覧",
+      "summary": "企業で有効なドメイン動作の種類を一覧し、対象エンティティ、リスク区分、フォーム項目の構成を返します。"
+     },
+     "es": {
+      "name": "Listar acciones de dominio",
+      "summary": "Enumera los tipos de acción de dominio habilitados para la empresa y devuelve la entidad vinculada, el nivel de riesgo y el esquema de campos."
+     },
+     "fr": {
+      "name": "Lister les actions de domaine",
+      "summary": "Énumère les types d'action de domaine activés pour l'entreprise et renvoie l'entité liée, le niveau de risque et le schéma des champs."
+     }
+    },
+    "canonical": {
+     "brief": "Lists the domain action types enabled for the enterprise, returning the bound entity, risk tier and form field schema for building proposals."
+    }
+   },
+   "wire_action_propose": {
+    "human": {
+     "zh": {
+      "name": "提议域动作",
+      "summary": "提交一条域动作提议，即时返回 pending 实例标识而不等待确认；执行由人在控制台确认后落库。"
+     },
+     "en": {
+      "name": "Propose domain action",
+      "summary": "Submits a domain action proposal and immediately returns a pending instance id without waiting for confirmation; a human confirms it in the console before execution."
+     },
+     "ja": {
+      "name": "ドメイン動作を提案",
+      "summary": "ドメイン動作の提案を送信し、確認を待たずに保留中のインスタンス識別子を即時に返します。実行は担当者がコンソールで確認した後に行われます。"
+     },
+     "es": {
+      "name": "Proponer acción de dominio",
+      "summary": "Envía una propuesta de acción de dominio y devuelve de inmediato un identificador de instancia pendiente sin esperar confirmación; una persona la confirma en la consola antes de ejecutarla."
+     },
+     "fr": {
+      "name": "Proposer une action",
+      "summary": "Soumet une proposition d'action de domaine et renvoie aussitôt un identifiant d'instance en attente sans attendre de confirmation ; une personne la confirme dans la console avant exécution."
+     }
+    },
+    "canonical": {
+     "brief": "Submits a domain action proposal and immediately returns a pending instance id without blocking; a human confirms in the console before execution."
+    }
+   },
+   "wire_action_status": {
+    "human": {
+     "zh": {
+      "name": "查询动作状态",
+      "summary": "按实例标识查询域动作状态，返回确认中、已执行、已拒绝、失败或已停用，并附错误文本。"
+     },
+     "en": {
+      "name": "Check action status",
+      "summary": "Reads the status of a domain action instance by id, returning awaiting confirmation, executed, rejected, failed or disabled along with error text."
+     },
+     "ja": {
+      "name": "動作状態を照会",
+      "summary": "インスタンス識別子でドメイン動作の状態を照会し、確認待ち、実行済み、却下、失敗、停止のいずれかとエラー文言を返します。"
+     },
+     "es": {
+      "name": "Consultar estado de acción",
+      "summary": "Consulta por identificador el estado de una instancia de acción de dominio y devuelve en espera de confirmación, ejecutada, rechazada, fallida o deshabilitada, con el texto de error."
+     },
+     "fr": {
+      "name": "Vérifier l'état d'une action",
+      "summary": "Consulte par identifiant l'état d'une instance d'action de domaine et renvoie en attente de confirmation, exécutée, rejetée, en échec ou désactivée, avec le texte d'erreur."
+     }
+    },
+    "canonical": {
+     "brief": "Reads a domain action instance's status by id, returning awaiting confirmation, executed, rejected, failed or disabled plus error text."
+    }
+   },
+   "wire_claim_resolve": {
+    "human": {
+     "zh": {
+      "name": "取回断言正文",
+      "summary": "按条目 slug 与断言标识取回一条断言，返回断言骨架、按语言取回的锚定小节正文与逐条证据来源。"
+     },
+     "en": {
+      "name": "Resolve claim",
+      "summary": "Resolves one claim by item slug and claim id, returning the claim skeleton, the anchored section body in the requested language and each evidence source."
+     },
+     "ja": {
+      "name": "主張本文を取得",
+      "summary": "項目 slug と主張識別子で 1 件の主張を取得し、主張の骨格、指定言語のアンカー節本文、各根拠の出所を返します。"
+     },
+     "es": {
+      "name": "Resolver afirmación",
+      "summary": "Resuelve una afirmación por slug del elemento e identificador de la afirmación, devolviendo el esqueleto, el cuerpo de la sección anclada en el idioma pedido y cada fuente de evidencia."
+     },
+     "fr": {
+      "name": "Résoudre une affirmation",
+      "summary": "Résout une affirmation par slug d'élément et identifiant, en renvoyant le squelette, le corps de la section ancrée dans la langue demandée et chaque source de preuve."
+     }
+    },
+    "canonical": {
+     "brief": "Resolves one claim by item slug and claim id, returning the claim skeleton, the anchored section body in the requested language and each evidence source."
+    }
+   },
+   "wire_content_browse": {
+    "human": {
+     "zh": {
+      "name": "浏览内容目录",
+      "summary": "浏览星研内容目录，可按内参、学院、研究分区筛选，返回条目摘要与快照指纹及陈旧标记。"
+     },
+     "en": {
+      "name": "Browse content catalog",
+      "summary": "Browses the Xingyan content catalog, optionally by zone such as briefings, academy or research, returning item summaries plus the snapshot fingerprint and stale flag."
+     },
+     "ja": {
+      "name": "コンテンツ目録を閲覧",
+      "summary": "星研のコンテンツ目録を閲覧します。内参・学院・研究などの区画で絞り込め、項目概要とスナップショット指紋および陳旧フラグを返します。"
+     },
+     "es": {
+      "name": "Explorar catálogo de contenido",
+      "summary": "Explora el catálogo de contenido Xingyan, opcionalmente por zona como boletines, academia o investigación, y devuelve resúmenes con huella de instantánea y marca de desactualización."
+     },
+     "fr": {
+      "name": "Parcourir le catalogue de contenu",
+      "summary": "Parcourt le catalogue de contenu Xingyan, éventuellement par zone (notes internes, académie, recherche), et renvoie les résumés avec empreinte d'instantané et indicateur de péremption."
+     }
+    },
+    "canonical": {
+     "brief": "Browses the Xingyan content catalog, optionally by zone, returning item summaries plus the snapshot fingerprint and stale flag."
+    }
+   },
+   "wire_content_search": {
+    "human": {
+     "zh": {
+      "name": "检索内容条目",
+      "summary": "按关键词检索星研内容条目的双语标题、摘要与 slug，可叠加分区，返回匹配条目与快照标记。"
+     },
+     "en": {
+      "name": "Search content",
+      "summary": "Searches Xingyan content items by keyword across bilingual titles, summaries and slug, optionally within a zone, returning matches with the snapshot flag."
+     },
+     "ja": {
+      "name": "コンテンツを検索",
+      "summary": "キーワードで星研コンテンツ項目の二言語タイトル、概要、slug を検索します。区画指定も可能で、一致項目とスナップショット標識を返します。"
+     },
+     "es": {
+      "name": "Buscar contenido",
+      "summary": "Busca elementos de contenido Xingyan por palabra clave en títulos bilingües, resúmenes y slug, opcionalmente dentro de una zona, y devuelve coincidencias con la marca de instantánea."
+     },
+     "fr": {
+      "name": "Rechercher du contenu",
+      "summary": "Recherche des éléments de contenu Xingyan par mot-clé dans les titres bilingues, les résumés et le slug, éventuellement dans une zone, et renvoie les correspondances avec l'indicateur d'instantané."
+     }
+    },
+    "canonical": {
+     "brief": "Searches Xingyan content items by keyword across bilingual titles, summaries and slug, optionally within a zone, returning matches with the snapshot flag."
+    }
+   },
+   "wire_dataset_aggregate": {
+    "human": {
+     "zh": {
+      "name": "聚合数据集",
+      "summary": "按分组与聚合口径对数据集做只读聚合，返回聚合结果。"
+     },
+     "en": {
+      "name": "Aggregate dataset",
+      "summary": "Runs a read-only aggregation on a dataset with the given grouping and aggregate methodology, and returns the aggregated result."
+     },
+     "ja": {
+      "name": "データセットを集計",
+      "summary": "グループ化と集計基準を指定してデータセットを読み取り専用で集計し、集計結果を返します。"
+     },
+     "es": {
+      "name": "Agregar conjunto de datos",
+      "summary": "Realiza una agregación de solo lectura sobre un conjunto de datos con la agrupación y el criterio indicados, y devuelve el resultado."
+     },
+     "fr": {
+      "name": "Agréger un jeu de données",
+      "summary": "Effectue une agrégation en lecture seule sur un jeu de données selon le regroupement et la méthodologie fournis, et renvoie le résultat."
+     }
+    },
+    "canonical": {
+     "brief": "Runs a read-only aggregation on a dataset with the given grouping and aggregate methodology, returning the aggregated result."
+    }
+   },
+   "wire_dataset_query": {
+    "human": {
+     "zh": {
+      "name": "查询数据集",
+      "summary": "按过滤、排序与分页条件查询数据集行，可只返回计数；属只读操作。"
+     },
+     "en": {
+      "name": "Query dataset",
+      "summary": "Queries dataset rows with filters, sorting and paging, optionally returning just a count; a read-only operation."
+     },
+     "ja": {
+      "name": "データセットを照会",
+      "summary": "絞り込み、並べ替え、ページングの条件でデータセットの行を照会します。件数のみを返すこともでき、読み取り専用の操作です。"
+     },
+     "es": {
+      "name": "Consultar conjunto de datos",
+      "summary": "Consulta filas del conjunto con filtros, orden y paginación, pudiendo devolver solo el recuento; operación de solo lectura."
+     },
+     "fr": {
+      "name": "Interroger un jeu de données",
+      "summary": "Interroge les lignes d'un jeu de données avec filtres, tri et pagination, en pouvant ne renvoyer que le compte ; opération en lecture seule."
+     }
+    },
+    "canonical": {
+     "brief": "Queries dataset rows with filters, sorting and paging, optionally returning only a count; a read-only operation."
+    }
+   },
+   "wire_dataset_rows": {
+    "human": {
+     "zh": {
+      "name": "读取数据集行",
+      "summary": "按分页读取数据集行，返回当前页的行内容；属只读操作。"
+     },
+     "en": {
+      "name": "Read dataset rows",
+      "summary": "Reads dataset rows page by page and returns the rows on the current page; a read-only operation."
+     },
+     "ja": {
+      "name": "データセット行を取得",
+      "summary": "データセットの行をページ単位で読み取り、現在のページの行内容を返します。読み取り専用の操作です。"
+     },
+     "es": {
+      "name": "Leer filas del conjunto",
+      "summary": "Lee filas del conjunto de datos por páginas y devuelve las de la página actual; operación de solo lectura."
+     },
+     "fr": {
+      "name": "Lire les lignes du jeu",
+      "summary": "Lit les lignes du jeu de données page par page et renvoie celles de la page courante ; opération en lecture seule."
+     }
+    },
+    "canonical": {
+     "brief": "Reads dataset rows page by page and returns the rows on the current page; a read-only operation."
+    }
+   },
+   "wire_datasets_list": {
+    "human": {
+     "zh": {
+      "name": "列出数据集",
+      "summary": "列出本企业可访问的数据集，返回数据集清单。"
+     },
+     "en": {
+      "name": "List datasets",
+      "summary": "Lists the datasets the enterprise can access and returns the dataset list."
+     },
+     "ja": {
+      "name": "データセットを一覧",
+      "summary": "企業が利用できるデータセットを一覧し、データセットの一覧を返します。"
+     },
+     "es": {
+      "name": "Listar conjuntos de datos",
+      "summary": "Enumera los conjuntos de datos a los que la empresa tiene acceso y devuelve la lista."
+     },
+     "fr": {
+      "name": "Lister les jeux de données",
+      "summary": "Énumère les jeux de données accessibles à l'entreprise et renvoie la liste."
+     }
+    },
+    "canonical": {
+     "brief": "Lists the datasets the enterprise can access and returns the dataset list."
+    }
+   },
+   "wire_demand_read": {
+    "human": {
+     "zh": {
+      "name": "读取需求单",
+      "summary": "按标识读取本企业需求单详情，返回该需求单及状态；他企或不存在时按上游语义返回 404。"
+     },
+     "en": {
+      "name": "Read demand",
+      "summary": "Reads one of the enterprise's demands by id and returns it with its status; another company's or a missing demand returns 404 per the upstream rule."
+     },
+     "ja": {
+      "name": "依頼を取得",
+      "summary": "識別子で企業の依頼の詳細を読み取り、依頼と状態を返します。他社の依頼や存在しない依頼は上流の規則に従い 404 を返します。"
+     },
+     "es": {
+      "name": "Leer solicitud",
+      "summary": "Lee por identificador una solicitud de la empresa y devuelve la solicitud con su estado; las de otra empresa o inexistentes devuelven 404 según la regla de origen."
+     },
+     "fr": {
+      "name": "Lire une demande",
+      "summary": "Lit par identifiant une demande de l'entreprise et renvoie la demande avec son état ; une demande d'une autre entreprise ou inexistante renvoie 404 selon la règle amont."
+     }
+    },
+    "canonical": {
+     "brief": "Reads one of the enterprise's demands by id and returns it with its status; other-company or missing demands return 404 per the upstream rule."
+    }
+   },
+   "wire_demand_submit": {
+    "human": {
+     "zh": {
+      "name": "提交需求单",
+      "summary": "提交需求单，必填描述、联系邮箱、公开数据源地址与公开数据声明，属写操作；字段错误按上游 422 逐项返回。"
+     },
+     "en": {
+      "name": "Submit demand",
+      "summary": "Submits a demand with a description, contact email, public source URLs and a public-data assertion; a write operation that relays per-field 422 errors."
+     },
+     "ja": {
+      "name": "依頼を送信",
+      "summary": "説明、連絡先メール、公開データ源の URL、公開データの申告を必須とする依頼を送信します。書き込み操作であり、項目ごとの 422 エラーをそのまま返します。"
+     },
+     "es": {
+      "name": "Enviar solicitud",
+      "summary": "Envía una solicitud con descripción, correo de contacto, URL de fuentes públicas y declaración de datos públicos; operación de escritura que transmite errores 422 por campo."
+     },
+     "fr": {
+      "name": "Soumettre une demande",
+      "summary": "Soumet une demande avec description, courriel de contact, URL de sources publiques et déclaration de données publiques ; opération d'écriture qui relaie les erreurs 422 par champ."
+     }
+    },
+    "canonical": {
+     "brief": "Submits a demand with description, contact email, public source URLs and a public-data assertion; a write operation relaying per-field 422 errors."
+    }
+   },
+   "wire_demands_list": {
+    "human": {
+     "zh": {
+      "name": "列出需求单",
+      "summary": "列出本企业需求单，可按状态过滤，返回清单及各单状态与时间线。"
+     },
+     "en": {
+      "name": "List demands",
+      "summary": "Lists the enterprise's demands, optionally filtered by status, returning the list with each demand's status and timeline."
+     },
+     "ja": {
+      "name": "依頼を一覧",
+      "summary": "企業の依頼を一覧します。状態で絞り込むこともでき、各依頼の状態と経過を返します。"
+     },
+     "es": {
+      "name": "Listar solicitudes",
+      "summary": "Enumera las solicitudes de la empresa, opcionalmente filtradas por estado, y devuelve la lista con el estado y la cronología de cada una."
+     },
+     "fr": {
+      "name": "Lister les demandes",
+      "summary": "Énumère les demandes de l'entreprise, éventuellement filtrées par état, et renvoie la liste avec l'état et la chronologie de chacune."
+     }
+    },
+    "canonical": {
+     "brief": "Lists the enterprise's demands, optionally filtered by status, returning each demand's status and timeline."
+    }
+   },
+   "wire_market_browse": {
+    "human": {
+     "zh": {
+      "name": "浏览数据市场",
+      "summary": "浏览柏讯数据市场目录，返回公开与客户可见的数据集清单。"
+     },
+     "en": {
+      "name": "Browse market",
+      "summary": "Browses the Wire data market catalog and returns the datasets that are public or visible to the customer."
+     },
+     "ja": {
+      "name": "データ市場を閲覧",
+      "summary": "柏訊のデータ市場目録を閲覧し、公開または顧客に可視のデータセット一覧を返します。"
+     },
+     "es": {
+      "name": "Explorar el mercado",
+      "summary": "Explora el catálogo del mercado de datos Wire y devuelve los conjuntos públicos o visibles para el cliente."
+     },
+     "fr": {
+      "name": "Parcourir le marché",
+      "summary": "Parcourt le catalogue du marché de données Wire et renvoie les jeux de données publics ou visibles par le client."
+     }
+    },
+    "canonical": {
+     "brief": "Browses the Wire data market catalog and returns the datasets that are public or visible to the customer."
+    }
+   },
+   "wire_market_subscribe": {
+    "human": {
+     "zh": {
+      "name": "订阅市场数据集",
+      "summary": "订阅市场数据集，属显式写操作；需审批档位不会直接订阅，而转为访问申请并如实返回。"
+     },
+     "en": {
+      "name": "Subscribe dataset",
+      "summary": "Subscribes to a market dataset; an explicit write operation. Approval-tier datasets are not subscribed directly but turned into an access request, reported as such."
+     },
+     "ja": {
+      "name": "市場データを購読",
+      "summary": "市場のデータセットを購読します。明示的な書き込み操作です。承認制の区分は直接購読されず、アクセス申請に切り替わり、そのまま返されます。"
+     },
+     "es": {
+      "name": "Suscribir conjunto",
+      "summary": "Suscribe a un conjunto del mercado; operación de escritura explícita. Los conjuntos con aprobación previa no se suscriben directamente, sino que pasan a solicitud de acceso, informada como tal."
+     },
+     "fr": {
+      "name": "S'abonner à un jeu",
+      "summary": "S'abonne à un jeu de données du marché ; opération d'écriture explicite. Les jeux soumis à approbation ne sont pas abonnés directement mais convertis en demande d'accès, signalée comme telle."
+     }
+    },
+    "canonical": {
+     "brief": "Subscribes to a market dataset; an explicit write operation. Approval-tier datasets become an access request instead, reported as such."
+    }
+   },
+   "wire_market_unsubscribe": {
+    "human": {
+     "zh": {
+      "name": "退订市场数据集",
+      "summary": "退订市场数据集，属显式写操作，返回退订结果。"
+     },
+     "en": {
+      "name": "Unsubscribe dataset",
+      "summary": "Unsubscribes from a market dataset; an explicit write operation that returns the result."
+     },
+     "ja": {
+      "name": "市場データを解除",
+      "summary": "市場のデータセットの購読を解除します。明示的な書き込み操作であり、結果を返します。"
+     },
+     "es": {
+      "name": "Cancelar suscripción",
+      "summary": "Cancela la suscripción a un conjunto del mercado; operación de escritura explícita que devuelve el resultado."
+     },
+     "fr": {
+      "name": "Se désabonner d'un jeu",
+      "summary": "Résilie l'abonnement à un jeu de données du marché ; opération d'écriture explicite qui renvoie le résultat."
+     }
+    },
+    "canonical": {
+     "brief": "Unsubscribes from a market dataset; an explicit write operation that returns the result."
+    }
+   },
+   "wire_object_get": {
+    "human": {
+     "zh": {
+      "name": "按主键取对象",
+      "summary": "按主键取单个业务对象，返回对象行；无命中时返回结构化的「无此对象」状态而非报错。"
+     },
+     "en": {
+      "name": "Get object",
+      "summary": "Gets one business object by primary key and returns its row; when nothing matches it returns a structured not-found state rather than an error."
+     },
+     "ja": {
+      "name": "主キーで対象を取得",
+      "summary": "主キーで単一の業務オブジェクトを取得し、その行を返します。該当がない場合はエラーではなく、構造化された「該当なし」状態を返します。"
+     },
+     "es": {
+      "name": "Obtener objeto",
+      "summary": "Obtiene un objeto de negocio por clave primaria y devuelve su fila; si no hay coincidencia, devuelve un estado estructurado de objeto inexistente en lugar de un error."
+     },
+     "fr": {
+      "name": "Obtenir un objet",
+      "summary": "Obtient un objet métier par clé primaire et renvoie sa ligne ; en l'absence de correspondance, renvoie un état structuré d'objet inexistant plutôt qu'une erreur."
+     }
+    },
+    "canonical": {
+     "brief": "Gets one business object by primary key and returns its row; a miss returns a structured not-found state rather than an error."
+    }
+   },
+   "wire_object_relations": {
+    "human": {
+     "zh": {
+      "name": "沿关系遍历对象",
+      "summary": "沿关系声明方向遍历关联对象，覆盖 n:1、1:n 与 m:n 三种方向，返回分页结果。"
+     },
+     "en": {
+      "name": "Traverse relations",
+      "summary": "Traverses related objects along a declared relationship in its declared direction, covering n:1, 1:n and m:n, and returns paginated results."
+     },
+     "ja": {
+      "name": "関係をたどる",
+      "summary": "宣言された関係の方向に沿って関連オブジェクトをたどります。n:1、1:n、m:n に対応し、ページ単位の結果を返します。"
+     },
+     "es": {
+      "name": "Recorrer relaciones",
+      "summary": "Recorre objetos relacionados a lo largo de una relación declarada en su dirección, cubriendo n:1, 1:n y m:n, y devuelve resultados paginados."
+     },
+     "fr": {
+      "name": "Parcourir les relations",
+      "summary": "Parcourt les objets liés le long d'une relation déclarée dans son sens, pour n:1, 1:n et m:n, et renvoie des résultats paginés."
+     }
+    },
+    "canonical": {
+     "brief": "Traverses related objects along a declared relationship in its declared direction, covering n:1, 1:n and m:n with paginated results."
+    }
+   },
+   "wire_object_search": {
+    "human": {
+     "zh": {
+      "name": "检索业务对象",
+      "summary": "按实体检索业务对象实例，可用关键词按显示列匹配，返回分页行。"
+     },
+     "en": {
+      "name": "Search objects",
+      "summary": "Searches business object instances of an entity, matching a keyword against the display column, and returns paged rows."
+     },
+     "ja": {
+      "name": "対象を検索",
+      "summary": "エンティティの業務オブジェクト実例を検索し、表示列に対するキーワード一致でページ単位の行を返します。"
+     },
+     "es": {
+      "name": "Buscar objetos",
+      "summary": "Busca instancias de objetos de negocio de una entidad, haciendo coincidir una palabra clave con la columna de visualización, y devuelve filas paginadas."
+     },
+     "fr": {
+      "name": "Rechercher des objets",
+      "summary": "Recherche des instances d'objets métier d'une entité en faisant correspondre un mot-clé à la colonne d'affichage, et renvoie des lignes paginées."
+     }
+    },
+    "canonical": {
+     "brief": "Searches business object instances of an entity, matching a keyword against the display column, returning paged rows."
+    }
+   },
+   "wire_pack_subscribe": {
+    "human": {
+     "zh": {
+      "name": "订阅源包",
+      "summary": "订阅源包，属显式写操作；订阅免费且幂等，返回订阅结果。"
+     },
+     "en": {
+      "name": "Subscribe pack",
+      "summary": "Subscribes to a source pack; an explicit write operation that is free and idempotent and returns the subscription result."
+     },
+     "ja": {
+      "name": "パックを購読",
+      "summary": "ソースパックを購読します。明示的な書き込み操作で、無料かつ冪等であり、購読結果を返します。"
+     },
+     "es": {
+      "name": "Suscribir paquete",
+      "summary": "Suscribe a un paquete de origen; operación de escritura explícita, gratuita e idempotente, que devuelve el resultado."
+     },
+     "fr": {
+      "name": "S'abonner à un pack",
+      "summary": "S'abonne à un pack source ; opération d'écriture explicite, gratuite et idempotente, qui renvoie le résultat."
+     }
+    },
+    "canonical": {
+     "brief": "Subscribes to a source pack; an explicit write operation that is free and idempotent and returns the result."
+    }
+   },
+   "wire_pack_unsubscribe": {
+    "human": {
+     "zh": {
+      "name": "退订源包",
+      "summary": "退订源包，属显式写操作且幂等，返回退订结果。"
+     },
+     "en": {
+      "name": "Unsubscribe pack",
+      "summary": "Unsubscribes from a source pack; an explicit and idempotent write operation that returns the result."
+     },
+     "ja": {
+      "name": "パックを解除",
+      "summary": "ソースパックの購読を解除します。明示的かつ冪等な書き込み操作であり、結果を返します。"
+     },
+     "es": {
+      "name": "Cancelar paquete",
+      "summary": "Cancela la suscripción a un paquete de origen; operación de escritura explícita e idempotente que devuelve el resultado."
+     },
+     "fr": {
+      "name": "Se désabonner d'un pack",
+      "summary": "Résilie l'abonnement à un pack source ; opération d'écriture explicite et idempotente qui renvoie le résultat."
+     }
+    },
+    "canonical": {
+     "brief": "Unsubscribes from a source pack; an explicit and idempotent write operation that returns the result."
+    }
+   },
+   "wire_packs_list": {
+    "human": {
+     "zh": {
+      "name": "列出源包",
+      "summary": "列出源包目录与本企业已订阅的源包标识，返回双语卡片与实时指标数。"
+     },
+     "en": {
+      "name": "List packs",
+      "summary": "Lists the source pack catalog together with the packs the enterprise subscribes to, returning bilingual cards and live indicator counts."
+     },
+     "ja": {
+      "name": "パックを一覧",
+      "summary": "ソースパックの目録と企業が購読中のパック識別子を一覧し、二言語のカードと最新の指標数を返します。"
+     },
+     "es": {
+      "name": "Listar paquetes",
+      "summary": "Enumera el catálogo de paquetes de origen junto con los paquetes suscritos por la empresa, y devuelve tarjetas bilingües y recuentos de indicadores al día."
+     },
+     "fr": {
+      "name": "Lister les packs",
+      "summary": "Énumère le catalogue de packs source ainsi que les packs auxquels l'entreprise est abonnée, avec fiches bilingues et nombres d'indicateurs à jour."
+     }
+    },
+    "canonical": {
+     "brief": "Lists the source pack catalog with the enterprise's subscribed pack ids, returning bilingual cards and live indicator counts."
+    }
+   },
+   "wire_self_action_list": {
+    "human": {
+     "zh": {
+      "name": "列自理动作台账",
+      "summary": "列本企业自理动作提议台账：动作名、状态、档位与影响面摘要，按创建时间倒序；可用动作以在册名为准，本面不提供审批与执行。"
+     },
+     "en": {
+      "name": "List self-action proposals",
+      "summary": "Lists this enterprise's self-action proposals with action name, state, tier and impact summary, newest first; the registry defines the available actions and this face offers no approve or execute."
+     },
+     "ja": {
+      "name": "セルフアクション台帳",
+      "summary": "自社のセルフアクション提案を新しい順に一覧します（動作名・状態・段階・影響概要）。利用可能な動作は登録名が基準で、本面は承認も実行も提供しません。"
+     },
+     "es": {
+      "name": "Listar propuestas de acción",
+      "summary": "Lista las propuestas de acción propia con nombre, estado, nivel e impacto, de la más reciente a la más antigua; las acciones las define el registro y aquí no hay aprobación ni ejecución."
+     },
+     "fr": {
+      "name": "Lister les propositions d'action",
+      "summary": "Liste les propositions d'action de l'entreprise avec nom, état, palier et résumé d'impact, de la plus récente à la plus ancienne ; le registre définit les actions, cette face n'approuve ni n'exécute."
+     }
+    },
+    "canonical": {
+     "brief": "Lists the enterprise's self-action proposals (action id, state pending_confirm/executed/rejected/failed, tier, impact) newest-first; the available action set comes from the registry and no approve/execute exists on this face."
+    }
+   },
+   "wire_self_action_propose": {
+    "human": {
+     "zh": {
+      "name": "提议自理动作",
+      "summary": "提交一条自理动作提议并即时返回待确认标识，不等待人工确认；未注册或预检失败一律 4xx 回原文，确认与执行在柏讯控制台完成。"
+     },
+     "en": {
+      "name": "Propose a self-action",
+      "summary": "Submits a self-action proposal and returns a pending id without waiting for confirmation; unregistered actions or failed preflight return 4xx verbatim, and confirmation stays in the console."
+     },
+     "ja": {
+      "name": "セルフアクションを提案",
+      "summary": "提案を一件送信し、人の確認を待たずに保留識別子を即時返します。未登録や事前検査の失敗は 4xx を原文のまま返し、確認と実行はコンソール側で行います。"
+     },
+     "es": {
+      "name": "Proponer una acción propia",
+      "summary": "Envía una propuesta y devuelve un identificador pendiente sin esperar confirmación humana; acciones no registradas o preflight fallido devuelven 4xx tal cual."
+     },
+     "fr": {
+      "name": "Proposer une action propre",
+      "summary": "Soumet une proposition et renvoie aussitôt un identifiant en attente sans attendre de confirmation humaine ; action non enregistrée ou préflight en échec renvoie un 4xx tel quel."
+     }
+    },
+    "canonical": {
+     "brief": "Submits a self-action proposal and returns proposal_id, tier and impact without waiting for confirmation; the console remains the sole place where a human approves and executes."
+    }
+   },
+   "wire_self_action_status": {
+    "human": {
+     "zh": {
+      "name": "查自理动作状态",
+      "summary": "查单条提议的台账行：已执行带回结果摘要，失败带回错误原文；不推送、不轮询建徽标，下轮巡检读即可。"
+     },
+     "en": {
+      "name": "Get self-action status",
+      "summary": "Returns one proposal's ledger row; executed carries a result summary and failed carries the original error; nothing is pushed and the next inspection simply reads it."
+     },
+     "ja": {
+      "name": "セルフアクション状態",
+      "summary": "提案一件の台帳行を返します。実行済みは結果概要、失敗はエラー原文を含みます。プッシュもポーリングも行わず、次回巡回で読む想定です。"
+     },
+     "es": {
+      "name": "Ver el estado de la acción",
+      "summary": "Devuelve la fila del registro de una propuesta; ejecutada lleva resumen del resultado y fallida el error original; no hay push ni sondeo, la siguiente inspección lo lee."
+     },
+     "fr": {
+      "name": "État de l'action propre",
+      "summary": "Renvoie la ligne du registre d'une proposition ; exécutée porte un résumé du résultat, échouée l'erreur d'origine ; ni push ni sondage, l'inspection suivante le lit."
+     }
+    },
+    "canonical": {
+     "brief": "Returns one proposal's ledger row by proposal_id, with a result summary when executed and the original error when failed; this face neither pushes nor polls."
+    }
+   }
+  },
+  "provenance": {
+   "source": "finddata-supply-annotations",
+   "updatedAt": "2026-11-02"
+  }
+ }
+}

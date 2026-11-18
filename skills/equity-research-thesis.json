@@ -1,0 +1,32 @@
+{
+  "skill": "equity-research-thesis",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "个股投研论点",
+        "summary": "个股论点综合与方向判定（Rating 契约实例）：产出方向、置信度、目标价（可为空）、依据与证据五个字段。方法分歧、价格通道不可用或输入不足时扣值不扣结论。财务与披露走柏讯服务端通道 A。"
+      },
+      "en": {
+        "name": "Equity research thesis",
+        "summary": "Synthesizes thesis and direction as a Rating instance: side, conviction, price target (nullable), basis, evidence. If methods disagree or the price channel fails, values are cut, not the conclusion."
+      },
+      "ja": {
+        "name": "個別株投資調査：論点判定",
+        "summary": "論点総合と方向判定、Rating契約実体の出力：方向・確信度・目標株価（空可）・根拠・証拠の五項目。手法間の不一致、価格チャネル利用不可、入力不足のときは値を減じ結論は減じない。財務・開示はWireサーバー側チャネルA。"
+      },
+      "es": {
+        "name": "Investigación bursátil: tesis",
+        "summary": "Síntesis de tesis y dirección en instancia Rating: lado, convicción, precio objetivo (anulable), base y evidencia; ante discrepancias o fallo del canal de precios, se restan valores, no la conclusión."
+      },
+      "fr": {
+        "name": "Recherche actions : thèse",
+        "summary": "Synthèse thèse et direction en instance Rating : côté, conviction, objectif de cours (nullable), base, preuve ; si les méthodes divergent ou le canal tombe, on déduit des valeurs, pas la conclusion."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

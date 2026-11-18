@@ -1,0 +1,463 @@
+{
+  "tools": {
+    "generate_voice": {
+      "human": {
+        "zh": {
+          "name": "合成语音",
+          "summary": "由文本合成语音并返回产物；传入幂等键时，同键重放返回既有产物，不重复生成与计费。"
+        },
+        "en": {
+          "name": "Generate speech",
+          "summary": "Synthesizes speech from text and returns an asset; with an idempotency key, a repeat call replays the existing asset without regenerating or re-billing."
+        },
+        "ja": {
+          "name": "音声を合成",
+          "summary": "テキストから音声を合成し成果物を返します。冪等キーを渡すと、同じキーの再呼び出しは既存の成果物を返し、再生成や再課金を行いません。"
+        },
+        "es": {
+          "name": "Generar voz",
+          "summary": "Sintetiza voz a partir de texto y devuelve un artefacto; con clave de idempotencia, una repetición devuelve el artefacto existente sin regenerar ni facturar de nuevo."
+        },
+        "fr": {
+          "name": "Générer la voix",
+          "summary": "Synthétise une voix à partir d'un texte et renvoie un artefact ; avec une clé d'idempotence, un rappel renvoie l'artefact existant sans régénérer ni facturer à nouveau."
+        }
+      },
+      "canonical": {
+        "brief": "Generates speech from text and returns an asset; an idempotency key makes repeat calls replay the existing asset without regenerating or re-billing."
+      }
+    },
+    "generate_image": {
+      "human": {
+        "zh": {
+          "name": "生成图像",
+          "summary": "按文本提示词生成图像，返回生成的图像产物。"
+        },
+        "en": {
+          "name": "Generate images",
+          "summary": "Generates images from a text prompt and returns the resulting image assets."
+        },
+        "ja": {
+          "name": "画像を生成",
+          "summary": "テキストのプロンプトから画像を生成し、生成された画像成果物を返します。"
+        },
+        "es": {
+          "name": "Generar imágenes",
+          "summary": "Genera imágenes a partir de un texto de indicación y devuelve los artefactos de imagen resultantes."
+        },
+        "fr": {
+          "name": "Générer des images",
+          "summary": "Génère des images à partir d'une consigne textuelle et renvoie les artefacts d'image obtenus."
+        }
+      },
+      "canonical": {
+        "brief": "Generates images from a text prompt and returns the resulting image assets."
+      }
+    },
+    "generate_video_submit": {
+      "human": {
+        "zh": {
+          "name": "提交视频任务",
+          "summary": "提交异步视频任务，返回任务标识；之后轮询视频任务状态直至成功或失败，超时不要重复提交。"
+        },
+        "en": {
+          "name": "Submit video job",
+          "summary": "Submits an async video job and returns a job id; poll the job status until it succeeds or fails, and do not resubmit on a client timeout."
+        },
+        "ja": {
+          "name": "動画ジョブを送信",
+          "summary": "非同期の動画ジョブを送信し、ジョブ ID を返します。成功または失敗まで状態をポーリングし、タイムアウト時に再送信しないでください。"
+        },
+        "es": {
+          "name": "Enviar trabajo de video",
+          "summary": "Envía un trabajo de video asíncrono y devuelve un id de trabajo; consulta el estado hasta que termine y no lo reenvíes si hay tiempo de espera."
+        },
+        "fr": {
+          "name": "Soumettre un travail vidéo",
+          "summary": "Soumet un travail vidéo asynchrone et renvoie un identifiant ; interrogez l'état jusqu'à la fin et ne le resoumettez pas en cas de délai d'attente."
+        }
+      },
+      "canonical": {
+        "brief": "Submits an async video job and returns a job id; poll status until success or failure and never resubmit after a timeout."
+      }
+    },
+    "video_job_status": {
+      "human": {
+        "zh": {
+          "name": "查询视频任务",
+          "summary": "按任务标识轮询异步视频任务，返回运行中、成功、失败或已过期；成功时带回产物标识与签名下载地址。"
+        },
+        "en": {
+          "name": "Check video job",
+          "summary": "Polls one async video job by id and returns running, succeeded, failed or expired; on success the payload carries the asset id and a signed download URL."
+        },
+        "ja": {
+          "name": "動画ジョブを照会",
+          "summary": "ジョブ ID で非同期の動画ジョブをポーリングし、実行中、成功、失敗、期限切れのいずれかを返します。成功時は成果物 ID と署名付きダウンロード URL を含みます。"
+        },
+        "es": {
+          "name": "Consultar trabajo de video",
+          "summary": "Consulta por id un trabajo de video asíncrono y devuelve en ejecución, completado, fallido o caducado; al completarse incluye el id del artefacto y una URL de descarga firmada."
+        },
+        "fr": {
+          "name": "Vérifier le travail vidéo",
+          "summary": "Interroge par identifiant un travail vidéo asynchrone et renvoie en cours, réussi, échoué ou expiré ; en cas de succès, l'artefact et une URL signée sont fournis."
+        }
+      },
+      "canonical": {
+        "brief": "Polls an async video job by id, returning running, succeeded, failed or expired; success carries the asset id and a signed download URL."
+      }
+    },
+    "models_voices": {
+      "human": {
+        "zh": {
+          "name": "查看模型与音色",
+          "summary": "按提供方列出可用的生成模型与音色，返回能力（语速与字幕支持）、当前状态与价格说明。"
+        },
+        "en": {
+          "name": "List models and voices",
+          "summary": "Lists available generation models and voices per provider, returning capabilities such as speed and captions support, current status and pricing notes."
+        },
+        "ja": {
+          "name": "モデルと音声を一覧",
+          "summary": "提供元ごとに利用可能な生成モデルと音声を一覧し、速度や字幕対応などの能力、現在の状態、価格の説明を返します。"
+        },
+        "es": {
+          "name": "Ver modelos y voces",
+          "summary": "Enumera los modelos de generación y voces disponibles por proveedor, devolviendo capacidades como velocidad y subtítulos, estado actual y notas de precio."
+        },
+        "fr": {
+          "name": "Lister modèles et voix",
+          "summary": "Énumère les modèles de génération et les voix disponibles par fournisseur, avec les capacités telles que la vitesse et les sous-titres, l'état actuel et des notes de tarif."
+        }
+      },
+      "canonical": {
+        "brief": "Lists available generation models and voices per provider, including capabilities, current status and pricing notes."
+      }
+    },
+    "voiceover_assemble": {
+      "human": {
+        "zh": {
+          "name": "按剧本合成旁白",
+          "summary": "按分段时间线逐段合成旁白，返回长旁白产物；超出时间窗的段落给出改写建议，同剧本与幂等键重放不重复计费。"
+        },
+        "en": {
+          "name": "Assemble voiceover",
+          "summary": "Assembles a long voiceover from a script plan, synthesizing each segment with bounded retries; over-window segments get edit suggestions, and an idempotent replay is not re-billed."
+        },
+        "ja": {
+          "name": "ナレーションを組み立て",
+          "summary": "台本の区間計画に沿って区間ごとに合成し、長いナレーション成果物を返します。時間枠を超える区間には修正提案を出し、同じ計画と冪等キーの再実行は再課金しません。"
+        },
+        "es": {
+          "name": "Montar locución",
+          "summary": "Monta una locución larga desde un plan de guion, sintetizando cada segmento con reintentos acotados; los que exceden su ventana reciben sugerencias de edición y la repetición idempotente no refactura."
+        },
+        "fr": {
+          "name": "Assembler une voix off",
+          "summary": "Assemble une longue voix off depuis un plan de script avec reprises bornées ; les segments hors fenêtre reçoivent des suggestions de retouche et la reprise idempotente ne refacture pas."
+        }
+      },
+      "canonical": {
+        "brief": "Assembles a long voiceover segment by segment from a script plan, with bounded retries, edit suggestions for over-window segments and no re-billing on idempotent replay."
+      }
+    },
+    "reference_clips_check": {
+      "human": {
+        "zh": {
+          "name": "检查参考片段",
+          "summary": "为每个在用音色检查参考片段，补齐或重建缺失与回收的片段，返回按音色分列的差异报告。"
+        },
+        "en": {
+          "name": "Check reference clips",
+          "summary": "Reviews reference clips for every active voice, regenerates missing or recycled ones, and returns a per-voice diff report."
+        },
+        "ja": {
+          "name": "参照クリップを点検",
+          "summary": "使用中の各音声について参照クリップを点検し、欠損または回収されたクリップを再生成して、音声ごとの差分報告を返します。"
+        },
+        "es": {
+          "name": "Revisar clips de referencia",
+          "summary": "Revisa los clips de referencia de cada voz activa, regenera los faltantes o reciclados y devuelve un informe de diferencias por voz."
+        },
+        "fr": {
+          "name": "Vérifier les clips de référence",
+          "summary": "Contrôle les clips de référence de chaque voix active, régénère les clips manquants ou recyclés et renvoie un rapport d'écart par voix."
+        }
+      },
+      "canonical": {
+        "brief": "Reviews reference clips for every active voice, regenerates missing or recycled ones, and returns a per-voice diff report."
+      }
+    },
+    "assets_list": {
+      "human": {
+        "zh": {
+          "name": "列出产物",
+          "summary": "按可选条件列出产物摘要；托管模式下只返回本租户自己的产物。"
+        },
+        "en": {
+          "name": "List assets",
+          "summary": "Lists asset summaries with optional filters; in hosted mode it returns just the tenant's own assets."
+        },
+        "ja": {
+          "name": "成果物を一覧",
+          "summary": "任意の条件で成果物の概要を一覧します。ホスト型では自テナントの成果物だけを返します。"
+        },
+        "es": {
+          "name": "Listar artefactos",
+          "summary": "Enumera resúmenes de artefactos con filtros opcionales; en modo alojado devuelve solo los artefactos del propio inquilino."
+        },
+        "fr": {
+          "name": "Lister les artefacts",
+          "summary": "Énumère les résumés d'artefacts avec filtres optionnels ; en mode hébergé, ne renvoie que les artefacts du locataire lui-même."
+        }
+      },
+      "canonical": {
+        "brief": "Lists asset summaries with optional filters; in hosted mode it returns just the tenant's own assets."
+      }
+    },
+    "assets_get": {
+      "human": {
+        "zh": {
+          "name": "读取产物详情",
+          "summary": "读取单个产物的完整详情，含血缘、变体与分发信息；托管模式下附带新的签名下载地址。"
+        },
+        "en": {
+          "name": "Get asset details",
+          "summary": "Reads full details of one asset, including lineage, variants and distribution; in hosted mode it carries a fresh signed download URL."
+        },
+        "ja": {
+          "name": "成果物詳細を取得",
+          "summary": "単一の成果物の完全な詳細を読み取り、系譜、変種、配布情報を返します。ホスト型では新しい署名付きダウンロード URL を含みます。"
+        },
+        "es": {
+          "name": "Obtener detalles del artefacto",
+          "summary": "Lee los detalles completos de un artefacto, incluidos linaje, variantes y distribución; en modo alojado incluye una nueva URL de descarga firmada."
+        },
+        "fr": {
+          "name": "Obtenir les détails d'un artefact",
+          "summary": "Lit les détails complets d'un artefact, y compris la lignée, les variantes et la distribution ; en mode hébergé, une nouvelle URL de téléchargement signée est incluse."
+        }
+      },
+      "canonical": {
+        "brief": "Reads full details of one asset, including lineage, variants and distribution, with a fresh signed download URL in hosted mode."
+      }
+    },
+    "assets_stats": {
+      "human": {
+        "zh": {
+          "name": "汇总产物统计",
+          "summary": "按产物类型、阶段与平台汇总统计，返回聚合结果。"
+        },
+        "en": {
+          "name": "Summarize asset stats",
+          "summary": "Aggregates statistics by asset type, stage and platform and returns the aggregated result."
+        },
+        "ja": {
+          "name": "成果物統計を集計",
+          "summary": "成果物の種類、段階、プラットフォームごとに統計を集計し、集計結果を返します。"
+        },
+        "es": {
+          "name": "Resumir estadísticas",
+          "summary": "Agrega estadísticas por tipo de artefacto, etapa y plataforma y devuelve el resultado agregado."
+        },
+        "fr": {
+          "name": "Synthétiser les statistiques",
+          "summary": "Agrège les statistiques par type d'artefact, étape et plateforme et renvoie le résultat agrégé."
+        }
+      },
+      "canonical": {
+        "brief": "Aggregates asset statistics by type, stage and platform and returns the aggregated result."
+      }
+    },
+    "registry_list_generators": {
+      "human": {
+        "zh": {
+          "name": "列出生成方法",
+          "summary": "列出可用的生成方法，可按产物类型过滤，返回方法清单。"
+        },
+        "en": {
+          "name": "List generators",
+          "summary": "Lists the available generation methods, optionally filtered by asset type, and returns the method list."
+        },
+        "ja": {
+          "name": "生成方法を一覧",
+          "summary": "利用可能な生成方法を一覧します。成果物の種類で絞り込むこともでき、方法の一覧を返します。"
+        },
+        "es": {
+          "name": "Listar generadores",
+          "summary": "Enumera los métodos de generación disponibles, opcionalmente filtrados por tipo de artefacto, y devuelve la lista."
+        },
+        "fr": {
+          "name": "Lister les générateurs",
+          "summary": "Énumère les méthodes de génération disponibles, éventuellement filtrées par type d'artefact, et renvoie la liste."
+        }
+      },
+      "canonical": {
+        "brief": "Lists available generation methods, optionally filtered by asset type, and returns the method list."
+      }
+    },
+    "registry_describe_generator": {
+      "human": {
+        "zh": {
+          "name": "查看生成方法说明",
+          "summary": "查看某个生成方法的说明，返回该方法的能力与参数信息。"
+        },
+        "en": {
+          "name": "Describe generator",
+          "summary": "Describes a specific generation method and returns its capabilities and parameter information."
+        },
+        "ja": {
+          "name": "生成方法の説明を見る",
+          "summary": "特定の生成方法の説明を見て、その能力とパラメータの情報を返します。"
+        },
+        "es": {
+          "name": "Describir el generador",
+          "summary": "Describe un método de generación concreto y devuelve sus capacidades e información de parámetros."
+        },
+        "fr": {
+          "name": "Décrire le générateur",
+          "summary": "Décrit une méthode de génération précise et renvoie ses capacités et informations de paramètres."
+        }
+      },
+      "canonical": {
+        "brief": "Describes a specific generation method and returns its capabilities and parameter information."
+      }
+    },
+    "render_video": {
+      "human": {
+        "zh": {
+          "name": "渲染视频",
+          "summary": "从 storyboard 场景或类型模板确定性渲染逐帧视频，支持旁白与 BGM 混流。"
+        },
+        "en": {
+          "name": "Render video",
+          "summary": "Deterministic frame-sequence video render from storyboard scenes or typed templates, with narration and BGM mixing."
+        },
+        "ja": {
+          "name": "動画をレンダリング",
+          "summary": "ストーリーボードのシーンまたは型付きテンプレートから、フレーム単位で決定的に動画を描画します。ナレーションと BGM のミックスに対応します。"
+        },
+        "es": {
+          "name": "Renderizar vídeo",
+          "summary": "Renderiza vídeo de forma determinista desde escenas de storyboard o plantillas tipadas, con mezcla de narración y música de fondo."
+        },
+        "fr": {
+          "name": "Rendre une vidéo",
+          "summary": "Rend une vidéo de façon déterministe depuis des scènes de storyboard ou des modèles typés, avec mixage de narration et de musique."
+        }
+      },
+      "canonical": {
+        "brief": "Renders video deterministically in two mutually exclusive modes: storyboard scenes frame-by-frame, or a typed template plus script, with optional narration and BGM mixing."
+      }
+    },
+    "render_still": {
+      "human": {
+        "zh": {
+          "name": "渲染单帧",
+          "summary": "品牌封面、声明式图表或自定义 HTML 的单帧渲染。"
+        },
+        "en": {
+          "name": "Render still",
+          "summary": "Single-frame brand render for covers/charts/graphics."
+        },
+        "ja": {
+          "name": "静止画をレンダリング",
+          "summary": "ブランド表紙・宣言的グラフ・任意 HTML の静止画を 1 枚描画します。"
+        },
+        "es": {
+          "name": "Renderizar imagen fija",
+          "summary": "Renderiza una sola imagen para portadas de marca, gráficos declarativos o HTML propio."
+        },
+        "fr": {
+          "name": "Rendre une image fixe",
+          "summary": "Rend une image unique pour couvertures de marque, graphiques déclaratifs ou HTML personnalisé."
+        }
+      },
+      "canonical": {
+        "brief": "Renders one still image with kind cover, chart or graphic; the cover path runs through chromium since 2026-11-09, the former Remotion path being retired."
+      }
+    },
+    "render_document": {
+      "human": {
+        "zh": {
+          "name": "渲染文档",
+          "summary": "md/HTML 源渲染为分页 PDF 与长图。"
+        },
+        "en": {
+          "name": "Render document",
+          "summary": "Paginated pdf + long-image from md/HTML."
+        },
+        "ja": {
+          "name": "文書をレンダリング",
+          "summary": "md/HTML の原稿をページ分割 PDF と長尺画像に描画します。"
+        },
+        "es": {
+          "name": "Renderizar documento",
+          "summary": "Convierte fuentes md/HTML en PDF paginado y en imagen larga."
+        },
+        "fr": {
+          "name": "Rendre un document",
+          "summary": "Convertit des sources md/HTML en PDF paginé et en image longue."
+        }
+      },
+      "canonical": {
+        "brief": "Renders md or HTML sources to pdf and/or longimage, one artifact per requested format; an unspecified template falls back to default."
+      }
+    },
+    "templates_list": {
+      "human": {
+        "zh": {
+          "name": "模板目录",
+          "summary": "列出内置视频类型、封面版式与文档版式及其输入契约。"
+        },
+        "en": {
+          "name": "List templates",
+          "summary": "Discover built-in video/cover/doc templates with their input contracts."
+        },
+        "ja": {
+          "name": "テンプレート一覧",
+          "summary": "組み込みの動画種別・表紙レイアウト・文書レイアウトと、それぞれの入力契約を一覧します。"
+        },
+        "es": {
+          "name": "Listar plantillas",
+          "summary": "Lista las plantillas integradas de vídeo, portada y documento junto con su contrato de entrada."
+        },
+        "fr": {
+          "name": "Lister les modèles",
+          "summary": "Liste les modèles intégrés de vidéo, couverture et document avec leur contrat d'entrée."
+        }
+      },
+      "canonical": {
+        "brief": "Lists presentation templates by domain video | cover | doc, where video names are exactly the render_video type ids; domain=None lists all three."
+      }
+    },
+    "templates_get": {
+      "human": {
+        "zh": {
+          "name": "模板详情",
+          "summary": "按 id 取单个模板的输入契约说明。"
+        },
+        "en": {
+          "name": "Get template",
+          "summary": "Fetch a single template's contract."
+        },
+        "ja": {
+          "name": "テンプレート詳細",
+          "summary": "id を指定して 1 つのテンプレートの入力契約の説明を取得します。"
+        },
+        "es": {
+          "name": "Ver plantilla",
+          "summary": "Obtiene la descripción del contrato de entrada de una plantilla por id."
+        },
+        "fr": {
+          "name": "Voir le modèle",
+          "summary": "Récupère la description du contrat d'entrée d'un modèle par id."
+        }
+      },
+      "canonical": {
+        "brief": "Returns one template's detail and input contract, whether a video type definition or a cover/doc registry entry."
+      }
+    }
+  }
+}

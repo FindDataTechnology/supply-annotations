@@ -1,0 +1,32 @@
+{
+  "skill": "fd-vaas-pull-from-cloud",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "云端素材拉取",
+        "summary": "将租户自有的萬星 VAAS 云端素材拉取到本地发布目录。"
+      },
+      "en": {
+        "name": "Tenant asset download",
+        "summary": "Pulls tenant-owned Wanxing VAAS assets from the cloud into local publishing directories."
+      },
+      "ja": {
+        "name": "クラウド素材取得",
+        "summary": "テナント所有の Wanxing VAAS クラウド素材をローカルの公開用ディレクトリへ取り込む。"
+      },
+      "es": {
+        "name": "Descarga de recursos del inquilino",
+        "summary": "Descarga los recursos en la nube de Wanxing VAAS propiedad del inquilino hacia las carpetas locales de publicación."
+      },
+      "fr": {
+        "name": "Téléchargement des ressources du locataire",
+        "summary": "Télécharge les ressources cloud Wanxing VAAS appartenant au locataire vers les dossiers de publication locaux."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

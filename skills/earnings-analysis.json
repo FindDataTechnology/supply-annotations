@@ -1,0 +1,32 @@
+{
+  "skill": "earnings-analysis",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "财报更新分析",
+        "summary": "为已覆盖公司撰写专业股票研究财报更新报告（8–12页、3000–5000字），以快速交付格式点评季度业绩的超预期与低于预期。"
+      },
+      "en": {
+        "name": "Earnings update analysis",
+        "summary": "Produces professional equity-research earnings update reports (8–12 pages, 3,000–5,000 words) on quarterly results for companies already under coverage, in a fast-turnaround beat/miss format."
+      },
+      "ja": {
+        "name": "決算更新分析",
+        "summary": "カバレッジ済み企業の四半期決算を分析する本格リサーチの決算更新レポート（8–12ページ・3000–5000字）を速成フォーマットで作成し、期待上回り・下回りを点评する。"
+      },
+      "es": {
+        "name": "Análisis de actualización de resultados",
+        "summary": "Genera informes profesionales de actualización de resultados (8–12 págs., 3.000–5.000 palabras) sobre el trimestre de empresas ya cubiertas, en formato rápido de superación o decepción."
+      },
+      "fr": {
+        "name": "Analyse de mise à jour des résultats",
+        "summary": "Rédige des mises à jour trimestrielles de recherche actions (8–12 pages, 3 000–5 000 mots) sur les valeurs suivies, au format rapide sur dépassement ou retard sur attentes."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

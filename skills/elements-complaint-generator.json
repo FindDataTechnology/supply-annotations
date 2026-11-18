@@ -1,0 +1,32 @@
+{
+  "skill": "elements-complaint-generator",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "要素式起诉状生成器",
+        "summary": "把律师已写好的常规起诉状（md/docx）或对话描述，转换为符合67类案由官方要素式示范文本格式（法〔2025〕82号，2025-07-14起全国推广）的Word文档，适用于民间借贷、离婚纠纷、机动车事故、劳动争议等民事、商事、行政、知产案由的起诉状与答辩状。"
+      },
+      "en": {
+        "name": "Element-based complaint generator",
+        "summary": "Converts ordinary complaints (md/docx) or chat descriptions into Word documents in the official element-based format for 67 civil, commercial, administrative and IP case types (Fa [2025] No. 82)."
+      },
+      "ja": {
+        "name": "要素式訴状ジェネレーター",
+        "summary": "弁護士が書いた通常の訴状（md/docx）や対話内容から、民事・商事・行政・知財の67類型の要素式模範書式（法〔2025〕82号）に沿ったWord文書を変換する。訴状・答弁書の双方に適用。"
+      },
+      "es": {
+        "name": "Generador de demandas por elementos",
+        "summary": "Convierte demandas (md/docx) o descripciones del chat en Word con el formato oficial por elementos de 67 tipos de casos (Fa [2025] n.º 82): civiles, mercantiles, administrativos y PI."
+      },
+      "fr": {
+        "name": "Générateur de demandes en justice par éléments",
+        "summary": "Convertit demandes (md/docx) ou descriptions de chat en Word au format officiel par éléments (67 types d'affaires, Fa [2025] n° 82), civil, commercial, administratif et PI."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

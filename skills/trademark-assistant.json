@@ -1,0 +1,32 @@
+{
+  "skill": "trademark-assistant",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "商标申请助手",
+        "summary": "面向中国商标申请的尼斯分类类别规划、可注册性初筛与申请材料准备，引用中国法律法规，输出结构化建议与风险分级；不替代正式法律意见、不承诺注册成功率、不处理复杂争议。"
+      },
+      "en": {
+        "name": "Trademark filing assistant",
+        "summary": "Plans Nice classes, screens registrability and prepares filing materials for Chinese trademark applications; returns structured advice with risk tiers; no formal opinions or success promises."
+      },
+      "ja": {
+        "name": "商標出願支援",
+        "summary": "中国の商標出願に向けニース分類での区分設計、登録可能性の一次スクリーニング、出願書類準備を行い、中国法令を引用し構造化提案とリスク段階を出力する。正式意見の代替、成功の約束、複雑な争議は対象外。"
+      },
+      "es": {
+        "name": "Asistente de solicitudes de marca",
+        "summary": "Planifica clases de Niza, filtra la registrabilidad y prepara documentos de solicitudes de marca chinas según la ley de China; da consejos estructurados con niveles de riesgo, sin dictámenes."
+      },
+      "fr": {
+        "name": "Assistant de demandes de marque",
+        "summary": "Planifie les classes de Nice, présélectionne la registrabilité et prépare les dossiers de marques chinoises selon la loi de Chine ; conseils structurés gradués en risques, sans avis officiel."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

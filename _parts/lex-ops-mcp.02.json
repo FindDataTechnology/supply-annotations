@@ -1,0 +1,54 @@
+{
+ "tools": {
+  "lex_matter_create": {
+   "human": {
+    "zh": {"name": "开案", "summary": "新开一个案件作为归集单位，检索命中、文书草稿与评审报告都挂在同一案上；标题必填、案由码可缺，识别不出案由时不编造。"},
+    "en": {"name": "Open a matter", "summary": "Opens a matter as the unit that gathers retrieval hits, drafts and review reports; the title is required and the cause code optional, never guessed when unknown."},
+    "ja": {"name": "案件を起案", "summary": "検索結果・文書・レビューを束ねる単位として案件を起案します。表題は必須、案由コードは任意で、判別できない場合は推測しません。"},
+    "es": {"name": "Abrir un expediente", "summary": "Abre un expediente como unidad que agrupa resultados de búsqueda, borradores e informes; el título es obligatorio y el código de causa opcional, nunca adivinado."},
+    "fr": {"name": "Ouvrir un dossier", "summary": "Ouvre un dossier comme unité regroupant résultats de recherche, brouillons et rapports ; le titre est requis, le code de cause optionnel et jamais deviné."}
+   },
+   "canonical": {"brief": "Creates a matter via POST /api/console/matter with a required title and optional cause code; the upstream tenant check is authoritative and the returned object carries id, status and creation time."}
+  },
+  "lex_matter_list": {
+   "human": {
+    "zh": {"name": "列案件", "summary": "列出本案客户的全部案件，按创建时间倒序；只读，客户范围由上游判定。"},
+    "en": {"name": "List matters", "summary": "Lists every matter of the calling customer newest-first as a read-only view; tenant scoping is enforced upstream."},
+    "ja": {"name": "案件一覧", "summary": "呼び出し元顧客の全案件を新しい順に一覧します（読み取り専用）。テナント範囲は上流が判定します。"},
+    "es": {"name": "Listar expedientes", "summary": "Lista todos los expedientes del cliente que llama, del más reciente al más antiguo, en solo lectura; el alcance por inquilino lo decide el sistema de origen."},
+    "fr": {"name": "Lister les dossiers", "summary": "Liste tous les dossiers du client appelant, du plus récent au plus ancien, en lecture seule ; le périmètre locataire est décidé en amont."}
+   },
+   "canonical": {"brief": "Lists all matters visible to the calling customer in reverse chronological order; read-only, with tenant scoping enforced by the upstream service."}
+  },
+  "lex_matter_show": {
+   "human": {
+    "zh": {"name": "案件详情", "summary": "查一个案件的详情与全部产物；他人案件与不存在同样回 404，上游不泄露存在性。"},
+    "en": {"name": "Show a matter", "summary": "Returns one matter's detail with all of its artifacts; another tenant's matter and a missing one both answer 404, so existence never leaks."},
+    "ja": {"name": "案件の詳細", "summary": "案件の詳細と全成果物を返します。他者の案件も存在しない案件も 404 を返し、存在性は漏れません。"},
+    "es": {"name": "Ver un expediente", "summary": "Devuelve el detalle de un expediente con todos sus artefactos; el de otro inquilino y el inexistente responden 404, así no se filtra su existencia."},
+    "fr": {"name": "Voir un dossier", "summary": "Renvoie le détail d'un dossier avec tous ses artefacts ; celui d'un autre locataire et l'inexistant répondent 404, l'existence ne fuit donc pas."}
+   },
+   "canonical": {"brief": "Returns one matter with all artifacts by id; a missing matter and another tenant's matter both return 404, so the upstream never discloses existence."}
+  },
+  "lex_matter_artifact_add": {
+   "human": {
+    "zh": {"name": "添加案卷产物", "summary": "按产物契约给案件添加一张案卷产物：缺必填项上游 422 逐字段点名，案件已归档回 409；本服务原样转述。"},
+    "en": {"name": "Add a matter artifact", "summary": "Adds one artifact to a matter under the artifact contract; a missing required field comes back as a field-level 422 and an archived matter as 409, both relayed verbatim."},
+    "ja": {"name": "成果物を追加", "summary": "契約に沿って案件へ成果物を一件追加します。必須項目の欠落は 422 で項目名を返し、アーカイブ済み案件は 409、いずれも原文のまま転送します。"},
+    "es": {"name": "Añadir un artefacto", "summary": "Añade un artefacto al expediente según su contrato; si falta un campo obligatorio responde 422 nombrándolo y un expediente archivado 409, ambos retransmitidos tal cual."},
+    "fr": {"name": "Ajouter un artefact", "summary": "Ajoute un artefact au dossier selon son contrat ; un champ requis manquant donne un 422 nommant le champ, un dossier archivé un 409, retransmis tels quels."}
+   },
+   "canonical": {"brief": "Adds one artifact to a matter under the artifact contract (kind, producer, refs, sha256, payload, provenance); field-level 422 and archived-matter 409 are relayed verbatim."}
+  },
+  "lex_matter_artifact_list": {
+   "human": {
+    "zh": {"name": "列案卷产物", "summary": "列一个案件的全部产物，可按类别过滤；不带类别则返回全部，按添加顺序。"},
+    "en": {"name": "List matter artifacts", "summary": "Lists a matter's artifacts, optionally filtered by kind; without a filter it returns all of them in the order they were added."},
+    "ja": {"name": "成果物一覧", "summary": "案件の成果物を一覧し、種類で絞り込めます。指定しない場合は追加順に全件を返します。"},
+    "es": {"name": "Listar artefactos", "summary": "Lista los artefactos de un expediente con filtro opcional por tipo; sin filtro devuelve todos en el orden en que se añadieron."},
+    "fr": {"name": "Lister les artefacts", "summary": "Liste les artefacts d'un dossier, filtrables par type ; sans filtre, tous sont renvoyés dans l'ordre d'ajout."}
+   },
+   "canonical": {"brief": "Lists a matter's artifacts in insertion order with an optional kind filter; a read-only thin proxy to GET /api/console/matter/{id}/artifact."}
+  }
+ }
+}

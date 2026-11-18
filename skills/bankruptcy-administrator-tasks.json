@@ -1,0 +1,32 @@
+{
+  "skill": "bankruptcy-administrator-tasks",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "破产管理人任务",
+        "summary": "覆盖破产管理人受理后的全部初期职责：印章与账户管理、财产接管、内部事务管理、合同处理、聘用工作人员、团队管理及报酬方案制定。"
+      },
+      "en": {
+        "name": "Bankruptcy administrator duties",
+        "summary": "Covers the administrator's initial duties after acceptance: seal and account control, property takeover, internal affairs, contract handling, staff hiring, team management and fee planning."
+      },
+      "ja": {
+        "name": "破産管財人職務",
+        "summary": "法院受理後の破産管財人の初期業務を網羅：印鑑・口座管理、財産引継ぎ、内部事務、契約処理、スタッフ採用、チーム管理、報酬計画の策定。"
+      },
+      "es": {
+        "name": "Tareas del administrador concursal",
+        "summary": "Cubre las funciones iniciales del administrador tras la admisión: sellos y cuentas, toma de bienes, asuntos internos, contratos, contratación de personal, gestión del equipo y plan de honorarios."
+      },
+      "fr": {
+        "name": "Tâches de l'administrateur judiciaire",
+        "summary": "Couvre les tâches initiales de l'administrateur après admission : sceaux et comptes, prise des biens, affaires internes, contrats, embauche, équipe et plan de rémunération."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

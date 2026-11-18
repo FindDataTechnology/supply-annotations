@@ -1,0 +1,32 @@
+{
+  "skill": "legal-industry-report",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "行业法律调研报告",
+        "summary": "输入一个行业（可选区域与业务方向），输出可交付的精排 A4 PDF 行业法律调研报告：律所蓝皮书体例与个性化配置（律所抬头、配色、主办律师等），数据来自企查查 MCP 与网络检索。"
+      },
+      "en": {
+        "name": "Industry legal research report",
+        "summary": "Turns an industry (region and focus optional) into an A4 PDF industry legal research report in law-firm bluebook style with profile personalization; data from Qichacha MCP and web search."
+      },
+      "ja": {
+        "name": "業界法務リサーチレポート",
+        "summary": "業界（地域・業務方向は任意）を入力すると、法律事務所ブルーブック体例の A4 PDF 業界法務リサーチレポートを出力。プロファイル個別設定に対応し、データは Qichacha MCP とウェブ検索による。"
+      },
+      "es": {
+        "name": "Informe jurídico sectorial",
+        "summary": "Convierte un sector (región y enfoque opcionales) en un informe jurídico sectorial PDF A4 con estilo bluebook de bufete y personalización por perfil; datos de Qichacha MCP y búsqueda web."
+      },
+      "fr": {
+        "name": "Rapport juridique sectoriel",
+        "summary": "Transforme un secteur (région et orientation) en rapport juridique sectoriel PDF A4 style livre bleu de cabinet, personnalisable ; données de Qichacha MCP et recherche web."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

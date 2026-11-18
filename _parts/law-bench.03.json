@@ -1,0 +1,58 @@
+{
+ "tools": {
+  "task_failed_items": {
+   "human": {
+    "zh": {
+     "name": "取失败条目",
+     "summary": "取某任务的失败与未完成条目，供分项重跑；全通过时返回空表，部分失败时附迭代说明，批次类任务无法反推条目故返回空表。"
+    },
+    "en": {
+     "name": "List failed task items",
+     "summary": "Returns a task's failed or unfinished items for item-by-item reruns; an all-pass run yields an empty list, a partial failure carries an iteration note, and batch-family runs yield none."
+    },
+    "ja": {
+     "name": "失敗項目を取得",
+     "summary": "タスクの失敗・未完了項目を返し、項目ごとの再実行に使います。全通過なら空、部分失敗なら反復の注記付き、バッチ系は逆算できないため空です。"
+    },
+    "es": {
+     "name": "Listar los ítems fallidos",
+     "summary": "Devuelve los ítems fallidos o sin terminar de una tarea para reejecutarlos uno a uno; si todo pasó la lista va vacía, un fallo parcial lleva nota de iteración y los lotes no permiten derivarlos."
+    },
+    "fr": {
+     "name": "Lister les éléments en échec",
+     "summary": "Renvoie les éléments en échec ou inachevés d'une tâche pour un nouvel essai unitaire ; tout réussi donne une liste vide, un échec partiel porte une note d'itération."
+    }
+   },
+   "canonical": {
+    "brief": "Returns a task's failed or unfinished items for item-by-item reruns; empty on full pass, an iteration hint on partial failure, and an empty list for batch-family handles that cannot be reverse-derived."
+   }
+  },
+  "task_status": {
+   "human": {
+    "zh": {
+     "name": "查任务状态",
+     "summary": "按任务句柄统一查状态与结果；查不到即如实报未找到，批次句柄只作日志关联键时明确报未持久，不编造结果。"
+    },
+    "en": {
+     "name": "Get task status",
+     "summary": "Looks up status and result by task handle across both families; a missing record is reported as not found, and a batch handle that is only a log key is reported as not persisted."
+    },
+    "ja": {
+     "name": "タスク状態を照会",
+     "summary": "両ファミリのハンドルで状態と結果を照会します。見つからなければ未検出と正直に返し、バッチ系でログ相関キーにすぎない場合は未永続と明示します。"
+    },
+    "es": {
+     "name": "Consultar el estado de la tarea",
+     "summary": "Consulta estado y resultado por handle en ambas familias; si no hay registro lo informa como no encontrado y un handle de lote que solo es clave de log se informa como no persistido."
+    },
+    "fr": {
+     "name": "Consulter l'état d'une tâche",
+     "summary": "Interroge état et résultat par handle dans les deux familles ; sans enregistrement, il est déclaré introuvable, et un handle de lot simple clé de journal est déclaré non persisté."
+    }
+   },
+   "canonical": {
+    "brief": "Resolves status and result by task handle for both pipeline and batch families, returning found/status/progress/counts; a batch trace_id that is only a log key is reported unknown_not_persisted, never fabricated."
+   }
+  }
+ }
+}

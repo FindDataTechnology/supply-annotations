@@ -1,0 +1,32 @@
+{
+  "skill": "eco-discernment-nudge",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "交付前甄别提醒",
+        "summary": "生态技能包：交出可执行结论前，补一句「哪些地方该自行核实」。"
+      },
+      "en": {
+        "name": "Verification reminder before delivery",
+        "summary": "Ecosystem skill pack: before handing over an actionable conclusion, adds a note on what still needs personal verification."
+      },
+      "ja": {
+        "name": "提出前の見極めリマインド",
+        "summary": "エコシステム系スキル。実行可能な結論を渡す前に、「自分で確認すべき点」を一言添える。"
+      },
+      "es": {
+        "name": "Aviso de verificación previo a la entrega",
+        "summary": "Habilidad del ecosistema: antes de entregar una conclusión accionable, añade qué conviene verificar por cuenta propia."
+      },
+      "fr": {
+        "name": "Rappel de vérification avant livraison",
+        "summary": "Compétence de l'écosystème : avant de livrer une conclusion exploitable, ajoute une note sur ce qu'il faut vérifier soi-même."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

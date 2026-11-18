@@ -1,0 +1,32 @@
+{
+  "skill": "legal-risk-assessment",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "监管处罚风险评估",
+        "summary": "从许可资质、监管法规遵循及历史处罚记录等四个维度，评估企业面临的监管处罚风险。"
+      },
+      "en": {
+        "name": "Regulatory penalty risk assessment",
+        "summary": "Assesses the regulatory penalty risk an enterprise faces across four dimensions such as licensing, regulatory compliance and historical penalty records."
+      },
+      "ja": {
+        "name": "規制処分リスク評価",
+        "summary": "許認可、規制順守、過去の処罰記録など四つの観点から、企業が直面する規制処罰リスクを評価する。"
+      },
+      "es": {
+        "name": "Evaluación de riesgo de sanciones regulatorias",
+        "summary": "Evalúa el riesgo de sanciones regulatorias de una empresa en cuatro dimensiones: licencias, cumplimiento normativo y registros históricos de sanciones."
+      },
+      "fr": {
+        "name": "Évaluation du risque de sanctions réglementaires",
+        "summary": "Évalue le risque de sanctions réglementaires d'une entreprise sous quatre dimensions : licences, conformité normative et antécédents de sanctions."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

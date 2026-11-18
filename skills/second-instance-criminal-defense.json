@@ -1,0 +1,32 @@
+{
+  "skill": "second-instance-criminal-defense",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "刑事二审辩护",
+        "summary": "刑事二审阶段辩护全流程：上诉审接案、一审材料衔接、阅卷审查、会见策略、争取开庭、书面辩护意见、二审庭审与不开庭审理沟通、裁判分析及发回重审衔接。"
+      },
+      "en": {
+        "name": "Second-instance criminal defense",
+        "summary": "Second-instance criminal defense: appeal intake, first-instance material alignment, file review, meeting strategy, seeking a hearing, written opinions, judgment analysis and remand handling."
+      },
+      "ja": {
+        "name": "刑事第二審弁護",
+        "summary": "刑事第二審弁護の全体流れ：控訴審の受任、一審資料の引き継ぎ、訴訟記録の確認、接見戦略、口頭弁論開廷の働きかけ、書面弁護意見、非開廷手続きの折衝、裁判分析と差し戻し対応。"
+      },
+      "es": {
+        "name": "Defensa penal en segunda instancia",
+        "summary": "Defensa en segunda instancia: recepción del recurso, enlace con materiales previos, revisión del expediente, estrategia de entrevistas, vista oral, alegatos escritos, análisis de sentencia y reenvío."
+      },
+      "fr": {
+        "name": "Défense pénale en seconde instance",
+        "summary": "Défense en seconde instance : prise en charge de l'appel, articulation des pièces, examen du dossier, entretiens, demande d'audience, conclusions écrites, analyse de l'arrêt et renvoi."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

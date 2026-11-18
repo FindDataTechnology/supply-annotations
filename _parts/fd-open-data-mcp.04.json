@@ -1,0 +1,139 @@
+{
+  "tools": {
+    "flower_universe": {
+      "human": {
+        "zh": {
+          "name": "花卉宇宙总览",
+          "summary": "读取花卉双层宇宙的在册情况与各车道可用性：7 家上市公司（纯花卉/邻接两档）、23 个斗南品类、8 个 AIPH 种植面积国家；取不到的车道逐条给出原因。"
+        },
+        "en": {
+          "name": "Flower universe",
+          "summary": "Lists the flower universe and per-lane availability: 7 listed companies in pure-flower and adjacency tiers, 23 Dounan commodity items, 8 countries in the AIPH planted-area chapter."
+        },
+        "ja": {
+          "name": "花卉ユニバース一覧",
+          "summary": "花卉ユニバースの登録内容とレーン別の可用性を返します。上場企業7社（純花卉・隣接の2層）、斗南の品目23件、AIPH作付面積の8か国。"
+        },
+        "es": {
+          "name": "Universo floral",
+          "summary": "Lista el universo floral y la disponibilidad por carril: 7 empresas cotizadas en niveles floral puro y adyacente, 23 artículos de Dounan y 8 países de AIPH."
+        },
+        "fr": {
+          "name": "Univers floral",
+          "summary": "Liste l'univers floral et la disponibilité par voie : 7 sociétés cotées (fleur pure et adjacence), 23 articles de Dounan et 8 pays du chapitre AIPH."
+        }
+      },
+      "canonical": {
+        "brief": "Read-only: flower universe — 7 listed companies, 23 Dounan items, 8 AIPH countries; every lane returns a count or an explicit reason (KIFA never held; HK/EU no listed flower target; trade chapter unscheduled; Dounan ~2-month window; AIPH years mixed)."
+      }
+    },
+    "flower_price_series": {
+      "human": {
+        "zh": {
+          "name": "斗南花卉价格序列",
+          "summary": "按品类读取斗南花市日度均价、高价、低价三个独立口径；单位随品类（元/枝或元/把），上游报告仅约两个月，缺失日期只报告不插值。"
+        },
+        "en": {
+          "name": "Dounan flower prices",
+          "summary": "Reads one Dounan item's daily average, high and low prices as three independent published calibers; unit follows the item (CNY per stem or bunch), missing days reported, never filled."
+        },
+        "ja": {
+          "name": "斗南花卉価格系列",
+          "summary": "斗南市場の日次平均・高値・安値価格を3つの独立した算出基準として読み出します。単位は品目ごと（元/枝または元/束）で、欠損日は報告のみで補間しません。"
+        },
+        "es": {
+          "name": "Precios de Dounan",
+          "summary": "Lee los precios diarios medio, máximo y mínimo de un artículo de Dounan como tres criterios independientes; la unidad depende del artículo (CNY por tallo o manojo) y los días faltantes se informan."
+        },
+        "fr": {
+          "name": "Prix de Dounan",
+          "summary": "Lit les prix quotidiens moyen, haut et bas d'un article de Dounan comme trois critères indépendants ; l'unité suit l'article (CNY par tige ou botte) et les jours manquants sont signalés."
+        }
+      },
+      "canonical": {
+        "brief": "Read-only: one Dounan item's daily avg/high/low as three separate published calibers; unit comes from the item entity (CNY per stem or bunch); the upstream report spans only about two months by design; missing days reported, never filled."
+      }
+    },
+    "flower_planted_area": {
+      "human": {
+        "zh": {
+          "name": "花卉种植面积",
+          "summary": "按国家与品类读取 AIPH 种植面积（公顷）横截面；每行自带参考年（2005–2024 混合），不计算增长率，其贸易章与 Eurostat 重复故不采用。"
+        },
+        "en": {
+          "name": "Planted area",
+          "summary": "Reads AIPH planted area in hectares by country and product as a cross-section; every row carries its own reference year (2005–2024 mixed) and no growth rate is computed."
+        },
+        "ja": {
+          "name": "作付面積",
+          "summary": "国・品目別のAIPH作付面積（ヘクタール）をクロスセクションとして読み出します。各行が独自の基準年（2005–2024混在）を持ち、成長率は算出しません。"
+        },
+        "es": {
+          "name": "Superficie plantada",
+          "summary": "Lee la superficie plantada de AIPH en hectáreas por país y producto como corte transversal; cada fila lleva su propio año de referencia (2005–2024 mezclados) y no se calcula crecimiento."
+        },
+        "fr": {
+          "name": "Surfaces plantées",
+          "summary": "Lit les surfaces plantées AIPH en hectares par pays et produit en coupe transversale ; chaque ligne porte son année de référence (2005–2024 mêlées) et aucun taux de croissance n'est calculé."
+        }
+      },
+      "canonical": {
+        "brief": "Read-only: AIPH planted area (ha) by country and product as a cross-section; each row keeps its own ref_year (2005–2024 mixed), no growth rates; AIPH carries area only — its trade chapter duplicates Eurostat and is not used."
+      }
+    },
+    "flower_company_financials": {
+      "human": {
+        "zh": {
+          "name": "花卉公司财务",
+          "summary": "读取宇宙内公司的营业收入、营业利润、净利润序列并标注币种；分部收入、未纳入抓取的公司与日股 EDINET 凭据逐项给出不可得原因，不以 0 顶替。"
+        },
+        "en": {
+          "name": "Flower company financials",
+          "summary": "Reads consolidated revenue, operating profit and net income for universe companies with the currency stated; segment revenue and unfinished lanes return an explicit reason, not a number."
+        },
+        "ja": {
+          "name": "花卉企業財務",
+          "summary": "ユニバース内企業の売上高・営業利益・純利益を、通貨を明示して読み出します。セグメント収益や未実装のレーンは数値ではなく明示的な理由を返します。"
+        },
+        "es": {
+          "name": "Finanzas de empresas florales",
+          "summary": "Lee ingresos, beneficio operativo y beneficio neto consolidados de las empresas del universo indicando la moneda; los segmentos devuelven un motivo explícito, no una cifra."
+        },
+        "fr": {
+          "name": "Finances des entreprises florales",
+          "summary": "Lit le chiffre d'affaires, le résultat opérationnel et le résultat net consolidés des sociétés de l'univers avec la devise ; les segments renvoient un motif explicite, pas un chiffre."
+        }
+      },
+      "canonical": {
+        "brief": "Read-only: consolidated revenue/operating profit/net income with region-derived currency; flower revenue share null when undisclosed; segment revenue unavailable (SEC dimensions stripped); a company not yet crawled and JP EDINET each return a reason, never 0."
+      }
+    },
+    "flower_trade": {
+      "human": {
+        "zh": {
+          "name": "花卉贸易链",
+          "summary": "按三个海关税号（060311 玫瑰鲜切花、060319 其他鲜切花、060120 鳞茎球根）读取年度进出口；三档永不合并，出口与进口各自独立，该车道尚未排期，缺行带原因。"
+        },
+        "en": {
+          "name": "Flower trade lanes",
+          "summary": "Reads annual trade for three HS6 tiers — 060311 fresh roses, 060319 other fresh cut flowers, 060120 bulbs — never merged; outbound and inbound flows stay separate."
+        },
+        "ja": {
+          "name": "花卉貿易レーン",
+          "summary": "3つのHS6分類（060311 生のバラ、060319 その他の切り花、060120 球根類）の年次貿易を読み出します。区分は統合せず、輸出と輸入も別フローです。"
+        },
+        "es": {
+          "name": "Comercio floral",
+          "summary": "Lee el comercio anual de tres códigos HS6 — 060311 rosas frescas, 060319 otras flores cortadas frescas, 060120 bulbos — sin fusionarlos; las salidas y las entradas son flujos separados."
+        },
+        "fr": {
+          "name": "Commerce floral",
+          "summary": "Lit le commerce annuel de trois codes SH6 — 060311 roses fraîches, 060319 autres fleurs coupées fraîches, 060120 bulbes — jamais fusionnés ; les flux sortants et entrants restent distincts."
+        }
+      },
+      "canonical": {
+        "brief": "Read-only: annual HS6 trade for 060311/060319/060120, never merged; outbound and inbound flows reported separately (FOB vs CIF); the trade lane is not yet scheduled, so absent rows carry that reason."
+      }
+    }
+  }
+}

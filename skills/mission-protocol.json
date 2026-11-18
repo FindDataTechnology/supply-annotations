@@ -1,0 +1,32 @@
+{
+  "skill": "mission-protocol",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "任务协议",
+        "summary": "解析需求单（brief），按 GET 轮询与 POST 回写交互五类 kind 消息，遵循幂等键纪律，并提供状态机地图与每回合动作表。"
+      },
+      "en": {
+        "name": "Mission protocol",
+        "summary": "Parses the mission brief, exchanges five kinds of messages via GET polling and POST write-back, keeps idempotency-key discipline, and provides a state-machine map with per-turn action tables."
+      },
+      "ja": {
+        "name": "ミッションプロトコル",
+        "summary": "brief を解析し、GET ポーリングと POST 書き戻しで五種類のメッセージをやり取りし、べき等キーの規律を守る。ステートマシンの地図と毎ターンの行動表を提供。"
+      },
+      "es": {
+        "name": "Protocolo de misión",
+        "summary": "Analiza el brief, intercambia cinco tipos de mensajes por sondeo GET y escritura POST, mantiene la disciplina de clave idempotente y ofrece un mapa de máquina de estados con acciones por turno."
+      },
+      "fr": {
+        "name": "Protocole de mission",
+        "summary": "Analyse le brief, échange cinq types de messages par sondage GET et écriture POST, respecte la discipline de clé idempotente et fournit une carte de machine à états avec actions par tour."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

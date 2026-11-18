@@ -1,0 +1,32 @@
+{
+  "skill": "mb-breakeven-calculator",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "个体户盈亏平衡计算器",
+        "summary": "谦面个体户盈亏平衡计算器：算月保本流水、保本客流或单量、安全边际与保本天数；每个数字附公式、基数与来源，外部基数取不到即中止该项并明示，不用模型记忆数字填充。"
+      },
+      "en": {
+        "name": "Micro-business breakeven calculator",
+        "summary": "Facet micro-business calculator: monthly breakeven revenue, breakeven traffic or orders, safety margin, days to breakeven; figures carry formula, base and source; missing bases halt the item."
+      },
+      "ja": {
+        "name": "個人事業損益分岐計算ツール",
+        "summary": "Facet 個人事業向けの損益分岐計算：月次損益分岐売上、分岐来客数・受注数、安全余裕、分岐所要日数を算出。数値には計算式・基数・出典を添付し、外部基数が取れない項目は中止して明示、記憶に頼る数値で埋めない。"
+      },
+      "es": {
+        "name": "Calculadora de punto de equilibrio para microempresas",
+        "summary": "Calculadora de Facet: ingresos de equilibrio mensuales, tráfico o pedidos de equilibrio, margen de seguridad y días hasta el equilibrio; cifras con fórmula, base y fuente; sin base externa se detiene."
+      },
+      "fr": {
+        "name": "Calculateur de seuil de rentabilité micro-entreprise",
+        "summary": "Calculateur Facet : CA mensuel d'équilibre, trafic ou commandes d'équilibre, marge de sécurité, jours avant rentabilité ; chiffres avec formule, base et source ; sans base externe, calcul arrêté."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

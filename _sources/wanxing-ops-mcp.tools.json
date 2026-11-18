@@ -1,0 +1,43 @@
+{
+  "server_name": "wanxing-ops-mcp",
+  "description": "萬星舰队操作 MCP（C2）：公开目录/AgentCard/允许清单/启停 7 调用型（平台令牌用户委托）+A2A 回合（caller key 计费门）；回执不冒充结果",
+  "tags": [],
+  "tools": [
+    {
+      "name": "wanxing_agent_card",
+      "description": ""
+    },
+    {
+      "name": "wanxing_agent_pause",
+      "description": ""
+    },
+    {
+      "name": "wanxing_agent_resume",
+      "description": ""
+    },
+    {
+      "name": "wanxing_agent_turn",
+      "description": ""
+    },
+    {
+      "name": "wanxing_agents_browse",
+      "description": ""
+    },
+    {
+      "name": "wanxing_callers_add",
+      "description": ""
+    },
+    {
+      "name": "wanxing_callers_list",
+      "description": ""
+    },
+    {
+      "name": "wanxing_callers_remove",
+      "description": ""
+    },
+    {
+      "name": "wanxing_fleet_board",
+      "description": ""
+    }
+  ]
+}

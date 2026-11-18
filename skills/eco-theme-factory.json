@@ -1,0 +1,32 @@
+{
+  "skill": "eco-theme-factory",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "预设主题工厂",
+        "summary": "生态技能包：为幻灯片、文档与网页套用统一主题，含十套预设。"
+      },
+      "en": {
+        "name": "Preset theme factory",
+        "summary": "Ecosystem skill pack: applies unified themes to slides, documents and web pages, with 10 presets."
+      },
+      "ja": {
+        "name": "プリセットテーマ工房",
+        "summary": "エコシステム系スキル。スライド、文書、ウェブページに統一テーマを適用。10 種のプリセット付き。"
+      },
+      "es": {
+        "name": "Fábrica de temas prediseñados",
+        "summary": "Habilidad del ecosistema: aplica un tema uniforme a diapositivas, documentos y páginas web; incluye 10 preajustes."
+      },
+      "fr": {
+        "name": "Fabrique de thèmes prédéfinis",
+        "summary": "Compétence de l'écosystème : applique un thème uniforme aux diapositives, documents et pages web ; 10 préréglages inclus."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

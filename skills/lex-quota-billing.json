@@ -1,0 +1,32 @@
+{
+  "skill": "lex-quota-billing",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "配额账单解读",
+        "summary": "识律配额与账单的解读方法：口径以页面为准，说明硬停后的恢复途径与常见问题话术，绝不编造数字。"
+      },
+      "en": {
+        "name": "Quota and billing interpretation",
+        "summary": "How to interpret Lex quota and billing: methodology follows the page, recovery paths after a hard stop, answers to common questions; never fabricates numbers."
+      },
+      "ja": {
+        "name": "クォータ・請求解説",
+        "summary": "Lexのクォータと請求の読み解き方：算出基準はページ表示を優先し、ハードストップ後の回復手段とよくある質問への回答を説明します。数値を捏造しません。"
+      },
+      "es": {
+        "name": "Interpretación de cuota y facturación",
+        "summary": "Cómo interpretar la cuota y la facturación de Lex: el criterio lo da la página, vías de recuperación tras una parada total y respuestas a preguntas frecuentes; nunca inventa cifras."
+      },
+      "fr": {
+        "name": "Interprétation du quota et de la facturation",
+        "summary": "Interprétation du quota et de la facturation Lex : la méthodologie fait foi sur la page, voies de reprise après un arrêt dur et réponses aux questions courantes ; n'invente jamais de chiffres."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

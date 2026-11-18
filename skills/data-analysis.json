@@ -1,0 +1,32 @@
+{
+  "skill": "data-analysis",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "表格数据分析",
+        "summary": "对电子表格数据做分析、生成洞察、制作可视化，并从 Excel/CSV 数据产出报告。"
+      },
+      "en": {
+        "name": "Spreadsheet data analysis",
+        "summary": "Analyzes spreadsheet data, generates insights, creates visualizations and builds reports from Excel/CSV data."
+      },
+      "ja": {
+        "name": "表データ分析",
+        "summary": "表計算データを分析し、インサイトを導き、可視化を作成し、Excel/CSV データからレポートを生成する。"
+      },
+      "es": {
+        "name": "Análisis de datos de hoja de cálculo",
+        "summary": "Analiza datos de hojas de cálculo, genera información, crea visualizaciones y elabora informes desde Excel/CSV."
+      },
+      "fr": {
+        "name": "Analyse de données tableur",
+        "summary": "Analyse les données de tableur, dégage des enseignements, crée des visualisations et produit des rapports à partir d'Excel/CSV."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

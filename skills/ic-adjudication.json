@@ -1,0 +1,32 @@
+{
+  "skill": "ic-adjudication",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "投委会裁决",
+        "summary": "柏讯投委会套件入口:调度多头与空头两方立论,再按四条裁决纪律给出评级——冲突须指明哪方更强、证据不足给复核不降级、输出评级契约实例、改主意理由必填。"
+      },
+      "en": {
+        "name": "Investment committee adjudication",
+        "summary": "Wire IC suite entry: schedules bull and bear arguments, then four disciplines — state the stronger side, review not downgrade on thin evidence, emit a Rating contract, change-of-mind note mandatory."
+      },
+      "ja": {
+        "name": "投資委員会裁定",
+        "summary": "Wire 投資委員会スイートの入口スキル:強気・弱気の立論を調停し、4つの裁定規律(強弱明示、証拠不足は降格でなくレビュー、Rating契約実体出力、心変更理由必須)で裁定を出す。"
+      },
+      "es": {
+        "name": "Adjudicación del comité de inversión",
+        "summary": "Entrada del comité de inversión Wire: programa argumentación alcista y bajista, aplica 4 disciplinas — indicar qué lado pesa, revisión si falta prueba, contrato Rating, motivo de cambio obligado."
+      },
+      "fr": {
+        "name": "Arbitrage du comité d'investissement",
+        "summary": "Entrée du comité d'investissement Wire : orchestre plaidoiries haussière et baissière puis 4 disciplines — dire le côté le plus fort, révision faute de preuve, contrat Note, avis changé obligatoire."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

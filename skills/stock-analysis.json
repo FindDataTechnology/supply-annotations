@@ -1,0 +1,32 @@
+{
+  "skill": "stock-analysis",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "股票分析",
+        "summary": "结合基本面与技术面对股票进行分析，支持美股、中国 A 股与港股市场，可生成含关键指标的投资报告。"
+      },
+      "en": {
+        "name": "Stock analysis",
+        "summary": "Analyzes stocks with fundamental and technical methods across US, China A-share and Hong Kong markets, generating investment reports with key metrics."
+      },
+      "ja": {
+        "name": "株式分析",
+        "summary": "ファンダメンタルズとテクニカルの両面で株式を分析。米国株・中国A株・港股市場に対応し、主要指標を含む投資レポートを生成する。"
+      },
+      "es": {
+        "name": "Análisis de acciones",
+        "summary": "Analiza acciones con enfoques fundamental y técnico en mercados de EE. UU., acciones A de China y Hong Kong, y genera informes de inversión con métricas clave."
+      },
+      "fr": {
+        "name": "Analyse d’actions",
+        "summary": "Analyse les actions par les approches fondamentale et technique sur les marchés américain, actions A chinoises et Hong Kong ; produit des rapports d’investissement avec indicateurs clés."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

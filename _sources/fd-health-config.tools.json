@@ -1,0 +1,11 @@
+{
+  "server_name": "fd-health-config",
+  "description": "健康/配置面",
+  "tags": [],
+  "tools": [
+    {
+      "name": "health_config_get",
+      "description": "读取 finddata 中央库健康巡检配置（fd_open_data.public.health_config 全量键值）：master_switch（总闸，false=纯巡检不出修复单）、max_daily_tickets（每日工单上限）、lookback_hours、thresholds、excluded_sources、expected_period_overrides；updated_at 为最近变更时间。"
+    }
+  ]
+}

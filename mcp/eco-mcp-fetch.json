@@ -1,0 +1,69 @@
+{
+ "version": 1,
+ "server": "eco-mcp-fetch",
+ "annotation": {
+  "human": {
+   "zh": {
+    "name": "网页抓取（托管版）",
+    "summary": "托管在平台上的网页抓取：取回指定网址内容并转成可读文本。",
+    "whenToUse": "不想在本机装进程、直接把网页内容拉回来时。"
+   },
+   "en": {
+    "name": "Web fetch (hosted)",
+    "summary": "Hosted web fetch: retrieve a URL's content and convert it to readable text.",
+    "whenToUse": "When you want page content without installing anything locally."
+   },
+   "ja": {
+    "name": "ウェブ取得（ホスト版）",
+    "summary": "プラットフォーム上でホストされるウェブ取得：指定 URL の内容を取得し、読みやすいテキストに変換します。",
+    "whenToUse": "ローカルに何も入れずにページ内容を取得したいとき。"
+   },
+   "es": {
+    "name": "Captura web (alojada)",
+    "summary": "Captura web alojada: obtiene el contenido de una URL y lo convierte en texto legible.",
+    "whenToUse": "Cuando quieres el contenido de una página sin instalar nada localmente."
+   },
+   "fr": {
+    "name": "Capture web (hébergée)",
+    "summary": "Capture web hébergée : récupère le contenu d'une URL et le convertit en texte lisible.",
+    "whenToUse": "Pour obtenir le contenu d'une page sans rien installer localement."
+   }
+  },
+  "canonical": {
+   "brief": "Hosted web-fetch MCP (official reference implementation): fetch a URL and return readable text. Hosted variant; the bundled npx entry is the local variant."
+  },
+  "tools": {
+   "fetch": {
+    "human": {
+     "zh": {
+      "name": "抓取网页",
+      "summary": "从互联网取回指定 URL 的内容，可选把内容抽取为 Markdown。"
+     },
+     "en": {
+      "name": "Fetch a web page",
+      "summary": "Fetches a URL from the internet and returns its content, optionally extracted as Markdown."
+     },
+     "ja": {
+      "name": "ウェブページ取得",
+      "summary": "インターネット上の URL の内容を取得し、必要に応じて Markdown として抽出します。"
+     },
+     "es": {
+      "name": "Capturar una página",
+      "summary": "Obtiene el contenido de una URL de internet y, opcionalmente, lo extrae como Markdown."
+     },
+     "fr": {
+      "name": "Récupérer une page",
+      "summary": "Récupère le contenu d'une URL sur internet et, en option, l'extrait en Markdown."
+     }
+    },
+    "canonical": {
+     "brief": "Fetches a URL from the internet and returns its content, optionally extracted as Markdown."
+    }
+   }
+  },
+  "provenance": {
+   "source": "finddata-supply-annotations",
+   "updatedAt": "2026-11-02"
+  }
+ }
+}

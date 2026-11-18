@@ -1,0 +1,32 @@
+{
+  "skill": "fd-vaas-login",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "多平台扫码登录",
+        "summary": "萬星 VAAS 登录管理:支持 6 个视频平台与 11 个文章平台的扫码登录,登录状态保存在用户本机。"
+      },
+      "en": {
+        "name": "Scan-QR login manager",
+        "summary": "Wanxing VAAS login manager: scan-QR sign-in across 6 video and 11 article platforms; login states stay on the user's machine."
+      },
+      "ja": {
+        "name": "QRコードログイン管理",
+        "summary": "Wanxing VAAS のログイン管理:動画6・記事11プラットフォームのQRコードログインに対応し、ログイン状態はユーザーの端末内に保持する。"
+      },
+      "es": {
+        "name": "Gestor de acceso por código QR",
+        "summary": "Gestor de acceso Wanxing VAAS: inicio de sesión por código QR en 6 plataformas de vídeo y 11 de artículos; los estados de sesión quedan en la máquina del usuario."
+      },
+      "fr": {
+        "name": "Gestionnaire de connexion QR",
+        "summary": "Gestionnaire de connexion Wanxing VAAS : connexion par QR code sur 6 plateformes vidéo et 11 plateformes d'articles ; les états de session restent sur la machine de l'utilisateur."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

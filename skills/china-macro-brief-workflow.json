@@ -1,0 +1,32 @@
+{
+  "skill": "china-macro-brief-workflow",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "中国宏观简报流程",
+        "summary": "中国宏观经济分析简报流程，数据·中国经济包的入口技能：按指标框架、数据拉取、行业对照、交叉验证，最终产出宏观简报。"
+      },
+      "en": {
+        "name": "China macro brief workflow",
+        "summary": "Macro briefing workflow for the Chinese economy, entry skill of the data China-economy pack: indicator framework, data pull, industry comparison, cross-check, then the macro brief."
+      },
+      "ja": {
+        "name": "中国マクロ簡報ワークフロー",
+        "summary": "中国マクロ経済分析簡報のワークフロー。データ・中国経済パックの入口スキルで、指標枠組み→データ取得→業種対照→クロス検証→マクロ簡報の順に進める。"
+      },
+      "es": {
+        "name": "Flujo de trabajo de notas macro de China",
+        "summary": "Flujo de notas macro de la economía china, habilidad de entrada del pack datos-economía china: marco de indicadores, extracción de datos, contraste sectorial, verificación cruzada y nota macro."
+      },
+      "fr": {
+        "name": "Flux de travail de notes macro de Chine",
+        "summary": "Flux macro Chine, entrée du pack données-économie chinoise : cadre d'indicateurs, extraction de données, comparaison sectorielle, vérification croisée puis note macro."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

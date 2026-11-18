@@ -1,0 +1,150 @@
+{
+ "server_name": "fd-find-data-business-mcp",
+ "description": "FindData 商业数据 MCP：中国法律法规检索（law_search/law_read）+ 统计年鉴 + FindData 指标读取，Logto JWT 鉴权（经网关 egress PAT 注入）｜柏讯 Wire 线数据引擎：对外计量入口 wire.finddatatech.cloud（按行计费 rows_returned），与镜像交付双轨并存",
+ "tags": [
+  "legal",
+  "regulations",
+  "chinese-law",
+  "business",
+  "finddata",
+  "security-pending"
+ ],
+ "tools": [
+  {
+   "name": "read",
+   "description": "Read a FindData indicator for an entity over a list of dates.\n\nServes any cached observation (fresh or stale) — stability over recency, and\nzero runtime dependency on upstream providers: the read path never\ndispatches to akshare/wbgapi/etc.; it reads only FindData's crawled store.\nA never-crawled date returns ``unavailable``. No value is fabricated.\nThe bare list payload is unchanged; the observation-row count rides the\nMCP result ``_meta`` as ``rows_returned`` (unavailable placeholders not\ncoun"
+  },
+  {
+   "name": "read_range",
+   "description": "Bulk-read one or more indicators for an entity over ``[start, end]``.\n\nCached rows (fresh or stale) are served; a cold range (no rows) is fetched\nsynchronously and recorded. Returns ``{concept_id: [{date, value, unit,\nbrand: \"finddata\"}, ...]}``; concepts with no data get an empty list.\nThe bare map payload is unchanged; the total observation-row count rides\nthe MCP result ``_meta`` as ``rows_returned``."
+  },
+  {
+   "name": "indicator_series_read",
+   "description": "Read one or more indicators by unified-registry identity over [start, end].\n\nIdentities are ``source_db:native_code`` (the catalog's ``indicator_id``):\n``fd_open_data:<code>`` (active concepts, dated series), ``yearbook_catalog:<id>``\n(annual, entity_type=region, entity_id=region name), ``world_bank:<wdi_code>``\n(annual, entity_type=country, entity_id=ISO3 or Chinese name). start/end are\n``YYYY`` or ``YYYY-MM-DD``; bounds are inclusive. Returns\n``{results: [{indicator_id, date, value, unit, bran"
+  },
+  {
+   "name": "list_concepts",
+   "description": "List all available FindData indicators, optionally filtered by entity type."
+  },
+  {
+   "name": "ai_search",
+   "description": "Natural-language indicator + entity discovery (superset of all search tools).\n\nCall ONCE; do not also call semantic_search/semantic_search_entities in\nparallel — they overlap and return duplicate data. FindData-branded; no\nsource attribution in results."
+  },
+  {
+   "name": "graph_search",
+   "description": "Entity-relationship graph queries (NetworkX): bfs, dfs, neighbors,\nshortest_path, subgraph, ego_graph, statistics."
+  },
+  {
+   "name": "yearbook_search_indicators",
+   "description": "Search FindData statistical-yearbook indicators by fuzzy name.\n\nReturns {results: [{id, name, category, unit, native_code,\nsemantic_code, brand}], count, truncated}. Chinese or English partial\nnames both work. native_code repeats the registry anchor (the id) and\nsemantic_code carries the unified indicator-registry identity — null\nwhen the entry is unverified or unregistered. If the yearbook store is\nunreachable, returns {\"status\": \"domain_unavailable\"} instead of failing.\n``scope``: named retrie"
+  },
+  {
+   "name": "yearbook_read",
+   "description": "Read a yearbook indicator's annual series, optionally for one region,\none province, and a year range.\n\nReturns {results: [{year, region, value, unit, brand}], count, truncated,\nnext_offset, rows_returned}; a filter with no data returns an empty results\nlist (truthful, not an error). Latest edition wins when multiple yearbook\neditions cover the same region-year; rows are ordered deterministically by\n(data_year, region). ``province`` accepts a province name, a two-letter\ncode or an alias (e.g. 山西 "
+  },
+  {
+   "name": "yearbook_regions",
+   "description": "List the available (province, region) pairs of one yearbook indicator.\n\nReturns {results: [{province, province_code, region, row_count}],\nprovinces: [{code, name, aliases}], count, truncated, rows_returned},\nordered by (province, region). ``province`` is resolved row-level: the\ndims.admin_region dimension when present, otherwise the materialized\n(indicator, region) province map; ``region`` is the region column\n(null/empty for province-level values). ``provinces`` is the bounded\ndictionary slice "
+  },
+  {
+   "name": "law_search",
+   "description": "Search Chinese laws and regulations by fuzzy title, optionally\nfiltered by category (e.g. 法律, 行政法规, 司法解释, 地方性法规).\n\nReturns metadata rows only ({results: [{id, title, category, type,\nstatus, publish, expiry, brand}], count, truncated}); fetch full text\nwith law_read. ``scope``: named retrieval scope — unknown scope errors\nexplicitly; a scope excluding the law source returns an explainable\nempty result; a scoped response names the scope in effect.\n\n已弃用：权威实现在 fd-legal-search-mcp（lex 侧）。该能力以 fd-lega"
+  },
+  {
+   "name": "law_read",
+   "description": "Read one law's full text and metadata by id (from law_search).\n\nReturns {id, title, category, type, status, publish, expiry, content,\nbrand}; an unknown id returns {\"status\": \"not_found\"}.\n\n已弃用：权威实现在 fd-legal-search-mcp（lex 侧）。该能力以 fd-legal-search-mcp 的\n同名工具为权威（逐条带 provenance 溯源三件套 source/stable_id/as_of，并支持续读）；\n本入口兼容期内继续可用且已对齐同一溯源字段形状，但新集成请改用权威入口。本侧不做\n退役——退役由 lex-private-distribution-full 承载。"
+  },
+  {
+   "name": "legal_docs_search",
+   "description": "Search the authoritative legal-documents corpus by fuzzy title.\n\nCovers five crawled sources: gov-rules-library (部门/地方规章),\nmfa-treaty-library (条约), ccdi-supervisory-regulations (纪检监察\n法规), rmfyalk-case-library (人民法院案例库), party-regulation-library\n(党内法规). Filter by ``source`` (exact five-source code) and/or\n``doc_type``. Returns metadata only ({results: [{id, title, source,\nsource_label_zh, doc_type, status, authority, language, published_at,\neffective_at, has_content, brand}], count, truncated}); "
+  },
+  {
+   "name": "legal_docs_read",
+   "description": "Read one legal document's full text and metadata by id (from legal_docs_search).\n\nReturns metadata + {content_available, content?, brand}. When the body\nwas never fetched (source-side async rendering or oversized attachment —\nmost ccdi-supervisory entries), the response carries\n``content_available: false`` with a note and no ``content`` key; it is\nnever an error and never an empty string. An unknown id returns\n{\"status\": \"not_found\"}.\n\n已弃用：权威实现在 fd-legal-search-mcp（lex 侧）。该能力以 fd-legal-search-mc"
+  },
+  {
+   "name": "guide_cases_search",
+   "description": "Search Supreme People's Court guiding cases and batch notices by fuzzy title.\n\n``doc_type`` filters case/notice; ``reference_status`` filters\n有效/不再参照 (withdrawn cases stay searchable — the notice withdraws\nreference effect, not the document). Every row carries\n``reference_status`` so consumers can see effect at a glance. Returns\n{results: [{source_id, case_no, doc_type, title, listed_at, publish_at,\nsource, reference_status, brand}], count, truncated}; fetch structured\nsections with guide_cases_"
+  },
+  {
+   "name": "guide_cases_read",
+   "description": "Read one guiding case or notice by source_id (from guide_cases_search).\n\nReturns full metadata + the published structured sections\n(keyword/gist/facts/result/reasoning/statutes — unpublished sections are\nabsent, never fabricated) + ``body`` full text + ``reference_status``\nwith ``reference_note`` (the notice number that declared 不再参照).\nAn unknown id returns {\"status\": \"not_found\"}.\n\n已弃用：权威实现在 fd-legal-search-mcp（lex 侧）。该能力以 fd-legal-search-mcp 的\n同名工具为权威（逐条带 provenance 溯源三件套 source/stable_id/as_o"
+  },
+  {
+   "name": "wenshu_search",
+   "description": "Search China court judgments by fuzzy title or case number.\n\nCoverage disclosure: this is a STATIC SNAPSHOT — incremental crawling is\nsuspended and the corpus has known historical gaps (including 2011–2023);\nit is not the full national corpus. Ultra-broad single-character queries\nmay exceed the query budget — add a year/province/doc_type filter or a\nselective term. Filters match decoded text (document type, province) and\na closed judgment-year range. Returns {results: [{doc_id, case_no,\ntitle, c"
+  },
+  {
+   "name": "wenshu_read",
+   "description": "Read one court judgment's decoded metadata and, when captured, full text.\n\nReturns metadata + {body_shape, content_available, content?, brand}.\nJudgments ingested metadata-only (body_shape=none) carry\n``content_available: false`` honestly; a temporarily unreachable body\nstore degrades to metadata with a note, never an error. An unknown id\nreturns {\"status\": \"not_found\"}.\n\n已弃用：权威实现在 fd-legal-search-mcp（lex 侧）。该能力以 fd-legal-search-mcp 的\n同名工具为权威（逐条带 provenance 溯源三件套 source/stable_id/as_of，并支持续读）；\n本"
+  },
+  {
+   "name": "ia35_company_search",
+   "description": "Search China business-registry firm profiles by name prefix or exact credit code.\n\nCorpus caliber: ia35 is a STATIC SNAPSHOT accumulated as yearly batches\n(the source column IS the batch year). Credit-code lookup serves ALL\nbatches and returns the latest batch's row (the firm's current profile);\nname-prefix search serves the LATEST SNAPSHOT YEAR only (default 2023,\nenv FDBIZ_IA35_SNAPSHOT_YEAR) — firms absent from that batch are\nreachable by code but not by name. Profiles carry decoded business\n"
+  },
+  {
+   "name": "ia35_reg_counts_read",
+   "description": "Read new-firm registration counts by year, region, and industry level.\n\nServes the reg_counts aggregate (founded-year x region x industry\nsection -> new firm count). Source years mix true years with\nspreadsheet serial dates; serials are normalized to calendar years\n(e.g. 32741 -> 1989) and unconvertible rows are dropped with the count\ndisclosed in the response note — a five-digit pseudo-year is never\nreturned. Cells with no aggregate row are absent, never zero-filled.\nProvince+year filters use t"
+  },
+  {
+   "name": "wb_search_indicators",
+   "description": "Search World Bank (WDI) indicators by fuzzy name, topic, or code.\n\nReturns {results: [{code, name, name_en, topic, unit, native_code,\nsemantic_code, brand}], count, truncated}. Chinese and English names\nboth work. native_code repeats the registry anchor (the WDI code) and\nsemantic_code carries the unified indicator-registry identity — null\nwhen the entry is unverified or unregistered. If the domain store is\nunreachable, returns {\"status\": \"domain_unavailable\"} instead of failing.\n``scope``: name"
+  },
+  {
+   "name": "wb_read",
+   "description": "Read a World Bank indicator's annual series for a list of countries.\n\n``countries`` accepts ISO3 codes (CHN) or Chinese names (中国). Returns\n{results: [{year, country, country_name, value, unit, brand}], count,\ntruncated, rows_returned}; missing country-year cells are absent\n(truthful, never fabricated); an unknown indicator or country returns an\nempty list. ``rows_returned`` = observation rows served (equal to count)."
+  },
+  {
+   "name": "gta_search_variables",
+   "description": "Search GTA listed-company panel variables by fuzzy Chinese label or code.\n\nReturns {results: [{code, label, native_code, semantic_code, brand}],\ncount, truncated} — storage identity (table, sub-library) is not\nexposed. native_code repeats the registry anchor (the variable name;\nGTA semantic codes are its UPPERCASED form) and semantic_code carries\nthe unified indicator-registry identity — null when the entry is\nunverified or unregistered. If the domain store is unreachable, returns\n{\"status\": \"do"
+  },
+  {
+   "name": "gta_read",
+   "description": "Read one GTA panel variable's firm-year values.\n\nReturns {results: [{firm_id, firm, year, value, brand}], count,\ntruncated, rows_returned}, ordered by year then firm; an unknown\nvariable returns {\"status\": \"unknown_variable\"}; an empty year range is\na truthful empty list. Use gta_search_variables first to find variable\ncodes. ``rows_returned`` = observation rows served (equal to count)."
+  },
+  {
+   "name": "city_search_variables",
+   "description": "Search China city-panel variables by fuzzy Chinese name or code.\n\nReturns {results: [{code, label, unit, native_code, semantic_code,\nbrand}], count, truncated}. native_code repeats the registry anchor\n(the var_id) and semantic_code carries the unified indicator-registry\nidentity — null when the entry is unverified or unregistered. If\nthe domain store is unreachable, returns {\"status\": \"domain_unavailable\"}.\n``scope``: named retrieval scope — unknown scope errors explicitly; a\nscope excluding the"
+  },
+  {
+   "name": "city_read",
+   "description": "Read one city-panel variable's city-year values (297 cities, 2000-2024).\n\n``city`` accepts a city code or Chinese name. Returns\n{results: [{year, city_code, city_name, value, brand}], count,\ntruncated, rows_returned}; an unknown variable returns\n{\"status\": \"unknown_variable\"}; a filter with no data is a truthful\nempty list. ``rows_returned`` = observation rows served (equal to count)."
+  },
+  {
+   "name": "daas_list_sources",
+   "description": "List FindData's DAAS supply catalog of data sources.\n\nEach row: {id, name, label, description, url, enabled, brand}. ``keyword``\nsubstring-matches name/label/description; ``enabled`` filters by state.\nSource configuration (``config``) is never exposed. Returns\n{results, count, truncated, rows_returned}; ``rows_returned`` = catalog\nrows served (equal to count). If the daas store is unreachable, returns\n{\"status\": \"domain_unavailable\"}. ``scope``: named retrieval scope — an\nunknown scope errors ex"
+  },
+  {
+   "name": "daas_search_functions",
+   "description": "Search FindData DAAS fetch functions by fuzzy name/label/description.\n\nRanked exact > prefix > contains; ``category`` filters exactly (e.g.\nReference); ``source_id`` pins one catalog source. Returns {results:\n[{id, source_id, name, label, description, category, output_type,\nfrequency, brand}], count, truncated, rows_returned} — the request-shape\n``parameters`` caliber rides only with daas_get_function_detail.\n``rows_returned`` = catalog rows served (equal to count).\n``scope``: named retrieval sc"
+  },
+  {
+   "name": "daas_get_function_detail",
+   "description": "Read one DAAS fetch function's full caliber by id (from search).\n\nAdds ``parameters`` — the function's request shape (path, method, query\nparams, gating) — plus output_type and frequency. An unknown id returns\n{\"status\": \"not_found\"}; an unreachable daas store returns\n{\"status\": \"domain_unavailable\"}."
+  },
+  {
+   "name": "daas_list_indicators",
+   "description": "List FindData's DAAS computed-indicator rule catalog.\n\nEach row is one indicator rule's caliber: datasource function, source\ntable/columns, operator (op, e.g. sma). ``keyword`` substring-matches\nname/indicator_name; ``datasource`` filters exactly; ``enabled`` by rule\nstate. Returns {results, count, truncated, rows_returned};\n``rows_returned`` = catalog rows served (equal to count). These computed\nindicators are a separate caliber from the macro indicator registry\n(see registry_coverage). If the "
+  },
+  {
+   "name": "daas_get_indicator",
+   "description": "Read one DAAS indicator rule's complete caliber by id (from list).\n\nAdds ``params_json`` — the operator arguments (e.g. {\"window\": 5} for an\nsma rule) — to the list-row projection. An unknown id returns\n{\"status\": \"not_found\"}; an unreachable daas store returns\n{\"status\": \"domain_unavailable\"}."
+  },
+  {
+   "name": "daas_list_rules",
+   "description": "List FindData's DAAS unified rule catalog.\n\nEach row: {id, name, rule_type, target, config_json, description,\nenabled, brand}; ``config_json`` is the rule's caliber. ``rule_type``\nfilters exactly. Returns {results, count, truncated, rows_returned};\n``rows_returned`` = catalog rows served (equal to count). If the daas\nstore is unreachable, returns {\"status\": \"domain_unavailable\"}.\n``scope``: named retrieval scope — an unknown scope errors explicitly;\na scope excluding the daas source returns an e"
+  },
+  {
+   "name": "daas_search_entities",
+   "description": "Search FindData DAAS entities (stocks + countries) by name/ticker/code.\n\nDATA READINESS: the entities mirror table is not yet provisioned in the\ndaas store (the entity master is fd-open-data-mcp; the v1 sync scope\ncovers the 4 catalog tables only), so until it lands every call returns\n{\"status\": \"domain_unavailable\"} — the tool is registered but its data\nis pending, which is a legal state. Once provisioned, returns {results:\n[{id, entity_type, code, name, ticker, exchange, country_code,\ndescript"
+  },
+  {
+   "name": "daas_get_entity",
+   "description": "Read one DAAS entity's detail by id (from search).\n\nDATA READINESS: as with daas_search_entities — the entities mirror table\nis not yet provisioned in the daas store, so calls return\n{\"status\": \"domain_unavailable\"} until it lands. Once provisioned: the\nfull entity row; an unknown id returns {\"status\": \"not_found\"}."
+  },
+  {
+   "name": "registry_coverage",
+   "description": "Indicator-registry coverage per source (registration boundary + calibers).\n\nReturns {results: [{source_db, label_zh, phase, registered, verified,\nunverified, actual_in_source, coverage}], count, census_as_of, calibers}:\nlive registered/verified counts from the unified indicator registry\n(fd_open_data.registry_entries) for the five registered sources\n(world_bank, yearbook_catalog, gta_panel, china_city_panel,\nfd_open_data mirror), plus the phase-2 unregistered sources (ia35\n工商注册, wenshu_db 裁判文书) "
+  }
+ ]
+}

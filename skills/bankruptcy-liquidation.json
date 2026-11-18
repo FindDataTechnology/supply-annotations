@@ -1,0 +1,32 @@
+{
+  "skill": "bankruptcy-liquidation",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "破产清算",
+        "summary": "覆盖破产清算程序全流程，从宣告破产到程序终结；主要由管理人（R1）执行，债权人代理与债务人代理（R2/R3）参与监督。"
+      },
+      "en": {
+        "name": "Bankruptcy liquidation",
+        "summary": "Covers the whole liquidation track, from the declaration of bankruptcy to the closing of proceedings; mainly administrator (R1) work, supervised by creditor and debtor counsel (R2/R3)."
+      },
+      "ja": {
+        "name": "破産清算",
+        "summary": "破産清算手続の全フローをカバー：破産宣告から手続終結まで。主に管財人（R1）が実施し、債権者代理人・債務人代理人（R2/R3）が監督参加する。"
+      },
+      "es": {
+        "name": "Liquidación concursal",
+        "summary": "Cubre toda la liquidación, de la declaración de quiebra al cierre; la ejecuta el administrador (R1), con supervisión de los abogados de acreedores y deudor (R2/R3)."
+      },
+      "fr": {
+        "name": "Liquidation de la faillite",
+        "summary": "Couvre toute la liquidation, du jugement de faillite à la clôture ; menée par l'administrateur (R1), sous supervision des conseils des créanciers et du débiteur (R2/R3)."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

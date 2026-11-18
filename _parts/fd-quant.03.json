@@ -1,0 +1,220 @@
+{
+ "tools": {
+  "build_portfolio_intent": {
+   "human": {
+    "zh": {
+     "name": "生成组合意图",
+     "summary": "按评级与权重规则推导本期组合意图：等权、信心加权或目标空间加权；权重合计加现金底线不得超过 1，超出直接拒绝而不做归一化。"
+    },
+    "en": {
+     "name": "Build portfolio intent",
+     "summary": "Derives this period's portfolio intent from ratings and a weighting rule; weights plus cash floor above 1 are refused, not normalised."
+    },
+    "ja": {
+     "name": "ポートフォリオ意図を生成",
+     "summary": "格付けと重み付け規則（等権重・確信度加重・目標上振れ加重）から当該期のポートフォリオ意図を導出します。ウェイト合計と現金下限が 1 を超える場合は正規化せず拒否します。"
+    },
+    "es": {
+     "name": "Generar intención de cartera",
+     "summary": "Deriva la intención de cartera desde las calificaciones y una regla de ponderación; si pesos y colchón superan 1 se rechaza sin normalizar."
+    },
+    "fr": {
+     "name": "Construire l'intention de portefeuille",
+     "summary": "Déduit l'intention de portefeuille des notations et d'une règle de pondération ; au-delà de 1, poids et plancher sont refusés."
+    }
+   },
+   "canonical": {
+    "brief": "Returns a PortfolioIntent (with rationale and counts) from caller-supplied ratings plus a weighting rule equal_weight / conviction_weighted / target_upside_weighted, enforcing weights + cash_floor ≤ 1 by rejection rather than normalisation; no data access, no network."
+   }
+  },
+  "check_preconditions_monitorable": {
+   "human": {
+    "zh": {
+     "name": "核查前提可监控性",
+     "summary": "把决策前提分成可监控与不可监控两组，各自给出观察窗与不可监控原因；缺时间跨度时不假设无限窗，而判为窗口未定。"
+    },
+    "en": {
+     "name": "Check preconditions are monitorable",
+     "summary": "Splits a decision's preconditions into monitorable and unmonitorable with each observation window and failure reason; a missing horizon is undetermined, not unbounded."
+    },
+    "ja": {
+     "name": "前提の監視可否を検査",
+     "summary": "決定の前提を監視可能・不能の二群に分け、観測窓と不能理由を返します。期間が与えられない場合は無限窓と見なさず、窓未定と判定します。"
+    },
+    "es": {
+     "name": "Comprobar monitorizabilidad de precondiciones",
+     "summary": "Divide las precondiciones en monitorizables y no monitorizables con su ventana de observación y el motivo; sin horizonte informa ventana indeterminada, no ilimitada."
+    },
+    "fr": {
+     "name": "Vérifier la monitorabilité des prémisses",
+     "summary": "Répartit les prémisses en monitorables et non monitorables avec la fenêtre d'observation et le motif ; sans horizon, la fenêtre est indéterminée, non illimitée."
+    }
+   },
+   "canonical": {
+    "brief": "Classifies decision preconditions into monitorable / unmonitorable, returning each observation window and failure reason; an absent horizon yields window_undetermined rather than an unbounded window, and an optional resolvable_metrics whitelist flags metric_not_resolvable."
+   }
+  },
+  "detect_conflicts": {
+   "human": {
+    "zh": {
+     "name": "检出决策冲突",
+     "summary": "检出同一标的上相互矛盾的决策，时序演进单列而不计为冲突；口径日之后的记录拒算并逐条点名，不静默丢弃。"
+    },
+    "en": {
+     "name": "Detect decision conflicts",
+     "summary": "Finds contradictory decisions on the same subject and lists temporal evolution separately; records dated after the reference day are refused by name rather than silently dropped."
+    },
+    "ja": {
+     "name": "決定の衝突を検出",
+     "summary": "同一対象で矛盾する決定を検出し、時系列の変遷は衝突と区別して別掲します。基準日より後の記録は黙って捨てず、名指しで拒否します。"
+    },
+    "es": {
+     "name": "Detectar conflictos entre decisiones",
+     "summary": "Encuentra decisiones contradictorias sobre el mismo sujeto y lista aparte la evolución temporal; los registros posteriores a la fecha de referencia se rechazan nombrándolos."
+    },
+    "fr": {
+     "name": "Détecter les conflits de décisions",
+     "summary": "Repère les décisions contradictoires sur un même sujet et liste à part l'évolution temporelle ; les enregistrements postérieurs à la date de référence sont refusés nommément."
+    }
+   },
+   "canonical": {
+    "brief": "Detects conflicting decisions over the same subject, separates temporal evolution and unresolvable references, and refuses by name any record dated after as_of."
+   }
+  },
+  "evaluate_portfolio_gate": {
+   "human": {
+    "zh": {
+     "name": "组合风控闸判定",
+     "summary": "组合级风控三态判定：通过、触达、不可判定；不可判定项单列原因，输入缺失即报不可判定，执行侧应把它当作拒绝条件。"
+    },
+    "en": {
+     "name": "Evaluate the portfolio risk gate",
+     "summary": "Three-state portfolio risk verdict (ok, breached, unavailable) with undetermined items and their reasons listed; missing inputs yield unavailable, which callers must treat as a rejection."
+    },
+    "ja": {
+     "name": "ポートフォリオのリスク判定",
+     "summary": "組合レベルの三状態判定（ok・抵触・判定不能）を返し、判定不能の項目は理由付きで別掲します。入力欠落時は判定不能であり、呼び出し側は拒否条件として扱う必要があります。"
+    },
+    "es": {
+     "name": "Evaluar la compuerta de riesgo de cartera",
+     "summary": "Veredicto de riesgo de cartera en tres estados (ok, incumplido, no disponible) con los ítems indeterminados y su motivo; si faltan entradas el resultado es no disponible y debe tratarse como rechazo."
+    },
+    "fr": {
+     "name": "Évaluer le seuil de risque du portefeuille",
+     "summary": "Verdict de risque de portefeuille à trois états (ok, dépassé, indisponible) avec les éléments indéterminés et leur motif ; une entrée manquante donne indisponible, à traiter comme un refus."
+    }
+   },
+   "canonical": {
+    "brief": "Returns status ok / breached / unavailable plus per-criterion items and undetermined reasons; missing weights, thresholds or sector mapping map to unavailable, which execution paths must treat as a rejection rather than as not-breached."
+   }
+  },
+  "list_pending_decisions": {
+   "human": {
+    "zh": {
+     "name": "列出待结算决策",
+     "summary": "分页列出待结算的决策记录并给出预计到期日；尚未到期的也留在清单里并标注未到期，避免与「没有要结的」混为一谈。"
+    },
+    "en": {
+     "name": "List pending decisions",
+     "summary": "Pages through decisions still awaiting settlement with an estimated due date; not-yet-matured items stay in the list and are flagged, so they are never confused with having nothing to settle."
+    },
+    "ja": {
+     "name": "未決済の決定を一覧",
+     "summary": "決済待ちの決定をページングで一覧し、概算の期日を添えます。未到来のものも一覧に残して印を付け、決済対象なしと混同させません。"
+    },
+    "es": {
+     "name": "Listar decisiones pendientes",
+     "summary": "Pagina las decisiones pendientes de liquidación con una fecha de vencimiento estimada; las aún no vencidas permanecen en la lista y marcadas, para no confundirlas con no tener nada que liquidar."
+    },
+    "fr": {
+     "name": "Lister les décisions en attente",
+     "summary": "Pagine les décisions en attente de règlement avec une échéance estimée ; les éléments non échus restent listés et signalés, pour ne pas les confondre avec l'absence de règlement à faire."
+    }
+   },
+   "canonical": {
+    "brief": "Lists unsettled decisions with a natural-day due estimate and matured flag, paged via limit/offset, optionally filtered by pack, record_kind (single / portfolio) and as_of_from."
+   }
+  },
+  "settle_portfolio": {
+   "human": {
+    "zh": {
+     "name": "结算组合记录",
+     "summary": "对已到期的组合记录做整期结算：在全部标的与基准日期的交集轴上算加权收益、现金部分与相对基准超额；缺腿或多腿即整次拒绝，重复调用返回既有结果。"
+    },
+    "en": {
+     "name": "Settle a portfolio record",
+     "summary": "Settles a matured portfolio period: weighted return, cash and excess over benchmark on the common date axis; a missing or extra leg rejects the period."
+    },
+    "ja": {
+     "name": "ポートフォリオ記録を決済",
+     "summary": "満期のポートフォリオ期間を決済し、全銘柄と基準日の共通日軸で加重収益・現金部分・基準超過を算出します。脚の欠落や余剰は期間ごと拒否し、再実行時は既存結果を返します。"
+    },
+    "es": {
+     "name": "Liquidar un registro de cartera",
+     "summary": "Liquida un periodo vencido: rentabilidad ponderada, efectivo y exceso sobre el índice en el eje común de fechas; una pata faltante o sobrante rechaza el periodo."
+    },
+    "fr": {
+     "name": "Régler un enregistrement de portefeuille",
+     "summary": "Règle une période échue : rendement pondéré, liquidités et excès sur l'indice sur l'axe de dates commun ; une jambe manquante ou en trop fait refuser la période."
+    }
+   },
+   "canonical": {
+    "brief": "Settles one matured portfolio period atomically from caller-supplied legs plus benchmark on their common date axis, reporting weighted return, cash component and alpha; weights come from the record's PortfolioIntent, never re-supplied, and a repeat call returns the existing result."
+   }
+  },
+  "to_target_weights": {
+   "human": {
+    "zh": {
+     "name": "导出目标权重",
+     "summary": "把组合意图无损导出为执行侧可直接使用的目标权重：权重、标的范围与现金底线逐位相同。"
+    },
+    "en": {
+     "name": "Export target weights",
+     "summary": "Exports a portfolio intent losslessly as executable target weights: weights, universe and cash floor carry over unchanged."
+    },
+    "ja": {
+     "name": "目標ウェイトを出力",
+     "summary": "ポートフォリオ意図を実行側がそのまま使える目標ウェイトへ無損失で変換します。ウェイト・対象範囲・現金下限は同じ値で引き継ぎます。"
+    },
+    "es": {
+     "name": "Exportar pesos objetivo",
+     "summary": "Exporta la intención de cartera sin pérdida como pesos objetivo ejecutables; pesos, universo y colchón de caja se mantienen idénticos."
+    },
+    "fr": {
+     "name": "Exporter les poids cibles",
+     "summary": "Exporte l'intention de portefeuille sans perte vers des poids cibles exécutables ; poids, univers et plancher de liquidités restent identiques."
+    }
+   },
+   "canonical": {
+    "brief": "Converts a PortfolioIntent to TargetWeights without altering weights, universe or cash_floor, returning target_weights together with a valid flag; this is the step from research conclusion to executable weights."
+   }
+  },
+  "validate_portfolio_intent": {
+   "human": {
+    "zh": {
+     "name": "校验组合意图",
+     "summary": "严格校验组合意图：未知字段、不变式、出处与排除原因，每条错误都带字段路径；没做校验时如实报未校验，不冒充已通过。"
+    },
+    "en": {
+     "name": "Validate a portfolio intent",
+     "summary": "Strictly validates a portfolio intent — unknown fields, invariants, provenance and exclusion reasons — with each error carrying its field path; when no check ran it says so instead of implying a pass."
+    },
+    "ja": {
+     "name": "ポートフォリオ意図を検証",
+     "summary": "未知項目・不変条件・出所・除外理由を厳密に検証し、誤りは項目パス付きで返します。検証していない場合は合格と偽らず未検証として返します。"
+    },
+    "es": {
+     "name": "Validar la intención de cartera",
+     "summary": "Valida estrictamente la intención de cartera —campos desconocidos, invariantes, procedencia, exclusiones— cada error con la ruta del campo; sin comprobación lo dice."
+    },
+    "fr": {
+     "name": "Valider l'intention de portefeuille",
+     "summary": "Valide strictement l'intention de portefeuille —champs inconnus, invariants, provenance, exclusions— chaque erreur portant le chemin du champ ; sans vérification elle est dite non vérifiée."
+    }
+   },
+   "canonical": {
+    "brief": "Validates a PortfolioIntent strictly (unknown fields, invariants, exclusion reasons) and returns field-path error entries plus provenance; when no provenance check ran it reports provenance.checked=false rather than implying success."
+   }
+  }
+ }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "computer-file-system",
+  "origin": "yizuo-file",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "文件系统操作",
+        "summary": "列出目录、读写文件、移动与重命名——壹座运行环境内的文件面操作技能。"
+      },
+      "en": {
+        "name": "File system operations",
+        "summary": "Lists directories, reads and writes files, moves and renames them inside the Yizuo runtime."
+      },
+      "ja": {
+        "name": "ファイルシステム操作",
+        "summary": "ディレクトリ一覧、ファイルの読み書き、移動と名前変更——Yizuo 実行環境内のファイル操作スキル。"
+      },
+      "es": {
+        "name": "Operaciones del sistema de archivos",
+        "summary": "Lista directorios, lee y escribe archivos, los mueve y renombra dentro del entorno de ejecución de Yizuo."
+      },
+      "fr": {
+        "name": "Opérations du système de fichiers",
+        "summary": "Liste les répertoires, lit et écrit les fichiers, les déplace et les renomme dans l'environnement d'exécution Yizuo."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

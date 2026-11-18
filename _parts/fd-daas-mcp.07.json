@@ -1,0 +1,625 @@
+{
+ "tools": {
+  "gateway_list_data_mcp_tools": {
+   "human": {
+    "zh": {
+     "name": "列出上游工具",
+     "summary": "实时列出某个数据抓取 MCP 上游暴露的工具，含名称与描述，可用时含参数。"
+    },
+    "en": {
+     "name": "List upstream tools",
+     "summary": "List the tools one data-fetch MCP upstream exposes, live, with names, descriptions, and parameters when available."
+    },
+    "ja": {
+     "name": "上流ツール一覧",
+     "summary": "データ取得 MCP 上流が公開するツールをライブで一覧し、名前・説明・取得可能ならパラメータを返します。"
+    },
+    "es": {
+     "name": "Listar herramientas del origen",
+     "summary": "Enumera en vivo las herramientas de un origen MCP de captura de datos, con nombre, descripción y parámetros si están disponibles."
+    },
+    "fr": {
+     "name": "Lister les outils de l'amont",
+     "summary": "Énumère en direct les outils exposés par un amont MCP de collecte de données, avec nom, description et paramètres si disponibles."
+    }
+   },
+   "canonical": {
+    "brief": "Live listing of the tools exposed by one data-fetch MCP upstream, with names, descriptions, and parameters when available."
+   }
+  },
+  "gateway_call_data_mcp": {
+   "human": {
+    "zh": {
+     "name": "调用上游工具",
+     "summary": "经常驻客户端池连接指定上游，用 JSON 反序列化的 arguments 调用其工具并返回结果。"
+    },
+    "en": {
+     "name": "Call upstream tool",
+     "summary": "Connect to a named upstream through the persistent client pool, invoke a tool with JSON-deserialized arguments, and return its result."
+    },
+    "ja": {
+     "name": "上流ツールを呼ぶ",
+     "summary": "常駐クライアントプール経由で指定した上流に接続し、JSON を復元した arguments でツールを呼び出して結果を返します。"
+    },
+    "es": {
+     "name": "Llamar a herramienta del origen",
+     "summary": "Conecta con el origen indicado por el pool persistente, invoca la herramienta con arguments deserializados desde JSON y devuelve su resultado."
+    },
+    "fr": {
+     "name": "Appeler un outil de l'amont",
+     "summary": "Se connecte à l'amont nommé via le pool de clients persistant, invoque l'outil avec des arguments désérialisés depuis JSON et renvoie le résultat."
+    }
+   },
+   "canonical": {
+    "brief": "Calls a tool on a data-fetch MCP upstream through the persistent client pool with JSON-deserialized arguments and returns the upstream result."
+   }
+  },
+  "gateway_add_data_mcp": {
+   "human": {
+    "zh": {
+     "name": "新增上游配置",
+     "summary": "新增或更新一个数据抓取 MCP 上游，按名称幂等 upsert。"
+    },
+    "en": {
+     "name": "Add gateway upstream",
+     "summary": "Add or update a data-fetch MCP upstream as an idempotent upsert keyed on its name."
+    },
+    "ja": {
+     "name": "上流を追加",
+     "summary": "データ取得 MCP 上流を、名前をキーにした冪等な upsert で追加または更新します。"
+    },
+    "es": {
+     "name": "Añadir origen al gateway",
+     "summary": "Añade o actualiza un origen MCP de captura de datos con upsert idempotente por nombre."
+    },
+    "fr": {
+     "name": "Ajouter un amont à la passerelle",
+     "summary": "Ajoute ou met à jour un amont MCP de collecte de données par upsert idempotent sur le nom."
+    }
+   },
+   "canonical": {
+    "brief": "Adds or updates a data-fetch MCP upstream, idempotently upserting by name."
+   }
+  },
+  "gateway_remove_data_mcp": {
+   "human": {
+    "zh": {
+     "name": "移除上游配置",
+     "summary": "从供给目录中移除一个数据抓取 MCP 上游。"
+    },
+    "en": {
+     "name": "Remove gateway upstream",
+     "summary": "Remove a data-fetch MCP upstream from the registry."
+    },
+    "ja": {
+     "name": "上流を削除",
+     "summary": "データ取得 MCP 上流をレジストリから削除します。"
+    },
+    "es": {
+     "name": "Quitar origen del gateway",
+     "summary": "Elimina un origen MCP de captura de datos del catálogo."
+    },
+    "fr": {
+     "name": "Retirer un amont de la passerelle",
+     "summary": "Retire un amont MCP de collecte de données du registre."
+    }
+   },
+   "canonical": {
+    "brief": "Removes a data-fetch MCP upstream from the gateway registry."
+   }
+  },
+  "gateway_get_data_mcp": {
+   "human": {
+    "zh": {
+     "name": "读取上游配置",
+     "summary": "读取单个数据抓取 MCP 上游的完整启动配置。"
+    },
+    "en": {
+     "name": "Get upstream config",
+     "summary": "Return one data-fetch MCP upstream's full launch configuration."
+    },
+    "ja": {
+     "name": "上流設定を取得",
+     "summary": "データ取得 MCP 上流一つの起動設定を完全な形で返します。"
+    },
+    "es": {
+     "name": "Ver configuración del origen",
+     "summary": "Devuelve la configuración de arranque completa de un origen MCP de captura de datos."
+    },
+    "fr": {
+     "name": "Lire la configuration d'un amont",
+     "summary": "Renvoie la configuration de lancement complète d'un amont MCP de collecte de données."
+    }
+   },
+   "canonical": {
+    "brief": "Returns the full launch configuration of one data-fetch MCP upstream."
+   }
+  },
+  "gateway_gateway_health": {
+   "human": {
+    "zh": {
+     "name": "探测上游健康",
+     "summary": "逐个探测已启用上游，失败或恢复时在 http 与 stdio 传输之间自动切换。"
+    },
+    "en": {
+     "name": "Probe upstream health",
+     "summary": "Probe every enabled gateway upstream and automatically flip its transport between http and stdio on failure or recovery."
+    },
+    "ja": {
+     "name": "上流の健全性確認",
+     "summary": "有効な上流を順に確認し、失敗や復旧に応じて http と stdio のトランスポートを自動で切り替えます。"
+    },
+    "es": {
+     "name": "Sondear salud de orígenes",
+     "summary": "Sondea cada origen habilitado y cambia automáticamente el transporte entre http y stdio ante un fallo o una recuperación."
+    },
+    "fr": {
+     "name": "Sonder la santé des amonts",
+     "summary": "Sonde chaque amont actif et bascule automatiquement le transport entre http et stdio en cas d'échec ou de rétablissement."
+    }
+   },
+   "canonical": {
+    "brief": "Health-probes each enabled gateway upstream and auto-flips transport between http and stdio on failure or recovery."
+   }
+  },
+  "research_create": {
+   "human": {
+    "zh": {
+     "name": "新建研究包",
+     "summary": "创建持久化研究包，按名称挂接已有集合；dashboard_slug 必须已存在，component_refs 以 JSON 字符串传入。"
+    },
+    "en": {
+     "name": "Create research bundle",
+     "summary": "Create a persisted research bundle attaching named collections; dashboard_slug must already exist and component_refs is a JSON string."
+    },
+    "ja": {
+     "name": "リサーチ作成",
+     "summary": "永続化リサーチを作成し、名前で既存コレクションを紐づけます。dashboard_slug は既存が必要で、component_refs は JSON 文字列で渡します。"
+    },
+    "es": {
+     "name": "Crear paquete de investigación",
+     "summary": "Crea un paquete persistido y adjunta colecciones por nombre; dashboard_slug debe existir y component_refs se pasa como cadena JSON."
+    },
+    "fr": {
+     "name": "Créer un dossier de recherche",
+     "summary": "Crée un dossier persisté et attache des collections par nom ; dashboard_slug doit exister et component_refs est fourni en chaîne JSON."
+    }
+   },
+   "canonical": {
+    "brief": "Creates a persisted research bundle with named collection attachments; dashboard_slug must exist and component_refs is a JSON object string."
+   }
+  },
+  "research_get": {
+   "human": {
+    "zh": {
+     "name": "读取研究包",
+     "summary": "返回研究包及解析后的组件，含实时计数、看板 URL、流水线状态与悬空组件告警。"
+    },
+    "en": {
+     "name": "Get research bundle",
+     "summary": "Return a research plus its resolved bundle: live counts, dashboard URL, pipeline status, and dangling-component warnings."
+    },
+    "ja": {
+     "name": "リサーチ取得",
+     "summary": "リサーチと解決済みバンドルを返します。実カウント、ダッシュボード URL、パイプライン状態、未解決コンポーネントの警告を含みます。"
+    },
+    "es": {
+     "name": "Ver paquete de investigación",
+     "summary": "Devuelve la investigación con su paquete resuelto: recuentos reales, URL del panel, estado del flujo y avisos de componentes colgantes."
+    },
+    "fr": {
+     "name": "Lire un dossier de recherche",
+     "summary": "Renvoie la recherche et son dossier résolu : comptes réels, URL du tableau de bord, état du pipeline et alertes de composants orphelins."
+    }
+   },
+   "canonical": {
+    "brief": "Returns a research plus its resolved bundle: live counts, dashboard URL, pipeline status, and dangling-component warnings."
+   }
+  },
+  "research_list": {
+   "human": {
+    "zh": {
+     "name": "列出研究包",
+     "summary": "列出全部研究包（可按状态过滤），并给出已挂接组件的名称。"
+    },
+    "en": {
+     "name": "List research bundles",
+     "summary": "List every research bundle, optionally filtered by status, with the names of attached components."
+    },
+    "ja": {
+     "name": "リサーチ一覧",
+     "summary": "すべてのリサーチを、任意で状態により絞り込み、紐づくコンポーネント名とともに一覧します。"
+    },
+    "es": {
+     "name": "Listar investigaciones",
+     "summary": "Enumera todas las investigaciones, con filtro opcional por estado, y los nombres de los componentes adjuntos."
+    },
+    "fr": {
+     "name": "Lister les dossiers de recherche",
+     "summary": "Énumère toutes les recherches, avec filtre facultatif par état, et les noms des composants attachés."
+    }
+   },
+   "canonical": {
+    "brief": "Lists all research bundles, optionally filtered by status, with the names of attached components."
+   }
+  },
+  "research_update": {
+   "human": {
+    "zh": {
+     "name": "更新研究包",
+     "summary": "部分更新研究包：None 表示不改动，新增的组件名需已存在，component_refs 会整体替换辅助引用。"
+    },
+    "en": {
+     "name": "Update research bundle",
+     "summary": "Partially update a research bundle; None leaves a field unchanged, new component names are validated, and component_refs replaces auxiliary refs."
+    },
+    "ja": {
+     "name": "リサーチ更新",
+     "summary": "リサーチを部分更新します。None は変更なし、新しいコンポーネント名は存在確認され、component_refs は補助参照を置換します。"
+    },
+    "es": {
+     "name": "Actualizar investigación",
+     "summary": "Actualiza parcialmente una investigación; None no cambia el campo, los nombres nuevos se validan y component_refs sustituye las referencias auxiliares."
+    },
+    "fr": {
+     "name": "Mettre à jour un dossier de recherche",
+     "summary": "Met à jour partiellement une recherche ; None laisse le champ inchangé, les nouveaux noms sont validés et component_refs remplace les références auxiliaires."
+    }
+   },
+   "canonical": {
+    "brief": "Partial update of a research bundle; None keeps a field, new component names must exist, and component_refs replaces the auxiliary references."
+   }
+  },
+  "research_delete": {
+   "human": {
+    "zh": {
+     "name": "删除研究包",
+     "summary": "删除研究包与磁盘报告；默认连带删除自有流水线，可选删除看板，共享集合与观测数据从不删除。"
+    },
+    "en": {
+     "name": "Delete research bundle",
+     "summary": "Delete a research bundle and its report file; the owned pipeline goes by default and the dashboard optionally, while shared collections and observations are kept."
+    },
+    "ja": {
+     "name": "リサーチ削除",
+     "summary": "リサーチとディスク上のレポートを削除します。所有パイプラインは既定で、ダッシュボードは任意で削除され、共有コレクションと観測値は残ります。"
+    },
+    "es": {
+     "name": "Borrar investigación",
+     "summary": "Elimina la investigación y su informe en disco; el flujo propio se borra por defecto y el panel es opcional, pero colecciones y observaciones compartidas se conservan."
+    },
+    "fr": {
+     "name": "Supprimer un dossier de recherche",
+     "summary": "Supprime la recherche et son rapport ; le pipeline propre part par défaut, le tableau de bord en option, les collections et observations partagées restent."
+    }
+   },
+   "canonical": {
+    "brief": "Deletes a research bundle and its report file; removes the owned pipeline by default and the dashboard optionally, never shared collections or observations."
+   }
+  },
+  "research_generate_report": {
+   "human": {
+    "zh": {
+     "name": "生成研究报告",
+     "summary": "按研究包的实时组件拼出 Markdown 报告，写入 report_md 与 researches/<name>.md，返回名称、路径与字符数。"
+    },
+    "en": {
+     "name": "Generate research report",
+     "summary": "Assemble a markdown report from live components, store it in report_md and researches/<name>.md, and return name, report_path, and char_count."
+    },
+    "ja": {
+     "name": "レポート生成",
+     "summary": "バンドルの実コンポーネントから Markdown レポートを組み立て、report_md と researches/<name>.md に保存し、名前・パス・文字数を返します。"
+    },
+    "es": {
+     "name": "Generar informe de investigación",
+     "summary": "Ensambla un informe Markdown con los componentes reales, lo guarda en report_md y researches/<name>.md y devuelve nombre, ruta y caracteres."
+    },
+    "fr": {
+     "name": "Générer le rapport de recherche",
+     "summary": "Assemble un rapport Markdown à partir des composants réels, l'enregistre dans report_md et researches/<name>.md et renvoie nom, chemin et caractères."
+    }
+   },
+   "canonical": {
+    "brief": "Builds a markdown report from the bundle's live components, stores it in report_md and researches/<name>.md, and returns name, report_path, char_count."
+   }
+  },
+  "research_refresh": {
+   "human": {
+    "zh": {
+     "name": "刷新研究数据",
+     "summary": "重跑数据流水线：重算指标、同步规则集合，并逐项报告状态；单项错误只记录不抛出。"
+    },
+    "en": {
+     "name": "Refresh research data",
+     "summary": "Re-run the data pipeline by recomputing indicators and syncing rule-based collections, reporting each component status without raising per-item errors."
+    },
+    "ja": {
+     "name": "リサーチ再取得",
+     "summary": "指標の再計算とルール集合の同期でデータパイプラインを再実行し、各コンポーネントの状態を報告します。個別エラーは送出しません。"
+    },
+    "es": {
+     "name": "Refrescar datos de investigación",
+     "summary": "Reejecuta el flujo recalculando indicadores y sincronizando colecciones con reglas, e informa el estado de cada componente sin lanzar errores individuales."
+    },
+    "fr": {
+     "name": "Rafraîchir les données de recherche",
+     "summary": "Relance le pipeline en recalculant les indicateurs et en synchronisant les collections à règles, et rapporte l'état de chaque composant sans lever d'erreur."
+    }
+   },
+   "canonical": {
+    "brief": "Re-runs the bundle's data pipeline (indicator recompute plus rule-based collection sync) and returns a per-component status report with per-item errors captured."
+   }
+  },
+  "research_add_component": {
+   "human": {
+    "zh": {
+     "name": "挂接研究组件",
+     "summary": "按名称把已有组件挂到研究包上；component_type 指定种类，组件本身不会被创建。"
+    },
+    "en": {
+     "name": "Attach research component",
+     "summary": "Attach an existing component to a research bundle by name; component_type selects the kind and nothing is created."
+    },
+    "ja": {
+     "name": "コンポーネント紐づけ",
+     "summary": "既存のコンポーネントを名前でリサーチに紐づけます。component_type で種類を指定し、コンポーネント自体は作成しません。"
+    },
+    "es": {
+     "name": "Adjuntar componente",
+     "summary": "Adjunta un componente existente a una investigación por nombre; component_type indica el tipo y el componente no se crea."
+    },
+    "fr": {
+     "name": "Attacher un composant",
+     "summary": "Attache un composant existant à une recherche par nom ; component_type précise le type et le composant n'est pas créé."
+    }
+   },
+   "canonical": {
+    "brief": "Attaches an already existing component to a research bundle by name, with component_type selecting the kind; nothing is created."
+   }
+  },
+  "research_remove_component": {
+   "human": {
+    "zh": {
+     "name": "卸下研究组件",
+     "summary": "从研究包卸下组件，底层对象不删除；命名类字段置空，辅助引用从 component_refs 移除。"
+    },
+    "en": {
+     "name": "Detach research component",
+     "summary": "Detach a component from a research bundle without deleting it; named kinds clear their column and auxiliary refs leave component_refs."
+    },
+    "ja": {
+     "name": "コンポーネント解除",
+     "summary": "研究からコンポーネントを外します。元のオブジェクトは削除されません。名前付き種別は列を空にし、補助参照は component_refs から除去します。"
+    },
+    "es": {
+     "name": "Desvincular componente",
+     "summary": "Desvincula un componente de la investigación sin borrarlo; los tipos nombrados vacían su columna y las referencias auxiliares salen de component_refs."
+    },
+    "fr": {
+     "name": "Détacher un composant",
+     "summary": "Détache un composant de la recherche sans le supprimer ; les types nommés vident leur colonne et les références auxiliaires sortent de component_refs."
+    }
+   },
+   "canonical": {
+    "brief": "Detaches a component from a research bundle without deleting the underlying object; clears the named column or removes an auxiliary ref."
+   }
+  },
+  "workflow_register": {
+   "human": {
+    "zh": {
+     "name": "登记工作流",
+     "summary": "登记新的 YAML 工作流清单；同名冲突时自动升版本，除非清单自带 version。"
+    },
+    "en": {
+     "name": "Register workflow",
+     "summary": "Register a new YAML workflow manifest; on a name collision the version is bumped unless the manifest declares its own version."
+    },
+    "ja": {
+     "name": "ワークフロー登録",
+     "summary": "新しい YAML ワークフロー定義を登録します。名前が衝突した場合、定義が独自の version を持たない限りバージョンを上げます。"
+    },
+    "es": {
+     "name": "Registrar flujo de trabajo",
+     "summary": "Registra un manifiesto YAML nuevo; si el nombre coincide, sube la versión salvo que el manifiesto declare la suya."
+    },
+    "fr": {
+     "name": "Enregistrer un flux de travail",
+     "summary": "Enregistre un manifeste YAML ; en cas de collision de nom, la version est incrémentée sauf si le manifeste déclare la sienne."
+    }
+   },
+   "canonical": {
+    "brief": "Registers a new YAML workflow manifest, bumping the version on name collision unless the manifest declares its own version."
+   }
+  },
+  "workflow_get": {
+   "human": {
+    "zh": {
+     "name": "读取工作流",
+     "summary": "按名称读取工作流，默认返回最新版本。"
+    },
+    "en": {
+     "name": "Get workflow",
+     "summary": "Get a workflow by name, returning the latest version by default."
+    },
+    "ja": {
+     "name": "ワークフロー取得",
+     "summary": "名前でワークフローを取得します。既定では最新バージョンを返します。"
+    },
+    "es": {
+     "name": "Obtener flujo de trabajo",
+     "summary": "Obtiene un flujo de trabajo por nombre; por defecto devuelve la última versión."
+    },
+    "fr": {
+     "name": "Lire un flux de travail",
+     "summary": "Récupère un flux de travail par nom, la dernière version par défaut."
+    }
+   },
+   "canonical": {
+    "brief": "Fetches a workflow by name, defaulting to its latest version."
+   }
+  },
+  "workflow_list": {
+   "human": {
+    "zh": {
+     "name": "列出工作流",
+     "summary": "列出全部工作流，含名称、版本、描述、启用状态与步骤数。"
+    },
+    "en": {
+     "name": "List workflows",
+     "summary": "List every workflow with its name, version, description, enabled flag, and step count."
+    },
+    "ja": {
+     "name": "ワークフロー一覧",
+     "summary": "すべてのワークフローを、名前・バージョン・説明・有効状態・ステップ数とともに一覧します。"
+    },
+    "es": {
+     "name": "Listar flujos de trabajo",
+     "summary": "Enumera todos los flujos de trabajo con nombre, versión, descripción, estado y número de pasos."
+    },
+    "fr": {
+     "name": "Lister les flux de travail",
+     "summary": "Énumère tous les flux de travail avec nom, version, description, état d'activation et nombre d'étapes."
+    }
+   },
+   "canonical": {
+    "brief": "Lists every workflow with its name, version, description, enabled flag, and step count."
+   }
+  },
+  "workflow_update": {
+   "human": {
+    "zh": {
+     "name": "更新工作流",
+     "summary": "局部修改工作流，只改传入字段；未给 version 时作用于该名称的最新版本。"
+    },
+    "en": {
+     "name": "Update workflow",
+     "summary": "Patch a workflow so only supplied fields change; version defaults to the latest version of that name."
+    },
+    "ja": {
+     "name": "ワークフロー更新",
+     "summary": "ワークフローを部分更新し、指定した項目だけを変更します。version 省略時はその名前の最新版が対象です。"
+    },
+    "es": {
+     "name": "Actualizar flujo de trabajo",
+     "summary": "Modifica un flujo de trabajo cambiando solo los campos indicados; version toma por defecto la última de ese nombre."
+    },
+    "fr": {
+     "name": "Mettre à jour un flux de travail",
+     "summary": "Modifie un flux de travail en ne changeant que les champs fournis ; version vaut par défaut la dernière de ce nom."
+    }
+   },
+   "canonical": {
+    "brief": "Partial update of a workflow; only supplied fields change and version defaults to the latest version of that name."
+   }
+  },
+  "workflow_delete": {
+   "human": {
+    "zh": {
+     "name": "删除工作流",
+     "summary": "删除工作流；省略 version 会删除该名称的全部版本，步骤与运行记录按外键级联删除。"
+    },
+    "en": {
+     "name": "Delete workflow",
+     "summary": "Delete a workflow; omitting version deletes every version of the name, with steps and runs removed by foreign-key cascade."
+    },
+    "ja": {
+     "name": "ワークフロー削除",
+     "summary": "ワークフローを削除します。version を省略すると同名の全バージョンを削除し、ステップと実行履歴は外部キーで連鎖削除されます。"
+    },
+    "es": {
+     "name": "Borrar flujo de trabajo",
+     "summary": "Elimina un flujo de trabajo; sin version borra todas las versiones de ese nombre y pasos y ejecuciones caen por clave foránea."
+    },
+    "fr": {
+     "name": "Supprimer un flux de travail",
+     "summary": "Supprime un flux de travail ; sans version, toutes les versions du nom partent, étapes et exécutions par cascade de clé étrangère."
+    }
+   },
+   "canonical": {
+    "brief": "Deletes a workflow; omitting version removes every version of that name, with steps and runs cascading via foreign keys."
+   }
+  },
+  "workflow_run": {
+   "human": {
+    "zh": {
+     "name": "运行工作流",
+     "summary": "运行工作流清单，params_json 覆盖传入清单声明的 params，返回运行 id 与状态；暂停时带 resume_token。"
+    },
+    "en": {
+     "name": "Run workflow",
+     "summary": "Run a workflow manifest with params_json merged over declared params; returns a run id and status, with a resume_token when paused."
+    },
+    "ja": {
+     "name": "ワークフロー実行",
+     "summary": "ワークフロー定義を実行し、params_json を宣言済み params に上書きマージします。実行 id と状態を返し、一時停止時は resume_token を含みます。"
+    },
+    "es": {
+     "name": "Ejecutar flujo de trabajo",
+     "summary": "Ejecuta un manifiesto con params_json fusionado sobre los params declarados; devuelve id de ejecución y estado, con resume_token si queda en pausa."
+    },
+    "fr": {
+     "name": "Exécuter un flux de travail",
+     "summary": "Exécute un manifeste avec params_json fusionné sur les params déclarés ; renvoie l'id d'exécution et l'état, avec resume_token si en pause."
+    }
+   },
+   "canonical": {
+    "brief": "Runs a workflow manifest with params_json merged over declared params; returns run id and status, plus resume_token when the run pauses."
+   }
+  },
+  "workflow_inspect": {
+   "human": {
+    "zh": {
+     "name": "校验工作流",
+     "summary": "校验已存工作流清单并返回解析后的步骤计划，不执行。"
+    },
+    "en": {
+     "name": "Inspect workflow",
+     "summary": "Validate a stored workflow manifest and return its parsed step plan without executing it."
+    },
+    "ja": {
+     "name": "ワークフロー検証",
+     "summary": "保存済みのワークフロー定義を検証し、解析後のステップ計画を返します。実行は行いません。"
+    },
+    "es": {
+     "name": "Inspeccionar flujo de trabajo",
+     "summary": "Valida un manifiesto almacenado y devuelve su plan de pasos analizado, sin ejecutarlo."
+    },
+    "fr": {
+     "name": "Inspecter un flux de travail",
+     "summary": "Valide un manifeste enregistré et renvoie son plan d'étapes analysé, sans l'exécuter."
+    }
+   },
+   "canonical": {
+    "brief": "Validates a stored workflow manifest and returns its parsed step plan without running it."
+   }
+  },
+  "workflow_resume": {
+   "human": {
+    "zh": {
+     "name": "恢复工作流运行",
+     "summary": "恢复暂停的工作流运行；approved=False 会将其标记为失败。"
+    },
+    "en": {
+     "name": "Resume workflow run",
+     "summary": "Resume a paused workflow run; approved=False marks the run as failed instead."
+    },
+    "ja": {
+     "name": "実行を再開",
+     "summary": "一時停止した実行を再開します。approved=False の場合は失敗として記録されます。"
+    },
+    "es": {
+     "name": "Reanudar ejecución",
+     "summary": "Reanuda una ejecución en pausa; approved=False la marca como fallida."
+    },
+    "fr": {
+     "name": "Reprendre une exécution",
+     "summary": "Reprend une exécution en pause ; approved=False la marque comme échouée."
+    }
+   },
+   "canonical": {
+    "brief": "Resumes a paused workflow run; approved=False marks the run as failed instead."
+   }
+  }
+ }
+}

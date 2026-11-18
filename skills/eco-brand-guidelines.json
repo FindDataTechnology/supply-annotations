@@ -1,0 +1,32 @@
+{
+  "skill": "eco-brand-guidelines",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "品牌规范指引",
+        "summary": "生态技能包：提供 Anthropic 官方品牌色与字体使用规范。"
+      },
+      "en": {
+        "name": "Brand color and font standards",
+        "summary": "Ecosystem skill pack: Anthropic's official brand color and font usage standards."
+      },
+      "ja": {
+        "name": "ブランド規範指針",
+        "summary": "エコシステム系スキル。Anthropic 公式のブランドカラーとフォントの規定。"
+      },
+      "es": {
+        "name": "Normas de color y tipografía de marca",
+        "summary": "Habilidad del ecosistema: normas oficiales de color y tipografía de la marca Anthropic."
+      },
+      "fr": {
+        "name": "Normes de couleurs et typographie de marque",
+        "summary": "Compétence de l'écosystème : normes officielles de couleurs et de typographie de la marque Anthropic."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

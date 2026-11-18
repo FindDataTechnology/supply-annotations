@@ -1,0 +1,32 @@
+{
+  "skill": "pa1nrui1-contract-review",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "合同深度审查",
+        "summary": "基于四步审查法与三观分析法深度审查合同：支持企业核验、多语言自动检测、业务流程图、二段式审核意见、合同概览、客户可读编号、业务摘要、22类合同专项审查、续约提醒与修订模式红线稿。"
+      },
+      "en": {
+        "name": "In-depth contract review",
+        "summary": "Deep contract review via a four-step and three-view method: entity checks, language detection, flow charts, two-stage opinions, 22 category checks, renewal reminders, redline drafts."
+      },
+      "ja": {
+        "name": "契約深度審査",
+        "summary": "四步審査法と三观分析に基づく契約の深度審査：企業検証、多言語自動検出、業務フロー図、二段式審査意見、契約概観、クライアント可読番号、22類型の専門審査、更新リマインド、修正モードのレッドライン原稿に対応。"
+      },
+      "es": {
+        "name": "Revisión profunda de contratos",
+        "summary": "Revisión profunda por método de cuatro pasos y análisis de tres perspectivas: verificación de parte, idiomas, diagramas, dictámenes en dos etapas, 22 guías, avisos de renovación y marcas de cambio."
+      },
+      "fr": {
+        "name": "Revue approfondie de contrats",
+        "summary": "Revue en profondeur par méthode en quatre étapes et analyse à trois points de vue : vérification des parties, langues, schémas, avis en deux volets, 22 grilles, rappels et projet suivi."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

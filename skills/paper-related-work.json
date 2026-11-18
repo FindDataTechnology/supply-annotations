@@ -1,0 +1,32 @@
+{
+  "skill": "paper-related-work",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "论文相关工作",
+        "summary": "论文相关工作与相似文献（文本引擎·论文包）：按摘要、题目或研究想法的语义近邻找相似论文，用于写相关工作段落或查重式比对，数据经 fd-text-core 引擎实时获取。"
+      },
+      "en": {
+        "name": "Related work and similar papers",
+        "summary": "Finds papers similar to an abstract, title or idea via semantic neighbors, to write related-work passages or check overlap, with live data from the fd-text-core engine."
+      },
+      "ja": {
+        "name": "論文関連研究検索",
+        "summary": "論文の関連研究と類似文献（テキストエンジン・論文パッケージ）：抄録・題目・研究アイデアの意味的近傍から類似論文を探し、関連研究の執筆や重複チェックに使う。データは fd-text-core から即時取得。"
+      },
+      "es": {
+        "name": "Trabajos relacionados y artículos afines",
+        "summary": "Encuentra artículos similares a un resumen, título o idea mediante vecinos semánticos, para redactar trabajos relacionados o comparar solapamientos; datos en vivo de fd-text-core."
+      },
+      "fr": {
+        "name": "Travaux liés et articles similaires",
+        "summary": "Trouve les articles voisins d'un résumé, d'un titre ou d'une idée via voisins sémantiques, pour rédiger les travaux liés ou comparer les recoupements ; données fd-text-core en direct."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

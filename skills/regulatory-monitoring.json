@@ -1,0 +1,32 @@
+{
+  "skill": "regulatory-monitoring",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "监管动态监测",
+        "summary": "监测中国境内重点监管动态并评估客户合规影响：跟踪法律法规、部门规章、规范性文件、征求意见稿与执法动态并分级，核查客户现有合规文件缺口，给出新规要求判断、政策制度修改建议、整改清单与监管合规简报。"
+      },
+      "en": {
+        "name": "Regulatory monitoring",
+        "summary": "Tracks China regulatory moves and client impact: laws, rules, drafts and enforcement, graded; spots gaps and returns requirements, amendments, remediation lists and briefings."
+      },
+      "ja": {
+        "name": "規制動向モニタリング",
+        "summary": "中国国内の主要な規制動向をモニタリングし、顧客コンプライアンスへの影響を評価：法令・部門規則・規範性文書・意見公募案・取締り動向を追跡して等級付けし、顧客既存文書のギャップを点検し、新規則の要求判断・制度修正提案・是正リスト・簡潔レポートを出す。"
+      },
+      "es": {
+        "name": "Monitorización regulatoria",
+        "summary": "Sigue la actividad regulatoria china y su impacto en el cliente: leyes, reglamentos, borradores y sanciones clasificados; huecos, requisitos, ajustes, listas de remediación e informe."
+      },
+      "fr": {
+        "name": "Surveillance réglementaire",
+        "summary": "Suit les mouvements réglementaires chinois et l'impact client : lois, règles, projets et sanctions hiérarchisés ; manques, exigences, ajustements, remédiation et synthèse."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

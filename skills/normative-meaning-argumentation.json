@@ -1,0 +1,32 @@
+{
+  "skill": "normative-meaning-argumentation",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "规范意涵论证",
+        "summary": "分析法律规范的目的与价值导向，以及事实如何进入规范评价、判断涵摄的限度，并适当区别于法律解释中的规范目的解释。"
+      },
+      "en": {
+        "name": "Normative meaning argumentation",
+        "summary": "Analyzes the purpose and value orientation of legal norms, how facts enter normative evaluation and the limits of subsumption, distinguishing it from purposive interpretation."
+      },
+      "ja": {
+        "name": "規範意義論証",
+        "summary": "法規範の目的と価値志向、事実が規範評価へどう入るか、包摂の限界を分析し、法解釈における目的論的解釈とは適切に区別します。"
+      },
+      "es": {
+        "name": "Argumentación de significado normativo",
+        "summary": "Analiza el propósito y la orientación de valor de las normas jurídicas, cómo los hechos entran en la valoración normativa y los límites de la subsunción, distinta de la interpretación finalista."
+      },
+      "fr": {
+        "name": "Argumentation du sens normatif",
+        "summary": "Analyse la finalité et l'orientation axiologique des normes, comment les faits entrent dans l'évaluation normative et les limites de la subsomption, en la distinguant de l'interprétation finaliste."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

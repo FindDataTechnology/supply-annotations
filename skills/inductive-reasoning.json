@@ -1,0 +1,32 @@
+{
+  "skill": "inductive-reasoning",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "归纳推理",
+        "summary": "从一个或多个具体案例、判决、事实模式中提炼一般性法律规则、裁判规则与法律原则,支撑类案检索的裁判规则摘要与司法适用标准总结。"
+      },
+      "en": {
+        "name": "Legal inductive reasoning",
+        "summary": "Distills general legal rules, adjudication rules and principles from specific cases, judgments and fact patterns; supports similar-case rule summaries and standards of judicial application."
+      },
+      "ja": {
+        "name": "帰納的推論",
+        "summary": "具体的な判例・判決・事実パターンから一般的な法律規則・裁判規則・法原則を導く。類案検索の裁判規則要約や司法適用基準整理を支える。"
+      },
+      "es": {
+        "name": "Razonamiento inductivo jurídico",
+        "summary": "Destila reglas jurídicas generales, reglas adjudicativas y principios desde casos, sentencias y patrones fácticos concretos; sustenta resúmenes de reglas de casos análogos."
+      },
+      "fr": {
+        "name": "Raisonnement inductif juridique",
+        "summary": "Distille des règles de droit, règles jurisprudentielles et principes à partir de cas, jugements et schémas factuels concrets ; étaye les synthèses de cas analogues."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

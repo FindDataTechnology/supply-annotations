@@ -1,0 +1,32 @@
+{
+  "skill": "case-filing-management",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "民事立案管理",
+        "summary": "系统化指引民事一审立案全流程：立案材料核查、管辖权预检、立案方式选择、诉讼费计算与举证期限管理。"
+      },
+      "en": {
+        "name": "Civil case filing management",
+        "summary": "Guides civil first-instance case filing end to end: filing-material checks, jurisdiction pre-check, filing-channel choice, litigation-fee calculation and evidence-deadline management."
+      },
+      "ja": {
+        "name": "民事訴訟提起管理",
+        "summary": "民事一審の提訴プロセスを体系的に案内：提出資料の確認、管轄の事前チェック、提出方法の選択、訴訟費用の計算、立証期限の管理。"
+      },
+      "es": {
+        "name": "Gestión de presentación de demandas civiles",
+        "summary": "Orienta de punta a punta la presentación en primera instancia civil: revisión de documentos, prechqueo de competencia, elección de vía de presentación, cálculo de tasas y plazos de prueba."
+      },
+      "fr": {
+        "name": "Gestion d'introduction d'instance civile",
+        "summary": "Guide l'introduction d'instance civile en première instance : contrôle des pièces, vérification de compétence, choix du canal de dépôt, calcul des frais et délais de preuve."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

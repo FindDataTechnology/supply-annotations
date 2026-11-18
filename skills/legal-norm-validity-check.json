@@ -1,0 +1,32 @@
+{
+  "skill": "legal-norm-validity-check",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "法律规范效力核验",
+        "summary": "在引用法律条文前核验其效力：判断是否已被修订或废止、多个规范冲突时的优先适用、规范性文件是否具有法律约束力，以及跨层级、跨区域适用问题。"
+      },
+      "en": {
+        "name": "Legal norm validity check",
+        "summary": "Verifies a provision's validity before it is cited: amended or repealed, which norm prevails on conflict, whether a document is legally binding, and cross-level or cross-region applicability."
+      },
+      "ja": {
+        "name": "法規範効力チェック",
+        "summary": "法令条項を引用する前に効力を検証：改正・廃止の有無、規範競合時の優先適用、規範文書の法的拘束力の有無、層間・地域間の適用問題を確認。"
+      },
+      "es": {
+        "name": "Verificación de vigencia de normas",
+        "summary": "Comprueba la vigencia de una norma antes de citarla: si fue reformada o derogada, qué norma prevalece en conflicto, si un documento obliga jurídicamente y la aplicación entre niveles o regiones."
+      },
+      "fr": {
+        "name": "Contrôle de validité des normes",
+        "summary": "Vérifie la validité d'une norme avant citation : amendement ou abrogation, norme prioritaire en cas de conflit, force obligatoire d'un document et applicabilité entre niveaux ou régions."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "evidence-evaluation",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "证据评估",
+        "summary": "对案件证据材料进行真实性、合法性、关联性（证据三性）与证明力评估：判断证据能否被法庭采纳，回应对方质证意见，综合评判全案证据以确定待证事实是否成立，对照高度盖然性、排除合理怀疑等证明标准，识别证据链中的薄弱环节。"
+      },
+      "en": {
+        "name": "Evidence evaluation",
+        "summary": "Judges authenticity, legality, relevance and probative force: court admissibility, answers to cross-examination, whether facts meet the applicable standard, and weak links in the evidence chain."
+      },
+      "ja": {
+        "name": "証拠評価",
+        "summary": "案件証拠の真正性・適法性・関連性（証拠の三性）と証明力を評価：法廷採用可否の判断、相手方の質証意見への回答、全証拠の総合评判による要証事実の成立確認、高度蓋然性や合理疑い排除等の証明基準への対照、チェーンの弱点識別。"
+      },
+      "es": {
+        "name": "Evaluación de pruebas",
+        "summary": "Evalúa autenticidad, legalidad, pertinencia y fuerza probatoria: admisibilidad, objeciones contrarias, estándar probatorio de los hechos y eslabones débiles de la cadena."
+      },
+      "fr": {
+        "name": "Évaluation des preuves",
+        "summary": "Évalue authenticité, légalité, pertinence et force probante : admission, réponse aux dires adverses, standard de preuve des faits (probabilité élevée, doute raisonnable) et maillons faibles."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

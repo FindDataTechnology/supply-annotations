@@ -1,0 +1,32 @@
+{
+  "skill": "labor-arbitration-workflow",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "劳动仲裁流程",
+        "summary": "识律劳动法套件入口技能:按申请人、被申请人、裁判者立场推进八阶段仲裁流程,处理违法解除、经济补偿、加班费、未签合同二倍工资等争议,并按需点名套件内两个计算器技能。"
+      },
+      "en": {
+        "name": "Labor dispute arbitration workflow",
+        "summary": "Entry skill of the Lex labor suite: runs an eight-stage arbitration flow by stance (claimant, respondent, adjudicator) for dismissal, severance or overtime disputes; names the suite’s two calculators."
+      },
+      "ja": {
+        "name": "労働紛争仲裁ワークフロー",
+        "summary": "Lex労働法スイートの入口スキル：申立人・被申立人・裁判者の立場に応じて八段階の仲裁フローを進め、違法解雇・経済補償・残業代等の紛争を扱い、スイート内の2つの計算ツールを指名する。"
+      },
+      "es": {
+        "name": "Flujo de trabajo de arbitraje laboral",
+        "summary": "Entrada de la suite laboral Lex: dirige un arbitraje de ocho fases según la posición (solicitante, demandado, juez) en despidos, indemnizaciones u horas extra y remite a las dos calculadoras."
+      },
+      "fr": {
+        "name": "Flux de travail d’arbitrage des litiges",
+        "summary": "Compétence d’entrée de la suite travail Lex : arbitrage en huit phases selon la posture (demandeur, défendeur, juge), licenciement, indemnités, heures supp., avec appel aux deux calculateurs."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

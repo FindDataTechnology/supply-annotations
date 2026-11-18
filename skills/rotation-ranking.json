@@ -1,0 +1,32 @@
+{
+  "skill": "rotation-ranking",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "轮动排序",
+        "summary": "柏讯自适应轮动的组与组内排序：组为申万L1（31类）成分合成的行业指数，组强度按信息比排序，组内按残差动量加稳健Z打分。输出组排序表、组内排序表与落选原因；不建仓，建仓交给轮动组合技能。"
+      },
+      "en": {
+        "name": "Rotation ranking",
+        "summary": "Group and intra-group ranking for adaptive rotation: Shenwan L1 industry indices by information ratio, members by residual momentum plus robust Z; tables and drop reasons; no positions taken."
+      },
+      "ja": {
+        "name": "ローテーション順位付け",
+        "summary": "適応ローテーションのグループ間・グループ内の順位付け：グループは申万L1（31分類）構成銘柄で合成した業種指数で、情報比率により排序し、構成員は残差分動量と頑健Zで採点。二つの順位表と選外理由を出す。建玉は行わず、構築は別スキルへ。"
+      },
+      "es": {
+        "name": "Clasificación de la rotación",
+        "summary": "Jerarquía de grupos y componentes en la rotación adaptativa: índices Shenwan L1 por ratio de información, miembros por momento residual y Z robusto; tablas y motivos de descarte; sin posiciones."
+      },
+      "fr": {
+        "name": "Classement de la rotation",
+        "summary": "Classement de groupes et intra-groupes : indices sectoriels Shenwan L1 triés par ratio d'information, membres par momentum résiduel et Z robuste ; tableaux et motifs d'exclusion, sans positions."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

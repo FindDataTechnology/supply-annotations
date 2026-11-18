@@ -1,0 +1,625 @@
+{
+ "tools": {
+  "gov_search": {
+   "human": {
+    "zh": {
+     "name": "政务混合检索",
+     "summary": "政务语料：结构化条件与语义向量的混合检索，可带 preset 参数套用预设；返回命中记录。"
+    },
+    "en": {
+     "name": "Government hybrid search",
+     "summary": "Government corpus: hybrid search over structured filters and semantic vectors, with an optional preset argument; returns matching records."
+    },
+    "ja": {
+     "name": "政務ハイブリッド検索",
+     "summary": "政務コーパス：構造化条件と意味ベクトルを組み合わせたハイブリッド検索です。preset 引数でプリセットを適用でき、一致したレコードを返します。"
+    },
+    "es": {
+     "name": "Búsqueda híbrida de gobierno",
+     "summary": "Corpus de gobierno: búsqueda híbrida de filtros estructurados y vectores semánticos, con el argumento preset opcional; devuelve los registros coincidentes."
+    },
+    "fr": {
+     "name": "Recherche hybride gouvernement",
+     "summary": "Corpus gouvernemental : recherche hybride combinant filtres structurés et vecteurs sémantiques, avec l'argument preset facultatif ; renvoie les enregistrements correspondants."
+    }
+   },
+   "canonical": {
+    "brief": "Hybrid retrieval over the government corpus: structured filters plus semantic vectors, preset optional; returns matching records."
+   }
+  },
+  "gov_presets": {
+   "human": {
+    "zh": {
+     "name": "政务预设清单",
+     "summary": "政务语料：列出可用的检索预设。"
+    },
+    "en": {
+     "name": "List government presets",
+     "summary": "Government corpus: lists the available search presets."
+    },
+    "ja": {
+     "name": "政務プリセット一覧",
+     "summary": "政務コーパス：利用できる検索プリセットを一覧します。"
+    },
+    "es": {
+     "name": "Listar ajustes de gobierno",
+     "summary": "Corpus de gobierno: lista los ajustes de búsqueda predefinidos disponibles."
+    },
+    "fr": {
+     "name": "Lister les préréglages gouvernement",
+     "summary": "Corpus gouvernemental : liste les préréglages de recherche disponibles."
+    }
+   },
+   "canonical": {
+    "brief": "Lists the search presets available for the government corpus."
+   }
+  },
+  "gov_semantic_search": {
+   "human": {
+    "zh": {
+     "name": "政务语义检索",
+     "summary": "政务语料：纯向量语义检索，按语义相近度取回内容。"
+    },
+    "en": {
+     "name": "Government semantic search",
+     "summary": "Government corpus: vector-only semantic search, returning content by semantic closeness."
+    },
+    "ja": {
+     "name": "政務セマンティック検索",
+     "summary": "政務コーパス：ベクトルのみのセマンティック検索で、意味的な近さ順に内容を返します。"
+    },
+    "es": {
+     "name": "Búsqueda semántica de gobierno",
+     "summary": "Corpus de gobierno: búsqueda semántica solo por vectores, que devuelve contenido por cercanía semántica."
+    },
+    "fr": {
+     "name": "Recherche sémantique gouvernement",
+     "summary": "Corpus gouvernemental : recherche sémantique purement vectorielle, qui renvoie le contenu par proximité sémantique."
+    }
+   },
+   "canonical": {
+    "brief": "Vector-only semantic search over the government corpus; returns content by semantic closeness."
+   }
+  },
+  "gov_federated": {
+   "human": {
+    "zh": {
+     "name": "政务外部检索",
+     "summary": "政务语料：编排外部开放检索（arXiv、OpenAlex、Semantic Scholar），结果来自非本地语料。"
+    },
+    "en": {
+     "name": "Government external search",
+     "summary": "Government corpus: orchestrates external open search (arXiv, OpenAlex, Semantic Scholar); results come from non-local corpora."
+    },
+    "ja": {
+     "name": "政務外部検索",
+     "summary": "政務コーパス：外部のオープン検索（arXiv、OpenAlex、Semantic Scholar）を編成し、ローカル外のコーパスから結果を返します。"
+    },
+    "es": {
+     "name": "Búsqueda externa de gobierno",
+     "summary": "Corpus de gobierno: orquesta búsquedas abiertas externas (arXiv, OpenAlex, Semantic Scholar); los resultados vienen de corpus no locales."
+    },
+    "fr": {
+     "name": "Recherche externe gouvernement",
+     "summary": "Corpus gouvernemental : orchestre une recherche ouverte externe (arXiv, OpenAlex, Semantic Scholar) ; les résultats viennent de corpus non locaux."
+    }
+   },
+   "canonical": {
+    "brief": "Government lane: external open search over arXiv, OpenAlex, and Semantic Scholar; results come from non-local corpora."
+   }
+  },
+  "gov_read": {
+   "human": {
+    "zh": {
+     "name": "读取政务切块",
+     "summary": "政务语料：按 doc_id 与偏移读取文本切块。"
+    },
+    "en": {
+     "name": "Read government chunks",
+     "summary": "Government corpus: reads text chunks by doc_id and offset."
+    },
+    "ja": {
+     "name": "政務チャンク読取",
+     "summary": "政務コーパス：doc_id とオフセットでテキストのチャンクを読み取ります。"
+    },
+    "es": {
+     "name": "Leer fragmentos de gobierno",
+     "summary": "Corpus de gobierno: lee fragmentos de texto por doc_id y desplazamiento."
+    },
+    "fr": {
+     "name": "Lire les extraits gouvernement",
+     "summary": "Corpus gouvernemental : lit les extraits de texte par doc_id et décalage."
+    }
+   },
+   "canonical": {
+    "brief": "Reads government-corpus text chunks by doc_id and offset."
+   }
+  },
+  "news_search": {
+   "human": {
+    "zh": {
+     "name": "新闻混合检索",
+     "summary": "新闻语料：结构化条件与语义向量的混合检索，可带 preset 参数套用预设；返回命中记录。"
+    },
+    "en": {
+     "name": "News hybrid search",
+     "summary": "News corpus: hybrid search over structured filters and semantic vectors, with an optional preset argument; returns matching records."
+    },
+    "ja": {
+     "name": "ニュースハイブリッド検索",
+     "summary": "ニュースコーパス：構造化条件と意味ベクトルを組み合わせたハイブリッド検索です。preset 引数でプリセットを適用でき、一致したレコードを返します。"
+    },
+    "es": {
+     "name": "Búsqueda híbrida de noticias",
+     "summary": "Corpus de noticias: búsqueda híbrida de filtros estructurados y vectores semánticos, con el argumento preset opcional; devuelve los registros coincidentes."
+    },
+    "fr": {
+     "name": "Recherche hybride actualités",
+     "summary": "Corpus d'actualités : recherche hybride combinant filtres structurés et vecteurs sémantiques, avec l'argument preset facultatif ; renvoie les enregistrements correspondants."
+    }
+   },
+   "canonical": {
+    "brief": "Hybrid retrieval over the news corpus: structured filters plus semantic vectors, preset optional; returns matching records."
+   }
+  },
+  "news_presets": {
+   "human": {
+    "zh": {
+     "name": "新闻预设清单",
+     "summary": "新闻语料：列出可用的检索预设。"
+    },
+    "en": {
+     "name": "List news presets",
+     "summary": "News corpus: lists the available search presets."
+    },
+    "ja": {
+     "name": "ニュースプリセット一覧",
+     "summary": "ニュースコーパス：利用できる検索プリセットを一覧します。"
+    },
+    "es": {
+     "name": "Listar ajustes de noticias",
+     "summary": "Corpus de noticias: lista los ajustes de búsqueda predefinidos disponibles."
+    },
+    "fr": {
+     "name": "Lister les préréglages actualités",
+     "summary": "Corpus d'actualités : liste les préréglages de recherche disponibles."
+    }
+   },
+   "canonical": {
+    "brief": "Lists the search presets available for the news corpus."
+   }
+  },
+  "news_semantic_search": {
+   "human": {
+    "zh": {
+     "name": "新闻语义检索",
+     "summary": "新闻语料：纯向量语义检索，按语义相近度取回内容。"
+    },
+    "en": {
+     "name": "News semantic search",
+     "summary": "News corpus: vector-only semantic search, returning content by semantic closeness."
+    },
+    "ja": {
+     "name": "ニュースセマンティック検索",
+     "summary": "ニュースコーパス：ベクトルのみのセマンティック検索で、意味的な近さ順に内容を返します。"
+    },
+    "es": {
+     "name": "Búsqueda semántica de noticias",
+     "summary": "Corpus de noticias: búsqueda semántica solo por vectores, que devuelve contenido por cercanía semántica."
+    },
+    "fr": {
+     "name": "Recherche sémantique actualités",
+     "summary": "Corpus d'actualités : recherche sémantique purement vectorielle, qui renvoie le contenu par proximité sémantique."
+    }
+   },
+   "canonical": {
+    "brief": "Vector-only semantic search over the news corpus; returns content by semantic closeness."
+   }
+  },
+  "news_federated": {
+   "human": {
+    "zh": {
+     "name": "新闻外部检索",
+     "summary": "新闻语料：编排外部开放检索（arXiv、OpenAlex、Semantic Scholar），结果来自非本地语料。"
+    },
+    "en": {
+     "name": "News external search",
+     "summary": "News corpus: orchestrates external open search (arXiv, OpenAlex, Semantic Scholar); results come from non-local corpora."
+    },
+    "ja": {
+     "name": "ニュース外部検索",
+     "summary": "ニュースコーパス：外部のオープン検索（arXiv、OpenAlex、Semantic Scholar）を編成し、ローカル外のコーパスから結果を返します。"
+    },
+    "es": {
+     "name": "Búsqueda externa de noticias",
+     "summary": "Corpus de noticias: orquesta búsquedas abiertas externas (arXiv, OpenAlex, Semantic Scholar); los resultados vienen de corpus no locales."
+    },
+    "fr": {
+     "name": "Recherche externe actualités",
+     "summary": "Corpus d'actualités : orchestre une recherche ouverte externe (arXiv, OpenAlex, Semantic Scholar) ; les résultats viennent de corpus non locaux."
+    }
+   },
+   "canonical": {
+    "brief": "News lane: external open search over arXiv, OpenAlex, and Semantic Scholar; results come from non-local corpora."
+   }
+  },
+  "news_read": {
+   "human": {
+    "zh": {
+     "name": "读取新闻切块",
+     "summary": "新闻语料：按 doc_id 与偏移读取文本切块。"
+    },
+    "en": {
+     "name": "Read news chunks",
+     "summary": "News corpus: reads text chunks by doc_id and offset."
+    },
+    "ja": {
+     "name": "ニュースチャンク読取",
+     "summary": "ニュースコーパス：doc_id とオフセットでテキストのチャンクを読み取ります。"
+    },
+    "es": {
+     "name": "Leer fragmentos de noticias",
+     "summary": "Corpus de noticias: lee fragmentos de texto por doc_id y desplazamiento."
+    },
+    "fr": {
+     "name": "Lire les extraits actualités",
+     "summary": "Corpus d'actualités : lit les extraits de texte par doc_id et décalage."
+    }
+   },
+   "canonical": {
+    "brief": "Reads news-corpus text chunks by doc_id and offset."
+   }
+  },
+  "papers_search": {
+   "human": {
+    "zh": {
+     "name": "论文混合检索",
+     "summary": "论文语料：结构化条件与语义向量的混合检索，可带 preset 参数套用预设；返回命中记录。"
+    },
+    "en": {
+     "name": "Paper hybrid search",
+     "summary": "Paper corpus: hybrid search over structured filters and semantic vectors, with an optional preset argument; returns matching records."
+    },
+    "ja": {
+     "name": "論文ハイブリッド検索",
+     "summary": "論文コーパス：構造化条件と意味ベクトルを組み合わせたハイブリッド検索です。preset 引数でプリセットを適用でき、一致したレコードを返します。"
+    },
+    "es": {
+     "name": "Búsqueda híbrida de artículos",
+     "summary": "Corpus de artículos: búsqueda híbrida de filtros estructurados y vectores semánticos, con el argumento preset opcional; devuelve los registros coincidentes."
+    },
+    "fr": {
+     "name": "Recherche hybride articles",
+     "summary": "Corpus d'articles : recherche hybride combinant filtres structurés et vecteurs sémantiques, avec l'argument preset facultatif ; renvoie les enregistrements correspondants."
+    }
+   },
+   "canonical": {
+    "brief": "Hybrid retrieval over the paper corpus: structured filters plus semantic vectors, preset optional; returns matching records."
+   }
+  },
+  "papers_presets": {
+   "human": {
+    "zh": {
+     "name": "论文预设清单",
+     "summary": "论文语料：列出可用的检索预设。"
+    },
+    "en": {
+     "name": "List paper presets",
+     "summary": "Paper corpus: lists the available search presets."
+    },
+    "ja": {
+     "name": "論文プリセット一覧",
+     "summary": "論文コーパス：利用できる検索プリセットを一覧します。"
+    },
+    "es": {
+     "name": "Listar ajustes de artículos",
+     "summary": "Corpus de artículos: lista los ajustes de búsqueda predefinidos disponibles."
+    },
+    "fr": {
+     "name": "Lister les préréglages articles",
+     "summary": "Corpus d'articles : liste les préréglages de recherche disponibles."
+    }
+   },
+   "canonical": {
+    "brief": "Lists the search presets available for the paper corpus."
+   }
+  },
+  "papers_semantic_search": {
+   "human": {
+    "zh": {
+     "name": "论文语义检索",
+     "summary": "论文语料：纯向量语义检索，按语义相近度取回内容。"
+    },
+    "en": {
+     "name": "Paper semantic search",
+     "summary": "Paper corpus: vector-only semantic search, returning content by semantic closeness."
+    },
+    "ja": {
+     "name": "論文セマンティック検索",
+     "summary": "論文コーパス：ベクトルのみのセマンティック検索で、意味的な近さ順に内容を返します。"
+    },
+    "es": {
+     "name": "Búsqueda semántica de artículos",
+     "summary": "Corpus de artículos: búsqueda semántica solo por vectores, que devuelve contenido por cercanía semántica."
+    },
+    "fr": {
+     "name": "Recherche sémantique articles",
+     "summary": "Corpus d'articles : recherche sémantique purement vectorielle, qui renvoie le contenu par proximité sémantique."
+    }
+   },
+   "canonical": {
+    "brief": "Vector-only semantic search over the paper corpus; returns content by semantic closeness."
+   }
+  },
+  "papers_federated": {
+   "human": {
+    "zh": {
+     "name": "论文外部检索",
+     "summary": "论文语料：编排外部开放检索（arXiv、OpenAlex、Semantic Scholar），结果来自非本地语料。"
+    },
+    "en": {
+     "name": "Paper external search",
+     "summary": "Paper corpus: orchestrates external open search (arXiv, OpenAlex, Semantic Scholar); results come from non-local corpora."
+    },
+    "ja": {
+     "name": "論文外部検索",
+     "summary": "論文コーパス：外部のオープン検索（arXiv、OpenAlex、Semantic Scholar）を編成し、ローカル外のコーパスから結果を返します。"
+    },
+    "es": {
+     "name": "Búsqueda externa de artículos",
+     "summary": "Corpus de artículos: orquesta búsquedas abiertas externas (arXiv, OpenAlex, Semantic Scholar); los resultados vienen de corpus no locales."
+    },
+    "fr": {
+     "name": "Recherche externe articles",
+     "summary": "Corpus d'articles : orchestre une recherche ouverte externe (arXiv, OpenAlex, Semantic Scholar) ; les résultats viennent de corpus non locaux."
+    }
+   },
+   "canonical": {
+    "brief": "Paper lane: external open search over arXiv, OpenAlex, and Semantic Scholar; results come from non-local corpora."
+   }
+  },
+  "papers_read": {
+   "human": {
+    "zh": {
+     "name": "读取论文切块",
+     "summary": "论文语料：按 doc_id 与偏移读取文本切块。"
+    },
+    "en": {
+     "name": "Read paper chunks",
+     "summary": "Paper corpus: reads text chunks by doc_id and offset."
+    },
+    "ja": {
+     "name": "論文チャンク読取",
+     "summary": "論文コーパス：doc_id とオフセットでテキストのチャンクを読み取ります。"
+    },
+    "es": {
+     "name": "Leer fragmentos de artículos",
+     "summary": "Corpus de artículos: lee fragmentos de texto por doc_id y desplazamiento."
+    },
+    "fr": {
+     "name": "Lire les extraits articles",
+     "summary": "Corpus d'articles : lit les extraits de texte par doc_id et décalage."
+    }
+   },
+   "canonical": {
+    "brief": "Reads paper-corpus text chunks by doc_id and offset."
+   }
+  },
+  "screenplay_search": {
+   "human": {
+    "zh": {
+     "name": "剧本混合检索",
+     "summary": "剧本语料：结构化条件与语义向量的混合检索，可带 preset 参数套用预设；返回命中记录。"
+    },
+    "en": {
+     "name": "Screenplay hybrid search",
+     "summary": "Screenplay corpus: hybrid search over structured filters and semantic vectors, with an optional preset argument; returns matching records."
+    },
+    "ja": {
+     "name": "脚本ハイブリッド検索",
+     "summary": "脚本コーパス：構造化条件と意味ベクトルを組み合わせたハイブリッド検索です。preset 引数でプリセットを適用でき、一致したレコードを返します。"
+    },
+    "es": {
+     "name": "Búsqueda híbrida de guiones",
+     "summary": "Corpus de guiones: búsqueda híbrida de filtros estructurados y vectores semánticos, con el argumento preset opcional; devuelve los registros coincidentes."
+    },
+    "fr": {
+     "name": "Recherche hybride scénarios",
+     "summary": "Corpus de scénarios : recherche hybride combinant filtres structurés et vecteurs sémantiques, avec l'argument preset facultatif ; renvoie les enregistrements correspondants."
+    }
+   },
+   "canonical": {
+    "brief": "Hybrid retrieval over the screenplay corpus: structured filters plus semantic vectors, preset optional; returns matching records."
+   }
+  },
+  "screenplay_presets": {
+   "human": {
+    "zh": {
+     "name": "剧本预设清单",
+     "summary": "剧本语料：列出可用的检索预设。"
+    },
+    "en": {
+     "name": "List screenplay presets",
+     "summary": "Screenplay corpus: lists the available search presets."
+    },
+    "ja": {
+     "name": "脚本プリセット一覧",
+     "summary": "脚本コーパス：利用できる検索プリセットを一覧します。"
+    },
+    "es": {
+     "name": "Listar ajustes de guiones",
+     "summary": "Corpus de guiones: lista los ajustes de búsqueda predefinidos disponibles."
+    },
+    "fr": {
+     "name": "Lister les préréglages scénarios",
+     "summary": "Corpus de scénarios : liste les préréglages de recherche disponibles."
+    }
+   },
+   "canonical": {
+    "brief": "Lists the search presets available for the screenplay corpus."
+   }
+  },
+  "screenplay_semantic_search": {
+   "human": {
+    "zh": {
+     "name": "剧本语义检索",
+     "summary": "剧本语料：纯向量语义检索，按语义相近度取回内容。"
+    },
+    "en": {
+     "name": "Screenplay semantic search",
+     "summary": "Screenplay corpus: vector-only semantic search, returning content by semantic closeness."
+    },
+    "ja": {
+     "name": "脚本セマンティック検索",
+     "summary": "脚本コーパス：ベクトルのみのセマンティック検索で、意味的な近さ順に内容を返します。"
+    },
+    "es": {
+     "name": "Búsqueda semántica de guiones",
+     "summary": "Corpus de guiones: búsqueda semántica solo por vectores, que devuelve contenido por cercanía semántica."
+    },
+    "fr": {
+     "name": "Recherche sémantique scénarios",
+     "summary": "Corpus de scénarios : recherche sémantique purement vectorielle, qui renvoie le contenu par proximité sémantique."
+    }
+   },
+   "canonical": {
+    "brief": "Vector-only semantic search over the screenplay corpus; returns content by semantic closeness."
+   }
+  },
+  "screenplay_federated": {
+   "human": {
+    "zh": {
+     "name": "剧本外部检索",
+     "summary": "剧本语料：编排外部开放检索（arXiv、OpenAlex、Semantic Scholar），结果来自非本地语料。"
+    },
+    "en": {
+     "name": "Screenplay external search",
+     "summary": "Screenplay corpus: orchestrates external open search (arXiv, OpenAlex, Semantic Scholar); results come from non-local corpora."
+    },
+    "ja": {
+     "name": "脚本外部検索",
+     "summary": "脚本コーパス：外部のオープン検索（arXiv、OpenAlex、Semantic Scholar）を編成し、ローカル外のコーパスから結果を返します。"
+    },
+    "es": {
+     "name": "Búsqueda externa de guiones",
+     "summary": "Corpus de guiones: orquesta búsquedas abiertas externas (arXiv, OpenAlex, Semantic Scholar); los resultados vienen de corpus no locales."
+    },
+    "fr": {
+     "name": "Recherche externe scénarios",
+     "summary": "Corpus de scénarios : orchestre une recherche ouverte externe (arXiv, OpenAlex, Semantic Scholar) ; les résultats viennent de corpus non locaux."
+    }
+   },
+   "canonical": {
+    "brief": "Screenplay lane: external open search over arXiv, OpenAlex, and Semantic Scholar; results come from non-local corpora."
+   }
+  },
+  "screenplay_read": {
+   "human": {
+    "zh": {
+     "name": "读取剧本切块",
+     "summary": "剧本语料：按 doc_id 与偏移读取文本切块。"
+    },
+    "en": {
+     "name": "Read screenplay chunks",
+     "summary": "Screenplay corpus: reads text chunks by doc_id and offset."
+    },
+    "ja": {
+     "name": "脚本チャンク読取",
+     "summary": "脚本コーパス：doc_id とオフセットでテキストのチャンクを読み取ります。"
+    },
+    "es": {
+     "name": "Leer fragmentos de guiones",
+     "summary": "Corpus de guiones: lee fragmentos de texto por doc_id y desplazamiento."
+    },
+    "fr": {
+     "name": "Lire les extraits scénarios",
+     "summary": "Corpus de scénarios : lit les extraits de texte par doc_id et décalage."
+    }
+   },
+   "canonical": {
+    "brief": "Reads screenplay-corpus text chunks by doc_id and offset."
+   }
+  },
+  "kg_search_facts": {
+   "human": {
+    "zh": {
+     "name": "检索图谱事实",
+     "summary": "知识图谱车道：按自然语言查询实体与关系事实，每条附来源凭据与时效标注。"
+    },
+    "en": {
+     "name": "Search graph facts",
+     "summary": "Knowledge-graph lane: queries entity and relation facts from a natural-language request; each fact carries provenance and a validity note."
+    },
+    "ja": {
+     "name": "グラフ事実を検索",
+     "summary": "ナレッジグラフ経路：自然言語の問いから実体と関係の事実を検索し、各事実に根拠と有効期間の注記を付けます。"
+    },
+    "es": {
+     "name": "Buscar hechos del grafo",
+     "summary": "Vía de grafo de conocimiento: consulta hechos de entidades y relaciones a partir de una petición en lenguaje natural; cada hecho lleva procedencia y nota de vigencia."
+    },
+    "fr": {
+     "name": "Chercher faits du graphe",
+     "summary": "Voie graphe de connaissances : interroge des faits d'entités et de relations à partir d'une demande en langage naturel ; chaque fait porte sa provenance et sa note de validité."
+    }
+   },
+   "canonical": {
+    "brief": "Knowledge-graph lane: natural-language query over entity and relation facts; each fact carries provenance and a validity note."
+   }
+  },
+  "kg_walk": {
+   "human": {
+    "zh": {
+     "name": "多跳图谱游走",
+     "summary": "知识图谱车道：从起始实体多跳游走，扇出受限并抑制超级边，沿途收集事实。"
+    },
+    "en": {
+     "name": "Walk graph multi-hop",
+     "summary": "Knowledge-graph lane: multi-hop walk from a start entity with bounded fan-out and super-edge suppression, collecting facts along the way."
+    },
+    "ja": {
+     "name": "グラフを多段走査",
+     "summary": "ナレッジグラフ経路：開始実体から多段に走査し、分岐数を制限してスーパーエッジを抑制しながら、途中の事実を集めます。"
+    },
+    "es": {
+     "name": "Recorrer el grafo",
+     "summary": "Vía de grafo de conocimiento: recorrido multi-salto desde una entidad inicial, con abanico limitado y supresión de superaristas, recogiendo hechos del camino."
+    },
+    "fr": {
+     "name": "Parcourir le graphe",
+     "summary": "Voie graphe de connaissances : parcours multi-sauts depuis une entité de départ, à éventail borné et super-arêtes supprimées, en collectant les faits rencontrés."
+    }
+   },
+   "canonical": {
+    "brief": "Knowledge-graph lane: multi-hop walk from a start entity, bounded fan-out with super-edge suppression, collecting facts along the path."
+   }
+  },
+  "kg_facts_as_of": {
+   "human": {
+    "zh": {
+     "name": "按时点取事实",
+     "summary": "知识图谱车道：按指定时点过滤，只返回该时刻为真的事实（valid_at ≤ as_of < invalid_at）。"
+    },
+    "en": {
+     "name": "Fetch facts at a time",
+     "summary": "Knowledge-graph lane: point-in-time filter that returns only facts true at as_of (valid_at <= as_of < invalid_at)."
+    },
+    "ja": {
+     "name": "時点指定で事実取得",
+     "summary": "ナレッジグラフ経路：指定時点で絞り込み、その時刻に真である事実だけを返します（valid_at ≤ as_of < invalid_at）。"
+    },
+    "es": {
+     "name": "Obtener hechos por fecha",
+     "summary": "Vía de grafo de conocimiento: filtro por instante que solo devuelve hechos verdaderos en as_of (valid_at ≤ as_of < invalid_at)."
+    },
+    "fr": {
+     "name": "Obtenir faits à un instant",
+     "summary": "Voie graphe de connaissances : filtre à un instant donné, ne renvoyant que les faits vrais à as_of (valid_at ≤ as_of < invalid_at)."
+    }
+   },
+   "canonical": {
+    "brief": "Knowledge-graph lane: point-in-time filter returning only facts true at as_of (valid_at <= as_of < invalid_at)."
+   }
+  }
+ }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "china-legal-skills",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "中国法律技能集",
+        "summary": "面向律师与法务人员的中国法律流程技能集合，覆盖诉讼、刑事辩护、劳动争议、破产、合同审查、合规、法律检索与法律文书起草。"
+      },
+      "en": {
+        "name": "Chinese legal skills collection",
+        "summary": "Chinese legal workflow skills for lawyers and counsel: litigation, criminal defense, labor disputes, bankruptcy, contract review, compliance, legal research and document drafting."
+      },
+      "ja": {
+        "name": "中国法律スキル集",
+        "summary": "弁護士・法務担当者向け中国法プロセススキルの集合。訴訟、刑事弁護、労働紛争、破産、契約審査、コンプライアンス、法務調査、法律文書起草をカバーする。"
+      },
+      "es": {
+        "name": "Colección de habilidades legales chinas",
+        "summary": "Conjunto de flujos de trabajo jurídicos chinos para abogados y asesores: litigio, defensa penal, laboral, quiebra, revisión contractual, cumplimiento, investigación y redacción."
+      },
+      "fr": {
+        "name": "Ensemble de compétences juridiques chinoises",
+        "summary": "Flux de travail juridiques chinois pour avocats et conseillers : contentieux, défense pénale, litiges sociaux, faillite, revue de contrats, conformité, recherche et rédaction d'actes."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "counterfactual-reasoning",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "反事实推理",
+        "summary": "构建仅在目标变量上与现实不同的反事实世界，比较两世界结果差异，衡量该事实、行为或条件对法律结果的贡献，用于因果认定、过错与责任比例、赔偿范围、违约损失、刑事因果中断与立法影响评估。"
+      },
+      "en": {
+        "name": "Counterfactual reasoning",
+        "summary": "Compares a counterfactual world differing from reality only in the target variable to measure its legal contribution: causation, fault apportionment, damages scope, breach loss, criminal chains."
+      },
+      "ja": {
+        "name": "反事実推論",
+        "summary": "目的変数のみ現実と異なる反事実世界を構築し、両世界の結果の差を比較して、ある事実・行為・条件が法的結果に与えた寄与度を測る。因果認定、過失・責任割合、損害範囲、違約損失、刑事因果の中断、立法影響評価に用いる。"
+      },
+      "es": {
+        "name": "Razonamiento contrafactual",
+        "summary": "Construye un mundo contrafactual que solo difiere del real en la variable objetivo y compara resultados para medir la contribución jurídica de un hecho, acto o condición."
+      },
+      "fr": {
+        "name": "Raisonnement contrefactuel",
+        "summary": "Construit un monde contrefactuel ne différant du réel que par la variable cible et compare les résultats pour mesurer la contribution juridique d'un fait, d'un acte ou d'une condition."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

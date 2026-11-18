@@ -1,0 +1,234 @@
+{
+  "tools": {
+    "semantic_search_entities": {
+      "human": {
+        "zh": {"name": "语义检索实体", "summary": "用向量嵌入按语义检索实体，返回匹配的实体。"},
+        "en": {"name": "Semantic entity search", "summary": "Searches entities semantically with vector embeddings and returns the matching entities."},
+        "ja": {"name": "実体の意味検索", "summary": "ベクトル埋め込みで実体を意味的に検索し、一致した実体を返します。"},
+        "es": {"name": "Búsqueda semántica de entidades", "summary": "Busca entidades de forma semántica con incrustaciones vectoriales y devuelve las entidades coincidentes."},
+        "fr": {"name": "Recherche sémantique d'entités", "summary": "Recherche des entités de façon sémantique par plongements vectoriels et renvoie les entités correspondantes."}
+      },
+      "canonical": {"brief": "Semantic search over entities using vector embeddings; returns matching entities."}
+    },
+    "semantic_search_unified": {
+      "human": {
+        "zh": {"name": "统一语义检索", "summary": "在实体与概念上做统一语义检索，返回两类的匹配结果。"},
+        "en": {"name": "Unified semantic search", "summary": "Runs one semantic search across entities and concepts and returns matches from both."},
+        "ja": {"name": "統合意味検索", "summary": "実体と概念をまとめて意味検索し、両方の一致結果を返します。"},
+        "es": {"name": "Búsqueda semántica unificada", "summary": "Realiza una búsqueda semántica sobre entidades y conceptos y devuelve coincidencias de ambos."},
+        "fr": {"name": "Recherche sémantique unifiée", "summary": "Effectue une recherche sémantique sur les entités et les concepts et renvoie les correspondances des deux."}
+      },
+      "canonical": {"brief": "Unified semantic search across entities and concepts; returns matches from both."}
+    },
+    "re_embed_concept": {
+      "human": {
+        "zh": {"name": "重建概念向量", "summary": "为单个概念重新生成向量嵌入，返回该概念的嵌入更新结果。"},
+        "en": {"name": "Re-embed concept", "summary": "Regenerates the vector embedding of one concept and returns the updated embedding result."},
+        "ja": {"name": "概念の再埋め込み", "summary": "単一概念のベクトル埋め込みを再生成し、埋め込みの更新結果を返します。"},
+        "es": {"name": "Regenerar vector de concepto", "summary": "Regenera el vector de un solo concepto y devuelve el resultado de la actualización del vector."},
+        "fr": {"name": "Recalculer le vecteur d'un concept", "summary": "Régénère le plongement vectoriel d'un seul concept et renvoie le résultat de la mise à jour."}
+      },
+      "canonical": {"brief": "Regenerates the vector embedding for one concept; returns the updated embedding."}
+    },
+    "ai_search": {
+      "human": {
+        "zh": {"name": "智能检索", "summary": "面向模糊与自然语言发现的默认检索入口，覆盖概念、实体与缓存值，返回匹配结果。"},
+        "en": {"name": "Smart search", "summary": "Default entry for fuzzy and natural-language discovery, covering concepts, entities, and cached values; returns the matches."},
+        "ja": {"name": "スマート検索", "summary": "曖昧な表現や自然言語での発見に向けた既定の検索入口で、概念・実体・キャッシュ値を対象に一致結果を返します。"},
+        "es": {"name": "Búsqueda inteligente", "summary": "Entrada de búsqueda predeterminada para descubrimiento difuso y en lenguaje natural sobre conceptos, entidades y valores en caché; devuelve las coincidencias."},
+        "fr": {"name": "Recherche intelligente", "summary": "Point d'entrée de recherche par défaut pour la découverte floue ou en langage naturel sur les concepts, entités et valeurs en cache ; renvoie les correspondances."}
+      },
+      "canonical": {"brief": "Default search entry for fuzzy or natural-language discovery across concepts, entities, and cached values."}
+    },
+    "rank_sources": {
+      "human": {
+        "zh": {"name": "排列候选数据源", "summary": "为指定概念排列候选数据源，返回带综合评分的排序结果。"},
+        "en": {"name": "Rank candidate sources", "summary": "Ranks candidate sources for a concept and returns an ordered list with composite scores."},
+        "ja": {"name": "候補データソースの順位付け", "summary": "指定した概念の候補データソースを順位付けし、総合スコア付きの並びを返します。"},
+        "es": {"name": "Ordenar fuentes candidatas", "summary": "Ordena las fuentes candidatas de un concepto y devuelve una lista con puntuaciones compuestas."},
+        "fr": {"name": "Classer les sources candidates", "summary": "Classe les sources candidates d'un concept et renvoie une liste avec des scores composites."}
+      },
+      "canonical": {"brief": "Ranks candidate sources for a concept; returns an ordered list with composite scores."}
+    },
+    "scope_create": {
+      "human": {
+        "zh": {"name": "新建检索范围", "summary": "新建具名检索范围并按供给目录校验允许清单，返回匹配到的指标数量。"},
+        "en": {"name": "Create retrieval scope", "summary": "Creates a named retrieval scope, validates its allow-lists against the registry, and returns the number of matched indicators."},
+        "ja": {"name": "検索スコープの作成", "summary": "名前付き検索スコープを作成し、許可リストをレジストリで検証して、一致した指標の数を返します。"},
+        "es": {"name": "Crear ámbito de búsqueda", "summary": "Crea un ámbito de búsqueda con nombre, valida sus listas permitidas contra el catálogo y devuelve el número de indicadores coincidentes."},
+        "fr": {"name": "Créer un périmètre de recherche", "summary": "Crée un périmètre de recherche nommé, valide ses listes autorisées dans le registre et renvoie le nombre d'indicateurs correspondants."}
+      },
+      "canonical": {"brief": "Creates a named retrieval scope, validates allow-lists against the registry, and returns the matched indicator count."}
+    },
+    "scope_list": {
+      "human": {
+        "zh": {"name": "列出检索范围", "summary": "列出全部检索范围及其允许清单规则。"},
+        "en": {"name": "List retrieval scopes", "summary": "Lists every retrieval scope with its allow-list rules."},
+        "ja": {"name": "検索スコープの一覧", "summary": "すべての検索スコープと許可リストのルールを一覧します。"},
+        "es": {"name": "Listar ámbitos de búsqueda", "summary": "Enumera todos los ámbitos de búsqueda con sus reglas de listas permitidas."},
+        "fr": {"name": "Lister les périmètres de recherche", "summary": "Énumère tous les périmètres de recherche avec leurs règles de listes autorisées."}
+      },
+      "canonical": {"brief": "Lists every retrieval scope with its allow-list rules."}
+    },
+    "scope_update": {
+      "human": {
+        "zh": {"name": "更新检索范围", "summary": "更新检索范围的规则或说明，校验与新建一致，返回更新结果。"},
+        "en": {"name": "Update retrieval scope", "summary": "Updates a scope's rules or description with the same validation as create, and returns the updated scope."},
+        "ja": {"name": "検索スコープの更新", "summary": "検索スコープのルールまたは説明を、作成時と同じ検証で更新し、更新後のスコープを返します。"},
+        "es": {"name": "Actualizar ámbito de búsqueda", "summary": "Actualiza las reglas o la descripción de un ámbito con la misma validación que al crearlo y devuelve el ámbito actualizado."},
+        "fr": {"name": "Mettre à jour un périmètre", "summary": "Met à jour les règles ou la description d'un périmètre avec la même validation qu'à la création et renvoie le périmètre mis à jour."}
+      },
+      "canonical": {"brief": "Updates a scope's rules or description with create-time validation; returns the updated scope."}
+    },
+    "scope_delete": {
+      "human": {
+        "zh": {"name": "删除检索范围", "summary": "删除指定检索范围及其调用方默认绑定，统计数据保留。"},
+        "en": {"name": "Delete retrieval scope", "summary": "Deletes a scope and its caller default bindings; statistics are kept."},
+        "ja": {"name": "検索スコープの削除", "summary": "指定した検索スコープとその呼び出し元の既定バインドを削除します。統計は残ります。"},
+        "es": {"name": "Eliminar ámbito de búsqueda", "summary": "Elimina un ámbito y sus vínculos predeterminados de llamadores; las estadísticas se conservan."},
+        "fr": {"name": "Supprimer un périmètre de recherche", "summary": "Supprime un périmètre et ses liaisons par défaut d'appelants ; les statistiques sont conservées."}
+      },
+      "canonical": {"brief": "Deletes a scope and its caller default bindings; hit statistics are kept."}
+    },
+    "scope_bind_caller": {
+      "human": {
+        "zh": {"name": "绑定默认范围", "summary": "为调用方绑定默认检索范围，返回绑定结果；显式传入的范围仍然优先。"},
+        "en": {"name": "Bind caller default scope", "summary": "Binds a default retrieval scope to a caller and returns the binding; an explicit scope still takes precedence."},
+        "ja": {"name": "既定スコープのバインド", "summary": "呼び出し元に既定の検索スコープをバインドして結果を返します。明示指定したスコープが優先されます。"},
+        "es": {"name": "Vincular ámbito predeterminado", "summary": "Vincula un ámbito de búsqueda predeterminado a un llamador y devuelve el vínculo; un ámbito explícito sigue teniendo prioridad."},
+        "fr": {"name": "Lier le périmètre par défaut", "summary": "Lie un périmètre de recherche par défaut à un appelant et renvoie la liaison ; un périmètre explicite reste prioritaire."}
+      },
+      "canonical": {"brief": "Binds a default retrieval scope to a caller; explicit scope arguments still take precedence."}
+    },
+    "scope_unbind_caller": {
+      "human": {
+        "zh": {"name": "解绑默认范围", "summary": "解除调用方的默认检索范围绑定。"},
+        "en": {"name": "Unbind caller default scope", "summary": "Removes a caller's default retrieval scope binding."},
+        "ja": {"name": "既定スコープのバインド解除", "summary": "呼び出し元の既定検索スコープのバインドを解除します。"},
+        "es": {"name": "Desvincular ámbito predeterminado", "summary": "Quita el vínculo del ámbito de búsqueda predeterminado de un llamador."},
+        "fr": {"name": "Délier le périmètre par défaut", "summary": "Retire la liaison du périmètre de recherche par défaut d'un appelant."}
+      },
+      "canonical": {"brief": "Removes a caller's default retrieval scope binding."}
+    },
+    "scope_list_bindings": {
+      "human": {
+        "zh": {"name": "列出范围绑定", "summary": "列出调用方的默认范围绑定，可按单个调用方筛选。"},
+        "en": {"name": "List scope bindings", "summary": "Lists caller default-scope bindings, optionally for one caller."},
+        "ja": {"name": "スコープのバインド一覧", "summary": "呼び出し元の既定スコープのバインドを一覧します。単一の呼び出し元に絞り込めます。"},
+        "es": {"name": "Listar vínculos de ámbito", "summary": "Enumera los vínculos de ámbito predeterminado de los llamadores, opcionalmente de uno solo."},
+        "fr": {"name": "Lister les liaisons de périmètre", "summary": "Énumère les liaisons de périmètre par défaut des appelants, éventuellement pour un seul."}
+      },
+      "canonical": {"brief": "Lists caller default-scope bindings, optionally filtered to one caller."}
+    },
+    "scope_stats": {
+      "human": {
+        "zh": {"name": "范围命中统计", "summary": "返回单个检索范围按日统计的调用次数与结果返回数，按日期倒序。"},
+        "en": {"name": "Scope hit statistics", "summary": "Returns per-day call and returned-result counts for one scope, most recent first."},
+        "ja": {"name": "スコープのヒット統計", "summary": "単一の検索スコープについて、日ごとの呼び出し回数と返却結果数を新しい順に返します。"},
+        "es": {"name": "Estadísticas de aciertos", "summary": "Devuelve por día los recuentos de llamadas y resultados devueltos de un ámbito, del más reciente al más antiguo."},
+        "fr": {"name": "Statistiques de périmètre", "summary": "Renvoie par jour les nombres d'appels et de résultats renvoyés pour un périmètre, du plus récent au plus ancien."}
+      },
+      "canonical": {"brief": "Returns per-day call and returned-result counts for one scope, newest first."}
+    },
+    "read": {
+      "human": {
+        "zh": {"name": "读取概念数据", "summary": "按实体与日期读取概念数据，走缓存与按排名调度，返回各日期的数据行。"},
+        "en": {"name": "Read concept rows", "summary": "Reads a concept for an entity over dates through cache and ranked dispatch, returning rows per date."},
+        "ja": {"name": "概念データの読み取り", "summary": "実体と日付を指定して概念データを読み取り、キャッシュと順位付きディスパッチを経て日付ごとの行を返します。"},
+        "es": {"name": "Leer filas de concepto", "summary": "Lee un concepto para una entidad en varias fechas mediante caché y despacho ordenado, y devuelve filas por fecha."},
+        "fr": {"name": "Lire les lignes d'un concept", "summary": "Lit un concept pour une entité sur des dates via cache et répartition ordonnée, et renvoie les lignes par date."}
+      },
+      "canonical": {"brief": "Reads a concept for an entity over dates via cache and ranked dispatch; returns rows per date."}
+    },
+    "read_series": {
+      "human": {
+        "zh": {"name": "读取序列", "summary": "读取单个概念在实体上按日期区间的序列，仅用已存缓存，返回按日期排序的数据点。"},
+        "en": {"name": "Read series", "summary": "Reads a concept-entity series over a date window from stored cache and returns points ordered by date."},
+        "ja": {"name": "系列の読み取り", "summary": "単一の概念と実体について日付区間の系列を保存済みキャッシュから読み取り、日付順の点を返します。"},
+        "es": {"name": "Leer serie", "summary": "Lee una serie de concepto y entidad en una ventana de fechas desde la caché y devuelve puntos ordenados por fecha."},
+        "fr": {"name": "Lire une série", "summary": "Lit une série concept-entité sur une fenêtre de dates depuis le cache et renvoie les points triés par date."}
+      },
+      "canonical": {"brief": "Reads a concept-entity series over a date window from cache alone; returns date-ordered points."}
+    },
+    "fetch": {
+      "human": {
+        "zh": {"name": "强制抓取数据", "summary": "对单个概念、实体与日期强制抓取，绕过缓存时效，返回该次抓取结果。"},
+        "en": {"name": "Force fetch", "summary": "Forces a fetch for one concept, entity, and date, bypassing cache freshness, and returns that fetch result."},
+        "ja": {"name": "強制取得", "summary": "単一の概念・実体・日付についてキャッシュの鮮度を無視して取得し、その取得結果を返します。"},
+        "es": {"name": "Forzar obtención", "summary": "Fuerza una obtención para un concepto, entidad y fecha, omitiendo la vigencia de la caché, y devuelve el resultado."},
+        "fr": {"name": "Forcer la récupération", "summary": "Force une récupération pour un concept, une entité et une date en ignorant la fraîcheur du cache, et renvoie le résultat."}
+      },
+      "canonical": {"brief": "Forces a fetch for one concept, entity, and date, bypassing cache freshness."}
+    },
+    "plan_crawl": {
+      "human": {
+        "zh": {"name": "规划概念抓取", "summary": "把概念、实体范围与日期区间编译为带排名与故障转移的抓取计划，不执行抓取。"},
+        "en": {"name": "Plan concept crawl", "summary": "Compiles concepts, entity scope, and dates into a ranked, failover-aware crawl plan without fetching."},
+        "ja": {"name": "概念クロールの計画", "summary": "概念・実体範囲・日付区間を、順位付けとフェイルオーバーを備えたクロール計画にまとめます。取得は行いません。"},
+        "es": {"name": "Planificar rastreo de conceptos", "summary": "Compila conceptos, ámbito de entidades y fechas en un plan de rastreo ordenado con conmutación por error, sin obtener datos."},
+        "fr": {"name": "Planifier un crawl de concepts", "summary": "Compile les concepts, le périmètre d'entités et les dates en un plan de crawl ordonné avec bascule, sans récupération."}
+      },
+      "canonical": {"brief": "Compiles concepts, entity scope, and dates into a ranked, failover-aware crawl plan; does not fetch."}
+    },
+    "generate_refresh_schedules": {
+      "human": {
+        "zh": {"name": "生成刷新计划", "summary": "按指标的更新频率生成 cron 刷新计划，返回生成结果。"},
+        "en": {"name": "Generate refresh schedules", "summary": "Generates cron refresh schedules from indicator update frequency and returns the result."},
+        "ja": {"name": "更新スケジュールの生成", "summary": "指標の更新頻度から cron の更新スケジュールを生成し、結果を返します。"},
+        "es": {"name": "Generar planes de actualización", "summary": "Genera planes cron de actualización a partir de la frecuencia de los indicadores y devuelve el resultado."},
+        "fr": {"name": "Générer des plans de rafraîchissement", "summary": "Génère des plans cron de rafraîchissement d'après la fréquence des indicateurs et renvoie le résultat."}
+      },
+      "canonical": {"brief": "Generates cron refresh schedules from indicator update frequency."}
+    },
+    "list_schedules": {
+      "human": {
+        "zh": {"name": "列出刷新计划", "summary": "列出全部刷新计划。"},
+        "en": {"name": "List refresh schedules", "summary": "Lists all refresh schedules."},
+        "ja": {"name": "更新スケジュールの一覧", "summary": "すべての更新スケジュールを一覧します。"},
+        "es": {"name": "Listar planes de actualización", "summary": "Enumera todos los planes de actualización."},
+        "fr": {"name": "Lister les plans de rafraîchissement", "summary": "Énumère tous les plans de rafraîchissement."}
+      },
+      "canonical": {"brief": "Lists all refresh schedules."}
+    },
+    "run_schedule": {
+      "human": {
+        "zh": {"name": "立即运行刷新计划", "summary": "立即执行一个刷新计划，按排名与故障转移调度并记录执行结果。"},
+        "en": {"name": "Run refresh schedule", "summary": "Runs one refresh schedule now with ranked failover dispatch and records the execution."},
+        "ja": {"name": "更新スケジュールの即時実行", "summary": "更新スケジュールを直ちに実行し、順位付けとフェイルオーバーで振り分けて実行記録を残します。"},
+        "es": {"name": "Ejecutar plan de actualización", "summary": "Ejecuta ahora un plan de actualización con despacho ordenado y conmutación por error, y registra la ejecución."},
+        "fr": {"name": "Exécuter un plan de rafraîchissement", "summary": "Exécute maintenant un plan de rafraîchissement avec répartition ordonnée et bascule, et enregistre l'exécution."}
+      },
+      "canonical": {"brief": "Runs one refresh schedule now with ranked failover dispatch and records the execution."}
+    },
+    "list_cnreport_rules": {
+      "human": {
+        "zh": {"name": "列出抽取规则", "summary": "浏览 cn-report 的抽取规则，区分模型规则与脚本规则。"},
+        "en": {"name": "List extraction rules", "summary": "Browses cn-report extraction rules, covering model rules and script rules."},
+        "ja": {"name": "抽出ルールの一覧", "summary": "cn-report の抽出ルールを、モデル用とスクリプト用に分けて一覧します。"},
+        "es": {"name": "Listar reglas de extracción", "summary": "Examina las reglas de extracción de cn-report, incluidas las de modelo y las de script."},
+        "fr": {"name": "Lister les règles d'extraction", "summary": "Parcourt les règles d'extraction de cn-report, notamment les règles de modèle et de script."}
+      },
+      "canonical": {"brief": "Browses cn-report extraction rules, covering model rules and script rules."}
+    },
+    "enumerate_wbgapi_indicators": {
+      "human": {
+        "zh": {"name": "枚举世行指标", "summary": "将全部 WDI 指标枚举为列、概念与绑定，重复执行结果一致。"},
+        "en": {"name": "Enumerate WDI indicators", "summary": "Enumerates all WDI indicators into columns, concepts, and bindings; repeat runs are idempotent."},
+        "ja": {"name": "WDI 指標の列挙", "summary": "すべての WDI 指標を列・概念・バインドへ列挙します。再実行しても結果は同じです。"},
+        "es": {"name": "Enumerar indicadores WDI", "summary": "Enumera todos los indicadores WDI en columnas, conceptos y vínculos; repetir la ejecución no altera el resultado."},
+        "fr": {"name": "Énumérer les indicateurs WDI", "summary": "Énumère tous les indicateurs WDI en colonnes, concepts et liaisons ; une réexécution donne le même résultat."}
+      },
+      "canonical": {"brief": "Enumerates all WDI indicators into columns, concepts, and bindings; idempotent."}
+    },
+    "register_discovered": {
+      "human": {
+        "zh": {"name": "注册发现清单", "summary": "从入口点与 datasources 目录自动发现并注册数据源清单。"},
+        "en": {"name": "Register discovered manifests", "summary": "Auto-discovers and registers data-source manifests from entry points and a datasources directory."},
+        "ja": {"name": "検出したマニフェストの登録", "summary": "エントリポイントと datasources ディレクトリからデータソースのマニフェストを自動検出して登録します。"},
+        "es": {"name": "Registrar manifiestos detectados", "summary": "Detecta y registra automáticamente manifiestos de fuentes de datos desde puntos de entrada y un directorio datasources."},
+        "fr": {"name": "Enregistrer les manifestes détectés", "summary": "Détecte et enregistre automatiquement les manifestes de sources de données des points d'entrée et d'un répertoire datasources."}
+      },
+      "canonical": {"brief": "Auto-discovers and registers data-source manifests from entry points and a datasources directory."}
+    }
+  }
+}

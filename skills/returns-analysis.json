@@ -1,0 +1,32 @@
+{
+  "skill": "returns-analysis",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "投资回报分析",
+        "summary": "为私募股权投资评估搭建简明的IRR与MOIC敏感性表，围绕入场倍数、杠杆、退出倍数、增长与持有期等情景建模回报。"
+      },
+      "en": {
+        "name": "Returns analysis",
+        "summary": "Builds quick IRR and MOIC sensitivity tables for PE deal evaluation, modeling returns across entry multiple, leverage, exit multiple, growth and holding-period scenarios."
+      },
+      "ja": {
+        "name": "リターン分析",
+        "summary": "PE案件評価向けの簡潔なIRR・MOIC感応度表を組み、エントリー・マルチプル、レバレッジ、イグジット・マルチプル、成長、保有期間の各シナリオでリターンを試算する。"
+      },
+      "es": {
+        "name": "Análisis de rentabilidad",
+        "summary": "Crea tablas de sensibilidad IRR y MOIC para evaluar operaciones de capital privado, según múltiplo de entrada, apalancamiento, salida, crecimiento y horizonte."
+      },
+      "fr": {
+        "name": "Analyse de rentabilité",
+        "summary": "Construit des tables de sensibilité IRR/MOIC pour évaluer des opérations de capital-investissement : multiple d'entrée, levier, multiple de sortie, croissance et durée."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

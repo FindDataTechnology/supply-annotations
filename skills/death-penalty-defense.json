@@ -1,0 +1,32 @@
+{
+  "skill": "death-penalty-defense",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "死刑案件辩护",
+        "summary": "死刑及死缓案件专项辩护：可能判死案件识别、一审保命辩护、二审强制开庭、被害人和解、死刑复核辩护、死刑案件证据标准与被害人代理注意事项。"
+      },
+      "en": {
+        "name": "Death penalty defense",
+        "summary": "Capital and suspended-death cases: life-preserving first-instance defense, mandatory appeal hearings, victim settlement, review-stage defense, evidence standards and victim-counsel cautions."
+      },
+      "ja": {
+        "name": "死刑・死緩案件弁護",
+        "summary": "死刑・死刑事件専門の弁護：死刑リスク案件の識別、一審での生命擁護弁護、二審の必須開廷、被害者との和解、死刑復核段階の弁護、証拠基準と被害者代理人の留意点。"
+      },
+      "es": {
+        "name": "Defensa en casos de pena de muerte",
+        "summary": "Defensa en casos de pena de muerte y suspensión: defensa de la vida en primera instancia, vistas obligatorias en apelación, acuerdo con la víctima, revisión y estándares probatorios."
+      },
+      "fr": {
+        "name": "Défense en matière de peine de mort",
+        "summary": "Défense des affaires capitales et avec sursis : défense de la vie en première instance, audiences obligatoires en appel, accord avec la victime, révision et normes de preuve."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

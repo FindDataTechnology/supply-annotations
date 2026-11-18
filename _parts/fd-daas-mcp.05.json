@@ -1,0 +1,625 @@
+{
+ "tools": {
+  "daas_list_indicator_collection_changes": {
+   "human": {
+    "zh": {
+     "name": "查询指标变更",
+     "summary": "按时间倒序查询指标集合的加入与移除审计记录，并附带集合名。"
+    },
+    "en": {
+     "name": "List indicator changes",
+     "summary": "Queries the indicator collection add and remove audit log newest first, enriched with the collection name."
+    },
+    "ja": {
+     "name": "指標コレクション変更履歴",
+     "summary": "指標コレクションの追加・削除の監査ログを新しい順に取得し、コレクション名を付けます。"
+    },
+    "es": {
+     "name": "Consultar cambios de indicadores",
+     "summary": "Consulta el registro de auditoría de altas y bajas de colecciones de indicadores, del más reciente al más antiguo, con el nombre de la colección."
+    },
+    "fr": {
+     "name": "Consulter l'historique des indicateurs",
+     "summary": "Interroge le journal d'audit des ajouts et retraits des collections d'indicateurs, du plus récent au plus ancien, avec le nom de la collection."
+    }
+   },
+   "canonical": {
+    "brief": "Queries the indicator collection add/remove audit log, newest first, enriched with the collection name."
+   }
+  },
+  "daas_sync_indicator_collection": {
+   "human": {
+    "zh": {
+     "name": "同步指标集合",
+     "summary": "按规则评估指标集合并与现状比对，写入新增与移除记录，返回新增、移除、未变计数。"
+    },
+    "en": {
+     "name": "Sync indicator collection",
+     "summary": "Evaluates the rule of an indicator collection, diffs members and writes add and remove events, returning added, removed and unchanged counts."
+    },
+    "ja": {
+     "name": "指標コレクションを同期",
+     "summary": "指標コレクションのルールを評価してメンバーを比較し、追加・削除を記録して、追加・削除・不変の件数を返します。"
+    },
+    "es": {
+     "name": "Sincronizar colección de indicadores",
+     "summary": "Evalúa la regla de la colección, compara los miembros y registra altas y bajas, devolviendo añadidos, quitados y sin cambios."
+    },
+    "fr": {
+     "name": "Synchroniser une collection d'indicateurs",
+     "summary": "Évalue la règle de la collection, compare les membres et journalise ajouts et retraits, en renvoyant ajoutés, retirés et inchangés."
+    }
+   },
+   "canonical": {
+    "brief": "Re-derives rule-based indicator collection members via the rule engine, applies add_in/remove_out, returns {added, removed, unchanged}."
+   }
+  },
+  "daas_create_pipeline_collection": {
+   "human": {
+    "zh": {
+     "name": "新建流水线集合",
+     "summary": "创建一个具名流水线集合。"
+    },
+    "en": {
+     "name": "Create pipeline collection",
+     "summary": "Creates a named pipeline collection."
+    },
+    "ja": {
+     "name": "パイプラインコレクションを作成",
+     "summary": "名前付きパイプラインコレクションを作成します。"
+    },
+    "es": {
+     "name": "Crear colección de canalizaciones",
+     "summary": "Crea una colección de canalizaciones con nombre."
+    },
+    "fr": {
+     "name": "Créer une collection de chaînes de traitement",
+     "summary": "Crée une collection de chaînes de traitement nommée."
+    }
+   },
+   "canonical": {
+    "brief": "Creates a named pipeline collection."
+   }
+  },
+  "daas_list_pipeline_collections": {
+   "human": {
+    "zh": {
+     "name": "列出流水线集合",
+     "summary": "返回全部流水线集合及各自的条目数。"
+    },
+    "en": {
+     "name": "List pipeline collections",
+     "summary": "Lists every pipeline collection with its item count."
+    },
+    "ja": {
+     "name": "パイプラインコレクション一覧",
+     "summary": "すべてのパイプラインコレクションを各件数とともに一覧します。"
+    },
+    "es": {
+     "name": "Listar colecciones de canalizaciones",
+     "summary": "Enumera todas las colecciones de canalizaciones con su número de elementos."
+    },
+    "fr": {
+     "name": "Lister les collections de chaînes",
+     "summary": "Énumère toutes les collections de chaînes de traitement avec leur nombre d'éléments."
+    }
+   },
+   "canonical": {
+    "brief": "Lists all pipeline collections with per-collection item counts."
+   }
+  },
+  "daas_get_pipeline_collection": {
+   "human": {
+    "zh": {
+     "name": "读取流水线集合",
+     "summary": "返回单个流水线集合及其全部条目。"
+    },
+    "en": {
+     "name": "Get pipeline collection",
+     "summary": "Returns one pipeline collection with all its items."
+    },
+    "ja": {
+     "name": "パイプラインコレクションを取得",
+     "summary": "一つのパイプラインコレクションとその全項目を返します。"
+    },
+    "es": {
+     "name": "Obtener colección de canalizaciones",
+     "summary": "Devuelve una colección de canalizaciones con todos sus elementos."
+    },
+    "fr": {
+     "name": "Obtenir une collection de chaînes",
+     "summary": "Renvoie une collection de chaînes de traitement avec tous ses éléments."
+    }
+   },
+   "canonical": {
+    "brief": "Returns one pipeline collection with all of its items."
+   }
+  },
+  "daas_delete_pipeline_collection": {
+   "human": {
+    "zh": {
+     "name": "删除流水线集合",
+     "summary": "先解除每个条目的定时任务，再删除集合，条目随之级联删除。"
+    },
+    "en": {
+     "name": "Delete pipeline collection",
+     "summary": "Unwires the scheduled job for every item, then deletes the collection, whose items are removed by cascade."
+    },
+    "ja": {
+     "name": "パイプラインコレクションを削除",
+     "summary": "各項目の定期実行を解除してからコレクションを削除し、項目は連鎖削除されます。"
+    },
+    "es": {
+     "name": "Eliminar colección de canalizaciones",
+     "summary": "Desconecta la tarea programada de cada elemento y luego elimina la colección; los elementos se borran en cascada."
+    },
+    "fr": {
+     "name": "Supprimer une collection de chaînes",
+     "summary": "Débranche la tâche planifiée de chaque élément, puis supprime la collection ; les éléments sont supprimés en cascade."
+    }
+   },
+   "canonical": {
+    "brief": "Unwires cron for every item, then deletes the pipeline collection; foreign-key cascade removes items."
+   }
+  },
+  "daas_list_pipeline_items": {
+   "human": {
+    "zh": {
+     "name": "列出流水线项",
+     "summary": "列出流水线项，可按单个集合过滤。"
+    },
+    "en": {
+     "name": "List pipeline items",
+     "summary": "Lists pipeline items, optionally filtered to a single collection."
+    },
+    "ja": {
+     "name": "パイプライン項目の一覧",
+     "summary": "パイプライン項目を一覧し、必要なら一つのコレクションに絞り込みます。"
+    },
+    "es": {
+     "name": "Listar elementos de canalización",
+     "summary": "Enumera los elementos de canalización, con filtro opcional por una colección."
+    },
+    "fr": {
+     "name": "Lister les éléments de chaîne",
+     "summary": "Énumère les éléments de chaîne de traitement, avec filtre optionnel sur une collection."
+    }
+   },
+   "canonical": {
+    "brief": "Lists pipeline items, optionally filtered to one collection."
+   }
+  },
+  "daas_add_pipeline_item": {
+   "human": {
+    "zh": {
+     "name": "新增流水线项",
+     "summary": "校验并保存流水线项；启用且需回填时执行历史回填并登记定时，返回条目、回填与定时结果。"
+    },
+    "en": {
+     "name": "Add pipeline item",
+     "summary": "Validates and stores a pipeline item; when enabled with backfill it runs history backfill and registers the schedule, returning item, backfill and cron results."
+    },
+    "ja": {
+     "name": "パイプライン項目を追加",
+     "summary": "項目を検証して保存します。有効かつバックフィル指定なら履歴を補完し、定期実行を登録して、項目・補完・定期の結果を返します。"
+    },
+    "es": {
+     "name": "Añadir elemento de canalización",
+     "summary": "Valida y guarda un elemento; si está activo y con relleno, ejecuta el relleno histórico y registra la programación, devolviendo elemento, relleno y programación."
+    },
+    "fr": {
+     "name": "Ajouter un élément de chaîne",
+     "summary": "Valide et enregistre un élément ; s'il est actif avec remplissage, exécute le remplissage historique et enregistre la planification, en renvoyant élément, remplissage et planification."
+    }
+   },
+   "canonical": {
+    "brief": "Validates and stores a pipeline item; enabled+backfill triggers history backfill and cron registration, returns {item, backfill, cron}."
+   }
+  },
+  "daas_remove_pipeline_item": {
+   "human": {
+    "zh": {
+     "name": "移除流水线项",
+     "summary": "先解除定时任务，再删除流水线项记录；已抓取的来源表保持不变。"
+    },
+    "en": {
+     "name": "Remove pipeline item",
+     "summary": "Unwires the scheduled job, then deletes the item row; the scraped source table is left intact."
+    },
+    "ja": {
+     "name": "パイプライン項目を削除",
+     "summary": "定期実行を解除してから項目レコードを削除します。取得済みの元テーブルは残します。"
+    },
+    "es": {
+     "name": "Quitar elemento de canalización",
+     "summary": "Desconecta la tarea programada y elimina el registro del elemento; la tabla de origen ya extraída queda intacta."
+    },
+    "fr": {
+     "name": "Retirer un élément de chaîne",
+     "summary": "Débranche la tâche planifiée puis supprime la ligne de l'élément ; la table source déjà extraite reste intacte."
+    }
+   },
+   "canonical": {
+    "brief": "Unwires cron, deletes the pipeline item row, and leaves the scraw_ source table intact."
+   }
+  },
+  "daas_enable_pipeline_item": {
+   "human": {
+    "zh": {
+     "name": "启用流水线项",
+     "summary": "为停用的流水线项执行回填并登记定时任务，同时置为启用。"
+    },
+    "en": {
+     "name": "Enable pipeline item",
+     "summary": "Backfills and registers the schedule for a disabled item, then marks it enabled."
+    },
+    "ja": {
+     "name": "パイプライン項目を有効化",
+     "summary": "停止中の項目に履歴補完と定期実行登録を行い、有効に設定します。"
+    },
+    "es": {
+     "name": "Activar elemento de canalización",
+     "summary": "Ejecuta el relleno y registra la programación de un elemento desactivado, y lo marca como activo."
+    },
+    "fr": {
+     "name": "Activer un élément de chaîne",
+     "summary": "Exécute le remplissage et enregistre la planification d'un élément désactivé, puis le marque comme actif."
+    }
+   },
+   "canonical": {
+    "brief": "Backfills and registers cron for a disabled pipeline item, then sets it enabled."
+   }
+  },
+  "daas_disable_pipeline_item": {
+   "human": {
+    "zh": {
+     "name": "停用流水线项",
+     "summary": "删除该流水线项的定时计划并保留记录，同时置为停用。"
+    },
+    "en": {
+     "name": "Disable pipeline item",
+     "summary": "Deletes the scheduled job while keeping the task row, then marks the item disabled."
+    },
+    "ja": {
+     "name": "パイプライン項目を無効化",
+     "summary": "定期実行の計画を削除し、項目レコードは残したまま無効に設定します。"
+    },
+    "es": {
+     "name": "Desactivar elemento de canalización",
+     "summary": "Elimina la programación conservando el registro de la tarea y marca el elemento como inactivo."
+    },
+    "fr": {
+     "name": "Désactiver un élément de chaîne",
+     "summary": "Supprime la planification en conservant la ligne de tâche, puis marque l'élément comme inactif."
+    }
+   },
+   "canonical": {
+    "brief": "Deletes the cron schedule but keeps the task row, then sets the item disabled."
+   }
+  },
+  "daas_update_pipeline_item": {
+   "human": {
+    "zh": {
+     "name": "更新流水线项",
+     "summary": "更新可改字段；定时或时区变更会重同步计划，启用状态切换会触发启用或停用，参数变更不回填历史。"
+    },
+    "en": {
+     "name": "Update pipeline item",
+     "summary": "Updates mutable fields; a schedule or timezone change re-syncs the job and an enabled toggle runs enable or disable, while argument changes do not backfill."
+    },
+    "ja": {
+     "name": "パイプライン項目を更新",
+     "summary": "変更可能な項目を更新します。定期やタイムゾーンの変更は計画を再同期し、有効状態の切替は有効化・無効化を実行し、引数の変更は履歴補完を行いません。"
+    },
+    "es": {
+     "name": "Actualizar elemento de canalización",
+     "summary": "Actualiza los campos modificables; cambiar horario o zona re-sincroniza la tarea y el cambio de estado ejecuta activar o desactivar, mientras que los argumentos no provocan relleno."
+    },
+    "fr": {
+     "name": "Mettre à jour un élément de chaîne",
+     "summary": "Met à jour les champs modifiables ; un changement d'horaire resynchronise la tâche, le basculement d'état active ou désactive, et les arguments ne déclenchent pas de remplissage."
+    }
+   },
+   "canonical": {
+    "brief": "Updates mutable pipeline item fields; cron/timezone edits re-sync the schedule, enabling toggles wiring, argument changes skip backfill."
+   }
+  },
+  "daas_sync_pipeline_cron": {
+   "human": {
+    "zh": {
+     "name": "同步流水线定时",
+     "summary": "为全部启用的流水线项重新应用定时配置，并移除停用项的计划。"
+    },
+    "en": {
+     "name": "Sync pipeline schedules",
+     "summary": "Re-applies the schedule wiring for all enabled items and removes schedules for disabled ones."
+    },
+    "ja": {
+     "name": "パイプライン定期実行を同期",
+     "summary": "有効な全項目に定期実行の設定を再適用し、無効な項目の計画は削除します。"
+    },
+    "es": {
+     "name": "Sincronizar programaciones",
+     "summary": "Reaplica la programación de todos los elementos activos y elimina la de los inactivos."
+    },
+    "fr": {
+     "name": "Synchroniser les planifications",
+     "summary": "Réapplique la planification de tous les éléments actifs et supprime celle des éléments inactifs."
+    }
+   },
+   "canonical": {
+    "brief": "Re-applies cron wiring for all enabled pipeline items and removes schedules for disabled ones."
+   }
+  },
+  "daas_list_models": {
+   "human": {
+    "zh": {
+     "name": "列出可用模型",
+     "summary": "返回已配置的模型及各自是否支持视觉输入，不返回任何 API 密钥。"
+    },
+    "en": {
+     "name": "List models",
+     "summary": "Returns the configured models with a vision capability flag each; API keys are never returned."
+    },
+    "ja": {
+     "name": "利用可能なモデル一覧",
+     "summary": "設定済みモデルと、それぞれの視覚入力対応フラグを返します。API キーは返しません。"
+    },
+    "es": {
+     "name": "Listar modelos",
+     "summary": "Devuelve los modelos configurados con un indicador de capacidad visual; nunca se devuelven claves de API."
+    },
+    "fr": {
+     "name": "Lister les modèles",
+     "summary": "Renvoie les modèles configurés avec un indicateur de capacité visuelle ; les clés d'API ne sont jamais renvoyées."
+    }
+   },
+   "canonical": {
+    "brief": "Returns configured models each with a vision flag; API keys are never included."
+   }
+  },
+  "daas_list_source_tables": {
+   "human": {
+    "zh": {
+     "name": "列出抓取源表",
+     "summary": "返回名称以 scraw_ 开头的抓取源表，附行数与列信息。"
+    },
+    "en": {
+     "name": "List source tables",
+     "summary": "Returns scraped source tables whose names start with scraw_, with row counts and columns."
+    },
+    "ja": {
+     "name": "取得元テーブル一覧",
+     "summary": "scraw_ で始まる取得済み元テーブルを、行数と列情報とともに返します。"
+    },
+    "es": {
+     "name": "Listar tablas de origen",
+     "summary": "Devuelve las tablas de origen extraídas cuyo nombre empieza por scraw_, con recuento de filas y columnas."
+    },
+    "fr": {
+     "name": "Lister les tables sources",
+     "summary": "Renvoie les tables sources extraites dont le nom commence par scraw_, avec le nombre de lignes et les colonnes."
+    }
+   },
+   "canonical": {
+    "brief": "Lists scraped scraw_ source tables with row counts and column definitions."
+   }
+  },
+  "daas_create_rule": {
+   "human": {
+    "zh": {
+     "name": "新建规则",
+     "summary": "创建一条规则，可用于集合成员推导或行抽取判定。"
+    },
+    "en": {
+     "name": "Create rule",
+     "summary": "Creates a rule usable for deriving collection members or for row extraction."
+    },
+    "ja": {
+     "name": "ルールを作成",
+     "summary": "コレクションのメンバー導出や行抽出の判定に使うルールを作成します。"
+    },
+    "es": {
+     "name": "Crear regla",
+     "summary": "Crea una regla utilizable para derivar miembros de una colección o para la extracción de filas."
+    },
+    "fr": {
+     "name": "Créer une règle",
+     "summary": "Crée une règle utilisable pour dériver les membres d'une collection ou pour l'extraction de lignes."
+    }
+   },
+   "canonical": {
+    "brief": "Creates a rule used by collection sync and row extraction targets."
+   }
+  },
+  "daas_list_rules": {
+   "human": {
+    "zh": {
+     "name": "列出规则",
+     "summary": "返回全部规则，可按规则类型过滤。"
+    },
+    "en": {
+     "name": "List rules",
+     "summary": "Lists all rules, optionally filtered by rule type."
+    },
+    "ja": {
+     "name": "ルール一覧",
+     "summary": "すべてのルールを一覧し、必要なら種類で絞り込みます。"
+    },
+    "es": {
+     "name": "Listar reglas",
+     "summary": "Enumera todas las reglas, con filtro opcional por tipo de regla."
+    },
+    "fr": {
+     "name": "Lister les règles",
+     "summary": "Énumère toutes les règles, avec filtre optionnel par type."
+    }
+   },
+   "canonical": {
+    "brief": "Lists all rules, optionally filtered by rule_type."
+   }
+  },
+  "daas_get_rule": {
+   "human": {
+    "zh": {
+     "name": "读取规则",
+     "summary": "按名称返回单条规则。"
+    },
+    "en": {
+     "name": "Get rule",
+     "summary": "Returns one rule looked up by name."
+    },
+    "ja": {
+     "name": "ルールを取得",
+     "summary": "名前で一つのルールを取得して返します。"
+    },
+    "es": {
+     "name": "Obtener regla",
+     "summary": "Devuelve una regla buscada por nombre."
+    },
+    "fr": {
+     "name": "Obtenir une règle",
+     "summary": "Renvoie une règle recherchée par son nom."
+    }
+   },
+   "canonical": {
+    "brief": "Returns one rule by name."
+   }
+  },
+  "daas_update_rule": {
+   "human": {
+    "zh": {
+     "name": "更新规则",
+     "summary": "局部更新规则，至少提供一项字段；规则名称不可修改。"
+    },
+    "en": {
+     "name": "Update rule",
+     "summary": "Partially updates a rule with at least one field; the rule name cannot be renamed."
+    },
+    "ja": {
+     "name": "ルールを更新",
+     "summary": "少なくとも一項目を指定してルールを部分的に更新します。ルール名は変更できません。"
+    },
+    "es": {
+     "name": "Actualizar regla",
+     "summary": "Actualiza una regla de forma parcial con al menos un campo; el nombre de la regla no se puede cambiar."
+    },
+    "fr": {
+     "name": "Mettre à jour une règle",
+     "summary": "Met à jour une règle partiellement avec au moins un champ ; le nom de la règle n'est pas modifiable."
+    }
+   },
+   "canonical": {
+    "brief": "Partial update of a rule requiring at least one field; the rule name cannot be renamed."
+   }
+  },
+  "daas_delete_rule": {
+   "human": {
+    "zh": {
+     "name": "删除规则",
+     "summary": "删除规则，引用它的集合规则置空，其处理结果记录一并移除。"
+    },
+    "en": {
+     "name": "Delete rule",
+     "summary": "Deletes a rule, sets referencing collections' rule to null and removes its process result rows."
+    },
+    "ja": {
+     "name": "ルールを削除",
+     "summary": "ルールを削除し、参照しているコレクションのルールを空にし、処理結果の行も削除します。"
+    },
+    "es": {
+     "name": "Eliminar regla",
+     "summary": "Elimina una regla, deja sin regla a las colecciones que la referencian y borra sus filas de resultados."
+    },
+    "fr": {
+     "name": "Supprimer une règle",
+     "summary": "Supprime une règle, vide la règle des collections qui la référencent et efface ses lignes de résultats."
+    }
+   },
+   "canonical": {
+    "brief": "Deletes a rule, nulls referencing collections' rule_id and removes its process_results rows."
+   }
+  },
+  "daas_run_rule": {
+   "human": {
+    "zh": {
+     "name": "执行规则",
+     "summary": "评估并落库：行目标做增量抽取并推进游标，成员目标只返回推导集合，成员变更由集合同步工具写入。"
+    },
+    "en": {
+     "name": "Run rule",
+     "summary": "Evaluates and persists: row targets extract incrementally and advance the cursor, while member targets only return the derived set, with membership written by the collection sync tools."
+    },
+    "ja": {
+     "name": "ルールを実行",
+     "summary": "評価して永続化します。行対象は増分抽出してカーソルを進め、メンバー対象は導出集合のみを返し、メンバー更新はコレクション同期ツールが行います。"
+    },
+    "es": {
+     "name": "Ejecutar regla",
+     "summary": "Evalúa y persiste: los objetivos de fila extraen de forma incremental y avanzan el cursor, mientras los de miembros solo devuelven el conjunto derivado, que los sincronizadores aplican."
+    },
+    "fr": {
+     "name": "Exécuter une règle",
+     "summary": "Évalue et persiste : les cibles de lignes extraient par incréments et avancent le curseur ; les cibles de membres ne renvoient que l'ensemble dérivé, appliqué par la synchronisation de collection."
+    }
+   },
+   "canonical": {
+    "brief": "Evaluates and persists a rule: row targets extract incrementally into process_results; member targets return the derived set only."
+   }
+  },
+  "daas_test_rule": {
+   "human": {
+    "zh": {
+     "name": "试跑规则",
+     "summary": "不落库地试运行规则：成员目标返回推导集合，行目标只从单条源记录抽取样例。"
+    },
+    "en": {
+     "name": "Test rule",
+     "summary": "Dry-runs a rule without persisting: member targets return the derived set, row targets extract a sample from a single source row."
+    },
+    "ja": {
+     "name": "ルールを試走",
+     "summary": "永続化せずにルールを試し、メンバー対象は導出集合を返し、行対象は一件の元レコードから抽出した見本を返します。"
+    },
+    "es": {
+     "name": "Probar regla",
+     "summary": "Ejecuta una regla sin persistir: los objetivos de miembros devuelven el conjunto derivado y los de fila extraen una muestra de un solo registro."
+    },
+    "fr": {
+     "name": "Tester une règle",
+     "summary": "Exécute une règle sans persister : les cibles de membres renvoient l'ensemble dérivé et les cibles de lignes extraient un échantillon d'un seul enregistrement."
+    }
+   },
+   "canonical": {
+    "brief": "Dry-runs a rule with no persistence: member targets return the derived set, row targets extract a one-row sample."
+   }
+  },
+  "daas_extract_text": {
+   "human": {
+    "zh": {
+     "name": "提取文本结构",
+     "summary": "从可能很长的文本中抽取结构化记录：长文本分块处理后再合并，不做截断。"
+    },
+    "en": {
+     "name": "Extract text records",
+     "summary": "Extracts structured records from possibly long text, chunking it without truncation and merging per-chunk results."
+    },
+    "ja": {
+     "name": "テキスト構造を抽出",
+     "summary": "長い場合もあるテキストから構造化レコードを抽出します。切り詰めずに分割し、分割ごとの結果を統合します。"
+    },
+    "es": {
+     "name": "Extraer registros de texto",
+     "summary": "Extrae registros estructurados de un texto posiblemente largo, troceándolo sin truncar y fusionando los resultados por fragmento."
+    },
+    "fr": {
+     "name": "Extraire des enregistrements",
+     "summary": "Extrait des enregistrements structurés d'un texte éventuellement long, découpé sans troncature, puis fusionne les résultats par fragment."
+    }
+   },
+   "canonical": {
+    "brief": "Extracts structured records from long text by chunking without truncation, then merging per-chunk results."
+   }
+  }
+ }
+}

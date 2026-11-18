@@ -1,0 +1,32 @@
+{
+  "skill": "billing-and-litigation-budget",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "工时计费与诉讼预算",
+        "summary": "统计与管理律师工时、专家费用和调查费用，控制诉讼成本，向客户出具工时单或费用单，支持按案件跟踪办案费用与预算执行。"
+      },
+      "en": {
+        "name": "Billing and litigation budget",
+        "summary": "Tracks lawyer hours, expert and investigation fees, controls litigation costs, and produces timesheets or fee statements for client delivery or reimbursement claims."
+      },
+      "ja": {
+        "name": "弁護士課金と訴訟予算",
+        "summary": "弁護士の稼働時間、鑑定費用・調査費用を統計・管理し、訴訟コストを抑制し、顧客向けに稼働時間明細や費用明細を作成する。"
+      },
+      "es": {
+        "name": "Facturación y presupuesto de litigio",
+        "summary": "Registra horas de abogado, gastos periciales y de investigación, controla el coste del litigio y emite hojas de horas y facturas para entregar al cliente o pedir el reembolso."
+      },
+      "fr": {
+        "name": "Facturation et budget de contentieux",
+        "summary": "Comptabilise les heures d'avocat, les frais d'experts et d'enquête, maîtrise le coût du contentieux et édite feuilles de temps et notes de frais pour le client ou le remboursement."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

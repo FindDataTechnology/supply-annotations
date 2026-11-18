@@ -1,0 +1,228 @@
+{
+  "server_name": "law-bench",
+  "description": "law-bench contract toolset: tag-driven contract generation (52 tools) — generate/evaluate Chinese contracts against rubrics, manage clauses, rubrics, prompts and tags, run self-heal pipelines, RAG clause search, and artifact download. Backend serves streamable MCP over HTTP.",
+  "tags": [
+    "legal",
+    "contracts",
+    "chinese-law",
+    "evaluation"
+  ],
+  "tools": [
+    {
+      "name": "agent_run_get",
+      "description": "Get one ``agent_runs`` row (full) by id.\n\nReturns ``{...}`` with all columns, or ``None`` if absent."
+    },
+    {
+      "name": "agent_run_list",
+      "description": "List recent ``agent_runs`` rows (summary fields only).\n\nReturns ``[{id, thread_id, contract_type, task_desc, total_slots,\nhuman_filled_slots, eval_run_id, total_duration, created_at}]``."
+    },
+    {
+      "name": "agent_run_store",
+      "description": "Store an agent run's metrics into the ``agent_runs`` table.\n\nThis is called by the review-agent at the end of a run to persist all\ninstrumentation data: timing, token usage, reviewer suggestions, slot\ncoverage, evaluation linkage."
+    },
+    {
+      "name": "auto_reject_pipeline_run",
+      "description": "Generate, fill, evaluate, self-heal, then auto-apply clause rejections.\n\nDrives a LangGraph: ``generate -> fill -> evaluate -> check -> (improve) ->\nstore -> learn``. The ``learn`` node aggregates ``clause_review``\nrecommendations from the current run **and** recent historical runs; any\n**custom** clause reaching the rejection threshold\n(``AUTO_REJECT_THRESHOLD``, default 3) is automatically marked ``rejected``\nvia ``bulk_review`` so it drops out of future assembly. Base/tagged clauses\nare never touched."
+    },
+    {
+      "name": "clause_delete",
+      "description": "Delete one clause by id."
+    },
+    {
+      "name": "clause_get",
+      "description": "Fetch one clause by id (any source: base / tagged / custom)."
+    },
+    {
+      "name": "clause_list",
+      "description": "List clauses from the ``clauses`` table, filtered and ordered."
+    },
+    {
+      "name": "clause_review",
+      "description": "Set ALL of a clause's tag dims to one review status (bulk approve/reject).\n\nA clause is assembly-ready only when every tag dim is ``\"approved\"``; setting\nany dim to ``\"rejected\"`` (or ``\"pending\"``) excludes it from assembly, so a\nthin custom clause can be retired without deleting it (re-approve later to\nrestore it)."
+    },
+    {
+      "name": "clause_update",
+      "description": "Update a clause's body / section / tags by id; re-derives dependent fields.\n\nOnly the parameters you pass are written; omitted fields keep their current\nvalue. ``body_hash`` / ``slot_instructions`` / ``law_refs`` are re-derived\nfrom the (possibly edited) body. The clause is marked ``manual=true`` so a\nlater re-extraction won't overwrite the edit. Raises a tool error for an\nunknown id."
+    },
+    {
+      "name": "compare_get",
+      "description": "Fetch the full grouped result for one compare."
+    },
+    {
+      "name": "compare_list",
+      "description": "List recent compare runs (compare-level fields only), newest first.\n\nReturns ``[{id, label, contract_type, rubric_name, task_desc, gen_mode,\nn_drafts, created_at}]``."
+    },
+    {
+      "name": "compare_matrix",
+      "description": "Fetch a compare's criteria x prompts matrix in one call.\n\nEquivalent to ``build_matrix(get_compare(compare_id))``. Cells are binary\nverdicts when ``n_drafts == 1`` and ``k/N`` pass-rates when ``n_drafts > 1``."
+    },
+    {
+      "name": "compare_run",
+      "description": "Draft + evaluate each named prompt against ``rubric_name``; persist grouped.\n\nFor each prompt name, resolves the prompt record, generates ``n_drafts``\ndrafts (drafter-only mode: one direct DRAFTER-model call per draft), judges\neach against the rubric, and persists the runs under one ``compare_runs``\nrow."
+    },
+    {
+      "name": "contract_content",
+      "description": "Return assembled contract content (markdown/JSON) without file I/O."
+    },
+    {
+      "name": "contract_download",
+      "description": "Fetch a stored contract artifact's metadata + download URL(s).\n\nDoes NOT regenerate - it reads the previously-stored ``contract_artifacts``\nrow. The agent fetches the file bytes over HTTP from the returned URL."
+    },
+    {
+      "name": "contract_evaluate",
+      "description": "Evaluate a drafted contract against a named rubric (LLM-judge)."
+    },
+    {
+      "name": "contract_generate",
+      "description": "Generate a contract deliverable (DOCX/PDF) for a contract class.\n\nBy default renders the registered 母版 template (skeleton). When ``stance``\nand/or a ``tags`` dict carrying ``stance`` / ``scenario`` is supplied,\nassembles base + tagged + custom clauses and filters the custom-clause\nselection by the given stance (``pro_a`` / ``pro_b`` / ``balanced``) and the\ntagged selection by scenario (业务场景, e.g. 农产品买卖 / 驾校培训 /\n住宅租赁). ``region`` / ``province`` keys are not recognized (province was\nretired in favor of ``scenario``)."
+    },
+    {
+      "name": "contract_generate_batch",
+      "description": "Generate multiple contracts in parallel across different tag combinations."
+    },
+    {
+      "name": "contract_generate_stored",
+      "description": "Generate a contract deliverable (DOCX/PDF), upload it to MinIO, and record\na ``contract_artifacts`` row so it can be re-downloaded without regenerating.\n\nContent-addressed by ``md5(body_text)``: identical inputs (same\n``contract_type`` + ``scenario`` + ``stance`` + ``custom_clause_ids``) reuse\nthe same artifact (``reused: true``); missing formats are filled in."
+    },
+    {
+      "name": "contract_type_catalog",
+      "description": "List all supported contract types with metadata."
+    },
+    {
+      "name": "criterion_add",
+      "description": "Append a criterion to a local rubric at the next ordinal."
+    },
+    {
+      "name": "criterion_delete",
+      "description": "Delete a criterion from a local rubric and renumber the survivors."
+    },
+    {
+      "name": "criterion_reorder",
+      "description": "Reassign criterion ``ordinal`` to match the given order."
+    },
+    {
+      "name": "criterion_update",
+      "description": "Update a criterion's name, description, and guidance (ordinal untouched)."
+    },
+    {
+      "name": "law_info",
+      "description": "Fetch both sources' survey content for a contract type."
+    },
+    {
+      "name": "law_references",
+      "description": "Aggregate the unique laws referenced across every law_info survey.\n\nRuns :func:`src.eval.legal_refs.extract_references` over\n:func:`src.eval.law_info.all_law_info`. Returns a list of\n``{name, category, category_zh, contract_types, sources, occurrences}``\nsorted by category then name. Read-only."
+    },
+    {
+      "name": "law_types",
+      "description": "List contract types that have at least one law_info survey row.\n\nReturns ``[{key, zh_name, sources}]`` ordered by contract type, where\n``sources`` lists the sources present for that type (e.g.\n``[\"doubao\", \"deepseek\"]``)."
+    },
+    {
+      "name": "pipeline_get",
+      "description": "Fetch one pipeline run + its linked eval run's per-criterion verdicts."
+    },
+    {
+      "name": "pipeline_list",
+      "description": "List recent pipeline runs (most recent first).\n\nReturns ``[{id, contract_type, stance, rubric_name, task_desc, score,\nmax_score, n_passed, n_criteria, all_pass, iteration, eval_run_id,\nfill_temperature, created_at}]``."
+    },
+    {
+      "name": "prompt_create",
+      "description": "Create a local prompt (``source = 'local'``)."
+    },
+    {
+      "name": "prompt_delete",
+      "description": "Delete a prompt (no child table, nothing cascades)."
+    },
+    {
+      "name": "prompt_get",
+      "description": "Fetch a prompt's full record (including ``content``), by name."
+    },
+    {
+      "name": "prompt_list",
+      "description": "List all generation prompts (without the content body).\n\nReturns ``[{id, name, contract_type, purpose, source, prompt_type,\ndescription, created_at}]``."
+    },
+    {
+      "name": "prompt_update",
+      "description": "Update a prompt's full record."
+    },
+    {
+      "name": "rubric_create",
+      "description": "Create a local rubric (``source = 'local'``) with optional criteria."
+    },
+    {
+      "name": "rubric_delete",
+      "description": "Delete a local rubric; its criteria cascade via FK ON DELETE CASCADE."
+    },
+    {
+      "name": "rubric_get",
+      "description": "Fetch a rubric's metadata and ordered criteria, by name."
+    },
+    {
+      "name": "rubric_list",
+      "description": "List available evaluation rubrics."
+    },
+    {
+      "name": "rubric_update",
+      "description": "Update a local rubric's name, context, and description (criteria untouched)."
+    },
+    {
+      "name": "run_draft",
+      "description": "Lazily fetch a single run's ``draft_text`` (verified to belong to the compare)."
+    },
+    {
+      "name": "run_get",
+      "description": "Fetch a single evaluation run's run-level fields and its per-criterion verdicts.\n\nThe counterpart to ``run_list`` (which returns run-level fields only)."
+    },
+    {
+      "name": "run_list",
+      "description": "List recent evaluation runs (most recent first)."
+    },
+    {
+      "name": "search_clauses",
+      "description": "Retrieve ranked clause chunks for a natural-language query."
+    },
+    {
+      "name": "self_heal_pipeline_run",
+      "description": "Generate, fill, evaluate, and self-heal a contract in one pipeline run.\n\nDrives a LangGraph: ``generate -> fill -> evaluate -> check -> (improve) ->\nstore``. The ``improve`` node excludes thin custom clauses **per run** (via\n``custom_clause_ids``) and records ``clause_review`` recommendations without\nexecuting them. The best-scoring iteration is persisted.\n\n**Concurrency:** Safe to run in parallel (read-only on clauses table)."
+    },
+    {
+      "name": "tag_combinations_list",
+      "description": "Enumerate all valid tag combinations for a contract type.\n\nGenerates Cartesian product of all tag dimensions (excluding ``source``)\nwith optional clause availability metadata. Warns if combinations exceed\n1000 due to combinatorial explosion risk."
+    },
+    {
+      "name": "tag_iteration_apply",
+      "description": "Apply approved tag changes with rollback protection.\n\nTakes a list of approved suggestions from ``tag_iteration_suggest`` and\napplies the tag modifications. Then re-evaluates the contract to verify\nthe changes improved the score. If the score decreased, automatically\nrolls back to the original tags.\n\n**Concurrency:** Uses pg_advisory_lock to prevent concurrent modifications.\nOnly one ``tag_iteration_apply`` can run at a time."
+    },
+    {
+      "name": "tag_iteration_suggest",
+      "description": "Analyze failing clauses and suggest tag modifications.\n\nDrives a LangGraph: ``generate -> fill -> evaluate -> check -> (improve) ->\nstore -> suggest_retag``. The ``suggest_retag`` node uses LLM to analyze\nclauses that caused evaluation failures and suggests tag modifications\n(scenario, stance, strength, etc.) that might improve future evaluations.\n\n**Concurrency:** Safe to run in parallel (read-only on clauses table)."
+    },
+    {
+      "name": "tag_validate",
+      "description": "Validate a tag dict against the controlled vocabulary.\n\nReturns the cleaned dict: unknown keys are dropped, and ``scenario`` plus\nfree-form dims are kept (any non-empty value). For a controlled dim with an\ninvalid value, raises a tool error naming the dim, the bad value, and the\nallowed set."
+    },
+    {
+      "name": "tag_vocab_list",
+      "description": "List the merged flat tag vocabulary for a contract type.\n\nReturns ``{dim: [allowed values]}`` for every dimension valid for the type:\nuniversal starter dims (``stance`` / ``strength`` / ``risk`` / ``mandatory``)\nmerged with the type-specific dims from the ``tag_dims`` table. When\n``contract_type`` is ``None``, returns only the universal dims."
+    },
+    {
+      "name": "task_failed_items",
+      "description": "取某任务的失败/未完成条目，供分项重试。\n\npipeline 家族在全通过时返回空列表；未全通过时返回一条说明（含 iteration，\n调用方据此判断是否要换 rubric 重跑而不是重跑同一条）。batch 家族无法从\n句柄反推条目，返回空列表——请按 `task_status` 的 error 说明处理。"
+    },
+    {
+      "name": "task_status",
+      "description": "按任务句柄查状态与结果（统一了 pipeline 与 batch 两个家族）。\n\n`self_heal_pipeline_run` 返回 `pipeline_run_id`（数字），\n`contract_generate_batch` 返回 `trace_id`（`trace-` 前缀）。此前调用方\n拿到一个 id 要自己知道该去哪张表查——一个没有查询路径的句柄等于没有句柄。\n\nReturns ``{handle, kind, found, status, progress, counts, result?, error?}``。\n\n**状态如实**：pipeline 家族跑完即落库，故库里查到就是 completed、查不到\n就是 not_found；batch 家族的 trace_id 只是日志关联键、不落条目表，故\n报 `unknown_not_persisted` 并说明\"逐条结果只在调用返回里\"。这里刻意不\n编造 running/interrupted——那会让调用方对着一个假的进度条干等。"
+    },
+    {
+      "name": "type_metadata",
+      "description": "Get detailed metadata for a single contract type."
+    },
+    {
+      "name": "validation_check",
+      "description": "Evaluate a drafted contract against legal hard-limit constraints."
+    },
+    {
+      "name": "validation_list",
+      "description": "List stored validation constraints for a contract type."
+    }
+  ]
+}

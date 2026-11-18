@@ -1,0 +1,32 @@
+{
+  "skill": "legal-contract-workflow",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "合同审查流程",
+        "summary": "合同全流程审查工作流(法律-合同包入口技能):从合同识别到分级风险报告,按需调用合同审查技能与law-bench条款工具。"
+      },
+      "en": {
+        "name": "Contract review workflow",
+        "summary": "Contract review workflow, entry skill of the law-contract pack: drives from contract identification to a tiered risk report, calling contract-review skills and law-bench clause tools as needed."
+      },
+      "ja": {
+        "name": "契約審査ワークフロー",
+        "summary": "契約全プロセス審査ワークフロー（法務-契約パックの入口スキル）：契約識別から段階別リスク報告までを進め、必要に応じて契約審査スキルとlaw-bench条項ツールを呼び出す。"
+      },
+      "es": {
+        "name": "Flujo de trabajo de revisión de contratos",
+        "summary": "Flujo de revisión contractual, entrada del paquete contratos: de identificar el contrato a un informe de riesgos por niveles, usando las herramientas de revisión y de cláusulas law-bench."
+      },
+      "fr": {
+        "name": "Flux de travail de revue de contrats",
+        "summary": "Flux de revue contractuelle, entrée du pack contrats : de l’identification au rapport de risques gradué, en mobilisant les compétences de revue et les outils de clauses law-bench."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

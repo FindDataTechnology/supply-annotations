@@ -1,0 +1,32 @@
+{
+  "skill": "legal-case-workflow",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "民商事案件流程",
+        "summary": "民商事案件全流程分析工作流（法律-案件包入口技能）：从案情梳理、争议焦点提炼、法条检索，到诉讼策略、文书起草与可视化，驱动完整流程。"
+      },
+      "en": {
+        "name": "Civil and commercial case workflow",
+        "summary": "Civil and commercial case analysis workflow (entry skill): drives the full process from case sorting, issue framing and statute search to litigation strategy, drafting and visualization."
+      },
+      "ja": {
+        "name": "民商事案件ワークフロー",
+        "summary": "民商事事件の全工程分析ワークフロー（法律・事件パッケージ入口スキル）：事件整理、争点抽出、法令検索から訴訟戦略、文書起草案、可視化まで全工程を駆動。"
+      },
+      "es": {
+        "name": "Flujo de trabajo de casos civiles y comerciales",
+        "summary": "Flujo de trabajo de análisis de casos civiles y comerciales (entrada): desde la ordenación del caso, focos de disputa y búsqueda de normas hasta estrategia, redacción y visualización."
+      },
+      "fr": {
+        "name": "Flux de travail des affaires civiles et commerciales",
+        "summary": "Flux de travail d'analyse de dossiers civils et commerciaux (entrée) : du tri du dossier, des foyers du litige et de la recherche de textes à la stratégie, la rédaction et la visualisation."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

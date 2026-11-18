@@ -1,0 +1,32 @@
+{
+  "skill": "personal-injury-calculator",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "人身损害赔偿计算器",
+        "summary": "计算人身损害赔偿各项目：医疗费、误工费、护理费、交通费、住院伙食补助费、营养费、残疾赔偿金、残疾辅助器具费、丧葬费、死亡赔偿金、被扶养人生活费与精神损害抚慰金；法律依据走识律条级解析，基数取自柏讯统计源，结果附公式与基数来源。"
+      },
+      "en": {
+        "name": "Personal injury calculator",
+        "summary": "Personal injury damages: medical, lost wages, nursing, disability and death compensation, dependents' support, mental distress; legal basis via Lex, bases from Wire, formula and source attached."
+      },
+      "ja": {
+        "name": "人身損害賠償計算ツール",
+        "summary": "人身損害賠償の各項目を算出：医療費、休業損害、介護費、交通費、障害賠償金、死亡賠償金、被扶養者生活費、慰謝料など。法令根拠は Lex の条文解析、基数は Wire 統計、計算式と出典を必ず添付。"
+      },
+      "es": {
+        "name": "Calculadora de indemnización por lesiones personales",
+        "summary": "Partidas de indemnización por lesiones: gastos médicos, lucro cesante, cuidados, discapacidad y fallecimiento, dependientes, daño moral; base legal vía Lex, bases de Wire, fórmula y fuente."
+      },
+      "fr": {
+        "name": "Calculateur d'indemnisation du préjudice corporel",
+        "summary": "Préjudice corporel : frais médicaux, perte de revenus, assistance, préjudice corporel et mortel, entretien des proches, préjudice moral ; base légale via Lex, bases Wire, formule et source jointes."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

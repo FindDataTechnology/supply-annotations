@@ -1,0 +1,32 @@
+{
+  "skill": "bankruptcy-legal-analysis",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "破产法律分析",
+        "summary": "依据《企业破产法》及司法解释对破产案件作系统法律分析，支持管理人、债权人代理、债务人代理三种视角，输出标准化破产法律分析报告（Word）。"
+      },
+      "en": {
+        "name": "Bankruptcy legal analysis",
+        "summary": "Analyzes a bankruptcy case under the Enterprise Bankruptcy Law and judicial interpretations from the administrator, creditor- or debtor-counsel view, and outputs a standardized Word report."
+      },
+      "ja": {
+        "name": "破産法的分析",
+        "summary": "「企業破産法」と司法解釈に基づき破産事件を体系的に法的分析。管財人・債権者代理人・債務人代理人の3視点に対応し、標準化されたWord分析レポートを出力する。"
+      },
+      "es": {
+        "name": "Análisis legal concursal",
+        "summary": "Analiza el caso concursal según la Ley de Quiebras y las interpretaciones judiciales, desde el administrador o los abogados de acreedores o deudor, y emite un informe Word estandarizado."
+      },
+      "fr": {
+        "name": "Analyse juridique de la faillite",
+        "summary": "Analyse l'affaire d'après la loi sur la faillite des entreprises et les interprétations judiciaires, côté administrateur, conseil des créanciers ou du débiteur ; rapport Word standardisé."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

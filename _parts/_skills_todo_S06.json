@@ -1,0 +1,26 @@
+{
+ "origin": "registry",
+ "names": [
+  "legal-doc-pre-release-review",
+  "legal-doc-templates-export",
+  "legal-document-formatting",
+  "legal-document-summarization",
+  "legal-element-extraction",
+  "legal-harness-init",
+  "legal-industry-report",
+  "legal-interpretation-argument",
+  "legal-judgment-prediction",
+  "legal-norm-validity-check",
+  "legal-ocr",
+  "legal-proposal-generator",
+  "legal-qa-extractor",
+  "legal-research-cn",
+  "legal-risk-assessment",
+  "legal-terminology",
+  "legal-text-format",
+  "legal-visualization",
+  "legal-wiki-lookup",
+  "legal-workflow-controller",
+  "legal-writing-deai-polish"
+ ]
+}

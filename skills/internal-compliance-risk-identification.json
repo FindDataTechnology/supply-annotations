@@ -1,0 +1,32 @@
+{
+  "skill": "internal-compliance-risk-identification",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "内部合规风险识别",
+        "summary": "系统性审查企业内部合规管理体系:识别制度缺漏、流程缺陷与数据隐私合规风险,评估现有制度与法律法规的匹配度。"
+      },
+      "en": {
+        "name": "Internal compliance risk identification",
+        "summary": "Systematically audits a company's internal compliance system: missing policies, process defects and data-privacy risks, and how well existing rules match applicable law."
+      },
+      "ja": {
+        "name": "内部コンプライアンスリスク検出",
+        "summary": "企業内部のコンプライアンス体制を体系的に審査:制度の欠落、プロセスの欠陥、データプライバシーのリスクを識別し、既存制度と法規の適合度を評価する。"
+      },
+      "es": {
+        "name": "Detección de riesgos de cumplimiento interno",
+        "summary": "Audita sistemáticamente el sistema de cumplimiento interno: vacíos normativos, defectos de procesos y riesgos de privacidad de datos; evalúa la adecuación de las normas vigentes a la ley."
+      },
+      "fr": {
+        "name": "Détection des risques de conformité interne",
+        "summary": "Audite systématiquement le système de conformité interne : lacunes normatives, défauts de process, risques de confidentialité des données et adéquation des règles au droit applicable."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+ "tools": {
+  "fetch": {
+   "human": {
+    "zh": {
+     "name": "抓取网页",
+     "summary": "从互联网取回指定 URL 的内容，可选把内容抽取为 Markdown。"
+    },
+    "en": {
+     "name": "Fetch a web page",
+     "summary": "Fetches a URL from the internet and returns its content, optionally extracted as Markdown."
+    },
+    "ja": {
+     "name": "ウェブページ取得",
+     "summary": "インターネット上の URL の内容を取得し、必要に応じて Markdown として抽出します。"
+    },
+    "es": {
+     "name": "Capturar una página",
+     "summary": "Obtiene el contenido de una URL de internet y, opcionalmente, lo extrae como Markdown."
+    },
+    "fr": {
+     "name": "Récupérer une page",
+     "summary": "Récupère le contenu d'une URL sur internet et, en option, l'extrait en Markdown."
+    }
+   },
+   "canonical": {
+    "brief": "Fetches a URL from the internet and returns its content, optionally extracted as Markdown."
+   }
+  }
+ }
+}

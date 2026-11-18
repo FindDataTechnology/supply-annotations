@@ -1,0 +1,32 @@
+{
+  "skill": "eco-skill-creator",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "生态技能包创建",
+        "summary": "生态技能包：用结构化流程创建新的 SKILL.md 技能包。"
+      },
+      "en": {
+        "name": "Ecosystem skill pack creator",
+        "summary": "Ecosystem skill pack that creates new SKILL.md skill packs through a structured process."
+      },
+      "ja": {
+        "name": "エコシステム・スキルパック作成",
+        "summary": "エコシステム系スキル。構造化された手順で新しいSKILL.mdスキルパックを作成する。"
+      },
+      "es": {
+        "name": "Creador de paquetes de habilidades del ecosistema",
+        "summary": "Habilidad del ecosistema que crea nuevos paquetes SKILL.md mediante un proceso estructurado."
+      },
+      "fr": {
+        "name": "Créateur de packs de compétences de l'écosystème",
+        "summary": "Compétence de l'écosystème qui crée de nouveaux packs SKILL.md selon un processus structuré."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

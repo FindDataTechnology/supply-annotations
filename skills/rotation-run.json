@@ -1,0 +1,32 @@
+{
+  "skill": "rotation-run",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "轮动闭环运行",
+        "summary": "柏讯自适应轮动的闭环运行与解读：输出权重模式回测结果（含成本与基准）、权重快照解读与偏离归因。终产物是可执行的权重与运行记录，不是一段买入建议。"
+      },
+      "en": {
+        "name": "Rotation run and interpretation",
+        "summary": "Closed-loop execution for adaptive rotation: weight-mode backtest with costs and benchmark, snapshot reading and drift attribution. Deliverable: executable weights and a run record, not a buy tip."
+      },
+      "ja": {
+        "name": "ローテーション閉環稼働",
+        "summary": "適応ローテーションの閉環実行と解読：ウェイト・モードのバックテスト結果（コストとベンチマーク付き）、ウェイト・スナップショットの読み解き、乖離要因の帰属を出力。最終成果物は実行可能なウェイトと稼働記録であり、買い助言ではない。"
+      },
+      "es": {
+        "name": "Ciclo de ejecución de la rotación",
+        "summary": "Ejecución y lectura en bucle cerrado: backtest en modo pesos con costes y referencia, interpretación de la instantánea y atribución de desvíos; pesos ejecutables y registro, no una recomendación."
+      },
+      "fr": {
+        "name": "Boucle d'exécution de la rotation",
+        "summary": "Exécution en boucle fermée : backtest en mode pondération avec coûts et référence, lecture de l'instantané et attribution des écarts ; poids exécutables et journal, pas un conseil d'achat."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

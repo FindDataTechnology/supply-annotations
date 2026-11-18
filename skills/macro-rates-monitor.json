@@ -1,0 +1,32 @@
+{
+  "skill": "macro-rates-monitor",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "宏观利率监测",
+        "summary": "搭建宏观与利率仪表盘,整合宏观指标、收益率曲线、通胀盈亏平衡点与互换利率。"
+      },
+      "en": {
+        "name": "Macro rates monitoring",
+        "summary": "Builds macroeconomic and rates dashboards combining macro indicators, yield curves, inflation breakevens and swap rates."
+      },
+      "ja": {
+        "name": "マクロ金利モニタリング",
+        "summary": "マクロ指標、利回りカーブ、ブレークイーブン・インフレ、スワップ金利を統合したマクロ・金利ダッシュボードを構築する。"
+      },
+      "es": {
+        "name": "Seguimiento macro de tipos",
+        "summary": "Construye paneles macro y de tipos que combinan indicadores, curvas de tipos, equilibrios de inflación y tipos de swap."
+      },
+      "fr": {
+        "name": "Suivi des taux et de la macro",
+        "summary": "Construit des tableaux de bord macro et taux combinant indicateurs, courbes de taux, seuils d'équilibre d'inflation et taux de swap."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "dcf-model",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "DCF 估值模型",
+        "summary": "构建真实的 DCF 估值模型：从 SEC 文件与分析师报告获取财务数据，建立现金流预测并正确计算 WACC，用于股权估值。"
+      },
+      "en": {
+        "name": "DCF model",
+        "summary": "Builds a real DCF model for equity valuation: retrieves financial data from SEC filings and analyst reports, builds cash flow projections with proper WACC calculation."
+      },
+      "ja": {
+        "name": "DCFモデル",
+        "summary": "株式バリュエーション向けの本格的な DCF モデルを構築する。SEC 届出とアナリストレポートから財務データを取得し、WACC を適切に算定したキャッシュフロー予測を作成する。"
+      },
+      "es": {
+        "name": "Modelo DCF",
+        "summary": "Construye un modelo DCF real para valoración de acciones: obtiene datos de presentaciones ante la SEC e informes de analistas, y proyecta flujos de caja con cálculo adecuado del WACC."
+      },
+      "fr": {
+        "name": "Modèle DCF",
+        "summary": "Construit un véritable modèle DCF pour la valorisation d'actions : données des dépôts SEC et rapports d'analystes, projections de flux de trésorerie avec calcul correct du WACC."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

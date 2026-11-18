@@ -1,0 +1,32 @@
+{
+  "skill": "fd-vaas-publish-videos",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "视频多平台发布",
+        "summary": "把视频发布到抖音、小红书、B站、快手、视频号、YouTube 六个平台,内置 social-auto-upload 与 patchright,发布前需人工确认。"
+      },
+      "en": {
+        "name": "Six-platform video publishing",
+        "summary": "Publishes videos to Douyin, Xiaohongshu, Bilibili, Kuaishou, WeChat Channels and YouTube via vendored social-auto-upload and patchright, with manual confirmation before posting."
+      },
+      "ja": {
+        "name": "動画六プラットフォーム公開",
+        "summary": "動画を抖音・小紅書・B站・快手・視頻号・YouTube の6プラットフォームへ公開。内蔵の social-auto-upload と patchright を使い、公開前に人手確認を行う。"
+      },
+      "es": {
+        "name": "Publicación de vídeos en seis plataformas",
+        "summary": "Publica vídeos en Douyin, Xiaohongshu, Bilibili, Kuaishou, WeChat Channels y YouTube con social-auto-upload integrado y patchright, con confirmación manual antes de publicar."
+      },
+      "fr": {
+        "name": "Publication vidéo sur six plateformes",
+        "summary": "Publie des vidéos sur Douyin, Xiaohongshu, Bilibili, Kuaishou, WeChat Channels et YouTube via social-auto-upload intégré et patchright, avec confirmation manuelle avant publication."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+ "origin": "registry",
+ "names": [
+  "investigation-stage-criminal-defense",
+  "judgment-document-generation",
+  "judicial-value-judgment",
+  "juvenile-criminal-cases",
+  "labor-arbitration-case-management",
+  "labor-arbitration-workflow",
+  "labor-compensation-calculator",
+  "labor-dispute-evidence-system",
+  "labor-dispute-litigation",
+  "labor-relation-severance-calculator",
+  "last30days",
+  "law-to-markdown",
+  "legal-abductive-reasoning",
+  "legal-article-retrieval",
+  "legal-case-analysis",
+  "legal-case-workflow",
+  "legal-concept-comprehension",
+  "legal-concept-map",
+  "legal-consultation-assistant",
+  "legal-contract-workflow",
+  "legal-corpus-explorer"
+ ]
+}

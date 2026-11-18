@@ -1,0 +1,32 @@
+{
+  "skill": "decision-review-log",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "决策复盘落账",
+        "summary": "柏讯决策落账纪律（复盘套件入口）：把判定或目标权重记入追加式决策账本；幂等键拒绝重复提交并返回既有记录号，修订产生新记录并指向被修订记录，可查回某标的的历史判定与教训。"
+      },
+      "en": {
+        "name": "Decision review log",
+        "summary": "Wire suite entry point: logs ratings or target weights into an append-only decision ledger; duplicates refused, corrections create linked records; verdict history and lessons retrievable."
+      },
+      "ja": {
+        "name": "意思決定ふりかえり記帳",
+        "summary": "Wire 意思決定の記帳規律（ふりかえりスイートの入口）：判定や目標ウェイトを追記専用の台帳に記録。冪等キーで重複を拒み既存IDを返し、訂正は参照付きの新記録となり、履歴と教訓を照会できる。"
+      },
+      "es": {
+        "name": "Registro de revisión de decisiones",
+        "summary": "Entrada de la suite Wire: apunta valoraciones o pesos objetivo en un libro aditivo; duplicados rechazados, cada corrección crea un registro enlazado; historial y lecciones consultables."
+      },
+      "fr": {
+        "name": "Journal de revue des décisions",
+        "summary": "Entrée de la suite Wire : inscrit notations ou pondérations cibles dans un registre additif ; doublons refusés, correction crée un enregistrement lié ; historique et leçons consultables."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "special-criminal-procedures",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "刑事特殊程序",
+        "summary": "刑事特殊程序辩护与代理：覆盖违法所得没收、精神病人强制医疗与再审申诉程序的启动条件、材料审查、听证或开庭准备、文书生成，并与各刑事阶段技能衔接。"
+      },
+      "en": {
+        "name": "Special criminal procedures",
+        "summary": "Special criminal defense and representation: confiscation of illegal gains, compulsory treatment and retrial petitions; initiation, material review, hearing prep, drafting and stage handoff."
+      },
+      "ja": {
+        "name": "刑事特別手続",
+        "summary": "刑事特別手続の弁護・代理：違法所得没収、精神疾患者の強制医療、再審申立ての手続について、開始要件、資料審査、審理準備、書類作成を扱い、各刑事段階スキルと接続する。"
+      },
+      "es": {
+        "name": "Procedimientos penales especiales",
+        "summary": "Defensa/representación en procedimientos penales especiales: decomiso de ganancias ilícitas, tratamiento forzoso, recursos de revisión; inicio, materiales, audiencia, redacción y enlace."
+      },
+      "fr": {
+        "name": "Procédures pénales spéciales",
+        "summary": "Défense et représentation en procédures pénales spéciales : confiscation des gains illicites, traitement forcé et recours en révision ; ouverture, pièces, audience, rédaction, relais."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

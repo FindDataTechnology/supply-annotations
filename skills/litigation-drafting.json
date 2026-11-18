@@ -1,0 +1,32 @@
+{
+  "skill": "litigation-drafting",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "民商事诉讼起草",
+        "summary": "民商事诉讼文书起草:起诉状、答辩状、证据目录等;法条锚定与类案参照均走真实检索数据源,经律师确认要点后生成成稿。"
+      },
+      "en": {
+        "name": "Civil and commercial litigation drafting",
+        "summary": "Drafts civil and commercial pleadings: complaints, answers, evidence lists. Statute anchors and case parallels use real search data; final text only after lawyer confirmation."
+      },
+      "ja": {
+        "name": "民事商事訴訟起草案",
+        "summary": "民事・商事訴訟文書の起草:訴状、答弁書、証拠目録など。法令アンカーと類似事件参照は実検索データを使い、弁護士の要点確認後に成稿を生成。"
+      },
+      "es": {
+        "name": "Redacción de escritos de litigio civil y mercantil",
+        "summary": "Redacta demandas, contestaciones y roles de pruebas civiles y mercantiles; normas y casos análogos desde fuentes reales de búsqueda, texto final solo tras confirmación del abogado."
+      },
+      "fr": {
+        "name": "Rédaction d'écrits de contentieux civil et commercial",
+        "summary": "Rédige requêtes, mémoires en défense et bordereaux de pièces civils et commerciaux ; textes et jurisprudence ancrés sur des recherches réelles, rédaction finale après validation de l'avocat."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

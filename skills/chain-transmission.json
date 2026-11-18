@@ -1,0 +1,32 @@
+{
+  "skill": "chain-transmission",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "产业链传导验证",
+        "summary": "柏讯产业链联动的传导检验：逐环给出相关系数、时滞扫描、样本量与窗口，形成传导检验表；无数据环节明示未验证，不显著结果如实呈现，频度差显式处理；结论是历史统计关系，非因果证明。"
+      },
+      "en": {
+        "name": "Industry chain transmission verification",
+        "summary": "Wire chain transmission testing: per-link table of correlations, lag scans, sample sizes and windows; data-less links marked unverified; insignificant results reported as-is; statistical, not causal."
+      },
+      "ja": {
+        "name": "産業チェーン伝導検証",
+        "summary": "Wire産業チェーン連動の伝導検証。段階別に相関係数・遅延スキャン・サンプル数・期間窓を並べ伝導チェック表を作成。データのない段階は「未検証」と明示し、非有意の結果もそのまま提示、頻度の差は明示的に処理。結論は統計関係で因果証明ではない。"
+      },
+      "es": {
+        "name": "Verificación de transmisión de la cadena industrial",
+        "summary": "Prueba Wire de transmisión: tabla por eslabón con correlaciones, retardos, muestras y ventanas; sin datos, no verificado; resultados no significativos tal cual; estadística, no causal."
+      },
+      "fr": {
+        "name": "Vérification de transmission de la chaîne industrielle",
+        "summary": "Test Wire de transmission : tableau par maillon avec corrélations, retards, échantillons, fenêtres ; sans données = non vérifié ; non significatif rendu tel quel ; statistique, non causal."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

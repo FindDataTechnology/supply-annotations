@@ -1,0 +1,32 @@
+{
+  "skill": "contract-drafting",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "合同文本起草",
+        "summary": "合同起草、生成、多轮修订与最终版归档的统一入口：基于三观四步法与可配置的本地模板库，有模板时定制化起草、无模板时独立起草；输出草案并同步生成合同编号、概览、业务摘要、版本记录、修订历史与续约提醒。"
+      },
+      "en": {
+        "name": "Contract text drafting",
+        "summary": "Drafts, generates, revises and archives contracts via the three-view four-step method and local templates; outputs a draft plus contract ID, overview, version log and renewal reminders."
+      },
+      "ja": {
+        "name": "契約書起草案",
+        "summary": "契約の起草・生成・修訂・最終版アーカイブの窓口。階層的観点分析と四段階手法、ローカルテンプレート集に基づき、テンプレートがあればカスタマイズ起草、なければ独立起草を行う。草案に加え契約番号、概要、業務要約、版履歴、改訂記録、更新通知を生成する。"
+      },
+      "es": {
+        "name": "Redacción de contratos",
+        "summary": "Redacta, genera, revisa y archiva contratos con plantillas locales; entrega borrador, número de contrato, resumen, registro de versiones y avisos de renovación."
+      },
+      "fr": {
+        "name": "Rédaction de contrats",
+        "summary": "Rédige, génère, révise et archive les contrats avec modèles locaux ; produit avant-projet, numéro, résumé, journal des versions et rappels de renouvellement."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

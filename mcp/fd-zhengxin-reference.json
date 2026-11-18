@@ -1,0 +1,177 @@
+{
+ "version": 1,
+ "server": "fd-zhengxin-reference",
+ "annotation": {
+  "human": {
+   "zh": {
+    "name": "政心参照系",
+    "summary": "政治学参照数据：国家治理指数的时序、意识形态与立场编码、关系查询与概念词条。",
+    "whenToUse": "做跨国治理比较、政党立场对照或概念溯源时。"
+   },
+   "en": {
+    "name": "Zhengxin reference",
+    "summary": "Political-science reference data: governance-index time series, ideology and position coding, relation queries, and concept entries.",
+    "whenToUse": "For cross-country governance comparison, party-position contrast, or concept provenance."
+   },
+   "ja": {
+    "name": "政心リファレンス",
+    "summary": "政治学の参照データ：ガバナンス指数の時系列、イデオロギーと立場の符号化、関係照会、概念項目を提供します。",
+    "whenToUse": "国家間のガバナンス比較、政党立場の対照、概念の由来確認を行うとき。"
+   },
+   "es": {
+    "name": "Referencia Zhengxin",
+    "summary": "Datos de referencia de ciencia política: series de índices de gobernanza, codificación de ideología y posición, consultas de relación y entradas conceptuales.",
+    "whenToUse": "Para comparar gobernanza entre países, contrastar posiciones de partidos o rastrear un concepto."
+   },
+   "fr": {
+    "name": "Référentiel Zhengxin",
+    "summary": "Données de référence en science politique : séries d'indices de gouvernance, codage des idéologies et positions, requêtes de relations et notices de concepts.",
+    "whenToUse": "Pour comparer la gouvernance entre pays, contraster des positions de partis ou retracer un concept."
+   }
+  },
+  "canonical": {
+   "brief": "Political-science reference MCP: governance-index time series (V-Dem), ideology/position coding (Wikidata/MARPOR), relation queries, concept lookup, source status."
+  },
+  "tools": {
+   "concept_lookup": {
+    "human": {
+     "zh": {
+      "name": "查询政治概念",
+      "summary": "先查库内种子概念与思潮索引，再查 SEP 实时，融合返回并逐行标注来源，空结果带原因。"
+     },
+     "en": {
+      "name": "Look up a concept",
+      "summary": "Looks up concepts in the local seeds and index, then in SEP, merging results with per-row source labels and a reason when empty."
+     },
+     "ja": {
+      "name": "政治概念を照会",
+      "summary": "まずローカルの種子概念と思潮索引を、次に SEP を照会し、行ごとに出所を付けて統合します。空結果には理由を付けます。"
+     },
+     "es": {
+      "name": "Consultar un concepto",
+      "summary": "Consulta primero los conceptos semilla e índices locales y luego SEP, fusionando resultados con la fuente por fila y un motivo si queda vacío."
+     },
+     "fr": {
+      "name": "Consulter un concept",
+      "summary": "Interroge d'abord les concepts semences et l'index locaux, puis SEP, en fusionnant les résultats avec la source par ligne et un motif si vide."
+     }
+    },
+    "canonical": {
+     "brief": "Concept lookup: local China-seed concepts and modern-ideology index first, then SEP (cache, live search, curated fallback); rows labelled china-seed, modern-index or sep with provenance and per-source status."
+    }
+   },
+   "ideology_query": {
+    "human": {
+     "zh": {
+      "name": "查思潮坐标",
+      "summary": "查思潮、思想家或政党在政治坐标上的位置；来源许可未确认时如实标注未摄取，空结果带原因。"
+     },
+     "en": {
+      "name": "Query ideology coordinates",
+      "summary": "Places ideologies, thinkers or parties on political axes; a source whose licence gate is unconfirmed is reported as not ingested, with a reason when empty."
+     },
+     "ja": {
+      "name": "思潮の座標を照会",
+      "summary": "思潮・思想家・政党の政治的座標上の位置を返します。ライセンス未確認の出所は未取り込みと明示し、空結果には理由を付けます。"
+     },
+     "es": {
+      "name": "Consultar coordenadas ideológicas",
+      "summary": "Ubica ideologías, pensadores o partidos en ejes políticos; una fuente con licencia sin confirmar se informa como no ingerida y el vacío lleva motivo."
+     },
+     "fr": {
+      "name": "Interroger les coordonnées idéologiques",
+      "summary": "Positionne idéologies, penseurs ou partis sur des axes politiques ; une source dont la licence n'est pas confirmée est signalée comme non versée, et le vide porte un motif."
+     }
+    },
+    "canonical": {
+     "brief": "Ideology coordinates: Wikidata anchors (P1142 and P1387, by QID or label) plus MARPOR position coding; MARPOR stays not_ingested with gate_detail until its licence gate passes. Empty results carry a reason."
+    }
+   },
+   "regime_timeseries": {
+    "human": {
+     "zh": {
+      "name": "查政体指标时序",
+      "summary": "查国家逐年政体指标序列，附指标口径说明与快照出处，空结果带原因。"
+     },
+     "en": {
+      "name": "Query governance series",
+      "summary": "Returns a country's year-by-year governance indicators with indicator notes and provenance back to a snapshot, plus a reason when empty."
+     },
+     "ja": {
+      "name": "ガバナンス指標を照会",
+      "summary": "国ごとの年次ガバナンス指標の系列を、指標の算出基準とスナップショット出所付きで返します。空結果には理由を付けます。"
+     },
+     "es": {
+      "name": "Consultar series de gobernanza",
+      "summary": "Devuelve la serie anual de indicadores de gobernanza de un país, con notas de criterio y procedencia hasta una instantánea, más un motivo si queda vacía."
+     },
+     "fr": {
+      "name": "Interroger les séries de gouvernance",
+      "summary": "Renvoie la série annuelle d'indicateurs de gouvernance d'un pays, avec notes de méthodologie et provenance jusqu'à un instantané, plus un motif si vide."
+     }
+    },
+    "canonical": {
+     "brief": "Regime time series: V-Dem v2x_* aggregate indicators by country and year (country as country_text_id or official English name, years as an explicit list or ascending pair). Includes indicator_notes and provenance."
+    }
+   },
+   "relation_query": {
+    "human": {
+     "zh": {
+      "name": "查思潮关系边",
+      "summary": "查两个主体间的继承、结盟、对立或批判关系；中国线种子边另立口径，空结果带原因。"
+     },
+     "en": {
+      "name": "Query relation edges",
+      "summary": "Returns inheritance, alliance, opposition or critique edges between two entities, keeping Chinese-line seed edges in their own polarity vocabulary, with a reason when empty."
+     },
+     "ja": {
+      "name": "思潮の関係辺を照会",
+      "summary": "2主体間の継承・同盟・対立・批判の辺を返します。中国線の種子辺は独自の極性語彙のままとし、空結果には理由を付けます。"
+     },
+     "es": {
+      "name": "Consultar relaciones ideológicas",
+      "summary": "Devuelve aristas de herencia, alianza, oposición o crítica entre dos entidades, manteniendo las aristas semilla chinas en su propio vocabulario de polaridad, con motivo si queda vacío."
+     },
+     "fr": {
+      "name": "Interroger les liens idéologiques",
+      "summary": "Renvoie les liens d'héritage, d'alliance, d'opposition ou de critique entre deux entités, les liens semences chinois gardant leur propre vocabulaire de polarité, avec un motif si vide."
+     }
+    },
+    "canonical": {
+     "brief": "Relation query: Wikidata relation edges (inheritance, alliance, opposition, critique) plus Chinese-line seed edges whose positive/critical polarity is not mapped onto the Wikidata vocabulary."
+    }
+   },
+   "source_status": {
+    "human": {
+     "zh": {
+      "name": "查数据源状态",
+      "summary": "报出六类数据源的摄取状态与缺口，未过许可门的源附评审待办与最近探测结果。"
+     },
+     "en": {
+      "name": "Check source status",
+      "summary": "Reports ingestion status and gaps for the six sources; a source failing its licence gate carries gate detail and the latest availability probe."
+     },
+     "ja": {
+      "name": "データソースの状態を確認",
+      "summary": "6つのデータソースの取り込み状態と欠損を報告します。ライセンス判定を通らない出所には審査待ちと直近の疎通確認を付けます。"
+     },
+     "es": {
+      "name": "Consultar estado de fuentes",
+      "summary": "Informa el estado de ingesta y las carencias de las seis fuentes; una fuente que no pasa la puerta de licencia incluye el detalle y la última sonda de disponibilidad."
+     },
+     "fr": {
+      "name": "Vérifier l'état des sources",
+      "summary": "Rapporte l'état d'ingestion et les manques des six sources ; une source qui échoue à la porte de licence inclut le détail de la porte et la dernière sonde de disponibilité."
+     }
+    },
+    "canonical": {
+     "brief": "Source status ledger for v-dem, marpor, wikidata, sep, china-seed and modern-index: ingestion state, gaps, unconfirmed-licence reasons with gate detail, last probe and snapshot version."
+    }
+   }
+  },
+  "provenance": {
+   "source": "finddata-supply-annotations",
+   "updatedAt": "2026-11-02"
+  }
+ }
+}

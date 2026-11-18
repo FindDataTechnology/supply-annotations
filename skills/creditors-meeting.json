@@ -1,0 +1,32 @@
+{
+  "skill": "creditors-meeting",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "债权人会议",
+        "summary": "系统化支持债权人会议的筹备、召开、表决与纪要全流程，覆盖管理人、债权人代理、债务人代理三种角色，支持首次及后续多次会议。"
+      },
+      "en": {
+        "name": "Creditors meeting",
+        "summary": "Supports the whole creditors' meeting cycle: preparation, convening, voting and minutes, for the administrator, creditor counsel and debtor counsel; covers the first and later meetings."
+      },
+      "ja": {
+        "name": "債権者集会",
+        "summary": "債権者集会の準備・開催・決議・議事録の全プロセスを体系的に支援。管財人・債権者代理人・債務人代理人の三役割をカバーし、最初の集会とその後の複数回にも対応する。"
+      },
+      "es": {
+        "name": "Junta de acreedores",
+        "summary": "Asiste todo el ciclo de la junta de acreedores: preparación, convocatoria, votación y actas, para el administrador y los letrados de acreedores y deudor; cubre la primera y las sucesivas."
+      },
+      "fr": {
+        "name": "Assemblée des créanciers",
+        "summary": "Assiste tout le cycle de l'assemblée des créanciers : préparation, convocation, vote et procès-verbal, pour l'administrateur et les conseils des créanciers ou du débiteur ; première et suivantes."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

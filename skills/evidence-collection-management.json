@@ -1,0 +1,32 @@
+{
+  "skill": "evidence-collection-management",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "证据收集管理",
+        "summary": "基于请求权要件分析评估证据缺口，系统化指引证据收集、调查取证、证人管理和财产保全全流程，生成取证方案、各类申请文书与调查笔录。"
+      },
+      "en": {
+        "name": "Evidence collection management",
+        "summary": "Assesses evidence gaps from claim elements, guides collection, investigation, witness management and asset preservation; produces evidence-gathering plans, applications and investigation transcripts."
+      },
+      "ja": {
+        "name": "証拠収集管理",
+        "summary": "請求権要件分析に基づく証拠欠口評価。証拠収集、調査、証人管理、財産保全の全工程を体系的に案内し、証拠取得計画、各種申立文書、調査調書を作成する。"
+      },
+      "es": {
+        "name": "Gestión de recopilación de pruebas",
+        "summary": "Evalúa vacíos probatorios desde los elementos de la pretensión y guía la recopilación, investigación, testigos y conservación de bienes; produce planes de prueba, escritos de solicitud y actas."
+      },
+      "fr": {
+        "name": "Gestion de la collecte de preuves",
+        "summary": "Évalue les lacunes probatoires d'après les éléments de la prétention, guide collecte, enquête, témoins et conservation des biens ; produit plans de preuve, requêtes et procès-verbaux."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

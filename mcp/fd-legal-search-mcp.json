@@ -1,0 +1,312 @@
+{
+ "version": 1,
+ "server": "fd-legal-search-mcp",
+ "annotation": {
+  "human": {
+   "zh": {
+    "name": "法律检索",
+    "summary": "法规、案例与指导案例的检索与读取，附文书库检索入口。",
+    "whenToUse": "找法条、找类案或查裁判观点时。"
+   },
+   "en": {
+    "name": "Legal search",
+    "summary": "Search and read statutes, cases, and guiding cases, with an entry to the judgment corpus.",
+    "whenToUse": "When locating a statute, similar cases, or a judicial view."
+   },
+   "ja": {
+    "name": "法令検索",
+    "summary": "法令・判例・指導性案例の検索と読解に加え、判決文コーパスへの入口を提供します。",
+    "whenToUse": "条文、類似判例、裁判所の判断を探すとき。"
+   },
+   "es": {
+    "name": "Búsqueda jurídica",
+    "summary": "Búsqueda y lectura de normativa, casos y casos guía, con acceso al corpus de sentencias.",
+    "whenToUse": "Para localizar una norma, casos similares o un criterio judicial."
+   },
+   "fr": {
+    "name": "Recherche juridique",
+    "summary": "Recherche et lecture de textes légaux, d'affaires et d'affaires de référence, avec accès au corpus de jugements.",
+    "whenToUse": "Pour trouver un texte, des affaires similaires ou une position judiciaire."
+   }
+  },
+  "canonical": {
+   "brief": "Legal search MCP: statutes, cases, guiding cases retrieval/read plus judgment corpus search and read."
+  },
+  "tools": {
+   "guide_cases_read": {
+    "human": {
+     "zh": {
+      "name": "读取指导案例",
+      "summary": "按案例标识读取指导案例的结构化分节全文。"
+     },
+     "en": {
+      "name": "Read a guiding case",
+      "summary": "Reads one guiding case's full structured sections by case_id."
+     },
+     "ja": {
+      "name": "指導性案例を読む",
+      "summary": "case_id で指導性案例の構造化された各節を読み取ります。"
+     },
+     "es": {
+      "name": "Leer un caso guía",
+      "summary": "Lee las secciones estructuradas completas de un caso guía según case_id."
+     },
+     "fr": {
+      "name": "Lire une affaire de référence",
+      "summary": "Lit les sections structurées complètes d'une affaire de référence selon case_id."
+     }
+    },
+    "canonical": {
+     "brief": "Reads one guiding case by case_id and returns its full structured sections."
+    }
+   },
+   "guide_cases_search": {
+    "human": {
+     "zh": {
+      "name": "检索指导案例",
+      "summary": "按标题检索指导案例，可按文书类型与效力状态过滤，非法取值如实拒绝。"
+     },
+     "en": {
+      "name": "Search guiding cases",
+      "summary": "Searches guiding-case titles with document-type and reference-status filters; an invalid filter value is rejected."
+     },
+     "ja": {
+      "name": "指導性案例を検索",
+      "summary": "指導性案例の表題を検索し、文書種別と参照状態で絞り込めます。不正な値は拒否されます。"
+     },
+     "es": {
+      "name": "Buscar casos guía",
+      "summary": "Busca títulos de casos guía con filtros de tipo de documento y estado de referencia; un valor inválido se rechaza."
+     },
+     "fr": {
+      "name": "Chercher des affaires de référence",
+      "summary": "Recherche les intitulés d'affaires de référence avec filtres de type de document et de statut de référence ; une valeur invalide est rejetée."
+     }
+    },
+    "canonical": {
+     "brief": "Guiding-case title search ranked exact over prefix over contains, with doc_type and reference_status as closed-vocabulary filters that reject invalid values; provenance source law_db.guide_cases."
+    }
+   },
+   "law_read": {
+    "human": {
+     "zh": {
+      "name": "读取法规条文",
+      "summary": "按法规标识读取元数据与条级分块正文，按窗口分段返回并给出续读位置。"
+     },
+     "en": {
+      "name": "Read statute text",
+      "summary": "Reads one statute's metadata and clause-level text chunks by law_id, returned in windows with a continuation offset."
+     },
+     "ja": {
+      "name": "法令条文を読む",
+      "summary": "law_id で法令のメタデータと条項単位の本文チャンクを読み、窓ごとに返して続きの位置を示します。"
+     },
+     "es": {
+      "name": "Leer el texto de una norma",
+      "summary": "Lee metadatos y fragmentos por artículo de una norma según law_id, devueltos por ventanas con posición de continuación."
+     },
+     "fr": {
+      "name": "Lire le texte d'un texte légal",
+      "summary": "Lit les métadonnées et les fragments par article d'un texte selon law_id, renvoyés par fenêtres avec position de reprise."
+     }
+    },
+    "canonical": {
+     "brief": "Reads statute metadata plus clause-level chunks by law_id: up to limit clauses (default 200, max 500) from offset, with total_chunks and next_offset so pages concatenate to the full text."
+    }
+   },
+   "law_reference": {
+    "human": {
+     "zh": {
+      "name": "解析法规引用",
+      "summary": "把法规名加条号的引用解析到目录中的条级定位，无法解析时如实返回未找到及原因。"
+     },
+     "en": {
+      "name": "Resolve statute citations",
+      "summary": "Resolves a statute-plus-article citation to a clause-level position in the catalogue, returning not_found with a readable reason when it cannot."
+     },
+     "ja": {
+      "name": "法令引用を解決",
+      "summary": "法令名と条番号からなる引用をカタログの条項位置に解決し、解決できない場合は理由付きで not_found を返します。"
+     },
+     "es": {
+      "name": "Resolver citas de normas",
+      "summary": "Resuelve una cita de norma y artículo a una posición por artículo en el catálogo, y devuelve not_found con motivo legible cuando no puede."
+     },
+     "fr": {
+      "name": "Résoudre les citations de textes",
+      "summary": "Résout une citation texte-plus-article vers une position par article du catalogue, et renvoie not_found avec un motif lisible en cas d'échec."
+     }
+    },
+    "canonical": {
+     "brief": "Clause-level citation resolution: maps a citation such as a named statute plus an article number to a catalogue position; unresolvable citations return not_found with a readable reason, never a guess."
+    }
+   },
+   "law_search": {
+    "human": {
+     "zh": {
+      "name": "检索法规目录",
+      "summary": "在法规目录中按标题检索，排序为精确、前缀、包含，每条结果带来源与稳定标识。"
+     },
+     "en": {
+      "name": "Search statute titles",
+      "summary": "Searches statute titles in the law catalogue, ranked exact then prefix then contains, with provenance on every hit."
+     },
+     "ja": {
+      "name": "法令名を検索",
+      "summary": "法令カタログの表題を検索し、完全一致・前方一致・部分一致の順に並べます。各結果に出所と安定 ID を付けます。"
+     },
+     "es": {
+      "name": "Buscar títulos de normas",
+      "summary": "Busca títulos en el catálogo de normas, ordenando exacto, prefijo y contenido, con procedencia en cada resultado."
+     },
+     "fr": {
+      "name": "Chercher des intitulés de textes",
+      "summary": "Recherche les intitulés du catalogue de textes, classés exact, préfixe puis contenu, avec provenance sur chaque résultat."
+     }
+    },
+    "canonical": {
+     "brief": "Title search over the statute catalogue (law_db.laws) with exact over prefix over contains ranking; category accepts spelling variants; each hit carries provenance with stable_id equal to law_id."
+    }
+   },
+   "law_semantic_search": {
+    "human": {
+     "zh": {
+      "name": "语义检索法条",
+      "summary": "按语义相似度检索条级分块，逐条附来源、稳定标识与导出日期。"
+     },
+     "en": {
+      "name": "Semantic clause search",
+      "summary": "Retrieves clause-level chunks by semantic similarity, tagging each hit with source, stable id and export date."
+     },
+     "ja": {
+      "name": "条文を意味検索",
+      "summary": "意味的類似度で条項単位のチャンクを検索し、各結果に出所・安定 ID・書き出し日を付けます。"
+     },
+     "es": {
+      "name": "Buscar artículos por significado",
+      "summary": "Recupera fragmentos por artículo según similitud semántica, etiquetando cada resultado con fuente, identificador estable y fecha de exportación."
+     },
+     "fr": {
+      "name": "Rechercher des articles par sens",
+      "summary": "Récupère les fragments par article selon la similarité sémantique, en étiquetant chaque résultat avec source, identifiant stable et date d'export."
+     }
+    },
+    "canonical": {
+     "brief": "Semantic clause search: query embedding into the clause index, returning chunk-level hits with provenance (source law_db.law_chunks_v2, stable_id as the point id, as_of the export date)."
+    }
+   },
+   "legal_docs_read": {
+    "human": {
+     "zh": {
+      "name": "读取法律文档",
+      "summary": "按文档标识读取元数据与正文；正文未入库时给出说明且不返回正文键。"
+     },
+     "en": {
+      "name": "Read a legal document",
+      "summary": "Reads a document's metadata and body by doc_id; when the body never entered the corpus it returns a note and no content key."
+     },
+     "ja": {
+      "name": "法律文書を読む",
+      "summary": "doc_id で文書のメタデータと本文を読みます。本文が未収録なら注記を返し、本文キーは含めません。"
+     },
+     "es": {
+      "name": "Leer un documento legal",
+      "summary": "Lee metadatos y texto de un documento según doc_id; si el texto nunca entró en el corpus, devuelve una nota y ninguna clave de contenido."
+     },
+     "fr": {
+      "name": "Lire un document juridique",
+      "summary": "Lit les métadonnées et le texte d'un document selon doc_id ; si le texte n'a jamais été versé, renvoie une note et aucune clé de contenu."
+     }
+    },
+    "canonical": {
+     "brief": "Reads one legal document by doc_id: metadata including source_url and crawler metadata, plus content when available; a body never ingested yields a note and no content key; unknown ids return not_found."
+    }
+   },
+   "legal_docs_search": {
+    "human": {
+     "zh": {
+      "name": "跨库检索法律文档",
+      "summary": "在五类语料中按标题检索文档，可按语料与文书类型过滤，最多返回 200 行。"
+     },
+     "en": {
+      "name": "Search legal documents",
+      "summary": "Searches document titles across the five corpora, filtered by corpus and document type, up to 200 rows."
+     },
+     "ja": {
+      "name": "法律文書を横断検索",
+      "summary": "5つのコーパスを横断して文書の表題を検索し、コーパスと文書種別で絞り込めます。最大200行です。"
+     },
+     "es": {
+      "name": "Buscar documentos legales",
+      "summary": "Busca títulos de documentos en los cinco corpus, filtrando por corpus y tipo de documento, hasta 200 filas."
+     },
+     "fr": {
+      "name": "Chercher des documents juridiques",
+      "summary": "Recherche les intitulés de documents dans les cinq corpus, filtrés par corpus et type de document, jusqu'à 200 lignes."
+     }
+    },
+    "canonical": {
+     "brief": "Title search across the five legal corpora (case-insensitive, exact over prefix over contains, max 200 rows); source is a closed vocabulary rejected with invalid_filter when unknown; has_content flags body availability."
+    }
+   },
+   "wenshu_read": {
+    "human": {
+     "zh": {
+      "name": "读取裁判文书正文",
+      "summary": "按标识从压缩块解压读取文书正文，长文按字符窗口返回并给续读偏移。"
+     },
+     "en": {
+      "name": "Read judgment text",
+      "summary": "Reads a judgment's text from compressed blocks, windowed by characters with a continuation offset for long bodies."
+     },
+     "ja": {
+      "name": "判決文の本文を読む",
+      "summary": "圧縮ブロックから判決文の本文を読み、長文は文字窓で返して続きのオフセットを示します。"
+     },
+     "es": {
+      "name": "Leer el texto de una sentencia",
+      "summary": "Lee el texto de una sentencia desde bloques comprimidos, por ventanas de caracteres con desplazamiento de continuación."
+     },
+     "fr": {
+      "name": "Lire le texte d'un jugement",
+      "summary": "Lit le texte d'un jugement depuis des blocs compressés, par fenêtres de caractères avec décalage de reprise."
+     }
+    },
+    "canonical": {
+     "brief": "Reads one judgment body from zstd blocks: up to max_chars per call (default 12000, max 40000); content_truncated with next_offset continues, and a missing body is stated rather than invented."
+    }
+   },
+   "wenshu_search": {
+    "human": {
+     "zh": {
+      "name": "检索裁判文书",
+      "summary": "按标题检索裁判文书，排序为精确、前缀、包含；案号内嵌标题，结果带来源标识。"
+     },
+     "en": {
+      "name": "Search judgment titles",
+      "summary": "Searches judgment titles, ranked exact then prefix then contains; the case number sits inside the title and provenance is attached."
+     },
+     "ja": {
+      "name": "判決文を検索",
+      "summary": "判決文の表題を検索し、完全一致・前方一致・部分一致の順に並べます。事件番号は表題に含まれ、出所情報が付きます。"
+     },
+     "es": {
+      "name": "Buscar títulos de sentencias",
+      "summary": "Busca títulos de sentencias, ordenando exacto, prefijo y contenido; el número de causa va en el título y cada resultado lleva procedencia."
+     },
+     "fr": {
+      "name": "Chercher des intitulés de jugements",
+      "summary": "Recherche les intitulés de jugements, classés exact, préfixe puis contenu ; le numéro d'affaire figure dans l'intitulé et la provenance est jointe."
+     }
+    },
+    "canonical": {
+     "brief": "Judgment title search over the judgment corpus with exact over prefix over contains ranking; the case number is embedded in the title; provenance with source wenshu_db.judgments and stable_id doc_id."
+    }
+   }
+  },
+  "provenance": {
+   "source": "finddata-supply-annotations",
+   "updatedAt": "2026-11-02"
+  }
+ }
+}

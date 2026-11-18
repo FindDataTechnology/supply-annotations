@@ -1,0 +1,32 @@
+{
+  "skill": "case-lifecycle-planning",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "案件全周期规划",
+        "summary": "规划案件准备时间线，生成案件诉讼路线图与关键时间一览表，安排准备节奏与开庭节点；不负责案件分配，也不处理一般性编程任务。"
+      },
+      "en": {
+        "name": "Case lifecycle planning",
+        "summary": "Plans the case preparation timeline, builds the litigation roadmap and key-date table, and sets preparation cadence and hearing scheduling; excludes case assignment and generic programming."
+      },
+      "ja": {
+        "name": "案件ライフサイクル計画",
+        "summary": "案件準備のタイムラインを計画し、訴訟ロードマップと主要期日一覧を作成し、準備のリズムや開廷日を配する。案件割当や一般プログラミング課題は対象外。"
+      },
+      "es": {
+        "name": "Planificación del ciclo de vida del caso",
+        "summary": "Planifica el calendario de preparación, genera la hoja de ruta litigiosa y la tabla de fechas clave, y ordena el ritmo y las vistas; sin asignación de casos ni tareas de programación."
+      },
+      "fr": {
+        "name": "Planification du cycle de vie du dossier",
+        "summary": "Planifie le calendrier de préparation, produit la feuille de route contentieuse et les dates clés, ordonnance le rythme et les audiences ; hors affectation de dossiers ni programmation."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

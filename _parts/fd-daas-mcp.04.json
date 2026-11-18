@@ -1,0 +1,625 @@
+{
+ "tools": {
+  "daas_link_entity_datasource": {
+   "human": {
+    "zh": {
+     "name": "关联实体数据源",
+     "summary": "把实体关联到指定数据源，并记录在该数据源内使用的标识；按实体与数据源名组合插入或更新。"
+    },
+    "en": {
+     "name": "Link entity to source",
+     "summary": "Links an entity to a datasource and records the identifier to use inside it; inserts or updates by entity and source name."
+    },
+    "ja": {
+     "name": "実体とデータソースを関連付け",
+     "summary": "エンティティをデータソースに関連付け、そのデータソース内で使う識別子を記録します。エンティティとデータソース名の組で追加または更新します。"
+    },
+    "es": {
+     "name": "Vincular entidad y fuente",
+     "summary": "Vincula una entidad a una fuente de datos y registra el identificador que se usa en ella; inserta o actualiza por entidad y nombre de fuente."
+    },
+    "fr": {
+     "name": "Lier entité et source",
+     "summary": "Lie une entité à une source de données et enregistre l'identifiant à y utiliser ; insère ou met à jour par entité et nom de source."
+    }
+   },
+   "canonical": {
+    "brief": "Stores an entity-to-datasource link with the per-source identifier, upserting on (entity_id, source_name)."
+   }
+  },
+  "daas_unlink_entity_datasource": {
+   "human": {
+    "zh": {
+     "name": "解除实体关联",
+     "summary": "删除实体与数据源之间的关联记录。"
+    },
+    "en": {
+     "name": "Unlink entity source",
+     "summary": "Deletes the stored link between an entity and a datasource."
+    },
+    "ja": {
+     "name": "実体とデータソースの関連を解除",
+     "summary": "エンティティとデータソースの間の関連レコードを削除します。"
+    },
+    "es": {
+     "name": "Desvincular entidad y fuente",
+     "summary": "Elimina el registro de vínculo entre una entidad y una fuente de datos."
+    },
+    "fr": {
+     "name": "Délier entité et source",
+     "summary": "Supprime l'enregistrement de lien entre une entité et une source de données."
+    }
+   },
+   "canonical": {
+    "brief": "Removes the link row between an entity and a datasource."
+   }
+  },
+  "daas_create_entity_collection": {
+   "human": {
+    "zh": {
+     "name": "新建实体集合",
+     "summary": "创建一个具名实体集合，可用作自选或组合。"
+    },
+    "en": {
+     "name": "Create entity collection",
+     "summary": "Creates a named entity collection that can serve as a watchlist or portfolio."
+    },
+    "ja": {
+     "name": "実体コレクションを作成",
+     "summary": "自選やポートフォリオとして使える名前付きエンティティコレクションを作成します。"
+    },
+    "es": {
+     "name": "Crear colección de entidades",
+     "summary": "Crea una colección de entidades con nombre, utilizable como lista de seguimiento o cartera."
+    },
+    "fr": {
+     "name": "Créer une collection d'entités",
+     "summary": "Crée une collection d'entités nommée, utilisable comme liste de suivi ou portefeuille."
+    }
+   },
+   "canonical": {
+    "brief": "Creates a named entity collection for watchlist or portfolio use."
+   }
+  },
+  "daas_list_entity_collections": {
+   "human": {
+    "zh": {
+     "name": "列出实体集合",
+     "summary": "返回全部实体集合，并带每个集合的条目数。"
+    },
+    "en": {
+     "name": "List entity collections",
+     "summary": "Lists every entity collection together with its item count."
+    },
+    "ja": {
+     "name": "実体コレクション一覧",
+     "summary": "すべてのエンティティコレクションを、各件数とともに一覧します。"
+    },
+    "es": {
+     "name": "Listar colecciones de entidades",
+     "summary": "Enumera todas las colecciones de entidades con su número de elementos."
+    },
+    "fr": {
+     "name": "Lister les collections d'entités",
+     "summary": "Énumère toutes les collections d'entités avec leur nombre d'éléments."
+    }
+   },
+   "canonical": {
+    "brief": "Lists all entity collections with per-collection item counts."
+   }
+  },
+  "daas_get_entity_collection": {
+   "human": {
+    "zh": {
+     "name": "读取实体集合",
+     "summary": "返回单个集合及其当前成员实体，按集合内顺序排列。"
+    },
+    "en": {
+     "name": "Get entity collection",
+     "summary": "Returns one collection with its current member entities in collection order."
+    },
+    "ja": {
+     "name": "実体コレクションを取得",
+     "summary": "一つのコレクションと現在のメンバー実体を、コレクション内の順序で返します。"
+    },
+    "es": {
+     "name": "Obtener colección de entidades",
+     "summary": "Devuelve una colección con sus entidades miembro actuales en el orden de la colección."
+    },
+    "fr": {
+     "name": "Obtenir une collection d'entités",
+     "summary": "Renvoie une collection avec ses entités membres actuelles dans l'ordre de la collection."
+    }
+   },
+   "canonical": {
+    "brief": "Returns one entity collection with its ordered member entities."
+   }
+  },
+  "daas_update_entity_collection": {
+   "human": {
+    "zh": {
+     "name": "更新实体集合",
+     "summary": "局部更新集合的名称、描述或规则，至少提供一项；清空规则即转为手动集合。"
+    },
+    "en": {
+     "name": "Update entity collection",
+     "summary": "Partially updates the name, description or rule of a collection; at least one field is required, and clearing the rule makes it manual."
+    },
+    "ja": {
+     "name": "実体コレクションを更新",
+     "summary": "コレクションの名前・説明・ルールを部分的に更新します。少なくとも一項目が必要で、ルールを空にすると手動コレクションになります。"
+    },
+    "es": {
+     "name": "Actualizar colección de entidades",
+     "summary": "Actualiza de forma parcial el nombre, la descripción o la regla; se requiere al menos un campo y vaciar la regla la vuelve manual."
+    },
+    "fr": {
+     "name": "Mettre à jour une collection d'entités",
+     "summary": "Met à jour partiellement le nom, la description ou la règle ; au moins un champ est requis et vider la règle la rend manuelle."
+    }
+   },
+   "canonical": {
+    "brief": "Partial update of an entity collection's name, description or rule; clear_rule resets it to a manual collection."
+   }
+  },
+  "daas_delete_entity_collection": {
+   "human": {
+    "zh": {
+     "name": "删除实体集合",
+     "summary": "删除集合，并级联删除其条目与变更记录。"
+    },
+    "en": {
+     "name": "Delete entity collection",
+     "summary": "Deletes a collection and cascades to its items and change records."
+    },
+    "ja": {
+     "name": "実体コレクションを削除",
+     "summary": "コレクションを削除し、その項目と変更履歴も連鎖的に削除します。"
+    },
+    "es": {
+     "name": "Eliminar colección de entidades",
+     "summary": "Elimina una colección y, en cascada, sus elementos y registros de cambios."
+    },
+    "fr": {
+     "name": "Supprimer une collection d'entités",
+     "summary": "Supprime une collection et, en cascade, ses éléments et son historique de modifications."
+    }
+   },
+   "canonical": {
+    "brief": "Deletes a collection and cascades to its items and change log rows."
+   }
+  },
+  "daas_add_entity_to_collection": {
+   "human": {
+    "zh": {
+     "name": "加入集合成员",
+     "summary": "把实体加入集合，可按实体编号或类型加代码定位；已是成员时不做改动。"
+    },
+    "en": {
+     "name": "Add entity to collection",
+     "summary": "Adds an entity to a collection, resolved by entity id or by type plus code; members already present are left unchanged."
+    },
+    "ja": {
+     "name": "実体をコレクションに追加",
+     "summary": "実体をコレクションに追加します。実体 ID か種別とコードで特定し、既にメンバーの場合は何も変更しません。"
+    },
+    "es": {
+     "name": "Añadir entidad a colección",
+     "summary": "Añade una entidad a una colección, identificada por su id o por tipo y código; si ya es miembro, no cambia nada."
+    },
+    "fr": {
+     "name": "Ajouter une entité à une collection",
+     "summary": "Ajoute une entité à une collection, identifiée par son id ou par type et code ; si elle est déjà membre, rien n'est modifié."
+    }
+   },
+   "canonical": {
+    "brief": "Adds an entity to a collection by id or (type, code) and logs an add_in event; no-op if already a member."
+   }
+  },
+  "daas_remove_entity_from_collection": {
+   "human": {
+    "zh": {
+     "name": "移除集合成员",
+     "summary": "从集合移除实体并写入移除事件；实体不是成员时不做改动。"
+    },
+    "en": {
+     "name": "Remove entity from collection",
+     "summary": "Removes an entity from a collection and records a remove event; non-members are left unchanged."
+    },
+    "ja": {
+     "name": "実体をコレクションから削除",
+     "summary": "実体をコレクションから外し、削除イベントを記録します。メンバーでない場合は何も変更しません。"
+    },
+    "es": {
+     "name": "Quitar entidad de colección",
+     "summary": "Quita una entidad de una colección y registra el evento de salida; si no es miembro, no cambia nada."
+    },
+    "fr": {
+     "name": "Retirer une entité d'une collection",
+     "summary": "Retire une entité d'une collection et enregistre l'événement de sortie ; si elle n'est pas membre, rien n'est modifié."
+    }
+   },
+   "canonical": {
+    "brief": "Removes an entity from a collection and logs a remove_out event; no-op for non-members."
+   }
+  },
+  "daas_list_entity_collection_items": {
+   "human": {
+    "zh": {
+     "name": "列出集合成员",
+     "summary": "按排序返回集合成员，每条附带实体代码、名称、代码符号与交易所等详情。"
+    },
+    "en": {
+     "name": "List collection members",
+     "summary": "Lists collection members by sort order, each enriched with entity code, name, ticker and exchange detail."
+    },
+    "ja": {
+     "name": "コレクションのメンバー一覧",
+     "summary": "コレクションのメンバーを並び順で返し、各件に実体のコード・名称・ティッカー・取引所などの詳細を付けます。"
+    },
+    "es": {
+     "name": "Listar miembros de la colección",
+     "summary": "Enumera los miembros por orden de clasificación, cada uno con código, nombre, símbolo y mercado de la entidad."
+    },
+    "fr": {
+     "name": "Lister les membres de la collection",
+     "summary": "Énumère les membres selon l'ordre de tri, chacun enrichi du code, du nom, du symbole et de la place de l'entité."
+    }
+   },
+   "canonical": {
+    "brief": "Lists collection members in sort order, each enriched with full entity detail."
+   }
+  },
+  "daas_reorder_entity_collection_items": {
+   "human": {
+    "zh": {
+     "name": "重排集合成员",
+     "summary": "按传入的条目编号顺序重写排序值，必须恰好包含当前全部条目编号。"
+    },
+    "en": {
+     "name": "Reorder collection members",
+     "summary": "Rewrites member sort order to match the given item id order, which must contain exactly the current item ids."
+    },
+    "ja": {
+     "name": "コレクションの並び替え",
+     "summary": "渡された項目 ID の順に並び順を書き換えます。現在の全項目 ID を過不足なく含める必要があります。"
+    },
+    "es": {
+     "name": "Reordenar miembros",
+     "summary": "Reescribe el orden según la lista de ids indicada, que debe contener exactamente los ids actuales."
+    },
+    "fr": {
+     "name": "Réordonner les membres",
+     "summary": "Réécrit l'ordre selon la liste d'ids fournie, qui doit contenir exactement les ids actuels."
+    }
+   },
+   "canonical": {
+    "brief": "Rewrites member sort_order to the given item id order; the list must match the current item ids exactly."
+   }
+  },
+  "daas_list_entity_collection_changes": {
+   "human": {
+    "zh": {
+     "name": "查询集合变更",
+     "summary": "按时间倒序查询集合的加入与移除审计记录，附带集合名与实体代码、名称。"
+    },
+    "en": {
+     "name": "List collection changes",
+     "summary": "Queries the add and remove audit log newest first, enriched with collection name and entity code and name."
+    },
+    "ja": {
+     "name": "コレクション変更履歴",
+     "summary": "追加・削除の監査ログを新しい順に取得し、コレクション名と実体のコード・名称を付けます。"
+    },
+    "es": {
+     "name": "Consultar cambios de colección",
+     "summary": "Consulta el registro de auditoría de altas y bajas del más reciente al más antiguo, con el nombre de la colección y el código y nombre de la entidad."
+    },
+    "fr": {
+     "name": "Consulter l'historique de collection",
+     "summary": "Interroge le journal d'audit des ajouts et retraits, du plus récent au plus ancien, avec le nom de la collection et le code et nom de l'entité."
+    }
+   },
+   "canonical": {
+    "brief": "Queries the entity collection add/remove audit log, newest first, enriched with collection and entity labels."
+   }
+  },
+  "daas_sync_entity_collection": {
+   "human": {
+    "zh": {
+     "name": "同步实体集合",
+     "summary": "按规则重新推导集合成员并与现状比对，写入新增与移除记录，返回新增、移除、未变计数。"
+    },
+    "en": {
+     "name": "Sync entity collection",
+     "summary": "Re-derives members for a rule-based collection, diffs against current ones and writes add and remove events, returning added, removed and unchanged counts."
+    },
+    "ja": {
+     "name": "実体コレクションを同期",
+     "summary": "ルールベースのコレクションでメンバーを再計算し、現状と比較して追加・削除を記録し、追加・削除・不変の件数を返します。"
+    },
+    "es": {
+     "name": "Sincronizar colección de entidades",
+     "summary": "Recalcula los miembros de una colección con regla, los compara con los actuales y registra altas y bajas, devolviendo añadidos, quitados y sin cambios."
+    },
+    "fr": {
+     "name": "Synchroniser une collection d'entités",
+     "summary": "Recalcule les membres d'une collection à règle, les compare aux membres actuels et journalise ajouts et retraits, en renvoyant ajoutés, retirés et inchangés."
+    }
+   },
+   "canonical": {
+    "brief": "Re-derives rule-based entity collection members, applies add_in/remove_out with cron source, returns {added, removed, unchanged}."
+   }
+  },
+  "daas_create_indicator_collection": {
+   "human": {
+    "zh": {
+     "name": "新建指标集合",
+     "summary": "创建一个具名指标集合，作为可复用的指标组合。"
+    },
+    "en": {
+     "name": "Create indicator collection",
+     "summary": "Creates a named indicator collection as a reusable bundle of indicators."
+    },
+    "ja": {
+     "name": "指標コレクションを作成",
+     "summary": "再利用できる指標のまとまりとして、名前付き指標コレクションを作成します。"
+    },
+    "es": {
+     "name": "Crear colección de indicadores",
+     "summary": "Crea una colección de indicadores con nombre como conjunto reutilizable."
+    },
+    "fr": {
+     "name": "Créer une collection d'indicateurs",
+     "summary": "Crée une collection d'indicateurs nommée comme ensemble réutilisable."
+    }
+   },
+   "canonical": {
+    "brief": "Creates a named indicator collection, a reusable bundle of indicators."
+   }
+  },
+  "daas_list_indicator_collections": {
+   "human": {
+    "zh": {
+     "name": "列出指标集合",
+     "summary": "返回全部指标集合及各自的条目数。"
+    },
+    "en": {
+     "name": "List indicator collections",
+     "summary": "Lists every indicator collection with its item count."
+    },
+    "ja": {
+     "name": "指標コレクション一覧",
+     "summary": "すべての指標コレクションを各件数とともに一覧します。"
+    },
+    "es": {
+     "name": "Listar colecciones de indicadores",
+     "summary": "Enumera todas las colecciones de indicadores con su número de elementos."
+    },
+    "fr": {
+     "name": "Lister les collections d'indicateurs",
+     "summary": "Énumère toutes les collections d'indicateurs avec leur nombre d'éléments."
+    }
+   },
+   "canonical": {
+    "brief": "Lists all indicator collections with per-collection item counts."
+   }
+  },
+  "daas_get_indicator_collection": {
+   "human": {
+    "zh": {
+     "name": "读取指标集合",
+     "summary": "返回单个集合及其条目，按顺序排列并含生效评分与条目、指标、数据源各级原始评分。"
+    },
+    "en": {
+     "name": "Get indicator collection",
+     "summary": "Returns one collection with its ordered items, each showing the effective score plus raw item, indicator and datasource scores."
+    },
+    "ja": {
+     "name": "指標コレクションを取得",
+     "summary": "一つのコレクションと項目を順序どおりに返し、有効スコアと項目・指標・データソース各段の生スコアを示します。"
+    },
+    "es": {
+     "name": "Obtener colección de indicadores",
+     "summary": "Devuelve una colección con sus elementos ordenados, con la puntuación efectiva y las puntuaciones brutas de elemento, indicador y fuente."
+    },
+    "fr": {
+     "name": "Obtenir une collection d'indicateurs",
+     "summary": "Renvoie une collection avec ses éléments ordonnés, avec le score effectif et les scores bruts de l'élément, de l'indicateur et de la source."
+    }
+   },
+   "canonical": {
+    "brief": "Returns one indicator collection with ordered items and resolved effective scores plus raw scoring layers."
+   }
+  },
+  "daas_update_indicator_collection": {
+   "human": {
+    "zh": {
+     "name": "更新指标集合",
+     "summary": "局部更新指标集合的名称、描述或规则，至少一项；清空规则即转为手动集合。"
+    },
+    "en": {
+     "name": "Update indicator collection",
+     "summary": "Partially updates an indicator collection's name, description or rule; at least one field is required and clearing the rule makes it manual."
+    },
+    "ja": {
+     "name": "指標コレクションを更新",
+     "summary": "指標コレクションの名前・説明・ルールを部分的に更新します。少なくとも一項目が必要で、ルールを空にすると手動になります。"
+    },
+    "es": {
+     "name": "Actualizar colección de indicadores",
+     "summary": "Actualiza de forma parcial el nombre, la descripción o la regla; se requiere al menos un campo y vaciar la regla la vuelve manual."
+    },
+    "fr": {
+     "name": "Mettre à jour une collection d'indicateurs",
+     "summary": "Met à jour partiellement le nom, la description ou la règle ; au moins un champ est requis et vider la règle la rend manuelle."
+    }
+   },
+   "canonical": {
+    "brief": "Partial update of an indicator collection's name, description or rule; clear_rule returns it to manual."
+   }
+  },
+  "daas_delete_indicator_collection": {
+   "human": {
+    "zh": {
+     "name": "删除指标集合",
+     "summary": "删除指标集合，并级联删除其条目与变更记录。"
+    },
+    "en": {
+     "name": "Delete indicator collection",
+     "summary": "Deletes an indicator collection and cascades to its items and change records."
+    },
+    "ja": {
+     "name": "指標コレクションを削除",
+     "summary": "指標コレクションを削除し、項目と変更履歴も連鎖的に削除します。"
+    },
+    "es": {
+     "name": "Eliminar colección de indicadores",
+     "summary": "Elimina una colección de indicadores y, en cascada, sus elementos y registros de cambios."
+    },
+    "fr": {
+     "name": "Supprimer une collection d'indicateurs",
+     "summary": "Supprime une collection d'indicateurs et, en cascade, ses éléments et son historique."
+    }
+   },
+   "canonical": {
+    "brief": "Deletes an indicator collection and cascades to its items and change log rows."
+   }
+  },
+  "daas_add_indicator_to_collection": {
+   "human": {
+    "zh": {
+     "name": "加入指标条目",
+     "summary": "按指标名称定位指标并加入集合。"
+    },
+    "en": {
+     "name": "Add indicator to collection",
+     "summary": "Adds an indicator to a collection, resolved by indicator name."
+    },
+    "ja": {
+     "name": "指標をコレクションに追加",
+     "summary": "指標名で指標を特定し、コレクションに追加します。"
+    },
+    "es": {
+     "name": "Añadir indicador a colección",
+     "summary": "Añade un indicador a una colección, identificado por su nombre."
+    },
+    "fr": {
+     "name": "Ajouter un indicateur à une collection",
+     "summary": "Ajoute un indicateur à une collection, identifié par son nom."
+    }
+   },
+   "canonical": {
+    "brief": "Adds an indicator to a collection, resolving the indicator by name."
+   }
+  },
+  "daas_remove_indicator_from_collection": {
+   "human": {
+    "zh": {
+     "name": "移除指标条目",
+     "summary": "从集合移除指标并写入审计记录；指标不在集合内时不做改动。"
+    },
+    "en": {
+     "name": "Remove indicator from collection",
+     "summary": "Removes an indicator from a collection and records the event in the audit log; if absent, nothing changes."
+    },
+    "ja": {
+     "name": "指標をコレクションから削除",
+     "summary": "指標をコレクションから外し、監査ログに記録します。含まれていない場合は何も変更しません。"
+    },
+    "es": {
+     "name": "Quitar indicador de colección",
+     "summary": "Quita un indicador de una colección y lo registra en el historial de auditoría; si no está, no cambia nada."
+    },
+    "fr": {
+     "name": "Retirer un indicateur d'une collection",
+     "summary": "Retire un indicateur d'une collection et l'inscrit dans le journal d'audit ; s'il est absent, rien n'est modifié."
+    }
+   },
+   "canonical": {
+    "brief": "Removes an indicator from a collection and logs the event; returns not_member if absent."
+   }
+  },
+  "daas_list_indicator_collection_items": {
+   "human": {
+    "zh": {
+     "name": "列出指标条目",
+     "summary": "按排序返回集合条目，每条含生效评分与条目、指标、数据源各级原始评分。"
+    },
+    "en": {
+     "name": "List indicator items",
+     "summary": "Lists collection items in sort order, each with the effective score and raw item, indicator and datasource scores."
+    },
+    "ja": {
+     "name": "指標項目の一覧",
+     "summary": "コレクションの項目を並び順で返し、各有効スコアと項目・指標・データソースの生スコアを含めます。"
+    },
+    "es": {
+     "name": "Listar elementos de indicadores",
+     "summary": "Enumera los elementos por orden de clasificación, con la puntuación efectiva y las puntuaciones brutas de elemento, indicador y fuente."
+    },
+    "fr": {
+     "name": "Lister les éléments d'indicateurs",
+     "summary": "Énumère les éléments selon l'ordre de tri, avec le score effectif et les scores bruts de l'élément, de l'indicateur et de la source."
+    }
+   },
+   "canonical": {
+    "brief": "Lists indicator collection items in sort order with resolved effective and raw scores."
+   }
+  },
+  "daas_reorder_indicator_collection_items": {
+   "human": {
+    "zh": {
+     "name": "重排指标条目",
+     "summary": "按传入的条目编号顺序重写排序值，必须恰好包含本集合当前全部条目编号，缺项会被拒绝。"
+    },
+    "en": {
+     "name": "Reorder indicator items",
+     "summary": "Rewrites item sort order to the given id order, which must contain exactly the collection's current ids; partial lists are rejected."
+    },
+    "ja": {
+     "name": "指標項目の並び替え",
+     "summary": "渡された項目 ID の順に並び順を書き換えます。当該コレクションの現在の全 ID を過不足なく含める必要があり、部分指定は拒否されます。"
+    },
+    "es": {
+     "name": "Reordenar elementos de indicadores",
+     "summary": "Reescribe el orden según los ids indicados, que deben ser exactamente los actuales de la colección; las listas parciales se rechazan."
+    },
+    "fr": {
+     "name": "Réordonner les éléments d'indicateurs",
+     "summary": "Réécrit l'ordre selon les ids fournis, qui doivent être exactement ceux de la collection ; les listes partielles sont refusées."
+    }
+   },
+   "canonical": {
+    "brief": "Rewrites item sort_order to the given id order, requiring exactly the collection's current item ids."
+   }
+  },
+  "daas_set_indicator_collection_item_score": {
+   "human": {
+    "zh": {
+     "name": "设置条目评分",
+     "summary": "按集合名与指标名设置或清除条目评分覆盖；清除后沿用指标默认评分，返回含生效评分的条目。"
+    },
+    "en": {
+     "name": "Set item score override",
+     "summary": "Sets or clears a per-collection score override by collection and indicator name; clearing falls back to the indicator default and the updated item with its effective score is returned."
+    },
+    "ja": {
+     "name": "項目スコアを設定",
+     "summary": "コレクション名と指標名で項目のスコア上書きを設定または解除します。解除時は指標の既定値を使い、有効スコア付きの更新後項目を返します。"
+    },
+    "es": {
+     "name": "Definir puntuación del elemento",
+     "summary": "Define o borra la puntuación anulada por colección según colección e indicador; al borrarla se usa el valor por defecto del indicador y se devuelve el elemento con la puntuación efectiva."
+    },
+    "fr": {
+     "name": "Définir le score d'un élément",
+     "summary": "Fixe ou efface la surcharge de score par collection selon la collection et l'indicateur ; l'effacement reprend la valeur par défaut et l'élément mis à jour avec son score effectif est renvoyé."
+    }
+   },
+   "canonical": {
+    "brief": "Sets or clears a per-collection item score override; null clears it so the indicator default applies, returns the resolved item."
+   }
+  }
+ }
+}

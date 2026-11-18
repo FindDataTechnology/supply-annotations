@@ -1,0 +1,32 @@
+{
+  "skill": "legal-document-summarization",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "法律文书摘要",
+        "summary": "对判决书、裁定书、调解书、仲裁裁决书、行政处罚决定书等法律文书生成结构化摘要，提炼案件信息、争议焦点、法律依据与说理过程，形成可对比、可检索的标准结果。"
+      },
+      "en": {
+        "name": "Legal document summarization",
+        "summary": "Produces structured summaries of judgments, rulings, awards and administrative decisions, extracting facts, issues, legal grounds and reasoning into comparable, searchable digests."
+      },
+      "ja": {
+        "name": "法律文書の要約",
+        "summary": "判決書・裁定書・調停書・仲裁裁決書・行政処罰決定書などを構造化要約し、事件情報・争点・法的根拠・論理展開を抽出して、比較・検索できる標準形にする。"
+      },
+      "es": {
+        "name": "Resumen de documentos jurídicos",
+        "summary": "Resume de forma estructurada sentencias, laudos y resoluciones administrativas: información del caso, controversia, fundamentos jurídicos y razonamiento, en fichas comparables y buscables."
+      },
+      "fr": {
+        "name": "Résumé des documents juridiques",
+        "summary": "Résume jugements, sentences arbitrales et décisions administratives : faits du dossier, litige, fondements juridiques et motivation, en fiches comparables et consultables."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

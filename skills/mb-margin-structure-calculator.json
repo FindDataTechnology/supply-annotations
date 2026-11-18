@@ -1,0 +1,32 @@
+{
+  "skill": "mb-margin-structure-calculator",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "毛利结构计算器",
+        "summary": "毛利结构计算器(谦面·个体户):固定与变动成本拆分、各项成本占流水比、毛利率与边际贡献率、成本结构诊断;每数字附公式、基数与来源,拆分结果供盈亏平衡计算器消费。"
+      },
+      "en": {
+        "name": "Margin structure calculator",
+        "summary": "Margin-structure calculator (Facet, sole traders): fixed/variable split, cost share of revenue, gross and contribution margins, structure diagnosis; sourced figures; feeds break-even calculator."
+      },
+      "ja": {
+        "name": "粗利構造計算ツール",
+        "summary": "Facet・個人事業向けの粗利構造計算:固定・変動コスト分解、各費用の売上比、粗利率と限界貢献率、コスト構造診断。数式・基数・出典付き、分解結果は損益分岐計算ツールが利用。"
+      },
+      "es": {
+        "name": "Calculadora de estructura de margen",
+        "summary": "Calculadora de margen (Facet, autónomos): desglose fijo/variable, peso sobre facturación, margen bruto y de contribución, diagnóstico; cifras con fuente; alimenta la de equilibrio."
+      },
+      "fr": {
+        "name": "Calculateur de structure de marge",
+        "summary": "Calculateur de marge (Facet, indépendants): partage fixes/variables, poids sur le CA, marges brute et sur coût variable, diagnostic; chiffres sourcés; alimente le calcul de seuil."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

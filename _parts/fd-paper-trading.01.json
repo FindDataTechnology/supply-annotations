@@ -1,0 +1,194 @@
+{
+  "tools": {
+    "cancel_order": {
+      "human": {
+        "zh": {"name": "取消订单", "summary": "取消指定的模拟交易订单，返回处理结果。"},
+        "en": {"name": "Cancel order", "summary": "Cancels a paper-trading order and returns the result."},
+        "ja": {"name": "注文の取消", "summary": "指定したペーパートレード注文を取り消し、結果を返します。"},
+        "es": {"name": "Cancelar orden", "summary": "Cancela una orden de trading simulado y devuelve el resultado."},
+        "fr": {"name": "Annuler un ordre", "summary": "Annule un ordre de trading fictif et renvoie le résultat."}
+      },
+      "canonical": {"brief": "Cancels a paper-trading order and returns the result."}
+    },
+    "create_account": {
+      "human": {
+        "zh": {"name": "新建账户", "summary": "新建模拟交易账户，返回账户信息。"},
+        "en": {"name": "Create account", "summary": "Creates a paper-trading account and returns the account details."},
+        "ja": {"name": "口座の作成", "summary": "ペーパートレード口座を作成し、口座情報を返します。"},
+        "es": {"name": "Crear cuenta", "summary": "Crea una cuenta de trading simulado y devuelve los datos de la cuenta."},
+        "fr": {"name": "Créer un compte", "summary": "Crée un compte de trading fictif et renvoie les informations du compte."}
+      },
+      "canonical": {"brief": "Creates a paper-trading account and returns the account details."}
+    },
+    "create_strategy": {
+      "human": {
+        "zh": {"name": "新建策略", "summary": "创建交易策略，返回策略记录。"},
+        "en": {"name": "Create strategy", "summary": "Creates a trading strategy and returns the strategy record."},
+        "ja": {"name": "戦略の作成", "summary": "取引戦略を作成し、戦略レコードを返します。"},
+        "es": {"name": "Crear estrategia", "summary": "Crea una estrategia de trading y devuelve el registro de la estrategia."},
+        "fr": {"name": "Créer une stratégie", "summary": "Crée une stratégie de trading et renvoie l'enregistrement de la stratégie."}
+      },
+      "canonical": {"brief": "Creates a trading strategy and returns the strategy record."}
+    },
+    "get_account": {
+      "human": {
+        "zh": {"name": "查询账户", "summary": "按标识读取单个模拟交易账户的信息。"},
+        "en": {"name": "Get account", "summary": "Reads one paper-trading account by identifier."},
+        "ja": {"name": "口座の取得", "summary": "識別子で単一のペーパートレード口座を読み取ります。"},
+        "es": {"name": "Obtener cuenta", "summary": "Lee una cuenta de trading simulado por su identificador."},
+        "fr": {"name": "Obtenir un compte", "summary": "Lit un compte de trading fictif par son identifiant."}
+      },
+      "canonical": {"brief": "Reads one paper-trading account by identifier."}
+    },
+    "get_bars": {
+      "human": {
+        "zh": {"name": "读取K线", "summary": "读取指定标的的行情 K 线数据。"},
+        "en": {"name": "Get bars", "summary": "Reads market bar data for the specified instrument."},
+        "ja": {"name": "足データの取得", "summary": "指定した銘柄の市場足データを読み取ります。"},
+        "es": {"name": "Obtener barras", "summary": "Lee los datos de barras de mercado del instrumento indicado."},
+        "fr": {"name": "Obtenir les barres", "summary": "Lit les données de barres de marché de l'instrument indiqué."}
+      },
+      "canonical": {"brief": "Reads market bar data for a specified instrument."}
+    },
+    "get_strategy": {
+      "human": {
+        "zh": {"name": "查询策略", "summary": "按标识读取单个策略。"},
+        "en": {"name": "Get strategy", "summary": "Reads a single strategy by identifier."},
+        "ja": {"name": "戦略の取得", "summary": "識別子で単一の戦略を読み取ります。"},
+        "es": {"name": "Obtener estrategia", "summary": "Lee una estrategia por su identificador."},
+        "fr": {"name": "Obtenir une stratégie", "summary": "Lit une stratégie par son identifiant."}
+      },
+      "canonical": {"brief": "Reads one strategy by identifier."}
+    },
+    "get_strategy_run": {
+      "human": {
+        "zh": {"name": "查询策略运行", "summary": "读取一次策略运行的记录。"},
+        "en": {"name": "Get strategy run", "summary": "Reads the record of one strategy run."},
+        "ja": {"name": "戦略実行の取得", "summary": "1 回の戦略実行の記録を読み取ります。"},
+        "es": {"name": "Obtener ejecución de estrategia", "summary": "Lee el registro de una ejecución de estrategia."},
+        "fr": {"name": "Obtenir une exécution de stratégie", "summary": "Lit l'enregistrement d'une exécution de stratégie."}
+      },
+      "canonical": {"brief": "Reads the record of one strategy run."}
+    },
+    "list_accounts": {
+      "human": {
+        "zh": {"name": "列出账户", "summary": "列出模拟交易账户。"},
+        "en": {"name": "List accounts", "summary": "Lists paper-trading accounts."},
+        "ja": {"name": "口座の一覧", "summary": "ペーパートレード口座を一覧します。"},
+        "es": {"name": "Listar cuentas", "summary": "Enumera las cuentas de trading simulado."},
+        "fr": {"name": "Lister les comptes", "summary": "Énumère les comptes de trading fictif."}
+      },
+      "canonical": {"brief": "Lists paper-trading accounts."}
+    },
+    "list_orders": {
+      "human": {
+        "zh": {"name": "列出订单", "summary": "列出模拟交易订单。"},
+        "en": {"name": "List orders", "summary": "Lists paper-trading orders."},
+        "ja": {"name": "注文の一覧", "summary": "ペーパートレード注文を一覧します。"},
+        "es": {"name": "Listar órdenes", "summary": "Enumera las órdenes de trading simulado."},
+        "fr": {"name": "Lister les ordres", "summary": "Énumère les ordres de trading fictif."}
+      },
+      "canonical": {"brief": "Lists paper-trading orders."}
+    },
+    "list_positions": {
+      "human": {
+        "zh": {"name": "列出持仓", "summary": "列出账户的持仓。"},
+        "en": {"name": "List positions", "summary": "Lists account positions."},
+        "ja": {"name": "ポジションの一覧", "summary": "口座のポジションを一覧します。"},
+        "es": {"name": "Listar posiciones", "summary": "Enumera las posiciones de las cuentas."},
+        "fr": {"name": "Lister les positions", "summary": "Énumère les positions des comptes."}
+      },
+      "canonical": {"brief": "Lists account positions."}
+    },
+    "list_strategies": {
+      "human": {
+        "zh": {"name": "列出策略", "summary": "列出已创建的策略。"},
+        "en": {"name": "List strategies", "summary": "Lists the created strategies."},
+        "ja": {"name": "戦略の一覧", "summary": "作成済みの戦略を一覧します。"},
+        "es": {"name": "Listar estrategias", "summary": "Enumera las estrategias creadas."},
+        "fr": {"name": "Lister les stratégies", "summary": "Énumère les stratégies créées."}
+      },
+      "canonical": {"brief": "Lists created strategies."}
+    },
+    "list_strategy_runs": {
+      "human": {
+        "zh": {"name": "列出运行记录", "summary": "列出策略的运行记录。"},
+        "en": {"name": "List strategy runs", "summary": "Lists strategy run records."},
+        "ja": {"name": "実行記録の一覧", "summary": "戦略の実行記録を一覧します。"},
+        "es": {"name": "Listar ejecuciones", "summary": "Enumera los registros de ejecución de estrategias."},
+        "fr": {"name": "Lister les exécutions", "summary": "Énumère les enregistrements d'exécution des stratégies."}
+      },
+      "canonical": {"brief": "Lists strategy run records."}
+    },
+    "list_strategy_templates": {
+      "human": {
+        "zh": {"name": "列出策略模板", "summary": "列出可用的策略模板。"},
+        "en": {"name": "List strategy templates", "summary": "Lists the available strategy templates."},
+        "ja": {"name": "戦略テンプレートの一覧", "summary": "利用できる戦略テンプレートを一覧します。"},
+        "es": {"name": "Listar plantillas de estrategia", "summary": "Enumera las plantillas de estrategia disponibles."},
+        "fr": {"name": "Lister les modèles de stratégie", "summary": "Énumère les modèles de stratégie disponibles."}
+      },
+      "canonical": {"brief": "Lists available strategy templates."}
+    },
+    "place_order": {
+      "human": {
+        "zh": {"name": "提交订单", "summary": "提交一笔模拟交易订单，返回下单结果。"},
+        "en": {"name": "Place order", "summary": "Submits a paper-trading order and returns the order result."},
+        "ja": {"name": "注文の発注", "summary": "ペーパートレード注文を発注し、注文結果を返します。"},
+        "es": {"name": "Enviar orden", "summary": "Envía una orden de trading simulado y devuelve el resultado."},
+        "fr": {"name": "Passer un ordre", "summary": "Soumet un ordre de trading fictif et renvoie le résultat."}
+      },
+      "canonical": {"brief": "Submits a paper-trading order and returns the order result."}
+    },
+    "run_backtest": {
+      "human": {
+        "zh": {"name": "运行回测", "summary": "对策略运行回测，返回回测记录。"},
+        "en": {"name": "Run backtest", "summary": "Runs a backtest for a strategy and returns the backtest record."},
+        "ja": {"name": "バックテストの実行", "summary": "戦略のバックテストを実行し、バックテスト記録を返します。"},
+        "es": {"name": "Ejecutar retroprueba", "summary": "Ejecuta una retroprueba de una estrategia y devuelve el registro."},
+        "fr": {"name": "Lancer un backtest", "summary": "Lance un backtest pour une stratégie et renvoie l'enregistrement."}
+      },
+      "canonical": {"brief": "Runs a backtest for a strategy and returns the backtest record."}
+    },
+    "search_instruments": {
+      "human": {
+        "zh": {"name": "检索标的", "summary": "按关键词检索可交易的标的。"},
+        "en": {"name": "Search instruments", "summary": "Searches tradable instruments by keyword."},
+        "ja": {"name": "銘柄の検索", "summary": "キーワードで取引可能な銘柄を検索します。"},
+        "es": {"name": "Buscar instrumentos", "summary": "Busca instrumentos negociables por palabra clave."},
+        "fr": {"name": "Rechercher des instruments", "summary": "Recherche des instruments négociables par mot-clé."}
+      },
+      "canonical": {"brief": "Searches tradable instruments by keyword."}
+    },
+    "start_strategy": {
+      "human": {
+        "zh": {"name": "启动策略", "summary": "启动一个策略的运行。"},
+        "en": {"name": "Start strategy", "summary": "Starts the run of a strategy."},
+        "ja": {"name": "戦略の開始", "summary": "戦略の実行を開始します。"},
+        "es": {"name": "Iniciar estrategia", "summary": "Inicia la ejecución de una estrategia."},
+        "fr": {"name": "Démarrer une stratégie", "summary": "Démarre l'exécution d'une stratégie."}
+      },
+      "canonical": {"brief": "Starts a strategy run."}
+    },
+    "stop_strategy": {
+      "human": {
+        "zh": {"name": "停止策略", "summary": "停止一个策略的运行。"},
+        "en": {"name": "Stop strategy", "summary": "Stops the run of a strategy."},
+        "ja": {"name": "戦略の停止", "summary": "戦略の実行を停止します。"},
+        "es": {"name": "Detener estrategia", "summary": "Detiene la ejecución de una estrategia."},
+        "fr": {"name": "Arrêter une stratégie", "summary": "Arrête l'exécution d'une stratégie."}
+      },
+      "canonical": {"brief": "Stops a strategy run."}
+    },
+    "update_strategy": {
+      "human": {
+        "zh": {"name": "更新策略", "summary": "更新策略的定义或参数，返回更新后的策略。"},
+        "en": {"name": "Update strategy", "summary": "Updates a strategy's definition or parameters and returns the updated strategy."},
+        "ja": {"name": "戦略の更新", "summary": "戦略の定義またはパラメータを更新し、更新後の戦略を返します。"},
+        "es": {"name": "Actualizar estrategia", "summary": "Actualiza la definición o los parámetros de una estrategia y devuelve la estrategia actualizada."},
+        "fr": {"name": "Mettre à jour une stratégie", "summary": "Met à jour la définition ou les paramètres d'une stratégie et renvoie la stratégie mise à jour."}
+      },
+      "canonical": {"brief": "Updates a strategy's definition or parameters; returns the updated strategy."}
+    }
+  }
+}

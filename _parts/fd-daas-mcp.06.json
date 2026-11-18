@@ -1,0 +1,625 @@
+{
+ "tools": {
+  "daas_extract_image": {
+   "human": {
+    "zh": {
+     "name": "识别图像记录",
+     "summary": "用具备视觉能力的模型从图像抽取结构化记录；image 可为本地路径、http(s) 链接或 base64。"
+    },
+    "en": {
+     "name": "Extract image records",
+     "summary": "Extract structured records from an image with a vision-capable model; image accepts a local path, an http(s) URL, or raw base64."
+    },
+    "ja": {
+     "name": "画像レコード抽出",
+     "summary": "視覚対応モデルで画像から構造化レコードを抽出します。image にはローカルパス、http(s) URL、base64 を指定できます。"
+    },
+    "es": {
+     "name": "Extraer de imagen",
+     "summary": "Extrae registros estructurados de una imagen con un modelo de visión; image admite ruta local, URL http(s) o base64."
+    },
+    "fr": {
+     "name": "Extraire d'une image",
+     "summary": "Extrait des enregistrements structurés d'une image via un modèle de vision ; image accepte un chemin local, une URL http(s) ou du base64."
+    }
+   },
+   "canonical": {
+    "brief": "Vision-model extraction of structured records from an image given as a local path, http(s) URL, or raw base64."
+   }
+  },
+  "daas_extract_file": {
+   "human": {
+    "zh": {
+     "name": "抽取文件记录",
+     "summary": "读取本地 .txt、.md 或 .pdf 文件并从中抽取结构化记录。"
+    },
+    "en": {
+     "name": "Extract file records",
+     "summary": "Read a local .txt, .md, or .pdf file and extract structured records from it."
+    },
+    "ja": {
+     "name": "ファイルレコード抽出",
+     "summary": "ローカルの .txt・.md・.pdf を読み、構造化レコードを抽出します。"
+    },
+    "es": {
+     "name": "Extraer de archivo",
+     "summary": "Lee un archivo local .txt, .md o .pdf y extrae registros estructurados."
+    },
+    "fr": {
+     "name": "Extraire d'un fichier",
+     "summary": "Lit un fichier local .txt, .md ou .pdf et en extrait des enregistrements structurés."
+    }
+   },
+   "canonical": {
+    "brief": "Reads a local .txt/.md/.pdf file and extracts structured records from its content."
+   }
+  },
+  "daas_list_indicator_ops": {
+   "human": {
+    "zh": {
+     "name": "列出算子目录",
+     "summary": "返回固定的数学算子目录，并给出每个算子所需的参数。"
+    },
+    "en": {
+     "name": "List operator catalog",
+     "summary": "Return the fixed math-operator catalog together with the parameters each operator requires."
+    },
+    "ja": {
+     "name": "演算子一覧",
+     "summary": "固定の数学演算子カタログを、各演算子に必要なパラメータとともに返します。"
+    },
+    "es": {
+     "name": "Listar operadores",
+     "summary": "Devuelve el catálogo fijo de operadores matemáticos con los parámetros que exige cada uno."
+    },
+    "fr": {
+     "name": "Lister les opérateurs",
+     "summary": "Renvoie le catalogue fixe d'opérateurs mathématiques avec les paramètres requis pour chacun."
+    }
+   },
+   "canonical": {
+    "brief": "Returns the fixed math-operator catalog and the required parameters for each operator."
+   }
+  },
+  "daas_create_indicator": {
+   "human": {
+    "zh": {
+     "name": "新建指标规则",
+     "summary": "创建绑定到某个数据源及其源表的指标规则。"
+    },
+    "en": {
+     "name": "Create indicator rule",
+     "summary": "Create an indicator rule bound to a datasource and its source table."
+    },
+    "ja": {
+     "name": "指標ルール作成",
+     "summary": "データソースとそのソーステーブルに紐づく指標ルールを作成します。"
+    },
+    "es": {
+     "name": "Crear regla de indicador",
+     "summary": "Crea una regla de indicador vinculada a una fuente de datos y a su tabla origen."
+    },
+    "fr": {
+     "name": "Créer une règle d'indicateur",
+     "summary": "Crée une règle d'indicateur liée à une source de données et à sa table d'origine."
+    }
+   },
+   "canonical": {
+    "brief": "Creates an indicator rule bound to one datasource and source table."
+   }
+  },
+  "daas_list_indicators": {
+   "human": {
+    "zh": {
+     "name": "列出指标规则",
+     "summary": "返回全部指标规则，每条含 score 与 effective_default_score。"
+    },
+    "en": {
+     "name": "List indicator rules",
+     "summary": "Return every indicator rule, each with its score and effective_default_score."
+    },
+    "ja": {
+     "name": "指標ルール一覧",
+     "summary": "すべての指標ルールを返します。各項目に score と effective_default_score を含みます。"
+    },
+    "es": {
+     "name": "Listar reglas de indicador",
+     "summary": "Devuelve todas las reglas de indicador, cada una con score y effective_default_score."
+    },
+    "fr": {
+     "name": "Lister les règles d'indicateur",
+     "summary": "Renvoie toutes les règles d'indicateur, chacune avec score et effective_default_score."
+    }
+   },
+   "canonical": {
+    "brief": "Returns all indicator rules, each including its score and effective_default_score."
+   }
+  },
+  "daas_get_indicator": {
+   "human": {
+    "zh": {
+     "name": "读取指标规则",
+     "summary": "按名称返回一条指标规则，含 score 与 effective_default_score。"
+    },
+    "en": {
+     "name": "Get indicator rule",
+     "summary": "Return one indicator rule by name, with its score and effective_default_score."
+    },
+    "ja": {
+     "name": "指標ルール取得",
+     "summary": "名前で指標ルールを一件返します。score と effective_default_score を含みます。"
+    },
+    "es": {
+     "name": "Obtener regla de indicador",
+     "summary": "Devuelve una regla de indicador por nombre, con score y effective_default_score."
+    },
+    "fr": {
+     "name": "Lire une règle d'indicateur",
+     "summary": "Renvoie une règle d'indicateur par nom, avec score et effective_default_score."
+    }
+   },
+   "canonical": {
+    "brief": "Fetches a single indicator rule by name, including score and effective_default_score."
+   }
+  },
+  "daas_update_indicator": {
+   "human": {
+    "zh": {
+     "name": "修改指标规则",
+     "summary": "只改传入的字段；不可改名，params 会整体替换算子参数，clear_score 清空分数以继承数据源。"
+    },
+    "en": {
+     "name": "Update indicator rule",
+     "summary": "Patch only the supplied fields; the name cannot change, params replaces the operator params, and clear_score resets to the datasource score."
+    },
+    "ja": {
+     "name": "指標ルール更新",
+     "summary": "指定した項目だけを更新します。名前は変更不可、params は演算子パラメータを置換し、clear_score でデータソースの score を継承します。"
+    },
+    "es": {
+     "name": "Actualizar regla de indicador",
+     "summary": "Modifica solo los campos indicados; el nombre no cambia, params sustituye los parámetros del operador y clear_score hereda el score de la fuente."
+    },
+    "fr": {
+     "name": "Modifier une règle d'indicateur",
+     "summary": "Ne modifie que les champs fournis ; le nom est immuable, params remplace les paramètres de l'opérateur et clear_score hérite du score de la source."
+    }
+   },
+   "canonical": {
+    "brief": "Partial update of an indicator rule: only supplied fields change, the name is immutable, params replaces op params, clear_score reverts to the datasource score."
+   }
+  },
+  "daas_set_indicator_score": {
+   "human": {
+    "zh": {
+     "name": "设置指标分数",
+     "summary": "设置指标的默认 score（浮点数）；传 None 则清空并继承数据源的 sources.score，返回含 effective_default_score 的指标。"
+    },
+    "en": {
+     "name": "Set indicator score",
+     "summary": "Set the indicator's default score as a float, or pass None to clear it and inherit the datasource sources.score; returns the indicator with effective_default_score."
+    },
+    "ja": {
+     "name": "指標スコア設定",
+     "summary": "指標の既定 score を浮動小数で設定します。None を渡すとクリアしてデータソースの sources.score を継承し、更新後の指標を返します。"
+    },
+    "es": {
+     "name": "Fijar score del indicador",
+     "summary": "Fija el score por defecto del indicador, o pasa None para borrarlo y heredar sources.score de la fuente; devuelve el indicador actualizado."
+    },
+    "fr": {
+     "name": "Définir le score d'un indicateur",
+     "summary": "Définit le score par défaut de l'indicateur, ou None pour l'effacer et hériter de sources.score ; renvoie l'indicateur mis à jour."
+    }
+   },
+   "canonical": {
+    "brief": "Sets or clears an indicator's default score; clearing makes it inherit the datasource sources.score. Returns the updated indicator."
+   }
+  },
+  "daas_delete_indicator": {
+   "human": {
+    "zh": {
+     "name": "删除指标规则",
+     "summary": "删除指标规则；它产生的 observations 不随之删除，仍可通过 metadata.rule_name 识别。"
+    },
+    "en": {
+     "name": "Delete indicator rule",
+     "summary": "Delete an indicator rule; observation rows it produced are kept and stay identifiable through metadata.rule_name."
+    },
+    "ja": {
+     "name": "指標ルール削除",
+     "summary": "指標ルールを削除します。生成済みの observations は残り、metadata.rule_name で識別できます。"
+    },
+    "es": {
+     "name": "Borrar regla de indicador",
+     "summary": "Elimina una regla de indicador; las observaciones generadas se conservan y siguen identificables por metadata.rule_name."
+    },
+    "fr": {
+     "name": "Supprimer une règle d'indicateur",
+     "summary": "Supprime une règle d'indicateur ; les observations produites sont conservées et restent identifiables via metadata.rule_name."
+    }
+   },
+   "canonical": {
+    "brief": "Deletes an indicator rule but leaves its observation rows in place as soft references, still identifiable by metadata.rule_name."
+   }
+  },
+  "daas_run_indicator": {
+   "human": {
+    "zh": {
+     "name": "重算指标数据",
+     "summary": "读取整张源表算出指标，并按数据源、函数名、指标名与日期幂等写入 observations。"
+    },
+    "en": {
+     "name": "Recompute indicator",
+     "summary": "Read the whole source table, compute the indicator, and idempotently upsert each date and value into observations."
+    },
+    "ja": {
+     "name": "指標を再計算",
+     "summary": "ソーステーブル全体を読み、指標を計算して、日付と値の組を observations に冪等に upsert します。"
+    },
+    "es": {
+     "name": "Recalcular indicador",
+     "summary": "Lee la tabla origen completa, calcula el indicador y hace upsert idempotente de cada fecha y valor en observations."
+    },
+    "fr": {
+     "name": "Recalculer un indicateur",
+     "summary": "Lit toute la table source, calcule l'indicateur et insère de façon idempotente chaque date et valeur dans observations."
+    }
+   },
+   "canonical": {
+    "brief": "Full recompute of an indicator over its source table, upserting every date/value into observations; idempotent on re-run."
+   }
+  },
+  "daas_calculate_indicator": {
+   "human": {
+    "zh": {
+     "name": "试算指标序列",
+     "summary": "校验表、列、算子与参数后临时计算，返回 indicator、dates、values、count；不写规则也不写 observations。"
+    },
+    "en": {
+     "name": "Compute indicator ad hoc",
+     "summary": "Validate table, columns, operator, and params, then compute without persisting; returns indicator, dates, values, and count."
+    },
+    "ja": {
+     "name": "指標を試算",
+     "summary": "テーブル・列・演算子・パラメータを検証して計算のみ行い、indicator・dates・values・count を返します。保存は行いません。"
+    },
+    "es": {
+     "name": "Calcular indicador al vuelo",
+     "summary": "Valida tabla, columnas, operador y parámetros, calcula sin persistir y devuelve indicator, dates, values y count."
+    },
+    "fr": {
+     "name": "Calculer un indicateur à la volée",
+     "summary": "Valide table, colonnes, opérateur et paramètres, calcule sans rien enregistrer et renvoie indicator, dates, values et count."
+    }
+   },
+   "canonical": {
+    "brief": "Ad-hoc indicator computation over a source table with no persistence; validates inputs and returns indicator, dates, values, count."
+   }
+  },
+  "dashboard_list_databases": {
+   "human": {
+    "zh": {
+     "name": "列出本地数据库",
+     "summary": "列出 MCP 目录下已知的全部 SQLite 数据库及其表数量。"
+    },
+    "en": {
+     "name": "List local databases",
+     "summary": "List every known SQLite database in the MCP directory with its table count."
+    },
+    "ja": {
+     "name": "データベース一覧",
+     "summary": "MCP ディレクトリ内の既知の SQLite データベースを、テーブル数とともに一覧します。"
+    },
+    "es": {
+     "name": "Listar bases locales",
+     "summary": "Enumera las bases SQLite conocidas del directorio MCP con su número de tablas."
+    },
+    "fr": {
+     "name": "Lister les bases locales",
+     "summary": "Énumère les bases SQLite connues du répertoire MCP avec leur nombre de tables."
+    }
+   },
+   "canonical": {
+    "brief": "Lists known SQLite databases in the MCP directory with per-database table counts."
+   }
+  },
+  "dashboard_query_table": {
+   "human": {
+    "zh": {
+     "name": "只读查询数据表",
+     "summary": "对数据库表执行只读查询，以 JSON 返回结果行。"
+    },
+    "en": {
+     "name": "Query table read-only",
+     "summary": "Run a read-only query against a database table and return the rows as JSON."
+    },
+    "ja": {
+     "name": "テーブル読み取り照会",
+     "summary": "データベーステーブルに読み取り専用クエリを実行し、行を JSON で返します。"
+    },
+    "es": {
+     "name": "Consultar tabla en lectura",
+     "summary": "Ejecuta una consulta de solo lectura sobre una tabla y devuelve las filas en JSON."
+    },
+    "fr": {
+     "name": "Interroger une table en lecture",
+     "summary": "Exécute une requête en lecture seule sur une table et renvoie les lignes en JSON."
+    }
+   },
+   "canonical": {
+    "brief": "Runs a read-only query against a database table and returns the resulting rows as JSON."
+   }
+  },
+  "dashboard_list_datasources": {
+   "human": {
+    "zh": {
+     "name": "列出数据源",
+     "summary": "从 daas.db 列出受管理的数据源。"
+    },
+    "en": {
+     "name": "List datasources",
+     "summary": "List the managed datasources registered in daas.db."
+    },
+    "ja": {
+     "name": "データソース一覧",
+     "summary": "daas.db に登録された管理対象データソースを一覧します。"
+    },
+    "es": {
+     "name": "Listar fuentes de datos",
+     "summary": "Enumera las fuentes de datos gestionadas registradas en daas.db."
+    },
+    "fr": {
+     "name": "Lister les sources de données",
+     "summary": "Énumère les sources de données gérées enregistrées dans daas.db."
+    }
+   },
+   "canonical": {
+    "brief": "Lists the managed datasources stored in daas.db."
+   }
+  },
+  "dashboard_get_executions": {
+   "human": {
+    "zh": {
+     "name": "查看定时执行记录",
+     "summary": "从数据库读取 cron 定时任务的执行历史。"
+    },
+    "en": {
+     "name": "Get cron executions",
+     "summary": "Read the cron execution history from a database."
+    },
+    "ja": {
+     "name": "定期実行の履歴",
+     "summary": "データベースから cron の実行履歴を取得します。"
+    },
+    "es": {
+     "name": "Ver ejecuciones cron",
+     "summary": "Lee el historial de ejecuciones cron de una base de datos."
+    },
+    "fr": {
+     "name": "Voir les exécutions cron",
+     "summary": "Lit l'historique d'exécution cron depuis une base de données."
+    }
+   },
+   "canonical": {
+    "brief": "Reads cron execution history from a database."
+   }
+  },
+  "dashboard_get_stats": {
+   "human": {
+    "zh": {
+     "name": "统计库级概况",
+     "summary": "汇总全部 MCP 数据库的统计数据。"
+    },
+    "en": {
+     "name": "Aggregate database stats",
+     "summary": "Return aggregated statistics across all MCP databases."
+    },
+    "ja": {
+     "name": "データベース統計",
+     "summary": "すべての MCP データベースの統計を集計して返します。"
+    },
+    "es": {
+     "name": "Estadísticas agregadas",
+     "summary": "Devuelve estadísticas agregadas de todas las bases de datos MCP."
+    },
+    "fr": {
+     "name": "Statistiques agrégées",
+     "summary": "Renvoie des statistiques agrégées sur toutes les bases MCP."
+    }
+   },
+   "canonical": {
+    "brief": "Returns aggregated statistics across all MCP databases."
+   }
+  },
+  "dashboard_register": {
+   "human": {
+    "zh": {
+     "name": "登记看板",
+     "summary": "按 slug 新增或更新独立 HTML 看板记录，随后重建 index.html 与 daas.md，返回该行（action 为 inserted 或 updated）或错误。"
+    },
+    "en": {
+     "name": "Register dashboard",
+     "summary": "Create or upsert an HTML dashboard by slug, regenerate index.html and daas.md, and return the stored row with action inserted or updated."
+    },
+    "ja": {
+     "name": "ダッシュボード登録",
+     "summary": "slug で HTML ダッシュボードを登録または更新し、index.html と daas.md を再生成して、action 付きの行またはエラーを返します。"
+    },
+    "es": {
+     "name": "Registrar panel",
+     "summary": "Registra o actualiza por slug un panel HTML, regenera index.html y daas.md y devuelve la fila con action o un error."
+    },
+    "fr": {
+     "name": "Enregistrer un tableau de bord",
+     "summary": "Enregistre ou met à jour un tableau de bord HTML par slug, régénère index.html et daas.md et renvoie la ligne avec action ou une erreur."
+    }
+   },
+   "canonical": {
+    "brief": "Upserts an HTML dashboard row by slug, regenerates index.html and daas.md, and returns the stored row with action inserted or updated."
+   }
+  },
+  "dashboard_list": {
+   "human": {
+    "zh": {
+     "name": "列出看板",
+     "summary": "按从旧到新列出全部已登记看板，含名称、slug、简介与 file_url，返回 JSON 数组。"
+    },
+    "en": {
+     "name": "List dashboards",
+     "summary": "List every registered dashboard with name, slug, intro, and file_url, oldest first, as a JSON array."
+    },
+    "ja": {
+     "name": "ダッシュボード一覧",
+     "summary": "登録済みの全ダッシュボードを、名前・slug・概要・file_url 付きで古い順に並べた JSON 配列で返します。"
+    },
+    "es": {
+     "name": "Listar paneles",
+     "summary": "Enumera todos los paneles registrados con nombre, slug, intro y file_url, del más antiguo al más reciente, como array JSON."
+    },
+    "fr": {
+     "name": "Lister les tableaux de bord",
+     "summary": "Énumère tous les tableaux de bord enregistrés avec nom, slug, intro et file_url, du plus ancien au plus récent, en tableau JSON."
+    }
+   },
+   "canonical": {
+    "brief": "Returns a JSON array of all registered dashboards (name, slug, intro, file_url), oldest first."
+   }
+  },
+  "dashboard_get": {
+   "human": {
+    "zh": {
+     "name": "读取看板详情",
+     "summary": "按 slug 返回看板完整元数据；slug 不存在时返回 not found 错误对象。"
+    },
+    "en": {
+     "name": "Get dashboard details",
+     "summary": "Return one dashboard's full metadata by slug, or a not-found error object when the slug is absent."
+    },
+    "ja": {
+     "name": "ダッシュボード詳細",
+     "summary": "slug でダッシュボードの全メタデータを返します。存在しない場合は not found のエラーオブジェクトを返します。"
+    },
+    "es": {
+     "name": "Ver detalle del panel",
+     "summary": "Devuelve los metadatos completos de un panel por slug, o un objeto de error not found si no existe."
+    },
+    "fr": {
+     "name": "Voir le détail d'un tableau de bord",
+     "summary": "Renvoie les métadonnées complètes d'un tableau de bord par slug, ou un objet d'erreur not found s'il n'existe pas."
+    }
+   },
+   "canonical": {
+    "brief": "Returns full metadata for one dashboard by slug, or a not-found error object when the slug is absent."
+   }
+  },
+  "dashboard_search": {
+   "human": {
+    "zh": {
+     "name": "检索看板",
+     "summary": "在名称、简介、刷新节奏与来源表上做不区分大小写的关键词检索，返回含 slug、name、intro 的列表。"
+    },
+    "en": {
+     "name": "Search dashboards",
+     "summary": "Case-insensitive keyword search over name, intro, refresh cadence, and source tables; returns slug, name, and intro entries."
+    },
+    "ja": {
+     "name": "ダッシュボード検索",
+     "summary": "名前・概要・更新頻度・ソーステーブルを対象に大文字小文字を区別せずキーワード検索し、slug・name・intro を返します。"
+    },
+    "es": {
+     "name": "Buscar paneles",
+     "summary": "Busca palabras clave sin distinguir mayúsculas en nombre, intro, cadencia y tablas origen; devuelve slug, name e intro."
+    },
+    "fr": {
+     "name": "Rechercher des tableaux de bord",
+     "summary": "Recherche par mot-clé insensible à la casse sur nom, intro, cadence de rafraîchissement et tables source ; renvoie slug, name et intro."
+    }
+   },
+   "canonical": {
+    "brief": "Case-insensitive keyword search over dashboard name, intro, refresh cadence, and source tables; returns slug, name, intro entries."
+   }
+  },
+  "dashboard_update": {
+   "human": {
+    "zh": {
+     "name": "更新看板信息",
+     "summary": "按 slug 只改传入字段，其余保持不变，随后重建 index.html 与 daas.md；返回更新后的行或错误。"
+    },
+    "en": {
+     "name": "Update dashboard",
+     "summary": "Patch only the supplied fields of a dashboard by slug, regenerate index.html and daas.md, and return the updated row or an error."
+    },
+    "ja": {
+     "name": "ダッシュボード更新",
+     "summary": "slug で指定した項目だけを更新し、index.html と daas.md を再生成して、更新後の行またはエラーを返します。"
+    },
+    "es": {
+     "name": "Actualizar panel",
+     "summary": "Modifica solo los campos indicados por slug, regenera index.html y daas.md y devuelve la fila actualizada o un error."
+    },
+    "fr": {
+     "name": "Mettre à jour un tableau de bord",
+     "summary": "Ne modifie que les champs fournis par slug, régénère index.html et daas.md et renvoie la ligne mise à jour ou une erreur."
+    }
+   },
+   "canonical": {
+    "brief": "Partial update of a dashboard by slug; untouched fields stay, index.html and daas.md are regenerated, and the row or an error is returned."
+   }
+  },
+  "dashboard_delete": {
+   "human": {
+    "zh": {
+     "name": "删除看板记录",
+     "summary": "按 slug 删除看板记录并重建索引，HTML 文件本身不删除；返回已删除的 slug 或错误。"
+    },
+    "en": {
+     "name": "Delete dashboard row",
+     "summary": "Delete a dashboard row by slug and regenerate the index; the HTML file itself is kept. Returns the deleted slug or an error."
+    },
+    "ja": {
+     "name": "ダッシュボード削除",
+     "summary": "slug のダッシュボード行を削除して索引を再生成します。HTML ファイル自体は残ります。削除した slug またはエラーを返します。"
+    },
+    "es": {
+     "name": "Borrar fila de panel",
+     "summary": "Elimina la fila del panel por slug y regenera el índice; el archivo HTML se conserva. Devuelve el slug borrado o un error."
+    },
+    "fr": {
+     "name": "Supprimer une ligne de tableau de bord",
+     "summary": "Supprime la ligne du tableau de bord par slug et régénère l'index ; le fichier HTML est conservé. Renvoie le slug supprimé ou une erreur."
+    }
+   },
+   "canonical": {
+    "brief": "Deletes a dashboard registry row by slug and regenerates the index; the HTML file is not removed. Returns deleted slug or an error."
+   }
+  },
+  "gateway_list_data_mcps": {
+   "human": {
+    "zh": {
+     "name": "列出网关上游",
+     "summary": "列出网关可路由的数据抓取 MCP 上游，含名称、传输方式、启用状态与描述；默认隐藏已禁用项。"
+    },
+    "en": {
+     "name": "List gateway upstreams",
+     "summary": "List data-fetch MCP upstreams the gateway can route to, with name, transport, enabled flag, and description; disabled ones stay hidden."
+    },
+    "ja": {
+     "name": "ゲートウェイ上流一覧",
+     "summary": "ゲートウェイがルーティングできるデータ取得 MCP 上流を、名前・トランスポート・有効状態・説明付きで一覧します。無効な上流は既定で非表示です。"
+    },
+    "es": {
+     "name": "Listar orígenes del gateway",
+     "summary": "Enumera los orígenes MCP de captura de datos a los que el gateway puede enrutar, con nombre, transporte, estado y descripción; los deshabilitados se ocultan."
+    },
+    "fr": {
+     "name": "Lister les amonts de la passerelle",
+     "summary": "Énumère les amonts MCP de collecte de données routables par la passerelle, avec nom, transport, état et description ; les amonts désactivés sont masqués."
+    }
+   },
+   "canonical": {
+    "brief": "Lists data-fetch MCP upstreams the gateway can route to (name, transport, enabled, description); disabled upstreams are hidden by default."
+   }
+  }
+ }
+}

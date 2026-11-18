@@ -1,0 +1,32 @@
+{
+  "skill": "new-case",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "新案建档",
+        "summary": "将案件、咨询、商标与专利材料整理成标准化目录结构：诉讼案件、潜在项目与咨询、商标案件、专利案件四种预设，按业务子类型选择模板，目录顺序按项目进展排列。"
+      },
+      "en": {
+        "name": "New case setup",
+        "summary": "Organizes case, consultation, trademark and patent materials into standardized folders, with four presets — litigation, projects and consultations, trademark, patent — templates chosen by sub-type."
+      },
+      "ja": {
+        "name": "新規案件フォルダ整備",
+        "summary": "訴訟・相談・商標・特許の資料を標準化されたフォルダ構造に整理。訴訟事件、見込み案件・相談、商標事件、特許事件の4プリセットを用意し、業務サブタイプに応じてテンプレートを選択、フォルダ順序は進捗に沿って並べる。"
+      },
+      "es": {
+        "name": "Alta de caso nuevo",
+        "summary": "Organiza materiales de litigios, consultas, marcas y patentes en carpetas estandarizadas, con cuatro preajustes — litigio, proyectos y consultas, marcas, patentes — y plantillas según el subtipo."
+      },
+      "fr": {
+        "name": "Création d'un nouveau dossier",
+        "summary": "Organise contentieux, consultations, marques et brevets en dossiers normalisés, avec quatre préréglages — contentieux, projets et consultations, marques, brevets — et modèles selon le sous-type."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

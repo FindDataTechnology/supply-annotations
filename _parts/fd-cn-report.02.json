@@ -1,0 +1,598 @@
+{
+ "tools": {
+  "get_hk_financials": {
+   "human": {
+    "zh": {
+     "name": "获取港股财报",
+     "summary": "返回港股公司的结构化财务报表。"
+    },
+    "en": {
+     "name": "Get HK financials",
+     "summary": "Return structured financial statements for a HK stock company."
+    },
+    "ja": {
+     "name": "香港株の財務を取得",
+     "summary": "香港上場企業の財務諸表を構造化して返す。"
+    },
+    "es": {
+     "name": "Obtener finanzas HK",
+     "summary": "Devuelve los estados financieros estructurados de una empresa de Hong Kong."
+    },
+    "fr": {
+     "name": "Obtenir états financiers HK",
+     "summary": "Renvoie les états financiers structurés d'une société de Hong Kong."
+    }
+   },
+   "canonical": {
+    "brief": "返回港股公司的结构化财务报表。"
+   }
+  },
+  "get_hk_section": {
+   "human": {
+    "zh": {
+     "name": "提取港股章节",
+     "summary": "从港股年报 PDF 中提取指定名称的章节。"
+    },
+    "en": {
+     "name": "Extract HK section",
+     "summary": "Extract a named section from a HK stock annual report PDF."
+    },
+    "ja": {
+     "name": "香港株の章を抽出",
+     "summary": "香港株の年次報告書PDFから、指定名称のセクションを抽出する。"
+    },
+    "es": {
+     "name": "Extraer sección HK",
+     "summary": "Extrae una sección con nombre de un PDF de informe anual de Hong Kong."
+    },
+    "fr": {
+     "name": "Extraire section HK",
+     "summary": "Extrait une section nommée d'un PDF de rapport annuel de Hong Kong."
+    }
+   },
+   "canonical": {
+    "brief": "从港股年报 PDF 中提取指定名称的章节。"
+   }
+  },
+  "get_sse_company": {
+   "human": {
+    "zh": {
+     "name": "查询沪市公司",
+     "summary": "用 6 位代码在上交所网站定位上市公司。"
+    },
+    "en": {
+     "name": "Resolve SSE company",
+     "summary": "Resolve a SSE-listed company by 6-digit ticker on sse.com.cn."
+    },
+    "ja": {
+     "name": "上海企業を特定",
+     "summary": "6桁コードで sse.com.cn 上の上海証券取引所上場企業を特定する。"
+    },
+    "es": {
+     "name": "Identificar empresa SSE",
+     "summary": "Identifica una empresa cotizada en la Bolsa de Shanghái por código de 6 dígitos en sse.com.cn."
+    },
+    "fr": {
+     "name": "Identifier société SSE",
+     "summary": "Identifie une société cotée à la Bourse de Shanghai par code à 6 chiffres sur sse.com.cn."
+    }
+   },
+   "canonical": {
+    "brief": "用 6 位代码在上交所（sse.com.cn）定位上市公司。"
+   }
+  },
+  "list_sse_filings": {
+   "human": {
+    "zh": {
+     "name": "列出沪市公告",
+     "summary": "直接从 sse.com.cn 列出沪市公司的披露文件。"
+    },
+    "en": {
+     "name": "List SSE filings",
+     "summary": "List a SSE-listed company's disclosures directly from sse.com.cn."
+    },
+    "ja": {
+     "name": "上海の開示を一覧",
+     "summary": "sse.com.cn から直接、上海上場企業の開示資料を一覧する。"
+    },
+    "es": {
+     "name": "Listar anuncios SSE",
+     "summary": "Lista directamente desde sse.com.cn las divulgaciones de una empresa de Shanghái."
+    },
+    "fr": {
+     "name": "Lister publications SSE",
+     "summary": "Liste directement depuis sse.com.cn les publications d'une société de Shanghai."
+    }
+   },
+   "canonical": {
+    "brief": "直接从 sse.com.cn 列出沪市公司的披露文件。"
+   }
+  },
+  "get_sse_section": {
+   "human": {
+    "zh": {
+     "name": "提取沪市章节",
+     "summary": "从沪市公司年报 PDF 中提取指定名称的章节。"
+    },
+    "en": {
+     "name": "Extract SSE section",
+     "summary": "Extract a named section from a SSE company's annual-report PDF."
+    },
+    "ja": {
+     "name": "上海企業の章を抽出",
+     "summary": "上海上場企業の年次報告書PDFから指定名称のセクションを抽出する。"
+    },
+    "es": {
+     "name": "Extraer sección SSE",
+     "summary": "Extrae una sección con nombre del PDF del informe anual de una empresa de Shanghái."
+    },
+    "fr": {
+     "name": "Extraire section SSE",
+     "summary": "Extrait une section nommée du PDF du rapport annuel d'une société de Shanghai."
+    }
+   },
+   "canonical": {
+    "brief": "从沪市公司年报 PDF 中提取指定名称的章节。"
+   }
+  },
+  "get_sse_interaction": {
+   "human": {
+    "zh": {
+     "name": "获取上证互动问答",
+     "summary": "抓取某沪市公司在上证 e 互动的投资者问答。"
+    },
+    "en": {
+     "name": "Get SSE investor Q&A",
+     "summary": "Fetch 上证e互动 investor Q&A for a SSE-listed company from sns.sseinfo.com."
+    },
+    "ja": {
+     "name": "上海のQ&Aを取得",
+     "summary": "sns.sseinfo.com の「上证e互动」から、上海上場企業の投資家Q&Aを取得する。"
+    },
+    "es": {
+     "name": "Obtener preguntas 上证e互动",
+     "summary": "Obtiene las preguntas de inversores en 上证e互动 para una empresa de Shanghái desde sns.sseinfo.com."
+    },
+    "fr": {
+     "name": "Q&R investisseurs SSE",
+     "summary": "Récupère les questions d'investisseurs sur 上证e互动 pour une société de Shanghai depuis sns.sseinfo.com."
+    }
+   },
+   "canonical": {
+    "brief": "抓取某沪市公司在上证 e 互动（sns.sseinfo.com）的投资者问答。"
+   }
+  },
+  "get_szse_company": {
+   "human": {
+    "zh": {
+     "name": "查询深市公司",
+     "summary": "用 6 位代码在深交所网站定位上市公司。"
+    },
+    "en": {
+     "name": "Resolve SZSE company",
+     "summary": "Resolve a SZSE-listed company by 6-digit ticker on szse.cn."
+    },
+    "ja": {
+     "name": "深セン企業を特定",
+     "summary": "6桁コードで szse.cn 上の深セン証券取引所上場企業を特定する。"
+    },
+    "es": {
+     "name": "Identificar empresa SZSE",
+     "summary": "Identifica una empresa cotizada en la Bolsa de Shenzhen por código de 6 dígitos en szse.cn."
+    },
+    "fr": {
+     "name": "Identifier société SZSE",
+     "summary": "Identifie une société cotée à la Bourse de Shenzhen par code à 6 chiffres sur szse.cn."
+    }
+   },
+   "canonical": {
+    "brief": "用 6 位代码在深交所（szse.cn）定位上市公司。"
+   }
+  },
+  "list_szse_filings": {
+   "human": {
+    "zh": {
+     "name": "列出深市公告",
+     "summary": "直接从 szse.cn 列出深市公司的披露文件。"
+    },
+    "en": {
+     "name": "List SZSE filings",
+     "summary": "List a SZSE-listed company's disclosures directly from szse.cn."
+    },
+    "ja": {
+     "name": "深センの開示を一覧",
+     "summary": "szse.cn から直接、深セン上場企業の開示資料を一覧する。"
+    },
+    "es": {
+     "name": "Listar anuncios SZSE",
+     "summary": "Lista directamente desde szse.cn las divulgaciones de una empresa de Shenzhen."
+    },
+    "fr": {
+     "name": "Lister publications SZSE",
+     "summary": "Liste directement depuis szse.cn les publications d'une société de Shenzhen."
+    }
+   },
+   "canonical": {
+    "brief": "直接从 szse.cn 列出深市公司的披露文件。"
+   }
+  },
+  "get_szse_section": {
+   "human": {
+    "zh": {
+     "name": "提取深市章节",
+     "summary": "从深市公司年报 PDF 提取指定章节，返回文本与字符数。"
+    },
+    "en": {
+     "name": "Extract SZSE section",
+     "summary": "Extract a named section from a SZSE company's annual-report PDF and return its text and character count."
+    },
+    "ja": {
+     "name": "深セン企業の章を抽出",
+     "summary": "深セン上場企業の年次報告書PDFから指定セクションを抽出し、本文と文字数を返す。"
+    },
+    "es": {
+     "name": "Extraer sección SZSE",
+     "summary": "Extrae una sección del PDF del informe anual de una empresa de Shenzhen y devuelve su texto y número de caracteres."
+    },
+    "fr": {
+     "name": "Extraire section SZSE",
+     "summary": "Extrait une section du PDF du rapport annuel d'une société de Shenzhen et renvoie le texte et le nombre de caractères."
+    }
+   },
+   "canonical": {
+    "brief": "从深市公司年报 PDF 中提取指定章节，返回该章节文本与字符数。"
+   }
+  },
+  "get_szse_interaction": {
+   "human": {
+    "zh": {
+     "name": "获取互动易问答",
+     "summary": "抓取某深市公司在互动易平台的投资者问答。"
+    },
+    "en": {
+     "name": "Get investor Q&A",
+     "summary": "Fetch 互动易 investor Q&A for a SZSE-listed company from irm.cninfo.com.cn."
+    },
+    "ja": {
+     "name": "互動易のQ&Aを取得",
+     "summary": "irm.cninfo.com.cn の「互动易」から、深セン上場企業の投資家Q&Aを取得する。"
+    },
+    "es": {
+     "name": "Obtener preguntas 互动易",
+     "summary": "Obtiene las preguntas de inversores en 互动易 para una empresa de Shenzhen desde irm.cninfo.com.cn."
+    },
+    "fr": {
+     "name": "Q&R de 互动易",
+     "summary": "Récupère les questions d'investisseurs sur 互动易 pour une société de Shenzhen depuis irm.cninfo.com.cn."
+    }
+   },
+   "canonical": {
+    "brief": "抓取某深市公司在互动易（irm.cninfo.com.cn）平台的投资者问答。"
+   }
+  },
+  "get_bse_company": {
+   "human": {
+    "zh": {
+     "name": "查询北交所公司",
+     "summary": "用 6 位代码在北交所网站定位上市公司。"
+    },
+    "en": {
+     "name": "Resolve BSE company",
+     "summary": "Resolve a BSE-listed company by 6-digit ticker on bse.cn."
+    },
+    "ja": {
+     "name": "北京企業を特定",
+     "summary": "6桁コードで bse.cn 上の北京証券取引所上場企業を特定する。"
+    },
+    "es": {
+     "name": "Identificar empresa BSE",
+     "summary": "Identifica una empresa cotizada en la Bolsa de Pekín por código de 6 dígitos en bse.cn."
+    },
+    "fr": {
+     "name": "Identifier société BSE",
+     "summary": "Identifie une société cotée à la Bourse de Pékin par code à 6 chiffres sur bse.cn."
+    }
+   },
+   "canonical": {
+    "brief": "用 6 位代码在北交所（bse.cn）定位上市公司。"
+   }
+  },
+  "list_bse_filings": {
+   "human": {
+    "zh": {
+     "name": "列出北交所公告",
+     "summary": "列出北交所公司披露文件，每行标注数据来源是北交所还是巨潮。"
+    },
+    "en": {
+     "name": "List BSE filings",
+     "summary": "List a BSE-listed company's disclosures, each row labelled as BSE-native or CNINFO fallback."
+    },
+    "ja": {
+     "name": "北京の開示を一覧",
+     "summary": "北京証券取引所上場企業の開示資料を一覧し、各行に北京取引所か巨潮資訊かを示す。"
+    },
+    "es": {
+     "name": "Listar anuncios BSE",
+     "summary": "Lista las divulgaciones de una empresa de Pekín, indicando en cada fila si proviene de BSE o de CNINFO."
+    },
+    "fr": {
+     "name": "Lister publications BSE",
+     "summary": "Liste les publications d'une société de Pékin, chaque ligne indiquant la source BSE ou CNINFO."
+    }
+   },
+   "canonical": {
+    "brief": "列出北交所公司披露文件，优先北交所源并以巨潮兜底，每行标注来源。"
+   }
+  },
+  "get_bse_section": {
+   "human": {
+    "zh": {
+     "name": "提取北交所章节",
+     "summary": "从北交所公司年报 PDF 提取指定章节，并在结果中标注数据来源。"
+    },
+    "en": {
+     "name": "Extract BSE section",
+     "summary": "Extract a named section from a BSE company's annual-report PDF and label the source in the result."
+    },
+    "ja": {
+     "name": "北京企業の章を抽出",
+     "summary": "北京証券取引所上場企業の年次報告書PDFから指定セクションを抽出し、結果に取得元を明示する。"
+    },
+    "es": {
+     "name": "Extraer sección BSE",
+     "summary": "Extrae una sección del PDF del informe anual de una empresa de Pekín e indica la fuente en el resultado."
+    },
+    "fr": {
+     "name": "Extraire section BSE",
+     "summary": "Extrait une section du PDF du rapport annuel d'une société de Pékin et indique la source dans le résultat."
+    }
+   },
+   "canonical": {
+    "brief": "从北交所公司年报 PDF 中提取指定章节，结果中标明数据来源（北交所或巨潮）。"
+   }
+  },
+  "list_csrc_filings": {
+   "human": {
+    "zh": {
+     "name": "列出证监会公告",
+     "summary": "列出中国证监会公开的监管公告与通知。"
+    },
+    "en": {
+     "name": "List CSRC notices",
+     "summary": "List CSRC regulatory announcements and notices from csrc.gov.cn."
+    },
+    "ja": {
+     "name": "証監会公告を一覧",
+     "summary": "中国証券監督管理委員会（csrc.gov.cn）の規制公告・通知を一覧する。"
+    },
+    "es": {
+     "name": "Listar avisos CSRC",
+     "summary": "Lista los anuncios y avisos regulatorios de la CSRC desde csrc.gov.cn."
+    },
+    "fr": {
+     "name": "Lister avis CSRC",
+     "summary": "Liste les annonces et avis réglementaires de la CSRC depuis csrc.gov.cn."
+    }
+   },
+   "canonical": {
+    "brief": "列出中国证监会（csrc.gov.cn）的监管公告与通知。"
+   }
+  },
+  "get_csrc_ipo_review": {
+   "human": {
+    "zh": {
+     "name": "查询首发审核",
+     "summary": "查询某公司的证监会首发（IPO）申请审核状态。"
+    },
+    "en": {
+     "name": "Check IPO review",
+     "summary": "Query CSRC IPO application review status for a company."
+    },
+    "ja": {
+     "name": "新規上場審査を照会",
+     "summary": "ある企業の証監会における新規公開（IPO）申請の審査状況を照会する。"
+    },
+    "es": {
+     "name": "Consultar revisión IPO",
+     "summary": "Consulta el estado de revisión de la solicitud de IPO de una empresa ante la CSRC."
+    },
+    "fr": {
+     "name": "Vérifier l'examen IPO",
+     "summary": "Interroge le statut d'examen de la demande d'IPO d'une société auprès de la CSRC."
+    }
+   },
+   "canonical": {
+    "brief": "查询某公司的证监会首发（IPO）申请审核状态。"
+   }
+  },
+  "get_csrc_merger_review": {
+   "human": {
+    "zh": {
+     "name": "查询并购审核",
+     "summary": "查询某公司的证监会并购重组审核状态。"
+    },
+    "en": {
+     "name": "Check M&A review",
+     "summary": "Query CSRC M&A review status for a company."
+    },
+    "ja": {
+     "name": "買収審査を照会",
+     "summary": "ある企業の証監会における合併・再編（M&A）審査状況を照会する。"
+    },
+    "es": {
+     "name": "Consultar revisión M&A",
+     "summary": "Consulta el estado de revisión de fusiones y reestructuraciones de una empresa ante la CSRC."
+    },
+    "fr": {
+     "name": "Vérifier l'examen M&A",
+     "summary": "Interroge le statut d'examen des fusions-acquisitions d'une société auprès de la CSRC."
+    }
+   },
+   "canonical": {
+    "brief": "查询某公司的证监会并购重组审核状态。"
+   }
+  },
+  "list_csrc_enforcement": {
+   "human": {
+    "zh": {
+     "name": "列出处罚决定",
+     "summary": "列出证监会的行政处罚与执法信息。"
+    },
+    "en": {
+     "name": "List enforcement actions",
+     "summary": "List CSRC administrative-penalty and enforcement actions from csrc.gov.cn."
+    },
+    "ja": {
+     "name": "処分情報を一覧",
+     "summary": "証監会の行政処分・執行情報を csrc.gov.cn から一覧する。"
+    },
+    "es": {
+     "name": "Listar sanciones",
+     "summary": "Lista las sanciones administrativas y acciones de ejecución de la CSRC desde csrc.gov.cn."
+    },
+    "fr": {
+     "name": "Lister les sanctions",
+     "summary": "Liste les sanctions administratives et mesures d'exécution de la CSRC depuis csrc.gov.cn."
+    }
+   },
+   "canonical": {
+    "brief": "列出证监会（csrc.gov.cn）的行政处罚与执法信息。"
+   }
+  },
+  "list_ministries": {
+   "human": {
+    "zh": {
+     "name": "列出部委数据源",
+     "summary": "列出已支持的部委统计数据来源及其标识与接入方式。"
+    },
+    "en": {
+     "name": "List ministry sources",
+     "summary": "List the supported ministry statistics sources with their id, label and transport."
+    },
+    "ja": {
+     "name": "省庁データ源を一覧",
+     "summary": "対応している省庁統計のデータソースを、ID・名称・接続方式とともに一覧する。"
+    },
+    "es": {
+     "name": "Listar fuentes ministeriales",
+     "summary": "Lista las fuentes de estadísticas ministeriales admitidas con su id, etiqueta y transporte."
+    },
+    "fr": {
+     "name": "Lister sources ministérielles",
+     "summary": "Liste les sources de statistiques ministérielles prises en charge avec leur id, libellé et transport."
+    }
+   },
+   "canonical": {
+    "brief": "列出已支持的部委统计数据来源及其标识、中英文名称与接入方式。"
+   }
+  },
+  "get_ministry_stat": {
+   "human": {
+    "zh": {
+     "name": "获取部委统计",
+     "summary": "抓取某部委的统计页面并解析其中的 HTML 表格。"
+    },
+    "en": {
+     "name": "Get ministry statistics",
+     "summary": "Fetch a ministry's statistics page and parse its HTML tables."
+    },
+    "ja": {
+     "name": "省庁統計を取得",
+     "summary": "ある省庁の統計ページを取得し、そのHTML表を解析する。"
+    },
+    "es": {
+     "name": "Obtener estadísticas",
+     "summary": "Descarga la página de estadísticas de un ministerio y analiza sus tablas HTML."
+    },
+    "fr": {
+     "name": "Obtenir statistiques",
+     "summary": "Récupère la page de statistiques d'un ministère et analyse ses tableaux HTML."
+    }
+   },
+   "canonical": {
+    "brief": "抓取某部委的统计页面并解析其中的 HTML 表格。"
+   }
+  },
+  "get_nbs_stat": {
+   "human": {
+    "zh": {
+     "name": "查询统计局数据",
+     "summary": "按指标代码查询国家统计局的宏观统计数据。"
+    },
+    "en": {
+     "name": "Query NBS statistics",
+     "summary": "Query a macro statistic from the National Bureau of Statistics by indicator code."
+    },
+    "ja": {
+     "name": "国家統計局を照会",
+     "summary": "指標コードで国家統計局（NBS）のマクロ統計を照会する。"
+    },
+    "es": {
+     "name": "Consultar estadísticas NBS",
+     "summary": "Consulta una estadística macro del Buró Nacional de Estadísticas por código de indicador."
+    },
+    "fr": {
+     "name": "Interroger l'NBS",
+     "summary": "Interroge une statistique macro du Bureau national de la statistique par code d'indicateur."
+    }
+   },
+   "canonical": {
+    "brief": "按指标代码查询国家统计局（NBS）的宏观统计数据。"
+   }
+  },
+  "audit_rule_gaps": {
+   "human": {
+    "zh": {
+     "name": "核查规则缺口",
+     "summary": "基于已有 out/ 产物核查规则缺口并写出稳定的 JSON 报告。"
+    },
+    "en": {
+     "name": "Audit rule gaps",
+     "summary": "Audit rule gaps from existing out/ bundles and write a stable JSON report."
+    },
+    "ja": {
+     "name": "ルール欠落を監査",
+     "summary": "既存の out/ 成果物からルールの欠落を監査し、安定したJSONレポートを書き出す。"
+    },
+    "es": {
+     "name": "Auditar brechas",
+     "summary": "Audita las brechas de reglas desde los paquetes en out/ y escribe un informe JSON estable."
+    },
+    "fr": {
+     "name": "Auditer les lacunes",
+     "summary": "Audite les lacunes de règles depuis les lots dans out/ et écrit un rapport JSON stable."
+    }
+   },
+   "canonical": {
+    "brief": "基于已有 out/ 产物核查规则缺口，并写出结构稳定的 JSON 报告（写文件）。"
+   }
+  },
+  "open_industry_rules_dashboard": {
+   "human": {
+    "zh": {
+     "name": "打开规则看板",
+     "summary": "启动行业规则网页看板，支持按行业、模块与关键词筛选，并可按列排序与分页。"
+    },
+    "en": {
+     "name": "Open rules dashboard",
+     "summary": "Start the industry rules web dashboard with industry, module and keyword filtering, column sorting and pagination."
+    },
+    "ja": {
+     "name": "ルール画面を起動",
+     "summary": "業界ルールのWebダッシュボードを起動し、業界・モジュール・キーワードでの絞り込み、列の並べ替え、ページ送りを提供する。"
+    },
+    "es": {
+     "name": "Abrir panel de reglas",
+     "summary": "Inicia el panel web de reglas del sector con filtros por sector, módulo y palabra clave, ordenación por columna y paginación."
+    },
+    "fr": {
+     "name": "Ouvrir le tableau de bord",
+     "summary": "Lance le tableau de bord web des règles sectorielles avec filtres par secteur, module et mot-clé, tri des colonnes et pagination."
+    }
+   },
+   "canonical": {
+    "brief": "启动行业规则网页看板，支持按行业、模块与关键词筛选，并可按列排序与分页。"
+   }
+  }
+ }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "factor-backtest-protocol",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "因子回测",
+        "summary": "柏讯因子选股的无未来函数回测协议:把财报披露日、当期成分、决策日价格与断言开启四条纪律写成可核验断言,并用注入未来披露的夹具证明拦截有效;产出回测口径卡、断言记录与样本内外结论。"
+      },
+      "en": {
+        "name": "Factor backtest",
+        "summary": "No-look-ahead backtest protocol for Wire factor strategies: four disciplines as checkable assertions, verified with future-data injection fixtures; returns a caliber card and assertion record."
+      },
+      "ja": {
+        "name": "ファクター・バックテスト",
+        "summary": "先読みなしの因子バックテスト規約。決算開示日・当期構成・判断日終値・アサーション必須の4規律を検証可能な断言に書き下ろし、未来データ注入で遮断を実証。口径カード・断言記録・結果を出力。"
+      },
+      "es": {
+        "name": "Backtest de factores",
+        "summary": "Protocolo de backtest sin fuga de futuro para factores Wire: cuatro disciplinas como aserciones verificables, probadas con datos futuros inyectados; devuelve ficha de criterio y registro."
+      },
+      "fr": {
+        "name": "Backtest de facteurs",
+        "summary": "Protocole de backtest sans fuite du futur pour facteurs Wire : quatre disciplines en assertions vérifiables, éprouvé par injection de données futures ; renvoie fiche de critère et journal."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

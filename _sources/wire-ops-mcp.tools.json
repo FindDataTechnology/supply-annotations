@@ -1,0 +1,107 @@
+{
+  "server_name": "wire-ops-mcp",
+  "description": "柏讯客户面操作 MCP（C3）：需求单/数据面读/市场订阅十工具，双轨鉴权透传（Logto ID token / wdk_ key），viewer 只读与合规门上游判定",
+  "tags": [],
+  "tools": [
+    {
+      "name": "wire_action_list",
+      "description": ""
+    },
+    {
+      "name": "wire_action_propose",
+      "description": ""
+    },
+    {
+      "name": "wire_action_status",
+      "description": ""
+    },
+    {
+      "name": "wire_claim_resolve",
+      "description": ""
+    },
+    {
+      "name": "wire_content_browse",
+      "description": ""
+    },
+    {
+      "name": "wire_content_search",
+      "description": ""
+    },
+    {
+      "name": "wire_dataset_aggregate",
+      "description": ""
+    },
+    {
+      "name": "wire_dataset_query",
+      "description": ""
+    },
+    {
+      "name": "wire_dataset_rows",
+      "description": ""
+    },
+    {
+      "name": "wire_datasets_list",
+      "description": ""
+    },
+    {
+      "name": "wire_demand_read",
+      "description": ""
+    },
+    {
+      "name": "wire_demand_submit",
+      "description": ""
+    },
+    {
+      "name": "wire_demands_list",
+      "description": ""
+    },
+    {
+      "name": "wire_market_browse",
+      "description": ""
+    },
+    {
+      "name": "wire_market_subscribe",
+      "description": ""
+    },
+    {
+      "name": "wire_market_unsubscribe",
+      "description": ""
+    },
+    {
+      "name": "wire_object_get",
+      "description": ""
+    },
+    {
+      "name": "wire_object_relations",
+      "description": ""
+    },
+    {
+      "name": "wire_object_search",
+      "description": ""
+    },
+    {
+      "name": "wire_pack_subscribe",
+      "description": ""
+    },
+    {
+      "name": "wire_pack_unsubscribe",
+      "description": ""
+    },
+    {
+      "name": "wire_packs_list",
+      "description": ""
+    },
+    {
+      "name": "wire_self_action_list",
+      "description": ""
+    },
+    {
+      "name": "wire_self_action_propose",
+      "description": ""
+    },
+    {
+      "name": "wire_self_action_status",
+      "description": ""
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+ "server_name": "fd-legal-search-mcp",
+ "description": "识律法律检索 MCP（lex-platform-v1）：法条检索与条级引用解析（law_db 全目录 + Qdrant law_chunks_v2 语义检索）、类案检索（wenshu_db 裁判文书，RustFS zstd 块正文）、指导案例检索、五源法律语料——每个结果携带 provenance 三件套（source/stable_id/as_of），未命中如实返回。识律平台 lex.finddatatech.cloud 对外数据入口，行/次双单位计量。",
+ "tags": [
+  "legal",
+  "regulations",
+  "chinese-law",
+  "finddata",
+  "lex"
+ ],
+ "tools": [
+  {
+   "name": "law_search",
+   "description": "Search FindData law titles, ranked exact > prefix > contains.\n\n法规库全目录检索（law_db.laws，含别名治理）；category 接受同义拼写。\n结果逐条携带 provenance（source=law_db.laws, stable_id=law_id）。\n与 business-mcp law_search 等价迁移（lex-platform-v1 task 7.1）。"
+  },
+  {
+   "name": "law_read",
+   "description": "Read one law's metadata and text chunks by law_id.\n\n返回法规详情与条级 chunk 结构，供正文阅读与条级引用使用。\n与 business-mcp law_read 等价迁移（lex-platform-v1 task 7.1）。\n\n条文按窗口返回：单次最多 ``limit`` 条（默认 200，上限 500），从\n``offset`` 起算。整部法规一次全量回传会让大法典独占调用方上下文；\n``total_chunks`` 与 ``next_offset`` 给出续读位置，分段拼接即全文。"
+  },
+  {
+   "name": "law_semantic_search",
+   "description": "法条语义检索：Qwen3-Embedding-0.6B 查询向量 -> Qdrant law_chunks_v2。\n\n按语义相似度返回条级 chunk，逐条携带 provenance\n（source=law_db.law_chunks_v2, stable_id=point id, as_of=导出日期）。\n实现跟踪：lex-platform-v1 task 1.2。"
+  },
+  {
+   "name": "law_reference",
+   "description": "条级引用解析：把「《民法典》第一百四十三条」类引用解析到法规目录条级定位。\n\n无法解析时如实返回 not_found（含可读原因），绝不猜测。\n实现跟踪：lex-platform-v1 task 1.2。"
+  },
+  {
+   "name": "wenshu_search",
+   "description": "Search judgment titles (3,700万篇裁判文书), ranked exact > prefix > contains.\n\n案号内嵌于标题（如「（2024）京01民初1号」），无需单独案号参数。\n结果逐条携带 provenance（source=wenshu_db.judgments, stable_id=doc_id）。\n与 business-mcp wenshu_search 等价迁移（lex-platform-v1 task 7.1）。"
+  },
+  {
+   "name": "wenshu_read",
+   "description": "Read one judgment's full text (zstd blocks on RustFS).\n\n正文按块解压读取；条目存在而正文缺失时如实标注，绝不编造正文。\n与 business-mcp wenshu_read 等价迁移（lex-platform-v1 task 7.1）。\n\n长正文按窗口返回：单次最多 ``max_chars`` 字符（默认 12000，上限 40000）。\n超出时 ``content_truncated=true`` 且给 ``next_offset``——把它作为\n``offset`` 再调一次即可续读，分段按字符切分，拼接后与原文逐字符一致。"
+  },
+  {
+   "name": "guide_cases_search",
+   "description": "Search guiding-case titles, ranked exact > prefix > contains.\n\ndoc_type / reference_status 为封闭词表过滤（非法值如实拒绝）。\n结果逐条携带 provenance（source=law_db.guide_cases, stable_id=case_id）。\n与 business-mcp guide_cases_search 等价迁移（lex-platform-v1 task 7.1）。"
+  },
+  {
+   "name": "guide_cases_read",
+   "description": "Read one guiding case's full structured sections by case_id.\n\n与 business-mcp guide_cases_read 等价迁移（lex-platform-v1 task 7.1）。"
+  },
+  {
+   "name": "legal_docs_search",
+   "description": "Search legal-document titles across the five corpora (47,256 篇).\n\nRanked exact > prefix > contains, case-insensitive. `source` is a closed\nvocabulary of the five corpus codes — an unknown value is rejected with\n`invalid_filter` plus the valid list, never silently matched to nothing.\n`doc_type` is an equality filter. At most 200 rows.\n\nDocument bodies are never returned here; `has_content` says whether\n`legal_docs_read` can serve one. Every hit carries provenance\n(source=law_db.legal_documents, stable_id=doc_id, as_of=入库时间)."
+  },
+  {
+   "name": "legal_docs_read",
+   "description": "Read one legal document by `doc_id`, body included only when fetched.\n\nReturns full metadata (including `source_url` and the crawler `metadata`\njsonb minus its internal `object_keys`) plus `content_available`. When\nthe body never made it into the corpus the answer carries an honest\n`note` and the `content` key is **absent** — not an empty string.\nUnknown ids return `not_found`."
+  }
+ ]
+}

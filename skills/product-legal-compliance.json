@@ -1,0 +1,32 @@
+{
+  "skill": "product-legal-compliance",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "产品法务合规",
+        "summary": "中国境内产品法务与合规：评估产品上线与功能合规（默认开启、客户 Logo 展示等），审查产品文档、页面流程、用户协议、隐私政策与营销文案，支持医疗、金融、教育、AI 与平台类产品评估。"
+      },
+      "en": {
+        "name": "Product legal compliance",
+        "summary": "China product compliance: assesses feature launches, reviews PRDs, flows, user agreements, privacy policies and marketing copy, with sector checks for medical, finance, education, AI and platforms."
+      },
+      "ja": {
+        "name": "製品法務コンプライアンス",
+        "summary": "中国国内の製品法務・コンプライアンス：機能のリリース可否（既定オン、顧客ロゴ掲載など）を評価し、製品文書・画面フロー・利用規約・プライバシーポリシー・マーケ文書を審査し、医療・金融・教育・AI・プラットフォーム製品の評価に対応。"
+      },
+      "es": {
+        "name": "Cumplimiento legal de producto",
+        "summary": "Cumplimiento legal de producto en China: evalúa funciones, revisa PRD, flujos, términos, privacidad y marketing, con evaluación de productos médicos, financieros, educativos, de IA y plataformas."
+      },
+      "fr": {
+        "name": "Conformité produit",
+        "summary": "Conformité produit en Chine : évalue les fonctionnalités, relit PRD, parcours, CGU, confidentialité et marketing, avec évaluation des produits médicaux, financiers, éducatifs, IA et plateformes."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

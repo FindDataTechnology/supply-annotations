@@ -1,0 +1,32 @@
+{
+  "skill": "bankruptcy-reorganization",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "破产重整管理",
+        "summary": "管理破产重整全流程：重整申请与受理、重整期间管理、重整计划草案编制、债权分组表决、法院强制批准、重整计划执行与监督，支持管理人、债权人代理、债务人代理三类角色。"
+      },
+      "en": {
+        "name": "Bankruptcy reorganization",
+        "summary": "Manages the full reorganization process — petition and acceptance, case management, plan drafting, class voting, court approval and plan execution — for administrator, creditor and debtor roles."
+      },
+      "ja": {
+        "name": "破産更生管理",
+        "summary": "破産更生手続の全工程を管理：申立てと受理、更生期間の管理、更生計画案の作成、債権者グループ別の表决、裁判所の強制認可、計画の執行と監督。管理人・債権者側・債務者側の三役割に対応。"
+      },
+      "es": {
+        "name": "Reorganización concursal",
+        "summary": "Gestiona todo el proceso de reorganización: solicitud y admisión, administración, plan, votación por clases, aprobación judicial forzosa y ejecución, para administrador, acreedores y deudor."
+      },
+      "fr": {
+        "name": "Réorganisation judiciaire",
+        "summary": "Gère tout le processus de réorganisation : demande et ouverture, gestion, plan, vote par classes, approbation forcée du tribunal et exécution, pour administrateur, créanciers et débiteur."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

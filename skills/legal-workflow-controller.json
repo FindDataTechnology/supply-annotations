@@ -1,0 +1,32 @@
+{
+  "skill": "legal-workflow-controller",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "法律流程总控",
+        "summary": "法律文件夹通用入口：对法律咨询、案件办理、合同、合规、诉讼、刑辩、劳动争议、破产、文书与检索任务做语义路由与子技能匹配，并做案件隔离、来源披露、文件读取复查、法规校验与缺口提示。"
+      },
+      "en": {
+        "name": "Legal workflow controller",
+        "summary": "General entry for legal work: routes consultation, cases, contracts, compliance, litigation and bankruptcy tasks, with case isolation, source disclosure, file-read checks and statute validation."
+      },
+      "ja": {
+        "name": "法務ワークフロー統制",
+        "summary": "法律フォルダの共通入口：法律相談・案件処理・契約・コンプライアンス・訴訟・破産などのタスクを意味的にルーティングし、案件隔離・出典開示・ファイル読み込み再確認・法規検証を行う。"
+      },
+      "es": {
+        "name": "Controlador del flujo de trabajo jurídico",
+        "summary": "Entrada del área jurídica: enruta consultas, casos, contratos, cumplimiento, litigios y quiebras, con aislamiento de casos, divulgación de fuentes, verificación de lecturas y validación normativa."
+      },
+      "fr": {
+        "name": "Contrôleur du flux de travail juridique",
+        "summary": "Entrée du dossier juridique : route consultations, dossiers, contrats, conformité, contentieux et faillites, avec isolation, sources divulguées, contrôle des lectures et validation légale."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

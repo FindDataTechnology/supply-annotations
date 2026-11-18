@@ -1,0 +1,32 @@
+{
+  "skill": "portfolio-stop-discipline",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "组合止损纪律",
+        "summary": "柏讯组合风险·止损纪律：整理用户既定的止损规则（固定位止损、移动止损、冷却期，含量级起点与按波动重标的方法依据），并呈现触发检查（当前值对阈值、冷却剩余）。首先声明规则是用户纪律设定、引擎不会自动执行止损。"
+      },
+      "en": {
+        "name": "Portfolio stop-loss discipline",
+        "summary": "Lays out user-set stop rules (fixed, trailing, cooldown) with starting levels and volatility rescaling, plus trigger checks (value vs threshold, cooldown left). No engine execution."
+      },
+      "ja": {
+        "name": "ポートフォリオ損切り規律",
+        "summary": "ユーザー既定の損切り規律（固定水準・トレーリング・クールダウン、起点水準とボラティリティ再設定根拠を含む）を整理し、発動検査（現在値対閾値、クールダウン残り）を提示。規律はユーザー設定であり、エンジンが損切りを自動執行することはない旨を冒頭で宣言する。"
+      },
+      "es": {
+        "name": "Disciplina de corte de pérdidas de cartera",
+        "summary": "Reglas de corte del usuario (línea fija, móvil, enfriamiento) con nivel inicial y reescalado por volatilidad, más chequeo de activación (valor, umbral, tiempo restante). El motor no ejecuta."
+      },
+      "fr": {
+        "name": "Discipline de seuil de perte du portefeuille",
+        "summary": "Règles d'arrêt de l'utilisateur (seuil fixe, glissant, refroidissement) avec niveau de départ et recalibrage par volatilité, plus contrôle (valeur, seuil, restant). Le moteur n'exécute rien."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

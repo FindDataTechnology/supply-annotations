@@ -1,0 +1,32 @@
+{
+  "skill": "last30days",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "近三十日舆情检索",
+        "summary": "检索近30日公众对某话题的真实讨论,从Reddit、X、YouTube、TikTok、Hacker News、Polymarket、GitHub与网页抓取帖子及互动数据。"
+      },
+      "en": {
+        "name": "Thirty-day public sentiment research",
+        "summary": "Researches what people actually say about a topic over the last 30 days, pulling posts and engagement from Reddit, X, YouTube, TikTok, Hacker News, Polymarket, GitHub and the web."
+      },
+      "ja": {
+        "name": "直近30日世論検索",
+        "summary": "あるテーマについて直近30日間の実際の言及を調査する。Reddit、X、YouTube、TikTok、Hacker News、Polymarket、GitHubやウェブから投稿とエンゲージメントを収集。"
+      },
+      "es": {
+        "name": "Investigación de opinión pública a 30 días",
+        "summary": "Investiga lo que la gente dice realmente de un tema en los últimos 30 días, extrayendo publicaciones e interacción de Reddit, X, YouTube, TikTok, Hacker News, Polymarket, GitHub y la web."
+      },
+      "fr": {
+        "name": "Recherche d’opinion publique sur 30 jours",
+        "summary": "Recherche ce que les gens disent vraiment d’un sujet sur les 30 derniers jours, en extrayant posts et interactions de Reddit, X, YouTube, TikTok, Hacker News, Polymarket, GitHub et du web."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

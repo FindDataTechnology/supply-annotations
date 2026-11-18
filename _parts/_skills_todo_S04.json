@@ -1,0 +1,26 @@
+{
+ "origin": "registry",
+ "names": [
+  "facade-builder-guide",
+  "facade-manifest-template",
+  "factor-backtest-protocol",
+  "factor-exposure",
+  "factor-library",
+  "factor-screening",
+  "fd-vaas-login",
+  "fd-vaas-publish-videos",
+  "fd-vaas-pull-from-cloud",
+  "financial-statement-analysis",
+  "first-instance-criminal-defense",
+  "food-label-compliance",
+  "formal-legal-consequence",
+  "format-conversion-elementized",
+  "ic-adjudication",
+  "ic-bear-case",
+  "ic-bull-case",
+  "ic-memo",
+  "inductive-reasoning",
+  "industry-chain-analysis",
+  "internal-compliance-risk-identification"
+ ]
+}

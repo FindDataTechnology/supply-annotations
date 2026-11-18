@@ -1,0 +1,32 @@
+{
+  "skill": "analogical-reasoning",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "类比推理",
+        "summary": "法律推理遇到现行法无直接规定（法律漏洞）的情形时，参照已有判例、相似案件或相近法律规范推导处理方案，以“相似案件相似处理”原则支撑论证结论。"
+      },
+      "en": {
+        "name": "Analogical reasoning",
+        "summary": "When no statute directly governs the case, draws on similar precedents or neighboring norms to derive an approach, supporting conclusions with the 'like cases alike' principle."
+      },
+      "ja": {
+        "name": "類推推論",
+        "summary": "現行法に直接的な規定がない場合（法の欠缺）に、既存の判例や類似事案、近接する規範を参照して処理方針を導き、「類似事案は同様に扱う」原則で結論を支える。"
+      },
+      "es": {
+        "name": "Razonamiento analógico",
+        "summary": "Ante supuestos sin norma directa, deriva el tratamiento de precedentes, casos semejantes o normas próximas y respalda la conclusión con el principio de igual trato de los casos semejantes."
+      },
+      "fr": {
+        "name": "Raisonnement analogique",
+        "summary": "Face à un cas sans règle directe, déduit le traitement de précédents, d'affaires semblables ou de normes voisines et appuie la conclusion sur le principe du traitement égal des cas semblables."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

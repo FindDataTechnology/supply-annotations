@@ -1,0 +1,32 @@
+{
+  "skill": "litigation-analysis",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "诉讼分析",
+        "summary": "判决书深度分析,生成上诉或再审的决策支持。"
+      },
+      "en": {
+        "name": "Litigation analysis",
+        "summary": "In-depth analysis of judgments, producing decision support for appeal or retrial."
+      },
+      "ja": {
+        "name": "訴訟分析",
+        "summary": "判決文を詳細に分析し、上訴または再審の意思決定支援を生成する。"
+      },
+      "es": {
+        "name": "Análisis de litigios",
+        "summary": "Análisis en profundidad de sentencias que produce apoyo a la decisión para apelar o repetir el juicio."
+      },
+      "fr": {
+        "name": "Analyse de contentieux",
+        "summary": "Analyse approfondie de jugements produisant une aide à la décision pour faire appel ou demander la révision."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

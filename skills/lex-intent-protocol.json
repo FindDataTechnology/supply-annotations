@@ -1,0 +1,32 @@
+{
+  "skill": "lex-intent-protocol",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "意图动作协议",
+        "summary": "宿主页面的动作协议：规定确认纪律、被拒后的改口规则，以及什么算动作、什么不算；信封的字面形状见 persona。"
+      },
+      "en": {
+        "name": "Intent action protocol",
+        "summary": "Host-page action protocol: confirmation discipline, how to rephrase after a refusal, and what counts as an action; the literal envelope shape is defined in the persona."
+      },
+      "ja": {
+        "name": "意図アクションプロトコル",
+        "summary": "ホストページのアクションプロトコル：確認の規律、拒否後の言い直しルール、何がアクションに当たるかを定める。封筒の字面は persona を参照。"
+      },
+      "es": {
+        "name": "Protocolo de acciones de intención",
+        "summary": "Protocolo de acciones de la página anfitriona: disciplina de confirmación, reglas para reformular tras un rechazo y qué cuenta como acción; la forma literal del sobre se define en la persona."
+      },
+      "fr": {
+        "name": "Protocole d'actions d'intention",
+        "summary": "Protocole d'actions de la page hôte : discipline de confirmation, règles de reformulation après refus et ce qui compte comme une action ; la forme littérale de l'enveloppe est définie dans le persona."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

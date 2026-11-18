@@ -1,0 +1,44 @@
+{
+  "generatedAt": "2026-11-03T22:22:32Z",
+  "source": "yizuo-file",
+  "endpoint": "paas/skills/*/SKILL.md frontmatter",
+  "total": 6,
+  "skills": [
+    {
+      "name": "computer-file-system",
+      "path": "skills/computer-file-system/SKILL.md",
+      "description": "File system operations - list directories, read/write files, create folders",
+      "dir": "computer-file-system"
+    },
+    {
+      "name": "computer-process",
+      "path": "skills/computer-process/SKILL.md",
+      "description": "Process management - list running processes, check status, terminate processes",
+      "dir": "computer-process"
+    },
+    {
+      "name": "computer-shell",
+      "path": "skills/computer-shell/SKILL.md",
+      "description": "Shell command execution - run commands, scripts, and system operations",
+      "dir": "computer-shell"
+    },
+    {
+      "name": "crm-desk-reception",
+      "path": "skills/crm-desk-reception/SKILL.md",
+      "description": "客服接待（寻数客服台 Chatwoot）：读未处理会话、读消息与联系人、在对话里出回复草稿；默认只草不发——发送必须经 propose_action 提议动作（crm.message.send）并等用户批准后由平台执行；任何工具失败原样上报并按四分类（凭据无效/网络不可达/上游错误/参数被拒）说明原因，禁止以空列表冒充无数据、禁止假报发送成功。",
+      "dir": "crm-desk-reception"
+    },
+    {
+      "name": "example-skill",
+      "path": "skills/example-skill/SKILL.md",
+      "description": "A sample skill that reformats the user's request as a concise, structured task. Use this as a template for authoring new skills.",
+      "dir": "example-skill"
+    },
+    {
+      "name": "platform-output-contract",
+      "path": "skills/platform-output-contract/SKILL.md",
+      "description": "平台产物契约（必须遵守）：图表一律用 ```echarts 围栏输出 JSON option（不用 mermaid/图片），平台才会渲染并自动存入资源库；引用你写入工作区的文件必须用相对路径 markdown 链接（如 [报告.md](报告.md)），平台会渲染预览/下载/存入资源入口；交付文件后调用 save_to_library 工具把它存入资源库；禁止 data: URI 链接；禁止声称\"无",
+      "dir": "platform-output-contract"
+    }
+  ]
+}

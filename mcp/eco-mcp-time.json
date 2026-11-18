@@ -1,0 +1,96 @@
+{
+ "version": 1,
+ "server": "eco-mcp-time",
+ "annotation": {
+  "human": {
+   "zh": {
+    "name": "时间与时区（托管版）",
+    "summary": "托管在平台上的时间服务：取当前时间、做时区换算。",
+    "whenToUse": "不想在本机装进程、只需要算时间和时区时。"
+   },
+   "en": {
+    "name": "Time & timezone (hosted)",
+    "summary": "Hosted time service: current time and timezone conversion.",
+    "whenToUse": "When you only need time and timezone maths, with nothing installed locally."
+   },
+   "ja": {
+    "name": "時刻とタイムゾーン（ホスト版）",
+    "summary": "プラットフォーム上でホストされる時刻サービス：現在時刻の取得とタイムゾーン変換を行います。",
+    "whenToUse": "ローカルに何も入れず、時刻とタイムゾーンの計算だけが必要なとき。"
+   },
+   "es": {
+    "name": "Hora y zona horaria (alojada)",
+    "summary": "Servicio de hora alojado: hora actual y conversión de zonas horarias.",
+    "whenToUse": "Cuando solo necesitas cálculos de hora y zona, sin instalar nada."
+   },
+   "fr": {
+    "name": "Heure et fuseau (hébergé)",
+    "summary": "Service d'heure hébergé : heure courante et conversion de fuseaux horaires.",
+    "whenToUse": "Pour des calculs d'heure et de fuseau uniquement, sans installation locale."
+   }
+  },
+  "canonical": {
+   "brief": "Hosted time MCP (official reference implementation): current time and timezone conversion. Hosted variant; the bundled npx entry is the local variant."
+  },
+  "tools": {
+   "convert_time": {
+    "human": {
+     "zh": {
+      "name": "换算时区时间",
+      "summary": "把某一时区的时间换算到另一时区。"
+     },
+     "en": {
+      "name": "Convert time zones",
+      "summary": "Converts a time from one timezone to another."
+     },
+     "ja": {
+      "name": "タイムゾーン変換",
+      "summary": "あるタイムゾーンの時刻を別のタイムゾーンに変換します。"
+     },
+     "es": {
+      "name": "Convertir zonas horarias",
+      "summary": "Convierte una hora de una zona horaria a otra."
+     },
+     "fr": {
+      "name": "Convertir les fuseaux",
+      "summary": "Convertit une heure d'un fuseau horaire vers un autre."
+     }
+    },
+    "canonical": {
+     "brief": "Converts a time from one timezone to another."
+    }
+   },
+   "get_current_time": {
+    "human": {
+     "zh": {
+      "name": "取当前时间",
+      "summary": "按指定时区返回当前时间。"
+     },
+     "en": {
+      "name": "Get current time",
+      "summary": "Returns the current time in the given timezone."
+     },
+     "ja": {
+      "name": "現在時刻を取得",
+      "summary": "指定したタイムゾーンの現在時刻を返します。"
+     },
+     "es": {
+      "name": "Obtener hora actual",
+      "summary": "Devuelve la hora actual en la zona horaria indicada."
+     },
+     "fr": {
+      "name": "Obtenir l'heure actuelle",
+      "summary": "Renvoie l'heure actuelle dans le fuseau horaire indiqué."
+     }
+    },
+    "canonical": {
+     "brief": "Returns the current time in a specified timezone."
+    }
+   }
+  },
+  "provenance": {
+   "source": "finddata-supply-annotations",
+   "updatedAt": "2026-11-02"
+  }
+ }
+}

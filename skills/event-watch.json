@@ -1,0 +1,32 @@
+{
+  "skill": "event-watch",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "事件盯梢",
+        "summary": "柏讯事件驱动的事件跟踪：按标的与事件类型筛选公告流，输出事件清单、分类计数与期间对比（如本周对上周），并明确标注检索口径与数据截至日期。不做预告、不推荐、不预测影响；定时触发属宿主 cron 配置，本技能只提供被调用时的方法与输出形态。"
+      },
+      "en": {
+        "name": "Event watch",
+        "summary": "Filters announcements by stock and event type: event list, category counts, period comparisons, caliber and cut-off stated; no previews, recommendations or forecasts; scheduling is host cron."
+      },
+      "ja": {
+        "name": "イベントウォッチ",
+        "summary": "銘柄とイベント類型で公告フローを絞り込み、イベント一覧、分類件数、期間比較（今週対先週）を出力し、検索口径とデータ締切日を明記。予告・推奨・影響予測はしない。定期実行は宿主の cron 設定で、本スキルは呼び出し時の手法と出力形態のみ提供する。"
+      },
+      "es": {
+        "name": "Vigilancia de eventos",
+        "summary": "Filtra anuncios por valor y tipo: eventos, conteos por categoría y comparación de períodos, con criterio y fecha de corte; sin previos, recomendaciones ni pronósticos; el cron es del anfitrión."
+      },
+      "fr": {
+        "name": "Veille d'événements",
+        "summary": "Filtre les annonces par titre et type : liste d'événements, comptes par catégorie et comparaison de périodes, critère et date d'arrêt précisés ; sans prévisions ni conseils ; le cron relève de l'hôte."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

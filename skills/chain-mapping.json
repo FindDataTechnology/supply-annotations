@@ -1,0 +1,32 @@
+{
+  "skill": "chain-mapping",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "产业链梳理",
+        "summary": "把行业拆成上下游环节结构，判断各家公司在产业链中的环节归属并逐家给出可解释依据，列出每环关键变量与来源，标注两档映射置信度；只做结构映射，不做传导检验、不出候选。"
+      },
+      "en": {
+        "name": "Industry chain mapping",
+        "summary": "Splits an industry into chain segments, places each company with explained attribution, lists key variables and sources per segment, and gives two-tier mapping confidence; structural mapping only."
+      },
+      "ja": {
+        "name": "産業チェーンマッピング",
+        "summary": "業界をチェーンの各段に分解し、各社の帰属を根拠付きで判定、段ごとの重要変数と出典を挙げ、2段階のマッピング信頼度を示す。構造マッピングのみで伝播検証はしない。"
+      },
+      "es": {
+        "name": "Mapeo de cadena industrial",
+        "summary": "Descompone la cadena en tramos, ubica cada empresa con atribución explicada, lista variables y fuentes por tramo y da dos niveles de confianza; solo mapeo estructural."
+      },
+      "fr": {
+        "name": "Cartographie de chaîne industrielle",
+        "summary": "Décompose la chaîne en maillons, situe chaque société avec attribution expliquée, liste variables et sources par maillon et donne deux niveaux de confiance ; cartographie structurelle uniquement."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

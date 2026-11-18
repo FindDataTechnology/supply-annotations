@@ -1,0 +1,83 @@
+{
+  "server_name": "fd-paper-trading",
+  "description": "模拟交易",
+  "tags": [],
+  "tools": [
+    {
+      "name": "cancel_order",
+      "description": "Cancel a pending or partially-filled order."
+    },
+    {
+      "name": "create_account",
+      "description": "Open a new paper account for the authenticated user.\n\nUse this when the user has no account yet (check with list_accounts first).\nAccounts start with the deployment's default starting balance when\nstarting_balance is omitted."
+    },
+    {
+      "name": "create_strategy",
+      "description": "Create a strategy from a spec."
+    },
+    {
+      "name": "get_account",
+      "description": "Get detailed information about a specific account."
+    },
+    {
+      "name": "get_bars",
+      "description": "Get historical OHLCV bars for a symbol, oldest-first."
+    },
+    {
+      "name": "get_strategy",
+      "description": "Get one strategy by id."
+    },
+    {
+      "name": "get_strategy_run",
+      "description": "Get a strategy run's status, stats, and equity curve."
+    },
+    {
+      "name": "list_accounts",
+      "description": "List all accounts for the authenticated user.\n\nReturns:\n    List of accounts with IDs, names, and current cash balances.\n    A failure raises a tool error rather than an empty list — \"you have no\n    accounts\" and \"the API is unreachable\" are different answers."
+    },
+    {
+      "name": "list_orders",
+      "description": "List orders for an account, optionally filtered by status."
+    },
+    {
+      "name": "list_positions",
+      "description": "List open positions for an account with quantity, average cost, and P&L."
+    },
+    {
+      "name": "list_strategies",
+      "description": "List all strategies for the authenticated user.\n\nReturns:\n    List of strategies with id, name, spec, spec_summary, and version.\n    A failure raises a tool error rather than an empty list."
+    },
+    {
+      "name": "list_strategy_runs",
+      "description": "List strategy runs (execution history), optionally filtered."
+    },
+    {
+      "name": "list_strategy_templates",
+      "description": "List the built-in strategy templates with their parameter JSON Schemas.\n\nUse these to build a template-track strategy spec:\n{\"kind\": \"template\", \"template\": <id>, \"symbol\": \"AAPL\", \"params\": {...}}.\n\nReturns:\n    List of {id, name, description, params_schema}. A failure raises a\n    tool error rather than an empty list."
+    },
+    {
+      "name": "place_order",
+      "description": "Place a new paper trading order (MARKET, LIMIT, STOP, or STOP_LIMIT)."
+    },
+    {
+      "name": "run_backtest",
+      "description": "Start a backtest of a strategy over a daily-bar window.\n\nThe backtest runs in the background; poll get_strategy_run(run_id) until\nstatus is COMPLETED (stats + equity curve) or FAILED (error message)."
+    },
+    {
+      "name": "search_instruments",
+      "description": "Search the tradable instrument universe by symbol or company name."
+    },
+    {
+      "name": "start_strategy",
+      "description": "Start a live paper run of a strategy against a paper account.\n\nThe strategy's signals are evaluated on each new daily bar and turned\ninto orders on the account. Poll get_strategy_run for status\n(STARTING -> RUNNING; ERROR on failure)."
+    },
+    {
+      "name": "stop_strategy",
+      "description": "Stop a live paper run. Cancels the run's resting LIMIT orders but never\ncloses its positions."
+    },
+    {
+      "name": "update_strategy",
+      "description": "Update a strategy. Changing the spec bumps its version; name/description\nedits do not."
+    }
+  ]
+}

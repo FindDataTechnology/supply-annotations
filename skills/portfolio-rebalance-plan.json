@@ -1,0 +1,32 @@
+{
+  "skill": "portfolio-rebalance-plan",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "组合再平衡方案",
+        "summary": "从当前持仓调到目标权重：输出逐标的差额、买卖方向与整数股数（向下取整，与权重模式引擎同口径），附佣金、印花税、滑点分项的成本预估与参数；再平衡规则可送入权重模式回测。方案不含择时建议，并声明引擎不自动执行、只消费权重。"
+      },
+      "en": {
+        "name": "Portfolio rebalancing plan",
+        "summary": "Rebalances holdings to target weights: gaps, whole-share counts (floored), commission/stamp/slippage cost splits; rules feed weight backtests. No timing advice; the engine executes nothing."
+      },
+      "ja": {
+        "name": "ポートフォリオ・リバランスプラン",
+        "summary": "現在の保有から目標ウェイトへ：銘柄別の差額・売買方向・株数（切り捨て、ウェイト・モード・エンジンと同じ基準）、手数料・取引税・スリッページ分项のコスト見積（パラメータ明示）を出力。ルールはウェイト・バックテストに投入可。タイミング助言なし、エンジンは自動執行せずウェイトを消費するのみ。"
+      },
+      "es": {
+        "name": "Plan de rebalanceo de cartera",
+        "summary": "Al peso objetivo: diferencia y títulos enteros por activo (truncado), con costes de comisión, impuesto y deslizamiento; las reglas se prueban en backtest. Sin timing; el motor no ejecuta."
+      },
+      "fr": {
+        "name": "Plan de rééquilibrage de portefeuille",
+        "summary": "Vers le poids cible : écarts et titres par ligne (arrondi inférieur), coûts de courtage, timbre et glissement ; règles rejouables en backtest. Sans timing ; le moteur n'exécute rien."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

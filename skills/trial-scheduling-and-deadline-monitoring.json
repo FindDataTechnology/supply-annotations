@@ -1,0 +1,32 @@
+{
+  "skill": "trial-scheduling-and-deadline-monitoring",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "排期与期限追踪",
+        "summary": "跟踪开庭排期、执行排期以及证据提交、上诉、送达、保全续保等各项法定期限，支持跟踪查询与到期提醒。"
+      },
+      "en": {
+        "name": "Hearing schedule and deadline tracking",
+        "summary": "Tracks hearing and enforcement scheduling plus every statutory deadline — evidence submission, appeal, service, preservation renewal — with lookups and due-date reminders."
+      },
+      "ja": {
+        "name": "開廷予定と期限トラッカー",
+        "summary": "開廷・執行スケジュールと、証拠提出・上訴・送達・保全更新などの法定期限を追跡し、照会と期限通知に対応する。"
+      },
+      "es": {
+        "name": "Agenda de vistas y seguimiento de plazos",
+        "summary": "Controla la agenda de vistas y ejecución y cada plazo legal —prueba, apelación, notificación, renovación de medidas— con consultas y avisos de vencimiento."
+      },
+      "fr": {
+        "name": "Calendrier d'audiences et suivi des délais",
+        "summary": "Suit le calendrier des audiences et de l'exécution et chaque délai légal — preuves, appel, signification, renouvellement des mesures — avec consultations et rappels d'échéance."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

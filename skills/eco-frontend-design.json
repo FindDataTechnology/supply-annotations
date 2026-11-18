@@ -1,0 +1,32 @@
+{
+  "skill": "eco-frontend-design",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "前端视觉设计",
+        "summary": "生态技能包：新界面或改版时，给出视觉方向、字体与版式判断。"
+      },
+      "en": {
+        "name": "Front-end visual design",
+        "summary": "Ecosystem skill pack: gives visual direction, font and layout judgment for new or revised interfaces."
+      },
+      "ja": {
+        "name": "フロントエンド視覚デザイン",
+        "summary": "エコシステム系スキル。画面の新規作成や改版時に、視覚方針・フォント・レイアウトの判断を示す。"
+      },
+      "es": {
+        "name": "Diseño visual de interfaces",
+        "summary": "Habilidad del ecosistema: aporta criterio visual, tipográfico y de maquetación en interfaces nuevas o rediseños."
+      },
+      "fr": {
+        "name": "Conception visuelle d'interfaces",
+        "summary": "Compétence de l'écosystème : donne un avis visuel, typographique et de mise en page pour interfaces neuves ou refondues."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

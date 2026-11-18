@@ -1,0 +1,37 @@
+{
+ "server_name": "facet-market-mcp",
+ "description": "谦面市场操作 MCP（C1.1-A）：发布/浏览/版本/可见性/策展，facet /api/packs* 六工具，用户委托鉴权（市场 app token）",
+ "tags": [
+  "security-pending"
+ ],
+ "tools": [
+  {
+   "name": "facet_market_pack_browse",
+   "description": "浏览谦面市场 pack 目录（GET /api/packs）——当前有效版本列表。"
+  },
+  {
+   "name": "facet_market_pack_curation",
+   "description": "策展信息（PUT /api/packs/{id}/curation）——写操作。"
+  },
+  {
+   "name": "facet_market_pack_publish",
+   "description": "发布 pack 到谦面市场（POST /api/packs）——写操作，头牌能力。"
+  },
+  {
+   "name": "facet_market_pack_read",
+   "description": "读 pack 详情（GET /api/packs/{id}）——最新版本清单+作者视角订阅数。"
+  },
+  {
+   "name": "facet_market_pack_validate",
+   "description": "发布前预校验（POST /api/packs/validate）——dry-run，不发布。"
+  },
+  {
+   "name": "facet_market_pack_versions",
+   "description": "读 pack 版本历史（GET /api/packs/{id}/versions）——可见性与详情同判。"
+  },
+  {
+   "name": "facet_market_pack_visibility",
+   "description": "切 pack 可见性（PUT /api/packs/{id}/visibility）——显式写操作。"
+  }
+ ]
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "portfolio-budget",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "组合风险预算",
+        "summary": "柏讯组合风险的风险预算：产出生成即合规的 TargetWeights 契约实例（单票上限＋板块上限＋迭代重分配，迭代上限显式，未收敛如实报告）与约束满足表；只管权重结构，现金靠权重和小于 1 留出。"
+      },
+      "en": {
+        "name": "Portfolio risk budget",
+        "summary": "Risk budgeting: emits a compliant TargetWeights contract (position cap, sector cap, iterative reallocation, iteration limit) plus constraint satisfaction table; weights only; cash = 1-Σweights."
+      },
+      "ja": {
+        "name": "リスク予算",
+        "summary": "ポートフォリオリスクのリスク予算：生成時点で準拠した TargetWeights 契約インスタンス（銘柄上限＋セクター上限＋反復再配分、反復上限を明示、未収束は正直に報告）と制約充足表を出力。扱うのはウェイト構造のみ、現金はウェイト合計 1 未満で確保します。"
+      },
+      "es": {
+        "name": "Presupuesto de riesgo de cartera",
+        "summary": "Presupuesto de riesgo: emite un contrato TargetWeights (tope por posición, tope por sector, reasignación iterativa) y tabla de restricciones satisfechas; solo pesos, la caja sale de Σpesos < 1."
+      },
+      "fr": {
+        "name": "Budget de risque de portefeuille",
+        "summary": "Budget de risque : émet un contrat TargetWeights (plafond par position, plafond sectoriel, réaffectation itérative) + table de contraintes satisfaites ; poids seuls, cash = Σpoids < 1."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

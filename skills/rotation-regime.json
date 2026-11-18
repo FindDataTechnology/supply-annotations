@@ -1,0 +1,32 @@
+{
+  "skill": "rotation-regime",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "轮动状态判定",
+        "summary": "柏讯自适应轮动的市场状态判定（套件入口）：对当前A股给出带证据的风险偏好、中性或避险判定，附波动率输入说明与参数重标表。本技能只做判定，不选股、不建仓，排序与建仓交给对应技能。"
+      },
+      "en": {
+        "name": "Rotation regime determination",
+        "summary": "Regime call (suite entry) for adaptive rotation: evidence-backed risk-on, neutral or risk-off verdict on the A-share market, with volatility notes and a rescaling table; no picks or positions."
+      },
+      "ja": {
+        "name": "ローテーション局面判定",
+        "summary": "適応ローテーションの市場局面判定（スイートの入口）：現在のA株にリスクオン・中立・リスクオフの判定を根拠付きで示し、ボラティリティ入力の説明とパラメータ再設定表を添える。判定のみを行い、銘柄選択・建玉は別スキルへ委ねる。"
+      },
+      "es": {
+        "name": "Determinación del régimen de rotación",
+        "summary": "Dictamen de régimen (entrada de la suite) del mercado A: veredicto ofensivo, neutral o defensivo con evidencia, notas de volatilidad y reescalado; solo juzga, sin selección ni posiciones."
+      },
+      "fr": {
+        "name": "Détermination du régime de rotation",
+        "summary": "Diagnostic de régime (entrée de la suite) : verdict offensif, neutre ou défensif du marché A, avec preuves, notes de volatilité et recalibrage ; juge seul, sans sélection ni position."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "corpus-projects",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "项目语料库",
+        "summary": "项目语料：双星路线图的里程碑状态、出口判据与在途变更。"
+      },
+      "en": {
+        "name": "Projects corpus",
+        "summary": "Project corpus: milestone status on the two-star roadmap, exit criteria and changes in flight."
+      },
+      "ja": {
+        "name": "プロジェクトコーパス",
+        "summary": "プロジェクトコーパス：ツースター・ロードマップのマイルストーン状況、出口判定基準、進行中の変更。"
+      },
+      "es": {
+        "name": "Corpus de proyectos",
+        "summary": "Corpus de proyectos: estado de hitos de la hoja de ruta de dos estrellas, criterios de salida y cambios en curso."
+      },
+      "fr": {
+        "name": "Corpus de projets",
+        "summary": "Corpus de projets : état des jalons de la feuille de route à deux étoiles, critères de sortie et changements en cours."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

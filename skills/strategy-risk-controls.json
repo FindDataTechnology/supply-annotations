@@ -1,0 +1,32 @@
+{
+  "skill": "strategy-risk-controls",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "策略风控参数",
+        "summary": "柏讯策略工坊的风控参数解读：单票上限、集中度、换手、止损、冷却期的含义、量级参考、代价与局限；核心纪律是风控参数属策略层参数，并非引擎保证。"
+      },
+      "en": {
+        "name": "Strategy risk controls",
+        "summary": "Explains Wire strategy risk-control parameters — per-position cap, concentration, turnover, stop loss, cooldown — their meaning, magnitudes, costs and limits; strategy-layer, not engine guarantees."
+      },
+      "ja": {
+        "name": "戦略リスクパラメータ",
+        "summary": "Wire戦略工房のリスク管理パラメータ解説：単一銘柄上限・集中度・回転率・ストップロス・クールダウンの意味、規模の目安、コストと限界。核心の規律は、これらが戦略レイヤーのパラメータでありエンジンの保証ではないこと。"
+      },
+      "es": {
+        "name": "Controles de riesgo de estrategia",
+        "summary": "Parámetros de riesgo de estrategia Wire: tope por posición, concentración, rotación, stop loss, enfriamiento — sentido, magnitudes, costes y límites; son de estrategia, no garantías del motor."
+      },
+      "fr": {
+        "name": "Contrôles de risque de stratégie",
+        "summary": "Paramètres de risque de stratégie Wire : plafond par position, concentration, rotation, stop loss, refroidissement — sens, ordres de grandeur, coûts et limites ; de la stratégie, pas du moteur."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

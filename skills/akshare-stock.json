@@ -1,0 +1,32 @@
+{
+  "skill": "akshare-stock",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "A股市场分析",
+        "summary": "基于 akshare 数据源、按自然语言路由的 A 股分析技能，覆盖实时行情、技术面、基本面、板块、衍生品与跨市场。"
+      },
+      "en": {
+        "name": "A-share market analysis",
+        "summary": "Routes natural-language queries to akshare data for A-share analysis: real-time market data, technicals, fundamentals, sectors, derivatives and cross-market."
+      },
+      "ja": {
+        "name": "A株市場分析",
+        "summary": "akshare のデータを使い、自然言語の指示からA株のリアルタイム市況・テクニカル・ファンダメンタルズ・セクター・デリバティブ・クロスマーケットを分析する。"
+      },
+      "es": {
+        "name": "Análisis del mercado de acciones A",
+        "summary": "Analiza acciones A chinas con akshare según rutas en lenguaje natural: cotizaciones en tiempo real, análisis técnico y fundamentalista, sectores, derivados y mercados cruzados."
+      },
+      "fr": {
+        "name": "Analyse du marché des actions A",
+        "summary": "Analyse les actions A chinoises via akshare à partir de requêtes en langage naturel : cours en temps réel, analyse technique et fondamentale, secteurs, dérivés et marchés croisés."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

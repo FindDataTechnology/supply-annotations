@@ -1,0 +1,32 @@
+{
+  "skill": "factor-library",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "因子库与口径",
+        "summary": "柏讯因子库与口径:收录 FinRL-X 的 52 个基本面因子(九类),逐因子写明分子分母、所用报表、期别、取值来源、数据可得性档位与 A 股适配说明,含共线因子剔除理由;只定义因子,不计算、不选股、不做择时。"
+      },
+      "en": {
+        "name": "Factor library",
+        "summary": "Wire factor library: 52 FinRL-X fundamental factors in nine groups, each with numerator, denominator, statement, period, source, availability tier and A-share notes; defines only, never computes."
+      },
+      "ja": {
+        "name": "因子ライブラリと基準",
+        "summary": "Wire の因子ライブラリと計算基準:FinRL-X の基本面因子52個(九分類)を収録し、各因子の分子・分母・使用決算・期別・取得元・データ入手段階・A株適合を定義。計算・銘柄選定は行わない。"
+      },
+      "es": {
+        "name": "Biblioteca de factores",
+        "summary": "Biblioteca de factores de Wire: 52 factores fundamentales de FinRL-X en nueve grupos, con numerador, denominador, estado, periodo, fuente, disponibilidad y adaptación A; solo define, no calcula."
+      },
+      "fr": {
+        "name": "Bibliothèque de facteurs",
+        "summary": "Bibliothèque de facteurs Wire : 52 facteurs fondamentaux FinRL-X en neuf groupes, avec numérateur, dénominateur, état, période, source, disponibilité et adaptation actions A ; définit sans calculer."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

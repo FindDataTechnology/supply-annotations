@@ -1,0 +1,32 @@
+{
+  "skill": "teleological-interpretation",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "目的解释",
+        "summary": "文义解释仍无法得出确定结论时，通过系统性发现并论证条文目的，在文本可承受范围内选取较正当的含义，形成可裁判的解释结论。"
+      },
+      "en": {
+        "name": "Statutory teleological interpretation",
+        "summary": "When literal reading gives no settled meaning, discovers and argues the provision's purpose and selects, within what the text can bear, the more defensible reading forming an adjudicable conclusion."
+      },
+      "ja": {
+        "name": "目的解釈",
+        "summary": "文義解釈で確定した結論が出ないとき、条文の目的を体系的に発見・論証し、テキストが耐えうる範囲でより正当な意味を選び、裁判可能な解釈結論を形成する。"
+      },
+      "es": {
+        "name": "Interpretación teleológica de normas",
+        "summary": "Cuando la letra no fija un sentido, descubre y argumenta la finalidad del precepto y elige, dentro de lo admisible por el texto, el significado más defendible y judicializable."
+      },
+      "fr": {
+        "name": "Interprétation téléologique des normes",
+        "summary": "Quand la lettre ne fixe pas de sens, découvre et argumente la finalité du texte et retient, dans les limites du supportable, la lecture la plus défendable et jugeable."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

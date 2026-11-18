@@ -1,0 +1,32 @@
+{
+  "skill": "argument-strength-evaluation",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "论证强度评估",
+        "summary": "对完成后的法律推理或论证进行自我评估，给出整体强度与置信度，识别并标注推理链中的薄弱环节与不确定因素，说明结论局限。"
+      },
+      "en": {
+        "name": "Argument strength evaluation",
+        "summary": "Self-assesses a completed legal argument: rates overall strength and confidence, flags weak links and uncertainties like unknown facts or legal gaps, and states the conclusion's limits."
+      },
+      "ja": {
+        "name": "論証強度評価",
+        "summary": "完成した法律推理・論証を自己評価し、全体の強度と信頼度を提示し、推理連鎖の脆弱点や不確実要因を注記し、結論の限界を説明する。"
+      },
+      "es": {
+        "name": "Evaluación de fuerza argumental",
+        "summary": "Evalúa en autocrítica un razonamiento jurídico: califica fuerza y confianza globales, señala eslabones débiles e incertidumbres (hechos dudosos, lagunas) y expone los límites."
+      },
+      "fr": {
+        "name": "Évaluation de la force argumentative",
+        "summary": "Auto-évalue un raisonnement juridique achevé : note la force et la confiance globales, signale les maillons faibles et les incertitudes (faits flous, lacunes, vues contestées) et expose les limites."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

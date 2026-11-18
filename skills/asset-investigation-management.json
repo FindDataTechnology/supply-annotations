@@ -1,0 +1,32 @@
+{
+  "skill": "asset-investigation-management",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "破产财产调查管理",
+        "summary": "破产程序中面向管理人的专项技能：全面调查债务人财产，追回可撤销或无效行为涉及的财产，编制财产管理方案。"
+      },
+      "en": {
+        "name": "Asset investigation and management",
+        "summary": "Administrator-facing skill for bankruptcy: investigates the debtor's assets comprehensively, recovers property affected by voidable or invalid acts, and prepares the asset management plan."
+      },
+      "ja": {
+        "name": "破産財産調査管理",
+        "summary": "破産手続の管理人向けスキル：債務者の財産を全面的に調査し、取消し可能・無効行為に係る財産を回収し、財産管理計画を編成する。"
+      },
+      "es": {
+        "name": "Investigación y gestión de activos concursales",
+        "summary": "Habilidad para la administración concursal: investiga en detalle los bienes del deudor, recupera los afectados por actos anulables o nulos y elabora el plan de gestión patrimonial."
+      },
+      "fr": {
+        "name": "Enquête et gestion d'actifs judiciaires",
+        "summary": "Compétence pour l'administrateur judiciaire : enquête approfondie sur les biens du débiteur, recouvrement des biens liés à des actes annulables ou nuls, préparation du plan de gestion patrimoniale."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

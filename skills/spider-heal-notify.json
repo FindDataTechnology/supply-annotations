@@ -1,0 +1,32 @@
+{
+  "skill": "spider-heal-notify",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "爬虫通知核对",
+        "summary": "规范爬虫自愈体系四类事件通知（工单终态、PR 开出、总闸变更、转人工）的 bot_notify 用法，并给出总闸核对流程。"
+      },
+      "en": {
+        "name": "Crawler event notification and master-gate check",
+        "summary": "Standardizes bot_notify usage for the four crawler self-heal event notifications (ticket final state, PR opened, master-gate change, handoff to human) and lays out the master-gate verification flow."
+      },
+      "ja": {
+        "name": "スパイダー通知とマスタースイッチ確認",
+        "summary": "クローラー自己修復の四種類のイベント通知（チケット終了、PR作成、マスタースイッチ変更、人工対応）について bot_notify の使い方を定め、マスタースイッチの照合手順を示す。"
+      },
+      "es": {
+        "name": "Aviso de rastreo e interruptor maestro",
+        "summary": "Normaliza bot_notify para cuatro notificaciones (fin de ticket, PR abierta, cambio del interruptor maestro, paso a humano) y define su flujo de verificación."
+      },
+      "fr": {
+        "name": "Notification de robot et interrupteur général",
+        "summary": "Normalise bot_notify pour quatre notifications (fin de ticket, PR ouverte, changement d’interrupteur général, passage à l’humain) et décrit le flux de vérification."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

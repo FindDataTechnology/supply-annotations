@@ -1,0 +1,69 @@
+{
+  "server_name": "wire-build-mcp",
+  "description": "柏讯产物构建 MCP：form（录入表单）与 record-view（单记录扫码页）的创建/更新/发布，看板（dashboard）与正文文档（doc）创建，产物与版本读取，数据集列事实与按需建集。写入默认落草稿、发布必须独立显式调用；spec 引用不存在的列时错误文案带该数据集真实列名清单。",
+  "tags": [
+    "security-pending"
+  ],
+  "tools": [
+    {
+      "name": "wire_artifact_archive",
+      "description": "归档产物（draft/published → archived）——不删除，留操作记录。\n\n归档后不可编辑（PUT 会 409）；如需修改先 wire_artifact_restore 回草稿。"
+    },
+    {
+      "name": "wire_artifact_form_create",
+      "description": "创建数据录入表单（kind=form）——接受完整 spec 信封，落 draft。\n\nspec 信封形状：``{\"title\": <同 title>, \"spec\": {\"datasetId\", \"fields\": [...],\n\"constraints\"?: [...]}}``（字段键与校验规则见 fd-wire\nartifacts/form_spec.py——options/optionsFrom/optionsFromDataset 三源恰有\n其一、visibleWhen 系列、fillFrom、computed、constraints 提交闸）。\n生成前先 wire_dataset_schema 取真实列名。datasetId 可为 null（构建中间态，\n可保存不可提交/发布）。\n\n本工具**只落草稿**：创建即 published 的参数不存在（传了会被 MCP 层拒）。"
+    },
+    {
+      "name": "wire_artifact_get",
+      "description": "产物详情（当前 spec + 状态迁移记录）+ 版本历史——只读。\n\n两个端点合成一个负载：详情（GET /artifacts/{id}）与版本清单\n（GET /artifacts/{id}/versions）。他企或不存在一律 404（不可区分）。"
+    },
+    {
+      "name": "wire_artifact_list",
+      "description": "本企业产物列表（GET /api/v1/artifacts，按更新时间倒序）——只读。\n\nkind 可选过滤（form/record-view/dashboard/alert_rule/…）；artifact_status\n可选 draft/published/archived（不要传 ``status``，那会被 MCP 层当未声明参数拒绝）。"
+    },
+    {
+      "name": "wire_artifact_publish",
+      "description": "发布产物（draft → published）——**独立的显式动作**，不做结构校验。\n\n上游 publish 仅做状态迁移（不校 spec 结构），发布前请确认 spec 已过写入\n校验（创建/更新路径已校）。非法迁移 409 原文透传（如 archived 需先 restore）。"
+    },
+    {
+      "name": "wire_artifact_record_view_create",
+      "description": "创建单记录扫码页（kind=record-view）——接受完整 spec 信封，落 draft。\n\nspec 信封形状：``{\"title\": <同 title>, \"spec\": {\"datasetId\", \"keyColumn\",\n\"headerFields\": [{\"column\", \"label\"?}], \"sections\": [{\"title\", \"datasetId\",\n\"dateColumn\", \"filters\"?, \"limit\"?}]}}``（校验规则见 fd-wire\nartifacts/record_view_spec.py；keyColumn/headerFields.column/dateColumn\n在保存时刻即按数据集列快照校验）。生成前先 wire_dataset_schema。\n\n本工具**只落草稿**：发布请单独调 wire_artifact_publish。"
+    },
+    {
+      "name": "wire_artifact_restore",
+      "description": "恢复产物（archived → draft）——唯一回退边；恢复后方可再编辑/发布。"
+    },
+    {
+      "name": "wire_artifact_update",
+      "description": "更新产物 spec（PUT /artifacts/{id}）——追加新版本行，状态仍为原态。\n\narchived 产物拒改（上游 409「请先恢复」原文透传——先 wire_artifact_restore）。\nspec 校验按 kind 分派（form/record-view 的结构层 + 属主层）；\n422 时若 spec 引用数据集，错误文案带该数据集真实列名清单。"
+    },
+    {
+      "name": "wire_dataset_correct",
+      "description": "写入一条修正（POST /datasets/{id}/corrections）——不可变覆盖层。\n\n三分支（与上游逐字同形）：\n- ``op=\"update\"``：必须带 ``row_id`` 与 ``column``，``value`` 可为 null\n- ``op=\"delete\"``：必须带 ``row_id``\n- ``op=\"insert\"``：必须带 ``values``（整行值）；可选 ``artifact_id``，\n  携带时服务端按该 form 产物**当前版本**执行全量字段校验+提交闸\n  （与公开提交同一执法点），命中 422 带 constraint id+message 且零写入\n\n归因（审计身份）由**服务端按凭据轨道推导**：actor=`customer:{客户}`、\nchannel 记录轨道；公开表单提交的条目 actor 为 ``share-form:{artifact_id}``。\n``source`` 是本层的声明性入参（调用方自述来源，如 ``conversation:{id}``）——\n**上游修正载荷不承载该字段**（传入即被上游忽略），事后区分来源的权威依据\n是修正历史里的 actor+channel，本工具如实转述不谎称落库。\n\n语义边界：基行永不改写（更正以 append 生效）；许可悬空（行锚不存在）\n落层；行数超过档位配额时上游 429/402 如实转述——服务不代删数据。"
+    },
+    {
+      "name": "wire_dataset_correction_revert",
+      "description": "撤销单条修正（POST .../corrections/{cid}/revert）——停止生效、留档不删。\n\n重复撤销同一条 SHALL 由上游判 409（原文透传），工具不谎报成功。\n基行永不改写——撤销后有效视图回到修正前的值。"
+    },
+    {
+      "name": "wire_dataset_corrections_list",
+      "description": "读取修正历史（GET /datasets/{id}/corrections）——只读、审计留痕。\n\n默认**包含已回滚项与悬空项**——使「谁在什么时候改了什么、后来又被\n撤销」可完整重放，不静默丢弃；需要干净视图时显式置 false。"
+    },
+    {
+      "name": "wire_dataset_create",
+      "description": "按客户存储分层建集——轻量层走 CSV 导入（带行数据）、物化层走列声明（空集）。\n\n分流判据=客户档位（GET /datasets/quota 的 plan_code）：\n- ``free``（轻量存储层）：**必须**给 ``csv_content``——表头 + 调用方真实的\n  行数据；服务**绝不编造示例行**填充。内部两步：POST /datasets/uploads\n  （multipart）→ POST /datasets（source.kind=upload）。列与类型由上传解析\n  器从内容推断。\n- 其他（引擎物化层）：给 ``columns``（``[{name, type}]``，type ∈\n  INTEGER/REAL/TEXT，不确定用 TEXT）走 source.kind=declared 建零行空集；\n  给了 ``csv_content`` 则同样走导入路径（带数据建集）。\n\n轻量存储层被要求走列声明路径时上游 403 档位闸——原样转述（不伪造、不\n静默改道）。配额用尽上游 402/403 如实；删集腾位由调用方决定（服务不代删）。"
+    },
+    {
+      "name": "wire_dataset_export",
+      "description": "导出数据集有效视图为 CSV（GET /datasets/{id}/export）——只读。\n\n返回结构含 ``csv`` 文本与 ``truncated`` 布尔：**truncated=true 表示\n结果已被上游行数闸截断（cell 档 10,000 行），可能还有更多行**。调用方\nMUST NOT 把截断结果当全量使用或向终端用户谎报为完整数据。\n\nCSV 约定沿用上游：UTF-8 带 BOM、RFC4180 转义、表头=列名行。"
+    },
+    {
+      "name": "wire_dataset_rows_read",
+      "description": "读取数据集有效视图分页行（GET /datasets/{id}/rows）——只读。\n\n**读到的是修正生效后的值**（含未回滚的全部修正），非入库原始快照。\n分页由调用方给定：page 从 1 起，page_size ∈ 1..200（默认 50）。\n**不提供「一次取全部」**——要全量走 wire_dataset_export 并接受截断语义。"
+    },
+    {
+      "name": "wire_dataset_schema",
+      "description": "读取数据集列事实（GET /api/v1/datasets/{id}）——列名与类型。\n\n生成 form/record-view 的 spec 前**先调本工具取事实**，绝不凭记忆编列名；\nschema 预览以列注册表为准（api 层另带实时行数）。跨企业/不存在 404。"
+    }
+  ]
+}

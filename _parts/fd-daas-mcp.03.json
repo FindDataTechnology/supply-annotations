@@ -1,0 +1,625 @@
+{
+  "tools": {
+    "daas_delete_datasource": {
+      "human": {
+        "zh": {
+          "name": "删除数据源",
+          "summary": "按名称或 ID 删除数据源，并级联删除其表单、章节与集合条目引用。返回删除结果。"
+        },
+        "en": {
+          "name": "Delete datasource",
+          "summary": "Deletes a datasource by name or id and cascades removal of its forms, sections, and collection-item references. Returns the deletion result."
+        },
+        "ja": {
+          "name": "データソース削除",
+          "summary": "名前または ID でデータソースを削除し、そのフォーム・セクション・コレクション項目の参照も連動して削除します。削除結果を返します。"
+        },
+        "es": {
+          "name": "Eliminar fuente",
+          "summary": "Elimina una fuente por nombre o id y borra en cascada sus formularios, secciones y referencias en colecciones. Devuelve el resultado."
+        },
+        "fr": {
+          "name": "Supprimer la source",
+          "summary": "Supprime une source par nom ou id et efface en cascade ses formulaires, sections et références dans les collections. Renvoie le résultat."
+        }
+      },
+      "canonical": {
+        "brief": "Delete a datasource by name or id; cascade-deletes its forms, sections, and collection-item references."
+      }
+    },
+    "daas_create_category": {
+      "human": {
+        "zh": {
+          "name": "新建分类",
+          "summary": "创建分类，可指定父分类以构建分类树。返回新建的分类。"
+        },
+        "en": {
+          "name": "Create category",
+          "summary": "Creates a category, optionally under a parent to build the category tree. Returns the created category."
+        },
+        "ja": {
+          "name": "カテゴリ作成",
+          "summary": "親を指定してカテゴリを作成でき、分類ツリーを構築します。作成したカテゴリを返します。"
+        },
+        "es": {
+          "name": "Crear categoría",
+          "summary": "Crea una categoría, opcionalmente bajo una categoría padre para construir el árbol. Devuelve la categoría creada."
+        },
+        "fr": {
+          "name": "Créer une catégorie",
+          "summary": "Crée une catégorie, éventuellement sous une catégorie parente pour bâtir l'arbre. Renvoie la catégorie créée."
+        }
+      },
+      "canonical": {
+        "brief": "Create a category, optionally under a parent to build the tree; returns the created category."
+      }
+    },
+    "daas_move_category": {
+      "human": {
+        "zh": {
+          "name": "移动分类",
+          "summary": "调整分类的父级；拒绝形成环路或自指的移动，父级置空即移到根。返回移动后的分类。"
+        },
+        "en": {
+          "name": "Move category",
+          "summary": "Re-parents a category; rejects moves that would create a cycle or self-parenting, and a null parent_id makes it a root. Returns the moved category."
+        },
+        "ja": {
+          "name": "カテゴリ移動",
+          "summary": "カテゴリの親を変更します。循環や自己参照になる移動は拒否し、parent_id を null にするとルートになります。移動後のカテゴリを返します。"
+        },
+        "es": {
+          "name": "Mover categoría",
+          "summary": "Cambia la categoría padre; rechaza movimientos que creen ciclos o autoemparentado, y con parent_id nulo queda en la raíz. Devuelve la categoría movida."
+        },
+        "fr": {
+          "name": "Déplacer catégorie",
+          "summary": "Change la catégorie parente ; refuse les déplacements créant un cycle ou un auto-parentage, et un parent_id nul la place à la racine. Renvoie la catégorie déplacée."
+        }
+      },
+      "canonical": {
+        "brief": "Re-parent a category; rejects cycle-creating and self-parenting moves; parent_id null makes it a root."
+      }
+    },
+    "daas_delete_category": {
+      "human": {
+        "zh": {
+          "name": "删除分类",
+          "summary": "删除分类；有子分类时拒绝，其下数据源的 category_id 置空并上移到根级。返回删除结果。"
+        },
+        "en": {
+          "name": "Delete category",
+          "summary": "Deletes a category; rejected when it has child categories. Its datasources are orphaned to root level with category_id set to null. Returns the result."
+        },
+        "ja": {
+          "name": "カテゴリ削除",
+          "summary": "カテゴリを削除します。子カテゴリがある場合は拒否され、所属データソースは category_id を null にしてルートへ移されます。結果を返します。"
+        },
+        "es": {
+          "name": "Eliminar categoría",
+          "summary": "Elimina una categoría; se rechaza si tiene subcategorías. Sus fuentes quedan huérfanas en la raíz con category_id nulo. Devuelve el resultado."
+        },
+        "fr": {
+          "name": "Supprimer catégorie",
+          "summary": "Supprime une catégorie ; refusé si elle a des sous-catégories. Ses sources passent à la racine avec category_id nul. Renvoie le résultat."
+        }
+      },
+      "canonical": {
+        "brief": "Delete a category; rejected if it has children; its datasources move to root with category_id set to null."
+      }
+    },
+    "daas_get_category_tree": {
+      "human": {
+        "zh": {
+          "name": "读取分类树",
+          "summary": "返回分类树，或指定 root_id 下的子树，结构嵌套，每个节点带 datasource_count。"
+        },
+        "en": {
+          "name": "Read category tree",
+          "summary": "Returns the category tree, or the subtree under root_id, as nested nodes each annotated with datasource_count."
+        },
+        "ja": {
+          "name": "カテゴリツリー取得",
+          "summary": "カテゴリツリー、または root_id 配下のサブツリーを入れ子構造で返し、各ノードに datasource_count を付けます。"
+        },
+        "es": {
+          "name": "Leer árbol",
+          "summary": "Devuelve el árbol de categorías, o el subárbol bajo root_id, como nodos anidados con datasource_count en cada uno."
+        },
+        "fr": {
+          "name": "Lire l'arbre",
+          "summary": "Renvoie l'arbre des catégories, ou le sous-arbre sous root_id, en nœuds imbriqués avec datasource_count."
+        }
+      },
+      "canonical": {
+        "brief": "Return the category tree, or the subtree from root_id, as nested nodes each annotated with datasource_count."
+      }
+    },
+    "daas_add_form": {
+      "human": {
+        "zh": {
+          "name": "新增表单",
+          "summary": "为数据源新增表单（如 10-K、8-K）。返回新增的表单。"
+        },
+        "en": {
+          "name": "Add form",
+          "summary": "Adds a form, such as 10-K or 8-K, to a datasource. Returns the added form."
+        },
+        "ja": {
+          "name": "フォーム追加",
+          "summary": "データソースにフォーム（例: 10-K、8-K）を追加します。追加したフォームを返します。"
+        },
+        "es": {
+          "name": "Añadir formulario",
+          "summary": "Añade un formulario, por ejemplo 10-K u 8-K, a una fuente. Devuelve el formulario añadido."
+        },
+        "fr": {
+          "name": "Ajouter formulaire",
+          "summary": "Ajoute un formulaire, par exemple 10-K ou 8-K, à une source. Renvoie le formulaire ajouté."
+        }
+      },
+      "canonical": {
+        "brief": "Add a form such as 10-K or 8-K to a datasource; returns the added form."
+      }
+    },
+    "daas_add_section": {
+      "human": {
+        "zh": {
+          "name": "新增章节",
+          "summary": "在表单下新增章节，并携带该章节的抽取指令。返回新增的章节。"
+        },
+        "en": {
+          "name": "Add section",
+          "summary": "Adds a section to a form, carrying its extraction instruction. Returns the added section."
+        },
+        "ja": {
+          "name": "セクション追加",
+          "summary": "フォームにセクションを追加し、その抽出指示を持たせます。追加したセクションを返します。"
+        },
+        "es": {
+          "name": "Añadir sección",
+          "summary": "Añade una sección a un formulario con su instrucción de extracción. Devuelve la sección añadida."
+        },
+        "fr": {
+          "name": "Ajouter section",
+          "summary": "Ajoute une section à un formulaire avec son instruction d'extraction. Renvoie la section ajoutée."
+        }
+      },
+      "canonical": {
+        "brief": "Add a section to a form, carrying its extraction instruction; returns the added section."
+      }
+    },
+    "daas_list_forms": {
+      "human": {
+        "zh": {
+          "name": "列出数据源表单",
+          "summary": "列出数据源的全部表单，每个表单嵌套其章节，章节含抽取指令。"
+        },
+        "en": {
+          "name": "List datasource forms",
+          "summary": "Lists all forms of a datasource, each with its nested sections including the extraction instruction."
+        },
+        "ja": {
+          "name": "フォーム一覧",
+          "summary": "データソースの全フォームを一覧し、各フォームに入れ子のセクション（抽出指示を含む）を付けます。"
+        },
+        "es": {
+          "name": "Listar formularios",
+          "summary": "Lista todos los formularios de una fuente, cada uno con sus secciones anidadas e instrucción de extracción."
+        },
+        "fr": {
+          "name": "Lister formulaires",
+          "summary": "Liste tous les formulaires d'une source, chacun avec ses sections imbriquées et l'instruction d'extraction."
+        }
+      },
+      "canonical": {
+        "brief": "List all forms of a datasource, each with nested sections including the extraction instruction."
+      }
+    },
+    "daas_create_collection": {
+      "human": {
+        "zh": {
+          "name": "新建集合",
+          "summary": "创建具名数据源集合。返回新建的集合。"
+        },
+        "en": {
+          "name": "Create collection",
+          "summary": "Creates a named datasource collection. Returns the created collection."
+        },
+        "ja": {
+          "name": "コレクション作成",
+          "summary": "名前付きのデータソースコレクションを作成します。作成したコレクションを返します。"
+        },
+        "es": {
+          "name": "Crear colección",
+          "summary": "Crea una colección de fuentes con nombre. Devuelve la colección creada."
+        },
+        "fr": {
+          "name": "Créer collection",
+          "summary": "Crée une collection de sources nommée. Renvoie la collection créée."
+        }
+      },
+      "canonical": {
+        "brief": "Create a named datasource collection; returns the created collection."
+      }
+    },
+    "daas_add_to_collection": {
+      "human": {
+        "zh": {
+          "name": "添加集合条目",
+          "summary": "向集合添加数据源或其中某一章节，可覆写该项评分；省略章节即整条数据源。返回新增的条目。"
+        },
+        "en": {
+          "name": "Add collection item",
+          "summary": "Adds a datasource, or one of its sections, to a collection with an optional score override. Omit section_name for the whole datasource. Returns the item."
+        },
+        "ja": {
+          "name": "コレクションに追加",
+          "summary": "データソース全体、または指定セクションをコレクションに追加し、項目ごとのスコア上書きも指定できます。section_name を省略すると全体です。"
+        },
+        "es": {
+          "name": "Añadir a colección",
+          "summary": "Añade una fuente, o una de sus secciones, a una colección con puntuación propia opcional. Omite section_name para la fuente completa. Devuelve el elemento."
+        },
+        "fr": {
+          "name": "Ajouter à collection",
+          "summary": "Ajoute une source, ou l'une de ses sections, à une collection avec score propre facultatif. Omettre section_name pour la source entière. Renvoie l'élément."
+        }
+      },
+      "canonical": {
+        "brief": "Add a datasource, or one specific datasource-section, to a collection with an optional per-collection score override."
+      }
+    },
+    "daas_list_collection_items": {
+      "human": {
+        "zh": {
+          "name": "列出集合条目",
+          "summary": "列出集合内条目，每条解析出数据源名称，以及设置时的章节名与抽取指令。"
+        },
+        "en": {
+          "name": "List collection items",
+          "summary": "Lists a collection's items, each resolved to its source name plus, when set, section name and instruction."
+        },
+        "ja": {
+          "name": "コレクション項目一覧",
+          "summary": "コレクション内の項目を一覧し、各項目をデータソース名、設定時はセクション名と指示に解決して返します。"
+        },
+        "es": {
+          "name": "Listar elementos",
+          "summary": "Lista los elementos de una colección, resueltos a nombre de fuente y, si existe, nombre de sección e instrucción."
+        },
+        "fr": {
+          "name": "Lister les éléments",
+          "summary": "Liste les éléments d'une collection, résolus en nom de source et, le cas échéant, nom de section et instruction."
+        }
+      },
+      "canonical": {
+        "brief": "List a collection's items, each resolved to source name and, when set, section name and instruction."
+      }
+    },
+    "daas_remove_from_collection": {
+      "human": {
+        "zh": {
+          "name": "移除集合条目",
+          "summary": "按集合、数据源与可选章节移除条目；省略章节即移除整条数据源条目。返回移除结果。"
+        },
+        "en": {
+          "name": "Remove collection item",
+          "summary": "Removes an item by collection, source, and optional section; omitting section_name removes the whole-datasource item. Returns the result."
+        },
+        "ja": {
+          "name": "項目削除",
+          "summary": "コレクション・データソース・任意のセクションで項目を削除します。section_name を省略するとデータソース全体の項目を削除し、結果を返します。"
+        },
+        "es": {
+          "name": "Quitar elemento",
+          "summary": "Quita un elemento por colección, fuente y sección opcional; omitir section_name elimina el elemento de la fuente completa. Devuelve el resultado."
+        },
+        "fr": {
+          "name": "Retirer élément",
+          "summary": "Retire un élément par collection, source et section facultative ; omettre section_name retire l'élément de la source entière. Renvoie le résultat."
+        }
+      },
+      "canonical": {
+        "brief": "Remove an item from a collection by collection, source, and optional section; omitting section removes the whole-datasource item."
+      }
+    },
+    "daas_list_collections": {
+      "human": {
+        "zh": {
+          "name": "列出集合",
+          "summary": "列出全部数据源集合及各集合的条目数。"
+        },
+        "en": {
+          "name": "List collections",
+          "summary": "Lists every datasource collection together with its item count."
+        },
+        "ja": {
+          "name": "コレクション一覧",
+          "summary": "すべてのデータソースコレクションを項目数とともに一覧します。"
+        },
+        "es": {
+          "name": "Listar colecciones",
+          "summary": "Lista todas las colecciones de fuentes junto con su número de elementos."
+        },
+        "fr": {
+          "name": "Lister collections",
+          "summary": "Liste toutes les collections de sources avec leur nombre d'éléments."
+        }
+      },
+      "canonical": {
+        "brief": "List every datasource collection with its item count."
+      }
+    },
+    "daas_rename_collection": {
+      "human": {
+        "zh": {
+          "name": "重命名集合",
+          "summary": "重命名集合，新名不得与现有集合重复；条目按 collection_id 引用而保留。返回重命名后的集合。"
+        },
+        "en": {
+          "name": "Rename collection",
+          "summary": "Renames a collection; the new name must not duplicate an existing one, and items are preserved because they reference collection_id."
+        },
+        "ja": {
+          "name": "名称変更",
+          "summary": "コレクションを改名します。新しい名前は既存と重複できず、項目は collection_id 参照のため保持されます。"
+        },
+        "es": {
+          "name": "Renombrar colección",
+          "summary": "Renombra una colección; el nuevo nombre no puede duplicar otro y los elementos se conservan al referenciar collection_id."
+        },
+        "fr": {
+          "name": "Renommer collection",
+          "summary": "Renomme une collection ; le nouveau nom ne doit pas en dupliquer un autre, et les éléments sont conservés via collection_id."
+        }
+      },
+      "canonical": {
+        "brief": "Rename a collection; the new name must not duplicate an existing one; items are preserved because they reference collection_id."
+      }
+    },
+    "daas_update_collection": {
+      "human": {
+        "zh": {
+          "name": "更新集合",
+          "summary": "部分更新集合名称或描述，至少给一项，未给字段保持不变，新名不得重复。返回更新后的集合。"
+        },
+        "en": {
+          "name": "Update collection",
+          "summary": "Partially updates a collection's name and/or description; at least one is required, omitted fields stay unchanged, and a new name must not duplicate."
+        },
+        "ja": {
+          "name": "コレクション更新",
+          "summary": "コレクションの名前や説明を部分更新します。少なくとも一方が必要で、省略した項目は変更されず、新しい名前は重複できません。"
+        },
+        "es": {
+          "name": "Actualizar colección",
+          "summary": "Actualiza parcialmente nombre o descripción; se requiere al menos uno, los campos omitidos no cambian y el nombre nuevo no puede duplicarse."
+        },
+        "fr": {
+          "name": "Mettre à jour",
+          "summary": "Met à jour partiellement le nom ou la description ; au moins un champ est requis, les champs omis restent inchangés et le nouveau nom ne doit pas être dupliqué."
+        }
+      },
+      "canonical": {
+        "brief": "Partially update a collection's name and/or description; at least one field required; omitted fields unchanged; new name must not duplicate."
+      }
+    },
+    "daas_delete_collection": {
+      "human": {
+        "zh": {
+          "name": "删除集合",
+          "summary": "删除集合并级联删除其条目行，数据源本身不受影响。返回删除结果。"
+        },
+        "en": {
+          "name": "Delete collection",
+          "summary": "Deletes a collection and cascades to its item rows; the datasources themselves are untouched. Returns the result."
+        },
+        "ja": {
+          "name": "コレクション削除",
+          "summary": "コレクションを削除し、その項目行も連動削除します。データソース自体は変更されません。結果を返します。"
+        },
+        "es": {
+          "name": "Eliminar colección",
+          "summary": "Elimina una colección y en cascada sus filas de elementos; las fuentes no se tocan. Devuelve el resultado."
+        },
+        "fr": {
+          "name": "Supprimer collection",
+          "summary": "Supprime une collection et, en cascade, ses lignes d'éléments ; les sources restent intactes. Renvoie le résultat."
+        }
+      },
+      "canonical": {
+        "brief": "Delete a collection and cascade-delete its item rows; the datasources themselves are untouched."
+      }
+    },
+    "daas_reorder_collection_items": {
+      "human": {
+        "zh": {
+          "name": "重排集合条目",
+          "summary": "按给定顺序重写集合内条目的 sort_order；必须完整覆盖所有条目 ID，缺项即拒绝。返回重排结果。"
+        },
+        "en": {
+          "name": "Reorder items",
+          "summary": "Rewrites item sort_order to match the given list; ordered_item_ids must include every existing item id exactly once, so partial reorders are rejected."
+        },
+        "ja": {
+          "name": "項目並べ替え",
+          "summary": "指定リストに合わせてコレクション項目の sort_order を書き換えます。ordered_item_ids は全項目 ID を重複なく含む必要があり、部分指定は拒否されます。"
+        },
+        "es": {
+          "name": "Reordenar elementos",
+          "summary": "Reescribe el sort_order de los elementos según la lista dada; ordered_item_ids debe incluir cada id existente una vez, sin reordenamientos parciales."
+        },
+        "fr": {
+          "name": "Réordonner éléments",
+          "summary": "Réécrit le sort_order des éléments selon la liste fournie ; ordered_item_ids doit contenir chaque id existant une fois, sans réordonnancement partiel."
+        }
+      },
+      "canonical": {
+        "brief": "Rewrite item sort_order to match ordered_item_ids, which must list every existing item id exactly once; partial reorders are rejected."
+      }
+    },
+    "daas_set_collection_item_score": {
+      "human": {
+        "zh": {
+          "name": "设置条目评分",
+          "summary": "按集合名、数据源与可选章节设置或清除条目评分覆写。返回条目及其生效评分、覆写值与数据源默认分。"
+        },
+        "en": {
+          "name": "Set item score",
+          "summary": "Sets or clears a per-collection score override for an item; returns the item with its effective score, raw override, and source default score."
+        },
+        "ja": {
+          "name": "項目スコア設定",
+          "summary": "項目ごとのコレクション内スコア上書きを設定または解除します。有効スコア、上書き値、データソース既定スコアを含む項目を返します。"
+        },
+        "es": {
+          "name": "Fijar puntuación",
+          "summary": "Fija o borra la puntuación propia de un elemento; devuelve el elemento con su puntuación efectiva, el valor propio y la predeterminada de la fuente."
+        },
+        "fr": {
+          "name": "Définir le score",
+          "summary": "Définit ou efface le score propre d'un élément ; renvoie l'élément avec son score effectif, la valeur propre et le score par défaut de la source."
+        }
+      },
+      "canonical": {
+        "brief": "Set or clear a per-collection score override; returns the item with effective score, raw override, and source default score."
+      }
+    },
+    "daas_search_datasources": {
+      "human": {
+        "zh": {
+          "name": "检索数据源",
+          "summary": "按分类（可含子树）、数据源、表单、章节逐级过滤，并可对标签、描述与指令做全文匹配。返回命中的数据源。"
+        },
+        "en": {
+          "name": "Search datasources",
+          "summary": "Filters datasources by category (optionally with subtree), source, form, and section, plus a free-text query over labels, descriptions, and instructions."
+        },
+        "ja": {
+          "name": "データソース検索",
+          "summary": "分類（サブツリー可）・データソース・フォーム・セクションで絞り込み、ラベル・説明・指示への全文検索も行えます。該当データソースを返します。"
+        },
+        "es": {
+          "name": "Buscar fuentes",
+          "summary": "Filtra fuentes por categoría (con subárbol opcional), fuente, formulario y sección, más búsqueda libre en etiquetas, descripciones e instrucciones."
+        },
+        "fr": {
+          "name": "Chercher les sources",
+          "summary": "Filtre les sources par catégorie (sous-arbre optionnel), source, formulaire et section, plus recherche libre sur libellés, descriptions et instructions."
+        }
+      },
+      "canonical": {
+        "brief": "Filter datasources by category (with optional subtree), source, form, and section, plus a free-text query over labels, descriptions, and instructions."
+      }
+    },
+    "daas_search_entities": {
+      "human": {
+        "zh": {
+          "name": "检索实体",
+          "summary": "按名称、代码、ticker 或别名检索实体（股票与国家）。返回匹配的实体。"
+        },
+        "en": {
+          "name": "Search entities",
+          "summary": "Searches entities (stocks and countries) by name, ticker, code, or alias. Returns the matching entities."
+        },
+        "ja": {
+          "name": "エンティティ検索",
+          "summary": "名称・ティッカー・コード・別名でエンティティ（株式と国）を検索します。一致したエンティティを返します。"
+        },
+        "es": {
+          "name": "Buscar entidades",
+          "summary": "Busca entidades (acciones y países) por nombre, ticker, código o alias. Devuelve las entidades coincidentes."
+        },
+        "fr": {
+          "name": "Chercher entités",
+          "summary": "Recherche des entités (actions et pays) par nom, ticker, code ou alias. Renvoie les entités trouvées."
+        }
+      },
+      "canonical": {
+        "brief": "Search entities (stocks and countries) by name, ticker, code, or alias."
+      }
+    },
+    "daas_get_entity": {
+      "human": {
+        "zh": {
+          "name": "读取实体详情",
+          "summary": "返回单个实体的完整详情，含别名与元数据；可按实体类型加代码解析，或退回实体 ID 解析。"
+        },
+        "en": {
+          "name": "Read entity detail",
+          "summary": "Returns full detail for one entity, including aliases and metadata; resolves by entity_type plus code first, otherwise by entity_id."
+        },
+        "ja": {
+          "name": "エンティティ詳細",
+          "summary": "1 件のエンティティの詳細（別名とメタデータを含む）を返します。entity_type と code で解決し、なければ entity_id を使います。"
+        },
+        "es": {
+          "name": "Leer entidad",
+          "summary": "Devuelve el detalle de una entidad, con alias y metadatos; resuelve por entity_type y code, o en su defecto por entity_id."
+        },
+        "fr": {
+          "name": "Lire l'entité",
+          "summary": "Renvoie le détail d'une entité, alias et métadonnées compris ; résolution par entity_type et code, sinon par entity_id."
+        }
+      },
+      "canonical": {
+        "brief": "Get full detail for one entity, including aliases and metadata; resolves by (entity_type, code) first, otherwise by entity_id."
+      }
+    },
+    "daas_list_entities": {
+      "human": {
+        "zh": {
+          "name": "列出实体",
+          "summary": "按类型、交易所或国家过滤并分页列出实体。返回实体列表。"
+        },
+        "en": {
+          "name": "List entities",
+          "summary": "Lists entities filtered by type, exchange, or country, with pagination. Returns the entity list."
+        },
+        "ja": {
+          "name": "エンティティ一覧",
+          "summary": "種類・取引所・国で絞り込み、ページングしてエンティティを一覧します。エンティティ一覧を返します。"
+        },
+        "es": {
+          "name": "Listar entidades",
+          "summary": "Lista entidades filtradas por tipo, bolsa o país, con paginación. Devuelve la lista de entidades."
+        },
+        "fr": {
+          "name": "Lister les entités",
+          "summary": "Liste les entités filtrées par type, place boursière ou pays, avec pagination. Renvoie la liste des entités."
+        }
+      },
+      "canonical": {
+        "brief": "List entities filtered by type, exchange, or country, with pagination."
+      }
+    },
+    "daas_get_entity_coverage": {
+      "human": {
+        "zh": {
+          "name": "读取实体覆盖度",
+          "summary": "返回实体各关联数据源可用的标识符、章节路由指令与列数或列清单；未登记函数的数据源给出同仓工具提示。"
+        },
+        "en": {
+          "name": "Read entity coverage",
+          "summary": "For each datasource linked to an entity, returns the identifier to use, available sections with routing instructions, and the column count or list."
+        },
+        "ja": {
+          "name": "カバレッジ取得",
+          "summary": "エンティティに紐づく各データソースについて、使う識別子、利用可能なセクションと取得手順、列数または列一覧を返します。"
+        },
+        "es": {
+          "name": "Ver cobertura",
+          "summary": "Para cada fuente vinculada a una entidad, devuelve el identificador a usar, las secciones disponibles con instrucciones y el número o lista de columnas."
+        },
+        "fr": {
+          "name": "Voir la couverture",
+          "summary": "Pour chaque source liée à une entité, renvoie l'identifiant à utiliser, les sections disponibles avec instructions et le nombre ou la liste des colonnes."
+        }
+      },
+      "canonical": {
+        "brief": "For each datasource linked to an entity, return the identifier to use, available sections with routing instructions, and column count or column list."
+      }
+    }
+  }
+}

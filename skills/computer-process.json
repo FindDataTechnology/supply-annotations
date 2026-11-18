@@ -1,0 +1,32 @@
+{
+  "skill": "computer-process",
+  "origin": "yizuo-file",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "进程管理",
+        "summary": "列出运行中的进程并查看状态——壹座运行环境内的进程面查看技能。"
+      },
+      "en": {
+        "name": "Process management",
+        "summary": "Lists running processes and checks their status inside the Yizuo runtime."
+      },
+      "ja": {
+        "name": "プロセス管理",
+        "summary": "実行中のプロセスを一覧し状態を確認——Yizuo 実行環境内のプロセス確認スキル。"
+      },
+      "es": {
+        "name": "Gestión de procesos",
+        "summary": "Lista los procesos en ejecución y consulta su estado dentro del entorno de Yizuo."
+      },
+      "fr": {
+        "name": "Gestion des processus",
+        "summary": "Liste les processus en cours et consulte leur état dans l'environnement Yizuo."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

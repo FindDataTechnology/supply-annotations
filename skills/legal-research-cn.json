@@ -1,0 +1,32 @@
+{
+  "skill": "legal-research-cn",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "法律检索与论证",
+        "summary": "中国法律检索与论证：法条检索与时效校验、构成要件匹配、对抗性论证，覆盖民商事、劳动、公司领域。"
+      },
+      "en": {
+        "name": "Legal research and argumentation",
+        "summary": "Legal research and argumentation for China: statute search with validity checks, constituent-element matching and adversarial argumentation across civil, commercial, labor and corporate areas."
+      },
+      "ja": {
+        "name": "法律検索と論証",
+        "summary": "中国法の検索と論証：法令検索と有効性確認、構成要件のマッチング、対抗的論証。民商事・労働・会社分野を対象とします。"
+      },
+      "es": {
+        "name": "Investigación jurídica en China",
+        "summary": "Investigación jurídica en China: búsqueda de normativa con verificación de vigencia, ajuste de elementos constitutivos y argumentación adversarial en lo civil, mercantil, laboral y societario."
+      },
+      "fr": {
+        "name": "Recherche juridique en Chine",
+        "summary": "Recherche juridique en Chine : recherche de textes avec contrôle de validité, appariement des éléments constitutifs et argumentation adverse (civil, commercial, travail, sociétés)."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

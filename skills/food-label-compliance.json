@@ -1,0 +1,32 @@
+{
+  "skill": "food-label-compliance",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "食品标签合规",
+        "summary": "预包装食品标签合规审核:核对标签是否符合 GB 7718 预包装食品标签通则与 GB 28050 营养标签通则,检查缺项、错误与违规风险。"
+      },
+      "en": {
+        "name": "Food label compliance",
+        "summary": "Reviews prepackaged food labels against GB 7718 (general labeling) and GB 28050 (nutrition labeling) standards, checking for missing items, errors and compliance risks."
+      },
+      "ja": {
+        "name": "食品ラベル・コンプライアンス",
+        "summary": "包装済み食品のラベル合規審査:GB 7718(表示一般規格)と GB 28050(栄養表示規格)への適合を確認し、欠落・誤り・違反リスクを点検する。"
+      },
+      "es": {
+        "name": "Cumplimiento de etiquetas alimentarias",
+        "summary": "Revisa el etiquetado de alimentos envasados conforme a GB 7718 (etiquetado general) y GB 28050 (etiquetado nutricional); detecta omisiones, errores y riesgos de incumplimiento."
+      },
+      "fr": {
+        "name": "Conformité des étiquettes alimentaires",
+        "summary": "Contrôle l'étiquetage des denrées préemballées au regard de GB 7718 (étiquetage général) et GB 28050 (étiquetage nutritionnel) ; détecte omissions, erreurs et risques de non-conformité."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "labor-dispute-litigation",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "劳动争议诉讼编排",
+        "summary": "劳动争议诉讼流程编排:整合17个子技能(含仲裁程序管理、劳动关系认定与经济补偿计算、证据体系),判断协商、调解、仲裁、一审二审阶段,识别劳动者与用人单位代理角色,推荐下一步并提示关键节点与期限。"
+      },
+      "en": {
+        "name": "Labor dispute litigation orchestration",
+        "summary": "Orchestrates labor litigation across 17 sub-skills: locates the stage among negotiation, mediation, arbitration and both court instances, identifies worker or employer counsel roles, flags deadlines."
+      },
+      "ja": {
+        "name": "労働紛争訴訟オーケストレーション",
+        "summary": "労働紛争訴訟の編成：17の下位スキル（仲裁管理、労働関係認定と補償計算、証拠体系を含む）を統合し、交渉・調停・仲裁・一審二審の段階を判定、労働者側・使用者側の代理役割を識別、次スキルと期限を提示。"
+      },
+      "es": {
+        "name": "Orquestación de litigios laborales",
+        "summary": "Coordina el litigio laboral con 17 sub-skills: sitúa la fase (negociación, mediación, arbitraje, instancias), distingue representación del trabajador o empleador y marca plazos y siguientes pasos."
+      },
+      "fr": {
+        "name": "Orchestration de contentieux du travail",
+        "summary": "Orchestre le contentieux du travail via 17 sous-compétences : situe la phase (négociation, médiation, arbitrage, instances), distingue représentation salarié ou employeur, signale jalons et délais."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

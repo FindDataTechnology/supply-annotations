@@ -1,0 +1,32 @@
+{
+  "skill": "eco-canvas-design",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "画布图形设计",
+        "summary": "面向生态场景的画布与图形设计工作流，按既定流程完成画布排版与图形化设计任务。"
+      },
+      "en": {
+        "name": "Canvas graphic design",
+        "summary": "Canvas and graphic design workflow for ecosystem scenarios, guiding canvas layout and visual design tasks through a defined process."
+      },
+      "ja": {
+        "name": "キャンバス図形デザイン",
+        "summary": "エコシステム向けのキャンバス・図形デザインワークフロー。決められた流れでキャンバスのレイアウトと視覚デザイン作業を進める。"
+      },
+      "es": {
+        "name": "Diseño de lienzo y gráficos",
+        "summary": "Flujo de trabajo de diseño de lienzo y gráficos para escenarios de ecosistema; guía la maquetación del lienzo y las tareas de diseño visual."
+      },
+      "fr": {
+        "name": "Conception graphique sur canevas",
+        "summary": "Flux de travail de conception de canevas et de graphiques pour l'écosystème ; guide la mise en page du canevas et les tâches de design visuel."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

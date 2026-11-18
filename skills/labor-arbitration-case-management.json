@@ -1,0 +1,32 @@
+{
+  "skill": "labor-arbitration-case-management",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "劳动仲裁案件管理",
+        "summary": "劳动争议仲裁全流程管理:仲裁前置强制检测、仲裁时效计算、一裁终局自动判断、申请书与答辩书生成、请求清单、仲裁与诉讼衔接路由、策略报告与用人单位仲裁前风险评估。"
+      },
+      "en": {
+        "name": "End-to-end labor arbitration case management",
+        "summary": "Manages labor arbitration end to end: pre-arbitration checks, limitation periods, finality-of-award detection, application and defense drafting, claim lists, court hand-off and employer risk review."
+      },
+      "ja": {
+        "name": "労働仲裁事件管理",
+        "summary": "労働紛争仲裁の全流程管理：仲裁前置チェック、時効計算、単審終結の自動判定、申立書・答弁書の生成、請求リスト、仲裁から訴訟への接続、戦略報告と企業側リスク評価。"
+      },
+      "es": {
+        "name": "Gestión de casos de arbitraje laboral",
+        "summary": "Gestiona el arbitraje laboral completo: control previo, prescripción, laudo firme, solicitud y contestación, lista de pretensiones, enlace con el juzgado y evaluación de riesgo del empleador."
+      },
+      "fr": {
+        "name": "Gestion des affaires d’arbitrage du travail",
+        "summary": "Gère l’arbitrage du travail de bout en bout : contrôle préalable, prescription, dernier ressort, rédaction des demandes et défenses, liste des chefs de demande, relais judiciaire et risque employeur."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

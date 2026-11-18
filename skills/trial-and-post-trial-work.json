@@ -1,0 +1,32 @@
+{
+  "skill": "trial-and-post-trial-work",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "庭前庭后工作",
+        "summary": "系统化支持庭审全流程：庭前检查提醒、庭审纪要记录、庭审复盘分析、庭后代理词撰写、补充材料管理，以及与当事人和法官的沟通。"
+      },
+      "en": {
+        "name": "Pre- and post-hearing tasks",
+        "summary": "Systematises the hearing cycle: pre-trial reminders, hearing minutes, after-action review, post-trial representation brief, supplemental materials, communication with clients and judges."
+      },
+      "ja": {
+        "name": "審理前後業務",
+        "summary": "審理の全工程を体系的に支援：開廷前チェック提醒、審議録作成、審理振り返り分析、審理後代理人意見書起草、補充資料管理、依頼人・裁判官との連絡。"
+      },
+      "es": {
+        "name": "Tareas pre y post vistas",
+        "summary": "Sistematiza el ciclo de la vista: recordatorios previos, acta, análisis posterior, escrito de alegaciones, material complementario, comunicación con cliente y juez."
+      },
+      "fr": {
+        "name": "Tâches pré et post-audience",
+        "summary": "Systématise le cycle d'audience : rappels avant audience, procès-verbal, analyse à froid, mémoire d'après-audience, pièces complémentaires, échanges avec client et juge."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

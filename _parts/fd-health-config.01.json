@@ -1,0 +1,31 @@
+{
+ "tools": {
+  "health_config_get": {
+   "human": {
+    "zh": {
+     "name": "读巡检配置",
+     "summary": "读取中央库健康巡检配置的全部键值：总闸、每日工单上限、回看小时数、阈值、排除来源、期望周期覆盖与最近变更时间。"
+    },
+    "en": {
+     "name": "Read health config",
+     "summary": "Reads all keys of the central health-check configuration: master switch, daily ticket cap, lookback hours, thresholds, excluded sources, expected-period overrides, and last change time."
+    },
+    "ja": {
+     "name": "ヘルス設定を読取",
+     "summary": "中央のヘルスチェック設定を全キー読み取ります。主スイッチ、日次チケット上限、遡及時間、しきい値、除外ソース、期待周期の上書き、最終変更時刻を含みます。"
+    },
+    "es": {
+     "name": "Leer configuración de salud",
+     "summary": "Lee la configuración central de comprobaciones: interruptor principal, tope diario de tickets, horas de revisión, umbrales, fuentes excluidas, periodo esperado y última modificación."
+    },
+    "fr": {
+     "name": "Lire la configuration santé",
+     "summary": "Lit la configuration centrale des contrôles : interrupteur principal, plafond quotidien de tickets, heures de rétrospection, seuils, sources exclues, période attendue et dernière modification."
+    }
+   },
+   "canonical": {
+    "brief": "Read-only: returns every key of the central health-check configuration (master switch, daily ticket cap, lookback hours, thresholds, excluded sources, expected-period overrides, updated_at)."
+   }
+  }
+ }
+}

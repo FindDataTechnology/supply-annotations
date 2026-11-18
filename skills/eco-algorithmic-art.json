@@ -1,0 +1,32 @@
+{
+  "skill": "eco-algorithmic-art",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "算法生成艺术",
+        "summary": "生态技能包：用 p5.js 制作带随机种子的生成艺术。"
+      },
+      "en": {
+        "name": "Algorithmic generative art",
+        "summary": "Ecosystem skill pack: creates generative art in p5.js, driven by random seeds."
+      },
+      "ja": {
+        "name": "アルゴリズム生成アート",
+        "summary": "エコシステム系スキル。p5.js で乱数シード付きの生成アートを作る。"
+      },
+      "es": {
+        "name": "Arte generativo algorítmico",
+        "summary": "Habilidad del ecosistema: crea arte generativo en p5.js con semillas aleatorias."
+      },
+      "fr": {
+        "name": "Art génératif algorithmique",
+        "summary": "Compétence de l'écosystème : crée de l'art génératif en p5.js avec des graines aléatoires."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

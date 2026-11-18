@@ -1,0 +1,32 @@
+{
+  "skill": "statistical-inference",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "统计推断",
+        "summary": "统计检验与探索性分析：描述统计与分布诊断、假设检验选择（t/ANOVA/卡方/非参）、组间或城市间差异显著性、相关与配对分析、时序平稳性与单位根诊断、多重比较校正，也可对本地 CSV 表格做探索性分析；走柏讯服务端序列取数，价格类序列走本地 DAAS。"
+      },
+      "en": {
+        "name": "Statistical inference",
+        "summary": "Statistical tests and EDA: descriptive stats, hypothesis-test selection, group or city significance, correlation, stationarity and unit-root diagnostics; series via Wire server, prices via DAAS."
+      },
+      "ja": {
+        "name": "統計的推論",
+        "summary": "統計検定と探索的分析：記述統計と分布診断、仮説検定の選択（t/ANOVA/カイ二乗/ノンパラメトリック）、群間・都市間差の有意性、相関とペア分析、時系列の定常性と単位根診断。系列は Wire サーバー、価格系列はローカル DAAS から取得します。"
+      },
+      "es": {
+        "name": "Inferencia estadística",
+        "summary": "Pruebas estadísticas y análisis exploratorio: descriptivos, elección de pruebas, significancia entre grupos o ciudades, correlación, estacionariedad; series vía Wire, precios vía DAAS local."
+      },
+      "fr": {
+        "name": "Inférence statistique",
+        "summary": "Tests statistiques et analyse exploratoire : descriptifs, choix des tests, significativité entre groupes ou villes, corrélation, stationnarité ; séries via le serveur Wire, prix via le DAAS local."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

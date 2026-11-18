@@ -1,0 +1,32 @@
+{
+  "skill": "strategic-risk-prioritization",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "风险优先排序",
+        "summary": "在法律分析出现多个可能结论、争议焦点或风险点时，按发生概率与影响程度对风险系统化排序，输出优先序列，帮助决策者聚焦关键风险并合理分配资源。"
+      },
+      "en": {
+        "name": "Legal risk prioritization",
+        "summary": "Ranks multiple legal risks by likelihood and impact when analysis leaves several conclusions or disputes, returning an ordered priority list to focus critical risks and allocate resources."
+      },
+      "ja": {
+        "name": "リスク優先順位付け",
+        "summary": "法的分析に複数の結論・争点・リスクが並存する場合、発生確率と影響度でリスクを体系的に順位付けし、重要リスクへの注力と資源配分を支援する優先序列を出力する。"
+      },
+      "es": {
+        "name": "Priorización de riesgos jurídicos",
+        "summary": "Ordena riesgos jurídicos por probabilidad e impacto cuando el análisis deja varias conclusiones o controversias; devuelve una secuencia priorizada para enfocar los riesgos críticos y asignar recursos."
+      },
+      "fr": {
+        "name": "Priorisation des risques juridiques",
+        "summary": "Classe les risques juridiques par probabilité et impact quand l'analyse laisse plusieurs conclusions ; rend une séquence priorisée pour cibler les risques majeurs et répartir les ressources."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

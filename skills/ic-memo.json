@@ -1,0 +1,32 @@
+{
+  "skill": "ic-memo",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "投委会备忘",
+        "summary": "为 PE 交易审批起草结构化投资委员会备忘录:整合尽调发现、财务分析与交易条款,形成可上会文档。"
+      },
+      "en": {
+        "name": "Investment committee memo",
+        "summary": "Drafts a structured investment committee memo for PE deal approval, synthesizing due-diligence findings, financial analysis and deal terms into an IC-ready document."
+      },
+      "ja": {
+        "name": "投資委員会メモ",
+        "summary": "PE案件承認向けの投資委員会メモを構造化して起案:デューデリジェンス結果、財務分析、取引条件を統合し、委員会提出可能な文書にする。"
+      },
+      "es": {
+        "name": "Nota del comité de inversión",
+        "summary": "Redacta una nota estructurada de comité para aprobar operaciones de capital privado: sintetiza diligencia debida, análisis financiero y términos del acuerdo en un documento listo para el comité."
+      },
+      "fr": {
+        "name": "Note du comité d'investissement",
+        "summary": "Rédige une note structurée de comité pour l'approbation d'une opération de capital-investissement : synthèse de diligence raisonnable, analyse financière et termes de l'opération en document prêt."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

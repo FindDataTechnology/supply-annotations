@@ -1,0 +1,32 @@
+{
+  "skill": "case-discussion-outline",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "案件研讨提纲",
+        "summary": "整合前序材料做深度案件分析：四维度自问自答与三方模拟法庭演练，最终生成案件提纲。"
+      },
+      "en": {
+        "name": "Case discussion outline",
+        "summary": "Deep case analysis that integrates prior materials via four-dimension self-questioning and a three-party moot-court simulation, then produces a case outline."
+      },
+      "ja": {
+        "name": "案件検討アウトライン",
+        "summary": "先行資料を統合し、4次元の自問自答分析三者模擬法廷演習を経て、案件アウトラインを生成する。"
+      },
+      "es": {
+        "name": "Esquema de discusión de casos",
+        "summary": "Analiza el caso integrando materiales previos: autoevaluación en cuatro dimensiones y simulacro de tribunal entre tres partes, y genera el esquema del caso."
+      },
+      "fr": {
+        "name": "Plan de discussion d'affaires",
+        "summary": "Analyse l'affaire en intégrant les documents antérieurs : auto-questionnement en quatre dimensions et audience simulée à trois parties, puis produit le plan de l'affaire."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

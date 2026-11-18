@@ -1,0 +1,32 @@
+{
+  "skill": "chain-watch",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "产业链景气盯梢",
+        "summary": "柏讯产业链联动的景气跟踪：按环节分组输出关键变量走势表，含来源、最新期数、缺口标注与变化方向；不含预测与建议；可由宿主 cron 定时触发，技能本身只给方法与输出形态。"
+      },
+      "en": {
+        "name": "Industry chain prosperity watch",
+        "summary": "Wire chain prosperity watch: grouped trend table per segment with sources, latest period, gap flags and change direction; no forecasts or advice; host cron may trigger it on schedule."
+      },
+      "ja": {
+        "name": "産業チェーン景況ウォッチ",
+        "summary": "Wire産業チェーン連動の景況追跡。段階別に主要変数の推移表（出所・最新期・欠損表示・変動方向）を提示。予測と助言は含まない。ホストのcronで定時起動可、本スキルは方法と出力形態のみ提供する。"
+      },
+      "es": {
+        "name": "Vigilancia de la cadena industrial",
+        "summary": "Vigilancia Wire de la actividad de la cadena: tendencias por eslabón con fuentes, último período, huecos y dirección del cambio; sin pronósticos ni consejos; activable por cron del host."
+      },
+      "fr": {
+        "name": "Veille de la chaîne industrielle",
+        "summary": "Veille Wire de la chaîne : tendances par maillon avec sources, dernière période, lacunes et direction du changement ; sans prévision ni conseil ; déclenchable par cron de l'hôte."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

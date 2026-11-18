@@ -1,0 +1,31 @@
+{
+  "server_name": "fd-info",
+  "description": "柏讯信息流索引（公告/部委/SSE互动三源）",
+  "tags": [],
+  "tools": [
+    {
+      "name": "get_body",
+      "description": "按 doc_id 取条目全文的只读查询（服务间消费；正文缺失返回结构化错误）。"
+    },
+    {
+      "name": "get_item",
+      "description": "取条目详情（含 doc_id、正文状态、原文链接）。"
+    },
+    {
+      "name": "list_since",
+      "description": "按发布时间倒序列出信息条目；cursor 来自上一页的 next_cursor。"
+    },
+    {
+      "name": "locate_evidence",
+      "description": "按正文区间取逐字片段；正文缺失或区间越界返回结构化错误。"
+    },
+    {
+      "name": "search_info",
+      "description": "检索信息条目；返回 mode 字段说明走的是语义检索还是索引检索。"
+    },
+    {
+      "name": "stream_health",
+      "description": "各来源水位、最近成功时间、入库延迟 p95 与失败计数。"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "opc-legal-counsel",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "一人公司法律顾问",
+        "summary": "面向一人公司（单人创业加AI协同）与小微企业经营场景的法律分诊：识别主矛盾、联动风险、行动优先级与升级边界；涉及现行法条、效力、期限、税率、名录、地方政策或平台规则时生成结构化核查。"
+      },
+      "en": {
+        "name": "One-person company legal counsel",
+        "summary": "Legal triage for one-person companies and micro-businesses: core issue, linked risks, action priorities and escalation limits, plus structured checks on current rules, deadlines or policies."
+      },
+      "ja": {
+        "name": "一人会社法律顧問",
+        "summary": "一人会社（単独創業とAI連携）や零細企業の経営現場向け法的トリアージ：主論点・連動リスク・行動の優先順位・移管境界を見いだし、現行条文・有効性・期限・税率・名録・地方政策・プラットフォーム規則が絡めば構造化した確認を作る。"
+      },
+      "es": {
+        "name": "Asesoría para empresas unipersonales",
+        "summary": "Triaje jurídico para empresas unipersonales y pequeños negocios: cuestión central, riesgos encadenados, prioridades y límites de derivación, con verificación de normas vigentes y políticas locales."
+      },
+      "fr": {
+        "name": "Conseil pour entreprise unipersonnelle",
+        "summary": "Triage juridique pour entreprises unipersonnelles et petites structures : question centrale, risques liés, priorités et bornes de renvoi, avec vérification des règles et politiques en vigueur."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

@@ -1,0 +1,220 @@
+{
+ "tools": {
+  "lex_surface_overview": {
+   "human": {
+    "zh": {
+     "name": "导览识律线",
+     "summary": "返回识律线的自描述全景，说明可用入口与工具分组；按名称与服务说明推断，具体字段以服务端返回为准。"
+    },
+    "en": {
+     "name": "Show line overview",
+     "summary": "Return the self-describing overview of the lex line with entry points and tool groups; inferred from the name and server notes, exact fields follow the server response."
+    },
+    "ja": {
+     "name": "ライン全体を案内",
+     "summary": "識律ラインの自己記述型の全景を返し、利用可能な入口とツール群を示す。名称とサーバー説明からの推測で、具体的な項目はサーバーの返却に従う。"
+    },
+    "es": {
+     "name": "Ver panorama de la línea",
+     "summary": "Devuelve el panorama autodescriptivo de la línea lex, con puntos de entrada y grupos de herramientas; inferido del nombre y las notas del servidor, los campos exactos dependen de la respuesta."
+    },
+    "fr": {
+     "name": "Présenter la ligne",
+     "summary": "Renvoie le panorama autodescriptif de la ligne lex, avec points d'entrée et groupes d'outils ; déduit du nom et des notes du serveur, les champs exacts dépendent de la réponse."
+    }
+   },
+   "canonical": {
+    "brief": "Return the self-describing overview of the lex line with entry points and tool groups; inferred from the name and server notes, exact fields follow the server response."
+   }
+  },
+  "lex_me": {
+   "human": {
+    "zh": {
+     "name": "查看我的身份",
+     "summary": "返回当前调用者的账户身份视图；进站 Logto ID token 原样转发，具体字段以服务端返回为准。"
+    },
+    "en": {
+     "name": "Show my identity",
+     "summary": "Return the account identity view of the current caller; the incoming Logto ID token is forwarded as-is, and exact fields follow the server response."
+    },
+    "ja": {
+     "name": "自分の識別情報を見る",
+     "summary": "呼び出し元のアカウント識別情報ビューを返す。受信した Logto ID トークンはそのまま転送され、具体的な項目はサーバーの返却に従う。"
+    },
+    "es": {
+     "name": "Ver mi identidad",
+     "summary": "Devuelve la vista de identidad de la cuenta del llamador actual; el token Logto ID entrante se reenvía tal cual y los campos exactos dependen de la respuesta del servidor."
+    },
+    "fr": {
+     "name": "Voir mon identité",
+     "summary": "Renvoie la vue d'identité du compte de l'appelant courant ; le jeton Logto ID entrant est transmis tel quel et les champs exacts dépendent de la réponse du serveur."
+    }
+   },
+   "canonical": {
+    "brief": "Return the current caller's account identity view; the incoming Logto ID token is forwarded as-is, with exact fields per the server response."
+   }
+  },
+  "lex_usage": {
+   "human": {
+    "zh": {
+     "name": "查看用量",
+     "summary": "返回当前账户的用量视图；按名称与账户视图说明推断，具体统计维度以服务端返回为准。"
+    },
+    "en": {
+     "name": "Show usage",
+     "summary": "Return the current account's usage view; inferred from the name and the account-view notes, exact metrics follow the server response."
+    },
+    "ja": {
+     "name": "利用量を見る",
+     "summary": "現在のアカウントの利用量ビューを返す。名称とアカウントビューの説明からの推測で、具体的な集計軸はサーバーの返却に従う。"
+    },
+    "es": {
+     "name": "Ver uso",
+     "summary": "Devuelve la vista de uso de la cuenta actual; inferido del nombre y de las notas de vista de cuenta, las métricas exactas dependen de la respuesta."
+    },
+    "fr": {
+     "name": "Voir l'usage",
+     "summary": "Renvoie la vue d'usage du compte courant ; déduit du nom et des notes de vue de compte, les mesures exactes dépendent de la réponse."
+    }
+   },
+   "canonical": {
+    "brief": "Return the current account's usage view; inferred from the tool name and account-view notes, exact metrics follow the server response."
+   }
+  },
+  "lex_billing": {
+   "human": {
+    "zh": {
+     "name": "查看账单",
+     "summary": "返回当前账户的账单视图；按名称与账户视图说明推断，具体计费项以服务端返回为准。"
+    },
+    "en": {
+     "name": "Show billing",
+     "summary": "Return the current account's billing view; inferred from the name and the account-view notes, exact billing items follow the server response."
+    },
+    "ja": {
+     "name": "請求を見る",
+     "summary": "現在のアカウントの請求ビューを返す。名称とアカウントビューの説明からの推測で、具体的な請求項目はサーバーの返却に従う。"
+    },
+    "es": {
+     "name": "Ver facturación",
+     "summary": "Devuelve la vista de facturación de la cuenta actual; inferido del nombre y de las notas de vista de cuenta, los conceptos exactos dependen de la respuesta."
+    },
+    "fr": {
+     "name": "Voir la facturation",
+     "summary": "Renvoie la vue de facturation du compte courant ; déduit du nom et des notes de vue de compte, les postes exacts dépendent de la réponse."
+    }
+   },
+   "canonical": {
+    "brief": "Return the current account's billing view; inferred from the tool name and account-view notes, exact billing items follow the server response."
+   }
+  },
+  "lex_quota": {
+   "human": {
+    "zh": {
+     "name": "查看配额",
+     "summary": "返回当前账户的配额视图；按名称与账户视图说明推断，具体配额口径以服务端返回为准。"
+    },
+    "en": {
+     "name": "Show quota",
+     "summary": "Return the current account's quota view; inferred from the name and the account-view notes, the exact quota caliber follows the server response."
+    },
+    "ja": {
+     "name": "割当量を見る",
+     "summary": "現在のアカウントの割当量ビューを返す。名称とアカウントビューの説明からの推測で、具体的な割当基準はサーバーの返却に従う。"
+    },
+    "es": {
+     "name": "Ver cuota",
+     "summary": "Devuelve la vista de cuota de la cuenta actual; inferido del nombre y de las notas de vista de cuenta, el criterio exacto de cuota depende de la respuesta."
+    },
+    "fr": {
+     "name": "Voir le quota",
+     "summary": "Renvoie la vue de quota du compte courant ; déduit du nom et des notes de vue de compte, le critère exact de quota dépend de la réponse."
+    }
+   },
+   "canonical": {
+    "brief": "Return the current account's quota view; inferred from the tool name and account-view notes, the exact quota caliber follows the server response."
+   }
+  },
+  "lex_credentials_list": {
+   "human": {
+    "zh": {
+     "name": "列出检索凭据",
+     "summary": "列出当前账户的检索凭据；凭据生命周期含列出、铸造、吊销三种操作，具体字段以服务端返回为准。"
+    },
+    "en": {
+     "name": "List search credentials",
+     "summary": "List the current account's search credentials; the lifecycle covers list, mint and revoke, and exact fields follow the server response."
+    },
+    "ja": {
+     "name": "検索資格情報を列挙",
+     "summary": "現在のアカウントの検索資格情報を列挙する。ライフサイクルは列挙・発行・失効の3操作で、具体的な項目はサーバーの返却に従う。"
+    },
+    "es": {
+     "name": "Listar credenciales de búsqueda",
+     "summary": "Enumera las credenciales de búsqueda de la cuenta actual; el ciclo de vida cubre listar, emitir y revocar, y los campos exactos dependen de la respuesta del servidor."
+    },
+    "fr": {
+     "name": "Lister les identifiants de recherche",
+     "summary": "Énumère les identifiants de recherche du compte courant ; le cycle de vie couvre lister, émettre et révoquer, et les champs exacts dépendent de la réponse du serveur."
+    }
+   },
+   "canonical": {
+    "brief": "List the current account's search credentials; the lifecycle covers list, mint and revoke, and exact fields follow the server response."
+   }
+  },
+  "lex_credential_mint": {
+   "human": {
+    "zh": {
+     "name": "铸造检索凭据",
+     "summary": "为当前账户铸造一份检索凭据，明文只在铸造时返回一次；是否放行由上游按仅限所有者规则判定。"
+    },
+    "en": {
+     "name": "Mint search credential",
+     "summary": "Mint a search credential for the current account; the plaintext is returned once at mint time, and the upstream owner-only rule decides whether it is allowed."
+    },
+    "ja": {
+     "name": "検索資格情報を発行",
+     "summary": "現在のアカウント用に検索資格情報を1件発行する。平文は発行時に一度だけ返り、可否は上流の所有者限定ルールが判定する。"
+    },
+    "es": {
+     "name": "Emitir credencial de búsqueda",
+     "summary": "Emite una credencial de búsqueda para la cuenta actual; el texto plano se devuelve una sola vez al emitir y la regla de solo propietario del nivel superior decide si se permite."
+    },
+    "fr": {
+     "name": "Émettre un identifiant de recherche",
+     "summary": "Émet un identifiant de recherche pour le compte courant ; le texte en clair n'est renvoyé qu'une fois à l'émission et la règle propriétaire exclusive en amont décide de l'autorisation."
+    }
+   },
+   "canonical": {
+    "brief": "Mint a search credential for the current account; the plaintext is returned once at mint time and the upstream owner-only rule decides whether it is allowed."
+   }
+  },
+  "lex_credential_revoke": {
+   "human": {
+    "zh": {
+     "name": "吊销检索凭据",
+     "summary": "吊销当前账户的一份检索凭据；归属判定由上游的仅限所有者规则完成，具体返回以服务端为准。"
+    },
+    "en": {
+     "name": "Revoke search credential",
+     "summary": "Revoke one of the current account's search credentials; the upstream owner-only rule decides ownership, and exact results follow the server response."
+    },
+    "ja": {
+     "name": "検索資格情報を失効",
+     "summary": "現在のアカウントの検索資格情報を1件失効させる。所有判定は上流の所有者限定ルールが行い、具体的な返却はサーバーに従う。"
+    },
+    "es": {
+     "name": "Revocar credencial de búsqueda",
+     "summary": "Revoca una credencial de búsqueda de la cuenta actual; la regla de solo propietario del nivel superior decide la titularidad y el resultado exacto depende del servidor."
+    },
+    "fr": {
+     "name": "Révoquer un identifiant de recherche",
+     "summary": "Révoque un identifiant de recherche du compte courant ; la règle propriétaire exclusive en amont tranche la propriété et le résultat exact dépend du serveur."
+    }
+   },
+   "canonical": {
+    "brief": "Revoke one of the current account's search credentials; the upstream owner-only rule decides ownership and exact results follow the server response."
+   }
+  }
+ }
+}

@@ -1,0 +1,32 @@
+{
+  "skill": "example-skill",
+  "origin": "yizuo-file",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "示例技能",
+        "summary": "把用户的请求原样改写为简洁消息返回——平台自带的最小示例，用于演示技能形态。"
+      },
+      "en": {
+        "name": "Example skill",
+        "summary": "Reformats the user's request as a concise message and returns it — the platform's minimal built-in example."
+      },
+      "ja": {
+        "name": "サンプルスキル",
+        "summary": "ユーザーの要求を簡潔なメッセージに整形して返す——プラットフォーム内蔵の最小サンプル。"
+      },
+      "es": {
+        "name": "Habilidad de ejemplo",
+        "summary": "Reformatea la solicitud del usuario como un mensaje conciso y la devuelve — el ejemplo mínimo integrado de la plataforma."
+      },
+      "fr": {
+        "name": "Compétence d'exemple",
+        "summary": "Reformule la demande de l'utilisateur en un message concis et la renvoie — l'exemple minimal intégré de la plateforme."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

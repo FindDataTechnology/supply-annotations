@@ -1,0 +1,32 @@
+{
+  "skill": "legal-doc-templates-export",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "法律文书导出",
+        "summary": "统一导出法律工作中最终需输出为本地 Word（.docx）的文书、报告、清单、笔录、意见书、函件、合同等交付文件：选择格式配置、接收语义 HTML 或要素式填充数据，导出 DOCX 并做结构体检、提供兜底模板。"
+      },
+      "en": {
+        "name": "Legal document export",
+        "summary": "Exports legal deliverables — documents, reports, transcripts, etc. — to Word (.docx): picks a format profile, takes HTML or element data, checks structure, applies fallback templates."
+      },
+      "ja": {
+        "name": "法律文書エクスポート",
+        "summary": "法律業務で最終的にローカル Word（.docx）へ出力する文書・報告書・一覧・筆録・意見書・書簡・契約などを統一的に書き出します。フォーマット設定を選び、意味 HTML または要素データを受け取り、DOCX 出力と構造チェック、代替テンプレートを提供します。"
+      },
+      "es": {
+        "name": "Exportación de documentos legales",
+        "summary": "Exporta a Word (.docx) entregables jurídicos (documentos, informes, contratos, etc.): elige perfil de formato, acepta HTML o datos por elementos, verifica estructura y aplica plantillas de respaldo."
+      },
+      "fr": {
+        "name": "Exportation de documents juridiques",
+        "summary": "Exporte en Word (.docx) les livrables juridiques : choisit le profil de format, accepte du HTML sémantique ou des données par éléments, contrôle la structure et fournit des modèles de secours."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

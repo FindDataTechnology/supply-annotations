@@ -1,0 +1,32 @@
+{
+  "skill": "mission-planning",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "任务规划",
+        "summary": "把目标拆解为不超过八步的计划；每步的执行代理必须经在册代理实查，查无则自行执行；计划一经确定即视为承诺，不再增删。"
+      },
+      "en": {
+        "name": "Mission planning",
+        "summary": "Breaks a goal into a plan of at most eight steps; each step's agent must be verified against the live roster, otherwise it is run directly; once set, the plan is a commitment and is not amended."
+      },
+      "ja": {
+        "name": "ミッション計画",
+        "summary": "目標を8ステップ以内の計画に分解する。各ステップの実行体は登録一覧で実査し、見つからなければ自ら実行する。計画は確定即ち約束事であり、以後追加・削除しない。"
+      },
+      "es": {
+        "name": "Planificación de misión",
+        "summary": "Divide el objetivo en un plan de ocho pasos máximo; verifica el agente de cada paso en el registro vivo, y si no está, lo ejecuta él mismo; el plan es compromiso y no se cambia."
+      },
+      "fr": {
+        "name": "Planification de mission",
+        "summary": "Décompose l'objectif en un plan de huit étapes maximum ; chaque exécutant est vérifié dans le registre, sinon exécution directe ; le plan vaut engagement, sans ajout ni retrait."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

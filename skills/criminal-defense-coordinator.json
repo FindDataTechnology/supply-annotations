@@ -1,0 +1,32 @@
+{
+  "skill": "criminal-defense-coordinator",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "刑辩流程编排",
+        "summary": "按刑事诉讼阶段编排刑事辩护工作：专业路由、阶段转换提示、关键期限提示与下一步工作建议；事项建档、路径、文件读取、来源披露、OCR校正和缺口归档由法律工作总控统一处理。"
+      },
+      "en": {
+        "name": "Criminal defense orchestration",
+        "summary": "Orchestrates criminal defense by litigation stage: specialist routing, stage-transition and deadline prompts, next-step suggestions; filing and file reading sit with the legal master controller."
+      },
+      "ja": {
+        "name": "刑事弁護フロー編成",
+        "summary": "刑事訴訟の段階ごとに刑事弁護業務を組み立てる：専門ルーティング、段階転換・重要期限の通知、次工程の提案。事件登録、文書読取、OCR補正は法務総合管理が担当。"
+      },
+      "es": {
+        "name": "Coordinación de la defensa penal",
+        "summary": "Ajusta la defensa penal por fases procesales: enrutamiento especializado, avisos de cambio de fase y plazos clave, próximos pasos sugeridos; expediente y documentos los lleva el controlador jurídico."
+      },
+      "fr": {
+        "name": "Coordination de la défense pénale",
+        "summary": "Orchestre la défense pénale par phase : orientation spécialisée, rappels de transition et de délais clés, étapes suivantes suggérées ; dossier et lecture des documents relèvent du pilotage juridique."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

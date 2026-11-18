@@ -1,0 +1,32 @@
+{
+  "skill": "corpus-p2",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "演示语料",
+        "summary": "提供分身 p2 的演示语料，内容为该分身的来历说明；具体以服务端返回为准。"
+      },
+      "en": {
+        "name": "Demo corpus",
+        "summary": "Provides the demo corpus for the p2 avatar — the origin story of this avatar; actual content is subject to what the server returns."
+      },
+      "ja": {
+        "name": "デモコーパス",
+        "summary": "分身 p2 のデモコーパスを提供する。内容はこの分身の来歴について。実際の内容はサーバーの返却による。"
+      },
+      "es": {
+        "name": "Corpus de demostración",
+        "summary": "Proporciona el corpus de demostración del avatar p2: la historia del origen de este avatar; el contenido real depende de lo que devuelva el servidor."
+      },
+      "fr": {
+        "name": "Corpus de démonstration",
+        "summary": "Fournit le corpus de démonstration de l'avatar p2 — l'histoire des origines de cet avatar ; le contenu réel dépend de ce que renvoie le serveur."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

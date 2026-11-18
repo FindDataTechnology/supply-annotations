@@ -1,0 +1,32 @@
+{
+  "skill": "labor-compensation-calculator",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "劳动补偿计算器",
+        "summary": "计算解除劳动合同经济补偿 N、违法解除赔偿金 2N、代通知金 N+1、二倍工资差额、加班费与未休年休假工资报酬，并判断三倍封顶；法律依据走识律条级解析，数值基数取自柏讯统计源，结果附公式与基数来源。"
+      },
+      "en": {
+        "name": "Labor compensation calculator",
+        "summary": "Computes severance N, damages 2N, pay-in-lieu N+1, double-wage difference, overtime and unused-leave pay with the 3x cap; formula and base source attached, via Lex and Wire statistics."
+      },
+      "ja": {
+        "name": "労働補償計算ツール",
+        "summary": "経済補償N、違法解雇賠償2N、代通知金N+1、二倍賃金差額、残業代・未消化年休賃金を算出し、社会平均賃金3倍封頂を判定。計算式と算定根拠を添付し、法令解釈は Lex、基数は Wire 統計による。"
+      },
+      "es": {
+        "name": "Calculadora de compensación laboral",
+        "summary": "Calcula indemnización N, doble 2N por despido ilegal, N+1, diferencia salarial doble, horas extra y vacaciones no disfrutadas, con tope del triple salarial; fórmula y fuente de la base incluidas."
+      },
+      "fr": {
+        "name": "Calculateur d'indemnisation du travail",
+        "summary": "Calcule l'indemnité N, le double 2N en licenciement illégal, le N+1, la différence de salaire double, heures sup. et congés non pris, avec plafond du triple ; formule et source jointes."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

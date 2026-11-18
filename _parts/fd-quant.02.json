@@ -1,0 +1,679 @@
+{
+  "tools": {
+    "compute_cash_flow_quality": {
+      "human": {
+        "zh": {
+          "name": "算现金流质量",
+          "summary": "按经营现金流、净利与资本开支算现金流质量比与自由现金流；净利为负时照实给负比值并附注。"
+        },
+        "en": {
+          "name": "Compute cash-flow quality",
+          "summary": "Computes cash-flow-to-net-income and free cash flow from operating cash flow, net income and capex; a negative net income is reported as-is with a note."
+        },
+        "ja": {
+          "name": "キャッシュフロー品質を計算",
+          "summary": "営業キャッシュフロー・純利益・設備投資から品質比とフリーキャッシュフローを算出します。純利益が負の場合は実値と注記を返します。"
+        },
+        "es": {
+          "name": "Calcular calidad del flujo de caja",
+          "summary": "Calcula la relación flujo operativo-beneficio y el flujo de caja libre con flujo operativo, beneficio neto y capex; si el beneficio es negativo da el valor real con nota."
+        },
+        "fr": {
+          "name": "Calculer la qualité des flux",
+          "summary": "Calcule le ratio flux opérationnel-résultat net et le flux de trésorerie disponible avec le flux opérationnel, le résultat net et les capex ; un résultat négatif est donné tel quel avec une note."
+        }
+      },
+      "canonical": {
+        "brief": "Returns cfo_to_net_income and free_cash_flow (cash from operations minus capex) from caller-supplied fundamentals at as_of; a negative net income adds a note, the ratio is not sign-adjusted."
+      }
+    },
+    "compute_dupont": {
+      "human": {
+        "zh": {
+          "name": "拆解杜邦因子",
+          "summary": "用净利率、资产周转与权益乘数分解 ROE，返回三因子、乘积、直接 ROE 与残差。"
+        },
+        "en": {
+          "name": "Decompose DuPont factors",
+          "summary": "Decomposes ROE into net margin, asset turnover and equity multiplier, returning the factors, their product, direct ROE and residual."
+        },
+        "ja": {
+          "name": "デュポン分解を計算",
+          "summary": "純利益率・総資産回転率・自己資本乗数に ROE を分解し、各因子・積・直接算出した ROE・残差を返します。"
+        },
+        "es": {
+          "name": "Descomponer factores DuPont",
+          "summary": "Descompone el ROE en margen neto, rotación de activos y multiplicador de capital, y devuelve factores, producto, ROE directo y residuo."
+        },
+        "fr": {
+          "name": "Décomposer les facteurs DuPont",
+          "summary": "Décompose le ROE en marge nette, rotation de l'actif et levier financier, et renvoie les facteurs, leur produit, le ROE direct et le résidu."
+        }
+      },
+      "canonical": {
+        "brief": "DuPont decomposition: net_margin times asset_turnover times equity_multiplier, plus their product, the directly computed ROE and the residual (identity keeps |residual| at or below 1e-9)."
+      }
+    },
+    "detect_red_flags": {
+      "human": {
+        "zh": {
+          "name": "检测财务红旗",
+          "summary": "按应计、应收、存货与毛利率四项可配阈值检测财务异常，并回显所用阈值。"
+        },
+        "en": {
+          "name": "Detect financial red flags",
+          "summary": "Flags accrual, receivables, inventory and gross-margin anomalies against configurable thresholds and echoes the thresholds used."
+        },
+        "ja": {
+          "name": "財務レッドフラグを検出",
+          "summary": "発生高・売掛金・棚卸資産・粗利率の4項目を設定可能なしきい値で判定し、使用したしきい値を返します。"
+        },
+        "es": {
+          "name": "Detectar alertas financieras",
+          "summary": "Detecta anomalías de devengo, cuentas por cobrar, inventario y margen bruto con umbrales configurables, y devuelve los umbrales aplicados."
+        },
+        "fr": {
+          "name": "Détecter les signaux comptables",
+          "summary": "Signale les anomalies de régularisation, créances, stocks et marge brute selon des seuils configurables, en renvoyant les seuils appliqués."
+        }
+      },
+      "canonical": {
+        "brief": "Red-flag check on accruals, receivables, inventory and gross margin with configurable thresholds (defaults 0.10/0.20/0.20/0.10 echoed back); peer gross margin optional."
+      }
+    },
+    "estimate_dcf": {
+      "human": {
+        "zh": {
+          "name": "估算 DCF 价值",
+          "summary": "对显式期自由现金流折现，终值取永续增长或退出倍数，输出每股价值与净债调整结果。"
+        },
+        "en": {
+          "name": "Estimate DCF value",
+          "summary": "Discounts explicit-period free cash flows with a perpetuity or exit-multiple terminal value and returns value per share after net debt."
+        },
+        "ja": {
+          "name": "DCF 価値を試算",
+          "summary": "明示期間のフリーキャッシュフローを割り引き、永続成長または退出倍数で終価を求めて、純負債調整後の1株価値を返します。"
+        },
+        "es": {
+          "name": "Estimar valor por DCF",
+          "summary": "Descuenta los flujos de caja libres del periodo explícito con valor terminal por perpetuidad o múltiplo de salida y devuelve el valor por acción tras la deuda neta."
+        },
+        "fr": {
+          "name": "Estimer la valeur DCF",
+          "summary": "Actualise les flux de trésorerie disponibles de la période explicite avec une valeur terminale en perpétuité ou multiple de sortie, et renvoie la valeur par action après dette nette."
+        }
+      },
+      "canonical": {
+        "brief": "DCF valuation: discounted explicit-period FCF plus a perpetuity or exit-multiple terminal value; returns value per share after net debt, with discount_rate either given or built from wacc_components."
+      }
+    },
+    "estimate_ddm": {
+      "human": {
+        "zh": {
+          "name": "估算股息折现价值",
+          "summary": "按 Gordon 永续增长或显式股息表折现，输出每股价值与所用增速、要求回报率。"
+        },
+        "en": {
+          "name": "Estimate dividend discount",
+          "summary": "Values shares with a single-stage Gordon model or an explicit dividend schedule, returning value per share plus growth and required return."
+        },
+        "ja": {
+          "name": "配当割引を試算",
+          "summary": "単一期間のゴードンモデルまたは明示的な配当表で株価を算出し、1株価値と成長率・要求リターンを返します。"
+        },
+        "es": {
+          "name": "Estimar descuento de dividendos",
+          "summary": "Valora la acción con un modelo Gordon de una etapa o una tabla explícita de dividendos, y devuelve el valor por acción, el crecimiento y la rentabilidad exigida."
+        },
+        "fr": {
+          "name": "Estimer l'actualisation des dividendes",
+          "summary": "Valorise l'action par un modèle Gordon à une étape ou un échéancier explicite de dividendes, et renvoie la valeur par action, la croissance et le rendement exigé."
+        }
+      },
+      "canonical": {
+        "brief": "Dividend discount model: Gordon perpetuity (DPS times (1+g) over (r minus g)) or an explicit dividend schedule with a Gordon terminal value; returns value_per_share, growth_rate and required_return."
+      }
+    },
+    "compute_comparable_multiples": {
+      "human": {
+        "zh": {
+          "name": "算可比公司倍数",
+          "summary": "对可比倍数做双侧去极值，给出中位、均值、四分位与原表对照，并据此算隐含估值。"
+        },
+        "en": {
+          "name": "Compute comparable multiples",
+          "summary": "Winsorizes comparable multiples, reports median, mean and quartiles against the raw table, and derives implied valuation."
+        },
+        "ja": {
+          "name": "比較倍数を計算",
+          "summary": "比較倍数を両側でウィンザライズし、中央値・平均・四分位を元表と対比して示し、含意バリュエーションを算出します。"
+        },
+        "es": {
+          "name": "Calcular múltiplos comparables",
+          "summary": "Recorta los valores extremos de los múltiplos comparables, informa mediana, media y cuartiles frente a la tabla original y calcula la valoración implícita."
+        },
+        "fr": {
+          "name": "Calculer les multiples comparables",
+          "summary": "Écrête les multiples comparables, présente médiane, moyenne et quartiles face au tableau d'origine, et en déduit la valorisation implicite."
+        }
+      },
+      "canonical": {
+        "brief": "Comparable multiples: winsorized (default 0.05, configurable) median, mean and quartiles with the raw-table values side by side, clipped peers when names are given, and an implied valuation."
+      }
+    },
+    "estimate_monte_carlo": {
+      "human": {
+        "zh": {
+          "name": "跑蒙特卡洛估值",
+          "summary": "按正态增长路径抽样得到估值分布，输出分位带，同一随机种子可逐位复现。"
+        },
+        "en": {
+          "name": "Run Monte Carlo valuation",
+          "summary": "Samples valuation outcomes along normal growth paths and returns percentile bands, reproducible bit for bit with the same seed."
+        },
+        "ja": {
+          "name": "モンテカルロ試算を実行",
+          "summary": "正規成長経路で評価額を抽出し、パーセンタイル帯を返します。同じ乱数シードなら同一結果を再現できます。"
+        },
+        "es": {
+          "name": "Ejecutar Monte Carlo",
+          "summary": "Muestrea valoraciones con trayectorias de crecimiento normal y devuelve bandas de percentiles, reproducible con la misma semilla."
+        },
+        "fr": {
+          "name": "Lancer une simulation Monte-Carlo",
+          "summary": "Échantillonne des valorisations selon des trajectoires de croissance normale et renvoie des bandes de percentiles, reproductibles à graine identique."
+        }
+      },
+      "canonical": {
+        "brief": "Monte Carlo valuation: samples terminal values along normal growth paths and returns configurable percentiles (p5/p25/p50/p75/p95 by default) with seed and horizon defaults of 42 and 5."
+      }
+    },
+    "compute_sensitivity_grid": {
+      "human": {
+        "zh": {
+          "name": "算敏感性网格",
+          "summary": "对两个 DCF 假设的取值组合逐点重算，输出每股价值网格。"
+        },
+        "en": {
+          "name": "Build sensitivity grid",
+          "summary": "Recomputes the DCF for every combination of two assumption ranges and returns a per-share value grid."
+        },
+        "ja": {
+          "name": "感度グリッドを計算",
+          "summary": "2つの DCF 前提の値の組み合わせごとに再計算し、1株価値のグリッドを返します。"
+        },
+        "es": {
+          "name": "Calcular rejilla de sensibilidad",
+          "summary": "Recalcula el DCF para cada combinación de dos rangos de supuestos y devuelve una rejilla de valor por acción."
+        },
+        "fr": {
+          "name": "Calculer la grille de sensibilité",
+          "summary": "Recalcule le DCF pour chaque combinaison de deux plages d'hypothèses et renvoie une grille de valeur par action."
+        }
+      },
+      "canonical": {
+        "brief": "Two-variable sensitivity grid: reruns the DCF over every (x, y) pair of two named scalar assumptions and returns the value_per_share grid with x_name and y_name."
+      }
+    },
+    "build_valuation_synthesis": {
+      "human": {
+        "zh": {
+          "name": "合成多方法估值",
+          "summary": "汇总各估值方法与权重；分歧超阈值时扣下目标价、不静默取均值。"
+        },
+        "en": {
+          "name": "Synthesize valuation methods",
+          "summary": "Combines method values with equal or custom weights; when disagreement exceeds the threshold the price target is withheld, not averaged away."
+        },
+        "ja": {
+          "name": "複数手法を統合",
+          "summary": "各手法の評価額を均等または指定の重みで統合します。ばらつきがしきい値を超えると目標株価を保留し、平均で丸めません。"
+        },
+        "es": {
+          "name": "Sintetizar métodos de valoración",
+          "summary": "Combina los valores de cada método con pesos iguales o propios; si la dispersión supera el umbral, retiene el precio objetivo en lugar de promediarlo."
+        },
+        "fr": {
+          "name": "Synthétiser les méthodes",
+          "summary": "Combine les valeurs des méthodes avec des poids égaux ou fournis ; si la dispersion dépasse le seuil, le prix cible est retenu au lieu d'être moyenné."
+        }
+      },
+      "canonical": {
+        "brief": "Valuation synthesis: weighted price target across methods with the measured disagreement ratio; above disagreement_threshold price_target and weights_used are null and weighting_basis is withheld."
+      }
+    },
+    "detect_regime_slow": {
+      "human": {
+        "zh": {
+          "name": "判定慢速市场状态",
+          "summary": "用趋势、回撤与波动率 Z 三判据合成 risk_on、neutral 或 risk_off，波动率须由调用方传入。"
+        },
+        "en": {
+          "name": "Detect slow market regime",
+          "summary": "Combines trend, drawdown and volatility-Z tests into risk_on, neutral or risk_off; volatility must be supplied by the caller."
+        },
+        "ja": {
+          "name": "緩やかな市況を判定",
+          "summary": "トレンド・ドローダウン・ボラティリティ Z の3判定を合成し、risk_on・neutral・risk_off を返します。ボラティリティは呼び出し側が渡します。"
+        },
+        "es": {
+          "name": "Detectar régimen lento",
+          "summary": "Combina pruebas de tendencia, caída y Z de volatilidad en risk_on, neutral o risk_off; la volatilidad la aporta quien llama."
+        },
+        "fr": {
+          "name": "Détecter le régime lent",
+          "summary": "Combine les tests de tendance, de repli et de Z de volatilité en risk_on, neutral ou risk_off ; la volatilité doit être fournie par l'appelant."
+        }
+      },
+      "canonical": {
+        "brief": "Slow regime detector: trend (short over long SMA minus 1), drawdown and volatility Z combined into risk_on/neutral/risk_off; each criterion reports triggered, value, threshold and status. No market data fetched."
+      }
+    },
+    "detect_shock_fast": {
+      "human": {
+        "zh": {
+          "name": "检测快速冲击",
+          "summary": "按 N 日价格冲击与波动率跳变判断是否需强制降仓，两个子标志分别回传。"
+        },
+        "en": {
+          "name": "Detect fast shock signals",
+          "summary": "Fires a forced de-risking signal on an N-day price shock or a volatility jump, returning both sub-signals separately."
+        },
+        "ja": {
+          "name": "急変シグナルを検出",
+          "summary": "N日間の価格ショックとボラティリティ跳躍で強制縮小の要否を判定し、2つのサブ判定を別々に返します。"
+        },
+        "es": {
+          "name": "Detectar choque rápido",
+          "summary": "Activa una señal de reducción forzada ante un choque de precio de N días o un salto de volatilidad, y devuelve ambas subseñales por separado."
+        },
+        "fr": {
+          "name": "Détecter un choc rapide",
+          "summary": "Déclenche un signal de réduction forcée sur un choc de prix à N jours ou un saut de volatilité, en renvoyant les deux sous-signaux séparément."
+        }
+      },
+      "canonical": {
+        "brief": "Fast risk-off detector: shock from prices[-1] over prices[-1-shock_window], and vol_jump from the latest volatility over its prior mean; triggered on either signal, with sub-flags returned."
+      }
+    },
+    "document_regime_defaults": {
+      "human": {
+        "zh": {
+          "name": "回显状态检测默认值",
+          "summary": "回显两个 regime 检测器的默认参数与校准注记：默认值为美股口径，A 股需在策略层传参覆盖。"
+        },
+        "en": {
+          "name": "Show regime defaults",
+          "summary": "Echoes the default parameters of both regime detectors with calibration notes: defaults reflect US-market magnitudes and A-share use needs explicit overrides."
+        },
+        "ja": {
+          "name": "市況判定の既定値を表示",
+          "summary": "2つの市況判定器の既定パラメータと較正注記を返します。既定値は米国株の目安で、A株では明示的な上書きが必要です。"
+        },
+        "es": {
+          "name": "Mostrar valores por defecto",
+          "summary": "Devuelve los parámetros por defecto de ambos detectores de régimen con notas de calibración: reflejan el mercado estadounidense y en A-shares exigen sustitución explícita."
+        },
+        "fr": {
+          "name": "Afficher les valeurs par défaut",
+          "summary": "Renvoie les paramètres par défaut des deux détecteurs de régime avec des notes de calibrage : ils suivent les ordres de grandeur américains et exigent une substitution explicite sur les A-shares."
+        }
+      },
+      "canonical": {
+        "brief": "Returns the regime detectors' default parameters read directly from their signatures, each with the calibration note that the defaults follow US-market magnitudes and need strategy-level overrides on A-shares."
+      }
+    },
+    "compute_information_coefficient": {
+      "human": {
+        "zh": {
+          "name": "算因子信息系数",
+          "summary": "算因子值与收益的 Pearson 或 Spearman 相关系数，可设最少可用配对数。"
+        },
+        "en": {
+          "name": "Compute information coefficient",
+          "summary": "Computes the Pearson or Spearman correlation between factor values and returns, with a minimum usable-pair requirement."
+        },
+        "ja": {
+          "name": "情報係数を計算",
+          "summary": "ファクター値とリターンのピアソンまたはスピアマン相関を算出し、最小有効ペア数を指定できます。"
+        },
+        "es": {
+          "name": "Calcular coeficiente de información",
+          "summary": "Calcula la correlación de Pearson o Spearman entre valores de factor y retornos, con un mínimo de pares utilizables."
+        },
+        "fr": {
+          "name": "Calculer le coefficient d'information",
+          "summary": "Calcule la corrélation de Pearson ou de Spearman entre valeurs de facteur et rendements, avec un minimum de paires exploitables."
+        }
+      },
+      "canonical": {
+        "brief": "Information coefficient: Pearson on raw values or Spearman on average ranks between factor and forward_returns; no shifting is done, and min_observations (default 5) guards thin pairs."
+      }
+    },
+    "compute_grouped_returns": {
+      "human": {
+        "zh": {
+          "name": "算分组收益",
+          "summary": "按因子值升序切成等权分组，逐组算收益均值并给出高低组之差。"
+        },
+        "en": {
+          "name": "Compute grouped returns",
+          "summary": "Sorts observations by factor value into equal-weight groups, averages returns per group and returns the top-minus-bottom spread."
+        },
+        "ja": {
+          "name": "グループ別リターンを計算",
+          "summary": "ファクター値の昇順で等加重グループに分け、グループ別の平均リターンと上位下位の差を返します。"
+        },
+        "es": {
+          "name": "Calcular retornos por grupo",
+          "summary": "Ordena las observaciones por valor de factor en grupos de igual peso, promedia los retornos por grupo y da la diferencia entre el grupo alto y el bajo."
+        },
+        "fr": {
+          "name": "Calculer les rendements par groupe",
+          "summary": "Répartit les observations par valeur de facteur en groupes équipondérés, moyenne les rendements par groupe et donne l'écart entre groupe haut et groupe bas."
+        }
+      },
+      "canonical": {
+        "brief": "Grouped returns: stable sort by factor value into n_groups equal-weight buckets (remainder bars go to the lowest groups), per-group mean return, and the top-minus-bottom spread."
+      }
+    },
+    "compute_factor_exposure": {
+      "human": {
+        "zh": {
+          "name": "算因子暴露回归",
+          "summary": "对收益与因子做含截距 OLS，输出 alpha、beta、标准误、t 值与 R²。"
+        },
+        "en": {
+          "name": "Compute factor exposure",
+          "summary": "Runs an intercept OLS of returns on the factor and returns alpha, beta, standard errors, t-values and R-squared."
+        },
+        "ja": {
+          "name": "ファクター露出を計算",
+          "summary": "リターンをファクターに切片付き OLS で回帰し、alpha・beta・標準誤差・t 値・R² を返します。"
+        },
+        "es": {
+          "name": "Calcular exposición a factores",
+          "summary": "Ajusta una regresión MCO con intercepto de retornos sobre el factor y devuelve alfa, beta, errores estándar, valores t y R cuadrado."
+        },
+        "fr": {
+          "name": "Calculer l'exposition aux facteurs",
+          "summary": "Estime une régression MCO avec constante des rendements sur le facteur et renvoie alpha, bêta, erreurs types, statistiques t et R carré."
+        }
+      },
+      "canonical": {
+        "brief": "Single-factor exposure OLS with intercept: beta, alpha, residual stdev with n minus 2 degrees of freedom, se_beta and se_alpha, t-values and R-squared; requires at least 3 observations."
+      }
+    },
+    "rank_factor_scores": {
+      "human": {
+        "zh": {
+          "name": "排因子值名次",
+          "summary": "对因子值取 1 基平均名次（1 = 最小），返回名次、排定顺序与并列数。"
+        },
+        "en": {
+          "name": "Rank factor values",
+          "summary": "Ranks factor values with 1-based average ranks (1 = smallest) and returns ranks, ordering and tie counts."
+        },
+        "ja": {
+          "name": "ファクター値に順位付け",
+          "summary": "ファクター値に1始まりの平均順位（1 = 最小）を付け、順位・並び順・同順位数を返します。"
+        },
+        "es": {
+          "name": "Clasificar valores de factor",
+          "summary": "Asigna rangos promedio con base 1 (1 = menor) a los valores de factor y devuelve rangos, orden y número de empates."
+        },
+        "fr": {
+          "name": "Classer les valeurs de facteur",
+          "summary": "Attribue des rangs moyens à base 1 (1 = plus petite valeur) aux valeurs de facteur et renvoie rangs, ordre et nombre d'ex aequo."
+        }
+      },
+      "canonical": {
+        "brief": "Average-rank (midrank) ranking of factor values, 1 = smallest; missing values get null and take no rank position; returns ranks, order and n_ties. Same tie rule as the Spearman IC."
+      }
+    },
+    "split_walk_forward_windows": {
+      "human": {
+        "zh": {
+          "name": "切滚动训练窗",
+          "summary": "按 step 前推切出训练窗与其后紧随的测试窗，窗口表带下标与日期。"
+        },
+        "en": {
+          "name": "Split walk-forward windows",
+          "summary": "Steps a training window forward by step and pairs each with the immediately following test window, as a table with indices and dates."
+        },
+        "ja": {
+          "name": "ウォークフォワード分割",
+          "summary": "訓練窓を step ずつ前進させ、直後に続くテスト窓と組にして、添字と日付付きの窓表を返します。"
+        },
+        "es": {
+          "name": "Dividir ventanas móviles",
+          "summary": "Avanza una ventana de entrenamiento en pasos de step y la empareja con la ventana de prueba inmediatamente posterior, en una tabla con índices y fechas."
+        },
+        "fr": {
+          "name": "Découper les fenêtres glissantes",
+          "summary": "Avance une fenêtre d'entraînement par pas de step et l'associe à la fenêtre de test qui suit immédiatement, sous forme de tableau avec indices et dates."
+        }
+      },
+      "canonical": {
+        "brief": "Walk-forward split: each train window is followed by a non-overlapping test window; count is (n minus train minus test) floor-divided by step plus 1; window keys come in two equivalent alias sets."
+      }
+    },
+    "split_holdout": {
+      "human": {
+        "zh": {
+          "name": "切训练与留出",
+          "summary": "留出集固定取序列末段，中间留 embargo 间隔，避免标签窗口重叠泄露。"
+        },
+        "en": {
+          "name": "Split train and holdout",
+          "summary": "Takes the final segment as holdout and drops an embargo gap in between so label windows cannot overlap into training."
+        },
+        "ja": {
+          "name": "訓練と検証に分割",
+          "summary": "留出集合は常に末尾区間とし、間に embargo の間隔を空けてラベル窓の重なりによる漏れを防ぎます。"
+        },
+        "es": {
+          "name": "Dividir entrenamiento y reserva",
+          "summary": "Toma el tramo final como reserva y descarta un intervalo embargo entre ambos para que las ventanas de etiqueta no se solapen."
+        },
+        "fr": {
+          "name": "Séparer entraînement et réserve",
+          "summary": "Prend le dernier segment comme jeu de réserve et supprime un intervalle d'embargo entre les deux pour éviter le recouvrement des fenêtres d'étiquette."
+        }
+      },
+      "canonical": {
+        "brief": "Train/holdout split where the holdout is always the final segment and embargo observations between the sides are dropped; returns the index boundaries for training and holdout."
+      }
+    },
+    "validate_no_lookahead": {
+      "human": {
+        "zh": {
+          "name": "校验未来函数",
+          "summary": "只读检查日期越界、逐点信息口径日泄露与窗口表顺序，违规即报错中止。"
+        },
+        "en": {
+          "name": "Validate no lookahead",
+          "summary": "Read-only check of dates past the effective cutoff, per-point information-date leaks and window ordering; a violation aborts with an error."
+        },
+        "ja": {
+          "name": "先読みの有無を検証",
+          "summary": "有効基準日を超える日付、各点の情報基準日の漏れ、窓表の順序を読み取り専用で検査し、違反時はエラーで中止します。"
+        },
+        "es": {
+          "name": "Comprobar ausencia de anticipación",
+          "summary": "Comprueba en solo lectura fechas fuera del corte efectivo, fugas en la fecha de información por punto y el orden de las ventanas; una infracción aborta con error."
+        },
+        "fr": {
+          "name": "Vérifier l'absence d'anticipation",
+          "summary": "Vérifie en lecture seule les dates au-delà de la limite effective, les fuites de date d'information par point et l'ordre des fenêtres ; toute violation interrompt avec une erreur."
+        }
+      },
+      "canonical": {
+        "brief": "Lookahead guard, read-only: rejects points past min(as_of, declared_as_of), points whose point_as_of is later than as_of, and windows where test_start is not after train_end."
+      }
+    },
+    "check_observation_sufficiency": {
+      "human": {
+        "zh": {
+          "name": "查观测是否够用",
+          "summary": "按非缺失观测数与所需门槛比较，返回是否充分与计数，不抛异常。"
+        },
+        "en": {
+          "name": "Check observation sufficiency",
+          "summary": "Compares usable non-missing observations against a required threshold and returns a boolean plus counts instead of raising."
+        },
+        "ja": {
+          "name": "観測数の充足を確認",
+          "summary": "欠損を除いた有効観測数を必要な水準と比べ、例外ではなく可否と件数を返します。"
+        },
+        "es": {
+          "name": "Comprobar suficiencia de datos",
+          "summary": "Compara las observaciones utilizables sin faltantes con el umbral requerido y devuelve un booleano y recuentos en lugar de lanzar un error."
+        },
+        "fr": {
+          "name": "Vérifier la suffisance des données",
+          "summary": "Compare les observations exploitables hors manquants au seuil requis et renvoie un booléen et des comptages au lieu de lever une erreur."
+        }
+      },
+      "canonical": {
+        "brief": "Observation sufficiency gate: usable counts non-null values (or date count when values is omitted), compared with required_observations (default 252, the rough trading-year minimum)."
+      }
+    },
+    "check_series_as_of_bounds": {
+      "human": {
+        "zh": {
+          "name": "体检序列覆盖",
+          "summary": "报出序列在 as_of 口径下的点数、缺失数、缺失占比与首末日期等覆盖信息。"
+        },
+        "en": {
+          "name": "Audit series coverage",
+          "summary": "Reports point count, missing count and ratio, warm-up gap and first and last dates for a series under an as_of cutoff."
+        },
+        "ja": {
+          "name": "系列の網羅性を点検",
+          "summary": "as_of 基準での系列の点数、欠損数と比率、ウォームアップ欠損、最初と最後の日付を報告します。"
+        },
+        "es": {
+          "name": "Revisar cobertura de la serie",
+          "summary": "Informa el número de puntos, faltantes y su proporción, el hueco inicial y las fechas primera y última de una serie bajo el corte as_of."
+        },
+        "fr": {
+          "name": "Auditer la couverture de la série",
+          "summary": "Rapporte le nombre de points, les manquants et leur proportion, le décalage initial et les première et dernière dates d'une série sous la limite as_of."
+        }
+      },
+      "canonical": {
+        "brief": "Series health check: point_count, missing_count and missing_ratio, warmup, first and last date, span_days and is_complete. It reports coverage; it does not compute values."
+      }
+    },
+    "record_decision": {
+      "human": {
+        "zh": {
+          "name": "记录投资决策",
+          "summary": "向本地账本追加一条决策，按 as_of 与标的等键幂等，重复提交返回既有记录标识。"
+        },
+        "en": {
+          "name": "Record investment decision",
+          "summary": "Appends a decision to the local ledger with an as_of plus symbol, pack and skill idempotency key; a duplicate returns the existing decision_id."
+        },
+        "ja": {
+          "name": "投資判断を記録",
+          "summary": "as_of・symbol・pack・skill をキーにローカル台帳へ判断を追記します。重複時は既存の decision_id を返します。"
+        },
+        "es": {
+          "name": "Registrar decisión",
+          "summary": "Añade una decisión al registro local con clave idempotente as_of más symbol, pack y skill; un duplicado devuelve el decision_id existente."
+        },
+        "fr": {
+          "name": "Enregistrer une décision",
+          "summary": "Ajoute une décision au registre local avec une clé d'idempotence as_of plus symbol, pack et skill ; un doublon renvoie le decision_id existant."
+        }
+      },
+      "canonical": {
+        "brief": "Appends a Rating payload to the local decision ledger, idempotent on (as_of, symbol, pack, skill); a repeat returns created=false with the existing id, and revises creates a new revision."
+      }
+    },
+    "settle_decision": {
+      "human": {
+        "zh": {
+          "name": "结算决策收益",
+          "summary": "按调用方传入的标的与基准价格序列算原始收益、基准收益与 alpha，幂等落库。"
+        },
+        "en": {
+          "name": "Settle decision returns",
+          "summary": "Computes raw return, benchmark return and alpha from caller-supplied price series and stores the settlement idempotently."
+        },
+        "ja": {
+          "name": "判断の成績を決済",
+          "summary": "呼び出し側が渡す銘柄とベンチマークの価格系列から生リターン・基準リターン・alpha を算出し、冪等に保存します。"
+        },
+        "es": {
+          "name": "Liquidar resultado de decisión",
+          "summary": "Calcula el retorno bruto, el del índice de referencia y el alfa con las series de precios aportadas por quien llama, y guarda la liquidación de forma idempotente."
+        },
+        "fr": {
+          "name": "Régler le résultat d'une décision",
+          "summary": "Calcule le rendement brut, celui de l'indice de référence et l'alpha à partir des séries de prix fournies, puis enregistre le règlement de façon idempotente."
+        }
+      },
+      "canonical": {
+        "brief": "Settles a decision over holding_days trading days: raw and benchmark returns plus alpha from caller-supplied series; insufficient coverage is refused with a missing trading days count."
+      }
+    },
+    "retrieve_decisions": {
+      "human": {
+        "zh": {
+          "name": "检索历史决策",
+          "summary": "只返回结算日不晚于 as_of 的记录，分同标的与跨标的教训两组，按结算日倒序。"
+        },
+        "en": {
+          "name": "Retrieve past decisions",
+          "summary": "Returns records settled on or before as_of, split into same-symbol and cross-symbol lessons, with the latest settlement first."
+        },
+        "ja": {
+          "name": "過去の判断を検索",
+          "summary": "決済日が as_of 以前の記録のみを返し、同一銘柄と他銘柄の教訓に分けて決済日の新しい順に並べます。"
+        },
+        "es": {
+          "name": "Recuperar decisiones previas",
+          "summary": "Devuelve solo registros liquidados en o antes de as_of, separados en mismo símbolo y otros símbolos, del más reciente al más antiguo."
+        },
+        "fr": {
+          "name": "Rechercher les décisions passées",
+          "summary": "Ne renvoie que les enregistrements réglés au plus tard à as_of, séparés entre même symbole et autres symboles, du plus récent au plus ancien."
+        }
+      },
+      "canonical": {
+        "brief": "Point-in-time decision retrieval: only records settled on or before as_of, in same_symbol and cross_symbol groups, each with payload, evidence, revision pointer and settlement."
+      }
+    },
+    "summarize_pack_performance": {
+      "human": {
+        "zh": {
+          "name": "汇总策略表现",
+          "summary": "按 pack 汇总已结算记录的样本数、平均 alpha、胜率与原始收益均值，零样本显式返回 0。"
+        },
+        "en": {
+          "name": "Summarize pack performance",
+          "summary": "Aggregates settled records per pack into sample count, mean alpha, win rate and mean raw return, showing zero-sample packs explicitly."
+        },
+        "ja": {
+          "name": "pack 別の成績を集計",
+          "summary": "pack ごとに決済済み記録を標本数・平均 alpha・勝率・平均生リターンに集計し、標本0の pack も明示します。"
+        },
+        "es": {
+          "name": "Resumir rendimiento por pack",
+          "summary": "Agrega los registros liquidados por pack en número de muestras, alfa medio, tasa de acierto y retorno bruto medio, mostrando los packs sin muestras."
+        },
+        "fr": {
+          "name": "Résumer la performance par pack",
+          "summary": "Agrège les enregistrements réglés par pack en nombre d'échantillons, alpha moyen, taux de réussite et rendement brut moyen, en montrant les packs sans échantillon."
+        }
+      },
+      "canonical": {
+        "brief": "Per-pack performance over settled records with settlement date at or before as_of: samples, mean_alpha, win_rate counting alpha above zero, and mean_raw_return; empty groups return samples=0."
+      }
+    }
+  }
+}

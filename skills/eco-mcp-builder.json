@@ -1,0 +1,32 @@
+{
+  "skill": "eco-mcp-builder",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "生态服务构建器",
+        "summary": "生态技能包：构建 MCP server 的工程指南与脚手架。"
+      },
+      "en": {
+        "name": "Ecosystem MCP server builder",
+        "summary": "Ecosystem skill pack: engineering guide and scaffolding for building MCP servers."
+      },
+      "ja": {
+        "name": "エコシステム・サーバービルダー",
+        "summary": "エコシステム系スキル。MCPサーバー構築向けのエンジニアリングガイドとスキャフォールドを提供する。"
+      },
+      "es": {
+        "name": "Constructor de servidores MCP del ecosistema",
+        "summary": "Habilidad del ecosistema: guía de ingeniería y andamiaje para construir servidores MCP."
+      },
+      "fr": {
+        "name": "Constructeur de serveurs MCP de l'écosystème",
+        "summary": "Compétence de l'écosystème : guide d'ingénierie et échafaudage pour construire des serveurs MCP."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

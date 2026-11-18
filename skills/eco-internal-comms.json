@@ -1,0 +1,32 @@
+{
+  "skill": "eco-internal-comms",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "内部沟通写作",
+        "summary": "生态技能包：内部沟通文体写作模板，覆盖状态报告、周报与公告。"
+      },
+      "en": {
+        "name": "Internal communication writing",
+        "summary": "Ecosystem skill pack: writing templates for internal communication formats such as status reports, weekly updates and announcements."
+      },
+      "ja": {
+        "name": "社内コミュニケーション作成",
+        "summary": "エコシステム系スキル。社内コミュニケーション文体の執筆テンプレート。状態報告・週報・告知に対応。"
+      },
+      "es": {
+        "name": "Redacción de comunicación interna",
+        "summary": "Habilidad del ecosistema: plantillas de redacción para informes de estado, resúmenes semanales y anuncios internos."
+      },
+      "fr": {
+        "name": "Rédaction de communications internes",
+        "summary": "Compétence de l'écosystème : modèles de rédaction pour rapports d'état, bilans hebdomadaires et annonces internes."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

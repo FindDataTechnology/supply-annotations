@@ -1,0 +1,32 @@
+{
+  "skill": "case-closure-archive",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "结案归档",
+        "summary": "判决或调解完成后，系统化完成案卷归档、案件总结、客户移交与费用结算等结案工作。"
+      },
+      "en": {
+        "name": "Case closure and archiving",
+        "summary": "After judgment or mediation, systematically completes closing work: case file archiving, case summary, client handover and fee settlement."
+      },
+      "ja": {
+        "name": "事件終結とアーカイブ",
+        "summary": "判決・調停の成立後、事件記録のアーカイブ、事件総括、クライアント移管、費用精算など終結業務を体系的に完了させる。"
+      },
+      "es": {
+        "name": "Cierre y archivo de casos",
+        "summary": "Tras la sentencia o la mediación, completa el cierre del caso: archivo del expediente, resumen, traspaso del cliente y liquidación de honorarios."
+      },
+      "fr": {
+        "name": "Clôture et archivage d'affaires",
+        "summary": "Après le jugement ou la médiation, achève méthodiquement la clôture : archivage du dossier, synthèse de l'affaire, transfert du client et règlement des honoraires."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

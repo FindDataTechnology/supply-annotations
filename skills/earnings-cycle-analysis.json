@@ -1,0 +1,32 @@
+{
+  "skill": "earnings-cycle-analysis",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "财报周期分析",
+        "summary": "财报前瞻与复盘：定位披露类型与时间、该盯的科目与超/低预期来源；复盘与上年同期差异的驱动科目、盈利质量与含义；基于柏讯财报数据。"
+      },
+      "en": {
+        "name": "Earnings cycle analysis",
+        "summary": "Earnings preview and review: identifies disclosure type and timing, items to watch and beat/miss sources; reviews YoY gap drivers, earnings quality and implications; uses Wire earnings data."
+      },
+      "ja": {
+        "name": "決算サイクル分析",
+        "summary": "決算の事前予測と事後レビュー：開示種別・時期、注視科目、コンセンサス超過・下回りの出どころを特定し、前年同期差異の主因科目・収益の質・含意を振り返る。Wire の決算データに基づく。"
+      },
+      "es": {
+        "name": "Análisis del ciclo de resultados",
+        "summary": "Previsión y revisión de resultados: identifica tipo y fecha, partidas a vigilar y origen de sorpresas; revisa impulsores interanuales, calidad del beneficio e implicaciones; datos de Wire."
+      },
+      "fr": {
+        "name": "Analyse du cycle de résultats",
+        "summary": "Prévision et revue des résultats : identifie type et date, postes à surveiller et origine des surprises ; revue des écarts interannuels, qualité des bénéfices et implications ; données de Wire."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

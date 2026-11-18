@@ -1,0 +1,26 @@
+{
+ "origin": "registry",
+ "names": [
+  "legalskill-legal-consultation",
+  "lex-console-tour",
+  "lex-credentials-guide",
+  "lex-intent-protocol",
+  "lex-quota-billing",
+  "litigation-analysis",
+  "litigation-analysis-tool",
+  "litigation-case-management",
+  "litigation-document-drafting",
+  "litigation-drafting",
+  "litigation-visualization",
+  "macro-cycle-analysis",
+  "macro-rates-monitor",
+  "market-flash-briefing",
+  "mat-probe-skill",
+  "mb-breakeven-calculator",
+  "mb-business-checkup",
+  "mb-cashflow-terms-calculator",
+  "mb-margin-structure-calculator",
+  "mb-signal-catering",
+  "mb-signal-retail"
+ ]
+}

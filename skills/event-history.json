@@ -1,0 +1,32 @@
+{
+  "skill": "event-history",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "事件历史统计",
+        "summary": "柏讯事件驱动的历史反应统计：对同类事件做默认 5/10/20 交易日的多窗口统计，输出样本量、分位数、均值与离散度，并强制给出反例比例与样本门槛。全部输出为描述性历史分布，不是预测；样本不足不下结论；口径（按分类或按关键词）随结果一并写出；不提供涨跌预期与买卖建议。"
+      },
+      "en": {
+        "name": "Event history",
+        "summary": "Multi-window (5/10/20 trading days) reaction stats: sample size, quantiles, mean, dispersion, counterexample share and sample floor; a descriptive distribution, not a forecast, no advice."
+      },
+      "ja": {
+        "name": "イベント履歴統計",
+        "summary": "同種イベントの多窓（既定5/10/20営業日）履歴反応統計：サンプル数、分位点、平均と分散、反例比率とサンプル下限を必ず併記。出力は記述的な履歴分布で予測ではない。サンプル不足なら結論を出さず、口径（分類またはキーワード）を結果と共に明示。騰落予期や売買助言はしない。"
+      },
+      "es": {
+        "name": "Historial de eventos",
+        "summary": "Estadísticas de reacción en ventanas 5/10/20 días: muestra, cuantiles, media, dispersión, con contraejemplos y umbral; distribución descriptiva, no pronóstico; sin muestra suficiente, sin conclusión."
+      },
+      "fr": {
+        "name": "Historique d'événements",
+        "summary": "Statistiques de réaction sur 5/10/20 jours : échantillon, quantiles, moyenne, dispersion, contre-exemples et seuil ; distribution descriptive, non prévision ; pas de conclusion sur petit échantillon."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

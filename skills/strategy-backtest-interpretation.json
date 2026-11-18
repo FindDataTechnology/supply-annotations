@@ -1,0 +1,32 @@
+{
+  "skill": "strategy-backtest-interpretation",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "回测结果解读",
+        "summary": "柏讯策略工坊回测解读：解读权益曲线与统计指标说明什么、意味着什么，坚持历史模拟不预示未来、单次回测不下有效结论、不忽略成本与基准。"
+      },
+      "en": {
+        "name": "Backtest results interpretation",
+        "summary": "Wire workshop: reads backtest outputs — equity curve and statistics — and their limits; simulation history does not predict the future, one run alone supports no valid conclusion."
+      },
+      "ja": {
+        "name": "バックテスト結果解釈",
+        "summary": "Wire 戦略工房のバックテスト解釈：権益カーブと統計が何を意味するかを読み解き、歴史シミュレーションは未来を予告せず、単回の実行で有効結論を下さず、コストと基準を無視しない。"
+      },
+      "es": {
+        "name": "Interpretación de resultados de backtest",
+        "summary": "Taller Wire: lee la curva de patrimonio y las estadísticas del backtest y sus límites; la simulación histórica no predice el futuro y una sola ejecución no basta para concluir."
+      },
+      "fr": {
+        "name": "Interprétation des résultats de backtest",
+        "summary": "Atelier Wire : lit la courbe d'équité et les statistiques du backtest et leurs limites ; la simulation historique ne prédit pas l'avenir, un test unique ne conclut pas."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}

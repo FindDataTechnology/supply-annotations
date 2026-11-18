@@ -1,0 +1,32 @@
+{
+  "skill": "strategy-design",
+  "origin": "registry",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "策略设计",
+        "summary": "柏讯策略工坊的策略设计：把投资想法变成可回测的多标的策略（标的池＋目标权重＋调仓频率），说明权重语义、调仓频率与换手的取舍及不支持的表述，产出可创建的权重模式策略 spec。"
+      },
+      "en": {
+        "name": "Strategy design",
+        "summary": "Wire strategy workshop: turns an investment idea into a backtestable multi-asset strategy (universe, target weights, rebalance frequency) and outputs a creatable weight-mode strategy spec."
+      },
+      "ja": {
+        "name": "戦略設計",
+        "summary": "Wire戦略工房の戦略設計。投資アイデアをバックテスト可能な複数銘柄戦略（ユニバース＋目標ウェイト＋リバランス頻度）に変換し、作成可能なウェイトモード戦略specを生成します。"
+      },
+      "es": {
+        "name": "Diseño de estrategias",
+        "summary": "Convierte una idea de inversión en una estrategia multi-activo backtestable (universo, pesos objetivo, frecuencia de rebalanceo) y produce una especificación en modo pesos lista para crear."
+      },
+      "fr": {
+        "name": "Conception de stratégies",
+        "summary": "Transforme une idée d'investissement en stratégie multi-actifs backtestable (univers, poids cibles, fréquence de rééquilibrage) et produit une spécification en mode poids prête à créer."
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-04"
+    }
+  }
+}
