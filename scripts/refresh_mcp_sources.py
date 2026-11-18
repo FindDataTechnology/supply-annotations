@@ -37,7 +37,7 @@ ENDPOINTS = {
     "fd-info": ("http://cheap6.mesh.finddata.cn:31905/mcp", "fd-info", "柏讯信息流索引（公告/部委/SSE互动三源）"),
     "fd-erp-ledger-mcp": ("http://cheap6.mesh.finddata.cn:31910/mcp", "fd-erp-ledger-mcp", "ERP 台账/对账/计费/信用"),
     "fd-cn-report": ("http://cheap6.mesh.finddata.cn:31852/mcp", "fd-cn-report", "A股/港股/B股年报抽取与指标"),
-    "fd-health-config": ("http://100.64.0.11:8090/mcp", "fd-health-config", "健康/配置面"),
+    "fd-health-config": ("http://<health-host>:8090/mcp", "fd-health-config", "健康/配置面"),
     "fd-paper-trading": ("http://cheap6.mesh.finddata.cn:31894/mcp/", "fd-paper-trading", "模拟交易"),
     "infra-telemetry": ("http://cheap6.mesh.finddata.cn:31908/mcp", "infra-telemetry", "基础设施遥测"),
     "fd-text-core": ("http://cheap6.mesh.finddata.cn:31887/mcp", "fd-text-core", "文本核心能力"),
