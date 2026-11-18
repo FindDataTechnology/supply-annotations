@@ -1,5 +1,7 @@
 # 供给注释（supply-annotations）
 
+> **Part of the [Facet line (寻数·谦面)](https://www.finddatatech.cloud/products/facet) of [FindData](https://www.finddatatech.cloud)** — Supply annotations — cross-language annotation vocabulary for supply-domain facts.
+
 registry 在册 MCP 条目的多语言显示注释真源。壹座与谦面按 locale 渲染这里的
 名字/一句话/工具说明；**运行时契约（registryName、工具名、参数 schema）零改动**。
 
