@@ -85,7 +85,8 @@ WRITE_VERB_EXEMPT: set[tuple[str, str, str]] = set()
 #: 不是 registry 的红（2026-11-08 实测：pod 名与 context 双双过期，
 #: 校验一直离线跑，酒店五工具被误判为「上游没有」）。
 _KUBECTL_NS = "mcp-registry"
-_KUBECTL_CTX = os.environ.get("FD_KUBECTL_CTX", "cheap-ts")
+# 没有默认 context：集群名随部署不同，写死会让校验打到一个不该碰的集群。
+_KUBECTL_CTX = os.environ.get("FD_KUBECTL_CTX")
 _KUBECTL_SELECTOR = "app.kubernetes.io/name=registry"
 
 
@@ -351,7 +352,8 @@ def _registry_pod() -> str | None:
     """按 label 现取 Running 的 registry pod。滚动即变，写死必失配。"""
     try:
         proc = subprocess.run(
-            ["kubectl", "--context", _KUBECTL_CTX, "-n", _KUBECTL_NS, "get", "pods",
+            ["kubectl", *(["--context", _KUBECTL_CTX] if _KUBECTL_CTX else []),
+             "-n", _KUBECTL_NS, "get", "pods",
              "-l", _KUBECTL_SELECTOR, "--field-selector=status.phase=Running",
              "-o", "jsonpath={.items[0].metadata.name}"],
             capture_output=True, text=True, timeout=30,
