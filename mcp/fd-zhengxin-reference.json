@@ -167,6 +167,33 @@
     "canonical": {
      "brief": "Source status ledger for v-dem, marpor, wikidata, sep, china-seed and modern-index: ingestion state, gaps, unconfirmed-licence reasons with gate detail, last probe and snapshot version."
     }
+   },
+   "entity_dossier": {
+    "human": {
+     "zh": {
+      "name": "政治实体档案",
+      "summary": "政治实体读面：人物/政党/事件/运动/学派/思潮 → 身份 + 学派 + 出入关系边全集。"
+     },
+     "en": {
+      "name": "Political entity dossier",
+      "summary": "Political-entity read face: person/party/event/movement/school/current of thought → identity, school, and the full set of inbound/outbound relation edges."
+     },
+     "ja": {
+      "name": "政治主体の調書",
+      "summary": "政治主体の読み取り面：人物／政党／事象／運動／学派／思潮 → 同一性・学派・出入関係エッジの全集。"
+     },
+     "es": {
+      "name": "Expediente de entidad política",
+      "summary": "Cara de lectura de entidades políticas: persona/partido/evento/movimiento/escuela/corriente → identidad, escuela y el conjunto completo de aristas de relación entrantes y salientes."
+     },
+     "fr": {
+      "name": "Dossier d'entité politique",
+      "summary": "Face de lecture des entités politiques : personne/parti/événement/mouvement/école/courant → identité, école et l'ensemble complet des arêtes de relation entrantes et sortantes."
+     }
+    },
+    "canonical": {
+     "brief": "Political-entity read face: person/party/event/movement/school/current of thought → identity, school, and the full set of inbound/outbound relation edges."
+    }
    }
   },
   "provenance": {

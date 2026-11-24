@@ -1,0 +1,95 @@
+{
+ "version": 1,
+ "server": "marketing-signals",
+ "annotation": {
+  "human": {
+   "zh": {
+    "name": "营销信号",
+    "summary": "只读的营销信号面：按统一时间窗取最近信号，或按实体聚合。每个信号带四要素（实体 / 事件 / 时点 / 产品面）与紧凑串「类型|日期|来源」，只陈述可查公开事实。",
+    "whenToUse": "做选题、观察某个实体近期动向、或需要带来源的公开事件时间线时。"
+   },
+   "en": {
+    "name": "Marketing signals",
+    "summary": "Read-only marketing-signal surface: recent signals over a common window, or aggregated by entity. Each signal carries four elements (entity / event / timestamp / product surface) and a compact ",
+    "whenToUse": "For topic selection, watching a subject's recent activity, or needing a sourced timeline of public events."
+   },
+   "ja": {
+    "name": "マーケティングシグナル",
+    "summary": "読み取り専用のマーケティングシグナル面：共通の時間窓で直近のシグナルを取得、またはエンティティ別に集約します。各シグナルは四要素（主体／事象／時点／製品面）と「種類|日付|出所」の簡潔な文字列を持ち、検証可能な公開事実のみを述べます。",
+    "whenToUse": "テーマ選定、ある主体の最近の動向の観察、出所付きの公開事象タイムラインが必要なとき。"
+   },
+   "es": {
+    "name": "Señales de marketing",
+    "summary": "Superficie de solo lectura: señales recientes en una ventana común o agregadas por entidad. Cada señal lleva cuatro elementos (entidad / evento / fecha / superficie de producto).",
+    "whenToUse": "Para seleccionar temas, observar la actividad reciente de una entidad o necesitar una línea temporal de eventos públicos con fuente."
+   },
+   "fr": {
+    "name": "Signaux marketing",
+    "summary": "Surface de signaux marketing en lecture seule : signaux récents sur une fenêtre commune, ou agrégés par entité. Chaque signal porte quatre éléments (entité / événement / horodatage / surface produit) ",
+    "whenToUse": "Pour choisir des sujets, suivre l'activité récente d'une entité ou obtenir une chronologie sourcée d'événements publics."
+   }
+  },
+  "canonical": {
+   "brief": "Read-only marketing-signal MCP (2 tools): recent signals over a common time window and by-entity aggregation; explicit per-source failure reporting, no outbound reach."
+  },
+  "tools": {
+   "signals_recent": {
+    "human": {
+     "zh": {
+      "name": "取最近信号",
+      "summary": "按统一时间窗取最近信号，可按来源限定；某源取数失败时如实回报 failure 而非当作没有信号。"
+     },
+     "en": {
+      "name": "Recent signals",
+      "summary": "Recent signals over a common time window, optionally limited by source; a failed source is reported as a failure, not as “no signals”."
+     },
+     "ja": {
+      "name": "直近シグナル",
+      "summary": "共通の時間窓で直近のシグナルを取得します。出所で限定可能。取得に失敗した出所は「シグナルなし」ではなく failure として返します。"
+     },
+     "es": {
+      "name": "Señales recientes",
+      "summary": "Señales recientes en una ventana temporal común, opcionalmente limitadas por fuente; una fuente fallida se reporta como fallo, no como «sin señales»."
+     },
+     "fr": {
+      "name": "Signaux récents",
+      "summary": "Signaux récents sur une fenêtre commune, éventuellement limités par source ; une source en échec est signalée comme échec, et non comme « aucun signal »."
+     }
+    },
+    "canonical": {
+     "brief": "Recent signals over a common time window, optionally limited by source; a failed source is reported as a failure, not as “no signals”."
+    }
+   },
+   "signals_by_entity": {
+    "human": {
+     "zh": {
+      "name": "按实体聚合信号",
+      "summary": "把信号按实体聚合，看某个实体最近有哪些公开事件。"
+     },
+     "en": {
+      "name": "Signals by entity",
+      "summary": "Aggregates signals by entity to see which public events a given subject has had recently."
+     },
+     "ja": {
+      "name": "主体別シグナル",
+      "summary": "シグナルをエンティティ別に集約し、ある主体の最近の公開事象を確認します。"
+     },
+     "es": {
+      "name": "Señales por entidad",
+      "summary": "Agrega señales por entidad para ver qué eventos públicos ha tenido un sujeto recientemente."
+     },
+     "fr": {
+      "name": "Signaux par entité",
+      "summary": "Agrège les signaux par entité pour voir quels événements publics un sujet a eus récemment."
+     }
+    },
+    "canonical": {
+     "brief": "Aggregates signals by entity to see which public events a given subject has had recently."
+    }
+   }
+  },
+  "provenance": {
+   "source": "工具真实上游 description + 该仓 tool-surface.json（mcp-supply-annotations「注释依据限于真实上游描述与上牌清单」）"
+  }
+ }
+}

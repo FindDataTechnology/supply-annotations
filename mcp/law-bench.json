@@ -1490,6 +1490,276 @@
     "canonical": {
      "brief": "List stored validation constraints for a contract type."
     }
+   },
+   "domain_context": {
+    "human": {
+     "zh": {
+      "name": "域上下文",
+      "summary": "这个域的控制台此刻会告诉你的东西：状态、待办、最近一次上线记录。"
+     },
+     "en": {
+      "name": "Domain context",
+      "summary": "What this domain's own console would tell you right now: state, pending work, latest release."
+     },
+     "ja": {
+      "name": "ドメイン文脈",
+      "summary": "このドメインのコンソールが今示す内容：状態、未処理、最新リリース。"
+     },
+     "es": {
+      "name": "Contexto del dominio",
+      "summary": "Lo que la consola del dominio mostraría ahora: estado, trabajo pendiente, última publicación."
+     },
+     "fr": {
+      "name": "Contexte du domaine",
+      "summary": "Ce que la console du domaine afficherait à l'instant : état, travail en attente, dernière publication."
+     }
+    },
+    "canonical": {
+     "brief": "What this domain's own console would tell you right now: state, pending work, latest release."
+    }
+   },
+   "domain_list": {
+    "human": {
+     "zh": {
+      "name": "列出可用域",
+      "summary": "列出某人可在其中工作的域。"
+     },
+     "en": {
+      "name": "List domains",
+      "summary": "Lists the domains a person can work in."
+     },
+     "ja": {
+      "name": "利用可能なドメイン",
+      "summary": "ある人が作業できるドメインを一覧します。"
+     },
+     "es": {
+      "name": "Listar dominios",
+      "summary": "Enumera los dominios en los que una persona puede trabajar."
+     },
+     "fr": {
+      "name": "Lister les domaines",
+      "summary": "Énumère les domaines dans lesquels une personne peut travailler."
+     }
+    },
+    "canonical": {
+     "brief": "Lists the domains a person can work in."
+    }
+   },
+   "domain_proposals": {
+    "human": {
+     "zh": {
+      "name": "域提案收件箱",
+      "summary": "本域待人工裁定的提案草稿。"
+     },
+     "en": {
+      "name": "Domain proposal inbox",
+      "summary": "This domain's proposal inbox — drafts awaiting a human decision."
+     },
+     "ja": {
+      "name": "ドメイン提案の受信箱",
+      "summary": "本ドメインで人の判断待ちの提案草稿です。"
+     },
+     "es": {
+      "name": "Bandeja de propuestas",
+      "summary": "La bandeja de propuestas del dominio: borradores a la espera de decisión humana."
+     },
+     "fr": {
+      "name": "Boîte des propositions",
+      "summary": "La boîte de propositions du domaine : brouillons en attente de décision humaine."
+     }
+    },
+    "canonical": {
+     "brief": "This domain's proposal inbox — drafts awaiting a human decision."
+    }
+   },
+   "domain_proposal_get": {
+    "human": {
+     "zh": {
+      "name": "取提案详情",
+      "summary": "完整查看一条提案及其事件轨迹。"
+     },
+     "en": {
+      "name": "Get a proposal",
+      "summary": "Shows one proposal in full plus its event trail."
+     },
+     "ja": {
+      "name": "提案の詳細",
+      "summary": "1 件の提案を全文とイベント履歴つきで表示します。"
+     },
+     "es": {
+      "name": "Obtener una propuesta",
+      "summary": "Muestra una propuesta completa y su rastro de eventos."
+     },
+     "fr": {
+      "name": "Obtenir une proposition",
+      "summary": "Affiche une proposition en entier avec sa trace d'événements."
+     }
+    },
+    "canonical": {
+     "brief": "Shows one proposal in full plus its event trail."
+    }
+   },
+   "domain_proposal_confirm": {
+    "human": {
+     "zh": {
+      "name": "确认提案",
+      "summary": "代表 actor 把一条提案确认进本体（产出 silver）。"
+     },
+     "en": {
+      "name": "Confirm a proposal",
+      "summary": "Confirms one proposal into the ontology on behalf of the actor (produces silver)."
+     },
+     "ja": {
+      "name": "提案を確認",
+      "summary": "actor に代わって提案を 1 件オントロジーに確認します（silver を生成）。"
+     },
+     "es": {
+      "name": "Confirmar una propuesta",
+      "summary": "Confirma una propuesta en la ontología en nombre del actor (produce silver)."
+     },
+     "fr": {
+      "name": "Confirmer une proposition",
+      "summary": "Confirme une proposition dans l'ontologie au nom de l'acteur (produit silver)."
+     }
+    },
+    "canonical": {
+     "brief": "Confirms one proposal into the ontology on behalf of the actor (produces silver)."
+    }
+   },
+   "domain_units": {
+    "human": {
+     "zh": {
+      "name": "列出知识单元",
+      "summary": "列出本域的知识单元。"
+     },
+     "en": {
+      "name": "List knowledge units",
+      "summary": "Lists this domain's knowledge units."
+     },
+     "ja": {
+      "name": "知識単位を一覧",
+      "summary": "本ドメインの知識単位を一覧します。"
+     },
+     "es": {
+      "name": "Listar unidades",
+      "summary": "Enumera las unidades de conocimiento del dominio."
+     },
+     "fr": {
+      "name": "Lister les unités",
+      "summary": "Énumère les unités de connaissance du domaine."
+     }
+    },
+    "canonical": {
+     "brief": "Lists this domain's knowledge units."
+    }
+   },
+   "domain_unit_checks": {
+    "human": {
+     "zh": {
+      "name": "单元机器判定",
+      "summary": "对某一知识单元按当前正文算出的机器判定。"
+     },
+     "en": {
+      "name": "Unit machine verdicts",
+      "summary": "The machine verdicts on one unit, computed against its current body."
+     },
+     "ja": {
+      "name": "単位の機械判定",
+      "summary": "ある知識単位について、現在の本文に対して算出された機械判定です。"
+     },
+     "es": {
+      "name": "Veredictos de unidad",
+      "summary": "Los veredictos automáticos de una unidad, calculados sobre su cuerpo actual."
+     },
+     "fr": {
+      "name": "Verdicts d'unité",
+      "summary": "Les verdicts automatiques d'une unité, calculés sur son corps actuel."
+     }
+    },
+    "canonical": {
+     "brief": "The machine verdicts on one unit, computed against its current body."
+    }
+   },
+   "domain_unit_promote": {
+    "human": {
+     "zh": {
+      "name": "升一格",
+      "summary": "代表 actor 把一个知识单元沿升格梯上移一格（到 silver 为止，gold 需人签）。"
+     },
+     "en": {
+      "name": "Promote a unit",
+      "summary": "Moves one unit up one step of the ladder on behalf of the actor (up to silver; gold needs a human signature)."
+     },
+     "ja": {
+      "name": "1 段昇格",
+      "summary": "actor に代わって知識単位を昇格梯で 1 段上げます（silver まで、gold は人の署名が必要）。"
+     },
+     "es": {
+      "name": "Ascender una unidad",
+      "summary": "Sube una unidad un peldaño en nombre del actor (hasta silver; gold requiere firma humana)."
+     },
+     "fr": {
+      "name": "Promouvoir une unité",
+      "summary": "Fait monter une unité d'un échelon au nom de l'acteur (jusqu'à silver ; gold exige une signature humaine)."
+     }
+    },
+    "canonical": {
+     "brief": "Moves one unit up one step of the ladder on behalf of the actor (up to silver; gold needs a human signature)."
+    }
+   },
+   "ruler_list": {
+    "human": {
+     "zh": {
+      "name": "列出尺子",
+      "summary": "列出对本域可见的全部评分尺（最近的定义优先）。"
+     },
+     "en": {
+      "name": "List rulers",
+      "summary": "Every rubric visible to this domain, nearest definition winning."
+     },
+     "ja": {
+      "name": "尺子を一覧",
+      "summary": "本ドメインに可視の全評価尺を一覧します（最も近い定義が優先）。"
+     },
+     "es": {
+      "name": "Listar reglas de medida",
+      "summary": "Todas las rúbricas visibles para el dominio, ganando la definición más cercana."
+     },
+     "fr": {
+      "name": "Lister les règles",
+      "summary": "Toutes les grilles visibles pour le domaine, la définition la plus proche l'emportant."
+     }
+    },
+    "canonical": {
+     "brief": "Every rubric visible to this domain, nearest definition winning."
+    }
+   },
+   "ruler_criteria": {
+    "human": {
+     "zh": {
+      "name": "取尺子判据",
+      "summary": "按顺序取某把尺子的全部判据。"
+     },
+     "en": {
+      "name": "Ruler criteria",
+      "summary": "One ruler's criteria, in order."
+     },
+     "ja": {
+      "name": "尺子の判定基準",
+      "summary": "ある尺子の全判定基準を順番に返します。"
+     },
+     "es": {
+      "name": "Criterios de la regla",
+      "summary": "Los criterios de una regla, en orden."
+     },
+     "fr": {
+      "name": "Critères de la grille",
+      "summary": "Les critères d'une grille, dans l'ordre."
+     }
+    },
+    "canonical": {
+     "brief": "One ruler's criteria, in order."
+    }
    }
   },
   "provenance": {

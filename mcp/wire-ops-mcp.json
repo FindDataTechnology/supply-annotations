@@ -707,6 +707,222 @@
     "canonical": {
      "brief": "Returns one proposal's ledger row by proposal_id, with a result summary when executed and the original error when failed; this face neither pushes nor polls."
     }
+   },
+   "wire_subject_create": {
+    "human": {
+     "zh": {
+      "name": "声明追踪主体",
+      "summary": "声明一个追踪主体（其下可挂多个通道）。"
+     },
+     "en": {
+      "name": "Declare a tracked subject",
+      "summary": "Declares a tracked subject, under which channels can be attached."
+     },
+     "ja": {
+      "name": "追跡主体を宣言",
+      "summary": "追跡主体を宣言します（複数チャネルをぶら下げられます）。"
+     },
+     "es": {
+      "name": "Declarar un sujeto",
+      "summary": "Declara un sujeto de seguimiento, al que se pueden asociar canales."
+     },
+     "fr": {
+      "name": "Déclarer un sujet",
+      "summary": "Déclare un sujet à suivre, auquel des canaux peuvent être rattachés."
+     }
+    },
+    "canonical": {
+     "brief": "Declares a tracked subject, under which channels can be attached."
+    }
+   },
+   "wire_subject_list": {
+    "human": {
+     "zh": {
+      "name": "列出追踪主体",
+      "summary": "列出本团队的全部追踪主体，可按种类过滤；只读。"
+     },
+     "en": {
+      "name": "List tracked subjects",
+      "summary": "Lists all tracked subjects of this team, filterable by kind; read-only."
+     },
+     "ja": {
+      "name": "追跡主体を一覧",
+      "summary": "本チームの追跡主体を種類で絞って一覧します。読み取り専用です。"
+     },
+     "es": {
+      "name": "Listar sujetos",
+      "summary": "Enumera todos los sujetos de seguimiento del equipo, filtrable por tipo; solo lectura."
+     },
+     "fr": {
+      "name": "Lister les sujets",
+      "summary": "Énumère tous les sujets suivis de l'équipe, filtrable par type ; lecture seule."
+     }
+    },
+    "canonical": {
+     "brief": "Lists all tracked subjects of this team, filterable by kind; read-only."
+    }
+   },
+   "wire_subject_get": {
+    "human": {
+     "zh": {
+      "name": "取追踪主体",
+      "summary": "取一个追踪主体的声明与通道；只读。"
+     },
+     "en": {
+      "name": "Get a tracked subject",
+      "summary": "Fetches one tracked subject's declaration and channels; read-only."
+     },
+     "ja": {
+      "name": "追跡主体を取得",
+      "summary": "追跡主体の宣言とチャネルを取得します。読み取り専用です。"
+     },
+     "es": {
+      "name": "Obtener un sujeto",
+      "summary": "Obtiene la declaración y los canales de un sujeto; solo lectura."
+     },
+     "fr": {
+      "name": "Obtenir un sujet",
+      "summary": "Récupère la déclaration et les canaux d'un sujet ; lecture seule."
+     }
+    },
+    "canonical": {
+     "brief": "Fetches one tracked subject's declaration and channels; read-only."
+    }
+   },
+   "wire_subject_read": {
+    "human": {
+     "zh": {
+      "name": "扇出读主体",
+      "summary": "把主体下全部通道各读一次并合并结果；只读且零计量。"
+     },
+     "en": {
+      "name": "Fan-out read a subject",
+      "summary": "Reads each of the subject's channels once and merges results; read-only and unmetered."
+     },
+     "ja": {
+      "name": "主体を一括読取",
+      "summary": "主体の全チャネルを 1 回ずつ読み、結果を統合します。読み取り専用で計量ゼロです。"
+     },
+     "es": {
+      "name": "Lectura fan-out",
+      "summary": "Lee cada canal del sujeto una vez y fusiona los resultados; solo lectura y sin medida."
+     },
+     "fr": {
+      "name": "Lecture fan-out",
+      "summary": "Lit une fois chaque canal du sujet et fusionne les résultats ; lecture seule, non mesurée."
+     }
+    },
+    "canonical": {
+     "brief": "Reads each of the subject's channels once and merges results; read-only and unmetered."
+    }
+   },
+   "wire_subject_snapshot": {
+    "human": {
+     "zh": {
+      "name": "物化主体读数",
+      "summary": "把主体读结果物化成本团队的数据集。"
+     },
+     "en": {
+      "name": "Materialise a subject read",
+      "summary": "Materialises a subject's read result into this team's dataset."
+     },
+     "ja": {
+      "name": "主体の読取りを物化",
+      "summary": "主体の読取り結果を本チームのデータセットに物化します。"
+     },
+     "es": {
+      "name": "Materializar una lectura",
+      "summary": "Materializa el resultado de lectura de un sujeto en el conjunto de datos del equipo."
+     },
+     "fr": {
+      "name": "Matérialiser une lecture",
+      "summary": "Matérialise le résultat de lecture d'un sujet dans le jeu de données de l'équipe."
+     }
+    },
+    "canonical": {
+     "brief": "Materialises a subject's read result into this team's dataset."
+    }
+   },
+   "wire_subject_archive": {
+    "human": {
+     "zh": {
+      "name": "归档追踪主体",
+      "summary": "归档一个追踪主体并级联删除其通道。"
+     },
+     "en": {
+      "name": "Archive a tracked subject",
+      "summary": "Archives a tracked subject and cascades deletion of its channels."
+     },
+     "ja": {
+      "name": "追跡主体をアーカイブ",
+      "summary": "追跡主体をアーカイブし、チャネルを連鎖削除します。"
+     },
+     "es": {
+      "name": "Archivar un sujeto",
+      "summary": "Archiva un sujeto de seguimiento y elimina en cascada sus canales."
+     },
+     "fr": {
+      "name": "Archiver un sujet",
+      "summary": "Archive un sujet suivi et supprime en cascade ses canaux."
+     }
+    },
+    "canonical": {
+     "brief": "Archives a tracked subject and cascades deletion of its channels."
+    }
+   },
+   "wire_subject_add_channel": {
+    "human": {
+     "zh": {
+      "name": "给主体加通道",
+      "summary": "给追踪主体加一个数据通道。"
+     },
+     "en": {
+      "name": "Add a channel",
+      "summary": "Adds a data channel to a tracked subject."
+     },
+     "ja": {
+      "name": "チャネルを追加",
+      "summary": "追跡主体にデータチャネルを追加します。"
+     },
+     "es": {
+      "name": "Añadir un canal",
+      "summary": "Añade un canal de datos a un sujeto de seguimiento."
+     },
+     "fr": {
+      "name": "Ajouter un canal",
+      "summary": "Ajoute un canal de données à un sujet suivi."
+     }
+    },
+    "canonical": {
+     "brief": "Adds a data channel to a tracked subject."
+    }
+   },
+   "wire_subject_remove_channel": {
+    "human": {
+     "zh": {
+      "name": "删除主体通道",
+      "summary": "删除追踪主体的一个数据通道。"
+     },
+     "en": {
+      "name": "Remove a channel",
+      "summary": "Removes one data channel from a tracked subject."
+     },
+     "ja": {
+      "name": "チャネルを削除",
+      "summary": "追跡主体からデータチャネルを 1 つ削除します。"
+     },
+     "es": {
+      "name": "Quitar un canal",
+      "summary": "Quita un canal de datos de un sujeto de seguimiento."
+     },
+     "fr": {
+      "name": "Retirer un canal",
+      "summary": "Retire un canal de données d'un sujet suivi."
+     }
+    },
+    "canonical": {
+     "brief": "Removes one data channel from a tracked subject."
+    }
    }
   },
   "provenance": {

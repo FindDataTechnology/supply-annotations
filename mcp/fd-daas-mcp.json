@@ -4379,6 +4379,33 @@
     "canonical": {
      "brief": "Partial update of a workflow; only supplied fields change and version defaults to the latest version of that name."
     }
+   },
+   "daas_audit_indicators": {
+    "human": {
+     "zh": {
+      "name": "悬空指标审计",
+      "summary": "审计指标规则里 source_table 已不存在的悬空项；可选把悬空规则翻成 enabled=0（保留、不删除）。"
+     },
+     "en": {
+      "name": "Audit dangling indicators",
+      "summary": "Audits indicator rules whose source_table no longer exists; can flip dangling rules to enabled=0 (kept, never deleted)."
+     },
+     "ja": {
+      "name": "宙ぶらりん指標の監査",
+      "summary": "source_table が存在しない指標ルールを監査します。任意で enabled=0 に反転できます（保持し、削除はしません）。"
+     },
+     "es": {
+      "name": "Auditar indicadores huérfanos",
+      "summary": "Audita reglas de indicadores cuya source_table ya no existe; puede pasar las huérfanas a enabled=0 (se conservan, nunca se borran)."
+     },
+     "fr": {
+      "name": "Auditer les indicateurs orphelins",
+      "summary": "Audite les règles d'indicateurs dont la source_table n'existe plus ; peut basculer les orphelines à enabled=0 (conservées, jamais supprimées)."
+     }
+    },
+    "canonical": {
+     "brief": "Audits indicator rules for dangling source tables and can disable them without deleting."
+    }
    }
   },
   "provenance": {

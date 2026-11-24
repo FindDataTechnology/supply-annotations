@@ -1,204 +1,204 @@
 {
-  "version": 1,
-  "server": "fd-zhesi-reference",
-  "annotation": {
+ "version": 1,
+ "server": "fd-zhesi-reference",
+ "annotation": {
+  "human": {
+   "zh": {
+    "name": "哲思参照系",
+    "summary": "哲学参照数据：概念词条、人物与六轴坐标、思想关系边、立场分布与论文元数据，逐条带来源与快照版本。",
+    "whenToUse": "做概念溯源、人物思想定位、师承与批判关系梳理，或对照职业哲学家的立场分布时。"
+   },
+   "en": {
+    "name": "Zhesi reference",
+    "summary": "Philosophy reference data: concept entries, philosophers with six-axis coordinates, influence relations, stance distributions and paper metadata — each row carrying its source and snapshot version.",
+    "whenToUse": "For concept provenance, situating a thinker, tracing influence and critique relations, or comparing professional philosophers' stance distributions."
+   },
+   "ja": {
+    "name": "哲思リファレンス",
+    "summary": "哲学の参照データ：概念項目、六軸座標付きの人物、影響関係の辺、立場分布、論文メタデータを、行ごとに出所とスナップショット版付きで提供します。",
+    "whenToUse": "概念の由来確認、思想家の位置づけ、影響・批判関係の整理、職業哲学者の立場分布の対照を行うとき。"
+   },
+   "es": {
+    "name": "Referencia Zhesi",
+    "summary": "Datos de referencia de filosofía china: pensadores, escuelas, distribución de posturas y búsqueda bibliográfica.",
+    "whenToUse": "Para comparar escuelas, contrastar posturas de pensadores o localizar literatura académica."
+   },
+   "fr": {
+    "name": "Référentiel Zhesi",
+    "summary": "Données de référence sur la philosophie chinoise : penseurs, écoles, distribution des positions et recherche bibliographique.",
+    "whenToUse": "Pour comparer des écoles, contraster les positions de penseurs ou retrouver la littérature académique."
+   }
+  },
+  "canonical": {
+   "brief": "Chinese-philosophy reference MCP: thinker queries, school relations, stance distribution, and academic paper search."
+  },
+  "tools": {
+   "concept_lookup": {
     "human": {
-      "zh": {
-        "name": "哲思参照系",
-        "summary": "哲学参照数据：概念词条、人物与六轴坐标、思想关系边、立场分布与论文元数据，逐条带来源与快照版本。",
-        "whenToUse": "做概念溯源、人物思想定位、师承与批判关系梳理，或对照职业哲学家的立场分布时。"
-      },
-      "en": {
-        "name": "Zhesi reference",
-        "summary": "Philosophy reference data: concept entries, philosophers with six-axis coordinates, influence relations, stance distributions and paper metadata — each row carrying its source and snapshot version.",
-        "whenToUse": "For concept provenance, situating a thinker, tracing influence and critique relations, or comparing professional philosophers' stance distributions."
-      },
-      "ja": {
-        "name": "哲思リファレンス",
-        "summary": "哲学の参照データ：概念項目、六軸座標付きの人物、影響関係の辺、立場分布、論文メタデータを、行ごとに出所とスナップショット版付きで提供します。",
-        "whenToUse": "概念の由来確認、思想家の位置づけ、影響・批判関係の整理、職業哲学者の立場分布の対照を行うとき。"
-      },
-      "es": {
-        "name": "Referencia Zhesi",
-        "summary": "Datos de referencia en filosofía: entradas conceptuales, filósofos con coordenadas de seis ejes, relaciones de influencia, distribuciones de postura y metadatos de artículos, cada fila con su fuente y versión de instantánea.",
-        "whenToUse": "Para rastrear la procedencia de un concepto, situar a un pensador, trazar relaciones de influencia y crítica, o comparar distribuciones de postura de filósofos profesionales."
-      },
-      "fr": {
-        "name": "Référentiel Zhesi",
-        "summary": "Données de référence en philosophie : notices de concepts, philosophes avec coordonnées à six axes, relations d'influence, distributions de positions et métadonnées d'articles, chaque ligne portant sa source et sa version d'instantané.",
-        "whenToUse": "Pour retracer la provenance d'un concept, situer un penseur, reconstituer des relations d'influence et de critique, ou comparer les distributions de positions de philosophes professionnels."
-      }
+     "zh": {
+      "name": "查询哲学概念",
+      "summary": "查哲学词语的定义摘要与 SEP 引用链接（只链不抄，正文不落库）；30 天内缓存直接返回，否则实时查 SEP 并写缓存，空结果带原因。"
+     },
+     "en": {
+      "name": "Look up a concept",
+      "summary": "Looks up a philosophical term's definition summary and SEP citation links (link-only, no body text stored); serves a 30-day cache when fresh, otherwise queries SEP live and writes the cache, with a "
+     },
+     "ja": {
+      "name": "哲学概念を照会",
+      "summary": "哲学术語の定義要約と SEP への引用リンクを返します（リンクのみで本文は保存しません）。30 日以内のキャッシュがあればそれを返し、なければ SEP をリアルタイムに照会してキャッシュを書きます。空結果には理由を付けます。"
+     },
+     "es": {
+      "name": "Consultar un concepto",
+      "summary": "Devuelve el resumen de definición de un término filosófico y enlaces de cita a SEP (solo enlace, sin texto completo almacenado); sirve la caché de 30 días si está fresca y, si no, consulta SEP en "
+     },
+     "fr": {
+      "name": "Consulter un concept",
+      "summary": "Renvoie le résumé de définition d'un terme philosophique et des liens de citation vers SEP (lien seul, aucun texte intégral stocké) ; sert le cache de 30 jours s'il est frais, sinon interroge SEP en "
+     }
     },
     "canonical": {
-      "brief": "Philosophy reference MCP: SEP-linked concept entries (link-only, no full text), Atlas seeded graph of philosophers and influence edges (CC BY 4.0 attribution carried per row), Wikidata alignment, PhilPapers Survey stance distributions, and PhilPapers paper metadata via OpenAlex (CC0). Empty results always carry a reason."
-    },
-    "tools": {
-      "concept_lookup": {
-        "human": {
-          "zh": {
-            "name": "查询哲学概念",
-            "summary": "查哲学词语的定义摘要与 SEP 引用链接（只链不抄，正文不落库）；30 天内缓存直接返回，否则实时查 SEP 并写缓存，空结果带原因。"
-          },
-          "en": {
-            "name": "Look up a concept",
-            "summary": "Looks up a philosophical term's definition summary and SEP citation links (link-only, no body text stored); serves a 30-day cache when fresh, otherwise queries SEP live and writes the cache, with a reason on empty results."
-          },
-          "ja": {
-            "name": "哲学概念を照会",
-            "summary": "哲学术語の定義要約と SEP への引用リンクを返します（リンクのみで本文は保存しません）。30 日以内のキャッシュがあればそれを返し、なければ SEP をリアルタイムに照会してキャッシュを書きます。空結果には理由を付けます。"
-          },
-          "es": {
-            "name": "Consultar un concepto",
-            "summary": "Devuelve el resumen de definición de un término filosófico y enlaces de cita a SEP (solo enlace, sin texto completo almacenado); sirve la caché de 30 días si está fresca y, si no, consulta SEP en vivo y escribe la caché, con un motivo cuando el resultado es vacío."
-          },
-          "fr": {
-            "name": "Consulter un concept",
-            "summary": "Renvoie le résumé de définition d'un terme philosophique et des liens de citation vers SEP (lien seul, aucun texte intégral stocké) ; sert le cache de 30 jours s'il est frais, sinon interroge SEP en direct et écrit le cache, avec un motif lorsque le résultat est vide."
-          }
-        },
-        "canonical": {
-          "brief": "Concept lookup: definition summary plus SEP citation links only (no full text), 30-day cache, live SEP search on miss; empty results carry reason unreachable / not_indexed / upstream."
-        }
-      },
-      "philosopher_query": {
-        "human": {
-          "zh": {
-            "name": "查询哲学家",
-            "summary": "按葡/英/中文名不区分大小写匹配，返回生卒、学派、地区（均三语）、六轴坐标、影响力分与 Wikidata QID；每条带 provenance（Atlas CC BY 4.0 署名随行）。"
-          },
-          "en": {
-            "name": "Look up a philosopher",
-            "summary": "Case-insensitive match on Portuguese, English or Chinese names, returning birth/death, school, region (all trilingual), six-axis coordinates, influence score and Wikidata QID; each row carries provenance (Atlas CC BY 4.0 attribution)."
-          },
-          "ja": {
-            "name": "哲学者を照会",
-            "summary": "ポルトガル語・英語・中国語の名前で大文字小文字を区別せず照合し、生没年、学派、地域（いずれも三言語）、六軸座標、影響力スコア、Wikidata QID を返します。各行に出所（Atlas CC BY 4.0 の表示）が付きます。"
-          },
-          "es": {
-            "name": "Consultar un filósofo",
-            "summary": "Coincidencia sin distinguir mayúsculas en nombres en portugués, inglés o chino, devolviendo nacimiento y muerte, escuela, región (los tres trilingües), coordenadas de seis ejes, puntuación de influencia y QID de Wikidata; cada fila lleva su procedencia (atribución Atlas CC BY 4.0)."
-          },
-          "fr": {
-            "name": "Consulter un philosophe",
-            "summary": "Correspondance insensible à la casse sur les noms en portugais, anglais ou chinois, renvoyant naissance et décès, école, région (tous trilingues), coordonnées à six axes, score d'influence et QID Wikidata ; chaque ligne porte sa provenance (attribution Atlas CC BY 4.0)."
-          }
-        },
-        "canonical": {
-          "brief": "Philosopher lookup: trilingual name match, birth/death, school, region, six-axis coordinates (individualism/materialism/rationalism/determinism/transcendence/universalism), influence score, Wikidata QID; provenance per row. Empty results carry reason not_indexed / not_ingested."
-        }
-      },
-      "relation_query": {
-        "human": {
-          "zh": {
-            "name": "查询思想关系",
-            "summary": "解析两个哲学家姓名，返回两人之间的影响边：极性（赞同/批判/综合）、权重与方向，附两端人物摘要与 provenance（CC BY 4.0 署名随行）。"
-          },
-          "en": {
-            "name": "Query an influence relation",
-            "summary": "Resolves two philosopher names and returns the influence edges between them with polarity (positive / critical / synthetic), weight and direction, plus summaries of both ends and provenance (CC BY 4.0 attribution)."
-          },
-          "ja": {
-            "name": "影響関係を照会",
-            "summary": "二人の哲学者の名前を解決し、両者間の影響辺を極性（肯定／批判／総合）、重み、方向とともに返します。両端の人物要約と出所（CC BY 4.0 の表示）も付きます。"
-          },
-          "es": {
-            "name": "Consultar una relación de influencia",
-            "summary": "Resuelve dos nombres de filósofos y devuelve las aristas de influencia entre ellos con polaridad (positiva / crítica / sintética), peso y dirección, además de resúmenes de ambos extremos y procedencia (atribución CC BY 4.0)."
-          },
-          "fr": {
-            "name": "Interroger une relation d'influence",
-            "summary": "Résout deux noms de philosophes et renvoie les arêtes d'influence entre eux avec polarité (positive / critique / synthétique), poids et direction, ainsi que les résumés des deux extrémités et la provenance (attribution CC BY 4.0)."
-          }
-        },
-        "canonical": {
-          "brief": "Relation query: resolves two philosopher names and returns influence edges with polarity (positive/critical/synthetic), weight and direction, with both endpoint summaries and provenance. Empty results carry reason unknown_entity / not_indexed / not_ingested."
-        }
-      },
-      "stance_distribution": {
-        "human": {
-          "zh": {
-            "name": "查询立场分布",
-            "summary": "经典立场问题上职业哲学家的立场分布，带轮次年份与统计口径注记；与论文元数据分路、互不兜底，未摄取时返回空并带 not_ingested。"
-          },
-          "en": {
-            "name": "Stance distribution",
-            "summary": "Professional philosophers' stance distribution on classic questions, with survey year and tabulation notes; a separate channel from paper metadata with no mutual fallback — returns empty with not_ingested when uningested."
-          },
-          "ja": {
-            "name": "立場分布を照会",
-            "summary": "古典的な問いに対する職業哲学者の立場分布を、調査年と集計口径の注記付きで返します。論文メタデータとは別経路で相互補完しません。未摂取のときは空の結果に not_ingested を付けます。"
-          },
-          "es": {
-            "name": "Distribución de posturas",
-            "summary": "Distribución de posturas de filósofos profesionales sobre preguntas clásicas, con el año de la encuesta y notas de tabulación; es un canal separado de los metadatos de artículos, sin respaldo mutuo: si no está ingerido, devuelve vacío con not_ingested."
-          },
-          "fr": {
-            "name": "Distribution des positions",
-            "summary": "Distribution des positions de philosophes professionnels sur des questions classiques, avec l'année de l'enquête et des notes de tabulation ; canal distinct des métadonnées d'articles, sans repli mutuel — renvoie un résultat vide avec not_ingested si non ingéré."
-          }
-        },
-        "canonical": {
-          "brief": "Stance distribution over classic philosophical questions (PhilPapers Survey 2009/2020) with round year and tabulation notes; never substituted by paper metadata. Empty carries not_ingested or not_indexed."
-        }
-      },
-      "philpapers_paper_search": {
-        "human": {
-          "zh": {
-            "name": "检索论文元数据",
-            "summary": "在 PhilPapers 源（经 OpenAlex，CC0）内按标题/关键词检索，返回标题、年份、DOI、被引次数与出处；这是元数据通道，不代替立场分布，失败时空结果带原因。"
-          },
-          "en": {
-            "name": "Search paper metadata",
-            "summary": "Searches the PhilPapers source via OpenAlex (CC0) by title or keyword, returning title, year, DOI, citation count and venue; this is a metadata channel and does not replace stance distributions, and failures return empty results with a reason."
-          },
-          "ja": {
-            "name": "論文メタデータを検索",
-            "summary": "PhilPapers ソース（OpenAlex 経由、CC0）をタイトルやキーワードで検索し、タイトル、年、DOI、被引用数、掲載誌を返します。これはメタデータ経路であり立場分布の代替にはなりません。失敗時は空の結果に理由を付けます。"
-          },
-          "es": {
-            "name": "Buscar metadatos de artículos",
-            "summary": "Busca en la fuente PhilPapers vía OpenAlex (CC0) por título o palabra clave, devolviendo título, año, DOI, número de citas y publicación; es un canal de metadatos y no sustituye las distribuciones de postura, y los fallos devuelven resultados vacíos con un motivo."
-          },
-          "fr": {
-            "name": "Rechercher des métadonnées d'articles",
-            "summary": "Recherche dans la source PhilPapers via OpenAlex (CC0) par titre ou mot-clé, en renvoyant titre, année, DOI, nombre de citations et revue ; c'est un canal de métadonnées qui ne remplace pas les distributions de positions, et les échecs renvoient un résultat vide avec un motif."
-          }
-        },
-        "canonical": {
-          "brief": "PhilPapers paper metadata via OpenAlex source S4306402130 (CC0): title, year, DOI, citation count, venue, with provenance. Metadata channel only. Empty results carry reason quota / upstream / unreachable / blocked."
-        }
-      },
-      "source_status": {
-        "human": {
-          "zh": {
-            "name": "查看源状态",
-            "summary": "各外部源的摄取状态与缺口，未摄取必带原因（未摄取/许可未确认/不可得），并附最近一次可得性探测（HTTP 状态、耗时、内容 sha256、探测时间）与在用快照版本。"
-          },
-          "en": {
-            "name": "Source status",
-            "summary": "Per-source ingestion status and gaps; anything uningested carries a reason (not ingested / license unconfirmed / unavailable) plus the latest availability probe (HTTP status, latency, content sha256, probe time) and the snapshot version in use."
-          },
-          "ja": {
-            "name": "ソース状態を表示",
-            "summary": "外部ソースごとの摂取状況と欠落を示します。未摂取には必ず理由（未摂取／ライセンス未確認／入手不可）を付け、直近の可用性プローブ（HTTP 状態、所要時間、内容 sha256、実施時刻）と使用中のスナップショット版を添えます。"
-          },
-          "es": {
-            "name": "Estado de las fuentes",
-            "summary": "Estado de ingesta y carencias por fuente externa; lo no ingerido lleva siempre un motivo (no ingerido / licencia sin confirmar / no disponible), junto con la última sonda de disponibilidad (estado HTTP, latencia, sha256 del contenido, hora de la sonda) y la versión de instantánea en uso."
-          },
-          "fr": {
-            "name": "État des sources",
-            "summary": "État d'ingestion et lacunes par source externe ; ce qui n'est pas ingéré porte toujours un motif (non ingéré / licence non confirmée / indisponible), avec la dernière sonde de disponibilité (statut HTTP, latence, sha256 du contenu, heure de la sonde) et la version d'instantané utilisée."
-          }
-        },
-        "canonical": {
-          "brief": "Source status: per-source ingestion state and gaps, always with a reason (not_ingested / license_unconfirmed / unavailable), the latest availability probe (HTTP status, latency, content sha256, timestamp) and the active snapshot version, so 'source is down' and 'parser is broken' are distinguishable. On-demand channels listed separately."
-        }
-      }
-    },
-    "provenance": {
-      "source": "finddata-supply-annotations",
-      "updatedAt": "2026-11-13"
+     "brief": "Concept lookup: definition summary plus SEP citation links only (no full text), 30-day cache, live SEP search on miss; empty results carry reason unreachable / not_indexed / upstream."
     }
+   },
+   "philosopher_query": {
+    "human": {
+     "zh": {
+      "name": "查询哲学家",
+      "summary": "按葡/英/中文名不区分大小写匹配，返回生卒、学派、地区（均三语）、六轴坐标、影响力分与 Wikidata QID；每条带 provenance（Atlas CC BY 4.0 署名随行）。"
+     },
+     "en": {
+      "name": "Look up a philosopher",
+      "summary": "Case-insensitive match on Portuguese, English or Chinese names, returning birth/death, school, region (all trilingual), six-axis coordinates, influence score and Wikidata QID; each row carries "
+     },
+     "ja": {
+      "name": "哲学者を照会",
+      "summary": "ポルトガル語・英語・中国語の名前で大文字小文字を区別せず照合し、生没年、学派、地域（いずれも三言語）、六軸座標、影響力スコア、Wikidata QID を返します。各行に出所（Atlas CC BY 4.0 の表示）が付きます。"
+     },
+     "es": {
+      "name": "Consultar un filósofo",
+      "summary": "Coincidencia sin distinguir mayúsculas en nombres en portugués, inglés o chino, devolviendo nacimiento y muerte, escuela, región (los tres trilingües), coordenadas de seis ejes, puntuación de "
+     },
+     "fr": {
+      "name": "Consulter un philosophe",
+      "summary": "Correspondance insensible à la casse sur les noms en portugais, anglais ou chinois, renvoyant naissance et décès, école, région (tous trilingues), coordonnées à six axes, score d'influence et QID "
+     }
+    },
+    "canonical": {
+     "brief": "Philosopher lookup: trilingual name match, birth/death, school, region, six-axis coordinates (individualism/materialism/rationalism/determinism/transcendence/universalism), influence score, Wikidata QID; provenance per row. Empty results carry reason not_indexed / not_ingested."
+    }
+   },
+   "relation_query": {
+    "human": {
+     "zh": {
+      "name": "查询思想关系",
+      "summary": "解析两个哲学家姓名，返回两人之间的影响边：极性（赞同/批判/综合）、权重与方向，附两端人物摘要与 provenance（CC BY 4.0 署名随行）。"
+     },
+     "en": {
+      "name": "Query an influence relation",
+      "summary": "Resolves two philosopher names and returns the influence edges between them with polarity (positive / critical / synthetic), weight and direction, plus summaries of both ends and provenance (CC BY "
+     },
+     "ja": {
+      "name": "影響関係を照会",
+      "summary": "二人の哲学者の名前を解決し、両者間の影響辺を極性（肯定／批判／総合）、重み、方向とともに返します。両端の人物要約と出所（CC BY 4.0 の表示）も付きます。"
+     },
+     "es": {
+      "name": "Consultar una relación de influencia",
+      "summary": "Resuelve dos nombres de filósofos y devuelve las aristas de influencia entre ellos con polaridad (positiva / crítica / sintética), peso y dirección, además de resúmenes de ambos extremos y "
+     },
+     "fr": {
+      "name": "Interroger une relation d'influence",
+      "summary": "Résout deux noms de philosophes et renvoie les arêtes d'influence entre eux avec polarité (positive / critique / synthétique), poids et direction, ainsi que les résumés des deux extrémités et la "
+     }
+    },
+    "canonical": {
+     "brief": "Relation query: resolves two philosopher names and returns influence edges with polarity (positive/critical/synthetic), weight and direction, with both endpoint summaries and provenance. Empty results carry reason unknown_entity / not_indexed / not_ingested."
+    }
+   },
+   "stance_distribution": {
+    "human": {
+     "zh": {
+      "name": "查询立场分布",
+      "summary": "经典立场问题上职业哲学家的立场分布，带轮次年份与统计口径注记；与论文元数据分路、互不兜底，未摄取时返回空并带 not_ingested。"
+     },
+     "en": {
+      "name": "Stance distribution",
+      "summary": "Professional philosophers' stance distribution on classic questions, with survey year and tabulation notes; a separate channel from paper metadata with no mutual fallback — returns empty with "
+     },
+     "ja": {
+      "name": "立場分布を照会",
+      "summary": "古典的な問いに対する職業哲学者の立場分布を、調査年と集計口径の注記付きで返します。論文メタデータとは別経路で相互補完しません。未摂取のときは空の結果に not_ingested を付けます。"
+     },
+     "es": {
+      "name": "Distribución de posturas",
+      "summary": "Distribución de posturas de filósofos profesionales sobre preguntas clásicas, con el año de la encuesta y notas de tabulación; es un canal separado de los metadatos de artículos, sin respaldo mutuo: "
+     },
+     "fr": {
+      "name": "Distribution des positions",
+      "summary": "Distribution des positions de philosophes professionnels sur des questions classiques, avec l'année de l'enquête et des notes de tabulation ; canal distinct des métadonnées d'articles, sans repli "
+     }
+    },
+    "canonical": {
+     "brief": "Stance distribution over classic philosophical questions (PhilPapers Survey 2009/2020) with round year and tabulation notes; never substituted by paper metadata. Empty carries not_ingested or not_indexed."
+    }
+   },
+   "philpapers_paper_search": {
+    "human": {
+     "zh": {
+      "name": "检索论文元数据",
+      "summary": "在 PhilPapers 源（经 OpenAlex，CC0）内按标题/关键词检索，返回标题、年份、DOI、被引次数与出处；这是元数据通道，不代替立场分布，失败时空结果带原因。"
+     },
+     "en": {
+      "name": "Search paper metadata",
+      "summary": "Searches the PhilPapers source via OpenAlex (CC0) by title or keyword, returning title, year, DOI, citation count and venue; this is a metadata channel and does not replace stance distributions, and "
+     },
+     "ja": {
+      "name": "論文メタデータを検索",
+      "summary": "PhilPapers ソース（OpenAlex 経由、CC0）をタイトルやキーワードで検索し、タイトル、年、DOI、被引用数、掲載誌を返します。これはメタデータ経路であり立場分布の代替にはなりません。失敗時は空の結果に理由を付けます。"
+     },
+     "es": {
+      "name": "Buscar metadatos de artículos",
+      "summary": "Busca en la fuente PhilPapers vía OpenAlex (CC0) por título o palabra clave, devolviendo título, año, DOI, número de citas y publicación; es un canal de metadatos y no sustituye las distribuciones de "
+     },
+     "fr": {
+      "name": "Rechercher des métadonnées d'articles",
+      "summary": "Recherche dans la source PhilPapers via OpenAlex (CC0) par titre ou mot-clé, en renvoyant titre, année, DOI, nombre de citations et revue ; c'est un canal de métadonnées qui ne remplace pas les "
+     }
+    },
+    "canonical": {
+     "brief": "PhilPapers paper metadata via OpenAlex source S4306402130 (CC0): title, year, DOI, citation count, venue, with provenance. Metadata channel only. Empty results carry reason quota / upstream / unreachable / blocked."
+    }
+   },
+   "source_status": {
+    "human": {
+     "zh": {
+      "name": "查看源状态",
+      "summary": "各外部源的摄取状态与缺口，未摄取必带原因（未摄取/许可未确认/不可得），并附最近一次可得性探测（HTTP 状态、耗时、内容 sha256、探测时间）与在用快照版本。"
+     },
+     "en": {
+      "name": "Source status",
+      "summary": "Per-source ingestion status and gaps; anything uningested carries a reason (not ingested / license unconfirmed / unavailable) plus the latest availability probe (HTTP status, latency, content sha256, "
+     },
+     "ja": {
+      "name": "ソース状態を表示",
+      "summary": "外部ソースごとの摂取状況と欠落を示します。未摂取には必ず理由（未摂取／ライセンス未確認／入手不可）を付け、直近の可用性プローブ（HTTP 状態、所要時間、内容 sha256、実施時刻）と使用中のスナップショット版を添えます。"
+     },
+     "es": {
+      "name": "Estado de las fuentes",
+      "summary": "Estado de ingesta y carencias por fuente externa; lo no ingerido lleva siempre un motivo (no ingerido / licencia sin confirmar / no disponible), junto con la última sonda de disponibilidad (estado "
+     },
+     "fr": {
+      "name": "État des sources",
+      "summary": "État d'ingestion et lacunes par source externe ; ce qui n'est pas ingéré porte toujours un motif (non ingéré / licence non confirmée / indisponible), avec la dernière sonde de disponibilité (statut "
+     }
+    },
+    "canonical": {
+     "brief": "Per-source ingestion status and gaps: anything missing carries a reason (not ingested / licence unconfirmed / unavailable)."
+    }
+   }
+  },
+  "provenance": {
+   "source": "finddata-supply-annotations",
+   "updatedAt": "2026-11-13"
   }
+ }
 }

@@ -491,6 +491,195 @@
     "canonical": {
      "brief": "Assembles a long voiceover segment by segment from a script plan, with bounded retries, edit suggestions for over-window segments and no re-billing on idempotent replay."
     }
+   },
+   "source_search": {
+    "human": {
+     "zh": {
+      "name": "检索内容域",
+      "summary": "在单一内容域（papers/gov/news/legal/philosophy…）内按查询检索；每条命中带统一出处三元组，未知域或空结果都带原因。"
+     },
+     "en": {
+      "name": "Search a content domain",
+      "summary": "Searches one content domain (papers/gov/news/legal/philosophy/…) by query; each hit carries the unified provenance triple, and an unknown domain or empty result carries a reason."
+     },
+     "ja": {
+      "name": "コンテンツ領域を検索",
+      "summary": "単一のコンテンツ領域（papers/gov/news/legal/philosophy…）をクエリで検索します。各ヒットは統一の出所三要素を持ち、未知の領域や空結果には理由が付きます。"
+     },
+     "es": {
+      "name": "Buscar en un dominio",
+      "summary": "Busca en un dominio de contenido (papers/gov/news/legal/philosophy…) por consulta; cada acierto lleva la terna de procedencia unificada, y un dominio desconocido o resultado vacío lleva motivo."
+     },
+     "fr": {
+      "name": "Chercher dans un domaine",
+      "summary": "Cherche dans un domaine de contenu (papers/gov/news/legal/philosophy…) par requête ; chaque résultat porte le triplet de provenance unifié, un domaine inconnu ou un résultat vide porte un motif."
+     }
+    },
+    "canonical": {
+     "brief": "Searches one content domain (papers/gov/news/legal/philosophy/…) by query; each hit carries the unified provenance triple, and an unknown domain or empty result carries a reason."
+    }
+   },
+   "source_domains": {
+    "human": {
+     "zh": {
+      "name": "列出内容域",
+      "summary": "列出当前已注册信源车道的内容域。"
+     },
+     "en": {
+      "name": "List content domains",
+      "summary": "Lists the content domains that currently have a registered source lane."
+     },
+     "ja": {
+      "name": "コンテンツ領域を一覧",
+      "summary": "現在登録済みの情報源レーンを持つコンテンツ領域を一覧します。"
+     },
+     "es": {
+      "name": "Listar dominios",
+      "summary": "Enumera los dominios de contenido que tienen un carril de fuente registrado."
+     },
+     "fr": {
+      "name": "Lister les domaines",
+      "summary": "Énumère les domaines de contenu disposant d'une voie de source enregistrée."
+     }
+    },
+    "canonical": {
+     "brief": "Lists the content domains that currently have a registered source lane."
+    }
+   },
+   "citation_record": {
+    "human": {
+     "zh": {
+      "name": "登记引用",
+      "summary": "登记一条绑定到产物的引用（出处三元组 + 状态）；调用方负责先跑核验，本工具只持久化结论。"
+     },
+     "en": {
+      "name": "Record a citation",
+      "summary": "Records one citation (provenance triple + status) bound to an asset; the caller is responsible for having run verification first — this tool only persists the conclusion."
+     },
+     "ja": {
+      "name": "引用を登録",
+      "summary": "成果物に紐づく引用（出所三要素＋状態）を 1 件登録します。検証の実行は呼び出し者の責任で、本ツールは結論の永続化のみ行います。"
+     },
+     "es": {
+      "name": "Registrar una cita",
+      "summary": "Registra una cita (terna de procedencia + estado) ligada a un artefacto; el llamante debe haber ejecutado la verificación: esta herramienta solo persiste la conclusión."
+     },
+     "fr": {
+      "name": "Enregistrer une citation",
+      "summary": "Enregistre une citation (triplet de provenance + statut) liée à un artefact ; l'appelant doit avoir lancé la vérification, cet outil ne fait que persister la conclusion."
+     }
+    },
+    "canonical": {
+     "brief": "Records one citation (provenance triple + status) bound to an asset; the caller is responsible for having run verification first — this tool only persists the conclusion."
+    }
+   },
+   "citation_list": {
+    "human": {
+     "zh": {
+      "name": "列出引用",
+      "summary": "列出一个产物的引用（限本租户）。"
+     },
+     "en": {
+      "name": "List citations",
+      "summary": "Lists an asset's citations (owner-scoped)."
+     },
+     "ja": {
+      "name": "引用を一覧",
+      "summary": "成果物の引用を一覧します（テナント内に限定）。"
+     },
+     "es": {
+      "name": "Listar citas",
+      "summary": "Enumera las citas de un artefacto (limitado al inquilino)."
+     },
+     "fr": {
+      "name": "Lister les citations",
+      "summary": "Énumère les citations d'un artefact (limité au locataire)."
+     }
+    },
+    "canonical": {
+     "brief": "Lists an asset's citations (owner-scoped)."
+    }
+   },
+   "citation_gate": {
+    "human": {
+     "zh": {
+      "name": "引用闸",
+      "summary": "对草稿套用引用闸：剥离 id 未知或引用被 blocked 的锚点（宁删勿假），保留 pending 并标待核，回报处置结果。"
+     },
+     "en": {
+      "name": "Citation gate",
+      "summary": "Applies the citation gate to a draft: strips anchors whose id is unknown or whose citation is blocked (delete rather than fake), keeps pending ones flagged, and reports the disposition."
+     },
+     "ja": {
+      "name": "引用ゲート",
+      "summary": "草稿に引用ゲートを適用します。id 未知または blocked の引用アンカーを除去し（偽装より削除）、pending は要確認として残し、処置を報告します。"
+     },
+     "es": {
+      "name": "Puerta de citas",
+      "summary": "Aplica la puerta de citas a un borrador: elimina anclas con id desconocido o cita bloqueada (borrar antes que falsear), mantiene las pendientes marcadas e informa la disposición."
+     },
+     "fr": {
+      "name": "Porte des citations",
+      "summary": "Applique la porte des citations à un brouillon : retire les ancres d'id inconnu ou de citation bloquée (supprimer plutôt que fausser), garde les en-attente signalées et rapporte la décision."
+     }
+    },
+    "canonical": {
+     "brief": "Applies the citation gate to a draft: strips anchors whose id is unknown or whose citation is blocked (delete rather than fake), keeps pending ones flagged, and reports the disposition."
+    }
+   },
+   "citation_verify": {
+    "human": {
+     "zh": {
+      "name": "核验引用",
+      "summary": "对草稿跑 fd-shilun 三级核验引擎并把逐条状态写回；引擎不可达时什么都不覆盖、只回原因——失败的核验绝不能被当作通过。"
+     },
+     "en": {
+      "name": "Verify citations",
+      "summary": "Runs the fd-shilun three-level verify engine on a draft and writes the per-citation statuses back; if the engine is unreachable nothing is overwritten and only a reason is returned — a failed verify "
+     },
+     "ja": {
+      "name": "引用を検証",
+      "summary": "草稿に対して fd-shilun の三段検証エンジンを実行し、引用ごとの状態を書き戻します。エンジン不達なら何も上書きせず理由のみ返します——失敗した検証を通過と読んではなりません。"
+     },
+     "es": {
+      "name": "Verificar citas",
+      "summary": "Ejecuta el motor de verificación de tres niveles de fd-shilun sobre un borrador y escribe los estados por cita; si el motor no está disponible no se sobrescribe nada y solo se devuelve un motivo: una "
+     },
+     "fr": {
+      "name": "Vérifier les citations",
+      "summary": "Exécute le moteur de vérification à trois niveaux fd-shilun sur un brouillon et réécrit les statuts par citation ; si le moteur est injoignable rien n'est écrasé et seul un motif est renvoyé — une "
+     }
+    },
+    "canonical": {
+     "brief": "Runs the fd-shilun three-level verify engine on a draft and writes the per-citation statuses back; if the engine is unreachable nothing is overwritten and only a reason is returned — a failed verify must never read as a pass."
+    }
+   },
+   "edit_image": {
+    "human": {
+     "zh": {
+      "name": "编辑图片",
+      "summary": "按自然语言指令改写既有图片（refine，不是重掷）；要一张不同的图请用 generate_image——两者计费与上游不同，且「图没变」在这里算失败。"
+     },
+     "en": {
+      "name": "Edit an image",
+      "summary": "Edits an existing image by natural-language instruction (refine, not reroll); for a different picture use generate_image — they bill differently upstream, and a returned-unchanged image is a failure "
+     },
+     "ja": {
+      "name": "画像を編集",
+      "summary": "自然文の指示で既存画像を編集します（refine、再抽選ではありません）。別の画像が欲しい場合は generate_image を使ってください——課金と上流が異なり、「画像が変わらない」はここでは失敗です。"
+     },
+     "es": {
+      "name": "Editar una imagen",
+      "summary": "Edita una imagen existente con una instrucción en lenguaje natural (refinado, no nueva tirada); para otra imagen usa generate_image: facturan distinto y una imagen devuelta sin cambios aquí es un "
+     },
+     "fr": {
+      "name": "Modifier une image",
+      "summary": "Modifie une image existante selon une instruction en langage naturel (affinage, pas nouveau tirage) ; pour une autre image, utilisez generate_image — facturation et amont diffèrent, et une image "
+     }
+    },
+    "canonical": {
+     "brief": "Edits an existing image by natural-language instruction (refine, not reroll); for a different picture use generate_image — they bill differently upstream, and a returned-unchanged image is a failure here."
+    }
    }
   },
   "provenance": {

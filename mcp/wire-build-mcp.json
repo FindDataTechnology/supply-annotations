@@ -437,6 +437,60 @@
     "canonical": {
      "brief": "Returns a dataset's column definitions and schema information."
     }
+   },
+   "wire_artifact_dashboard_create": {
+    "human": {
+     "zh": {
+      "name": "创建看板产物",
+      "summary": "创建看板（kind=dashboard）——接受完整 dashboard v1 spec 信封，落 draft。"
+     },
+     "en": {
+      "name": "Create a dashboard artifact",
+      "summary": "Creates a dashboard (kind=dashboard) from a full dashboard v1 spec envelope; lands as draft."
+     },
+     "ja": {
+      "name": "ダッシュボード成果物を作成",
+      "summary": "完全な dashboard v1 spec 封筒からダッシュボード（kind=dashboard）を作成します。draft として着地します。"
+     },
+     "es": {
+      "name": "Crear un artefacto de panel",
+      "summary": "Crea un panel (kind=dashboard) a partir de un sobre completo de dashboard v1; queda en borrador."
+     },
+     "fr": {
+      "name": "Créer un artefact de tableau de bord",
+      "summary": "Crée un tableau de bord (kind=dashboard) depuis une enveloppe complète dashboard v1 ; reste en brouillon."
+     }
+    },
+    "canonical": {
+     "brief": "Creates a dashboard (kind=dashboard) from a full dashboard v1 spec envelope; lands as draft."
+    }
+   },
+   "wire_artifact_doc_create": {
+    "human": {
+     "zh": {
+      "name": "创建文档产物",
+      "summary": "创建正文文档（kind=doc）——接受 markdown 正文信封，落 draft。"
+     },
+     "en": {
+      "name": "Create a document artifact",
+      "summary": "Creates a body document (kind=doc) from a markdown envelope; lands as draft."
+     },
+     "ja": {
+      "name": "文書成果物を作成",
+      "summary": "markdown 封筒から本文ドキュメント（kind=doc）を作成します。draft として着地します。"
+     },
+     "es": {
+      "name": "Crear un artefacto de documento",
+      "summary": "Crea un documento (kind=doc) a partir de un sobre markdown; queda en borrador."
+     },
+     "fr": {
+      "name": "Créer un artefact document",
+      "summary": "Crée un document (kind=doc) depuis une enveloppe markdown ; reste en brouillon."
+     }
+    },
+    "canonical": {
+     "brief": "Creates a body document (kind=doc) from a markdown envelope; lands as draft."
+    }
    }
   },
   "provenance": {

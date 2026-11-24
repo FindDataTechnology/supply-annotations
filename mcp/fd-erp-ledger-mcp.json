@@ -599,6 +599,438 @@
     "canonical": {
      "brief": "submit_proposal: WRITE — inserts one proposals row keyed by stable_id (unique index), never posts journal lines; a duplicate stable_id returns the original result. Idempotent by stable_id; no bypass of the confirm gate."
     }
+   },
+   "ingest_event": {
+    "human": {
+     "zh": {
+      "name": "写入外部原始事实",
+      "summary": "写入来自外部系统的原始事实（导入车道）。"
+     },
+     "en": {
+      "name": "Write raw facts",
+      "summary": "Writes raw facts coming from an external system (ingest lane)."
+     },
+     "ja": {
+      "name": "原始事実を書き込む",
+      "summary": "外部システムからの原始事実を書き込みます（取込レーン）。"
+     },
+     "es": {
+      "name": "Escribir hechos brutos",
+      "summary": "Escribe hechos brutos procedentes de un sistema externo (carril de ingesta)."
+     },
+     "fr": {
+      "name": "Écrire des faits bruts",
+      "summary": "Écrit les faits bruts issus d'un système externe (voie d'ingestion)."
+     }
+    },
+    "canonical": {
+     "brief": "Writes raw facts coming from an external system (ingest lane)."
+    }
+   },
+   "submit_event": {
+    "human": {
+     "zh": {
+      "name": "提交拟稿事件",
+      "summary": "提交拟稿事件；在确认前保持 pending，不投影、不过账。"
+     },
+     "en": {
+      "name": "Submit a draft event",
+      "summary": "Submits a draft event; it stays pending and is neither projected nor posted until confirmed."
+     },
+     "ja": {
+      "name": "下書きイベントを提出",
+      "summary": "下書きイベントを提出します。確認されるまで pending のままで、投影も転記もされません。"
+     },
+     "es": {
+      "name": "Enviar un evento borrador",
+      "summary": "Envía un evento en borrador; permanece pendiente y no se proyecta ni se contabiliza hasta confirmarse."
+     },
+     "fr": {
+      "name": "Soumettre un événement brouillon",
+      "summary": "Soumet un événement brouillon ; il reste en attente et n'est ni projeté ni comptabilisé avant confirmation."
+     }
+    },
+    "canonical": {
+     "brief": "Submits a draft event; it stays pending and is neither projected nor posted until confirmed."
+    }
+   },
+   "decide_event": {
+    "human": {
+     "zh": {
+      "name": "确认事件",
+      "summary": "确认门：对拟稿车道事件给出 accepted / rejected，是改变事件状态的人工入口。"
+     },
+     "en": {
+      "name": "Decide an event",
+      "summary": "The confirmation gate: accepts or rejects a draft-lane event — the human entry that changes event state."
+     },
+     "ja": {
+      "name": "イベントを判定",
+      "summary": "確認ゲート：下書きレーンのイベントを承認／却下します。イベント状態を変える人手入口です。"
+     },
+     "es": {
+      "name": "Decidir un evento",
+      "summary": "La puerta de confirmación: acepta o rechaza un evento del carril de borradores, la única entrada humana que cambia su estado."
+     },
+     "fr": {
+      "name": "Décider d'un événement",
+      "summary": "La porte de confirmation : accepte ou rejette un événement de la voie brouillon, seule entrée humaine modifiant son état."
+     }
+    },
+    "canonical": {
+     "brief": "The confirmation gate: accepts or rejects a draft-lane event — the only human entry that changes event state."
+    }
+   },
+   "query_events": {
+    "human": {
+     "zh": {
+      "name": "查询事件",
+      "summary": "查询事件；返回值自带完整性声明（不完整读取会明说）。"
+     },
+     "en": {
+      "name": "Query events",
+      "summary": "Queries events; the response carries its own completeness declaration (an incomplete read says so)."
+     },
+     "ja": {
+      "name": "イベントを照会",
+      "summary": "イベントを照会します。応答は完全性の宣言を伴います（不完全な読み取りはその旨を明示）。"
+     },
+     "es": {
+      "name": "Consultar eventos",
+      "summary": "Consulta eventos; la respuesta incluye su declaración de completitud (una lectura incompleta lo señala)."
+     },
+     "fr": {
+      "name": "Interroger les événements",
+      "summary": "Interroge les événements ; la réponse porte sa déclaration d'exhaustivité (une lecture incomplète le signale)."
+     }
+    },
+    "canonical": {
+     "brief": "Queries events; the response carries its own completeness declaration (an incomplete read says so)."
+    }
+   },
+   "query_object_balance": {
+    "human": {
+     "zh": {
+      "name": "读取对象余额",
+      "summary": "读取对象余额，带水位与重算校验——重算用于校验，不是读路径。"
+     },
+     "en": {
+      "name": "Read an object balance",
+      "summary": "Reads an object's balance with watermark and a recompute check — recompute verifies, it is not the read path."
+     },
+     "ja": {
+      "name": "対象残高を読む",
+      "summary": "対象の残高をウォーターマークと再計算チェック付きで読みます。再計算は検証であり読み取り経路ではありません。"
+     },
+     "es": {
+      "name": "Leer saldo de objeto",
+      "summary": "Lee el saldo de un objeto con marca de agua y verificación por recálculo: el recálculo verifica, no es la vía de lectura."
+     },
+     "fr": {
+      "name": "Lire le solde d'objet",
+      "summary": "Lit le solde d'un objet avec filigrane et contrôle par recalcul : le recalcul vérifie, ce n'est pas la voie de lecture."
+     }
+    },
+    "canonical": {
+     "brief": "Reads an object's balance with watermark and a recompute check — recompute verifies, it is not the read path."
+    }
+   },
+   "project_event": {
+    "human": {
+     "zh": {
+      "name": "投影到数量面",
+      "summary": "把已接受事件投影到数量面；按 (事件, 对象, 维度) 幂等不叠加。"
+     },
+     "en": {
+      "name": "Project onto quantities",
+      "summary": "Projects an accepted event onto the quantity surface; idempotent per (event, object, dimension)."
+     },
+     "ja": {
+      "name": "数量面へ投影",
+      "summary": "承認済みイベントを数量面に投影します。(イベント, 対象, 次元) ごとに冪等です。"
+     },
+     "es": {
+      "name": "Proyectar a cantidades",
+      "summary": "Proyecta un evento aceptado sobre la superficie de cantidades; idempotente por (evento, objeto, dimensión)."
+     },
+     "fr": {
+      "name": "Projeter sur les quantités",
+      "summary": "Projette un événement accepté sur la surface des quantités ; idempotent par (événement, objet, dimension)."
+     }
+    },
+    "canonical": {
+     "brief": "Projects an accepted event onto the quantity surface; idempotent per (event, object, dimension)."
+    }
+   },
+   "submit_posting_rule": {
+    "human": {
+     "zh": {
+      "name": "提交过账规则草稿",
+      "summary": "提交规则草稿；草稿不参与过账，必须经审批才生效。"
+     },
+     "en": {
+      "name": "Submit a posting-rule draft",
+      "summary": "Submits a posting-rule draft; drafts do not post and must be approved to take effect."
+     },
+     "ja": {
+      "name": "転記ルールの下書きを提出",
+      "summary": "転記ルールの下書きを提出します。下書きは転記に参加せず、承認されて初めて有効になります。"
+     },
+     "es": {
+      "name": "Enviar borrador de regla",
+      "summary": "Envía un borrador de regla de contabilización; los borradores no contabilizan y deben aprobarse."
+     },
+     "fr": {
+      "name": "Soumettre un brouillon de règle",
+      "summary": "Soumet un brouillon de règle de comptabilisation ; il ne comptabilise pas avant approbation."
+     }
+    },
+    "canonical": {
+     "brief": "Submits a posting-rule draft; drafts do not post and must be approved to take effect."
+    }
+   },
+   "approve_posting_rule": {
+    "human": {
+     "zh": {
+      "name": "审批上线过账规则",
+      "summary": "审批上线：退役旧生效版本、本版本生效；升版不重写历史分录。"
+     },
+     "en": {
+      "name": "Approve a posting rule",
+      "summary": "Approval: retires the previously active version and activates this one; version changes never rewrite past entries."
+     },
+     "ja": {
+      "name": "転記ルールを承認",
+      "summary": "承認：従来の有効版を退役させ、本版を有効化します。版の変更は過去の仕訳を書き換えません。"
+     },
+     "es": {
+      "name": "Aprobar una regla",
+      "summary": "Aprobación: retira la versión activa anterior y activa esta; cambiar de versión no reescribe asientos pasados."
+     },
+     "fr": {
+      "name": "Approuver une règle",
+      "summary": "Approbation : retire la version active précédente et active celle-ci ; un changement de version ne réécrit pas les écritures passées."
+     }
+    },
+    "canonical": {
+     "brief": "Approval: retires the previously active version and activates this one; version changes never rewrite past entries."
+    }
+   },
+   "list_posting_rules": {
+    "human": {
+     "zh": {
+      "name": "列出过账规则",
+      "summary": "列出过账规则各版本与状态（draft / active / retired）。"
+     },
+     "en": {
+      "name": "List posting rules",
+      "summary": "Lists every posting-rule version and its state (draft / active / retired)."
+     },
+     "ja": {
+      "name": "転記ルールを一覧",
+      "summary": "転記ルールの全バージョンと状態（draft / active / retired）を一覧します。"
+     },
+     "es": {
+      "name": "Listar reglas",
+      "summary": "Enumera todas las versiones de reglas de contabilización y su estado (draft / active / retired)."
+     },
+     "fr": {
+      "name": "Lister les règles",
+      "summary": "Énumère toutes les versions de règles et leur état (draft / active / retired)."
+     }
+    },
+    "canonical": {
+     "brief": "Lists every posting-rule version and its state (draft / active / retired)."
+    }
+   },
+   "post_event": {
+    "human": {
+     "zh": {
+      "name": "过账事件",
+      "summary": "把一条已接受的事件过账；幂等，同一事件只过一次账。"
+     },
+     "en": {
+      "name": "Post an event",
+      "summary": "Posts one accepted event; idempotent — an event is posted at most once."
+     },
+     "ja": {
+      "name": "イベントを転記",
+      "summary": "承認済みイベントを 1 件転記します。冪等で、同じイベントは一度しか転記されません。"
+     },
+     "es": {
+      "name": "Contabilizar un evento",
+      "summary": "Contabiliza un evento aceptado; idempotente, un evento se contabiliza como mucho una vez."
+     },
+     "fr": {
+      "name": "Comptabiliser un événement",
+      "summary": "Comptabilise un événement accepté ; idempotent, un événement n'est comptabilisé qu'une fois."
+     }
+    },
+    "canonical": {
+     "brief": "Posts one accepted event; idempotent — an event is posted at most once."
+    }
+   },
+   "list_posting_gaps": {
+    "human": {
+     "zh": {
+      "name": "待补过账清单",
+      "summary": "待补清单：谁在等规则、等哪条规则。"
+     },
+     "en": {
+      "name": "Posting gap list",
+      "summary": "The gap list: which subjects are waiting and which rule they wait for."
+     },
+     "ja": {
+      "name": "転記待ち一覧",
+      "summary": "待ち行列リスト：どの主体が、どのルールを待っているか。"
+     },
+     "es": {
+      "name": "Lista de pendientes",
+      "summary": "La lista de huecos: qué sujetos esperan y qué regla esperan."
+     },
+     "fr": {
+      "name": "Liste des manques",
+      "summary": "La liste des manques : quels sujets attendent, et quelle règle."
+     }
+    },
+    "canonical": {
+     "brief": "The gap list: which subjects are waiting and which rule they wait for."
+    }
+   },
+   "close_period": {
+    "human": {
+     "zh": {
+      "name": "关账",
+      "summary": "按顺序关账（YYYY-MM）并写快照；已关期间重复调用幂等。"
+     },
+     "en": {
+      "name": "Close a period",
+      "summary": "Closes a period (YYYY-MM) sequentially and writes a snapshot; re-closing is idempotent."
+     },
+     "ja": {
+      "name": "期間を締める",
+      "summary": "期間（YYYY-MM）を順次締め、スナップショットを書き込みます。締め済みの再実行は冪等です。"
+     },
+     "es": {
+      "name": "Cerrar un periodo",
+      "summary": "Cierra un periodo (AAAA-MM) de forma secuencial y escribe una instantánea; repetirlo es idempotente."
+     },
+     "fr": {
+      "name": "Clôturer une période",
+      "summary": "Clôt une période (AAAA-MM) séquentiellement et écrit un instantané ; l'opération est idempotente."
+     }
+    },
+    "canonical": {
+     "brief": "Closes a period (YYYY-MM) sequentially and writes a snapshot; re-closing is idempotent."
+    }
+   },
+   "reopen_period": {
+    "human": {
+     "zh": {
+      "name": "重开期间",
+      "summary": "只认最近一个已关期间，且必须给理由；追加记录，不覆盖历史。"
+     },
+     "en": {
+      "name": "Reopen a period",
+      "summary": "Reopens a period: only the latest closed one, and a reason is required; appends a record, never overwrites history."
+     },
+     "ja": {
+      "name": "期間を再開",
+      "summary": "直近の締め済み期間のみ再開でき、理由が必須です。記録を追加し履歴は上書きしません。"
+     },
+     "es": {
+      "name": "Reabrir un periodo",
+      "summary": "Reabre un periodo: solo el último cerrado y con motivo obligatorio; añade registro, nunca sobrescribe historial."
+     },
+     "fr": {
+      "name": "Réouvrir une période",
+      "summary": "Réouvre une période : seulement la dernière clôturée, avec motif obligatoire ; ajoute un enregistrement, n'écrase jamais l'historique."
+     }
+    },
+    "canonical": {
+     "brief": "Reopens a period: only the latest closed one, and a reason is required; appends a record, never overwrites history."
+    }
+   },
+   "period_status": {
+    "human": {
+     "zh": {
+      "name": "查期间状态",
+      "summary": "查某期间是否关账 + 最近一次动作（谁、何时、理由、快照摘要）。"
+     },
+     "en": {
+      "name": "Period status",
+      "summary": "Whether a period is closed plus the latest action (who, when, why, snapshot summary)."
+     },
+     "ja": {
+      "name": "期間の状態",
+      "summary": "期間が締め済みかと直近の操作（誰が・いつ・理由・スナップショット概要）を返します。"
+     },
+     "es": {
+      "name": "Estado del periodo",
+      "summary": "Indica si un periodo está cerrado y la última acción (quién, cuándo, por qué, resumen de la instantánea)."
+     },
+     "fr": {
+      "name": "État de la période",
+      "summary": "Indique si une période est clôturée, avec la dernière action (qui, quand, pourquoi, résumé de l'instantané)."
+     }
+    },
+    "canonical": {
+     "brief": "Whether a period is closed plus the latest action (who, when, why, snapshot summary)."
+    }
+   },
+   "period_report": {
+    "human": {
+     "zh": {
+      "name": "关账核对报告",
+      "summary": "关账快照 vs 当前复算：一致 verified=true；不一致逐科目点名差额。"
+     },
+     "en": {
+      "name": "Period reconciliation report",
+      "summary": "Closed snapshot vs a current recompute: verified=true when they agree, otherwise names each differing account."
+     },
+     "ja": {
+      "name": "締め照合レポート",
+      "summary": "締めスナップショットと現在の再計算を比較。一致すれば verified=true、不一致なら相違科目を名指しします。"
+     },
+     "es": {
+      "name": "Informe de conciliación",
+      "summary": "Instantánea de cierre frente a un recálculo actual: verified=true si coinciden; si no, nombra cada cuenta discrepante."
+     },
+     "fr": {
+      "name": "Rapport de rapprochement",
+      "summary": "Instantané de clôture face à un recalcul actuel : verified=true s'ils concordent, sinon nomme chaque compte divergent."
+     }
+    },
+    "canonical": {
+     "brief": "Closed snapshot vs a current recompute: verified=true when they agree, otherwise names each differing account."
+    }
+   },
+   "list_periods": {
+    "human": {
+     "zh": {
+      "name": "列出期间",
+      "summary": "列出有记录的期间及其当前状态（按期间升序）。"
+     },
+     "en": {
+      "name": "List periods",
+      "summary": "Lists periods that have records and their current state, in ascending order."
+     },
+     "ja": {
+      "name": "期間を一覧",
+      "summary": "記録のある期間と現在の状態を昇順で一覧します。"
+     },
+     "es": {
+      "name": "Listar periodos",
+      "summary": "Enumera los periodos con registros y su estado actual, en orden ascendente."
+     },
+     "fr": {
+      "name": "Lister les périodes",
+      "summary": "Énumère les périodes comportant des enregistrements et leur état, par ordre croissant."
+     }
+    },
+    "canonical": {
+     "brief": "Lists periods that have records and their current state, in ascending order."
+    }
    }
   },
   "provenance": {
