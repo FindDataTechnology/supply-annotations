@@ -1,12 +1,7 @@
 {
   "server_name": "vaas-wanxing",
-  "description": "VAAS generation plane (Wanxing pilot): voice/image/video/cover generation, asset store, registry discovery. Multi-tenant; assets owner-scoped; publish plane excluded.",
-  "tags": [
-    "vaas",
-    "generation",
-    "wanxing",
-    "multimodal"
-  ],
+  "description": "創作分發：內容生成、渲染與發佈的萬星面。",
+  "tags": [],
   "tools": [
     {
       "name": "assets_get",
@@ -19,6 +14,26 @@
     {
       "name": "assets_stats",
       "description": "Aggregate stats by asset type/stage and platform (own assets in hosted mode)."
+    },
+    {
+      "name": "citation_gate",
+      "description": "Apply the citation gate to a draft against an asset's citations.\n\nStrips anchors whose id is unknown OR whose citation is blocked (宁删勿假),\nkeeps pending citations flagged 待核, and reports the disposition. Returns\ncleaned_text (the user's source text is unchanged), stripped ids, and the\npassed/pending/blocked split."
+    },
+    {
+      "name": "citation_list",
+      "description": "List an asset's citations (owner-scoped)."
+    },
+    {
+      "name": "citation_record",
+      "description": "Record one citation (provenance triple + status) bound to an asset.\n\nstatus is one of resolvable|authentic|supported|pending|blocked. The\ncaller is responsible for having run verification (fd-shilun engine); this\ntool only persists the conclusion, owner-scoped to the current tenant."
+    },
+    {
+      "name": "citation_verify",
+      "description": "Run the fd-shilun 3-level verify engine on a draft and persist the\nresulting per-citation statuses.\n\nThe engine is called over HTTP (not re-implemented). Returned statuses are\nwritten back to this asset's citations (blocked/pending/supported) so a\nsubsequent citation_gate reflects them. If the engine is not configured or\nunreachable, nothing is overwritten and a `reason` is returned — a failed\nverify MUST NOT silently mark citations as passed."
+    },
+    {
+      "name": "edit_image",
+      "description": "Edit an existing image with a natural-language instruction.\n\nThis is the *refine* path, not a reroll: you hand it a source image and say\nwhat to change, and the same picture comes back modified. For \"give me a\ndifferent picture\", use generate_image instead — the two are separate\nregistered methods because they hit different upstream endpoints, bill\ndifferently, and a returned-unchanged image is a failure here."
     },
     {
       "name": "generate_image",
@@ -50,7 +65,7 @@
     },
     {
       "name": "render_document",
-      "description": "Render a document: format ∈ {pdf, longimage}，或两者的列表.\n\nsource 为 md 或 html 文本/路径；template 未指定用 \"default\"。format 接受\n字符串或列表（W3 内核已支持多格式，每份产物独立落账）；非法值报错不变。"
+      "description": "Render a document: format ∈ {pdf, longimage}，或两者的列表.\n\nsource 为 md 或 html 文本/路径；template 未指定用 \"default\"。format 接受\n字符串或列表（W3 内核已支持多格式，每份产物独立落账）；非法值报错不变。\ncitations + cite_format（serious-text）：源中的 [[cite:<id>]] 按所选格式渲成\n编号参考文献并在正文回引；解不出的锚点截除、不渲染无出处的编号。"
     },
     {
       "name": "render_still",
@@ -59,6 +74,14 @@
     {
       "name": "render_video",
       "description": "Render a video: storyboard 模式（确定性逐帧）或 type 模式（HTML 场景管线）。\n\nTwo mutually exclusive modes:\n  1. storyboard={size, scenes:[...]} — 确定性渲染，场景 kind ∈\n     html_intro/html_outro/kenburns/html_full，逐帧由 window.seek(t)\n     重放，同一 storyboard → 同一字节流；计划级重放键 scoped_asset_slug。\n  2. type=\"news-flash|carousel|listicle|...\" + script（口播稿文本或路径）\n     + inputs（类型输入 dict，见 types/<id>/type.json）— typed_scenes\n     builder 产出 seek 契约场景后走与 storyboard 模式同一实现路径；\n     type.json 须声明 \"renderer\": \"html\"，未注册 builder 报错列可用清单。\n     voice_path 给定时按段字符数加权对齐（不发起 TTS），否则逐段 TTS。\n     slug 缺省按计划哈希派生（type+script+inputs+voice_path+bgm 全折入），\n     同输入重放免费。\n\nbgm（W4.2，两模式同参数语义）: {asset_id|path, volume?, fade_out?} —\n视频合成后混流背景音乐；BGM 短于视频自动循环补长，长于视频在视频时长处\n收尾；volume 默认 0.2，fade_out 默认 true（afade 出）。asset_id 引用\nassets 账本 type=bgm 资产（本人资产或全局种子曲库）。\n\n同时提交 storyboard 与 type 是明确错误；输入文件缺失时报错会列出\n具体缺失清单（kenburns images / voice_path / bgm path）。inputs 里含\n待补图（提示词）且未 confirm_images 时返回 pending_images 清单，不渲染\n不产产物。"
+    },
+    {
+      "name": "source_domains",
+      "description": "List the content domains that currently have a registered source lane."
+    },
+    {
+      "name": "source_search",
+      "description": "Search one content domain (papers/gov/news/legal/philosophy/…) by query.\n\nReturns {domain, service, hits[], count, reason?}. Each hit carries the\nunified provenance triple (source/stable_id/as_of). An unknown domain\nraises with the available list; an empty result carries a reason — it is\nnever a silent empty list."
     },
     {
       "name": "templates_get",

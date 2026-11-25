@@ -1,1770 +1,1824 @@
 {
- "version": 1,
- "server": "law-bench",
- "annotation": {
-  "human": {
-   "zh": {
-    "name": "合同与法规工作台",
-    "summary": "合同装配、条款读取与评审、法条引用与验证，另含内部评测与语料治理工具。",
-    "whenToUse": "做合同评审、条款核对或法条引用验证时。"
-   },
-   "en": {
-    "name": "Contract & statute workbench",
-    "summary": "Contract assembly, clause reading and review, statutory citation checks, plus internal evaluation and corpus tools.",
-    "whenToUse": "For contract review, clause checks, or verifying statutory citations."
-   },
-   "ja": {
-    "name": "契約・法令ワークベンチ",
-    "summary": "契約の組み立て、条項の読み取りとレビュー、法令引用の検証に加え、内部評価とコーパス管理のツールを提供します。",
-    "whenToUse": "契約レビュー、条項確認、法令引用の検証を行うとき。"
-   },
-   "es": {
-    "name": "Banco de trabajo contractual y normativo",
-    "summary": "Montaje de contratos, lectura y revisión de cláusulas, verificación de citas normativas y herramientas internas de evaluación y corpus.",
-    "whenToUse": "Para revisar contratos, comprobar cláusulas o verificar citas normativas."
-   },
-   "fr": {
-    "name": "Atelier contrats et textes légaux",
-    "summary": "Assemblage de contrats, lecture et revue de clauses, vérification des citations légales, plus des outils internes d'évaluation et de corpus.",
-    "whenToUse": "Pour réviser un contrat, contrôler une clause ou vérifier une citation légale."
-   }
-  },
-  "canonical": {
-   "brief": "Contract/statute workbench MCP: assembly, clause read/review, statutory citation verification; internal eval and corpus tools are not part of the commercial surface."
-  },
-  "tools": {
-   "agent_run_get": {
-    "human": {
-     "zh": {
-      "name": "读取运行记录",
-      "summary": "按标识取回一条完整的智能体运行记录，不存在时返回空。"
-     },
-     "en": {
-      "name": "Read a run record",
-      "summary": "Gets one full agent run row by id, returning nothing when absent."
-     },
-     "ja": {
-      "name": "実行記録を取得",
-      "summary": "ID を指定してエージェント実行レコードを 1 件全体取得し、存在しなければ空を返します。"
-     },
-     "es": {
-      "name": "Leer ejecución",
-      "summary": "Obtiene una fila completa de ejecución del agente por id y devuelve vacío si no existe."
-     },
-     "fr": {
-      "name": "Lire une exécution",
-      "summary": "Récupère une ligne complète d'exécution d'agent par identifiant et renvoie vide si elle est absente."
-     }
-    },
-    "canonical": {
-     "brief": "Get one agent_runs row in full by id, returning all columns, or None when absent."
-    }
-   },
-   "agent_run_list": {
-    "human": {
-     "zh": {
-      "name": "列出运行记录",
-      "summary": "按时间列出近期智能体运行记录，只含标识、合同类型、槽位与耗时等摘要字段。"
-     },
-     "en": {
-      "name": "List run records",
-      "summary": "Lists recent agent run rows with summary fields only, such as id, contract type, slots and duration."
-     },
-     "ja": {
-      "name": "実行記録を一覧",
-      "summary": "最近のエージェント実行レコードを要約項目のみで一覧します。ID・契約類型・スロット・所要時間などです。"
-     },
-     "es": {
-      "name": "Listar ejecuciones",
-      "summary": "Lista las ejecuciones recientes del agente con campos resumidos: id, tipo de contrato, ranuras y duración."
-     },
-     "fr": {
-      "name": "Lister les exécutions",
-      "summary": "Liste les exécutions récentes d'agent avec les seuls champs de synthèse : identifiant, type de contrat, emplacements et durée."
-     }
-    },
-    "canonical": {
-     "brief": "List recent agent_runs rows with summary fields only: [{id, thread_id, contract_type, task_desc, total_slots, human_filled_slots, eval_run_id, total_duration, created_at}]."
-    }
-   },
-   "agent_run_store": {
-    "human": {
-     "zh": {
-      "name": "写入运行指标",
-      "summary": "把智能体运行的计时、令牌用量、评审建议、槽位覆盖度与评判关联写入运行记录表。"
-     },
-     "en": {
-      "name": "Store run metrics",
-      "summary": "Stores an agent run's timing, token usage, reviewer suggestions, slot coverage and evaluation linkage in the agent run table."
-     },
-     "ja": {
-      "name": "実行指標を保存",
-      "summary": "エージェント実行の所要時間・トークン使用量・レビュー提案・スロット網羅率・評価との紐付けを実行テーブルへ書き込みます。"
-     },
-     "es": {
-      "name": "Guardar métricas",
-      "summary": "Guarda en la tabla de ejecuciones del agente los tiempos, el uso de tokens, las sugerencias de revisión, la cobertura de ranuras y el vínculo de evaluación."
-     },
-     "fr": {
-      "name": "Enregistrer les métriques",
-      "summary": "Enregistre dans la table des exécutions d'agent les durées, l'usage de jetons, les suggestions de révision, la couverture des emplacements et le lien d'évaluation."
-     }
-    },
-    "canonical": {
-     "brief": "Store an agent run's metrics into the agent_runs table: timing, token usage, reviewer suggestions, slot coverage and evaluation linkage, as called by the review agent at the end of a run."
-    }
-   },
-   "auto_reject_pipeline_run": {
-    "human": {
-     "zh": {
-      "name": "运行自动剔除",
-      "summary": "在自愈流程后追加学习步，汇总本次与近期历史的审核建议，把达到拒绝阈值的自定义条款标为退回；底稿与标签条款不受影响。"
-     },
-     "en": {
-      "name": "Run auto-reject pipeline",
-      "summary": "Adds a learn step after self-healing that aggregates review suggestions from this and recent runs and rejects custom clauses at the threshold, leaving base and tagged clauses untouched."
-     },
-     "ja": {
-      "name": "自動除外を実行",
-      "summary": "自己修復の後に学習ステップを加え、今回と最近の履歴のレビュー提案を集約し、却下しきい値に達したカスタム条項を却下にします。基本条項とタグ付き条項は変更しません。"
-     },
-     "es": {
-      "name": "Ejecutar descarte automático",
-      "summary": "Tras la autocorrección añade un paso que agrega sugerencias de revisión de esta y recientes ejecuciones y rechaza las cláusulas personalizadas que alcanzan el umbral, sin tocar base ni etiquetadas."
-     },
-     "fr": {
-      "name": "Lancer le rejet automatique",
-      "summary": "Ajoute après l'auto-réparation une étape qui agrège les suggestions récentes et rejette les clauses personnalisées atteignant le seuil, sans toucher aux clauses de base ni étiquetées."
-     }
-    },
-    "canonical": {
-     "brief": "Drive generate -> fill -> evaluate -> check -> (improve) -> store -> learn; learn aggregates clause_review recommendations from current and recent runs, and any custom clause reaching AUTO_REJECT_THRESHOLD (default 3) is rejected via bulk_review; base and tagged clauses are never touched."
-    }
-   },
-   "clause_delete": {
-    "human": {
-     "zh": {
-      "name": "删除条款",
-      "summary": "按标识删除单条条款。"
-     },
-     "en": {
-      "name": "Delete a clause",
-      "summary": "Deletes one clause by id."
-     },
-     "ja": {
-      "name": "条項を削除",
-      "summary": "ID を指定して 1 条項を削除します。"
-     },
-     "es": {
-      "name": "Eliminar cláusula",
-      "summary": "Elimina una cláusula por su id."
-     },
-     "fr": {
-      "name": "Supprimer une clause",
-      "summary": "Supprime une clause par son identifiant."
-     }
-    },
-    "canonical": {
-     "brief": "Delete one clause by id."
-    }
-   },
-   "clause_get": {
-    "human": {
-     "zh": {
-      "name": "读取条款",
-      "summary": "按标识取回单条条款，来源可为底稿、标签或自定义。"
-     },
-     "en": {
-      "name": "Read a clause",
-      "summary": "Fetches one clause by id from any source: base, tagged or custom."
-     },
-     "ja": {
-      "name": "条項を取得",
-      "summary": "ID を指定して 1 条項を取得します。出所は基本・タグ付き・カスタムのいずれでも構いません。"
-     },
-     "es": {
-      "name": "Leer cláusula",
-      "summary": "Obtiene una cláusula por id de cualquier origen: base, etiquetada o personalizada."
-     },
-     "fr": {
-      "name": "Lire une clause",
-      "summary": "Récupère une clause par identifiant, quelle que soit son origine : de base, étiquetée ou personnalisée."
-     }
-    },
-    "canonical": {
-     "brief": "Fetch one clause by id from any source: base, tagged or custom."
-    }
-   },
-   "clause_list": {
-    "human": {
-     "zh": {
-      "name": "列出条款",
-      "summary": "从条款表按条件筛选并排序返回条款列表。"
-     },
-     "en": {
-      "name": "List clauses",
-      "summary": "Lists clauses from the clauses table with filtering and ordering applied."
-     },
-     "ja": {
-      "name": "条項一覧を取得",
-      "summary": "条項テーブルから条件で絞り込み、並べ替えた条項一覧を返します。"
-     },
-     "es": {
-      "name": "Listar cláusulas",
-      "summary": "Lista cláusulas de la tabla de cláusulas con filtros y orden aplicados."
-     },
-     "fr": {
-      "name": "Lister les clauses",
-      "summary": "Liste les clauses de la table des clauses avec filtrage et tri appliqués."
-     }
-    },
-    "canonical": {
-     "brief": "List rows from the clauses table with filtering and ordering applied."
-    }
-   },
-   "clause_review": {
-    "human": {
-     "zh": {
-      "name": "批量审条款",
-      "summary": "把某条款所有标签维度一次性设为同一审核状态，用于批量通过或退回；任一维度未通过即不参与组装。"
-     },
-     "en": {
-      "name": "Review clause tags",
-      "summary": "Sets every tag dimension of one clause to a single review status for bulk approve or reject; a clause joins assembly only when all dimensions are approved."
-     },
-     "ja": {
-      "name": "条項タグを一括審査",
-      "summary": "1 条項の全タグ次元を同じレビュー状態に一括設定し、まとめて承認または却下します。全次元が承認済みのときだけ組み立てに使われます。"
-     },
-     "es": {
-      "name": "Revisar etiquetas",
-      "summary": "Fija todas las dimensiones de etiqueta de una cláusula en un mismo estado de revisión para aprobar o rechazar en bloque; solo se ensambla si todas están aprobadas."
-     },
-     "fr": {
-      "name": "Réviser les étiquettes",
-      "summary": "Fixe toutes les dimensions d'étiquette d'une clause au même statut de révision pour approuver ou rejeter en lot ; la clause n'entre dans l'assemblage que si toutes sont approuvées."
-     }
-    },
-    "canonical": {
-     "brief": "Set all of a clause's tag dimensions to one review status (bulk approve/reject); a clause is assembly-ready only when every dimension is approved, and rejected or pending excludes it from assembly without deleting it."
-    }
-   },
-   "clause_update": {
-    "human": {
-     "zh": {
-      "name": "修改条款",
-      "summary": "按标识改写条款正文、章节或标签，仅写入传入字段，并重新推导正文哈希、槽位指令与法条引用；条目被标记为手工修改。"
-     },
-     "en": {
-      "name": "Update a clause",
-      "summary": "Updates a clause's body, section or tags by id, writes only supplied fields, re-derives hash, slot instructions and law references, and marks it manually edited."
-     },
-     "ja": {
-      "name": "条項を更新",
-      "summary": "ID を指定して条項の本文・節・タグを更新します。渡した項目だけを書き込み、本文ハッシュ・スロット指示・法令参照を再計算し、手動編集として記録します。"
-     },
-     "es": {
-      "name": "Actualizar cláusula",
-      "summary": "Actualiza cuerpo, sección o etiquetas de una cláusula por id, escribe solo los campos enviados, recalcula hash, instrucciones de ranura y referencias legales, y la marca como edición manual."
-     },
-     "fr": {
-      "name": "Modifier une clause",
-      "summary": "Met à jour corps, section ou étiquettes d'une clause par identifiant, n'écrit que les champs fournis, recalcule empreinte, consignes d'emplacement et références légales et la marque manuelle."
-     }
-    },
-    "canonical": {
-     "brief": "Update a clause by id (body/section/tags); only passed parameters are written and omitted fields keep current values; body_hash, slot_instructions and law_refs are re-derived and the clause is marked manual=true; unknown id raises a tool error."
-    }
-   },
-   "compare_get": {
-    "human": {
-     "zh": {
-      "name": "读取对比详情",
-      "summary": "按标识取回一次对比的完整分组结果。"
-     },
-     "en": {
-      "name": "Read compare",
-      "summary": "Fetches the full grouped result of one compare by id."
-     },
-     "ja": {
-      "name": "比較詳細を取得",
-      "summary": "ID を指定して、1 件の比較の完全なグループ結果を取得します。"
-     },
-     "es": {
-      "name": "Leer comparación",
-      "summary": "Obtiene el resultado agrupado completo de una comparación por su id."
-     },
-     "fr": {
-      "name": "Lire une comparaison",
-      "summary": "Récupère le résultat groupé complet d'une comparaison par son identifiant."
-     }
-    },
-    "canonical": {
-     "brief": "Fetch the full grouped result of one compare by id."
-    }
-   },
-   "compare_list": {
-    "human": {
-     "zh": {
-      "name": "列出对比记录",
-      "summary": "按时间倒序列出近期对比运行，只含对比级字段，如标识、标签、合同类型、评分标准与草稿数。"
-     },
-     "en": {
-      "name": "List compare runs",
-      "summary": "Lists recent compare runs newest first with compare-level fields only, such as id, label, contract type, rubric and draft count."
-     },
-     "ja": {
-      "name": "比較一覧を取得",
-      "summary": "最近の比較実行を新しい順に一覧します。ID、ラベル、契約類型、評価基準、草稿数など比較単位の項目のみを含みます。"
-     },
-     "es": {
-      "name": "Listar comparaciones",
-      "summary": "Lista las comparaciones recientes de la más nueva a la más antigua, solo con campos de nivel de comparación: id, etiqueta, tipo de contrato, criterio de evaluación y número de borradores."
-     },
-     "fr": {
-      "name": "Lister les comparaisons",
-      "summary": "Liste les comparaisons récentes, de la plus récente à la plus ancienne, avec les seuls champs de niveau comparaison : identifiant, libellé, type de contrat, grille et nombre de brouillons."
-     }
-    },
-    "canonical": {
-     "brief": "List recent compare runs newest first, compare-level fields only: [{id, label, contract_type, rubric_name, task_desc, gen_mode, n_drafts, created_at}]."
-    }
-   },
-   "compare_matrix": {
-    "human": {
-     "zh": {
-      "name": "生成对比矩阵",
-      "summary": "一次调用取回某次对比的「评分项 × 提示词」矩阵；单草稿时为判定，多草稿时为通过率。"
-     },
-     "en": {
-      "name": "Get compare matrix",
-      "summary": "Fetches a compare's criteria by prompts matrix in one call: binary verdicts with one draft, pass rates with several."
-     },
-     "ja": {
-      "name": "比較行列を取得",
-      "summary": "1 回の呼び出しで、比較の「評価項目 × プロンプト」行列を取得します。草稿が 1 件なら合否、複数なら通過率になります。"
-     },
-     "es": {
-      "name": "Obtener matriz",
-      "summary": "Obtiene en una llamada la matriz de ítems por indicaciones: veredictos binarios con un borrador y tasas de aprobación con varios."
-     },
-     "fr": {
-      "name": "Obtenir la matrice",
-      "summary": "Récupère en un appel la matrice critères par invites : verdicts binaires avec un brouillon, taux de réussite avec plusieurs."
-     }
-    },
-    "canonical": {
-     "brief": "Fetch a compare's criteria x prompts matrix in one call, equivalent to build_matrix(get_compare(compare_id)); cells are binary verdicts when n_drafts == 1 and k/N pass rates when n_drafts > 1."
-    }
-   },
-   "compare_run": {
-    "human": {
-     "zh": {
-      "name": "对比多提示词",
-      "summary": "对每个提示词按指定评分标准生成若干草稿并逐份评判，结果归入同一条对比记录。"
-     },
-     "en": {
-      "name": "Run prompt comparison",
-      "summary": "Drafts several variants per named prompt, judges each against the named rubric, and groups all runs under one compare record."
-     },
-     "ja": {
-      "name": "プロンプト比較を実行",
-      "summary": "指定した各プロンプトについて草稿を複数生成し、評価基準ごとに判定して、すべての実行を 1 件の比較記録にまとめます。"
-     },
-     "es": {
-      "name": "Ejecutar comparación",
-      "summary": "Genera varios borradores por cada indicación, los evalúa contra el criterio de evaluación indicado y agrupa todas las ejecuciones en un registro de comparación."
-     },
-     "fr": {
-      "name": "Lancer une comparaison",
-      "summary": "Génère plusieurs brouillons par invite, les évalue selon la grille indiquée et regroupe toutes les exécutions dans une comparaison."
-     }
-    },
-    "canonical": {
-     "brief": "Grouped comparison: for each prompt name resolve the prompt record, generate n_drafts drafter-only drafts, judge each against rubric_name, and persist all runs under one compare_runs row."
-    }
-   },
-   "contract_content": {
-    "human": {
-     "zh": {
-      "name": "返回合同内容",
-      "summary": "返回组装后的合同内容，支持 Markdown 或 JSON，不落盘。"
-     },
-     "en": {
-      "name": "Return contract content",
-      "summary": "Returns assembled contract content as markdown or JSON without writing files."
-     },
-     "ja": {
-      "name": "契約内容を返す",
-      "summary": "組み立て済みの契約内容を Markdown または JSON で返します。ファイルには書き出しません。"
-     },
-     "es": {
-      "name": "Devolver contenido",
-      "summary": "Devuelve el contenido ensamblado del contrato en Markdown o JSON sin escribir archivos."
-     },
-     "fr": {
-      "name": "Renvoyer le contenu",
-      "summary": "Renvoie le contenu assemblé du contrat en markdown ou JSON sans écrire de fichier."
-     }
-    },
-    "canonical": {
-     "brief": "Return assembled contract content as markdown or JSON without any file I/O."
-    }
-   },
-   "contract_download": {
-    "human": {
-     "zh": {
-      "name": "获取合同下载",
-      "summary": "读取已存储合同产物的元数据与下载地址，不重新生成；文件字节由调用方通过 HTTP 获取。"
-     },
-     "en": {
-      "name": "Get contract download",
-      "summary": "Fetches a stored contract artifact's metadata and download URLs without regenerating; the caller downloads the bytes over HTTP."
-     },
-     "ja": {
-      "name": "契約の下載情報を取得",
-      "summary": "保存済み契約成果物のメタデータとダウンロード URL を、再生成せずに取得します。ファイル本体は呼び出し側が HTTP で取得します。"
-     },
-     "es": {
-      "name": "Obtener descarga",
-      "summary": "Obtiene los metadatos y las URL de descarga de un artefacto de contrato guardado sin regenerarlo; el llamador descarga los bytes por HTTP."
-     },
-     "fr": {
-      "name": "Obtenir le téléchargement",
-      "summary": "Récupère les métadonnées et les URL de téléchargement d'un artefact de contrat stocké sans le régénérer ; l'appelant télécharge les octets via HTTP."
-     }
-    },
-    "canonical": {
-     "brief": "Fetch a stored contract artifact's metadata and download URL(s) without regenerating; it reads the previously stored contract_artifacts row and the agent fetches the file bytes over HTTP."
-    }
-   },
-   "contract_evaluate": {
-    "human": {
-     "zh": {
-      "name": "评判合同",
-      "summary": "用大模型按指定评分标准对已起草合同逐项评判。"
-     },
-     "en": {
-      "name": "Evaluate contract",
-      "summary": "Judges a drafted contract against a named rubric with an LLM judge."
-     },
-     "ja": {
-      "name": "契約を評価",
-      "summary": "大規模言語モデルの判定で、起草済み契約を指定の評価基準に照らして項目ごとに評価します。"
-     },
-     "es": {
-      "name": "Evaluar contrato",
-      "summary": "Evalúa un contrato redactado contra un criterio de evaluación indicado mediante un juez de modelo de lenguaje."
-     },
-     "fr": {
-      "name": "Évaluer un contrat",
-      "summary": "Évalue un contrat rédigé selon une grille indiquée au moyen d'un juge fondé sur un modèle de langage."
-     }
-    },
-    "canonical": {
-     "brief": "Evaluate a drafted contract against a named rubric using an LLM judge."
-    }
-   },
-   "contract_generate": {
-    "human": {
-     "zh": {
-      "name": "生成合同",
-      "summary": "为合同类别生成 DOCX/PDF 交付件，默认套用注册母版；给出立场或业务场景时按底稿、标签与自定义条款组装。"
-     },
-     "en": {
-      "name": "Generate contract",
-      "summary": "Generates a DOCX or PDF deliverable for a contract class, rendering the registered master template by default or assembling base, tagged and custom clauses when stance or scenario is given."
-     },
-     "ja": {
-      "name": "契約を生成",
-      "summary": "契約類型の DOCX/PDF 納品物を生成します。既定では登録済みのマスターテンプレートを使い、立場や業務シナリオが指定されると基本・タグ付き・カスタム条項を組み立てます。"
-     },
-     "es": {
-      "name": "Generar contrato",
-      "summary": "Genera un entregable DOCX o PDF para un tipo de contrato; por omisión usa la plantilla maestra registrada y, con postura o escenario, ensambla cláusulas base, etiquetadas y personalizadas."
-     },
-     "fr": {
-      "name": "Générer un contrat",
-      "summary": "Génère un livrable DOCX ou PDF pour une classe de contrat ; par défaut il rend le modèle maître, et avec une position ou un scénario assemble clauses de base, étiquetées et personnalisées."
-     }
-    },
-    "canonical": {
-     "brief": "Generate a contract deliverable (DOCX/PDF); default renders the registered master template; with stance and/or tags carrying stance or scenario, assembles base + tagged + custom clauses, filtering custom by stance (pro_a/pro_b/balanced) and tagged by scenario; region/province keys are ignored."
-    }
-   },
-   "contract_generate_batch": {
-    "human": {
-     "zh": {
-      "name": "批量生成合同",
-      "summary": "按不同标签组合并行生成多份合同。"
-     },
-     "en": {
-      "name": "Batch generate contracts",
-      "summary": "Generates several contracts in parallel across different tag combinations."
-     },
-     "ja": {
-      "name": "契約を一括生成",
-      "summary": "異なるタグ組み合わせで複数の契約を並行して生成します。"
-     },
-     "es": {
-      "name": "Generar por lote",
-      "summary": "Genera varios contratos en paralelo con distintas combinaciones de etiquetas."
-     },
-     "fr": {
-      "name": "Générer en lot",
-      "summary": "Génère plusieurs contrats en parallèle selon différentes combinaisons d'étiquettes."
-     }
-    },
-    "canonical": {
-     "brief": "Generate multiple contracts in parallel across different tag combinations."
-    }
-   },
-   "contract_generate_stored": {
-    "human": {
-     "zh": {
-      "name": "生成并存储合同",
-      "summary": "生成合同交付件并上传对象存储，记录产物行以便日后直接下载；相同输入按正文摘要复用同一产物，缺少的格式会补齐。"
-     },
-     "en": {
-      "name": "Generate and store contract",
-      "summary": "Generates a contract deliverable, uploads it to object storage and records an artifact row for later download; identical inputs reuse the artifact by body digest and missing formats are filled in."
-     },
-     "ja": {
-      "name": "契約を生成して保存",
-      "summary": "契約納品物を生成してオブジェクトストレージへ上げ、後から再取得できるよう成果物の行を記録します。同一入力は本文ダイジェストで同じ成果物を再利用し、不足形式は補完します。"
-     },
-     "es": {
-      "name": "Generar y guardar",
-      "summary": "Genera el entregable, lo sube al almacenamiento de objetos y registra un artefacto descargable; entradas idénticas reutilizan el artefacto por resumen del cuerpo y se completan formatos faltantes."
-     },
-     "fr": {
-      "name": "Générer et stocker",
-      "summary": "Génère le livrable, téléverse en stockage objet et enregistre un artefact téléchargeable ; des entrées identiques réutilisent l'artefact via l'empreinte du corps, les formats manquants sont ajoutés."
-     }
-    },
-    "canonical": {
-     "brief": "Generate a contract deliverable (DOCX/PDF), upload it to MinIO and record a contract_artifacts row for re-download without regenerating; content-addressed by md5(body_text) so identical inputs reuse the artifact (reused: true) and missing formats are filled in."
-    }
-   },
-   "contract_type_catalog": {
-    "human": {
-     "zh": {
-      "name": "列出合同类型",
-      "summary": "列出支持的全部合同类型及其元数据。"
-     },
-     "en": {
-      "name": "List contract types",
-      "summary": "Lists all supported contract types with their metadata."
-     },
-     "ja": {
-      "name": "契約類型を一覧",
-      "summary": "対応する契約類型をすべてメタデータ付きで一覧します。"
-     },
-     "es": {
-      "name": "Listar tipos",
-      "summary": "Lista todos los tipos de contrato admitidos con sus metadatos."
-     },
-     "fr": {
-      "name": "Lister les types",
-      "summary": "Liste tous les types de contrat pris en charge avec leurs métadonnées."
-     }
-    },
-    "canonical": {
-     "brief": "List all supported contract types with metadata."
-    }
-   },
-   "criterion_add": {
-    "human": {
-     "zh": {
-      "name": "追加评分项",
-      "summary": "在本地评分标准末尾按下一序号追加一个评分项。"
-     },
-     "en": {
-      "name": "Add a criterion",
-      "summary": "Appends a criterion to a local rubric at the next ordinal."
-     },
-     "ja": {
-      "name": "評価項目を追加",
-      "summary": "ローカル評価基準の末尾に次の順序番号で評価項目を追加します。"
-     },
-     "es": {
-      "name": "Añadir ítem",
-      "summary": "Añade un ítem a un criterio de evaluación local con el siguiente ordinal."
-     },
-     "fr": {
-      "name": "Ajouter un critère",
-      "summary": "Ajoute un critère à une grille locale au numéro d'ordre suivant."
-     }
-    },
-    "canonical": {
-     "brief": "Append a criterion to a local rubric at the next ordinal."
-    }
-   },
-   "criterion_delete": {
-    "human": {
-     "zh": {
-      "name": "删除评分项",
-      "summary": "从本地评分标准删除一个评分项，并重排其余项的序号。"
-     },
-     "en": {
-      "name": "Delete a criterion",
-      "summary": "Deletes a criterion from a local rubric and renumbers the remaining ones."
-     },
-     "ja": {
-      "name": "評価項目を削除",
-      "summary": "ローカル評価基準から評価項目を 1 件削除し、残りの順序番号を振り直します。"
-     },
-     "es": {
-      "name": "Eliminar ítem",
-      "summary": "Elimina un ítem de un criterio de evaluación local y renumera los restantes."
-     },
-     "fr": {
-      "name": "Supprimer un critère",
-      "summary": "Supprime un critère d'une grille locale et renumérote les critères restants."
-     }
-    },
-    "canonical": {
-     "brief": "Delete a criterion from a local rubric and renumber the survivors."
-    }
-   },
-   "criterion_reorder": {
-    "human": {
-     "zh": {
-      "name": "重排评分项",
-      "summary": "按给定顺序重设各评分项的序号。"
-     },
-     "en": {
-      "name": "Reorder criteria",
-      "summary": "Reassigns criterion ordinals to match the given order."
-     },
-     "ja": {
-      "name": "評価項目を並べ替え",
-      "summary": "指定した順序に合わせて評価項目の順序番号を振り直します。"
-     },
-     "es": {
-      "name": "Reordenar ítems",
-      "summary": "Reasigna los ordinales de los ítems para que coincidan con el orden dado."
-     },
-     "fr": {
-      "name": "Réordonner les critères",
-      "summary": "Réattribue les numéros d'ordre des critères selon l'ordre fourni."
-     }
-    },
-    "canonical": {
-     "brief": "Reassign criterion ordinals to match the given order."
-    }
-   },
-   "criterion_update": {
-    "human": {
-     "zh": {
-      "name": "更新评分项",
-      "summary": "更新评分项的名称、说明与指引，序号不变。"
-     },
-     "en": {
-      "name": "Update a criterion",
-      "summary": "Updates a criterion's name, description and guidance; its ordinal is unchanged."
-     },
-     "ja": {
-      "name": "評価項目を更新",
-      "summary": "評価項目の名称・説明・指針を更新します。順序番号は変わりません。"
-     },
-     "es": {
-      "name": "Actualizar ítem",
-      "summary": "Actualiza nombre, descripción y guía de un ítem; su ordinal no cambia."
-     },
-     "fr": {
-      "name": "Mettre à jour un critère",
-      "summary": "Met à jour le nom, la description et les consignes d'un critère ; son numéro d'ordre ne change pas."
-     }
-    },
-    "canonical": {
-     "brief": "Update a criterion's name, description and guidance; ordinal is untouched."
-    }
-   },
-   "law_info": {
-    "human": {
-     "zh": {
-      "name": "读取调研内容",
-      "summary": "按合同类型取回两个来源的法条调研内容。"
-     },
-     "en": {
-      "name": "Read law survey",
-      "summary": "Fetches both sources' survey content for one contract type."
-     },
-     "ja": {
-      "name": "法令調査を取得",
-      "summary": "契約類型を指定して、2 つのソースの法令調査内容を取得します。"
-     },
-     "es": {
-      "name": "Leer estudio legal",
-      "summary": "Obtiene el contenido del estudio legal de las dos fuentes para un tipo de contrato."
-     },
-     "fr": {
-      "name": "Lire l'étude légale",
-      "summary": "Récupère le contenu d'étude légale des deux sources pour un type de contrat."
-     }
-    },
-    "canonical": {
-     "brief": "Fetch both sources' survey content for one contract type."
-    }
-   },
-   "law_references": {
-    "human": {
-     "zh": {
-      "name": "汇总法条引用",
-      "summary": "汇总各类型调研中引用到的法条，按名称去重并统计出现次数与来源；只读。"
-     },
-     "en": {
-      "name": "Aggregate law references",
-      "summary": "Aggregates the laws referenced across all surveys, de-duplicated by name, with occurrence counts and sources; read-only."
-     },
-     "ja": {
-      "name": "法令引用を集計",
-      "summary": "各類型の調査で参照された法令を名前で重複排除して集計し、出現回数とソースを付けます。読み取り専用です。"
-     },
-     "es": {
-      "name": "Agregar referencias",
-      "summary": "Agrega las normas citadas en todos los estudios, sin duplicados por nombre, con recuento de apariciones y fuentes; solo lectura."
-     },
-     "fr": {
-      "name": "Agréger les références",
-      "summary": "Agrège les textes légaux cités dans toutes les études, dédoublonnés par nom, avec nombre d'occurrences et sources ; lecture seule."
-     }
-    },
-    "canonical": {
-     "brief": "Aggregate the unique laws referenced across every law_info survey via extract_references; returns [{name, category, category_zh, contract_types, sources, occurrences}] sorted by category then name; read-only."
-    }
-   },
-   "law_types": {
-    "human": {
-     "zh": {
-      "name": "列出调研类型",
-      "summary": "列出至少有一条法条调研记录的合同类型，附名称与该类型已有的调研来源。"
-     },
-     "en": {
-      "name": "List surveyed types",
-      "summary": "Lists contract types with at least one law survey row, with their Chinese name and the sources present."
-     },
-     "ja": {
-      "name": "調査済み類型を一覧",
-      "summary": "法令調査の記録が 1 件以上ある契約類型を、名称と存在する調査ソース付きで一覧します。"
-     },
-     "es": {
-      "name": "Listar tipos estudiados",
-      "summary": "Lista los tipos de contrato con al menos una fila de estudio legal, con su nombre y las fuentes disponibles."
-     },
-     "fr": {
-      "name": "Lister les types étudiés",
-      "summary": "Liste les types de contrat ayant au moins une ligne d'étude légale, avec leur nom et les sources présentes."
-     }
-    },
-    "canonical": {
-     "brief": "List contract types that have at least one law_info survey row: [{key, zh_name, sources}] ordered by contract type, where sources lists the sources present for that type (e.g. doubao, deepseek)."
-    }
-   },
-   "pipeline_get": {
-    "human": {
-     "zh": {
-      "name": "读取流水线",
-      "summary": "按标识取回一次流水线运行及其关联评判的逐评分项结论。"
-     },
-     "en": {
-      "name": "Read pipeline run",
-      "summary": "Fetches one pipeline run plus its linked evaluation run's per-criterion verdicts."
-     },
-     "ja": {
-      "name": "パイプライン詳細",
-      "summary": "ID を指定して、1 件のパイプライン実行と、関連する評価の評価項目ごとの判定を取得します。"
-     },
-     "es": {
-      "name": "Leer flujo",
-      "summary": "Obtiene un flujo por id junto con los veredictos por ítem de su evaluación vinculada."
-     },
-     "fr": {
-      "name": "Lire une chaîne",
-      "summary": "Récupère une chaîne par identifiant avec les verdicts critère par critère de l'évaluation liée."
-     }
-    },
-    "canonical": {
-     "brief": "Fetch one pipeline run by id plus its linked evaluation run's per-criterion verdicts."
-    }
-   },
-   "pipeline_list": {
-    "human": {
-     "zh": {
-      "name": "列出流水线",
-      "summary": "按时间倒序列出近期流水线运行，附合同类型、立场、得分、通过项数与迭代序号等字段。"
-     },
-     "en": {
-      "name": "List pipeline runs",
-      "summary": "Lists recent pipeline runs newest first with contract type, stance, score, passed criteria and iteration number."
-     },
-     "ja": {
-      "name": "パイプライン一覧",
-      "summary": "最近のパイプライン実行を新しい順に一覧し、契約類型・立場・得点・合格項目数・反復番号などを付けます。"
-     },
-     "es": {
-      "name": "Listar flujos",
-      "summary": "Lista los flujos recientes del más nuevo al más antiguo con tipo de contrato, postura, puntuación, criterios superados e iteración."
-     },
-     "fr": {
-      "name": "Lister les chaînes",
-      "summary": "Liste les chaînes récentes, de la plus récente à la plus ancienne, avec type de contrat, position, score, critères réussis et itération."
-     }
-    },
-    "canonical": {
-     "brief": "List recent pipeline runs, most recent first: [{id, contract_type, stance, rubric_name, task_desc, score, max_score, n_passed, n_criteria, all_pass, iteration, eval_run_id, fill_temperature, created_at}]."
-    }
-   },
-   "prompt_create": {
-    "human": {
-     "zh": {
-      "name": "新建提示词",
-      "summary": "创建一条本地来源的生成提示词。"
-     },
-     "en": {
-      "name": "Create a prompt",
-      "summary": "Creates a local generation prompt."
-     },
-     "ja": {
-      "name": "プロンプトを作成",
-      "summary": "ローカル由来の生成プロンプトを 1 件作成します。"
-     },
-     "es": {
-      "name": "Crear indicación",
-      "summary": "Crea una indicación de generación de origen local."
-     },
-     "fr": {
-      "name": "Créer une invite",
-      "summary": "Crée une invite de génération d'origine locale."
-     }
-    },
-    "canonical": {
-     "brief": "Create a local prompt with source = 'local'."
-    }
-   },
-   "prompt_delete": {
-    "human": {
-     "zh": {
-      "name": "删除提示词",
-      "summary": "删除单条提示词；该表无子表，不会级联删除其它数据。"
-     },
-     "en": {
-      "name": "Delete a prompt",
-      "summary": "Deletes one prompt; the table has no child table, so nothing cascades."
-     },
-     "ja": {
-      "name": "プロンプトを削除",
-      "summary": "1 件のプロンプトを削除します。子テーブルがないため連鎖削除は起きません。"
-     },
-     "es": {
-      "name": "Eliminar indicación",
-      "summary": "Elimina una indicación; la tabla no tiene tabla hija, así que no hay borrado en cascada."
-     },
-     "fr": {
-      "name": "Supprimer une invite",
-      "summary": "Supprime une invite ; la table n'a pas de table fille, donc aucune suppression en cascade."
-     }
-    },
-    "canonical": {
-     "brief": "Delete one prompt; it has no child table, so nothing cascades."
-    }
-   },
-   "prompt_get": {
-    "human": {
-     "zh": {
-      "name": "读取提示词",
-      "summary": "按名称取回单个提示词的完整记录，含正文内容。"
-     },
-     "en": {
-      "name": "Read a prompt",
-      "summary": "Fetches one prompt's full record including its content, looked up by name."
-     },
-     "ja": {
-      "name": "プロンプトを取得",
-      "summary": "名称を指定して、本文を含む 1 件のプロンプトの完全なレコードを取得します。"
-     },
-     "es": {
-      "name": "Leer indicación",
-      "summary": "Obtiene el registro completo de una indicación, incluido su cuerpo, por nombre."
-     },
-     "fr": {
-      "name": "Lire une invite",
-      "summary": "Récupère l'enregistrement complet d'une invite, contenu inclus, par son nom."
-     }
-    },
-    "canonical": {
-     "brief": "Fetch one prompt's full record including content, looked up by name."
-    }
-   },
-   "prompt_list": {
-    "human": {
-     "zh": {
-      "name": "列出提示词",
-      "summary": "列出全部生成提示词，不含正文内容，附标识、名称、合同类型、用途与来源。"
-     },
-     "en": {
-      "name": "List prompts",
-      "summary": "Lists all generation prompts without their content, with id, name, contract type, purpose and source."
-     },
-     "ja": {
-      "name": "プロンプト一覧",
-      "summary": "生成プロンプトを本文抜きで一覧し、ID・名称・契約類型・用途・ソースを付けます。"
-     },
-     "es": {
-      "name": "Listar indicaciones",
-      "summary": "Lista todas las indicaciones de generación sin el cuerpo, con id, nombre, tipo de contrato, propósito y fuente."
-     },
-     "fr": {
-      "name": "Lister les invites",
-      "summary": "Liste toutes les invites de génération sans leur contenu, avec identifiant, nom, type de contrat, usage et source."
-     }
-    },
-    "canonical": {
-     "brief": "List all generation prompts without the content body: [{id, name, contract_type, purpose, source, prompt_type, description, created_at}]."
-    }
-   },
-   "prompt_update": {
-    "human": {
-     "zh": {
-      "name": "更新提示词",
-      "summary": "更新单个提示词的完整记录。"
-     },
-     "en": {
-      "name": "Update a prompt",
-      "summary": "Updates one prompt's full record."
-     },
-     "ja": {
-      "name": "プロンプトを更新",
-      "summary": "1 件のプロンプトのレコード全体を更新します。"
-     },
-     "es": {
-      "name": "Actualizar indicación",
-      "summary": "Actualiza el registro completo de una indicación."
-     },
-     "fr": {
-      "name": "Mettre à jour une invite",
-      "summary": "Met à jour l'enregistrement complet d'une invite."
-     }
-    },
-    "canonical": {
-     "brief": "Update one prompt's full record."
-    }
-   },
-   "rubric_create": {
-    "human": {
-     "zh": {
-      "name": "新建评分标准",
-      "summary": "创建一条本地来源的评分标准，可同时附带评分项。"
-     },
-     "en": {
-      "name": "Create a rubric",
-      "summary": "Creates a local rubric, optionally with criteria."
-     },
-     "ja": {
-      "name": "評価基準を作成",
-      "summary": "ローカル由来の評価基準を作成します。評価項目も同時に指定できます。"
-     },
-     "es": {
-      "name": "Crear criterio de evaluación",
-      "summary": "Crea un criterio de evaluación local, con ítems opcionales."
-     },
-     "fr": {
-      "name": "Créer une grille",
-      "summary": "Crée une grille d'évaluation locale, avec des critères facultatifs."
-     }
-    },
-    "canonical": {
-     "brief": "Create a local rubric with source = 'local' and optional criteria."
-    }
-   },
-   "rubric_delete": {
-    "human": {
-     "zh": {
-      "name": "删除评分标准",
-      "summary": "删除本地评分标准，其评分项按外键级联一并删除。"
-     },
-     "en": {
-      "name": "Delete a rubric",
-      "summary": "Deletes a local rubric; its criteria are removed by the foreign key cascade."
-     },
-     "ja": {
-      "name": "評価基準を削除",
-      "summary": "ローカル評価基準を削除します。評価項目は外部キーの連鎖削除で一緒に消えます。"
-     },
-     "es": {
-      "name": "Eliminar criterio de evaluación",
-      "summary": "Elimina un criterio de evaluación local; sus ítems se borran por la cascada de clave externa."
-     },
-     "fr": {
-      "name": "Supprimer une grille",
-      "summary": "Supprime une grille locale ; ses critères sont supprimés par cascade de clé étrangère."
-     }
-    },
-    "canonical": {
-     "brief": "Delete a local rubric; its criteria cascade via the foreign key ON DELETE CASCADE."
-    }
-   },
-   "rubric_get": {
-    "human": {
-     "zh": {
-      "name": "读取评分标准",
-      "summary": "按名称取回评分标准的元数据与按序排列的评分项。"
-     },
-     "en": {
-      "name": "Read a rubric",
-      "summary": "Fetches a rubric's metadata and ordered criteria by name."
-     },
-     "ja": {
-      "name": "評価基準を取得",
-      "summary": "名称を指定して、評価基準のメタデータと順序付き評価項目を取得します。"
-     },
-     "es": {
-      "name": "Leer criterio de evaluación",
-      "summary": "Obtiene los metadatos de un criterio de evaluación y sus ítems ordenados por nombre."
-     },
-     "fr": {
-      "name": "Lire une grille",
-      "summary": "Récupère les métadonnées d'une grille d'évaluation et ses critères ordonnés, par nom."
-     }
-    },
-    "canonical": {
-     "brief": "Fetch a rubric's metadata and ordered criteria by name."
-    }
-   },
-   "rubric_list": {
-    "human": {
-     "zh": {
-      "name": "列出评分标准",
-      "summary": "列出可用的评判评分标准。"
-     },
-     "en": {
-      "name": "List rubrics",
-      "summary": "Lists the available evaluation rubrics."
-     },
-     "ja": {
-      "name": "評価基準一覧を取得",
-      "summary": "利用できる評価基準を一覧します。"
-     },
-     "es": {
-      "name": "Listar criterios de evaluación",
-      "summary": "Lista los criterios de evaluación disponibles."
-     },
-     "fr": {
-      "name": "Lister les grilles",
-      "summary": "Liste les grilles d'évaluation disponibles."
-     }
-    },
-    "canonical": {
-     "brief": "List available evaluation rubrics."
-    }
-   },
-   "rubric_update": {
-    "human": {
-     "zh": {
-      "name": "更新评分标准",
-      "summary": "更新本地评分标准的名称、上下文与说明，评分项保持不变。"
-     },
-     "en": {
-      "name": "Update a rubric",
-      "summary": "Updates a local rubric's name, context and description; its criteria stay unchanged."
-     },
-     "ja": {
-      "name": "評価基準を更新",
-      "summary": "ローカル評価基準の名称・文脈・説明を更新します。評価項目は変わりません。"
-     },
-     "es": {
-      "name": "Actualizar criterio de evaluación",
-      "summary": "Actualiza nombre, contexto y descripción de un criterio de evaluación local; sus ítems no cambian."
-     },
-     "fr": {
-      "name": "Mettre à jour une grille",
-      "summary": "Met à jour le nom, le contexte et la description d'une grille locale ; ses critères restent inchangés."
-     }
-    },
-    "canonical": {
-     "brief": "Update a local rubric's name, context and description; criteria are untouched."
-    }
-   },
-   "run_draft": {
-    "human": {
-     "zh": {
-      "name": "读取草稿正文",
-      "summary": "按需取回单次运行的草稿正文，并校验该运行属于指定对比。"
-     },
-     "en": {
-      "name": "Read run draft",
-      "summary": "Lazily fetches one run's draft text and verifies the run belongs to the given compare."
-     },
-     "ja": {
-      "name": "草稿本文を取得",
-      "summary": "必要時に 1 件の実行の草稿本文を取得し、その実行が指定の比較に属することを検証します。"
-     },
-     "es": {
-      "name": "Leer borrador",
-      "summary": "Obtiene bajo demanda el texto del borrador de una ejecución y verifica que pertenezca a la comparación indicada."
-     },
-     "fr": {
-      "name": "Lire un brouillon",
-      "summary": "Récupère à la demande le texte du brouillon d'une exécution et vérifie qu'elle appartient à la comparaison indiquée."
-     }
-    },
-    "canonical": {
-     "brief": "Lazily fetch a single run's draft_text by run id, verified to belong to the given compare."
-    }
-   },
-   "run_get": {
-    "human": {
-     "zh": {
-      "name": "读取评判详情",
-      "summary": "按标识取回单次评判的运行级字段与逐评分项结论。"
-     },
-     "en": {
-      "name": "Read evaluation run",
-      "summary": "Fetches one evaluation run's run-level fields plus its per-criterion verdicts."
-     },
-     "ja": {
-      "name": "評価詳細を取得",
-      "summary": "ID を指定して、1 件の評価実行の実行単位項目と評価項目ごとの判定を取得します。"
-     },
-     "es": {
-      "name": "Leer evaluación",
-      "summary": "Obtiene los campos de nivel de ejecución de una evaluación y sus veredictos por ítem."
-     },
-     "fr": {
-      "name": "Lire une évaluation",
-      "summary": "Récupère les champs d'une évaluation et ses verdicts critère par critère."
-     }
-    },
-    "canonical": {
-     "brief": "Fetch one evaluation run by id: run-level fields plus per-criterion verdicts; the counterpart to run_list, which returns run-level fields only."
-    }
-   },
-   "run_list": {
-    "human": {
-     "zh": {
-      "name": "列出评判记录",
-      "summary": "按时间倒序列出近期评判运行。"
-     },
-     "en": {
-      "name": "List evaluation runs",
-      "summary": "Lists recent evaluation runs, most recent first."
-     },
-     "ja": {
-      "name": "評価一覧を取得",
-      "summary": "最近の評価実行を新しい順に一覧します。"
-     },
-     "es": {
-      "name": "Listar evaluaciones",
-      "summary": "Lista las evaluaciones recientes, de la más nueva a la más antigua."
-     },
-     "fr": {
-      "name": "Lister les évaluations",
-      "summary": "Liste les évaluations récentes, de la plus récente à la plus ancienne."
-     }
-    },
-    "canonical": {
-     "brief": "List recent evaluation runs, most recent first, with run-level fields."
-    }
-   },
-   "search_clauses": {
-    "human": {
-     "zh": {
-      "name": "检索条款片段",
-      "summary": "按自然语言查询取回按相关度排序的条款片段。"
-     },
-     "en": {
-      "name": "Search clause chunks",
-      "summary": "Retrieves relevance-ranked clause chunks for a natural-language query."
-     },
-     "ja": {
-      "name": "条項断片を検索",
-      "summary": "自然言語の問い合わせに対し、関連度順の条項チャンクを取得します。"
-     },
-     "es": {
-      "name": "Buscar fragmentos",
-      "summary": "Recupera fragmentos de cláusulas ordenados por relevancia para una consulta en lenguaje natural."
-     },
-     "fr": {
-      "name": "Chercher des fragments",
-      "summary": "Récupère des fragments de clauses classés par pertinence pour une requête en langage naturel."
-     }
-    },
-    "canonical": {
-     "brief": "Retrieve ranked clause chunks for a natural-language query."
-    }
-   },
-   "self_heal_pipeline_run": {
-    "human": {
-     "zh": {
-      "name": "运行自愈流水线",
-      "summary": "一次跑完合同生成、填槽、评判、自检与改进，按次剔除薄条款并记录审核建议；得分居前的迭代被保存。"
-     },
-     "en": {
-      "name": "Run self-heal pipeline",
-      "summary": "Runs generation, slot filling, evaluation, checks and improvement in one pipeline, excluding thin custom clauses per run and recording review suggestions; the top-scoring iteration is stored."
-     },
-     "ja": {
-      "name": "自己修復を実行",
-      "summary": "契約の生成・スロット充填・評価・点検・改善を 1 回のパイプラインで実行し、実行ごとに薄いカスタム条項を除外してレビュー提案を記録します。得点の高い反復が保存されます。"
-     },
-     "es": {
-      "name": "Ejecutar autocorrección",
-      "summary": "Ejecuta generación, llenado, evaluación, comprobación y mejora en un flujo, excluye cláusulas personalizadas endebles por ejecución, registra sugerencias y guarda la iteración con mayor puntuación."
-     },
-     "fr": {
-      "name": "Lancer l'auto-réparation",
-      "summary": "Exécute génération, remplissage, évaluation, contrôle et amélioration dans une chaîne, écarte les clauses personnalisées faibles, consigne des suggestions et conserve l'itération la mieux notée."
-     }
-    },
-    "canonical": {
-     "brief": "Drive a LangGraph pipeline generate -> fill -> evaluate -> check -> (improve) -> store; the improve node excludes thin custom clauses per run via custom_clause_ids and records clause_review recommendations without executing them; the top-scoring iteration is persisted; read-only on clauses."
-    }
-   },
-   "tag_combinations_list": {
-    "human": {
-     "zh": {
-      "name": "枚举标签组合",
-      "summary": "枚举某合同类型的全部有效标签组合，可选附带条款可用性；组合数量过大时给出提示。"
-     },
-     "en": {
-      "name": "Enumerate tag combinations",
-      "summary": "Enumerates all valid tag combinations for a contract type, optionally with clause availability; warns when the count is very large."
-     },
-     "ja": {
-      "name": "タグ組合せを列挙",
-      "summary": "ある契約類型の有効なタグ組み合わせをすべて列挙し、必要なら条項の可用性を付けます。組み合わせが膨大なときは警告します。"
-     },
-     "es": {
-      "name": "Enumerar combinaciones",
-      "summary": "Enumera todas las combinaciones válidas de etiquetas de un tipo de contrato, opcionalmente con disponibilidad de cláusulas; avisa si el número es muy elevado."
-     },
-     "fr": {
-      "name": "Énumérer les combinaisons",
-      "summary": "Énumère toutes les combinaisons d'étiquettes valides d'un type de contrat, avec en option la disponibilité des clauses ; avertit si le nombre est très élevé."
-     }
-    },
-    "canonical": {
-     "brief": "Enumerate all valid tag combinations for a contract type via the Cartesian product of tag dimensions (excluding source), optionally with clause availability metadata; warns when combinations exceed 1000."
-    }
-   },
-   "tag_iteration_apply": {
-    "human": {
-     "zh": {
-      "name": "应用标签调整",
-      "summary": "应用已批准的标签调整并重新评判，得分下降时自动回滚；用数据库咨询锁保证同一时间仅一条执行。"
-     },
-     "en": {
-      "name": "Apply tag changes",
-      "summary": "Applies approved tag changes, re-evaluates them and rolls back automatically if the score drops; a database advisory lock keeps execution serial."
-     },
-     "ja": {
-      "name": "タグ調整を適用",
-      "summary": "承認済みのタグ調整を適用して再評価し、得点が下がれば自動で元に戻します。データベースのアドバイザリロックで同時実行を 1 件に制限します。"
-     },
-     "es": {
-      "name": "Aplicar ajustes",
-      "summary": "Aplica los ajustes de etiqueta aprobados, reevalúa y revierte de forma automática si la puntuación baja; un bloqueo consultivo de base de datos serializa la ejecución."
-     },
-     "fr": {
-      "name": "Appliquer des ajustements",
-      "summary": "Applique les ajustements d'étiquettes approuvés, réévalue et revient automatiquement en arrière si le score baisse ; un verrou consultatif de base de données sérialise l'exécution."
-     }
-    },
-    "canonical": {
-     "brief": "Apply approved tag suggestions from tag_iteration_suggest, then re-evaluate the contract; if the score decreased, automatically roll back to the original tags; a pg_advisory_lock keeps execution to one apply at a time."
-    }
-   },
-   "tag_iteration_suggest": {
-    "human": {
-     "zh": {
-      "name": "建议标签调整",
-      "summary": "分析导致评判失败的条款，给出可能改善后续评判的标签调整建议，如业务场景、立场与强度；不修改数据。"
-     },
-     "en": {
-      "name": "Suggest tag changes",
-      "summary": "Analyses clauses behind evaluation failures and suggests tag changes such as scenario, stance and strength that may improve later evaluations; it writes nothing."
-     },
-     "ja": {
-      "name": "タグ調整を提案",
-      "summary": "評価失敗の原因となった条項を分析し、業務シナリオ・立場・強度などのタグ調整案を提示します。データは変更しません。"
-     },
-     "es": {
-      "name": "Sugerir ajustes",
-      "summary": "Analiza las cláusulas que causaron fallos de evaluación y propone cambios de etiqueta como escenario, postura y fuerza que podrían mejorar evaluaciones futuras; no modifica datos."
-     },
-     "fr": {
-      "name": "Suggérer des ajustements",
-      "summary": "Analyse les clauses à l'origine des échecs d'évaluation et propose des ajustements d'étiquettes (scénario, position, force) susceptibles d'améliorer les évaluations futures ; n'écrit rien."
-     }
-    },
-    "canonical": {
-     "brief": "Drive generate -> fill -> evaluate -> check -> (improve) -> store -> suggest_retag, where an LLM analyses clauses that caused evaluation failures and proposes tag modifications (scenario, stance, strength, etc.); read-only on the clauses table."
-    }
-   },
-   "tag_validate": {
-    "human": {
-     "zh": {
-      "name": "校验标签",
-      "summary": "按受控词表校验标签字典，丢弃未知键并保留业务场景与自由维度；受控维度取值非法时报错并列出允许值。"
-     },
-     "en": {
-      "name": "Validate tags",
-      "summary": "Validates a tag dict against the controlled vocabulary, dropping unknown keys and keeping scenario plus free-form dims; an invalid controlled value raises an error listing the allowed set."
-     },
-     "ja": {
-      "name": "タグを検証",
-      "summary": "統制語彙に対してタグ辞書を検証し、未知のキーを捨てて業務シナリオと自由次元を残します。統制次元の値が不正なら許可値を挙げてエラーにします。"
-     },
-     "es": {
-      "name": "Validar etiquetas",
-      "summary": "Valida etiquetas contra el vocabulario controlado: descarta claves desconocidas, conserva escenario y dimensiones libres, y un valor controlado inválido da error con el conjunto permitido."
-     },
-     "fr": {
-      "name": "Valider les étiquettes",
-      "summary": "Valide des étiquettes selon le vocabulaire contrôlé, écarte les clés inconnues, garde scénario et dimensions libres ; une valeur contrôlée invalide lève une erreur avec l'ensemble autorisé."
-     }
-    },
-    "canonical": {
-     "brief": "Validate a tag dict against the controlled vocabulary: unknown keys are dropped, scenario and free-form dims are kept; an invalid controlled value raises a tool error naming the dimension, the bad value and the allowed set."
-    }
-   },
-   "tag_vocab_list": {
-    "human": {
-     "zh": {
-      "name": "列出标签词表",
-      "summary": "按合同类型返回合并后的扁平标签词表，每个维度给出允许值；不指定类型时只返回通用维度。"
-     },
-     "en": {
-      "name": "List tag vocabulary",
-      "summary": "Returns the merged flat tag vocabulary per contract type with allowed values per dimension; without a type it lists universal dimensions only."
-     },
-     "ja": {
-      "name": "タグ語彙を一覧",
-      "summary": "契約類型ごとに統合したタグ語彙を次元ごとの許可値として返します。類型を指定しない場合は汎用次元のみを返します。"
-     },
-     "es": {
-      "name": "Listar vocabulario",
-      "summary": "Devuelve el vocabulario plano de etiquetas por tipo de contrato, con valores permitidos por dimensión; sin tipo, solo las dimensiones universales."
-     },
-     "fr": {
-      "name": "Lister le vocabulaire",
-      "summary": "Renvoie le vocabulaire plat d'étiquettes par type de contrat, avec les valeurs autorisées par dimension ; sans type, seules les dimensions universelles."
-     }
-    },
-    "canonical": {
-     "brief": "Return {dim: [allowed values]} for every tag dimension valid for the contract type, merging universal dims (stance/strength/risk/mandatory) with type-specific dims from tag_dims; a null contract_type returns only the universal dims."
-    }
-   },
-   "task_failed_items": {
-    "human": {
-     "zh": {
-      "name": "取失败条目",
-      "summary": "取某任务的失败与未完成条目，供分项重跑；全通过时返回空表，部分失败时附迭代说明，批次类任务无法反推条目故返回空表。"
-     },
-     "en": {
-      "name": "List failed task items",
-      "summary": "Returns a task's failed or unfinished items for item-by-item reruns; an all-pass run yields an empty list, a partial failure carries an iteration note, and batch-family runs yield none."
-     },
-     "ja": {
-      "name": "失敗項目を取得",
-      "summary": "タスクの失敗・未完了項目を返し、項目ごとの再実行に使います。全通過なら空、部分失敗なら反復の注記付き、バッチ系は逆算できないため空です。"
-     },
-     "es": {
-      "name": "Listar los ítems fallidos",
-      "summary": "Devuelve los ítems fallidos o sin terminar de una tarea para reejecutarlos uno a uno; si todo pasó la lista va vacía, un fallo parcial lleva nota de iteración y los lotes no permiten derivarlos."
-     },
-     "fr": {
-      "name": "Lister les éléments en échec",
-      "summary": "Renvoie les éléments en échec ou inachevés d'une tâche pour un nouvel essai unitaire ; tout réussi donne une liste vide, un échec partiel porte une note d'itération."
-     }
-    },
-    "canonical": {
-     "brief": "Returns a task's failed or unfinished items for item-by-item reruns; empty on full pass, an iteration hint on partial failure, and an empty list for batch-family handles that cannot be reverse-derived."
-    }
-   },
-   "task_status": {
-    "human": {
-     "zh": {
-      "name": "查任务状态",
-      "summary": "按任务句柄统一查状态与结果；查不到即如实报未找到，批次句柄只作日志关联键时明确报未持久，不编造结果。"
-     },
-     "en": {
-      "name": "Get task status",
-      "summary": "Looks up status and result by task handle across both families; a missing record is reported as not found, and a batch handle that is only a log key is reported as not persisted."
-     },
-     "ja": {
-      "name": "タスク状態を照会",
-      "summary": "両ファミリのハンドルで状態と結果を照会します。見つからなければ未検出と正直に返し、バッチ系でログ相関キーにすぎない場合は未永続と明示します。"
-     },
-     "es": {
-      "name": "Consultar el estado de la tarea",
-      "summary": "Consulta estado y resultado por handle en ambas familias; si no hay registro lo informa como no encontrado y un handle de lote que solo es clave de log se informa como no persistido."
-     },
-     "fr": {
-      "name": "Consulter l'état d'une tâche",
-      "summary": "Interroge état et résultat par handle dans les deux familles ; sans enregistrement, il est déclaré introuvable, et un handle de lot simple clé de journal est déclaré non persisté."
-     }
-    },
-    "canonical": {
-     "brief": "Resolves status and result by task handle for both pipeline and batch families, returning found/status/progress/counts; a batch trace_id that is only a log key is reported unknown_not_persisted, never fabricated."
-    }
-   },
-   "type_metadata": {
-    "human": {
-     "zh": {
-      "name": "读取类型元数据",
-      "summary": "读取单个合同类型的详细元数据。"
-     },
-     "en": {
-      "name": "Read type metadata",
-      "summary": "Returns detailed metadata for one contract type."
-     },
-     "ja": {
-      "name": "類型メタデータを取得",
-      "summary": "1 つの契約類型の詳細メタデータを取得します。"
-     },
-     "es": {
-      "name": "Leer metadatos",
-      "summary": "Obtiene los metadatos detallados de un tipo de contrato."
-     },
-     "fr": {
-      "name": "Lire les métadonnées",
-      "summary": "Récupère les métadonnées détaillées d'un type de contrat."
-     }
-    },
-    "canonical": {
-     "brief": "Get detailed metadata for a single contract type."
-    }
-   },
-   "validation_check": {
-    "human": {
-     "zh": {
-      "name": "校验合同硬限",
-      "summary": "按法律硬性限制约束评判已起草的合同。"
-     },
-     "en": {
-      "name": "Check hard limits",
-      "summary": "Evaluates a drafted contract against legal hard-limit constraints."
-     },
-     "ja": {
-      "name": "法的上限を検証",
-      "summary": "起草済み契約を法的な上限・下限の制約に照らして評価します。"
-     },
-     "es": {
-      "name": "Comprobar límites",
-      "summary": "Evalúa un contrato redactado contra restricciones legales de límite rígido."
-     },
-     "fr": {
-      "name": "Vérifier les limites",
-      "summary": "Évalue un contrat rédigé au regard de contraintes légales à seuil impératif."
-     }
-    },
-    "canonical": {
-     "brief": "Evaluate a drafted contract against legal hard-limit constraints."
-    }
-   },
-   "validation_list": {
-    "human": {
-     "zh": {
-      "name": "列出校验约束",
-      "summary": "列出某合同类型已存储的校验约束。"
-     },
-     "en": {
-      "name": "List validation rules",
-      "summary": "Lists the stored validation constraints for one contract type."
-     },
-     "ja": {
-      "name": "検証制約を一覧",
-      "summary": "ある契約類型に保存された検証制約を一覧します。"
-     },
-     "es": {
-      "name": "Listar restricciones",
-      "summary": "Lista las restricciones de validación guardadas para un tipo de contrato."
-     },
-     "fr": {
-      "name": "Lister les contraintes",
-      "summary": "Liste les contraintes de validation enregistrées pour un type de contrat."
-     }
-    },
-    "canonical": {
-     "brief": "List stored validation constraints for a contract type."
-    }
-   },
-   "domain_context": {
-    "human": {
-     "zh": {
-      "name": "域上下文",
-      "summary": "这个域的控制台此刻会告诉你的东西：状态、待办、最近一次上线记录。"
-     },
-     "en": {
-      "name": "Domain context",
-      "summary": "What this domain's own console would tell you right now: state, pending work, latest release."
-     },
-     "ja": {
-      "name": "ドメイン文脈",
-      "summary": "このドメインのコンソールが今示す内容：状態、未処理、最新リリース。"
-     },
-     "es": {
-      "name": "Contexto del dominio",
-      "summary": "Lo que la consola del dominio mostraría ahora: estado, trabajo pendiente, última publicación."
-     },
-     "fr": {
-      "name": "Contexte du domaine",
-      "summary": "Ce que la console du domaine afficherait à l'instant : état, travail en attente, dernière publication."
-     }
-    },
-    "canonical": {
-     "brief": "What this domain's own console would tell you right now: state, pending work, latest release."
-    }
-   },
-   "domain_list": {
-    "human": {
-     "zh": {
-      "name": "列出可用域",
-      "summary": "列出某人可在其中工作的域。"
-     },
-     "en": {
-      "name": "List domains",
-      "summary": "Lists the domains a person can work in."
-     },
-     "ja": {
-      "name": "利用可能なドメイン",
-      "summary": "ある人が作業できるドメインを一覧します。"
-     },
-     "es": {
-      "name": "Listar dominios",
-      "summary": "Enumera los dominios en los que una persona puede trabajar."
-     },
-     "fr": {
-      "name": "Lister les domaines",
-      "summary": "Énumère les domaines dans lesquels une personne peut travailler."
-     }
-    },
-    "canonical": {
-     "brief": "Lists the domains a person can work in."
-    }
-   },
-   "domain_proposals": {
-    "human": {
-     "zh": {
-      "name": "域提案收件箱",
-      "summary": "本域待人工裁定的提案草稿。"
-     },
-     "en": {
-      "name": "Domain proposal inbox",
-      "summary": "This domain's proposal inbox — drafts awaiting a human decision."
-     },
-     "ja": {
-      "name": "ドメイン提案の受信箱",
-      "summary": "本ドメインで人の判断待ちの提案草稿です。"
-     },
-     "es": {
-      "name": "Bandeja de propuestas",
-      "summary": "La bandeja de propuestas del dominio: borradores a la espera de decisión humana."
-     },
-     "fr": {
-      "name": "Boîte des propositions",
-      "summary": "La boîte de propositions du domaine : brouillons en attente de décision humaine."
-     }
-    },
-    "canonical": {
-     "brief": "This domain's proposal inbox — drafts awaiting a human decision."
-    }
-   },
-   "domain_proposal_get": {
-    "human": {
-     "zh": {
-      "name": "取提案详情",
-      "summary": "完整查看一条提案及其事件轨迹。"
-     },
-     "en": {
-      "name": "Get a proposal",
-      "summary": "Shows one proposal in full plus its event trail."
-     },
-     "ja": {
-      "name": "提案の詳細",
-      "summary": "1 件の提案を全文とイベント履歴つきで表示します。"
-     },
-     "es": {
-      "name": "Obtener una propuesta",
-      "summary": "Muestra una propuesta completa y su rastro de eventos."
-     },
-     "fr": {
-      "name": "Obtenir une proposition",
-      "summary": "Affiche une proposition en entier avec sa trace d'événements."
-     }
-    },
-    "canonical": {
-     "brief": "Shows one proposal in full plus its event trail."
-    }
-   },
-   "domain_proposal_confirm": {
-    "human": {
-     "zh": {
-      "name": "确认提案",
-      "summary": "代表 actor 把一条提案确认进本体（产出 silver）。"
-     },
-     "en": {
-      "name": "Confirm a proposal",
-      "summary": "Confirms one proposal into the ontology on behalf of the actor (produces silver)."
-     },
-     "ja": {
-      "name": "提案を確認",
-      "summary": "actor に代わって提案を 1 件オントロジーに確認します（silver を生成）。"
-     },
-     "es": {
-      "name": "Confirmar una propuesta",
-      "summary": "Confirma una propuesta en la ontología en nombre del actor (produce silver)."
-     },
-     "fr": {
-      "name": "Confirmer une proposition",
-      "summary": "Confirme une proposition dans l'ontologie au nom de l'acteur (produit silver)."
-     }
-    },
-    "canonical": {
-     "brief": "Confirms one proposal into the ontology on behalf of the actor (produces silver)."
-    }
-   },
-   "domain_units": {
-    "human": {
-     "zh": {
-      "name": "列出知识单元",
-      "summary": "列出本域的知识单元。"
-     },
-     "en": {
-      "name": "List knowledge units",
-      "summary": "Lists this domain's knowledge units."
-     },
-     "ja": {
-      "name": "知識単位を一覧",
-      "summary": "本ドメインの知識単位を一覧します。"
-     },
-     "es": {
-      "name": "Listar unidades",
-      "summary": "Enumera las unidades de conocimiento del dominio."
-     },
-     "fr": {
-      "name": "Lister les unités",
-      "summary": "Énumère les unités de connaissance du domaine."
-     }
-    },
-    "canonical": {
-     "brief": "Lists this domain's knowledge units."
-    }
-   },
-   "domain_unit_checks": {
-    "human": {
-     "zh": {
-      "name": "单元机器判定",
-      "summary": "对某一知识单元按当前正文算出的机器判定。"
-     },
-     "en": {
-      "name": "Unit machine verdicts",
-      "summary": "The machine verdicts on one unit, computed against its current body."
-     },
-     "ja": {
-      "name": "単位の機械判定",
-      "summary": "ある知識単位について、現在の本文に対して算出された機械判定です。"
-     },
-     "es": {
-      "name": "Veredictos de unidad",
-      "summary": "Los veredictos automáticos de una unidad, calculados sobre su cuerpo actual."
-     },
-     "fr": {
-      "name": "Verdicts d'unité",
-      "summary": "Les verdicts automatiques d'une unité, calculés sur son corps actuel."
-     }
-    },
-    "canonical": {
-     "brief": "The machine verdicts on one unit, computed against its current body."
-    }
-   },
-   "domain_unit_promote": {
-    "human": {
-     "zh": {
-      "name": "升一格",
-      "summary": "代表 actor 把一个知识单元沿升格梯上移一格（到 silver 为止，gold 需人签）。"
-     },
-     "en": {
-      "name": "Promote a unit",
-      "summary": "Moves one unit up one step of the ladder on behalf of the actor (up to silver; gold needs a human signature)."
-     },
-     "ja": {
-      "name": "1 段昇格",
-      "summary": "actor に代わって知識単位を昇格梯で 1 段上げます（silver まで、gold は人の署名が必要）。"
-     },
-     "es": {
-      "name": "Ascender una unidad",
-      "summary": "Sube una unidad un peldaño en nombre del actor (hasta silver; gold requiere firma humana)."
-     },
-     "fr": {
-      "name": "Promouvoir une unité",
-      "summary": "Fait monter une unité d'un échelon au nom de l'acteur (jusqu'à silver ; gold exige une signature humaine)."
-     }
-    },
-    "canonical": {
-     "brief": "Moves one unit up one step of the ladder on behalf of the actor (up to silver; gold needs a human signature)."
-    }
-   },
-   "ruler_list": {
-    "human": {
-     "zh": {
-      "name": "列出尺子",
-      "summary": "列出对本域可见的全部评分尺（最近的定义优先）。"
-     },
-     "en": {
-      "name": "List rulers",
-      "summary": "Every rubric visible to this domain, nearest definition winning."
-     },
-     "ja": {
-      "name": "尺子を一覧",
-      "summary": "本ドメインに可視の全評価尺を一覧します（最も近い定義が優先）。"
-     },
-     "es": {
-      "name": "Listar reglas de medida",
-      "summary": "Todas las rúbricas visibles para el dominio, ganando la definición más cercana."
-     },
-     "fr": {
-      "name": "Lister les règles",
-      "summary": "Toutes les grilles visibles pour le domaine, la définition la plus proche l'emportant."
-     }
-    },
-    "canonical": {
-     "brief": "Every rubric visible to this domain, nearest definition winning."
-    }
-   },
-   "ruler_criteria": {
-    "human": {
-     "zh": {
-      "name": "取尺子判据",
-      "summary": "按顺序取某把尺子的全部判据。"
-     },
-     "en": {
-      "name": "Ruler criteria",
-      "summary": "One ruler's criteria, in order."
-     },
-     "ja": {
-      "name": "尺子の判定基準",
-      "summary": "ある尺子の全判定基準を順番に返します。"
-     },
-     "es": {
-      "name": "Criterios de la regla",
-      "summary": "Los criterios de una regla, en orden."
-     },
-     "fr": {
-      "name": "Critères de la grille",
-      "summary": "Les critères d'une grille, dans l'ordre."
-     }
-    },
-    "canonical": {
-     "brief": "One ruler's criteria, in order."
+  "version": 1,
+  "server": "law-bench",
+  "annotation": {
+    "human": {
+      "zh": {
+        "name": "合同与法规工作台",
+        "summary": "合同装配、条款读取与评审、法条引用与验证，另含内部评测与语料治理工具。",
+        "whenToUse": "做合同评审、条款核对或法条引用验证时。"
+      },
+      "en": {
+        "name": "Contract & statute workbench",
+        "summary": "Contract assembly, clause reading and review, statutory citation checks, plus internal evaluation and corpus tools.",
+        "whenToUse": "For contract review, clause checks, or verifying statutory citations."
+      },
+      "ja": {
+        "name": "契約・法令ワークベンチ",
+        "summary": "契約の組み立て、条項の読み取りとレビュー、法令引用の検証に加え、内部評価とコーパス管理のツールを提供します。",
+        "whenToUse": "契約レビュー、条項確認、法令引用の検証を行うとき。"
+      },
+      "es": {
+        "name": "Banco de trabajo contractual y normativo",
+        "summary": "Montaje de contratos, lectura y revisión de cláusulas, verificación de citas normativas y herramientas internas de evaluación y corpus.",
+        "whenToUse": "Para revisar contratos, comprobar cláusulas o verificar citas normativas."
+      },
+      "fr": {
+        "name": "Atelier contrats et textes légaux",
+        "summary": "Assemblage de contrats, lecture et revue de clauses, vérification des citations légales, plus des outils internes d'évaluation et de corpus.",
+        "whenToUse": "Pour réviser un contrat, contrôler une clause ou vérifier une citation légale."
+      }
+    },
+    "canonical": {
+      "brief": "Contract/statute workbench MCP: assembly, clause read/review, statutory citation verification; internal eval and corpus tools are not part of the commercial surface."
+    },
+    "tools": {
+      "agent_run_get": {
+        "human": {
+          "zh": {
+            "name": "读取运行记录",
+            "summary": "按标识取回一条完整的智能体运行记录，不存在时返回空。"
+          },
+          "en": {
+            "name": "Read a run record",
+            "summary": "Gets one full agent run row by id, returning nothing when absent."
+          },
+          "ja": {
+            "name": "実行記録を取得",
+            "summary": "ID を指定してエージェント実行レコードを 1 件全体取得し、存在しなければ空を返します。"
+          },
+          "es": {
+            "name": "Leer ejecución",
+            "summary": "Obtiene una fila completa de ejecución del agente por id y devuelve vacío si no existe."
+          },
+          "fr": {
+            "name": "Lire une exécution",
+            "summary": "Récupère une ligne complète d'exécution d'agent par identifiant et renvoie vide si elle est absente."
+          }
+        },
+        "canonical": {
+          "brief": "Get one agent_runs row in full by id, returning all columns, or None when absent."
+        }
+      },
+      "agent_run_list": {
+        "human": {
+          "zh": {
+            "name": "列出运行记录",
+            "summary": "按时间列出近期智能体运行记录，只含标识、合同类型、槽位与耗时等摘要字段。"
+          },
+          "en": {
+            "name": "List run records",
+            "summary": "Lists recent agent run rows with summary fields only, such as id, contract type, slots and duration."
+          },
+          "ja": {
+            "name": "実行記録を一覧",
+            "summary": "最近のエージェント実行レコードを要約項目のみで一覧します。ID・契約類型・スロット・所要時間などです。"
+          },
+          "es": {
+            "name": "Listar ejecuciones",
+            "summary": "Lista las ejecuciones recientes del agente con campos resumidos: id, tipo de contrato, ranuras y duración."
+          },
+          "fr": {
+            "name": "Lister les exécutions",
+            "summary": "Liste les exécutions récentes d'agent avec les seuls champs de synthèse : identifiant, type de contrat, emplacements et durée."
+          }
+        },
+        "canonical": {
+          "brief": "List recent agent_runs rows with summary fields only: [{id, thread_id, contract_type, task_desc, total_slots, human_filled_slots, eval_run_id, total_duration, created_at}]."
+        }
+      },
+      "agent_run_store": {
+        "human": {
+          "zh": {
+            "name": "写入运行指标",
+            "summary": "把智能体运行的计时、令牌用量、评审建议、槽位覆盖度与评判关联写入运行记录表。"
+          },
+          "en": {
+            "name": "Store run metrics",
+            "summary": "Stores an agent run's timing, token usage, reviewer suggestions, slot coverage and evaluation linkage in the agent run table."
+          },
+          "ja": {
+            "name": "実行指標を保存",
+            "summary": "エージェント実行の所要時間・トークン使用量・レビュー提案・スロット網羅率・評価との紐付けを実行テーブルへ書き込みます。"
+          },
+          "es": {
+            "name": "Guardar métricas",
+            "summary": "Guarda en la tabla de ejecuciones del agente los tiempos, el uso de tokens, las sugerencias de revisión, la cobertura de ranuras y el vínculo de evaluación."
+          },
+          "fr": {
+            "name": "Enregistrer les métriques",
+            "summary": "Enregistre dans la table des exécutions d'agent les durées, l'usage de jetons, les suggestions de révision, la couverture des emplacements et le lien d'évaluation."
+          }
+        },
+        "canonical": {
+          "brief": "Store an agent run's metrics into the agent_runs table: timing, token usage, reviewer suggestions, slot coverage and evaluation linkage, as called by the review agent at the end of a run."
+        }
+      },
+      "auto_reject_pipeline_run": {
+        "human": {
+          "zh": {
+            "name": "运行自动剔除",
+            "summary": "在自愈流程后追加学习步，汇总本次与近期历史的审核建议，把达到拒绝阈值的自定义条款标为退回；底稿与标签条款不受影响。"
+          },
+          "en": {
+            "name": "Run auto-reject pipeline",
+            "summary": "Adds a learn step after self-healing that aggregates review suggestions from this and recent runs and rejects custom clauses at the threshold, leaving base and tagged clauses untouched."
+          },
+          "ja": {
+            "name": "自動除外を実行",
+            "summary": "自己修復の後に学習ステップを加え、今回と最近の履歴のレビュー提案を集約し、却下しきい値に達したカスタム条項を却下にします。基本条項とタグ付き条項は変更しません。"
+          },
+          "es": {
+            "name": "Ejecutar descarte automático",
+            "summary": "Tras la autocorrección añade un paso que agrega sugerencias de revisión de esta y recientes ejecuciones y rechaza las cláusulas personalizadas que alcanzan el umbral, sin tocar base ni etiquetadas."
+          },
+          "fr": {
+            "name": "Lancer le rejet automatique",
+            "summary": "Ajoute après l'auto-réparation une étape qui agrège les suggestions récentes et rejette les clauses personnalisées atteignant le seuil, sans toucher aux clauses de base ni étiquetées."
+          }
+        },
+        "canonical": {
+          "brief": "Drive generate -> fill -> evaluate -> check -> (improve) -> store -> learn; learn aggregates clause_review recommendations from current and recent runs, and any custom clause reaching AUTO_REJECT_THRESHOLD (default 3) is rejected via bulk_review; base and tagged clauses are never touched."
+        }
+      },
+      "clause_delete": {
+        "human": {
+          "zh": {
+            "name": "删除条款",
+            "summary": "按标识删除单条条款。"
+          },
+          "en": {
+            "name": "Delete a clause",
+            "summary": "Deletes one clause by id."
+          },
+          "ja": {
+            "name": "条項を削除",
+            "summary": "ID を指定して 1 条項を削除します。"
+          },
+          "es": {
+            "name": "Eliminar cláusula",
+            "summary": "Elimina una cláusula por su id."
+          },
+          "fr": {
+            "name": "Supprimer une clause",
+            "summary": "Supprime une clause par son identifiant."
+          }
+        },
+        "canonical": {
+          "brief": "Delete one clause by id."
+        }
+      },
+      "clause_get": {
+        "human": {
+          "zh": {
+            "name": "读取条款",
+            "summary": "按标识取回单条条款，来源可为底稿、标签或自定义。"
+          },
+          "en": {
+            "name": "Read a clause",
+            "summary": "Fetches one clause by id from any source: base, tagged or custom."
+          },
+          "ja": {
+            "name": "条項を取得",
+            "summary": "ID を指定して 1 条項を取得します。出所は基本・タグ付き・カスタムのいずれでも構いません。"
+          },
+          "es": {
+            "name": "Leer cláusula",
+            "summary": "Obtiene una cláusula por id de cualquier origen: base, etiquetada o personalizada."
+          },
+          "fr": {
+            "name": "Lire une clause",
+            "summary": "Récupère une clause par identifiant, quelle que soit son origine : de base, étiquetée ou personnalisée."
+          }
+        },
+        "canonical": {
+          "brief": "Fetch one clause by id from any source: base, tagged or custom."
+        }
+      },
+      "clause_list": {
+        "human": {
+          "zh": {
+            "name": "列出条款",
+            "summary": "从条款表按条件筛选并排序返回条款列表。"
+          },
+          "en": {
+            "name": "List clauses",
+            "summary": "Lists clauses from the clauses table with filtering and ordering applied."
+          },
+          "ja": {
+            "name": "条項一覧を取得",
+            "summary": "条項テーブルから条件で絞り込み、並べ替えた条項一覧を返します。"
+          },
+          "es": {
+            "name": "Listar cláusulas",
+            "summary": "Lista cláusulas de la tabla de cláusulas con filtros y orden aplicados."
+          },
+          "fr": {
+            "name": "Lister les clauses",
+            "summary": "Liste les clauses de la table des clauses avec filtrage et tri appliqués."
+          }
+        },
+        "canonical": {
+          "brief": "List rows from the clauses table with filtering and ordering applied."
+        }
+      },
+      "clause_review": {
+        "human": {
+          "zh": {
+            "name": "批量审条款",
+            "summary": "把某条款所有标签维度一次性设为同一审核状态，用于批量通过或退回；任一维度未通过即不参与组装。"
+          },
+          "en": {
+            "name": "Review clause tags",
+            "summary": "Sets every tag dimension of one clause to a single review status for bulk approve or reject; a clause joins assembly only when all dimensions are approved."
+          },
+          "ja": {
+            "name": "条項タグを一括審査",
+            "summary": "1 条項の全タグ次元を同じレビュー状態に一括設定し、まとめて承認または却下します。全次元が承認済みのときだけ組み立てに使われます。"
+          },
+          "es": {
+            "name": "Revisar etiquetas",
+            "summary": "Fija todas las dimensiones de etiqueta de una cláusula en un mismo estado de revisión para aprobar o rechazar en bloque; solo se ensambla si todas están aprobadas."
+          },
+          "fr": {
+            "name": "Réviser les étiquettes",
+            "summary": "Fixe toutes les dimensions d'étiquette d'une clause au même statut de révision pour approuver ou rejeter en lot ; la clause n'entre dans l'assemblage que si toutes sont approuvées."
+          }
+        },
+        "canonical": {
+          "brief": "Set all of a clause's tag dimensions to one review status (bulk approve/reject); a clause is assembly-ready only when every dimension is approved, and rejected or pending excludes it from assembly without deleting it."
+        }
+      },
+      "clause_update": {
+        "human": {
+          "zh": {
+            "name": "修改条款",
+            "summary": "按标识改写条款正文、章节或标签，仅写入传入字段，并重新推导正文哈希、槽位指令与法条引用；条目被标记为手工修改。"
+          },
+          "en": {
+            "name": "Update a clause",
+            "summary": "Updates a clause's body, section or tags by id, writes only supplied fields, re-derives hash, slot instructions and law references, and marks it manually edited."
+          },
+          "ja": {
+            "name": "条項を更新",
+            "summary": "ID を指定して条項の本文・節・タグを更新します。渡した項目だけを書き込み、本文ハッシュ・スロット指示・法令参照を再計算し、手動編集として記録します。"
+          },
+          "es": {
+            "name": "Actualizar cláusula",
+            "summary": "Actualiza cuerpo, sección o etiquetas de una cláusula por id, escribe solo los campos enviados, recalcula hash, instrucciones de ranura y referencias legales, y la marca como edición manual."
+          },
+          "fr": {
+            "name": "Modifier une clause",
+            "summary": "Met à jour corps, section ou étiquettes d'une clause par identifiant, n'écrit que les champs fournis, recalcule empreinte, consignes d'emplacement et références légales et la marque manuelle."
+          }
+        },
+        "canonical": {
+          "brief": "Update a clause by id (body/section/tags); only passed parameters are written and omitted fields keep current values; body_hash, slot_instructions and law_refs are re-derived and the clause is marked manual=true; unknown id raises a tool error."
+        }
+      },
+      "compare_get": {
+        "human": {
+          "zh": {
+            "name": "读取对比详情",
+            "summary": "按标识取回一次对比的完整分组结果。"
+          },
+          "en": {
+            "name": "Read compare",
+            "summary": "Fetches the full grouped result of one compare by id."
+          },
+          "ja": {
+            "name": "比較詳細を取得",
+            "summary": "ID を指定して、1 件の比較の完全なグループ結果を取得します。"
+          },
+          "es": {
+            "name": "Leer comparación",
+            "summary": "Obtiene el resultado agrupado completo de una comparación por su id."
+          },
+          "fr": {
+            "name": "Lire une comparaison",
+            "summary": "Récupère le résultat groupé complet d'une comparaison par son identifiant."
+          }
+        },
+        "canonical": {
+          "brief": "Fetch the full grouped result of one compare by id."
+        }
+      },
+      "compare_list": {
+        "human": {
+          "zh": {
+            "name": "列出对比记录",
+            "summary": "按时间倒序列出近期对比运行，只含对比级字段，如标识、标签、合同类型、评分标准与草稿数。"
+          },
+          "en": {
+            "name": "List compare runs",
+            "summary": "Lists recent compare runs newest first with compare-level fields only, such as id, label, contract type, rubric and draft count."
+          },
+          "ja": {
+            "name": "比較一覧を取得",
+            "summary": "最近の比較実行を新しい順に一覧します。ID、ラベル、契約類型、評価基準、草稿数など比較単位の項目のみを含みます。"
+          },
+          "es": {
+            "name": "Listar comparaciones",
+            "summary": "Lista las comparaciones recientes de la más nueva a la más antigua, solo con campos de nivel de comparación: id, etiqueta, tipo de contrato, criterio de evaluación y número de borradores."
+          },
+          "fr": {
+            "name": "Lister les comparaisons",
+            "summary": "Liste les comparaisons récentes, de la plus récente à la plus ancienne, avec les seuls champs de niveau comparaison : identifiant, libellé, type de contrat, grille et nombre de brouillons."
+          }
+        },
+        "canonical": {
+          "brief": "List recent compare runs newest first, compare-level fields only: [{id, label, contract_type, rubric_name, task_desc, gen_mode, n_drafts, created_at}]."
+        }
+      },
+      "compare_matrix": {
+        "human": {
+          "zh": {
+            "name": "生成对比矩阵",
+            "summary": "一次调用取回某次对比的「评分项 × 提示词」矩阵；单草稿时为判定，多草稿时为通过率。"
+          },
+          "en": {
+            "name": "Get compare matrix",
+            "summary": "Fetches a compare's criteria by prompts matrix in one call: binary verdicts with one draft, pass rates with several."
+          },
+          "ja": {
+            "name": "比較行列を取得",
+            "summary": "1 回の呼び出しで、比較の「評価項目 × プロンプト」行列を取得します。草稿が 1 件なら合否、複数なら通過率になります。"
+          },
+          "es": {
+            "name": "Obtener matriz",
+            "summary": "Obtiene en una llamada la matriz de ítems por indicaciones: veredictos binarios con un borrador y tasas de aprobación con varios."
+          },
+          "fr": {
+            "name": "Obtenir la matrice",
+            "summary": "Récupère en un appel la matrice critères par invites : verdicts binaires avec un brouillon, taux de réussite avec plusieurs."
+          }
+        },
+        "canonical": {
+          "brief": "Fetch a compare's criteria x prompts matrix in one call, equivalent to build_matrix(get_compare(compare_id)); cells are binary verdicts when n_drafts == 1 and k/N pass rates when n_drafts > 1."
+        }
+      },
+      "compare_run": {
+        "human": {
+          "zh": {
+            "name": "对比多提示词",
+            "summary": "对每个提示词按指定评分标准生成若干草稿并逐份评判，结果归入同一条对比记录。"
+          },
+          "en": {
+            "name": "Run prompt comparison",
+            "summary": "Drafts several variants per named prompt, judges each against the named rubric, and groups all runs under one compare record."
+          },
+          "ja": {
+            "name": "プロンプト比較を実行",
+            "summary": "指定した各プロンプトについて草稿を複数生成し、評価基準ごとに判定して、すべての実行を 1 件の比較記録にまとめます。"
+          },
+          "es": {
+            "name": "Ejecutar comparación",
+            "summary": "Genera varios borradores por cada indicación, los evalúa contra el criterio de evaluación indicado y agrupa todas las ejecuciones en un registro de comparación."
+          },
+          "fr": {
+            "name": "Lancer une comparaison",
+            "summary": "Génère plusieurs brouillons par invite, les évalue selon la grille indiquée et regroupe toutes les exécutions dans une comparaison."
+          }
+        },
+        "canonical": {
+          "brief": "Grouped comparison: for each prompt name resolve the prompt record, generate n_drafts drafter-only drafts, judge each against rubric_name, and persist all runs under one compare_runs row."
+        }
+      },
+      "contract_content": {
+        "human": {
+          "zh": {
+            "name": "返回合同内容",
+            "summary": "返回组装后的合同内容，支持 Markdown 或 JSON，不落盘。"
+          },
+          "en": {
+            "name": "Return contract content",
+            "summary": "Returns assembled contract content as markdown or JSON without writing files."
+          },
+          "ja": {
+            "name": "契約内容を返す",
+            "summary": "組み立て済みの契約内容を Markdown または JSON で返します。ファイルには書き出しません。"
+          },
+          "es": {
+            "name": "Devolver contenido",
+            "summary": "Devuelve el contenido ensamblado del contrato en Markdown o JSON sin escribir archivos."
+          },
+          "fr": {
+            "name": "Renvoyer le contenu",
+            "summary": "Renvoie le contenu assemblé du contrat en markdown ou JSON sans écrire de fichier."
+          }
+        },
+        "canonical": {
+          "brief": "Return assembled contract content as markdown or JSON without any file I/O."
+        }
+      },
+      "contract_download": {
+        "human": {
+          "zh": {
+            "name": "获取合同下载",
+            "summary": "读取已存储合同产物的元数据与下载地址，不重新生成；文件字节由调用方通过 HTTP 获取。"
+          },
+          "en": {
+            "name": "Get contract download",
+            "summary": "Fetches a stored contract artifact's metadata and download URLs without regenerating; the caller downloads the bytes over HTTP."
+          },
+          "ja": {
+            "name": "契約の下載情報を取得",
+            "summary": "保存済み契約成果物のメタデータとダウンロード URL を、再生成せずに取得します。ファイル本体は呼び出し側が HTTP で取得します。"
+          },
+          "es": {
+            "name": "Obtener descarga",
+            "summary": "Obtiene los metadatos y las URL de descarga de un artefacto de contrato guardado sin regenerarlo; el llamador descarga los bytes por HTTP."
+          },
+          "fr": {
+            "name": "Obtenir le téléchargement",
+            "summary": "Récupère les métadonnées et les URL de téléchargement d'un artefact de contrat stocké sans le régénérer ; l'appelant télécharge les octets via HTTP."
+          }
+        },
+        "canonical": {
+          "brief": "Fetch a stored contract artifact's metadata and download URL(s) without regenerating; it reads the previously stored contract_artifacts row and the agent fetches the file bytes over HTTP."
+        }
+      },
+      "contract_evaluate": {
+        "human": {
+          "zh": {
+            "name": "评判合同",
+            "summary": "用大模型按指定评分标准对已起草合同逐项评判。"
+          },
+          "en": {
+            "name": "Evaluate contract",
+            "summary": "Judges a drafted contract against a named rubric with an LLM judge."
+          },
+          "ja": {
+            "name": "契約を評価",
+            "summary": "大規模言語モデルの判定で、起草済み契約を指定の評価基準に照らして項目ごとに評価します。"
+          },
+          "es": {
+            "name": "Evaluar contrato",
+            "summary": "Evalúa un contrato redactado contra un criterio de evaluación indicado mediante un juez de modelo de lenguaje."
+          },
+          "fr": {
+            "name": "Évaluer un contrat",
+            "summary": "Évalue un contrat rédigé selon une grille indiquée au moyen d'un juge fondé sur un modèle de langage."
+          }
+        },
+        "canonical": {
+          "brief": "Evaluate a drafted contract against a named rubric using an LLM judge."
+        }
+      },
+      "contract_generate": {
+        "human": {
+          "zh": {
+            "name": "生成合同",
+            "summary": "为合同类别生成 DOCX/PDF 交付件，默认套用注册母版；给出立场或业务场景时按底稿、标签与自定义条款组装。"
+          },
+          "en": {
+            "name": "Generate contract",
+            "summary": "Generates a DOCX or PDF deliverable for a contract class, rendering the registered master template by default or assembling base, tagged and custom clauses when stance or scenario is given."
+          },
+          "ja": {
+            "name": "契約を生成",
+            "summary": "契約類型の DOCX/PDF 納品物を生成します。既定では登録済みのマスターテンプレートを使い、立場や業務シナリオが指定されると基本・タグ付き・カスタム条項を組み立てます。"
+          },
+          "es": {
+            "name": "Generar contrato",
+            "summary": "Genera un entregable DOCX o PDF para un tipo de contrato; por omisión usa la plantilla maestra registrada y, con postura o escenario, ensambla cláusulas base, etiquetadas y personalizadas."
+          },
+          "fr": {
+            "name": "Générer un contrat",
+            "summary": "Génère un livrable DOCX ou PDF pour une classe de contrat ; par défaut il rend le modèle maître, et avec une position ou un scénario assemble clauses de base, étiquetées et personnalisées."
+          }
+        },
+        "canonical": {
+          "brief": "Generate a contract deliverable (DOCX/PDF); default renders the registered master template; with stance and/or tags carrying stance or scenario, assembles base + tagged + custom clauses, filtering custom by stance (pro_a/pro_b/balanced) and tagged by scenario; region/province keys are ignored."
+        }
+      },
+      "contract_generate_batch": {
+        "human": {
+          "zh": {
+            "name": "批量生成合同",
+            "summary": "按不同标签组合并行生成多份合同。"
+          },
+          "en": {
+            "name": "Batch generate contracts",
+            "summary": "Generates several contracts in parallel across different tag combinations."
+          },
+          "ja": {
+            "name": "契約を一括生成",
+            "summary": "異なるタグ組み合わせで複数の契約を並行して生成します。"
+          },
+          "es": {
+            "name": "Generar por lote",
+            "summary": "Genera varios contratos en paralelo con distintas combinaciones de etiquetas."
+          },
+          "fr": {
+            "name": "Générer en lot",
+            "summary": "Génère plusieurs contrats en parallèle selon différentes combinaisons d'étiquettes."
+          }
+        },
+        "canonical": {
+          "brief": "Generate multiple contracts in parallel across different tag combinations."
+        }
+      },
+      "contract_generate_stored": {
+        "human": {
+          "zh": {
+            "name": "生成并存储合同",
+            "summary": "生成合同交付件并上传对象存储，记录产物行以便日后直接下载；相同输入按正文摘要复用同一产物，缺少的格式会补齐。"
+          },
+          "en": {
+            "name": "Generate and store contract",
+            "summary": "Generates a contract deliverable, uploads it to object storage and records an artifact row for later download; identical inputs reuse the artifact by body digest and missing formats are filled in."
+          },
+          "ja": {
+            "name": "契約を生成して保存",
+            "summary": "契約納品物を生成してオブジェクトストレージへ上げ、後から再取得できるよう成果物の行を記録します。同一入力は本文ダイジェストで同じ成果物を再利用し、不足形式は補完します。"
+          },
+          "es": {
+            "name": "Generar y guardar",
+            "summary": "Genera el entregable, lo sube al almacenamiento de objetos y registra un artefacto descargable; entradas idénticas reutilizan el artefacto por resumen del cuerpo y se completan formatos faltantes."
+          },
+          "fr": {
+            "name": "Générer et stocker",
+            "summary": "Génère le livrable, téléverse en stockage objet et enregistre un artefact téléchargeable ; des entrées identiques réutilisent l'artefact via l'empreinte du corps, les formats manquants sont ajoutés."
+          }
+        },
+        "canonical": {
+          "brief": "Generate a contract deliverable (DOCX/PDF), upload it to MinIO and record a contract_artifacts row for re-download without regenerating; content-addressed by md5(body_text) so identical inputs reuse the artifact (reused: true) and missing formats are filled in."
+        }
+      },
+      "contract_type_catalog": {
+        "human": {
+          "zh": {
+            "name": "列出合同类型",
+            "summary": "列出支持的全部合同类型及其元数据。"
+          },
+          "en": {
+            "name": "List contract types",
+            "summary": "Lists all supported contract types with their metadata."
+          },
+          "ja": {
+            "name": "契約類型を一覧",
+            "summary": "対応する契約類型をすべてメタデータ付きで一覧します。"
+          },
+          "es": {
+            "name": "Listar tipos",
+            "summary": "Lista todos los tipos de contrato admitidos con sus metadatos."
+          },
+          "fr": {
+            "name": "Lister les types",
+            "summary": "Liste tous les types de contrat pris en charge avec leurs métadonnées."
+          }
+        },
+        "canonical": {
+          "brief": "List all supported contract types with metadata."
+        }
+      },
+      "criterion_add": {
+        "human": {
+          "zh": {
+            "name": "追加评分项",
+            "summary": "在本地评分标准末尾按下一序号追加一个评分项。"
+          },
+          "en": {
+            "name": "Add a criterion",
+            "summary": "Appends a criterion to a local rubric at the next ordinal."
+          },
+          "ja": {
+            "name": "評価項目を追加",
+            "summary": "ローカル評価基準の末尾に次の順序番号で評価項目を追加します。"
+          },
+          "es": {
+            "name": "Añadir ítem",
+            "summary": "Añade un ítem a un criterio de evaluación local con el siguiente ordinal."
+          },
+          "fr": {
+            "name": "Ajouter un critère",
+            "summary": "Ajoute un critère à une grille locale au numéro d'ordre suivant."
+          }
+        },
+        "canonical": {
+          "brief": "Append a criterion to a local rubric at the next ordinal."
+        }
+      },
+      "criterion_delete": {
+        "human": {
+          "zh": {
+            "name": "删除评分项",
+            "summary": "从本地评分标准删除一个评分项，并重排其余项的序号。"
+          },
+          "en": {
+            "name": "Delete a criterion",
+            "summary": "Deletes a criterion from a local rubric and renumbers the remaining ones."
+          },
+          "ja": {
+            "name": "評価項目を削除",
+            "summary": "ローカル評価基準から評価項目を 1 件削除し、残りの順序番号を振り直します。"
+          },
+          "es": {
+            "name": "Eliminar ítem",
+            "summary": "Elimina un ítem de un criterio de evaluación local y renumera los restantes."
+          },
+          "fr": {
+            "name": "Supprimer un critère",
+            "summary": "Supprime un critère d'une grille locale et renumérote les critères restants."
+          }
+        },
+        "canonical": {
+          "brief": "Delete a criterion from a local rubric and renumber the survivors."
+        }
+      },
+      "criterion_reorder": {
+        "human": {
+          "zh": {
+            "name": "重排评分项",
+            "summary": "按给定顺序重设各评分项的序号。"
+          },
+          "en": {
+            "name": "Reorder criteria",
+            "summary": "Reassigns criterion ordinals to match the given order."
+          },
+          "ja": {
+            "name": "評価項目を並べ替え",
+            "summary": "指定した順序に合わせて評価項目の順序番号を振り直します。"
+          },
+          "es": {
+            "name": "Reordenar ítems",
+            "summary": "Reasigna los ordinales de los ítems para que coincidan con el orden dado."
+          },
+          "fr": {
+            "name": "Réordonner les critères",
+            "summary": "Réattribue les numéros d'ordre des critères selon l'ordre fourni."
+          }
+        },
+        "canonical": {
+          "brief": "Reassign criterion ordinals to match the given order."
+        }
+      },
+      "criterion_update": {
+        "human": {
+          "zh": {
+            "name": "更新评分项",
+            "summary": "更新评分项的名称、说明与指引，序号不变。"
+          },
+          "en": {
+            "name": "Update a criterion",
+            "summary": "Updates a criterion's name, description and guidance; its ordinal is unchanged."
+          },
+          "ja": {
+            "name": "評価項目を更新",
+            "summary": "評価項目の名称・説明・指針を更新します。順序番号は変わりません。"
+          },
+          "es": {
+            "name": "Actualizar ítem",
+            "summary": "Actualiza nombre, descripción y guía de un ítem; su ordinal no cambia."
+          },
+          "fr": {
+            "name": "Mettre à jour un critère",
+            "summary": "Met à jour le nom, la description et les consignes d'un critère ; son numéro d'ordre ne change pas."
+          }
+        },
+        "canonical": {
+          "brief": "Update a criterion's name, description and guidance; ordinal is untouched."
+        }
+      },
+      "law_info": {
+        "human": {
+          "zh": {
+            "name": "读取调研内容",
+            "summary": "按合同类型取回两个来源的法条调研内容。"
+          },
+          "en": {
+            "name": "Read law survey",
+            "summary": "Fetches both sources' survey content for one contract type."
+          },
+          "ja": {
+            "name": "法令調査を取得",
+            "summary": "契約類型を指定して、2 つのソースの法令調査内容を取得します。"
+          },
+          "es": {
+            "name": "Leer estudio legal",
+            "summary": "Obtiene el contenido del estudio legal de las dos fuentes para un tipo de contrato."
+          },
+          "fr": {
+            "name": "Lire l'étude légale",
+            "summary": "Récupère le contenu d'étude légale des deux sources pour un type de contrat."
+          }
+        },
+        "canonical": {
+          "brief": "Fetch both sources' survey content for one contract type."
+        }
+      },
+      "law_references": {
+        "human": {
+          "zh": {
+            "name": "汇总法条引用",
+            "summary": "汇总各类型调研中引用到的法条，按名称去重并统计出现次数与来源；只读。"
+          },
+          "en": {
+            "name": "Aggregate law references",
+            "summary": "Aggregates the laws referenced across all surveys, de-duplicated by name, with occurrence counts and sources; read-only."
+          },
+          "ja": {
+            "name": "法令引用を集計",
+            "summary": "各類型の調査で参照された法令を名前で重複排除して集計し、出現回数とソースを付けます。読み取り専用です。"
+          },
+          "es": {
+            "name": "Agregar referencias",
+            "summary": "Agrega las normas citadas en todos los estudios, sin duplicados por nombre, con recuento de apariciones y fuentes; solo lectura."
+          },
+          "fr": {
+            "name": "Agréger les références",
+            "summary": "Agrège les textes légaux cités dans toutes les études, dédoublonnés par nom, avec nombre d'occurrences et sources ; lecture seule."
+          }
+        },
+        "canonical": {
+          "brief": "Aggregate the unique laws referenced across every law_info survey via extract_references; returns [{name, category, category_zh, contract_types, sources, occurrences}] sorted by category then name; read-only."
+        }
+      },
+      "law_types": {
+        "human": {
+          "zh": {
+            "name": "列出调研类型",
+            "summary": "列出至少有一条法条调研记录的合同类型，附名称与该类型已有的调研来源。"
+          },
+          "en": {
+            "name": "List surveyed types",
+            "summary": "Lists contract types with at least one law survey row, with their Chinese name and the sources present."
+          },
+          "ja": {
+            "name": "調査済み類型を一覧",
+            "summary": "法令調査の記録が 1 件以上ある契約類型を、名称と存在する調査ソース付きで一覧します。"
+          },
+          "es": {
+            "name": "Listar tipos estudiados",
+            "summary": "Lista los tipos de contrato con al menos una fila de estudio legal, con su nombre y las fuentes disponibles."
+          },
+          "fr": {
+            "name": "Lister les types étudiés",
+            "summary": "Liste les types de contrat ayant au moins une ligne d'étude légale, avec leur nom et les sources présentes."
+          }
+        },
+        "canonical": {
+          "brief": "List contract types that have at least one law_info survey row: [{key, zh_name, sources}] ordered by contract type, where sources lists the sources present for that type (e.g. doubao, deepseek)."
+        }
+      },
+      "pipeline_get": {
+        "human": {
+          "zh": {
+            "name": "读取流水线",
+            "summary": "按标识取回一次流水线运行及其关联评判的逐评分项结论。"
+          },
+          "en": {
+            "name": "Read pipeline run",
+            "summary": "Fetches one pipeline run plus its linked evaluation run's per-criterion verdicts."
+          },
+          "ja": {
+            "name": "パイプライン詳細",
+            "summary": "ID を指定して、1 件のパイプライン実行と、関連する評価の評価項目ごとの判定を取得します。"
+          },
+          "es": {
+            "name": "Leer flujo",
+            "summary": "Obtiene un flujo por id junto con los veredictos por ítem de su evaluación vinculada."
+          },
+          "fr": {
+            "name": "Lire une chaîne",
+            "summary": "Récupère une chaîne par identifiant avec les verdicts critère par critère de l'évaluation liée."
+          }
+        },
+        "canonical": {
+          "brief": "Fetch one pipeline run by id plus its linked evaluation run's per-criterion verdicts."
+        }
+      },
+      "pipeline_list": {
+        "human": {
+          "zh": {
+            "name": "列出流水线",
+            "summary": "按时间倒序列出近期流水线运行，附合同类型、立场、得分、通过项数与迭代序号等字段。"
+          },
+          "en": {
+            "name": "List pipeline runs",
+            "summary": "Lists recent pipeline runs newest first with contract type, stance, score, passed criteria and iteration number."
+          },
+          "ja": {
+            "name": "パイプライン一覧",
+            "summary": "最近のパイプライン実行を新しい順に一覧し、契約類型・立場・得点・合格項目数・反復番号などを付けます。"
+          },
+          "es": {
+            "name": "Listar flujos",
+            "summary": "Lista los flujos recientes del más nuevo al más antiguo con tipo de contrato, postura, puntuación, criterios superados e iteración."
+          },
+          "fr": {
+            "name": "Lister les chaînes",
+            "summary": "Liste les chaînes récentes, de la plus récente à la plus ancienne, avec type de contrat, position, score, critères réussis et itération."
+          }
+        },
+        "canonical": {
+          "brief": "List recent pipeline runs, most recent first: [{id, contract_type, stance, rubric_name, task_desc, score, max_score, n_passed, n_criteria, all_pass, iteration, eval_run_id, fill_temperature, created_at}]."
+        }
+      },
+      "prompt_create": {
+        "human": {
+          "zh": {
+            "name": "新建提示词",
+            "summary": "创建一条本地来源的生成提示词。"
+          },
+          "en": {
+            "name": "Create a prompt",
+            "summary": "Creates a local generation prompt."
+          },
+          "ja": {
+            "name": "プロンプトを作成",
+            "summary": "ローカル由来の生成プロンプトを 1 件作成します。"
+          },
+          "es": {
+            "name": "Crear indicación",
+            "summary": "Crea una indicación de generación de origen local."
+          },
+          "fr": {
+            "name": "Créer une invite",
+            "summary": "Crée une invite de génération d'origine locale."
+          }
+        },
+        "canonical": {
+          "brief": "Create a local prompt with source = 'local'."
+        }
+      },
+      "prompt_delete": {
+        "human": {
+          "zh": {
+            "name": "删除提示词",
+            "summary": "删除单条提示词；该表无子表，不会级联删除其它数据。"
+          },
+          "en": {
+            "name": "Delete a prompt",
+            "summary": "Deletes one prompt; the table has no child table, so nothing cascades."
+          },
+          "ja": {
+            "name": "プロンプトを削除",
+            "summary": "1 件のプロンプトを削除します。子テーブルがないため連鎖削除は起きません。"
+          },
+          "es": {
+            "name": "Eliminar indicación",
+            "summary": "Elimina una indicación; la tabla no tiene tabla hija, así que no hay borrado en cascada."
+          },
+          "fr": {
+            "name": "Supprimer une invite",
+            "summary": "Supprime une invite ; la table n'a pas de table fille, donc aucune suppression en cascade."
+          }
+        },
+        "canonical": {
+          "brief": "Delete one prompt; it has no child table, so nothing cascades."
+        }
+      },
+      "prompt_get": {
+        "human": {
+          "zh": {
+            "name": "读取提示词",
+            "summary": "按名称取回单个提示词的完整记录，含正文内容。"
+          },
+          "en": {
+            "name": "Read a prompt",
+            "summary": "Fetches one prompt's full record including its content, looked up by name."
+          },
+          "ja": {
+            "name": "プロンプトを取得",
+            "summary": "名称を指定して、本文を含む 1 件のプロンプトの完全なレコードを取得します。"
+          },
+          "es": {
+            "name": "Leer indicación",
+            "summary": "Obtiene el registro completo de una indicación, incluido su cuerpo, por nombre."
+          },
+          "fr": {
+            "name": "Lire une invite",
+            "summary": "Récupère l'enregistrement complet d'une invite, contenu inclus, par son nom."
+          }
+        },
+        "canonical": {
+          "brief": "Fetch one prompt's full record including content, looked up by name."
+        }
+      },
+      "prompt_list": {
+        "human": {
+          "zh": {
+            "name": "列出提示词",
+            "summary": "列出全部生成提示词，不含正文内容，附标识、名称、合同类型、用途与来源。"
+          },
+          "en": {
+            "name": "List prompts",
+            "summary": "Lists all generation prompts without their content, with id, name, contract type, purpose and source."
+          },
+          "ja": {
+            "name": "プロンプト一覧",
+            "summary": "生成プロンプトを本文抜きで一覧し、ID・名称・契約類型・用途・ソースを付けます。"
+          },
+          "es": {
+            "name": "Listar indicaciones",
+            "summary": "Lista todas las indicaciones de generación sin el cuerpo, con id, nombre, tipo de contrato, propósito y fuente."
+          },
+          "fr": {
+            "name": "Lister les invites",
+            "summary": "Liste toutes les invites de génération sans leur contenu, avec identifiant, nom, type de contrat, usage et source."
+          }
+        },
+        "canonical": {
+          "brief": "List all generation prompts without the content body: [{id, name, contract_type, purpose, source, prompt_type, description, created_at}]."
+        }
+      },
+      "prompt_update": {
+        "human": {
+          "zh": {
+            "name": "更新提示词",
+            "summary": "更新单个提示词的完整记录。"
+          },
+          "en": {
+            "name": "Update a prompt",
+            "summary": "Updates one prompt's full record."
+          },
+          "ja": {
+            "name": "プロンプトを更新",
+            "summary": "1 件のプロンプトのレコード全体を更新します。"
+          },
+          "es": {
+            "name": "Actualizar indicación",
+            "summary": "Actualiza el registro completo de una indicación."
+          },
+          "fr": {
+            "name": "Mettre à jour une invite",
+            "summary": "Met à jour l'enregistrement complet d'une invite."
+          }
+        },
+        "canonical": {
+          "brief": "Update one prompt's full record."
+        }
+      },
+      "rubric_create": {
+        "human": {
+          "zh": {
+            "name": "新建评分标准",
+            "summary": "创建一条本地来源的评分标准，可同时附带评分项。"
+          },
+          "en": {
+            "name": "Create a rubric",
+            "summary": "Creates a local rubric, optionally with criteria."
+          },
+          "ja": {
+            "name": "評価基準を作成",
+            "summary": "ローカル由来の評価基準を作成します。評価項目も同時に指定できます。"
+          },
+          "es": {
+            "name": "Crear criterio de evaluación",
+            "summary": "Crea un criterio de evaluación local, con ítems opcionales."
+          },
+          "fr": {
+            "name": "Créer une grille",
+            "summary": "Crée une grille d'évaluation locale, avec des critères facultatifs."
+          }
+        },
+        "canonical": {
+          "brief": "Create a local rubric with source = 'local' and optional criteria."
+        }
+      },
+      "rubric_delete": {
+        "human": {
+          "zh": {
+            "name": "删除评分标准",
+            "summary": "删除本地评分标准，其评分项按外键级联一并删除。"
+          },
+          "en": {
+            "name": "Delete a rubric",
+            "summary": "Deletes a local rubric; its criteria are removed by the foreign key cascade."
+          },
+          "ja": {
+            "name": "評価基準を削除",
+            "summary": "ローカル評価基準を削除します。評価項目は外部キーの連鎖削除で一緒に消えます。"
+          },
+          "es": {
+            "name": "Eliminar criterio de evaluación",
+            "summary": "Elimina un criterio de evaluación local; sus ítems se borran por la cascada de clave externa."
+          },
+          "fr": {
+            "name": "Supprimer une grille",
+            "summary": "Supprime une grille locale ; ses critères sont supprimés par cascade de clé étrangère."
+          }
+        },
+        "canonical": {
+          "brief": "Delete a local rubric; its criteria cascade via the foreign key ON DELETE CASCADE."
+        }
+      },
+      "rubric_get": {
+        "human": {
+          "zh": {
+            "name": "读取评分标准",
+            "summary": "按名称取回评分标准的元数据与按序排列的评分项。"
+          },
+          "en": {
+            "name": "Read a rubric",
+            "summary": "Fetches a rubric's metadata and ordered criteria by name."
+          },
+          "ja": {
+            "name": "評価基準を取得",
+            "summary": "名称を指定して、評価基準のメタデータと順序付き評価項目を取得します。"
+          },
+          "es": {
+            "name": "Leer criterio de evaluación",
+            "summary": "Obtiene los metadatos de un criterio de evaluación y sus ítems ordenados por nombre."
+          },
+          "fr": {
+            "name": "Lire une grille",
+            "summary": "Récupère les métadonnées d'une grille d'évaluation et ses critères ordonnés, par nom."
+          }
+        },
+        "canonical": {
+          "brief": "Fetch a rubric's metadata and ordered criteria by name."
+        }
+      },
+      "rubric_list": {
+        "human": {
+          "zh": {
+            "name": "列出评分标准",
+            "summary": "列出可用的评判评分标准。"
+          },
+          "en": {
+            "name": "List rubrics",
+            "summary": "Lists the available evaluation rubrics."
+          },
+          "ja": {
+            "name": "評価基準一覧を取得",
+            "summary": "利用できる評価基準を一覧します。"
+          },
+          "es": {
+            "name": "Listar criterios de evaluación",
+            "summary": "Lista los criterios de evaluación disponibles."
+          },
+          "fr": {
+            "name": "Lister les grilles",
+            "summary": "Liste les grilles d'évaluation disponibles."
+          }
+        },
+        "canonical": {
+          "brief": "List available evaluation rubrics."
+        }
+      },
+      "rubric_update": {
+        "human": {
+          "zh": {
+            "name": "更新评分标准",
+            "summary": "更新本地评分标准的名称、上下文与说明，评分项保持不变。"
+          },
+          "en": {
+            "name": "Update a rubric",
+            "summary": "Updates a local rubric's name, context and description; its criteria stay unchanged."
+          },
+          "ja": {
+            "name": "評価基準を更新",
+            "summary": "ローカル評価基準の名称・文脈・説明を更新します。評価項目は変わりません。"
+          },
+          "es": {
+            "name": "Actualizar criterio de evaluación",
+            "summary": "Actualiza nombre, contexto y descripción de un criterio de evaluación local; sus ítems no cambian."
+          },
+          "fr": {
+            "name": "Mettre à jour une grille",
+            "summary": "Met à jour le nom, le contexte et la description d'une grille locale ; ses critères restent inchangés."
+          }
+        },
+        "canonical": {
+          "brief": "Update a local rubric's name, context and description; criteria are untouched."
+        }
+      },
+      "run_draft": {
+        "human": {
+          "zh": {
+            "name": "读取草稿正文",
+            "summary": "按需取回单次运行的草稿正文，并校验该运行属于指定对比。"
+          },
+          "en": {
+            "name": "Read run draft",
+            "summary": "Lazily fetches one run's draft text and verifies the run belongs to the given compare."
+          },
+          "ja": {
+            "name": "草稿本文を取得",
+            "summary": "必要時に 1 件の実行の草稿本文を取得し、その実行が指定の比較に属することを検証します。"
+          },
+          "es": {
+            "name": "Leer borrador",
+            "summary": "Obtiene bajo demanda el texto del borrador de una ejecución y verifica que pertenezca a la comparación indicada."
+          },
+          "fr": {
+            "name": "Lire un brouillon",
+            "summary": "Récupère à la demande le texte du brouillon d'une exécution et vérifie qu'elle appartient à la comparaison indiquée."
+          }
+        },
+        "canonical": {
+          "brief": "Lazily fetch a single run's draft_text by run id, verified to belong to the given compare."
+        }
+      },
+      "run_get": {
+        "human": {
+          "zh": {
+            "name": "读取评判详情",
+            "summary": "按标识取回单次评判的运行级字段与逐评分项结论。"
+          },
+          "en": {
+            "name": "Read evaluation run",
+            "summary": "Fetches one evaluation run's run-level fields plus its per-criterion verdicts."
+          },
+          "ja": {
+            "name": "評価詳細を取得",
+            "summary": "ID を指定して、1 件の評価実行の実行単位項目と評価項目ごとの判定を取得します。"
+          },
+          "es": {
+            "name": "Leer evaluación",
+            "summary": "Obtiene los campos de nivel de ejecución de una evaluación y sus veredictos por ítem."
+          },
+          "fr": {
+            "name": "Lire une évaluation",
+            "summary": "Récupère les champs d'une évaluation et ses verdicts critère par critère."
+          }
+        },
+        "canonical": {
+          "brief": "Fetch one evaluation run by id: run-level fields plus per-criterion verdicts; the counterpart to run_list, which returns run-level fields only."
+        }
+      },
+      "run_list": {
+        "human": {
+          "zh": {
+            "name": "列出评判记录",
+            "summary": "按时间倒序列出近期评判运行。"
+          },
+          "en": {
+            "name": "List evaluation runs",
+            "summary": "Lists recent evaluation runs, most recent first."
+          },
+          "ja": {
+            "name": "評価一覧を取得",
+            "summary": "最近の評価実行を新しい順に一覧します。"
+          },
+          "es": {
+            "name": "Listar evaluaciones",
+            "summary": "Lista las evaluaciones recientes, de la más nueva a la más antigua."
+          },
+          "fr": {
+            "name": "Lister les évaluations",
+            "summary": "Liste les évaluations récentes, de la plus récente à la plus ancienne."
+          }
+        },
+        "canonical": {
+          "brief": "List recent evaluation runs, most recent first, with run-level fields."
+        }
+      },
+      "search_clauses": {
+        "human": {
+          "zh": {
+            "name": "检索条款片段",
+            "summary": "按自然语言查询取回按相关度排序的条款片段。"
+          },
+          "en": {
+            "name": "Search clause chunks",
+            "summary": "Retrieves relevance-ranked clause chunks for a natural-language query."
+          },
+          "ja": {
+            "name": "条項断片を検索",
+            "summary": "自然言語の問い合わせに対し、関連度順の条項チャンクを取得します。"
+          },
+          "es": {
+            "name": "Buscar fragmentos",
+            "summary": "Recupera fragmentos de cláusulas ordenados por relevancia para una consulta en lenguaje natural."
+          },
+          "fr": {
+            "name": "Chercher des fragments",
+            "summary": "Récupère des fragments de clauses classés par pertinence pour une requête en langage naturel."
+          }
+        },
+        "canonical": {
+          "brief": "Retrieve ranked clause chunks for a natural-language query."
+        }
+      },
+      "self_heal_pipeline_run": {
+        "human": {
+          "zh": {
+            "name": "运行自愈流水线",
+            "summary": "一次跑完合同生成、填槽、评判、自检与改进，按次剔除薄条款并记录审核建议；得分居前的迭代被保存。"
+          },
+          "en": {
+            "name": "Run self-heal pipeline",
+            "summary": "Runs generation, slot filling, evaluation, checks and improvement in one pipeline, excluding thin custom clauses per run and recording review suggestions; the top-scoring iteration is stored."
+          },
+          "ja": {
+            "name": "自己修復を実行",
+            "summary": "契約の生成・スロット充填・評価・点検・改善を 1 回のパイプラインで実行し、実行ごとに薄いカスタム条項を除外してレビュー提案を記録します。得点の高い反復が保存されます。"
+          },
+          "es": {
+            "name": "Ejecutar autocorrección",
+            "summary": "Ejecuta generación, llenado, evaluación, comprobación y mejora en un flujo, excluye cláusulas personalizadas endebles por ejecución, registra sugerencias y guarda la iteración con mayor puntuación."
+          },
+          "fr": {
+            "name": "Lancer l'auto-réparation",
+            "summary": "Exécute génération, remplissage, évaluation, contrôle et amélioration dans une chaîne, écarte les clauses personnalisées faibles, consigne des suggestions et conserve l'itération la mieux notée."
+          }
+        },
+        "canonical": {
+          "brief": "Drive a LangGraph pipeline generate -> fill -> evaluate -> check -> (improve) -> store; the improve node excludes thin custom clauses per run via custom_clause_ids and records clause_review recommendations without executing them; the top-scoring iteration is persisted; read-only on clauses."
+        }
+      },
+      "tag_combinations_list": {
+        "human": {
+          "zh": {
+            "name": "枚举标签组合",
+            "summary": "枚举某合同类型的全部有效标签组合，可选附带条款可用性；组合数量过大时给出提示。"
+          },
+          "en": {
+            "name": "Enumerate tag combinations",
+            "summary": "Enumerates all valid tag combinations for a contract type, optionally with clause availability; warns when the count is very large."
+          },
+          "ja": {
+            "name": "タグ組合せを列挙",
+            "summary": "ある契約類型の有効なタグ組み合わせをすべて列挙し、必要なら条項の可用性を付けます。組み合わせが膨大なときは警告します。"
+          },
+          "es": {
+            "name": "Enumerar combinaciones",
+            "summary": "Enumera todas las combinaciones válidas de etiquetas de un tipo de contrato, opcionalmente con disponibilidad de cláusulas; avisa si el número es muy elevado."
+          },
+          "fr": {
+            "name": "Énumérer les combinaisons",
+            "summary": "Énumère toutes les combinaisons d'étiquettes valides d'un type de contrat, avec en option la disponibilité des clauses ; avertit si le nombre est très élevé."
+          }
+        },
+        "canonical": {
+          "brief": "Enumerate all valid tag combinations for a contract type via the Cartesian product of tag dimensions (excluding source), optionally with clause availability metadata; warns when combinations exceed 1000."
+        }
+      },
+      "tag_iteration_apply": {
+        "human": {
+          "zh": {
+            "name": "应用标签调整",
+            "summary": "应用已批准的标签调整并重新评判，得分下降时自动回滚；用数据库咨询锁保证同一时间仅一条执行。"
+          },
+          "en": {
+            "name": "Apply tag changes",
+            "summary": "Applies approved tag changes, re-evaluates them and rolls back automatically if the score drops; a database advisory lock keeps execution serial."
+          },
+          "ja": {
+            "name": "タグ調整を適用",
+            "summary": "承認済みのタグ調整を適用して再評価し、得点が下がれば自動で元に戻します。データベースのアドバイザリロックで同時実行を 1 件に制限します。"
+          },
+          "es": {
+            "name": "Aplicar ajustes",
+            "summary": "Aplica los ajustes de etiqueta aprobados, reevalúa y revierte de forma automática si la puntuación baja; un bloqueo consultivo de base de datos serializa la ejecución."
+          },
+          "fr": {
+            "name": "Appliquer des ajustements",
+            "summary": "Applique les ajustements d'étiquettes approuvés, réévalue et revient automatiquement en arrière si le score baisse ; un verrou consultatif de base de données sérialise l'exécution."
+          }
+        },
+        "canonical": {
+          "brief": "Apply approved tag suggestions from tag_iteration_suggest, then re-evaluate the contract; if the score decreased, automatically roll back to the original tags; a pg_advisory_lock keeps execution to one apply at a time."
+        }
+      },
+      "tag_iteration_suggest": {
+        "human": {
+          "zh": {
+            "name": "建议标签调整",
+            "summary": "分析导致评判失败的条款，给出可能改善后续评判的标签调整建议，如业务场景、立场与强度；不修改数据。"
+          },
+          "en": {
+            "name": "Suggest tag changes",
+            "summary": "Analyses clauses behind evaluation failures and suggests tag changes such as scenario, stance and strength that may improve later evaluations; it writes nothing."
+          },
+          "ja": {
+            "name": "タグ調整を提案",
+            "summary": "評価失敗の原因となった条項を分析し、業務シナリオ・立場・強度などのタグ調整案を提示します。データは変更しません。"
+          },
+          "es": {
+            "name": "Sugerir ajustes",
+            "summary": "Analiza las cláusulas que causaron fallos de evaluación y propone cambios de etiqueta como escenario, postura y fuerza que podrían mejorar evaluaciones futuras; no modifica datos."
+          },
+          "fr": {
+            "name": "Suggérer des ajustements",
+            "summary": "Analyse les clauses à l'origine des échecs d'évaluation et propose des ajustements d'étiquettes (scénario, position, force) susceptibles d'améliorer les évaluations futures ; n'écrit rien."
+          }
+        },
+        "canonical": {
+          "brief": "Drive generate -> fill -> evaluate -> check -> (improve) -> store -> suggest_retag, where an LLM analyses clauses that caused evaluation failures and proposes tag modifications (scenario, stance, strength, etc.); read-only on the clauses table."
+        }
+      },
+      "tag_validate": {
+        "human": {
+          "zh": {
+            "name": "校验标签",
+            "summary": "按受控词表校验标签字典，丢弃未知键并保留业务场景与自由维度；受控维度取值非法时报错并列出允许值。"
+          },
+          "en": {
+            "name": "Validate tags",
+            "summary": "Validates a tag dict against the controlled vocabulary, dropping unknown keys and keeping scenario plus free-form dims; an invalid controlled value raises an error listing the allowed set."
+          },
+          "ja": {
+            "name": "タグを検証",
+            "summary": "統制語彙に対してタグ辞書を検証し、未知のキーを捨てて業務シナリオと自由次元を残します。統制次元の値が不正なら許可値を挙げてエラーにします。"
+          },
+          "es": {
+            "name": "Validar etiquetas",
+            "summary": "Valida etiquetas contra el vocabulario controlado: descarta claves desconocidas, conserva escenario y dimensiones libres, y un valor controlado inválido da error con el conjunto permitido."
+          },
+          "fr": {
+            "name": "Valider les étiquettes",
+            "summary": "Valide des étiquettes selon le vocabulaire contrôlé, écarte les clés inconnues, garde scénario et dimensions libres ; une valeur contrôlée invalide lève une erreur avec l'ensemble autorisé."
+          }
+        },
+        "canonical": {
+          "brief": "Validate a tag dict against the controlled vocabulary: unknown keys are dropped, scenario and free-form dims are kept; an invalid controlled value raises a tool error naming the dimension, the bad value and the allowed set."
+        }
+      },
+      "tag_vocab_list": {
+        "human": {
+          "zh": {
+            "name": "列出标签词表",
+            "summary": "按合同类型返回合并后的扁平标签词表，每个维度给出允许值；不指定类型时只返回通用维度。"
+          },
+          "en": {
+            "name": "List tag vocabulary",
+            "summary": "Returns the merged flat tag vocabulary per contract type with allowed values per dimension; without a type it lists universal dimensions only."
+          },
+          "ja": {
+            "name": "タグ語彙を一覧",
+            "summary": "契約類型ごとに統合したタグ語彙を次元ごとの許可値として返します。類型を指定しない場合は汎用次元のみを返します。"
+          },
+          "es": {
+            "name": "Listar vocabulario",
+            "summary": "Devuelve el vocabulario plano de etiquetas por tipo de contrato, con valores permitidos por dimensión; sin tipo, solo las dimensiones universales."
+          },
+          "fr": {
+            "name": "Lister le vocabulaire",
+            "summary": "Renvoie le vocabulaire plat d'étiquettes par type de contrat, avec les valeurs autorisées par dimension ; sans type, seules les dimensions universelles."
+          }
+        },
+        "canonical": {
+          "brief": "Return {dim: [allowed values]} for every tag dimension valid for the contract type, merging universal dims (stance/strength/risk/mandatory) with type-specific dims from tag_dims; a null contract_type returns only the universal dims."
+        }
+      },
+      "task_failed_items": {
+        "human": {
+          "zh": {
+            "name": "取失败条目",
+            "summary": "取某任务的失败与未完成条目，供分项重跑；全通过时返回空表，部分失败时附迭代说明，批次类任务无法反推条目故返回空表。"
+          },
+          "en": {
+            "name": "List failed task items",
+            "summary": "Returns a task's failed or unfinished items for item-by-item reruns; an all-pass run yields an empty list, a partial failure carries an iteration note, and batch-family runs yield none."
+          },
+          "ja": {
+            "name": "失敗項目を取得",
+            "summary": "タスクの失敗・未完了項目を返し、項目ごとの再実行に使います。全通過なら空、部分失敗なら反復の注記付き、バッチ系は逆算できないため空です。"
+          },
+          "es": {
+            "name": "Listar los ítems fallidos",
+            "summary": "Devuelve los ítems fallidos o sin terminar de una tarea para reejecutarlos uno a uno; si todo pasó la lista va vacía, un fallo parcial lleva nota de iteración y los lotes no permiten derivarlos."
+          },
+          "fr": {
+            "name": "Lister les éléments en échec",
+            "summary": "Renvoie les éléments en échec ou inachevés d'une tâche pour un nouvel essai unitaire ; tout réussi donne une liste vide, un échec partiel porte une note d'itération."
+          }
+        },
+        "canonical": {
+          "brief": "Returns a task's failed or unfinished items for item-by-item reruns; empty on full pass, an iteration hint on partial failure, and an empty list for batch-family handles that cannot be reverse-derived."
+        }
+      },
+      "task_status": {
+        "human": {
+          "zh": {
+            "name": "查任务状态",
+            "summary": "按任务句柄统一查状态与结果；查不到即如实报未找到，批次句柄只作日志关联键时明确报未持久，不编造结果。"
+          },
+          "en": {
+            "name": "Get task status",
+            "summary": "Looks up status and result by task handle across both families; a missing record is reported as not found, and a batch handle that is only a log key is reported as not persisted."
+          },
+          "ja": {
+            "name": "タスク状態を照会",
+            "summary": "両ファミリのハンドルで状態と結果を照会します。見つからなければ未検出と正直に返し、バッチ系でログ相関キーにすぎない場合は未永続と明示します。"
+          },
+          "es": {
+            "name": "Consultar el estado de la tarea",
+            "summary": "Consulta estado y resultado por handle en ambas familias; si no hay registro lo informa como no encontrado y un handle de lote que solo es clave de log se informa como no persistido."
+          },
+          "fr": {
+            "name": "Consulter l'état d'une tâche",
+            "summary": "Interroge état et résultat par handle dans les deux familles ; sans enregistrement, il est déclaré introuvable, et un handle de lot simple clé de journal est déclaré non persisté."
+          }
+        },
+        "canonical": {
+          "brief": "Resolves status and result by task handle for both pipeline and batch families, returning found/status/progress/counts; a batch trace_id that is only a log key is reported unknown_not_persisted, never fabricated."
+        }
+      },
+      "type_metadata": {
+        "human": {
+          "zh": {
+            "name": "读取类型元数据",
+            "summary": "读取单个合同类型的详细元数据。"
+          },
+          "en": {
+            "name": "Read type metadata",
+            "summary": "Returns detailed metadata for one contract type."
+          },
+          "ja": {
+            "name": "類型メタデータを取得",
+            "summary": "1 つの契約類型の詳細メタデータを取得します。"
+          },
+          "es": {
+            "name": "Leer metadatos",
+            "summary": "Obtiene los metadatos detallados de un tipo de contrato."
+          },
+          "fr": {
+            "name": "Lire les métadonnées",
+            "summary": "Récupère les métadonnées détaillées d'un type de contrat."
+          }
+        },
+        "canonical": {
+          "brief": "Get detailed metadata for a single contract type."
+        }
+      },
+      "validation_check": {
+        "human": {
+          "zh": {
+            "name": "校验合同硬限",
+            "summary": "按法律硬性限制约束评判已起草的合同。"
+          },
+          "en": {
+            "name": "Check hard limits",
+            "summary": "Evaluates a drafted contract against legal hard-limit constraints."
+          },
+          "ja": {
+            "name": "法的上限を検証",
+            "summary": "起草済み契約を法的な上限・下限の制約に照らして評価します。"
+          },
+          "es": {
+            "name": "Comprobar límites",
+            "summary": "Evalúa un contrato redactado contra restricciones legales de límite rígido."
+          },
+          "fr": {
+            "name": "Vérifier les limites",
+            "summary": "Évalue un contrat rédigé au regard de contraintes légales à seuil impératif."
+          }
+        },
+        "canonical": {
+          "brief": "Evaluate a drafted contract against legal hard-limit constraints."
+        }
+      },
+      "validation_list": {
+        "human": {
+          "zh": {
+            "name": "列出校验约束",
+            "summary": "列出某合同类型已存储的校验约束。"
+          },
+          "en": {
+            "name": "List validation rules",
+            "summary": "Lists the stored validation constraints for one contract type."
+          },
+          "ja": {
+            "name": "検証制約を一覧",
+            "summary": "ある契約類型に保存された検証制約を一覧します。"
+          },
+          "es": {
+            "name": "Listar restricciones",
+            "summary": "Lista las restricciones de validación guardadas para un tipo de contrato."
+          },
+          "fr": {
+            "name": "Lister les contraintes",
+            "summary": "Liste les contraintes de validation enregistrées pour un type de contrat."
+          }
+        },
+        "canonical": {
+          "brief": "List stored validation constraints for a contract type."
+        }
+      },
+      "domain_context": {
+        "human": {
+          "zh": {
+            "name": "域上下文",
+            "summary": "这个域的控制台此刻会告诉你的东西：状态、待办、最近一次上线记录。"
+          },
+          "en": {
+            "name": "Domain context",
+            "summary": "What this domain's own console would tell you right now: state, pending work, latest release."
+          },
+          "ja": {
+            "name": "ドメイン文脈",
+            "summary": "このドメインのコンソールが今示す内容：状態、未処理、最新リリース。"
+          },
+          "es": {
+            "name": "Contexto del dominio",
+            "summary": "Lo que la consola del dominio mostraría ahora: estado, trabajo pendiente, última publicación."
+          },
+          "fr": {
+            "name": "Contexte du domaine",
+            "summary": "Ce que la console du domaine afficherait à l'instant : état, travail en attente, dernière publication."
+          }
+        },
+        "canonical": {
+          "brief": "What this domain's own console would tell you right now: state, pending work, latest release."
+        }
+      },
+      "domain_list": {
+        "human": {
+          "zh": {
+            "name": "列出可用域",
+            "summary": "列出某人可在其中工作的域。"
+          },
+          "en": {
+            "name": "List domains",
+            "summary": "Lists the domains a person can work in."
+          },
+          "ja": {
+            "name": "利用可能なドメイン",
+            "summary": "ある人が作業できるドメインを一覧します。"
+          },
+          "es": {
+            "name": "Listar dominios",
+            "summary": "Enumera los dominios en los que una persona puede trabajar."
+          },
+          "fr": {
+            "name": "Lister les domaines",
+            "summary": "Énumère les domaines dans lesquels une personne peut travailler."
+          }
+        },
+        "canonical": {
+          "brief": "Lists the domains a person can work in."
+        }
+      },
+      "domain_proposals": {
+        "human": {
+          "zh": {
+            "name": "域提案收件箱",
+            "summary": "本域待人工裁定的提案草稿。"
+          },
+          "en": {
+            "name": "Domain proposal inbox",
+            "summary": "This domain's proposal inbox — drafts awaiting a human decision."
+          },
+          "ja": {
+            "name": "ドメイン提案の受信箱",
+            "summary": "本ドメインで人の判断待ちの提案草稿です。"
+          },
+          "es": {
+            "name": "Bandeja de propuestas",
+            "summary": "La bandeja de propuestas del dominio: borradores a la espera de decisión humana."
+          },
+          "fr": {
+            "name": "Boîte des propositions",
+            "summary": "La boîte de propositions du domaine : brouillons en attente de décision humaine."
+          }
+        },
+        "canonical": {
+          "brief": "This domain's proposal inbox — drafts awaiting a human decision."
+        }
+      },
+      "domain_proposal_get": {
+        "human": {
+          "zh": {
+            "name": "取提案详情",
+            "summary": "完整查看一条提案及其事件轨迹。"
+          },
+          "en": {
+            "name": "Get a proposal",
+            "summary": "Shows one proposal in full plus its event trail."
+          },
+          "ja": {
+            "name": "提案の詳細",
+            "summary": "1 件の提案を全文とイベント履歴つきで表示します。"
+          },
+          "es": {
+            "name": "Obtener una propuesta",
+            "summary": "Muestra una propuesta completa y su rastro de eventos."
+          },
+          "fr": {
+            "name": "Obtenir une proposition",
+            "summary": "Affiche une proposition en entier avec sa trace d'événements."
+          }
+        },
+        "canonical": {
+          "brief": "Shows one proposal in full plus its event trail."
+        }
+      },
+      "domain_proposal_confirm": {
+        "human": {
+          "zh": {
+            "name": "确认提案",
+            "summary": "代表 actor 把一条提案确认进本体（产出 silver）。"
+          },
+          "en": {
+            "name": "Confirm a proposal",
+            "summary": "Confirms one proposal into the ontology on behalf of the actor (produces silver)."
+          },
+          "ja": {
+            "name": "提案を確認",
+            "summary": "actor に代わって提案を 1 件オントロジーに確認します（silver を生成）。"
+          },
+          "es": {
+            "name": "Confirmar una propuesta",
+            "summary": "Confirma una propuesta en la ontología en nombre del actor (produce silver)."
+          },
+          "fr": {
+            "name": "Confirmer une proposition",
+            "summary": "Confirme une proposition dans l'ontologie au nom de l'acteur (produit silver)."
+          }
+        },
+        "canonical": {
+          "brief": "Confirms one proposal into the ontology on behalf of the actor (produces silver)."
+        }
+      },
+      "domain_units": {
+        "human": {
+          "zh": {
+            "name": "列出知识单元",
+            "summary": "列出本域的知识单元。"
+          },
+          "en": {
+            "name": "List knowledge units",
+            "summary": "Lists this domain's knowledge units."
+          },
+          "ja": {
+            "name": "知識単位を一覧",
+            "summary": "本ドメインの知識単位を一覧します。"
+          },
+          "es": {
+            "name": "Listar unidades",
+            "summary": "Enumera las unidades de conocimiento del dominio."
+          },
+          "fr": {
+            "name": "Lister les unités",
+            "summary": "Énumère les unités de connaissance du domaine."
+          }
+        },
+        "canonical": {
+          "brief": "Lists this domain's knowledge units."
+        }
+      },
+      "domain_unit_checks": {
+        "human": {
+          "zh": {
+            "name": "单元机器判定",
+            "summary": "对某一知识单元按当前正文算出的机器判定。"
+          },
+          "en": {
+            "name": "Unit machine verdicts",
+            "summary": "The machine verdicts on one unit, computed against its current body."
+          },
+          "ja": {
+            "name": "単位の機械判定",
+            "summary": "ある知識単位について、現在の本文に対して算出された機械判定です。"
+          },
+          "es": {
+            "name": "Veredictos de unidad",
+            "summary": "Los veredictos automáticos de una unidad, calculados sobre su cuerpo actual."
+          },
+          "fr": {
+            "name": "Verdicts d'unité",
+            "summary": "Les verdicts automatiques d'une unité, calculés sur son corps actuel."
+          }
+        },
+        "canonical": {
+          "brief": "The machine verdicts on one unit, computed against its current body."
+        }
+      },
+      "domain_unit_promote": {
+        "human": {
+          "zh": {
+            "name": "升一格",
+            "summary": "代表 actor 把一个知识单元沿升格梯上移一格（到 silver 为止，gold 需人签）。"
+          },
+          "en": {
+            "name": "Promote a unit",
+            "summary": "Moves one unit up one step of the ladder on behalf of the actor (up to silver; gold needs a human signature)."
+          },
+          "ja": {
+            "name": "1 段昇格",
+            "summary": "actor に代わって知識単位を昇格梯で 1 段上げます（silver まで、gold は人の署名が必要）。"
+          },
+          "es": {
+            "name": "Ascender una unidad",
+            "summary": "Sube una unidad un peldaño en nombre del actor (hasta silver; gold requiere firma humana)."
+          },
+          "fr": {
+            "name": "Promouvoir une unité",
+            "summary": "Fait monter une unité d'un échelon au nom de l'acteur (jusqu'à silver ; gold exige une signature humaine)."
+          }
+        },
+        "canonical": {
+          "brief": "Moves one unit up one step of the ladder on behalf of the actor (up to silver; gold needs a human signature)."
+        }
+      },
+      "ruler_list": {
+        "human": {
+          "zh": {
+            "name": "列出尺子",
+            "summary": "列出对本域可见的全部评分尺（最近的定义优先）。"
+          },
+          "en": {
+            "name": "List rulers",
+            "summary": "Every rubric visible to this domain, nearest definition winning."
+          },
+          "ja": {
+            "name": "尺子を一覧",
+            "summary": "本ドメインに可視の全評価尺を一覧します（最も近い定義が優先）。"
+          },
+          "es": {
+            "name": "Listar reglas de medida",
+            "summary": "Todas las rúbricas visibles para el dominio, ganando la definición más cercana."
+          },
+          "fr": {
+            "name": "Lister les règles",
+            "summary": "Toutes les grilles visibles pour le domaine, la définition la plus proche l'emportant."
+          }
+        },
+        "canonical": {
+          "brief": "Every rubric visible to this domain, nearest definition winning."
+        }
+      },
+      "ruler_criteria": {
+        "human": {
+          "zh": {
+            "name": "取尺子判据",
+            "summary": "按顺序取某把尺子的全部判据。"
+          },
+          "en": {
+            "name": "Ruler criteria",
+            "summary": "One ruler's criteria, in order."
+          },
+          "ja": {
+            "name": "尺子の判定基準",
+            "summary": "ある尺子の全判定基準を順番に返します。"
+          },
+          "es": {
+            "name": "Criterios de la regla",
+            "summary": "Los criterios de una regla, en orden."
+          },
+          "fr": {
+            "name": "Critères de la grille",
+            "summary": "Les critères d'une grille, dans l'ordre."
+          }
+        },
+        "canonical": {
+          "brief": "One ruler's criteria, in order."
+        }
+      },
+      "assistant_usage_record": {
+        "human": {
+          "zh": {
+            "name": "记录一次助理用量",
+            "summary": "运行结束后落一条助理回合用量；失败的回合各计数可空，如实记录优于省略。"
+          },
+          "en": {
+            "name": "Record assistant usage",
+            "summary": "Records one assistant turn's usage after a run settles; counts are optional and honest NULLs beat omission."
+          },
+          "ja": {
+            "name": "アシスタント使用量を記録",
+            "summary": "実行終了後にアシスタント 1 ターンの使用量を記録します。失敗したターンは各計数が空でもよく、省略より正直な NULL を優先します。"
+          },
+          "es": {
+            "name": "Registrar uso del asistente",
+            "summary": "Registra el uso de un turno del asistente al finalizar la ejecución; los conteos son opcionales y un NULL honesto es mejor que omitir."
+          },
+          "fr": {
+            "name": "Enregistrer l'usage de l'assistant",
+            "summary": "Enregistre l'usage d'un tour d'assistant à la fin de l'exécution ; les comptes sont optionnels et un NULL honnête vaut mieux qu'une omission."
+          }
+        },
+        "canonical": {
+          "brief": "Records one assistant turn's usage after a run settles; every count is optional, so a failed-before-answer run is logged with honest NULLs rather than omitted."
+        }
+      },
+      "assistant_usage_summary": {
+        "human": {
+          "zh": {
+            "name": "助理用量汇总",
+            "summary": "按天数汇总某领域的助理花费，附按执行者的拆分——真正该问的是「谁花的」，不只是「花了多少」。"
+          },
+          "en": {
+            "name": "Assistant usage summary",
+            "summary": "Assistant spend in one domain over N days, with a per-actor breakdown — the useful question is who, not just how much."
+          },
+          "ja": {
+            "name": "アシスタント使用量の集計",
+            "summary": "指定日数における領域別のアシスタント費用を実行者別の内訳付きで返します。問うべきは「誰が」であり、金額だけではありません。"
+          },
+          "es": {
+            "name": "Resumen de uso del asistente",
+            "summary": "Gasto del asistente en un dominio durante N días, con desglose por ejecutor: la pregunta útil es quién, no solo cuánto."
+          },
+          "fr": {
+            "name": "Synthèse d'usage de l'assistant",
+            "summary": "Dépense de l'assistant sur un domaine pendant N jours, avec ventilation par acteur : la vraie question est qui, pas seulement combien."
+          }
+        },
+        "canonical": {
+          "brief": "Assistant spend in one domain over the last N days: totals plus a per-actor breakdown, because the useful question is who spent it, not just how much."
+        }
+      }
+    },
+    "provenance": {
+      "source": "finddata-supply-annotations",
+      "updatedAt": "2026-11-02"
     }
-   }
-  },
-  "provenance": {
-   "source": "finddata-supply-annotations",
-   "updatedAt": "2026-11-02"
   }
- }
 }

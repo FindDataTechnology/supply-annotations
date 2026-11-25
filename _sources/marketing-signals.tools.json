@@ -1,0 +1,15 @@
+{
+  "server_name": "marketing-signals",
+  "description": "营销信号：按主体查信号与趋势，只读。",
+  "tags": [],
+  "tools": [
+    {
+      "name": "signals_by_entity",
+      "description": "按实体聚合最近信号（每个实体按日期倒序）。"
+    },
+    {
+      "name": "signals_recent",
+      "description": "取最近的可用营销信号（默认三个已验证源各 10 条）。"
+    }
+  ]
+}

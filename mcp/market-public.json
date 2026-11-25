@@ -1,419 +1,419 @@
 {
- "version": 1,
- "server": "market-public",
- "annotation": {
-  "human": {
-   "zh": {
-    "name": "数据目录（公开面）",
-    "summary": "面向访客的公开只读数据面：浏览已核验的概念与实体名录、把名称解析成实体、按实体与概念读取真实数值，以及餐饮/花卉/酒店三条垂类的名录与序列。",
-    "whenToUse": "对外介绍产品时让访客直接看到有哪些数据、能查到什么，而不只是听形容词。"
-   },
-   "en": {
-    "name": "Data catalog (public face)",
-    "summary": "Visitor-facing read-only data surface: browse verified concepts and entity directories, resolve names to entities, and read real values, plus the restaurant, flower and hotel directories and series.",
-    "whenToUse": "When showing visitors what data exists and letting them query it, instead of only describing it."
-   },
-   "ja": {
-    "name": "データカタログ（公開面）",
-    "summary": "訪問者向けの読み取り専用データ面：検証済みの概念とエンティティ名簿の閲覧、名前からエンティティへの解決、エンティティと概念ごとの実値の取得、および飲食・花卉・ホテルの名簿と系列。",
-    "whenToUse": "製品説明の際に、どのようなデータがあるかを訪問者自身に確かめてもらうとき。"
-   },
-   "es": {
-    "name": "Catálogo de datos (cara pública)",
-    "summary": "Superficie de solo lectura para visitantes: conceptos verificados, directorios de entidades, resolución de nombres y lectura de valores, más los directorios y series de restaurantes, flores y hoteles.",
-    "whenToUse": "Para mostrar a los visitantes qué datos existen y permitirles consultarlos, no solo describirlos."
-   },
-   "fr": {
-    "name": "Catalogue de données (face publique)",
-    "summary": "Surface en lecture seule pour les visiteurs : concepts vérifiés, annuaires d'entités, résolution de noms et lecture de valeurs, plus les annuaires et séries restauration, fleurs et hôtellerie.",
-    "whenToUse": "Pour montrer aux visiteurs quelles données existent et les laisser interroger, au lieu de seulement les décrire."
-   }
-  },
-  "canonical": {
-   "brief": "Public read-only data face (FD_OPEN_DATA_FACE=public, same image as fd-open-data-mcp): 14 tools over verified concepts, entity directories, point/series reads, and three vertical directories."
-  },
-  "tools": {
-   "list_concepts": {
+  "version": 1,
+  "server": "market-public",
+  "annotation": {
     "human": {
-     "zh": {
-      "name": "列出数据指标",
-      "summary": "列出已核验且未废弃的概念（指标），这是「你们有哪些数据」最直接的答案来源。"
-     },
-     "en": {
-      "name": "List indicators",
-      "summary": "Lists verified, non-deprecated concepts (indicators) — the most direct answer to “what data do you have”."
-     },
-     "ja": {
-      "name": "指標を一覧",
-      "summary": "検証済みで廃止されていない概念（指標）を一覧します。「どんなデータがあるか」への最も直接的な答えです。"
-     },
-     "es": {
-      "name": "Listar indicadores",
-      "summary": "Enumera los conceptos (indicadores) verificados y no obsoletos: la respuesta más directa a «¿qué datos tenéis?»."
-     },
-     "fr": {
-      "name": "Lister les indicateurs",
-      "summary": "Énumère les concepts (indicateurs) vérifiés et non obsolètes : la réponse la plus directe à « quelles données avez-vous ? »."
-     }
+      "zh": {
+        "name": "数据目录（公开面）",
+        "summary": "面向访客的公开只读数据面：浏览已核验的概念与实体名录、把名称解析成实体、按实体与概念读取真实数值，以及餐饮/花卉/酒店三条垂类的名录与序列。",
+        "whenToUse": "对外介绍产品时让访客直接看到有哪些数据、能查到什么，而不只是听形容词。"
+      },
+      "en": {
+        "name": "Data catalog (public face)",
+        "summary": "Visitor-facing read-only data surface: browse verified concepts and entity directories, resolve names to entities, and read real values, plus the restaurant, flower and hotel directories and series.",
+        "whenToUse": "When showing visitors what data exists and letting them query it, instead of only describing it."
+      },
+      "ja": {
+        "name": "データカタログ（公開面）",
+        "summary": "訪問者向けの読み取り専用データ面：検証済みの概念とエンティティ名簿の閲覧、名前からエンティティへの解決、エンティティと概念ごとの実値の取得、および飲食・花卉・ホテルの名簿と系列。",
+        "whenToUse": "製品説明の際に、どのようなデータがあるかを訪問者自身に確かめてもらうとき。"
+      },
+      "es": {
+        "name": "Catálogo de datos (cara pública)",
+        "summary": "Superficie de solo lectura para visitantes: conceptos verificados, directorios de entidades, resolución de nombres y lectura de valores, más los directorios y series de restaurantes, flores y hoteles.",
+        "whenToUse": "Para mostrar a los visitantes qué datos existen y permitirles consultarlos, no solo describirlos."
+      },
+      "fr": {
+        "name": "Catalogue de données (face publique)",
+        "summary": "Surface en lecture seule pour les visiteurs : concepts vérifiés, annuaires d'entités, résolution de noms et lecture de valeurs, plus les annuaires et séries restauration, fleurs et hôtellerie.",
+        "whenToUse": "Pour montrer aux visiteurs quelles données existent et les laisser interroger, au lieu de seulement les décrire."
+      }
     },
     "canonical": {
-     "brief": "Lists verified, non-deprecated concepts (indicators) — the most direct answer to “what data do you have”."
-    }
-   },
-   "list_entities": {
-    "human": {
-     "zh": {
-      "name": "列出实体",
-      "summary": "按类型列出实体名录（股票、城市、行业等），让访客知道覆盖范围。"
-     },
-     "en": {
-      "name": "List entities",
-      "summary": "Lists the entity directory by type (stocks, cities, industries, …) so visitors can see the coverage."
-     },
-     "ja": {
-      "name": "エンティティを一覧",
-      "summary": "エンティティ名簿を種類別（株式・都市・業種など）に一覧し、カバー範囲を示します。"
-     },
-     "es": {
-      "name": "Listar entidades",
-      "summary": "Enumera el directorio de entidades por tipo (acciones, ciudades, sectores…) para mostrar la cobertura."
-     },
-     "fr": {
-      "name": "Lister les entités",
-      "summary": "Énumère l'annuaire des entités par type (actions, villes, secteurs…) afin de montrer la couverture."
-     }
+      "brief": "Public read-only data face (FD_OPEN_DATA_FACE=public, same image as fd-open-data-mcp): 14 tools over verified concepts, entity directories, point/series reads, and three vertical directories."
     },
-    "canonical": {
-     "brief": "Lists the entity directory by type (stocks, cities, industries, …) so visitors can see the coverage."
-    }
-   },
-   "resolve_entity": {
-    "human": {
-     "zh": {
-      "name": "解析实体名称",
-      "summary": "把访客说的名字（「茅台」「深圳」）解析成实体，是后续读数的必要入口。"
-     },
-     "en": {
-      "name": "Resolve an entity name",
-      "summary": "Resolves a name a visitor said (“Kweichow Moutai”, “Shenzhen”) into an entity — the required entry point for reading values."
-     },
-     "ja": {
-      "name": "エンティティ名を解決",
-      "summary": "訪問者が述べた名前（「茅台」「深圳」など）をエンティティに解決します。値の取得に必要な入口です。"
-     },
-     "es": {
-      "name": "Resolver un nombre de entidad",
-      "summary": "Resuelve el nombre dicho por un visitante («Moutai», «Shenzhen») en una entidad: la entrada necesaria para leer valores."
-     },
-     "fr": {
-      "name": "Résoudre un nom d'entité",
-      "summary": "Résout le nom cité par un visiteur (« Moutai », « Shenzhen ») en une entité : le point d'entrée nécessaire pour lire des valeurs."
-     }
+    "tools": {
+      "list_concepts": {
+        "human": {
+          "zh": {
+            "name": "列出数据指标",
+            "summary": "列出已核验且未废弃的概念（指标），这是「你们有哪些数据」最直接的答案来源。"
+          },
+          "en": {
+            "name": "List indicators",
+            "summary": "Lists verified, non-deprecated concepts (indicators) — the most direct answer to “what data do you have”."
+          },
+          "ja": {
+            "name": "指標を一覧",
+            "summary": "検証済みで廃止されていない概念（指標）を一覧します。「どんなデータがあるか」への最も直接的な答えです。"
+          },
+          "es": {
+            "name": "Listar indicadores",
+            "summary": "Enumera los conceptos (indicadores) verificados y no obsoletos: la respuesta más directa a «¿qué datos tenéis?»."
+          },
+          "fr": {
+            "name": "Lister les indicateurs",
+            "summary": "Énumère les concepts (indicateurs) vérifiés et non obsolètes : la réponse la plus directe à « quelles données avez-vous ? »."
+          }
+        },
+        "canonical": {
+          "brief": "Lists verified, non-deprecated concepts (indicators) — the most direct answer to “what data do you have”."
+        }
+      },
+      "list_entities": {
+        "human": {
+          "zh": {
+            "name": "列出实体",
+            "summary": "按类型列出实体名录（股票、城市、行业等），让访客知道覆盖范围。"
+          },
+          "en": {
+            "name": "List entities",
+            "summary": "Lists the entity directory by type (stocks, cities, industries, …) so visitors can see the coverage."
+          },
+          "ja": {
+            "name": "エンティティを一覧",
+            "summary": "エンティティ名簿を種類別（株式・都市・業種など）に一覧し、カバー範囲を示します。"
+          },
+          "es": {
+            "name": "Listar entidades",
+            "summary": "Enumera el directorio de entidades por tipo (acciones, ciudades, sectores…) para mostrar la cobertura."
+          },
+          "fr": {
+            "name": "Lister les entités",
+            "summary": "Énumère l'annuaire des entités par type (actions, villes, secteurs…) afin de montrer la couverture."
+          }
+        },
+        "canonical": {
+          "brief": "Lists the entity directory by type (stocks, cities, industries, …) so visitors can see the coverage."
+        }
+      },
+      "resolve_entity": {
+        "human": {
+          "zh": {
+            "name": "解析实体名称",
+            "summary": "把访客说的名字（「茅台」「深圳」）解析成实体，是后续读数的必要入口。"
+          },
+          "en": {
+            "name": "Resolve an entity name",
+            "summary": "Resolves a name a visitor said (“Kweichow Moutai”, “Shenzhen”) into an entity — the required entry point for reading values."
+          },
+          "ja": {
+            "name": "エンティティ名を解決",
+            "summary": "訪問者が述べた名前（「茅台」「深圳」など）をエンティティに解決します。値の取得に必要な入口です。"
+          },
+          "es": {
+            "name": "Resolver un nombre de entidad",
+            "summary": "Resuelve el nombre dicho por un visitante («Moutai», «Shenzhen») en una entidad: la entrada necesaria para leer valores."
+          },
+          "fr": {
+            "name": "Résoudre un nom d'entité",
+            "summary": "Résout le nom cité par un visiteur (« Moutai », « Shenzhen ») en une entité : le point d'entrée nécessaire pour lire des valeurs."
+          }
+        },
+        "canonical": {
+          "brief": "Resolves a name a visitor said (“Kweichow Moutai”, “Shenzhen”) into an entity — the required entry point for reading values."
+        }
+      },
+      "get_entity": {
+        "human": {
+          "zh": {
+            "name": "读取实体信息",
+            "summary": "已知实体代码时直接取实体事实，比搜索省一步。"
+          },
+          "en": {
+            "name": "Get an entity",
+            "summary": "Fetches an entity's facts directly when its code is already known — one step fewer than searching."
+          },
+          "ja": {
+            "name": "エンティティ情報を取得",
+            "summary": "コードが既知のとき、検索を経ずにエンティティの事実を直接取得します。"
+          },
+          "es": {
+            "name": "Obtener una entidad",
+            "summary": "Obtiene los datos de una entidad directamente cuando su código ya se conoce: un paso menos que buscar."
+          },
+          "fr": {
+            "name": "Obtenir une entité",
+            "summary": "Récupère directement les faits d'une entité lorsque son code est connu : une étape de moins qu'une recherche."
+          }
+        },
+        "canonical": {
+          "brief": "Fetches an entity's facts directly when its code is already known — one step fewer than searching."
+        }
+      },
+      "semantic_search_entities": {
+        "human": {
+          "zh": {
+            "name": "自然语言找实体",
+            "summary": "用一句自然语言找实体（「卖白酒的上市公司」）——公开面的模糊查找入口。"
+          },
+          "en": {
+            "name": "Find entities in natural language",
+            "summary": "Finds entities from a natural-language phrase (“listed liquor companies”) — the public face's only fuzzy-find entry."
+          },
+          "ja": {
+            "name": "自然文でエンティティ検索",
+            "summary": "自然文でエンティティを探します（「白酒を売る上場企業」など）。公開面のあいまい検索入口です。"
+          },
+          "es": {
+            "name": "Buscar entidades en lenguaje natural",
+            "summary": "Encuentra entidades a partir de una frase natural («empresas cotizadas de licores»): la única entrada de búsqueda difusa de la cara pública."
+          },
+          "fr": {
+            "name": "Trouver des entités en langage naturel",
+            "summary": "Trouve des entités à partir d'une phrase naturelle (« sociétés cotées de spiritueux ») : la seule entrée de recherche floue de la face publique."
+          }
+        },
+        "canonical": {
+          "brief": "Finds entities from a natural-language phrase (“listed liquor companies”) — the public face's only fuzzy-find entry."
+        }
+      },
+      "read": {
+        "human": {
+          "zh": {
+            "name": "读取数值",
+            "summary": "按实体与概念读某日期的真实数值；只接受已核验的概念。"
+          },
+          "en": {
+            "name": "Read a value",
+            "summary": "Reads the real value for an entity and concept on a date; only verified concepts are accepted."
+          },
+          "ja": {
+            "name": "値を取得",
+            "summary": "エンティティと概念について、指定日の実値を取得します。検証済みの概念のみ受け付けます。"
+          },
+          "es": {
+            "name": "Leer un valor",
+            "summary": "Lee el valor real de una entidad y un concepto en una fecha; solo se aceptan conceptos verificados."
+          },
+          "fr": {
+            "name": "Lire une valeur",
+            "summary": "Lit la valeur réelle d'une entité et d'un concept à une date ; seuls les concepts vérifiés sont acceptés."
+          }
+        },
+        "canonical": {
+          "brief": "Reads the real value for an entity and concept on a date; only verified concepts are accepted."
+        }
+      },
+      "read_series": {
+        "human": {
+          "zh": {
+            "name": "读取时间序列",
+            "summary": "读同一实体与概念在一段时间内的高排位来源序列。"
+          },
+          "en": {
+            "name": "Read a series",
+            "summary": "Reads the highest-ranked source series for one entity and concept over a date window."
+          },
+          "ja": {
+            "name": "時系列を取得",
+            "summary": "同一エンティティと概念について、期間内の最上位ソースの系列を取得します。"
+          },
+          "es": {
+            "name": "Leer una serie",
+            "summary": "Lee la serie de la fuente mejor clasificada para una entidad y concepto en una ventana de fechas."
+          },
+          "fr": {
+            "name": "Lire une série",
+            "summary": "Lit la série de la source la mieux classée pour une entité et un concept sur une fenêtre de dates."
+          }
+        },
+        "canonical": {
+          "brief": "Reads the highest-ranked source series for one entity and concept over a date window."
+        }
+      },
+      "data_stats": {
+        "human": {
+          "zh": {
+            "name": "数据覆盖统计",
+            "summary": "给出概念与实体的覆盖计数，用于回答「数据量多大」。"
+          },
+          "en": {
+            "name": "Coverage statistics",
+            "summary": "Gives concept and entity coverage counts, answering “how much data is there”."
+          },
+          "ja": {
+            "name": "カバレッジ統計",
+            "summary": "概念とエンティティのカバレッジ件数を返し、「データ量はどれくらいか」に答えます。"
+          },
+          "es": {
+            "name": "Estadísticas de cobertura",
+            "summary": "Ofrece recuentos de cobertura de conceptos y entidades, respondiendo «¿cuántos datos hay?»."
+          },
+          "fr": {
+            "name": "Statistiques de couverture",
+            "summary": "Fournit les décomptes de couverture des concepts et entités, répondant à « combien de données ? »."
+          }
+        },
+        "canonical": {
+          "brief": "Gives concept and entity coverage counts, answering “how much data is there”."
+        }
+      },
+      "restaurant_universe": {
+        "human": {
+          "zh": {
+            "name": "餐饮公司名录",
+            "summary": "餐饮垂类的上市公司名录。"
+          },
+          "en": {
+            "name": "Restaurant universe",
+            "summary": "The restaurant vertical's listed-company directory."
+          },
+          "ja": {
+            "name": "飲食企業ユニバース",
+            "summary": "飲食セクターの上場企業名簿です。"
+          },
+          "es": {
+            "name": "Universo de restaurantes",
+            "summary": "Directorio de empresas cotizadas del vertical de restauración."
+          },
+          "fr": {
+            "name": "Univers de la restauration",
+            "summary": "Annuaire des sociétés cotées du vertical restauration."
+          }
+        },
+        "canonical": {
+          "brief": "The restaurant vertical's listed-company directory."
+        }
+      },
+      "restaurant_series": {
+        "human": {
+          "zh": {
+            "name": "餐饮序列",
+            "summary": "餐饮垂类的指标时间序列。"
+          },
+          "en": {
+            "name": "Restaurant series",
+            "summary": "Time series of restaurant-vertical indicators."
+          },
+          "ja": {
+            "name": "飲食系列",
+            "summary": "飲食セクター指標の時系列です。"
+          },
+          "es": {
+            "name": "Series de restaurantes",
+            "summary": "Series temporales de indicadores del vertical de restauración."
+          },
+          "fr": {
+            "name": "Séries restauration",
+            "summary": "Séries temporelles des indicateurs du vertical restauration."
+          }
+        },
+        "canonical": {
+          "brief": "Time series of restaurant-vertical indicators."
+        }
+      },
+      "flower_universe": {
+        "human": {
+          "zh": {
+            "name": "花卉公司名录",
+            "summary": "花卉垂类的上市公司名录。"
+          },
+          "en": {
+            "name": "Flower universe",
+            "summary": "The flower vertical's listed-company directory."
+          },
+          "ja": {
+            "name": "花卉企業ユニバース",
+            "summary": "花卉セクターの上場企業名簿です。"
+          },
+          "es": {
+            "name": "Universo de flores",
+            "summary": "Directorio de empresas cotizadas del vertical de flores."
+          },
+          "fr": {
+            "name": "Univers de la fleur",
+            "summary": "Annuaire des sociétés cotées du vertical fleurs."
+          }
+        },
+        "canonical": {
+          "brief": "The flower vertical's listed-company directory."
+        }
+      },
+      "flower_price_series": {
+        "human": {
+          "zh": {
+            "name": "花卉价格序列",
+            "summary": "花卉价格的时间序列。"
+          },
+          "en": {
+            "name": "Flower price series",
+            "summary": "Time series of flower prices."
+          },
+          "ja": {
+            "name": "花卉価格の系列",
+            "summary": "花卉価格の時系列です。"
+          },
+          "es": {
+            "name": "Series de precios de flores",
+            "summary": "Series temporales de precios de flores."
+          },
+          "fr": {
+            "name": "Séries de prix des fleurs",
+            "summary": "Séries temporelles des prix des fleurs."
+          }
+        },
+        "canonical": {
+          "brief": "Time series of flower prices."
+        }
+      },
+      "hotel_universe": {
+        "human": {
+          "zh": {
+            "name": "酒店公司名录",
+            "summary": "酒店垂类的上市公司名录。"
+          },
+          "en": {
+            "name": "Hotel universe",
+            "summary": "The hotel vertical's listed-company directory."
+          },
+          "ja": {
+            "name": "ホテル企業ユニバース",
+            "summary": "ホテルセクターの上場企業名簿です。"
+          },
+          "es": {
+            "name": "Universo de hoteles",
+            "summary": "Directorio de empresas cotizadas del vertical hotelero."
+          },
+          "fr": {
+            "name": "Univers hôtelier",
+            "summary": "Annuaire des sociétés cotées du vertical hôtellerie."
+          }
+        },
+        "canonical": {
+          "brief": "The hotel vertical's listed-company directory."
+        }
+      },
+      "hotel_series": {
+        "human": {
+          "zh": {
+            "name": "酒店序列",
+            "summary": "酒店垂类的指标时间序列。"
+          },
+          "en": {
+            "name": "Hotel series",
+            "summary": "Time series of hotel-vertical indicators."
+          },
+          "ja": {
+            "name": "ホテル系列",
+            "summary": "ホテルセクター指標の時系列です。"
+          },
+          "es": {
+            "name": "Series de hoteles",
+            "summary": "Series temporales de indicadores del vertical hotelero."
+          },
+          "fr": {
+            "name": "Séries hôtellerie",
+            "summary": "Séries temporelles des indicateurs du vertical hôtellerie."
+          }
+        },
+        "canonical": {
+          "brief": "Time series of hotel-vertical indicators."
+        }
+      }
     },
-    "canonical": {
-     "brief": "Resolves a name a visitor said (“Kweichow Moutai”, “Shenzhen”) into an entity — the required entry point for reading values."
+    "provenance": {
+      "source": "finddata-supply-annotations"
     }
-   },
-   "get_entity": {
-    "human": {
-     "zh": {
-      "name": "读取实体信息",
-      "summary": "已知实体代码时直接取实体事实，比搜索省一步。"
-     },
-     "en": {
-      "name": "Get an entity",
-      "summary": "Fetches an entity's facts directly when its code is already known — one step fewer than searching."
-     },
-     "ja": {
-      "name": "エンティティ情報を取得",
-      "summary": "コードが既知のとき、検索を経ずにエンティティの事実を直接取得します。"
-     },
-     "es": {
-      "name": "Obtener una entidad",
-      "summary": "Obtiene los datos de una entidad directamente cuando su código ya se conoce: un paso menos que buscar."
-     },
-     "fr": {
-      "name": "Obtenir une entité",
-      "summary": "Récupère directement les faits d'une entité lorsque son code est connu : une étape de moins qu'une recherche."
-     }
-    },
-    "canonical": {
-     "brief": "Fetches an entity's facts directly when its code is already known — one step fewer than searching."
-    }
-   },
-   "semantic_search_entities": {
-    "human": {
-     "zh": {
-      "name": "自然语言找实体",
-      "summary": "用一句自然语言找实体（「卖白酒的上市公司」）——公开面的模糊查找入口。"
-     },
-     "en": {
-      "name": "Find entities in natural language",
-      "summary": "Finds entities from a natural-language phrase (“listed liquor companies”) — the public face's only fuzzy-find entry."
-     },
-     "ja": {
-      "name": "自然文でエンティティ検索",
-      "summary": "自然文でエンティティを探します（「白酒を売る上場企業」など）。公開面のあいまい検索入口です。"
-     },
-     "es": {
-      "name": "Buscar entidades en lenguaje natural",
-      "summary": "Encuentra entidades a partir de una frase natural («empresas cotizadas de licores»): la única entrada de búsqueda difusa de la cara pública."
-     },
-     "fr": {
-      "name": "Trouver des entités en langage naturel",
-      "summary": "Trouve des entités à partir d'une phrase naturelle (« sociétés cotées de spiritueux ») : la seule entrée de recherche floue de la face publique."
-     }
-    },
-    "canonical": {
-     "brief": "Finds entities from a natural-language phrase (“listed liquor companies”) — the public face's only fuzzy-find entry."
-    }
-   },
-   "read": {
-    "human": {
-     "zh": {
-      "name": "读取数值",
-      "summary": "按实体与概念读某日期的真实数值；只接受已核验的概念。"
-     },
-     "en": {
-      "name": "Read a value",
-      "summary": "Reads the real value for an entity and concept on a date; only verified concepts are accepted."
-     },
-     "ja": {
-      "name": "値を取得",
-      "summary": "エンティティと概念について、指定日の実値を取得します。検証済みの概念のみ受け付けます。"
-     },
-     "es": {
-      "name": "Leer un valor",
-      "summary": "Lee el valor real de una entidad y un concepto en una fecha; solo se aceptan conceptos verificados."
-     },
-     "fr": {
-      "name": "Lire une valeur",
-      "summary": "Lit la valeur réelle d'une entité et d'un concept à une date ; seuls les concepts vérifiés sont acceptés."
-     }
-    },
-    "canonical": {
-     "brief": "Reads the real value for an entity and concept on a date; only verified concepts are accepted."
-    }
-   },
-   "read_series": {
-    "human": {
-     "zh": {
-      "name": "读取时间序列",
-      "summary": "读同一实体与概念在一段时间内的高排位来源序列。"
-     },
-     "en": {
-      "name": "Read a series",
-      "summary": "Reads the highest-ranked source series for one entity and concept over a date window."
-     },
-     "ja": {
-      "name": "時系列を取得",
-      "summary": "同一エンティティと概念について、期間内の最上位ソースの系列を取得します。"
-     },
-     "es": {
-      "name": "Leer una serie",
-      "summary": "Lee la serie de la fuente mejor clasificada para una entidad y concepto en una ventana de fechas."
-     },
-     "fr": {
-      "name": "Lire une série",
-      "summary": "Lit la série de la source la mieux classée pour une entité et un concept sur une fenêtre de dates."
-     }
-    },
-    "canonical": {
-     "brief": "Reads the highest-ranked source series for one entity and concept over a date window."
-    }
-   },
-   "data_stats": {
-    "human": {
-     "zh": {
-      "name": "数据覆盖统计",
-      "summary": "给出概念与实体的覆盖计数，用于回答「数据量多大」。"
-     },
-     "en": {
-      "name": "Coverage statistics",
-      "summary": "Gives concept and entity coverage counts, answering “how much data is there”."
-     },
-     "ja": {
-      "name": "カバレッジ統計",
-      "summary": "概念とエンティティのカバレッジ件数を返し、「データ量はどれくらいか」に答えます。"
-     },
-     "es": {
-      "name": "Estadísticas de cobertura",
-      "summary": "Ofrece recuentos de cobertura de conceptos y entidades, respondiendo «¿cuántos datos hay?»."
-     },
-     "fr": {
-      "name": "Statistiques de couverture",
-      "summary": "Fournit les décomptes de couverture des concepts et entités, répondant à « combien de données ? »."
-     }
-    },
-    "canonical": {
-     "brief": "Gives concept and entity coverage counts, answering “how much data is there”."
-    }
-   },
-   "restaurant_universe": {
-    "human": {
-     "zh": {
-      "name": "餐饮公司名录",
-      "summary": "餐饮垂类的上市公司名录。"
-     },
-     "en": {
-      "name": "Restaurant universe",
-      "summary": "The restaurant vertical's listed-company directory."
-     },
-     "ja": {
-      "name": "飲食企業ユニバース",
-      "summary": "飲食セクターの上場企業名簿です。"
-     },
-     "es": {
-      "name": "Universo de restaurantes",
-      "summary": "Directorio de empresas cotizadas del vertical de restauración."
-     },
-     "fr": {
-      "name": "Univers de la restauration",
-      "summary": "Annuaire des sociétés cotées du vertical restauration."
-     }
-    },
-    "canonical": {
-     "brief": "The restaurant vertical's listed-company directory."
-    }
-   },
-   "restaurant_series": {
-    "human": {
-     "zh": {
-      "name": "餐饮序列",
-      "summary": "餐饮垂类的指标时间序列。"
-     },
-     "en": {
-      "name": "Restaurant series",
-      "summary": "Time series of restaurant-vertical indicators."
-     },
-     "ja": {
-      "name": "飲食系列",
-      "summary": "飲食セクター指標の時系列です。"
-     },
-     "es": {
-      "name": "Series de restaurantes",
-      "summary": "Series temporales de indicadores del vertical de restauración."
-     },
-     "fr": {
-      "name": "Séries restauration",
-      "summary": "Séries temporelles des indicateurs du vertical restauration."
-     }
-    },
-    "canonical": {
-     "brief": "Time series of restaurant-vertical indicators."
-    }
-   },
-   "flower_universe": {
-    "human": {
-     "zh": {
-      "name": "花卉公司名录",
-      "summary": "花卉垂类的上市公司名录。"
-     },
-     "en": {
-      "name": "Flower universe",
-      "summary": "The flower vertical's listed-company directory."
-     },
-     "ja": {
-      "name": "花卉企業ユニバース",
-      "summary": "花卉セクターの上場企業名簿です。"
-     },
-     "es": {
-      "name": "Universo de flores",
-      "summary": "Directorio de empresas cotizadas del vertical de flores."
-     },
-     "fr": {
-      "name": "Univers de la fleur",
-      "summary": "Annuaire des sociétés cotées du vertical fleurs."
-     }
-    },
-    "canonical": {
-     "brief": "The flower vertical's listed-company directory."
-    }
-   },
-   "flower_price_series": {
-    "human": {
-     "zh": {
-      "name": "花卉价格序列",
-      "summary": "花卉价格的时间序列。"
-     },
-     "en": {
-      "name": "Flower price series",
-      "summary": "Time series of flower prices."
-     },
-     "ja": {
-      "name": "花卉価格の系列",
-      "summary": "花卉価格の時系列です。"
-     },
-     "es": {
-      "name": "Series de precios de flores",
-      "summary": "Series temporales de precios de flores."
-     },
-     "fr": {
-      "name": "Séries de prix des fleurs",
-      "summary": "Séries temporelles des prix des fleurs."
-     }
-    },
-    "canonical": {
-     "brief": "Time series of flower prices."
-    }
-   },
-   "hotel_universe": {
-    "human": {
-     "zh": {
-      "name": "酒店公司名录",
-      "summary": "酒店垂类的上市公司名录。"
-     },
-     "en": {
-      "name": "Hotel universe",
-      "summary": "The hotel vertical's listed-company directory."
-     },
-     "ja": {
-      "name": "ホテル企業ユニバース",
-      "summary": "ホテルセクターの上場企業名簿です。"
-     },
-     "es": {
-      "name": "Universo de hoteles",
-      "summary": "Directorio de empresas cotizadas del vertical hotelero."
-     },
-     "fr": {
-      "name": "Univers hôtelier",
-      "summary": "Annuaire des sociétés cotées du vertical hôtellerie."
-     }
-    },
-    "canonical": {
-     "brief": "The hotel vertical's listed-company directory."
-    }
-   },
-   "hotel_series": {
-    "human": {
-     "zh": {
-      "name": "酒店序列",
-      "summary": "酒店垂类的指标时间序列。"
-     },
-     "en": {
-      "name": "Hotel series",
-      "summary": "Time series of hotel-vertical indicators."
-     },
-     "ja": {
-      "name": "ホテル系列",
-      "summary": "ホテルセクター指標の時系列です。"
-     },
-     "es": {
-      "name": "Series de hoteles",
-      "summary": "Series temporales de indicadores del vertical hotelero."
-     },
-     "fr": {
-      "name": "Séries hôtellerie",
-      "summary": "Séries temporelles des indicateurs du vertical hôtellerie."
-     }
-    },
-    "canonical": {
-     "brief": "Time series of hotel-vertical indicators."
-    }
-   }
-  },
-  "provenance": {
-   "source": "工具真实上游 description + 该仓 tool-surface.json（mcp-supply-annotations「注释依据限于真实上游描述与上牌清单」）"
   }
- }
 }

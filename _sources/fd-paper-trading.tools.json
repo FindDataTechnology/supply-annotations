@@ -33,7 +33,7 @@
     },
     {
       "name": "list_accounts",
-      "description": "List all accounts for the authenticated user.\n\nReturns:\n    List of accounts with IDs, names, and current cash balances.\n    A failure raises a tool error rather than an empty list — \"you have no\n    accounts\" and \"the API is unreachable\" are different answers."
+      "description": "List all accounts for the authenticated user."
     },
     {
       "name": "list_orders",
@@ -45,7 +45,7 @@
     },
     {
       "name": "list_strategies",
-      "description": "List all strategies for the authenticated user.\n\nReturns:\n    List of strategies with id, name, spec, spec_summary, and version.\n    A failure raises a tool error rather than an empty list."
+      "description": "List all strategies for the authenticated user."
     },
     {
       "name": "list_strategy_runs",
@@ -53,7 +53,7 @@
     },
     {
       "name": "list_strategy_templates",
-      "description": "List the built-in strategy templates with their parameter JSON Schemas.\n\nUse these to build a template-track strategy spec:\n{\"kind\": \"template\", \"template\": <id>, \"symbol\": \"AAPL\", \"params\": {...}}.\n\nReturns:\n    List of {id, name, description, params_schema}. A failure raises a\n    tool error rather than an empty list."
+      "description": "List the built-in strategy templates with their parameter JSON Schemas.\n\nUse these to build a template-track strategy spec:\n{\"kind\": \"template\", \"template\": <id>, \"symbol\": \"AAPL\", \"params\": {...}}."
     },
     {
       "name": "place_order",

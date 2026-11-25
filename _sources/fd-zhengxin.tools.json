@@ -1,0 +1,35 @@
+{
+  "server_name": "fd-zhengxin",
+  "description": "政心：政策解读与判断信封，读多写少。",
+  "tags": [],
+  "tools": [
+    {
+      "name": "analyze_document",
+      "description": "解读一份政策文件：它管了谁、往哪个方向、哪些环节待检验、与用户处境是否相交。\n\n三种给法任选其一（按优先级）：\n- `url`：网页或 PDF 链接（会抓取正文）\n- `item_id`：既有资讯条目的编号（fd-info 的 item_id）\n- `text`：直接给正文\n\n产出：材料层（作用面要素 + 逐字证据）+ 判断层（统计/手段/对我三层，\n每层可关）+ gaps（缺口，如实说明缺什么）。\n**不裁定对你有利或不利，也不给行动建议。**"
+    },
+    {
+      "name": "analyze_subject",
+      "description": "追踪一个人物 / 事件 / 政党：身份 + 学派 + 出入关系边全集 + 关联文件。\n\n`name` 可为 QID、curated id（seed:china/…）或标签（中英文、繁简皆可）。\n响应第一层带 `coverage` 三态（available / not_in_snapshot / not_ingested）\n——空关系边不等于实体不存在，务必读它。"
+    },
+    {
+      "name": "get_my_decisions",
+      "description": "我记下的决策留痕（追加式、永不改写、无评分）。需要调用者身份。"
+    },
+    {
+      "name": "get_my_judgment_prefs",
+      "description": "三层 AI 判断的开关（默认全开）。需要调用者身份。"
+    },
+    {
+      "name": "get_my_situation",
+      "description": "我声明的处境（地区/行业/职业/资产类别）。需要调用者身份。"
+    },
+    {
+      "name": "locate_concept",
+      "description": "把一段政治文本定位到参照系：它落在哪个学派、有哪些历史先例。\n\n有充分证据才归派；强度低于阈值时如实说「无法定位」而不硬凑。\n当代议题另补思潮坐标。"
+    },
+    {
+      "name": "read_spectrum",
+      "description": "一个议题的立场光谱：各方怎么说、每条的逐字证据。\n\n增量消费柏讯 info-stream 的政治信息流。上游不可用时**冻结降级**并带\n结构化原因，不静默空转；缺证据的强断言不产出（计入 dropped_no_evidence）。"
+    }
+  ]
+}

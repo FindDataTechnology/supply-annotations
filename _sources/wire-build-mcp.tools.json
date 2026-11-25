@@ -1,13 +1,19 @@
 {
   "server_name": "wire-build-mcp",
-  "description": "柏讯产物构建 MCP：form（录入表单）与 record-view（单记录扫码页）的创建/更新/发布，看板（dashboard）与正文文档（doc）创建，产物与版本读取，数据集列事实与按需建集。写入默认落草稿、发布必须独立显式调用；spec 引用不存在的列时错误文案带该数据集真实列名清单。",
-  "tags": [
-    "security-pending"
-  ],
+  "description": "柏讯产物构建：产出物草案、校验与发布。",
+  "tags": [],
   "tools": [
     {
       "name": "wire_artifact_archive",
       "description": "归档产物（draft/published → archived）——不删除，留操作记录。\n\n归档后不可编辑（PUT 会 409）；如需修改先 wire_artifact_restore 回草稿。"
+    },
+    {
+      "name": "wire_artifact_dashboard_create",
+      "description": "创建看板（kind=dashboard）——接受完整 dashboard v1 spec 信封，落 draft。\n\nspec 信封形状：``{\"title\": <同 title>, \"spec\": {\"title\", \"panels\": [\n{\"type\": \"kpi|line|bar|table\", \"title\", \"span\"?, \"source\"?, \"data\":\n{\"columns\", \"rows\"}, \"query\"?} ]}}``（结构见 fd-wire\nartifacts/service.py::validate_kind_spec——dashboard 走通用层：\ntitle 非空 + spec.spec 非空；面板级宽容校验在渲染侧）。面板引用的列名\n先用 wire_dataset_schema 取事实，别编。\n\n``source_ref``：生产来源指针（部署/岗位/回合），缺省取环境\n``WIRE_SOURCE_REF``；人工调用留空即可。\n\n本工具**只落草稿**：发布请单独调 wire_artifact_publish。"
+    },
+    {
+      "name": "wire_artifact_doc_create",
+      "description": "创建正文文档（kind=doc）——接受 markdown 正文信封，落 draft。\n\nspec 信封形状：``{\"title\": <同 title>, \"spec\": {\"format\": \"markdown\",\n\"text\": \"<markdown 源文本>\"}}``。``format`` 恒为 ``\"markdown\"``（v1 唯一\n格式），正文上限 256 KB；存的是 markdown 源文本，不是预渲染 HTML。\n校验见 fd-wire artifacts/doc_spec.py。\n\n``source_ref``：生产来源指针（部署/岗位/回合），缺省取环境\n``WIRE_SOURCE_REF``；人工调用留空即可。\n\n本工具**只落草稿**：发布请单独调 wire_artifact_publish。"
     },
     {
       "name": "wire_artifact_form_create",
@@ -35,7 +41,7 @@
     },
     {
       "name": "wire_artifact_update",
-      "description": "更新产物 spec（PUT /artifacts/{id}）——追加新版本行，状态仍为原态。\n\narchived 产物拒改（上游 409「请先恢复」原文透传——先 wire_artifact_restore）。\nspec 校验按 kind 分派（form/record-view 的结构层 + 属主层）；\n422 时若 spec 引用数据集，错误文案带该数据集真实列名清单。"
+      "description": "更新产物 spec（PUT /artifacts/{id}）——追加新版本行，状态仍为原态。\n\narchived 产物拒改（上游 409「请先恢复」原文透传——先 wire_artifact_restore）。\nspec 校验按 kind 分派（form/record-view 的结构层 + 属主层；dashboard 走\n通用层；doc 走正文契约层）；\n422 时若 spec 引用数据集，错误文案带该数据集真实列名清单。\n\n``source_ref``：生产来源指针（部署/岗位/回合），缺省取环境\n``WIRE_SOURCE_REF``；只记在本次新增的版本行上。"
     },
     {
       "name": "wire_dataset_correct",

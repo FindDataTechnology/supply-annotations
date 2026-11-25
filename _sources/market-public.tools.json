@@ -1,0 +1,63 @@
+{
+  "server_name": "market-public",
+  "description": "市场公开面：聚合数据统计与主体检索，只读。",
+  "tags": [],
+  "tools": [
+    {
+      "name": "data_stats",
+      "description": "Observation coverage: a fast aggregate summary, or per-concept detail.\n\nDefault (no arguments): an aggregate summary — ``total_concepts``\n(catalog size), ``covered_concepts`` (routable and crawled, the same\nfigure ``coverage_report`` reports), ``concepts_with_observations``\n(raw distinct concepts holding rows), ``total_stored_rows``,\n``gap_concepts`` / ``stale_concepts``, and a per-entity-type rollup —\nplus a ``stores`` section from the latest data census (local master\nexact + each shard's catalog-based estimate, chunk count, data\ntime-range end). ``total_stored_rows`` counts stored ROWS: sources\ncoexist per point, so two sources on one point count twice; the\nper-concept listing below counts distinct observation points instead.\n\nThe per-concept listing (point count, latest date, distinct sources,\nmost recent fetch) is returned only when narrowed — pass ``concept_id``\nor ``entity_type`` for a filtered listing, or ``detail=True`` for the\nunfiltered one. That listing sweeps the observations table and is\ndeliberately not the default.\n\nRead-only: census rows are READ, never collected (refresh via the panel\naction or the ``census`` CLI). The same data powers the panel's\n``/panel/data`` page."
+    },
+    {
+      "name": "flower_price_series",
+      "description": "Read one Dounan commodity item's daily market prices (read-only).\n\nCalibers are three separate published values (``avg`` / ``high`` /\n``low``); the average is *not* derived from high/low. The unit comes\nfrom the item entity (元/枝 or 元/把) because one concept covers both —\naveraging across items is therefore forbidden, and this tool never does\nit.\n\nMissing days are missing: the payload reports ``missing_dates`` inside\nthe item's observed span and never interpolates or zero-fills."
+    },
+    {
+      "name": "flower_universe",
+      "description": "List the registered flower universe with per-lane availability.\n\nRead-only. Returns three groups registered under one universe tag: the\n7 monitored listed companies (``pure-flower`` / ``adjacency`` tiers), the\n23 Kunming Dounan commodity items, and the 8 countries that appear in\nthe AIPH planted-area chapter. Every lane carries either a real row\ncount or an explicit unavailable reason — never a zero-valued\nsubstitute for \"not obtained\"."
+    },
+    {
+      "name": "get_entity",
+      "description": "Look up one entity by exact type+code (ticker AAPL, country CN).\nUse when the code is known; do not use search tools for this."
+    },
+    {
+      "name": "hotel_series",
+      "description": "Read one hotel series by concept code (read-only).\n\nCovers the star-rated quarterly survey (``hotel.cn.star_rated.*``),\ndomestic tourism demand (``hotel.cn.tourism.*``) and EU accommodation\n(``hotel.eu.*``). Every point carries ``source_used``; the payload\ncarries ``as_of``, the caliber caveats and the period count. A concept\nwith no rows returns an explicit ``unavailable`` block, never an empty\nlist pretending to be a coverage gap."
+    },
+    {
+      "name": "hotel_universe",
+      "description": "List the 33-company hotel universe with per-company lane coverage.\n\nRead-only. Each company carries its region, segment, ticker and the\nlanes that actually feed it; a company whose market has no lane (EU) or\nwhose carrier is limited (TW snapshot-only, JP no lane) carries an\nexplicit ``unavailable`` entry with the reason — never an empty list."
+    },
+    {
+      "name": "list_concepts",
+      "description": "List concepts (Variables) with their concept family; optionally filtered.\n\nPaginated: rows are ordered by (entity_type, code, id) and a page returns at\nmost ``limit`` rows (clamped to 1000). Page with increasing ``offset`` until\na page comes back shorter than ``limit`` — that enumerates the full catalog\neven when one entity type exceeds the per-call cap.\n\nThe catalog also serves verified entries of the unified indicator registry\n(world_bank / gta_panel / china_city_panel / fd_open_data mirror sources).\nRegistry rows are appended after the native rows, ordered by\n(domain, semantic_code); they carry additive ``native_code`` and\n``source_db`` fields, so an entry is findable by either identifier, and a\n``read_via`` hint naming the domain tool that serves its values. Reading\na registry-only indicator: pass its semantic_code (or native_code) as\n``concept_id`` to ``read`` / ``read_series`` — the read routes\ntransparently through the indicator's source-database read channel.\nEntries whose semantic_code duplicates a non-deprecated native concept\ncode are deduped (native row wins); deprecated legacy rows never shadow a\nverified entry."
+    },
+    {
+      "name": "list_entities",
+      "description": "List entities of one type (read-only, payload-capped by default)."
+    },
+    {
+      "name": "read",
+      "description": "Read a concept for an entity over dates (read-through cache + ranked dispatch).\n\nLocal concepts: concept_id is the numeric id; entity_type/entity_id/dates\nare required; ``source`` pins the read (and any dispatch) to one source;\n``all_sources`` returns every held row per date, best-ranked first, without\ndispatching — for cross-source comparison.\n\nRegistry-only indicators (catalog rows with id=None): pass the\nsemantic_code (or native_code) as ``concept_id`` — the read is routed\ntransparently through the indicator's source-database read channel and\nreturns the same row shape; ``entity`` carries the region/country/city\nname when the channel needs one (world_bank requires it). Provenance\ntravels in ``source_used``.\n\n``scope`` (optional): restrict this call to a named retrieval scope — an\nindicator outside the scope returns an explicit out-of-scope response;\nthe reserved name ``unscoped`` forces the full corpus."
+    },
+    {
+      "name": "read_series",
+      "description": "Read a series for one concept x entity over [start, end].\n\nLocal concepts (numeric ``concept_id``): serves the stored cache only,\nhighest-ranked source per point, ordered by date. It NEVER dispatches\nupstream — an empty window is a coverage fact reported as such, not a\nfailure. Use ``read`` for a point read (cache + live dispatch) or\n``fetch`` to force a refresh of one point.\n\nRegistry-only indicators (semantic_code / native_code as ``concept_id``):\nthe window is routed transparently through the indicator's source\ndatabase read channel (same response shape; ``entity`` carries the\nregion/country/city when the channel needs one). Provenance travels in\neach point's ``source_used``.\n\n``scope`` (optional): restrict this call to a named retrieval scope —\nout-of-scope indicators return an explicit out-of-scope response; the\nreserved name ``unscoped`` forces the full corpus."
+    },
+    {
+      "name": "resolve_entity",
+      "description": "Resolve an entity <-> per-source identifier, in either direction.\n\nForward (entity -> identifier), the default:\n    resolve_entity(entity_type=\"country\", entity_id=1, source=\"worldbank\")\n    -> {\"identifier\": \"CN\"}   (or null when that source has no mapping)\n\nReverse (external anchor -> entity), pass `identifier` instead of the\nentity: `wikidata` (QID, e.g. Q148) and `datacommons` (DCID, e.g.\ncountry/CHN) are the anchor sources.\n    resolve_entity(source=\"wikidata\", identifier=\"Q148\")\n    -> {\"match\": {\"entity_type\": \"country\", \"code\": \"CN\", ...}}\n    An identifier no entity carries returns {\"match\": null}, not an error."
+    },
+    {
+      "name": "restaurant_series",
+      "description": "Read one macro / cost-chain series by concept code (read-only).\n\nCovers the curated restaurant series (NBS catering revenue, Census\nfood services, FAO food price index, hog/pork prices, DCE meal and\ncorn, IMF palm oil / sugar, USDA beef and cattle inventory, RPI,\nEurostat catering HICP) plus the US CPI comparison pair\n``price.cpi.us.food_away_from_home`` / ``price.cpi.us.food_at_home``.\nEvery point carries ``source_used`` and ``as_of``. An unknown or\nempty series returns an explicit ``unavailable`` block; it is never an\nempty list pretending to be a coverage gap."
+    },
+    {
+      "name": "restaurant_universe",
+      "description": "List the registered restaurant universe with per-lane availability.\n\nRead-only. Returns the 35 monitored listed restaurant companies with\nregion / segment / ticker / lanes and, for every lane, whether the\nstore holds data or the lane is currently unavailable and why. An\nunavailable lane carries the explicit reason (EDINET key missing, TWSE\nsnapshot-only 月营收 without a profit/event face, headline numbers only in\nHKEX PDFs, SEC periods below the observation gate) — never a zero-valued\nsubstitute."
+    },
+    {
+      "name": "semantic_search_entities",
+      "description": "Search entities semantically using vector embeddings."
+    }
+  ]
+}

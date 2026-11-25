@@ -1,0 +1,23 @@
+{
+  "server_name": "capability-catalog",
+  "description": "能力目录：按语义能力检索可用的服务与工具。",
+  "tags": [],
+  "tools": [
+    {
+      "name": "has_serving_edge",
+      "description": "Does this server really expose these tools? One small answer, no map.\n\nThe reference check's actual question — aggregated server-side so the\nclient never receives the catalog. ``known`` distinguishes \"this server\nserves nothing in the catalog\" (a local/bundled binding: absence here is\nNOT evidence of absence) from \"it serves some, but not these tools\"."
+    },
+    {
+      "name": "list_capabilities",
+      "description": "Governed list of capabilities."
+    },
+    {
+      "name": "resolve_for",
+      "description": "Model-C effective capability set for a principal."
+    },
+    {
+      "name": "serving_edges",
+      "description": "capability id -> [[server, tool], ...] serving edges.\n\nWhat a reference check uses to answer \"is this (server, tool) real?\".\n\n``server`` narrows the answer to capabilities reachable through that one\nserver. Pass it whenever the caller only cares about one server: the full\nmap is ~13 MB at 30k capabilities (measured 2026-11-23) and does not fit a\nsingle MCP response over a real network — a per-server answer is a few KB."
+    }
+  ]
+}

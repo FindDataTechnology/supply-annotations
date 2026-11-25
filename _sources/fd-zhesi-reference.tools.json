@@ -1,0 +1,31 @@
+{
+  "server_name": "fd-zhesi-reference",
+  "description": "哲思参考数据：哲学概念、哲人影响边与论文元数据，只读。",
+  "tags": [],
+  "tools": [
+    {
+      "name": "concept_lookup",
+      "description": "概念查询：哲学词语的定义摘要与 SEP 引用链接（只链不抄，正文不落库）。\n\n命中 30 天内缓存直接返回；未命中实时查 SEP 搜索端点并写缓存。\n空结果必带原因：unreachable（不可达/超时 8s）/ not_indexed（无 entries 结果）/\nupstream（可达但响应异常）。"
+    },
+    {
+      "name": "philosopher_query",
+      "description": "人物查询：按葡/英/中文名不区分大小写包含匹配，返回命中人物的生卒、\n学派（三语）、地区（三语）、六轴坐标（individualism/materialism/\nrationalism/determinism/transcendence/universalism）、影响力分与\nwikidata_qid；每条结果带 provenance（Atlas 数据 CC BY 4.0，署名随行）。\n空结果带 reason：not_indexed（未收录）/ not_ingested（图谱未摄取）。"
+    },
+    {
+      "name": "philpapers_paper_search",
+      "description": "PhilPapers 论文元数据检索（经 OpenAlex 的 PhilPapers 源 S4306402130，数据 CC0）。\n按标题/关键词检索，返回标题、年份、DOI、被引次数与出处，每条带 provenance\n（OpenAlex CC0 + PhilPapers 源署名）。这是**论文元数据**通道，不是立场分布\n（立场分布见 stance_distribution，两者不互相兜底）。失败时空结果必带 reason\n（quota/upstream/unreachable/blocked），不静默为空。"
+    },
+    {
+      "name": "relation_query",
+      "description": "关系查询：解析两个哲学家人名（匹配规则同 philosopher_query），返回\n两人之间的影响边列表——极性 polarity（positive 赞同 / critical 批判 /\nsynthetic 综合）、权重 weight、方向 direction（forward=按查询方向，\nreverse=图中反向边），附两端人物摘要与 provenance（CC BY 4.0 署名随行）。\n空结果带 reason：unknown_entity（人名解析不到，hint 指明是哪端）/\nnot_indexed（两人均收录但无关系边）/ not_ingested。"
+    },
+    {
+      "name": "source_status",
+      "description": "源状态：各外部源的摄取状态与缺口。未摄取必带 reason（not_ingested /\nlicense_unconfirmed / unavailable），并附最近一次可得性探测（HTTP 状态、\n耗时、内容 sha256、探测时间）与在用快照版本——让「源挂了」与「解析器坏了」\n可区分。on-demand 通道（论文元数据）单列在 on_demand。"
+    },
+    {
+      "name": "stance_distribution",
+      "description": "立场分布：经典立场问题上职业哲学家的立场分布（带轮次年份与口径注记）。\n数据独立来自 PhilPapers Survey（2009/2020），与论文元数据分路、互不兜底；\n结果带 provenance（含轮次与 tabulation 口径）。Survey 未摄取时返回空结果并带\nreason=not_ingested（不以论文元数据替代），问题不在 Survey 内时 reason=not_indexed。"
+    }
+  ]
+}

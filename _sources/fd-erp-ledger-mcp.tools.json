@@ -1,11 +1,15 @@
 {
   "server_name": "fd-erp-ledger-mcp",
-  "description": "ERP 台账/对账/计费/信用",
+  "description": "ERP 台账 MCP：事件/记账/期间/信用四条面，写操作全走审批提案。",
   "tags": [],
   "tools": [
     {
       "name": "approve_billing_rule",
       "description": "人工确认计费规则上线（不接受程序自审自批）。\n\n同收费维度冲突未处置（区间相交无显式优先级 / 生效期空洞）→ 拒绝上线。"
+    },
+    {
+      "name": "approve_posting_rule",
+      "description": "审批上线过账规则（退役旧 active 版本；升版不重写历史分录）。"
     },
     {
       "name": "bill_event",
@@ -16,8 +20,16 @@
       "description": "日终快照计费（存储费 = 日终库存快照 × 费率），按期间触发、幂等可重跑。\n\nsnapshots 每项：{fee_item, as_of, measures, [refs]}；同 period 重跑返回首次\n结果（duplicate=true），不产生重复费用。覆盖缺失（登记在用项无 active 规则、\n或请求含未登记收费项）整批拒绝，不生成部分批次。费用落 fee_details + 一条\nbilling-engine 机器车道 proposal，落账仍须经 confirm_proposal 确认门。\n外部排程（CronJob）用 `fd-erp-ledger-mcp bill-period` 打点，等价入口。"
     },
     {
+      "name": "close_period",
+      "description": "关账（YYYY-MM）：顺序关账 + 写快照；已关重复调用幂等。"
+    },
+    {
       "name": "confirm_proposal",
       "description": "确认门——确认后按复式分录落账；借贷必平由数据库约束强制，不平则整笔拒绝。"
+    },
+    {
+      "name": "decide_event",
+      "description": "对拟稿事件作出确认或拒绝（唯一改变事件状态的人工入口）。"
     },
     {
       "name": "get_fee_detail",
@@ -26,6 +38,10 @@
     {
       "name": "get_recon_report",
       "description": "按 task_id 查询对账任务状态、进度与差异清单（四类差异，双侧原始引用）。"
+    },
+    {
+      "name": "ingest_event",
+      "description": "写入来自外部系统的原始事实（导入车道）。\n\n写入即为事实（accepted），参与数量投影与过账；同 (租户, 车道, stable_id)\n幂等，重复提交返回首次结果。事件只追加：定型后不可改写，更正须走冲正。\n\noccurred_at 是**事实发生时点**（不是写入时点），ISO-8601 字符串。\n载荷字段确实未知时写 \"__unknown__\"，不要写空串——空串会被读成\"没有\"。\n\n`provenance` 是**来源留痕**（谁/哪个外部系统报来这一条：供应商到货预告带\n`source` / `arrival_ref` / `po_ref` / `requested_by`），随事件落库供审计回溯。\n`_events.append_event` 一直支持它，但**工具面此前没声明** ⇒ MCP 形态调用\n带 provenance 会被 pydantic 判 `unexpected_keyword_argument`（2026-11-15\n生产实测：模板层到货预告在 MCP 形态 `ToolError` 直上 500，而同进程形态\n一直正常——两种传输形态分叉，正是本工具面该补的一格）。"
     },
     {
       "name": "list_billing_rules",
@@ -40,8 +56,36 @@
       "description": "分页查询费用明细（append-only；红冲行为 status='reversed' + reversal_of）。"
     },
     {
+      "name": "list_periods",
+      "description": "列出有记录的期间及其当前状态（按期间升序）。"
+    },
+    {
+      "name": "list_posting_gaps",
+      "description": "列出缺规则待补清单：哪些事件在等哪条规则。"
+    },
+    {
+      "name": "list_posting_rules",
+      "description": "列出过账规则各版本与状态（draft/active/retired）。"
+    },
+    {
       "name": "list_proposals",
       "description": "分页查询本租户的 proposal 列表及状态（待确认/已确认/已拒绝）。"
+    },
+    {
+      "name": "period_report",
+      "description": "关账快照 vs 当前复算：一致 verified=true；不一致逐科目点名差额。"
+    },
+    {
+      "name": "period_status",
+      "description": "查某期间是否关账 + 最近一次动作（谁、何时、理由、快照摘要）。"
+    },
+    {
+      "name": "post_event",
+      "description": "按生效规则把已接受事件过一次账；缺规则抛 POSTING_RULE_MISSING 并挂待补。"
+    },
+    {
+      "name": "project_event",
+      "description": "把已接受事件投影到数量面。同 (事件, 对象, 维度) 幂等不叠加。"
     },
     {
       "name": "query_balance",
@@ -53,7 +97,15 @@
     },
     {
       "name": "query_entries",
-      "description": "分页查询已落账分录（含原币/折算、出处、来源引用、时间戳、冲正关联）。"
+      "description": "分页查询已落账分录（含原币/折算、出处、来源引用、时间戳、冲正关联、维度）。\n\n`dimensions` 过滤为「与」语义：给出多个键即要求全部命中；只影响读取。"
+    },
+    {
+      "name": "query_events",
+      "description": "查询事件流；返回 completeness（truncated 为真时不得当成全部）。\n\n`producer` 可选按板块过滤（erp / marketing）；不传则同租户跨板块可见。\n返回值每条都带 producer——板块归属由类型注册表决定，不是调用方声明。"
+    },
+    {
+      "name": "query_object_balance",
+      "description": "读数量面余额（含单位/维度/水位）+ 重算对照。\n\ndrift 为真表示物化值与事件重算不一致——以事件为准。账本面不提供数量查询：\n金额在 ledger 组，数量在本组，两不相混。"
     },
     {
       "name": "reject_proposal",
@@ -62,6 +114,10 @@
     {
       "name": "release_credit",
       "description": "释放信用占用（reserved → released，幂等）；可用额度随之恢复。\n\n`released_by` / `reason` 落库，用于回答\"谁释放的、凭什么\"。"
+    },
+    {
+      "name": "reopen_period",
+      "description": "重开期间：只认最近一个已关期间，且必须给理由（追加记录，不覆盖历史）。"
     },
     {
       "name": "reserve_credit",
@@ -84,8 +140,16 @@
       "description": "提交计费规则新版本（收费项/计价单位/阶梯/封顶/最低消费/生效期）。\n\nconfig.rate_source 必填（无出处费率拒绝）；同 rule_key 版本递增；\n提交后为 pending_approval，须经 approve_billing_rule 人工确认才上线。"
     },
     {
+      "name": "submit_event",
+      "description": "提交拟稿事件（拟稿车道）。落为 pending，不参与投影、不过账，直到确认。"
+    },
+    {
+      "name": "submit_posting_rule",
+      "description": "提交过账规则草稿（版本化，不参与过账直到审批）。"
+    },
+    {
       "name": "submit_proposal",
-      "description": "提交拟落账事件（proposal），不直接改变账本状态；同 stable_id 重复提交返回首次结果。"
+      "description": "提交拟落账事件（proposal），不直接改变账本状态；同 stable_id 重复提交返回首次结果。\n\n`dimensions` 可选：键为封闭集（department/project/channel/cost_center/entity/\ncustomer/production_order），值为自由字符串；确认后逐行带进分录。\n不传即「未标注维度」，不补默认值。\n\n`booked_on` 可选：**业务记账日**（`YYYY-MM-DD`），不是受理时刻。模板层按业务\n日期归期（期初/结账/红冲/汇兑重估等都由模板算出 `day` 再传），不传则由内核按\n事件时刻推。`_submit` 一直支持它，但**工具面此前没声明** ⇒ MCP 形态下模板的\n`_kernel.submit_proposal(..., booked_on=day)` 直接 `TypeError`（14 处调用点跨\n9 个模板），而同进程形态一直正常——与 `ingest_event.provenance` 同族。"
     }
   ]
 }

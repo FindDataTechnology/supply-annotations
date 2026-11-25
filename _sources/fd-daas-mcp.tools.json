@@ -184,6 +184,10 @@
       "description": "Add a datasource (or a specific datasource-section) to a collection.\n\nOmit section_name to add the whole datasource; supply section_name to\nadd only that section. Optional score sets a per-collection score override\non the new item (NULL = inherit the datasource's default score)."
     },
     {
+      "name": "daas_audit_indicators",
+      "description": "Audit indicator rules for dangling source tables.\n\nReturns every rule whose `source_table` is absent from the database.\nWith `disable=True`, dangling rules are flipped to `enabled=0` (kept,\nnot deleted) so they stop appearing as runnable."
+    },
+    {
       "name": "daas_calculate_indicator",
       "description": "Ad-hoc: compute an indicator over a source table without persisting.\n\nValidates table/columns/op/params, reads the series, computes, and returns\n{indicator, dates, values, count}. Writes nothing (no rule, no observations)."
     },
@@ -429,7 +433,7 @@
     },
     {
       "name": "daas_run_indicator",
-      "description": "Full-recompute the indicator over its source table → observations.\n\nReads the whole source table, computes the op, and upserts every\n(date, value) into the daas `observations` table keyed on\n(source=datasource, function_name, indicator=indicator_name, date).\nIdempotent on re-run via the observations unique constraint."
+      "description": "Full-recompute the indicator over its source table → observations.\n\nReads the whole source table, computes the op, and upserts every\n(date, value) into the daas `observations` table keyed on\n(source=datasource, function_name, indicator=indicator_name, date).\nIdempotent on re-run via the observations unique constraint.\n\nA rule whose source table no longer exists returns an explicit error\nnaming the missing table (never a silent empty result)."
     },
     {
       "name": "daas_run_rule",

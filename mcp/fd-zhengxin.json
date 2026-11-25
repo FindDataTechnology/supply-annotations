@@ -1,230 +1,230 @@
 {
- "version": 1,
- "server": "fd-zhengxin",
- "annotation": {
-  "human": {
-   "zh": {
-    "name": "政心判断面",
-    "summary": "按主体给出政治学视角的判断与读数：分析一篇文档或一个主体的立场倾向、定位相关概念、读取光谱读数，并回看自己此前的判断与偏好。",
-    "whenToUse": "需要就某个主体或一份材料做立场/倾向判断，或回看自己先前的判断口径时。"
-   },
-   "en": {
-    "name": "Zhengxin judgment",
-    "summary": "Political-science judgments and readings per subject: analyse a document or subject's stance, locate related concepts, read the spectrum, and review your own earlier judgments and preferences.",
-    "whenToUse": "When judging the stance of a subject or a document, or revisiting your own earlier judgment basis."
-   },
-   "ja": {
-    "name": "政心ジャッジ面",
-    "summary": "主体ごとに政治学的視点の判断と読み取りを提供します。文書や主体の立場傾向の分析、関連概念の特定、スペクトラムの取得、自分の過去の判断と選好の参照。",
-    "whenToUse": "ある主体や資料の立場を判断するとき、または過去の判断基準を振り返るとき。"
-   },
-   "es": {
-    "name": "Juicio Zhengxin",
-    "summary": "Juicios y lecturas de ciencia política por sujeto: analizar la postura de un documento o sujeto, localizar conceptos afines, leer el espectro y revisar tus juicios y preferencias anteriores.",
-    "whenToUse": "Para juzgar la postura de un sujeto o un documento, o revisar tu criterio de juicio previo."
-   },
-   "fr": {
-    "name": "Jugement Zhengxin",
-    "summary": "Jugements et lectures de science politique par sujet : analyser la position d'un document ou d'un sujet, localiser les concepts liés, lire le spectre et revoir vos jugements et préférences antérieurs.",
-    "whenToUse": "Pour juger la position d'un sujet ou d'un document, ou revoir votre base de jugement antérieure."
-   }
-  },
-  "canonical": {
-   "brief": "Zhengxin judgment MCP (7 tools): per-subject stance analysis, document analysis, concept location, spectrum readings, and readback of the caller's own decisions and judgment preferences."
-  },
-  "tools": {
-   "analyze_document": {
+  "version": 1,
+  "server": "fd-zhengxin",
+  "annotation": {
     "human": {
-     "zh": {
-      "name": "分析文档立场",
-      "summary": "分析一篇文档在政治光谱上的立场倾向。"
-     },
-     "en": {
-      "name": "Analyse a document",
-      "summary": "Analyses a document's stance on the political spectrum."
-     },
-     "ja": {
-      "name": "文書の立場を分析",
-      "summary": "文書の政治的スペクトル上の立場傾向を分析します。"
-     },
-     "es": {
-      "name": "Analizar un documento",
-      "summary": "Analiza la postura de un documento en el espectro político."
-     },
-     "fr": {
-      "name": "Analyser un document",
-      "summary": "Analyse la position d'un document sur le spectre politique."
-     }
+      "zh": {
+        "name": "政心判断面",
+        "summary": "按主体给出政治学视角的判断与读数：分析一篇文档或一个主体的立场倾向、定位相关概念、读取光谱读数，并回看自己此前的判断与偏好。",
+        "whenToUse": "需要就某个主体或一份材料做立场/倾向判断，或回看自己先前的判断口径时。"
+      },
+      "en": {
+        "name": "Zhengxin judgment",
+        "summary": "Political-science judgments and readings per subject: analyse a document or subject's stance, locate related concepts, read the spectrum, and review your own earlier judgments and preferences.",
+        "whenToUse": "When judging the stance of a subject or a document, or revisiting your own earlier judgment basis."
+      },
+      "ja": {
+        "name": "政心ジャッジ面",
+        "summary": "主体ごとに政治学的視点の判断と読み取りを提供します。文書や主体の立場傾向の分析、関連概念の特定、スペクトラムの取得、自分の過去の判断と選好の参照。",
+        "whenToUse": "ある主体や資料の立場を判断するとき、または過去の判断基準を振り返るとき。"
+      },
+      "es": {
+        "name": "Juicio Zhengxin",
+        "summary": "Juicios y lecturas de ciencia política por sujeto: analizar la postura de un documento o sujeto, localizar conceptos afines, leer el espectro y revisar tus juicios y preferencias anteriores.",
+        "whenToUse": "Para juzgar la postura de un sujeto o un documento, o revisar tu criterio de juicio previo."
+      },
+      "fr": {
+        "name": "Jugement Zhengxin",
+        "summary": "Jugements et lectures de science politique par sujet : analyser la position d'un document ou d'un sujet, localiser les concepts liés, lire le spectre et revoir vos jugements et préférences antérieurs.",
+        "whenToUse": "Pour juger la position d'un sujet ou d'un document, ou revoir votre base de jugement antérieure."
+      }
     },
     "canonical": {
-     "brief": "Analyses a document's stance on the political spectrum."
-    }
-   },
-   "analyze_subject": {
-    "human": {
-     "zh": {
-      "name": "分析主体立场",
-      "summary": "分析一个主体（组织、人物、政权）的立场倾向。"
-     },
-     "en": {
-      "name": "Analyse a subject",
-      "summary": "Analyses a subject's (organisation, person, regime) stance."
-     },
-     "ja": {
-      "name": "主体の立場を分析",
-      "summary": "主体（組織・人物・政権）の立場傾向を分析します。"
-     },
-     "es": {
-      "name": "Analizar un sujeto",
-      "summary": "Analiza la postura de un sujeto (organización, persona, régimen)."
-     },
-     "fr": {
-      "name": "Analyser un sujet",
-      "summary": "Analyse la position d'un sujet (organisation, personne, régime)."
-     }
+      "brief": "Zhengxin judgment MCP (7 tools): per-subject stance analysis, document analysis, concept location, spectrum readings, and readback of the caller's own decisions and judgment preferences."
     },
-    "canonical": {
-     "brief": "Analyses a subject's (organisation, person, regime) stance."
-    }
-   },
-   "locate_concept": {
-    "human": {
-     "zh": {
-      "name": "定位概念",
-      "summary": "把提到的政治概念定位到词条与光谱位置上。"
-     },
-     "en": {
-      "name": "Locate a concept",
-      "summary": "Locates a mentioned political concept to its entry and spectrum position."
-     },
-     "ja": {
-      "name": "概念を位置づけ",
-      "summary": "言及された政治概念を項目とスペクトル上の位置に結び付けます。"
-     },
-     "es": {
-      "name": "Ubicar un concepto",
-      "summary": "Ubica un concepto político mencionado en su entrada y posición del espectro."
-     },
-     "fr": {
-      "name": "Situer un concept",
-      "summary": "Situe un concept politique mentionné dans sa notice et sa position sur le spectre."
-     }
+    "tools": {
+      "analyze_document": {
+        "human": {
+          "zh": {
+            "name": "分析文档立场",
+            "summary": "分析一篇文档在政治光谱上的立场倾向。"
+          },
+          "en": {
+            "name": "Analyse a document",
+            "summary": "Analyses a document's stance on the political spectrum."
+          },
+          "ja": {
+            "name": "文書の立場を分析",
+            "summary": "文書の政治的スペクトル上の立場傾向を分析します。"
+          },
+          "es": {
+            "name": "Analizar un documento",
+            "summary": "Analiza la postura de un documento en el espectro político."
+          },
+          "fr": {
+            "name": "Analyser un document",
+            "summary": "Analyse la position d'un document sur le spectre politique."
+          }
+        },
+        "canonical": {
+          "brief": "Analyses a document's stance on the political spectrum."
+        }
+      },
+      "analyze_subject": {
+        "human": {
+          "zh": {
+            "name": "分析主体立场",
+            "summary": "分析一个主体（组织、人物、政权）的立场倾向。"
+          },
+          "en": {
+            "name": "Analyse a subject",
+            "summary": "Analyses a subject's (organisation, person, regime) stance."
+          },
+          "ja": {
+            "name": "主体の立場を分析",
+            "summary": "主体（組織・人物・政権）の立場傾向を分析します。"
+          },
+          "es": {
+            "name": "Analizar un sujeto",
+            "summary": "Analiza la postura de un sujeto (organización, persona, régimen)."
+          },
+          "fr": {
+            "name": "Analyser un sujet",
+            "summary": "Analyse la position d'un sujet (organisation, personne, régime)."
+          }
+        },
+        "canonical": {
+          "brief": "Analyses a subject's (organisation, person, regime) stance."
+        }
+      },
+      "locate_concept": {
+        "human": {
+          "zh": {
+            "name": "定位概念",
+            "summary": "把提到的政治概念定位到词条与光谱位置上。"
+          },
+          "en": {
+            "name": "Locate a concept",
+            "summary": "Locates a mentioned political concept to its entry and spectrum position."
+          },
+          "ja": {
+            "name": "概念を位置づけ",
+            "summary": "言及された政治概念を項目とスペクトル上の位置に結び付けます。"
+          },
+          "es": {
+            "name": "Ubicar un concepto",
+            "summary": "Ubica un concepto político mencionado en su entrada y posición del espectro."
+          },
+          "fr": {
+            "name": "Situer un concept",
+            "summary": "Situe un concept politique mentionné dans sa notice et sa position sur le spectre."
+          }
+        },
+        "canonical": {
+          "brief": "Locates a mentioned political concept to its entry and spectrum position."
+        }
+      },
+      "read_spectrum": {
+        "human": {
+          "zh": {
+            "name": "读取光谱读数",
+            "summary": "读取一个主体在光谱维度上的数值读数。"
+          },
+          "en": {
+            "name": "Read the spectrum",
+            "summary": "Reads a subject's numeric reading on the spectrum dimensions."
+          },
+          "ja": {
+            "name": "スペクトラムを読む",
+            "summary": "主体のスペクトラム各次元における数値読取りを返します。"
+          },
+          "es": {
+            "name": "Leer el espectro",
+            "summary": "Lee la lectura numérica de un sujeto en las dimensiones del espectro."
+          },
+          "fr": {
+            "name": "Lire le spectre",
+            "summary": "Lit la valeur numérique d'un sujet sur les dimensions du spectre."
+          }
+        },
+        "canonical": {
+          "brief": "Reads a subject's numeric reading on the spectrum dimensions."
+        }
+      },
+      "get_my_situation": {
+        "human": {
+          "zh": {
+            "name": "查看我的处境",
+            "summary": "回看调用者自身在判断面上的处境与上下文。"
+          },
+          "en": {
+            "name": "Get my situation",
+            "summary": "Reviews the caller's own situation and context on the judgment surface."
+          },
+          "ja": {
+            "name": "自分の状況を確認",
+            "summary": "呼び出し者自身の判断面上の状況と文脈を確認します。"
+          },
+          "es": {
+            "name": "Ver mi situación",
+            "summary": "Revisa la situación y el contexto del propio llamante en la superficie de juicio."
+          },
+          "fr": {
+            "name": "Voir ma situation",
+            "summary": "Examine la situation et le contexte de l'appelant sur la surface de jugement."
+          }
+        },
+        "canonical": {
+          "brief": "Reviews the caller's own situation and context on the judgment surface."
+        }
+      },
+      "get_my_decisions": {
+        "human": {
+          "zh": {
+            "name": "查看我的判断记录",
+            "summary": "回看调用者此前的判断记录。"
+          },
+          "en": {
+            "name": "Get my decisions",
+            "summary": "Reviews the caller's earlier judgment records."
+          },
+          "ja": {
+            "name": "自分の判断履歴を確認",
+            "summary": "呼び出し者の過去の判断記録を確認します。"
+          },
+          "es": {
+            "name": "Ver mis decisiones",
+            "summary": "Revisa los registros de juicio anteriores del llamante."
+          },
+          "fr": {
+            "name": "Voir mes décisions",
+            "summary": "Examine les jugements antérieurs de l'appelant."
+          }
+        },
+        "canonical": {
+          "brief": "Reviews the caller's earlier judgment records."
+        }
+      },
+      "get_my_judgment_prefs": {
+        "human": {
+          "zh": {
+            "name": "查看我的判断偏好",
+            "summary": "回看调用者设定的判断口径与偏好。"
+          },
+          "en": {
+            "name": "Get my judgment preferences",
+            "summary": "Reviews the judgment basis and preferences the caller has set."
+          },
+          "ja": {
+            "name": "自分の判断選好を確認",
+            "summary": "呼び出し者が設定した判断基準と選好を確認します。"
+          },
+          "es": {
+            "name": "Ver mis preferencias de juicio",
+            "summary": "Revisa el criterio y las preferencias de juicio configurados por el llamante."
+          },
+          "fr": {
+            "name": "Voir mes préférences de jugement",
+            "summary": "Examine le critère et les préférences de jugement définis par l'appelant."
+          }
+        },
+        "canonical": {
+          "brief": "Reviews the judgment basis and preferences the caller has set."
+        }
+      }
     },
-    "canonical": {
-     "brief": "Locates a mentioned political concept to its entry and spectrum position."
+    "provenance": {
+      "source": "finddata-supply-annotations"
     }
-   },
-   "read_spectrum": {
-    "human": {
-     "zh": {
-      "name": "读取光谱读数",
-      "summary": "读取一个主体在光谱维度上的数值读数。"
-     },
-     "en": {
-      "name": "Read the spectrum",
-      "summary": "Reads a subject's numeric reading on the spectrum dimensions."
-     },
-     "ja": {
-      "name": "スペクトラムを読む",
-      "summary": "主体のスペクトラム各次元における数値読取りを返します。"
-     },
-     "es": {
-      "name": "Leer el espectro",
-      "summary": "Lee la lectura numérica de un sujeto en las dimensiones del espectro."
-     },
-     "fr": {
-      "name": "Lire le spectre",
-      "summary": "Lit la valeur numérique d'un sujet sur les dimensions du spectre."
-     }
-    },
-    "canonical": {
-     "brief": "Reads a subject's numeric reading on the spectrum dimensions."
-    }
-   },
-   "get_my_situation": {
-    "human": {
-     "zh": {
-      "name": "查看我的处境",
-      "summary": "回看调用者自身在判断面上的处境与上下文。"
-     },
-     "en": {
-      "name": "Get my situation",
-      "summary": "Reviews the caller's own situation and context on the judgment surface."
-     },
-     "ja": {
-      "name": "自分の状況を確認",
-      "summary": "呼び出し者自身の判断面上の状況と文脈を確認します。"
-     },
-     "es": {
-      "name": "Ver mi situación",
-      "summary": "Revisa la situación y el contexto del propio llamante en la superficie de juicio."
-     },
-     "fr": {
-      "name": "Voir ma situation",
-      "summary": "Examine la situation et le contexte de l'appelant sur la surface de jugement."
-     }
-    },
-    "canonical": {
-     "brief": "Reviews the caller's own situation and context on the judgment surface."
-    }
-   },
-   "get_my_decisions": {
-    "human": {
-     "zh": {
-      "name": "查看我的判断记录",
-      "summary": "回看调用者此前的判断记录。"
-     },
-     "en": {
-      "name": "Get my decisions",
-      "summary": "Reviews the caller's earlier judgment records."
-     },
-     "ja": {
-      "name": "自分の判断履歴を確認",
-      "summary": "呼び出し者の過去の判断記録を確認します。"
-     },
-     "es": {
-      "name": "Ver mis decisiones",
-      "summary": "Revisa los registros de juicio anteriores del llamante."
-     },
-     "fr": {
-      "name": "Voir mes décisions",
-      "summary": "Examine les jugements antérieurs de l'appelant."
-     }
-    },
-    "canonical": {
-     "brief": "Reviews the caller's earlier judgment records."
-    }
-   },
-   "get_my_judgment_prefs": {
-    "human": {
-     "zh": {
-      "name": "查看我的判断偏好",
-      "summary": "回看调用者设定的判断口径与偏好。"
-     },
-     "en": {
-      "name": "Get my judgment preferences",
-      "summary": "Reviews the judgment basis and preferences the caller has set."
-     },
-     "ja": {
-      "name": "自分の判断選好を確認",
-      "summary": "呼び出し者が設定した判断基準と選好を確認します。"
-     },
-     "es": {
-      "name": "Ver mis preferencias de juicio",
-      "summary": "Revisa el criterio y las preferencias de juicio configurados por el llamante."
-     },
-     "fr": {
-      "name": "Voir mes préférences de jugement",
-      "summary": "Examine le critère et les préférences de jugement définis par l'appelant."
-     }
-    },
-    "canonical": {
-     "brief": "Reviews the judgment basis and preferences the caller has set."
-    }
-   }
-  },
-  "provenance": {
-   "source": "工具真实上游 description + 该仓 tool-surface.json（mcp-supply-annotations「注释依据限于真实上游描述与上牌清单」）"
   }
- }
 }

@@ -1,12 +1,7 @@
 {
   "server_name": "law-bench",
-  "description": "law-bench contract toolset: tag-driven contract generation (52 tools) — generate/evaluate Chinese contracts against rubrics, manage clauses, rubrics, prompts and tags, run self-heal pipelines, RAG clause search, and artifact download. Backend serves streamable MCP over HTTP.",
-  "tags": [
-    "legal",
-    "contracts",
-    "chinese-law",
-    "evaluation"
-  ],
+  "description": "知验台：评测运行、裁决台账、评分标尺与领域本体，读多写少。",
+  "tags": [],
   "tools": [
     {
       "name": "agent_run_get",
@@ -19,6 +14,14 @@
     {
       "name": "agent_run_store",
       "description": "Store an agent run's metrics into the ``agent_runs`` table.\n\nThis is called by the review-agent at the end of a run to persist all\ninstrumentation data: timing, token usage, reviewer suggestions, slot\ncoverage, evaluation linkage."
+    },
+    {
+      "name": "assistant_usage_record",
+      "description": "Record one assistant turn.\n\nCalled by the runtime after a run settles. Every count is optional: a run\nthat failed before the model answered has no token counts, and recording it\nwith NULLs is more honest than dropping it (a missing row and a zero-cost\nrow are different facts)."
+    },
+    {
+      "name": "assistant_usage_summary",
+      "description": "Assistant spend in one domain over the last ``days`` days.\n\nReturns totals plus a per-actor breakdown, because the useful question is\nnever \"how much did this domain cost\" alone — it is \"and who\"."
     },
     {
       "name": "auto_reject_pipeline_run",
@@ -105,6 +108,38 @@
       "description": "Update a criterion's name, description, and guidance (ordinal untouched)."
     },
     {
+      "name": "domain_context",
+      "description": "What this domain's own console would tell you right now.\n\nBrief fields are built from the **same kernel functions the pages call**\n(``next_actions.for_domain`` for \"what should happen next\", ``unit_checks``\nfor \"what the machine already checked\"). Recomputing them here would let the\nassistant contradict the page the operator is looking at."
+    },
+    {
+      "name": "domain_list",
+      "description": "List the domains a person can work in."
+    },
+    {
+      "name": "domain_proposal_confirm",
+      "description": "Confirm one proposal into the ontology, on behalf of ``actor``.\n\nThe kernel's rules still apply and are not bypassed here:\n- the caller's identity must hold ``lead`` in this domain (checked);\n- a producer cannot confirm their own proposal (the kernel refuses);\n- the confirmed output lands at tier ``silver`` — promoting to ``gold``\n  needs a human reviewer and is not offered by this face."
+    },
+    {
+      "name": "domain_proposal_get",
+      "description": "One proposal in full, plus its event trail."
+    },
+    {
+      "name": "domain_proposals",
+      "description": "This domain's proposal inbox — drafts awaiting a human decision."
+    },
+    {
+      "name": "domain_unit_checks",
+      "description": "The machine verdicts on one unit, computed against its current body.\n\nDeterministic checkers registered for the unit's kind (a domain's pack ships\nthem) answer what is mechanically checkable — is the text intact, does the\narticle number agree with the stored locator, can it be traced to a source.\nWhether the content is *correct* is not the machine's call and is not\nanswered here."
+    },
+    {
+      "name": "domain_unit_promote",
+      "description": "Move one unit up **one** step of the ladder, on behalf of ``actor``.\n\nOnly ``raw → silver`` (and ``bronze → silver``) is reachable here. ``gold``\nis refused deliberately: the kernel requires a reviewer identity for gold and\na machine has none to give — writing \"machine\" as the reviewer would forge a\nhuman-verification stamp, which is exactly what the tier guards exist to\nprevent."
+    },
+    {
+      "name": "domain_units",
+      "description": "List this domain's knowledge units."
+    },
+    {
       "name": "law_info",
       "description": "Fetch both sources' survey content for a contract type."
     },
@@ -138,7 +173,7 @@
     },
     {
       "name": "prompt_list",
-      "description": "List all generation prompts (without the content body).\n\nReturns ``[{id, name, contract_type, purpose, source, prompt_type,\ndescription, created_at}]``."
+      "description": "List generation prompts (without the content body)."
     },
     {
       "name": "prompt_update",
@@ -163,6 +198,14 @@
     {
       "name": "rubric_update",
       "description": "Update a local rubric's name, context, and description (criteria untouched)."
+    },
+    {
+      "name": "ruler_criteria",
+      "description": "One ruler's criteria, in order."
+    },
+    {
+      "name": "ruler_list",
+      "description": "Every rubric visible to this domain, nearest definition winning.\n\nA rubric defined on an ancestor is inherited by reference; a rubric the\ndomain forked keeps its own row and its `fork_diff` explains how it differs.\nTwo rubrics with the same name in different ancestors are one standard with\nan override — only the nearest is returned."
     },
     {
       "name": "run_draft",

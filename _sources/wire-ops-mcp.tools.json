@@ -1,107 +1,139 @@
 {
   "server_name": "wire-ops-mcp",
-  "description": "柏讯客户面操作 MCP（C3）：需求单/数据面读/市场订阅十工具，双轨鉴权透传（Logto ID token / wdk_ key），viewer 只读与合规门上游判定",
+  "description": "柏讯客户域：对象、内容、动作与自省面。",
   "tags": [],
   "tools": [
     {
       "name": "wire_action_list",
-      "description": ""
+      "description": "本企业已启用的域动作类型清单（GET /api/v1/domain-actions）——只读。\n\n返回动作类型（挂实体、风险档、表单字段 schema）——供构造\nwire_action_propose 提议。viewer 只读不受影响（list 无写语义）。"
     },
     {
       "name": "wire_action_propose",
-      "description": ""
+      "description": "提议一个域动作（POST /api/v1/domain-actions/propose）——写提议面。\n\n**即时返回 pending 提议标识，不等待人工确认**（对偶义务：阻塞实现\n会被壹座回合归因 stalled）；执行由人（owner）在柏讯控制台确认后经\n闸管线落库——本工具面结构性无 execute。source_ref 为调用方原样透传\n的岗位来源标注（≤256 字符，柏讯台账不解析）——壹座身份行 key 名\nfleet=/post=/title=/target=，turn= 字段位预留。\n\nviewer 角色不可提议（403）；未注册/停用/他企类型一律「未注册」拒绝；\n表单值校验 422 逐字段。"
     },
     {
       "name": "wire_action_status",
-      "description": ""
+      "description": "查域动作实例状态（GET /api/v1/domain-actions/instances/{id}）——只读。\n\n返回实例台账行（status: awaiting_confirmation/executed/rejected/\nfailed/disabled；executed 含 correction_id 与 error 文本）。下轮巡检\n读状态即可达意——柏讯侧不推送、壹座侧不轮询建徽标（评审 R2 口径）。"
     },
     {
       "name": "wire_claim_resolve",
-      "description": ""
+      "description": "按全局 ID 取回一条 claim（GET /api/v1/xingyan/claims/{slug}/{claim_id}）。\n\n全局 ID 形如 ``law-bench-evaluation-loop/c0001``（slug/claim-id，跨语言\n同一 ID）。返回 claim 骨架（类型、证据 key 集）、锚定小节的正文\n（section_text，按 locale 取对应语言正文；section_found=false 表示\n锚点标题在当前正文里找不到，此时不给空串冒充内容）、以及逐条可解析的\n证据来源（resolved=false 表示该 key 在当前条目来源里解不到）。\n\n已撤销的 claim 返回 200 + status=\"withdrawn\"（保留登记供溯源），\n不是未找到；真正不存在才 404。"
     },
     {
       "name": "wire_content_browse",
-      "description": ""
+      "description": "星研内容目录列举（GET /api/v1/xingyan/items）——只读。\n\nzone ∈ briefings（内参）/ academy（学院）/ research（研究）；不传则三区\n合并。返回条目摘要（slug、双语标题/摘要、日期、claim 计数、页面地址）\n并携带 snapshot 块：source_sha 是上游快照指纹，stale=true 表示内容\n落后于官网（此时仍返回上一版，绝不返回空集冒充）。"
     },
     {
       "name": "wire_content_search",
-      "description": ""
+      "description": "星研内容条目检索（GET /api/v1/xingyan/items?q=）——只读。\n\n关键词匹配双语标题/摘要与 slug；可与 zone 叠加。空结果如实为空——\n不编造条目。响应同样携带 snapshot 指纹与陈旧标记。"
     },
     {
       "name": "wire_dataset_aggregate",
-      "description": ""
+      "description": "数据集聚合（POST /api/v1/datasets/{id}/aggregate）——只读。\n\nbody 按柏讯数据面 AggregateIn 契约（group/aggregates 等）薄转发。"
     },
     {
       "name": "wire_dataset_query",
-      "description": ""
+      "description": "数据集查询（POST /api/v1/datasets/{id}/query）——只读。\n\nfilters/sort 形状按柏讯数据面契约；limit 默认 50（大量数据用分页，\n别一次拉全量）；count_only=true 只回计数。"
     },
     {
       "name": "wire_dataset_rows",
-      "description": ""
+      "description": "数据集行读（GET /api/v1/datasets/{id}/rows）——只读分页。"
     },
     {
       "name": "wire_datasets_list",
-      "description": ""
+      "description": "本企业数据集列表（GET /api/v1/datasets）。双轨凭据（ID token 或 wdk_ key）。"
     },
     {
       "name": "wire_demand_read",
-      "description": ""
+      "description": "需求单详情（GET /api/v1/demands/{id}）——他企或不存在一律 404（上游语义）。"
     },
     {
       "name": "wire_demand_submit",
-      "description": ""
+      "description": "提交柏讯意向单（POST /api/v1/demands）——显式写操作。\n\n必填：需求描述（自由文本）、联系邮箱、≥1 个公开数据源 URL（http/https）、\n公开数据声明（所求数据为公开可获取——false 会被合规门拒绝）。选填：公司名、\n目录锚点 indicator code。初始状态 submitted，运营异步跟进；422 逐字段错误\n如实转述（绝不代勾声明或放宽校验）。"
     },
     {
       "name": "wire_demands_list",
-      "description": ""
+      "description": "本企业需求单列表（GET /api/v1/demands）——含当前状态与完整时间线。\n\nstatus 可选过滤（submitted/scoping/quoting/…以柏讯控制台口径为准）；\n他企需求单不可见（上游映射客户隔离）。"
     },
     {
       "name": "wire_market_browse",
-      "description": ""
+      "description": "浏览柏讯数据市场目录（GET /api/v1/market/datasets）——公开/客户可见集。"
     },
     {
       "name": "wire_market_subscribe",
-      "description": ""
+      "description": "订阅市场数据集（POST /api/v1/market/datasets/{id}/subscribe）——显式写操作。\n\napproval 档不会直接订阅：上游自动转为访问申请（返回\n{subscribed: false, access_request: …}——如实转述，不冒充订阅成功）。"
     },
     {
       "name": "wire_market_unsubscribe",
-      "description": ""
+      "description": "退订市场数据集（DELETE /api/v1/market/datasets/{id}/unsubscribe）——显式写操作。"
     },
     {
       "name": "wire_object_get",
-      "description": ""
+      "description": "按主键取单个对象（GET /api/v1/entities/{id}/objects/{key}）——只读。\n\n零行命中返回结构化「无此对象」态（found=false，不泄露历史存在性）；\nv0 仅支持单列主键实体。"
     },
     {
       "name": "wire_object_relations",
-      "description": ""
+      "description": "沿关系遍历关联对象（GET …/objects/{key}/relations/{rid}）——只读。\n\n按关系声明方向遍历：n:1 反查目标行 / 1:n 正查引用行 / m:n 经中间\n数据集两段查询。只执行声明查询（读边界纪律），分页钳制。"
     },
     {
       "name": "wire_object_search",
-      "description": ""
+      "description": "按实体搜索对象实例（GET /api/v1/entities/{id}/objects）——只读。\n\n实体=客户在柏讯声明的业务对象类型（绑定数据集+主键）；q 按实体显示列\n（缺省主键列）contains 检索。cell 档专属（免费档 403 如实）；他企实体\n404 不泄露。返回行按声明列呈现，limit 钳制。"
     },
     {
       "name": "wire_pack_subscribe",
-      "description": ""
+      "description": "订阅源包（POST /api/v1/packs/{id}/subscribe）——显式写操作。\n\n订阅免费、幂等；未知包上游 404 原文透传。订阅后目录更新即跟踪。"
     },
     {
       "name": "wire_pack_unsubscribe",
-      "description": ""
+      "description": "退订源包（POST /api/v1/packs/{id}/unsubscribe）——显式写操作；幂等。"
     },
     {
       "name": "wire_packs_list",
-      "description": ""
+      "description": "源包目录 + 我的订阅（GET /api/v1/packs + /subscriptions）——只读。\n\n包卡片含双语名称/描述与实时指标数；subscribed 为本企业已订包 id 列表。"
     },
     {
       "name": "wire_self_action_list",
-      "description": ""
+      "description": "列本企业自理动作提议台账（GET /api/v1/ai/actions）——只读。\n\n返回提议台账行（action_id、状态 pending_confirm/executed/rejected/\nfailed、tier、impact 摘要），按创建时间倒序；电子签三动作\n（wire.esignature.initiate/nudge/archive，write→inline 档）的提议与\n结果都在此可查。可用动作以 REGISTRY 在册名为准——本面不提供\napprove/execute，任何动作的执行都在柏讯唯一确认面完成。"
     },
     {
       "name": "wire_self_action_propose",
-      "description": ""
+      "description": "提议一个自理动作（POST /api/v1/ai/actions/propose）——写提议面。\n\n即时返回 pending 提议标识（proposal_id/tier/impact 人类可读影响面），\n**不等待人工确认**；执行由 owner 在柏讯控制台确认后经闸管线进行——\n本面结构性无 execute。未注册/停用/他企 action_id 与 preflight 失败\n（如缺 title/signers）一律 4xx 如实文案且不落 pending。下轮巡检用\nwire_self_action_status 读结果，本轮即收。"
     },
     {
       "name": "wire_self_action_status",
-      "description": ""
+      "description": "查自理动作提议状态（GET /api/v1/ai/actions/{proposal_id}）——只读。\n\n返回单条提议台账行；executed 含结果摘要、failed 含错误原文。柏讯侧\n不推送、壹座侧不轮询建徽标（评审 R2 口径沿用）——岗位下轮巡检读\n状态即可达意。"
+    },
+    {
+      "name": "wire_subject_add_channel",
+      "description": "给主体加一个通道（POST /api/v1/subjects/{id}/channels）。"
+    },
+    {
+      "name": "wire_subject_archive",
+      "description": "归档一个追踪主体（DELETE /api/v1/subjects/{id}）——删主体并级联删通道。"
+    },
+    {
+      "name": "wire_subject_create",
+      "description": "声明一个追踪主体（POST /api/v1/subjects）。\n\nkind ∈ {company, industry, chain, country, region}；ref 形如\n{source: stock_code, code: \"600519\"} 或 {source: chain_spec, name, segments}。\nchannels 每项 {type, spec}，type ∈ {indicators, announcements, registry,\ngraph, context}。非法 kind/ref/通道 422 如实定位。"
+    },
+    {
+      "name": "wire_subject_get",
+      "description": "取一个追踪主体的声明与通道（GET /api/v1/subjects/{id}）——只读。"
+    },
+    {
+      "name": "wire_subject_list",
+      "description": "列出本团队的全部追踪主体（GET /api/v1/subjects?kind=）——只读。"
+    },
+    {
+      "name": "wire_subject_read",
+      "description": "扇出主体全部通道读一次（GET /api/v1/subjects/{id}/read）——只读零计量。\n\n返回 {subject, channels[], timeline[]}；每个通道带 coverage 三态\n（available/stale/unavailable），上游不可用如实标注、不渲染成 0 条。\n服务端不做统计推断——关系/传导交给 pack 层技能。"
+    },
+    {
+      "name": "wire_subject_remove_channel",
+      "description": "删除主体的一个通道（DELETE /api/v1/subjects/{id}/channels/{cid}）。"
+    },
+    {
+      "name": "wire_subject_snapshot",
+      "description": "把主体读结果物化成本团队数据集（POST /api/v1/subjects/{id}/snapshot）。\n\n幂等：同主体再次快照更新既有数据集。返回 {dataset_id, dataset_key,\nrow_count}——该数据集可直接进 dashboard / alert_rule / 市场，走既有面。"
     }
   ]
 }

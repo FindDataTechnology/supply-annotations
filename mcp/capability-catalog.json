@@ -1,149 +1,149 @@
 {
- "version": 1,
- "server": "capability-catalog",
- "annotation": {
-  "human": {
-   "zh": {
-    "name": "能力目录",
-    "summary": "回答「这个 (server, tool) 是不是真的在册」与「某个调用者按授权实际能用哪些能力」——版本化本体上的、按授权裁剪的能力集合。",
-    "whenToUse": "pack 发布前的引用校验、装配期能力解析，或需要按调用者授权裁剪能力清单时。"
-   },
-   "en": {
-    "name": "Capability catalog",
-    "summary": "Answers “is this (server, tool) really in the catalog” and “which capabilities can this principal actually use” — a versioned-ontology capability set narrowed by authorisation.",
-    "whenToUse": "For reference validation before publishing a pack, assembly-time capability resolution, or narrowing a capability list by the caller's authorisation."
-   },
-   "ja": {
-    "name": "能力カタログ",
-    "summary": "「この (server, tool) は本当に登録されているか」「この呼び出し者が認可に従って実際に使える能力はどれか」に答えます。バージョン付きオントロジー上の、認可で絞られた能力集合です。",
-    "whenToUse": "pack 公開前の参照検証、組み立て時の能力解決、呼び出し者の認可で能力一覧を絞るとき。"
-   },
-   "es": {
-    "name": "Catálogo de capacidades",
-    "summary": "Responde «¿está realmente en el catálogo este (server, tool)?» y «¿qué capacidades puede usar este principal?»: un conjunto sobre una ontología versionada, acotado por autorización.",
-    "whenToUse": "Para validar referencias antes de publicar un pack, resolver capacidades en el ensamblaje, o acotar una lista de capacidades por la autorización del llamante."
-   },
-   "fr": {
-    "name": "Catalogue de capacités",
-    "summary": "Répond à « ce (server, tool) est-il au catalogue ? » et « quelles capacités ce principal peut-il utiliser ? » : un ensemble sur une ontologie versionnée, restreint par l'autorisation.",
-    "whenToUse": "Pour valider des références avant de publier un pack, résoudre les capacités à l'assemblage, ou restreindre une liste selon l'autorisation de l'appelant."
-   }
-  },
-  "canonical": {
-   "brief": "Versioned-ontology capability catalog MCP (4 tools): governed listings, serving edges (server,tool)→capability, a small has-serving-edge check, and model-C per-principal capability resolution."
-  },
-  "tools": {
-   "list_capabilities": {
+  "version": 1,
+  "server": "capability-catalog",
+  "annotation": {
     "human": {
-     "zh": {
-      "name": "列出能力",
-      "summary": "按授权列出具治理的能力清单；可按种类（concept/indicator/graph/dataset）缩小。"
-     },
-     "en": {
-      "name": "List capabilities",
-      "summary": "Lists governed capabilities under the caller's authorisation; narrowable by kind (concept/indicator/graph/dataset)."
-     },
-     "ja": {
-      "name": "能力を一覧",
-      "summary": "呼び出し者の認可に基づき統治された能力を一覧します。種類（concept/indicator/graph/dataset）で絞れます。"
-     },
-     "es": {
-      "name": "Listar capacidades",
-      "summary": "Enumera las capacidades gobernadas bajo la autorización del llamante; acotable por tipo (concept/indicator/graph/dataset)."
-     },
-     "fr": {
-      "name": "Lister les capacités",
-      "summary": "Énumère les capacités gouvernées selon l'autorisation de l'appelant ; filtrable par type (concept/indicator/graph/dataset)."
-     }
+      "zh": {
+        "name": "能力目录",
+        "summary": "回答「这个 (server, tool) 是不是真的在册」与「某个调用者按授权实际能用哪些能力」——版本化本体上的、按授权裁剪的能力集合。",
+        "whenToUse": "pack 发布前的引用校验、装配期能力解析，或需要按调用者授权裁剪能力清单时。"
+      },
+      "en": {
+        "name": "Capability catalog",
+        "summary": "Answers “is this (server, tool) really in the catalog” and “which capabilities can this principal actually use” — a versioned-ontology capability set narrowed by authorisation.",
+        "whenToUse": "For reference validation before publishing a pack, assembly-time capability resolution, or narrowing a capability list by the caller's authorisation."
+      },
+      "ja": {
+        "name": "能力カタログ",
+        "summary": "「この (server, tool) は本当に登録されているか」「この呼び出し者が認可に従って実際に使える能力はどれか」に答えます。バージョン付きオントロジー上の、認可で絞られた能力集合です。",
+        "whenToUse": "pack 公開前の参照検証、組み立て時の能力解決、呼び出し者の認可で能力一覧を絞るとき。"
+      },
+      "es": {
+        "name": "Catálogo de capacidades",
+        "summary": "Responde «¿está realmente en el catálogo este (server, tool)?» y «¿qué capacidades puede usar este principal?»: un conjunto sobre una ontología versionada, acotado por autorización.",
+        "whenToUse": "Para validar referencias antes de publicar un pack, resolver capacidades en el ensamblaje, o acotar una lista de capacidades por la autorización del llamante."
+      },
+      "fr": {
+        "name": "Catalogue de capacités",
+        "summary": "Répond à « ce (server, tool) est-il au catalogue ? » et « quelles capacités ce principal peut-il utiliser ? » : un ensemble sur une ontologie versionnée, restreint par l'autorisation.",
+        "whenToUse": "Pour valider des références avant de publier un pack, résoudre les capacités à l'assemblage, ou restreindre une liste selon l'autorisation de l'appelant."
+      }
     },
     "canonical": {
-     "brief": "Lists governed capabilities under the caller's authorisation; narrowable by kind (concept/indicator/graph/dataset)."
-    }
-   },
-   "serving_edges": {
-    "human": {
-     "zh": {
-      "name": "列服务边",
-      "summary": "能力 id → [[server, tool]] 的服务边映射；指定 server 时只回该 server 的一小段（全量约 13 MB，不适宜单次返回）。"
-     },
-     "en": {
-      "name": "Serving edges",
-      "summary": "Capability id → [[server, tool]] serving edges; pass a server to get just that slice (the full map is ~13 MB and does not fit one response)."
-     },
-     "ja": {
-      "name": "提供エッジ",
-      "summary": "能力 id → [[server, tool]] の提供エッジ対応。server を指定するとその一部だけを返します（全体は約 13 MB で 1 回の応答には収まりません）。"
-     },
-     "es": {
-      "name": "Aristas de servicio",
-      "summary": "Aristas capacidad id → [[server, tool]]; indicando un server se devuelve solo ese tramo (el mapa completo son ~13 MB y no cabe en una respuesta)."
-     },
-     "fr": {
-      "name": "Arêtes de service",
-      "summary": "Arêtes capacité id → [[server, tool]] ; en précisant un server, seule cette tranche est renvoyée (la carte complète fait ~13 Mo)."
-     }
+      "brief": "Versioned-ontology capability catalog MCP (4 tools): governed listings, serving edges (server,tool)→capability, a small has-serving-edge check, and model-C per-principal capability resolution."
     },
-    "canonical": {
-     "brief": "Capability id → [[server, tool]] serving edges; pass a server to get just that slice (the full map is ~13 MB and does not fit one response)."
-    }
-   },
-   "has_serving_edge": {
-    "human": {
-     "zh": {
-      "name": "校验服务边存在",
-      "summary": "回答「这个 server 是否真的暴露这些工具」；`known=false` 表示该 server 在目录里本就不提供任何能力（缺位不构成反证）。"
-     },
-     "en": {
-      "name": "Check serving edges",
-      "summary": "Answers “does this server really expose these tools”; `known=false` means the server serves nothing in the catalog (absence is not evidence of absence)."
-     },
-     "ja": {
-      "name": "提供エッジを検証",
-      "summary": "「この server が本当にこれらのツールを公開しているか」に答えます。`known=false` はその server がカタログ上何も提供しないことを意味します（不在は不在の証拠になりません）。"
-     },
-     "es": {
-      "name": "Verificar aristas de servicio",
-      "summary": "Responde «¿expone realmente este server estas herramientas?»; `known=false` significa que el server no sirve nada en el catálogo (la ausencia aquí no prueba ausencia)."
-     },
-     "fr": {
-      "name": "Vérifier les arêtes de service",
-      "summary": "Répond à « ce server expose-t-il réellement ces outils ? » ; `known=false` signifie qu'il ne sert rien au catalogue (l'absence ici ne prouve pas l'absence)."
-     }
+    "tools": {
+      "list_capabilities": {
+        "human": {
+          "zh": {
+            "name": "列出能力",
+            "summary": "按授权列出具治理的能力清单；可按种类（concept/indicator/graph/dataset）缩小。"
+          },
+          "en": {
+            "name": "List capabilities",
+            "summary": "Lists governed capabilities under the caller's authorisation; narrowable by kind (concept/indicator/graph/dataset)."
+          },
+          "ja": {
+            "name": "能力を一覧",
+            "summary": "呼び出し者の認可に基づき統治された能力を一覧します。種類（concept/indicator/graph/dataset）で絞れます。"
+          },
+          "es": {
+            "name": "Listar capacidades",
+            "summary": "Enumera las capacidades gobernadas bajo la autorización del llamante; acotable por tipo (concept/indicator/graph/dataset)."
+          },
+          "fr": {
+            "name": "Lister les capacités",
+            "summary": "Énumère les capacités gouvernées selon l'autorisation de l'appelant ; filtrable par type (concept/indicator/graph/dataset)."
+          }
+        },
+        "canonical": {
+          "brief": "Lists governed capabilities under the caller's authorisation; narrowable by kind (concept/indicator/graph/dataset)."
+        }
+      },
+      "serving_edges": {
+        "human": {
+          "zh": {
+            "name": "列服务边",
+            "summary": "能力 id → [[server, tool]] 的服务边映射；指定 server 时只回该 server 的一小段（全量约 13 MB，不适宜单次返回）。"
+          },
+          "en": {
+            "name": "Serving edges",
+            "summary": "Capability id → [[server, tool]] serving edges; pass a server to get just that slice (the full map is ~13 MB and does not fit one response)."
+          },
+          "ja": {
+            "name": "提供エッジ",
+            "summary": "能力 id → [[server, tool]] の提供エッジ対応。server を指定するとその一部だけを返します（全体は約 13 MB で 1 回の応答には収まりません）。"
+          },
+          "es": {
+            "name": "Aristas de servicio",
+            "summary": "Aristas capacidad id → [[server, tool]]; indicando un server se devuelve solo ese tramo (el mapa completo son ~13 MB y no cabe en una respuesta)."
+          },
+          "fr": {
+            "name": "Arêtes de service",
+            "summary": "Arêtes capacité id → [[server, tool]] ; en précisant un server, seule cette tranche est renvoyée (la carte complète fait ~13 Mo)."
+          }
+        },
+        "canonical": {
+          "brief": "Capability id → [[server, tool]] serving edges; pass a server to get just that slice (the full map is ~13 MB and does not fit one response)."
+        }
+      },
+      "has_serving_edge": {
+        "human": {
+          "zh": {
+            "name": "校验服务边存在",
+            "summary": "回答「这个 server 是否真的暴露这些工具」；`known=false` 表示该 server 在目录里本就不提供任何能力（缺位不构成反证）。"
+          },
+          "en": {
+            "name": "Check serving edges",
+            "summary": "Answers “does this server really expose these tools”; `known=false` means the server serves nothing in the catalog (absence is not evidence of absence)."
+          },
+          "ja": {
+            "name": "提供エッジを検証",
+            "summary": "「この server が本当にこれらのツールを公開しているか」に答えます。`known=false` はその server がカタログ上何も提供しないことを意味します（不在は不在の証拠になりません）。"
+          },
+          "es": {
+            "name": "Verificar aristas de servicio",
+            "summary": "Responde «¿expone realmente este server estas herramientas?»; `known=false` significa que el server no sirve nada en el catálogo (la ausencia aquí no prueba ausencia)."
+          },
+          "fr": {
+            "name": "Vérifier les arêtes de service",
+            "summary": "Répond à « ce server expose-t-il réellement ces outils ? » ; `known=false` signifie qu'il ne sert rien au catalogue (l'absence ici ne prouve pas l'absence)."
+          }
+        },
+        "canonical": {
+          "brief": "Answers “does this server really expose these tools”; `known=false` means the server serves nothing in the catalog (absence is not evidence of absence)."
+        }
+      },
+      "resolve_for": {
+        "human": {
+          "zh": {
+            "name": "按调用者解析能力",
+            "summary": "按调用者的授权给出实际生效的能力集合（model C）；可叠加 pack.needs 缩小，并用所有者授权作为上限。"
+          },
+          "en": {
+            "name": "Resolve capabilities for a principal",
+            "summary": "Resolves the effective capability set for a principal under its authorisation (model C); narrowable by pack.needs and capped by the owner's authorisation."
+          },
+          "ja": {
+            "name": "呼び出し者の能力を解決",
+            "summary": "呼び出し者の認可に基づく実効能力集合（model C）を解決します。pack.needs で絞り、所有者の認可を上限にできます。"
+          },
+          "es": {
+            "name": "Resolver capacidades por principal",
+            "summary": "Resuelve el conjunto efectivo de capacidades de un principal según su autorización (model C); acotable por pack.needs y limitado por la autorización del propietario."
+          },
+          "fr": {
+            "name": "Résoudre les capacités d'un principal",
+            "summary": "Résout l'ensemble effectif des capacités d'un principal selon son autorisation (modèle C) ; restreignable par pack.needs et plafonné par l'autorisation du propriétaire."
+          }
+        },
+        "canonical": {
+          "brief": "Resolves the effective capability set for a principal under its authorisation (model C); narrowable by pack.needs and capped by the owner's authorisation."
+        }
+      }
     },
-    "canonical": {
-     "brief": "Answers “does this server really expose these tools”; `known=false` means the server serves nothing in the catalog (absence is not evidence of absence)."
+    "provenance": {
+      "source": "finddata-supply-annotations"
     }
-   },
-   "resolve_for": {
-    "human": {
-     "zh": {
-      "name": "按调用者解析能力",
-      "summary": "按调用者的授权给出实际生效的能力集合（model C）；可叠加 pack.needs 缩小，并用所有者授权作为上限。"
-     },
-     "en": {
-      "name": "Resolve capabilities for a principal",
-      "summary": "Resolves the effective capability set for a principal under its authorisation (model C); narrowable by pack.needs and capped by the owner's authorisation."
-     },
-     "ja": {
-      "name": "呼び出し者の能力を解決",
-      "summary": "呼び出し者の認可に基づく実効能力集合（model C）を解決します。pack.needs で絞り、所有者の認可を上限にできます。"
-     },
-     "es": {
-      "name": "Resolver capacidades por principal",
-      "summary": "Resuelve el conjunto efectivo de capacidades de un principal según su autorización (model C); acotable por pack.needs y limitado por la autorización del propietario."
-     },
-     "fr": {
-      "name": "Résoudre les capacités d'un principal",
-      "summary": "Résout l'ensemble effectif des capacités d'un principal selon son autorisation (modèle C) ; restreignable par pack.needs et plafonné par l'autorisation du propriétaire."
-     }
-    },
-    "canonical": {
-     "brief": "Resolves the effective capability set for a principal under its authorisation (model C); narrowable by pack.needs and capped by the owner's authorisation."
-    }
-   }
-  },
-  "provenance": {
-   "source": "工具真实上游 description + 该仓 tool-surface.json（mcp-supply-annotations「注释依据限于真实上游描述与上牌清单」）"
   }
- }
 }

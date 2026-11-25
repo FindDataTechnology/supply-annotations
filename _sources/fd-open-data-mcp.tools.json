@@ -149,7 +149,7 @@
     },
     {
       "name": "list_entities",
-      "description": "List entities of a specific type."
+      "description": "List entities of one type (read-only, payload-capped by default)."
     },
     {
       "name": "list_registry_entries",
@@ -217,7 +217,7 @@
     },
     {
       "name": "policy_runs",
-      "description": "List policy runs. Optional filters: policy_id, status (running/success/failed)."
+      "description": "List policy runs. Optional filters: policy_id, status\n(running/success/failed/stalled/skipped/no_op/redundant/cancelled).\n\nstalled = the executor never reported and the row passed its age ceiling;\nskipped = dispatch skipped by single-flight (a record, never a run)."
     },
     {
       "name": "policy_trigger_now",
